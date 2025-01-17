@@ -1,0 +1,38 @@
+{
+    "metadata": {
+        "default": {
+            "title": "Mustafa V. Koç Golf Course",
+            "description": "The Mustafa V. Koç Golf Course offers a unique experience for golf enthusiasts by combining meticulously designed fairways with lush green landscapes."
+        },
+        "about": {
+            "title": "About | Mustafa V. Koç Golf Course",
+            "description": "The Mustafa V. Koç Golf Course offers a unique experience for golf enthusiasts by combining meticulously designed fairways with lush green landscapes."
+        },
+        "gallery": {
+            "title": "Gallery | Mustafa V. Koç Golf Course",
+            "description": "The Mustafa V. Koç Golf Course offers a unique experience for golf enthusiasts by combining meticulously designed fairways with lush green landscapes."
+        }
+    },
+    "localeSwitcher": {
+        "label": "en",
+        "locale": "{locale, select, en}"
+    },
+    "routes": {
+        "about": "ABOUT US",
+        "gallery": "GALLERY",
+        "contact": "CONTACT"
+    },
+    "footer": {
+        "address": "Golf Course",
+        "copyright": "© Mustafa V. Koç Golf Course 2024"
+    },
+    "cursor": {
+        "view": "Watch the Video"
+    },
+    "facilities": {
+        "title": "FACILITIES"
+    },
+    "gallery": {
+        "title": "GALLERY"
+    }
+}

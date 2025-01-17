@@ -1,4 +1,27 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
 
-export default nextConfig;
+import createNextIntlPlugin from "next-intl/plugin"
+const withNextIntl = createNextIntlPlugin()
+
+const nextConfig = {
+  redirects: async () => {
+    return [
+      {
+        source: "/home",
+        destination: "/",
+        permanent: true,
+      },
+    ]
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cms.citysresidences.com",
+        pathname: "**",
+      },
+    ],
+  },
+}
+
+export default withNextIntl(nextConfig)
