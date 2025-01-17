@@ -1,16 +1,16 @@
 {
     "metadata": {
         "default": {
-            "title": "Mustafa V. Koç Golf Course",
-            "description": "The Mustafa V. Koç Golf Course offers a unique experience for golf enthusiasts by combining meticulously designed fairways with lush green landscapes."
+            "title": "City's Residences",
+            "description": "The City's Residences offers a unique experience for golf enthusiasts by combining meticulously designed fairways with lush green landscapes."
         },
         "about": {
-            "title": "About | Mustafa V. Koç Golf Course",
-            "description": "The Mustafa V. Koç Golf Course offers a unique experience for golf enthusiasts by combining meticulously designed fairways with lush green landscapes."
+            "title": "About | City's Residences",
+            "description": "The City's Residences offers a unique experience for golf enthusiasts by combining meticulously designed fairways with lush green landscapes."
         },
         "gallery": {
-            "title": "Gallery | Mustafa V. Koç Golf Course",
-            "description": "The Mustafa V. Koç Golf Course offers a unique experience for golf enthusiasts by combining meticulously designed fairways with lush green landscapes."
+            "title": "Gallery | City's Residences",
+            "description": "The City's Residences offers a unique experience for golf enthusiasts by combining meticulously designed fairways with lush green landscapes."
         }
     },
     "localeSwitcher": {
@@ -24,7 +24,7 @@
     },
     "footer": {
         "address": "Golf Course",
-        "copyright": "© Mustafa V. Koç Golf Course 2024"
+        "copyright": "© City's Residences 2024"
     },
     "cursor": {
         "view": "Watch the Video"
