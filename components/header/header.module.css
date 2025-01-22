@@ -22,6 +22,20 @@
     }
   }
 
+  &.slim {
+    &:before {
+      opacity: 0;
+    }
+
+    .logoC {
+      opacity: 0;
+    }
+
+    .nav {
+      opacity: 0;
+    }
+  }
+
   .content {
     color: var(--foreground);
     padding: 0 desktop-vw(40px);
