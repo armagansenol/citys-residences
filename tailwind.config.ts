@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss"
 
+import aspectRatio from "@tailwindcss/aspect-ratio"
+
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,6 +9,17 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      screens: {
+        sm: "360px",
+        md: "640px",
+        lg: "900px",
+        xl: "1280px",
+        "2xl": "1440px",
+        "3xl": "1920px",
+      },
+    },
     extend: {
       gridTemplateColumns: {
         "24": "repeat(24, minmax(0, 1fr))",
@@ -37,10 +50,7 @@ const config: Config = {
         halenoir: ["var(--font-halenoir)"],
       },
     },
-    container: {
-      center: true,
-    },
   },
-  plugins: [],
+  plugins: [aspectRatio],
 }
 export default config
