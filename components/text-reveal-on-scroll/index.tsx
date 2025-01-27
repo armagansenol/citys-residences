@@ -7,18 +7,18 @@ import VerticalCutReveal, { VerticalCutRevealRef } from "@/components/vertical-c
 
 interface TextRevealOnScrollProps {
   children: React.ReactNode
+  staggerDuration?: number
 }
 
-export function TextRevealOnScroll({ children }: TextRevealOnScrollProps) {
+export function TextRevealOnScroll({ children, staggerDuration = 0.005 }: TextRevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null)
   const textRef = useRef<VerticalCutRevealRef>(null)
 
   useGSAP(() => {
     ScrollTrigger.create({
       trigger: ref.current,
-      start: "center center",
       onEnter: () => textRef.current?.startAnimation(),
-      markers: true,
+      markers: false,
     })
   })
 
@@ -27,7 +27,7 @@ export function TextRevealOnScroll({ children }: TextRevealOnScrollProps) {
       <VerticalCutReveal
         autoStart={false}
         splitBy="characters"
-        staggerDuration={0.005}
+        staggerDuration={staggerDuration}
         transition={{
           type: "spring",
           stiffness: 190,

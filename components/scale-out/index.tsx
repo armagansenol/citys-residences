@@ -26,11 +26,15 @@ export function ScaleOut({ children }: ScaleOutProps) {
         paused: true,
       })
 
-      tl.to(scaleOut, {
-        scale: 0.8,
-        opacity: 0.5,
-        marginBottom: -20,
-      })
+      tl.fromTo(
+        scaleOut,
+        {
+          marginBottom: "0px",
+        },
+        {
+          marginBottom: -"100px",
+        }
+      )
 
       ScrollTrigger.create({
         animation: tl,

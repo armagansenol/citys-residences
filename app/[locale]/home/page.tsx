@@ -1,51 +1,87 @@
+import s from "./home.module.css"
+
+import cn from "clsx"
+
+import FadeInOnScroll from "@/components/fade-in-on-scroll"
 import { HorizontalScroll } from "@/components/horizontal-scroll"
 import { ScaleOut } from "@/components/scale-out"
 import { TextRevealOnScroll } from "@/components/text-reveal-on-scroll"
 import { Img } from "@/components/utility/img"
+import { Video } from "@/components/utility/video"
+import { VerticalParallaxSections } from "@/components/vertical-parallax-sections"
 import { MainLayout } from "@/layouts/main-layout"
+import { ScaleIn } from "@/components/scale-in"
 
 export default function Home() {
   return (
     <MainLayout headerVariant="v2">
-      <ScaleOut>
-        <section className="h-screen w-screen bg-bricky-brick relative z-10">
-          <Img src="/img/hero.jpg" alt="City's Residences Istanbul" fill className="object-cover" />
-        </section>
-      </ScaleOut>
-      <section className="bg-stone-100 z-20 relative font-halenoir py-12 md:py-24">
-        <div className="container mx-auto py-12 md:py-24 relative flex flex-col items-center">
-          <span className="absolute top-0 left-0 text-bricky-brick opacity-30 text-7xl">&quot;</span>
-          <span className="absolute bottom-0 right-0 text-bricky-brick opacity-30 text-7xl rotate-180">&quot;</span>
-          <div className="text-center mb-8">
-            <h1 className="text-bricky-brick text-5xl md:text-7xl mb-4 tracking-wider">
-              <TextRevealOnScroll>YAŞAMA</TextRevealOnScroll>
-            </h1>
-            <div className="flex justify-center items-center gap-2 md:gap-4 mb-6 text-9xl">SANATI</div>
-            <p className="text-bric text-lg md:text-xl">
-              <TextRevealOnScroll>Zamanı yönetmek yaşamı sanata dönüştürmektir</TextRevealOnScroll>
-            </p>
+      <section className="h-screen w-screen bg-bricky-brick relative z-10 overflow-hidden">
+        <ScaleOut>
+          <div>
+            <Video
+              primaryVideoUrl="https://player.vimeo.com/progressive_redirect/playback/1050026684/rendition/1080p/file.mp4?loc=external&log_user=0&signature=fda1ef0d723ecd6a77745792fc70643e9bc8e0cce3e4b8e3cf266d25613fb891"
+              secondaryVideoUrl="https://player.vimeo.com/progressive_redirect/playback/1050026684/rendition/1080p/file.mp4?loc=external&log_user=0&signature=fda1ef0d723ecd6a77745792fc70643e9bc8e0cce3e4b8e3cf266d25613fb891"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
           </div>
-          <div className="flex flex-col md:flex-row gap-8 mt-16 bg-gray-50 p-8 rounded-lg max-w-5xl">
-            <div className="text-center flex-1">
-              <h2 className="text-bricky-brick font-medium text-xl mb-4">DAHA ÇOK YAŞA</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Hayatın tam merkezinde, zamanı kendinize ve sevdiklerinize ayırabilmek, yaşamı sanata dönüştürmektir.
-              </p>
+        </ScaleOut>
+      </section>
+      <section className="z-20 relative">
+        <ScaleIn>
+          <section className="bg-stone-100  font-halenoir py-12 md:py-24">
+            <div className="container  mx-auto py-12 md:py-24 relative flex flex-col items-center">
+              <div className="flex flex-col items-center text-center">
+                <h1 className="text-bricky-brick text-5xl md:text-8xl font-medium tracking-widest">
+                  <TextRevealOnScroll staggerDuration={0.05}>YAŞAMA</TextRevealOnScroll>
+                </h1>
+                <div className={cn(s.sanati, "h-[300px] w-[1300px] relative")}>
+                  <FadeInOnScroll>
+                    <Img src="/img/sanati.png" alt="Sanatı" fill className="object-contain" />
+                  </FadeInOnScroll>
+                  <span className="sr-only">SANATI</span>
+                </div>
+                <p className="text-bricky-brick text-lg md:text-2xl font-normal tracking-widest">
+                  <TextRevealOnScroll staggerDuration={0.01}>
+                    Zamanı yönetmek yaşamı sanata dönüştürmektir
+                  </TextRevealOnScroll>
+                </p>
+              </div>
+              <FadeInOnScroll>
+                <div className="flex flex-col md:flex-row gap-8 mt-16 bg-stone-200 p-8 rounded-lg max-w-5xl">
+                  <div className="text-center flex-1">
+                    <h2 className="text-bricky-brick font-medium text-xl mb-4">DAHA ÇOK YAŞA</h2>
+                    <p className="text-gray-600 leading-relaxed">
+                      Hayatın tam merkezinde, zamanı kendinize ve sevdiklerinize ayırabilmek, yaşamı sanata
+                      dönüştürmektir.
+                    </p>
+                  </div>
+                  <div className="text-center flex-1">
+                    <h2 className="text-bricky-brick font-medium text-xl mb-4">DAHA HUZURLU YAŞA</h2>
+                    <p className="text-gray-600 leading-relaxed">
+                      Huzur, sessiz lüks mimaride sonsuz bir güvenle ve cömert doğayla iç içe yaşama ayrıcalığıdır.
+                    </p>
+                  </div>
+                  <div className="text-center flex-1">
+                    <h2 className="text-bricky-brick font-medium text-xl mb-4">DAHA DOLU YAŞA</h2>
+                    <p className="text-gray-600 leading-relaxed">
+                      Sporun, sanatın, eğlencenin ve daha fazlasının bir araya geldiği bir yaşam, her anı değerli kılar.
+                    </p>
+                  </div>
+                </div>
+              </FadeInOnScroll>
             </div>
-            <div className="text-center flex-1">
-              <h2 className="text-bricky-brick font-medium text-xl mb-4">DAHA HUZURLU YAŞA</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Huzur, sessiz lüks mimaride sonsuz bir güvenle ve cömert doğayla iç içe yaşama ayrıcalığıdır.
-              </p>
-            </div>
-            <div className="text-center flex-1">
-              <h2 className="text-bricky-brick font-medium text-xl mb-4">DAHA DOLU YAŞA</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Sporun, sanatın, eğlencenin ve daha fazlasının bir araya geldiği bir yaşam, her anı değerli kılar.
-              </p>
-            </div>
-          </div>
-        </div>
+          </section>
+        </ScaleIn>
+      </section>
+      <section className="relative">
+        <HorizontalScroll
+          title="DAHA ÇOK YAŞA"
+          description="Lüks ve zerafetin buluştuğu, zamana meydan okuyan bir yaşam alanı, her biri kendine özgü karakteri ve hikayesiyle eşsiz bir koleksiyon..."
+        />
       </section>
       <section className="bg-stone-100 z-20 relative font-halenoir">
         <div className="container mx-auto py-12 md:py-24">
@@ -63,10 +99,19 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="relative">
-        <HorizontalScroll />
+      <section className="relative p-10 pt-0 bg-stone-100">
+        <VerticalParallaxSections
+          title="DAHA HUZURLU YAŞA"
+          description="Estetik ve kaliteyi, yeşile cömertçe davet eden peyzaj tasarımıyla harmanlayan City's Residences, sizlere fonksiyonel ve konforlu bir yaşam sunuyor."
+        />
       </section>
-      <section className="bg-stone-100">
+      <section className="relative">
+        <HorizontalScroll
+          title="DAHA DOLU YAŞA"
+          description="Citys Residences, İstanbul’un eşsiz sosyal olanaklarıyla donatılmış bir yaşam sunuyor. Havuzlar, yürüyüş parkurları ve dinlenme alanlarıyla her anı keyifle yaşayın."
+        />
+      </section>
+      {/* <section className="bg-stone-100">
         <div className="container mx-auto py-12 md:py-40">
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-20 xl:gap-60">
             <div className="space-y-12">
@@ -89,7 +134,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* <section>
         <ScaleGrid
           images={[
@@ -102,9 +147,9 @@ export default function Home() {
           ]}
         />
       </section> */}
-      <section className="h-screen w-screen bg-slate-500"></section>
-      <section className="h-screen w-screen bg-slate-600"></section>
-      <section className="h-screen w-screen bg-slate-700"></section>
+      <section className="h-screen w-screen bg-stone-100"></section>
+      <section className="h-screen w-screen bg-stone-200"></section>
+      <section className="h-screen w-screen bg-stone-300"></section>
     </MainLayout>
   )
 }
