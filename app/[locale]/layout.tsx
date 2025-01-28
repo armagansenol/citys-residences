@@ -91,9 +91,9 @@ export default async function LocaleLayout({
         <StyleVariables colors={colors} themes={themes} />
       </head>
       <body className={`${halenoir.variable} antialiased`}>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         <GSAP scrollTrigger={true} />
         <SmoothScroll root={true} />
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         <StickyBadge />
       </body>
     </html>

@@ -9,11 +9,11 @@ import { TextRevealOnScroll } from "@/components/animations/text-reveal-on-scrol
 import { VerticalParallaxSections } from "@/components/animations/vertical-parallax-sections"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
-import { MainLayout } from "@/layouts/main-layout"
+import { Wrapper } from "@/components/wrapper"
 
 export default function Home() {
   return (
-    <MainLayout headerVariant="v2">
+    <Wrapper>
       <section className="h-screen w-screen bg-bricky-brick relative z-10 overflow-hidden">
         <ScaleOut>
           <div>
@@ -135,6 +135,6 @@ export default function Home() {
       <section className="h-screen w-screen bg-stone-100"></section>
       <section className="h-screen w-screen bg-stone-200"></section>
       <section className="h-screen w-screen bg-stone-300"></section>
-    </MainLayout>
+    </Wrapper>
   )
 }
