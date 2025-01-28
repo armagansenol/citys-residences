@@ -1,0 +1,13 @@
+.selectTrigger {
+  border: var(--white);
+  border-opacity: 0.9;
+  color: var(--white);
+}
+
+.selectContent {
+  background: var(--white);
+
+  .selectItem {
+    color: var(--black);
+  }
+}
