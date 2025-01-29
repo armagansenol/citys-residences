@@ -17,7 +17,6 @@ export default function Home() {
           <div>
             <Video
               primaryVideoUrl="https://player.vimeo.com/progressive_redirect/playback/1050026684/rendition/1080p/file.mp4?loc=external&log_user=0&signature=fda1ef0d723ecd6a77745792fc70643e9bc8e0cce3e4b8e3cf266d25613fb891"
-              secondaryVideoUrl="https://player.vimeo.com/progressive_redirect/playback/1050026684/rendition/1080p/file.mp4?loc=external&log_user=0&signature=fda1ef0d723ecd6a77745792fc70643e9bc8e0cce3e4b8e3cf266d25613fb891"
               autoPlay
               loop
               muted
@@ -28,10 +27,10 @@ export default function Home() {
         </ScaleOut>
       </section>
       <section className="z-20 relative">
-        <section className="bg-stone-100 font-halenoir py-12 md:py-12">
-          <div className="container mx-auto py-12 md:py-24 relative flex flex-col items-center">
+        <section className="bg-stone-100 font-halenoir py-12 dt:py-12">
+          <div className="container mx-auto py-12 dt:py-24 relative flex flex-col items-center">
             <div className="flex flex-col items-center text-center">
-              <h1 className="text-bricky-brick text-5xl md:text-8xl font-medium tracking-widest">
+              <h1 className="text-bricky-brick text-5xl dt:text-8xl font-medium tracking-widest">
                 <TextRevealOnScroll staggerDuration={0.05}>YAŞAMA</TextRevealOnScroll>
               </h1>
               <div className={s.sanati}>
@@ -42,7 +41,7 @@ export default function Home() {
                 </FadeInOnScroll>
                 <span className="sr-only">SANATI</span>
               </div>
-              <p className="text-bricky-brick text-lg md:text-3xl font-normal tracking-widest">
+              <p className="text-bricky-brick text-lg dt:text-3xl font-normal tracking-widest">
                 <TextRevealOnScroll staggerDuration={0.01}>
                   Zamanı yönetmek yaşamı sanata dönüştürmektir
                 </TextRevealOnScroll>
@@ -50,7 +49,7 @@ export default function Home() {
             </div>
             <div className="mt-36">
               <FadeInOnScroll>
-                <div className="flex flex-col md:flex-row gap-12 bg-stone-200 py-10 px-8 rounded-lg max-w-7xl">
+                <div className="flex flex-col dt:flex-row gap-12 bg-stone-200 py-10 px-8 rounded-lg max-w-7xl">
                   <div className="text-center flex-1">
                     <h2 className="text-bricky-brick font-medium text-2xl mb-4">DAHA ÇOK YAŞA</h2>
                     <p className="text-gray-600 leading-relaxed text-xl">
@@ -83,11 +82,11 @@ export default function Home() {
         />
       </section>
       <section className="bg-stone-100 z-20 relative font-halenoir">
-        <div className="container mx-auto py-12 md:py-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="container mx-auto py-12 dt:py-24">
+          <div className="grid grid-cols-1 dt:grid-cols-2 gap-8 items-center">
             <div className="relative aspect-square h-[550px] w-[550px] max-w-[550px] mx-auto">
               <div className="w-full h-full rounded-full overflow-hidden relative z-10">
-                <Img src="/img/hero.jpg" alt="City's Residences Istanbul" fill className="object-cover" sizes="50vw" />
+                <Img src="/img/map.png" alt="City's Residences Istanbul" fill className="object-cover" sizes="50vw" />
               </div>
             </div>
             <div className="max-w-xl">
@@ -111,7 +110,7 @@ export default function Home() {
         />
       </section>
       {/* <section className="bg-stone-100">
-        <div className="container mx-auto py-12 md:py-40">
+        <div className="container mx-auto py-12 dt:py-40">
           <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-20 xl:gap-60">
             <div className="space-y-12">
               <div className="aspect-w-9 aspect-h-11 w-full overflow-hidden relative z-10">

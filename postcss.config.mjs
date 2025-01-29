@@ -31,11 +31,13 @@ const config = {
     "postcss-include-media": {
       breakpoints: {
         dt: `${_breakpoints.dt}px`,
+        dd: `${_breakpoints.dd}px`,
       },
       mediaExpressions: {
         hover: "(hover: hover)",
         mobile: `(max-width: ${_breakpoints.dt - 1}px)`,
-        desktop: `(min-width: ${_breakpoints.dt}px)`,
+        tablet: `(min-width: ${_breakpoints.dt}px)`,
+        desktop: `(min-width: ${_breakpoints.dd}px)`,
         "reduced-motion": "(prefers-reduced-motion: reduce)",
       },
     },
@@ -58,6 +60,15 @@ const config = {
         "mobile-vh": (pixels) => {
           const numPixels = validatePixels(pixels, "mobile")
           const vh = `${(numPixels * 100) / screens.mobile.height}`
+          return `clamp(${vh}vh, ${vh}svh, ${vh}dvh)`
+        },
+        "tablet-vw": (pixels) => {
+          const numPixels = validatePixels(pixels, "tablet")
+          return `${(numPixels * 100) / screens.tablet.width}vw`
+        },
+        "tablet-vh": (pixels) => {
+          const numPixels = validatePixels(pixels, "tablet")
+          const vh = `${(numPixels * 100) / screens.tablet.height}`
           return `clamp(${vh}vh, ${vh}svh, ${vh}dvh)`
         },
         "desktop-vw": (pixels) => {

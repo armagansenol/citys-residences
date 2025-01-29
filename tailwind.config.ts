@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss"
 
 import aspectRatio from "@tailwindcss/aspect-ratio"
 import animate from "tailwindcss-animate"
+import { breakpoints, colors } from "./styles/config.mjs"
 
 const config: Config = {
   darkMode: ["class"],
@@ -18,9 +19,11 @@ const config: Config = {
         md: "640px",
         lg: "900px",
         xl: "1280px",
-        "2xl": "1440px",
-        "3xl": "1920px",
       },
+    },
+    screens: {
+      dt: `${breakpoints.dt}px`,
+      dd: `${breakpoints.dt}px`,
     },
     extend: {
       gridTemplateColumns: {
@@ -46,7 +49,6 @@ const config: Config = {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        "bricky-brick": "var(--bricky-brick)",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -85,6 +87,7 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        ...colors,
       },
       fontFamily: {
         halenoir: ["var(--font-halenoir)"],

@@ -25,10 +25,12 @@ const themes = {
 
 const breakpoints = {
   dt: 800,
+  dd: 1200,
 }
 
 const screens = {
   mobile: { width: 375, height: 650 },
+  tablet: { width: 768, height: 1024 },
   desktop: { width: 1440, height: 816 },
 }
 
@@ -37,18 +39,6 @@ const themeNames = Object.keys(themes)
 
 const config = {
   themes,
-  columns: {
-    mobile: 4,
-    desktop: 8,
-  },
-  gaps: {
-    mobile: 4,
-    desktop: 4,
-  },
-  margins: {
-    mobile: 4,
-    desktop: 4,
-  },
 }
 
 export { breakpoints, colors, config, screens, themeNames, themes }
