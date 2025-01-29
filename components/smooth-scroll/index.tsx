@@ -20,6 +20,9 @@ export function SmoothScroll({ root }: { root: boolean }) {
       lenisRef.current?.lenis?.raf(time * 1000)
     }
     gsap.ticker.add(update)
+
+    gsap.ticker.lagSmoothing(0)
+
     return () => gsap.ticker.remove(update)
   }, [])
 
