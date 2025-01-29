@@ -3,77 +3,36 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: var(--black);
+  --foreground: var(--white);
 
-  --header-height: desktop-vw(84px);
-  --header-height-v2: desktop-vw(90px);
+  --header-height: mobile-vw(64px);
 
-  @include-media ('mobile') {
-    --header-height: mobile-vw(64px);
-    --header-height-v2: mobile-vw(60px);
+  @include-media ('desktop') {
+    --header-height: desktop-vw(84px);
   }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --bricky-brick: #b73d25;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-html {
-  pointer-events: auto;
-  scrollbar-width: thin;
-}
-
-html,
-body,
-#root,
-#__next {
-  overscroll-behavior: none;
-  min-height: 100%;
-}
-
-body {
-  color: var(--bricky-brick);
-  display: flex;
-  flex-direction: column;
-  cursor: default;
-}
-
-main {
-  overflow: hidden;
-  position: relative;
-  z-index: z-index("main");
-}
-
-*::selection {
-  background-color: var(--white);
-  color: var(--bricky-brick);
 }
 
 * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  scrollbar-width: thin;
 }
 
-sup {
-  font-size: xx-small;
-  vertical-align: super;
+/* Core styles that shouldn't be reset */
+body {
+  min-height: 100vh;
+  overscroll-behavior: none;
+  background-color: var(--theme-primary);
+  color: var(--theme-secondary);
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-alexandria), Arial, Helvetica, sans-serif;
+}
+
+*::selection {
+  background-color: var(--theme-secondary);
+  color: var(--theme-primary);
 }
 
 .gsap-marker-end,
@@ -83,38 +42,15 @@ sup {
   z-index: z-index("gsap-markers") !important;
 }
 
-.input-required {
-  color: var(--error) !important;
-  transition: 200ms all ease;
-
-  * {
-    color: var(--error) !important;
-    transition: 200ms all ease;
-  }
-}
-
 .inherit-dims {
   height: inherit;
   width: inherit;
 }
 
-.c-p {
-  em {
-    font-style: italic;
-  }
-
-  strong {
-    font-weight: 700;
-  }
-
-  a {
-    cursor: pointer;
-  }
-}
-
 .add-header-height {
   margin-top: var(--header-height);
 }
+
 @layer base {
   :root {
     --radius: 0.5rem;
