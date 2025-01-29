@@ -10,6 +10,17 @@ import { Video } from "@/components/utility/video"
 import { Wrapper } from "@/components/wrapper"
 
 export default function Home() {
+  const slides1 = ["/img/slides-1/1.jpg", "/img/slides-1/2.jpg", "/img/slides-1/3.jpg", "/img/slides-1/4.jpg"]
+  const slides2 = ["/img/slides-2/1.jpg", "/img/slides-2/2.jpg", "/img/slides-2/3.jpg", "/img/slides-2/4.jpg"]
+  const slides3 = [
+    "/img/slides-3/1.jpg",
+    "/img/slides-3/2.jpg",
+    "/img/slides-3/3.jpg",
+    "/img/slides-3/4.jpg",
+    "/img/slides-3/5.jpg",
+    "/img/slides-3/6.jpg",
+  ]
+
   return (
     <Wrapper>
       <section className="h-screen w-screen bg-bricky-brick relative z-10 overflow-hidden">
@@ -79,6 +90,7 @@ export default function Home() {
         <HorizontalScroll
           title="DAHA ÇOK YAŞA"
           description="Lüks ve zerafetin buluştuğu, zamana meydan okuyan bir yaşam alanı, her biri kendine özgü karakteri ve hikayesiyle eşsiz bir koleksiyon..."
+          items={slides1}
         />
       </section>
       <section className="bg-stone-100 z-20 relative font-halenoir">
@@ -101,12 +113,14 @@ export default function Home() {
         <VerticalParallaxSections
           title="DAHA HUZURLU YAŞA"
           description="Estetik ve kaliteyi, yeşile cömertçe davet eden peyzaj tasarımıyla harmanlayan City's Residences, sizlere fonksiyonel ve konforlu bir yaşam sunuyor."
+          items={slides2}
         />
       </section>
       <section className="relative">
         <HorizontalScroll
           title="DAHA DOLU YAŞA"
-          description="Citys Residences, İstanbul’un eşsiz sosyal olanaklarıyla donatılmış bir yaşam sunuyor. Havuzlar, yürüyüş parkurları ve dinlenme alanlarıyla her anı keyifle yaşayın."
+          description="Citys Residences, İstanbul'un eşsiz sosyal olanaklarıyla donatılmış bir yaşam sunuyor. Havuzlar, yürüyüş parkurları ve dinlenme alanlarıyla her anı keyifle yaşayın."
+          items={slides3}
         />
       </section>
       {/* <section className="bg-stone-100">

@@ -7,7 +7,15 @@ import cn from "clsx"
 import Image from "next/image"
 import { useRef } from "react"
 
-export function HorizontalScroll({ title, description }: { title: string; description: string }) {
+export function HorizontalScroll({
+  title,
+  description,
+  items,
+}: {
+  title: string
+  description: string
+  items: string[]
+}) {
   const ref = useRef(null)
 
   useGSAP(
@@ -125,6 +133,7 @@ export function HorizontalScroll({ title, description }: { title: string; descri
       // })
     },
     {
+      dependencies: [items],
       scope: ref,
     }
   )
@@ -143,58 +152,20 @@ export function HorizontalScroll({ title, description }: { title: string; descri
             </div>
           </div>
         </div>
-        <section className={cn(s.panel, s.blue, "panel blue")}>
-          <div className={cn(s.bgImage, "bg-image")}>
-            <Image
-              src="/img/horizontal-scroll/1.jpg"
-              // src="https://images.unsplash.com/photo-1470075801209-17f9ec0cada6"
-              alt="Aerial view of City's Residences"
-              fill
-              className={cn(s.img, "img object-cover")}
-              priority
-              sizes="100vw"
-            />
-          </div>
-        </section>
-        <section className={cn(s.panel, s.red, "panel red")}>
-          <div className={cn(s.bgImage, "bg-image")}>
-            <Image
-              src="/img/horizontal-scroll/2.jpg"
-              // src="https://images.unsplash.com/photo-1487958449943-2429e8be8625"
-              alt="Aerial view of City's Residences"
-              fill
-              className={cn(s.img, "img object-cover")}
-              priority
-              sizes="100vw"
-            />
-          </div>
-        </section>
-        <section className={cn(s.panel, s.gray, "panel gray")}>
-          <div className={cn(s.bgImage, "bg-image")}>
-            <Image
-              src="/img/horizontal-scroll/3.jpg"
-              // src="https://images.unsplash.com/photo-1486325212027-8081e485255e"
-              alt="Aerial view of City's Residences"
-              fill
-              className={cn(s.img, "img object-cover")}
-              priority
-              sizes="100vw"
-            />
-          </div>
-        </section>
-        <section className={cn(s.panel, s.purple, "panel purple")}>
-          <div className={cn(s.bgImage, "bg-image")}>
-            <Image
-              src="/img/horizontal-scroll/4.jpg"
-              // src="https://images.unsplash.com/photo-1478860409698-8707f313ee8b"
-              alt="Aerial view of City's Residences"
-              fill
-              className={cn(s.img, "img object-cover")}
-              priority
-              sizes="100vw"
-            />
-          </div>
-        </section>
+        {items.map((src, index) => (
+          <section key={index} className={cn(s.panel, "panel")}>
+            <div className={cn(s.bgImage, "bg-image")}>
+              <Image
+                src={src}
+                alt="Aerial view of City's Residences"
+                fill
+                className={cn(s.img, "img object-cover")}
+                priority
+                sizes="100vw"
+              />
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   )
