@@ -139,7 +139,7 @@ export function HorizontalScroll({
   )
 
   return (
-    <div ref={ref}>
+    <div className="overflow-hidden" ref={ref}>
       <div className={s.container}>
         <div className={cn(s.frame)}>
           <div className={cn(s.text, "gsap-text-container overflow-hidden")}>
