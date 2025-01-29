@@ -86,6 +86,9 @@ export default function Menu({ open }: MenuProps) {
   useGSAP(
     () => {
       if (open) {
+        animateLinksBackwards()
+        maskTL.current?.revert()
+
         menuTL.current?.play()
         maskTL.current?.play()
       } else {
@@ -98,38 +101,29 @@ export default function Menu({ open }: MenuProps) {
     }
   )
 
-  useEffect(() => {
-    return () => {
-      menuTL.current?.kill()
-      maskTL.current?.kill()
-    }
-  }, [])
-
   return (
     <div className={cn(s.frame)} ref={ref}>
       <div className={cn(s.wrapper, "wrapper")}>
         <div className={cn(s.menu, "menu")}>
           <div className={s.backdrop}></div>
-          <div className={cn(s.content, "w-full h-full")}>
+          <div className={cn(s.content, "flex items-center dd:items-end w-full h-full")}>
             <Link className={cn(s.logoC, "cursor-pointer")} href="/" scroll={initialScroll}>
-              <Logo fill="var(--foreground)" small />
+              <Logo fill="var(--white)" small />
             </Link>
-            <div className="col-span-8">
-              <div className={cn(s.imgC, "img-c relative overflow-hidden")}>
-                <div className={cn(s.mask, "w-full h-full mask overflow-hidden")}>
-                  <Img
-                    src="/img/menu.jpg"
-                    alt="Aerial view of City's Residences"
-                    fill
-                    className={cn(s.img, "object-cover absolute bottom-0 left-0 right-0")}
-                    priority
-                    sizes="30vw"
-                  />
-                </div>
+            <div className={cn(s.imgC, "img-c relative overflow-hidden")}>
+              <div className={cn(s.mask, "w-full h-full mask overflow-hidden")}>
+                <Img
+                  src="/img/menu.jpg"
+                  alt="Aerial view of City's Residences"
+                  fill
+                  className={cn(s.img, "object-cover absolute bottom-0 left-0 right-0")}
+                  priority
+                  sizes="30vw"
+                />
               </div>
             </div>
-            <nav className={cn(s.nav, "col-start-10 col-span-16")}>
-              <ul className="flex flex-col flex-wrap items-center lg:items-start gap-4 lg:gap-4 h-[400px]">
+            <nav className={cn(s.nav)}>
+              <ul className={cn("flex flex-col flex-wrap items-center dt:items-start", s.navList)}>
                 {navigationItems.map(({ title, href }) => (
                   <li className={cn(s.navItem)} key={title}>
                     <Link className="cursor-pointer" href={href}>

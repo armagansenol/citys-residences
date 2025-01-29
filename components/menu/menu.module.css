@@ -28,38 +28,30 @@
 
   .backdrop {
     backdrop-filter: blur(16px);
-    background: hsla(10, 66%, 43%, 0.8);
+    background: hsla(10, 66%, 43%, 0.85);
     border-radius: 4px;
     height: 200%;
     inset: 0;
-    mask-image: linear-gradient(to bottom, var(--bricky-brick) 0, var(--bricky-brick) 50%, transparent 50%);
+    mask-image: hsla(10, 66%, 43%, 0.85);
     pointer-events: none;
     position: absolute;
     z-index: 1390;
   }
 
   .content {
-    align-items: end;
-    display: grid;
-    gap: desktop-vw(32px);
-    grid-template-columns: repeat(24, minmax(0, 1fr));
-    padding: desktop-vw(40px);
+    padding: mobile-vw(40px);
     position: relative;
     z-index: 1400;
 
-    @include-media ('mobile') {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    @include-media ('tablet') {
+      flex-direction: row;
+      gap: tablet-vw(80px);
+      padding: tablet-vw(40px);
     }
 
-    .imgC {
-      height: desktop-vw(600px);
-
-      @include-media ('mobile') {
-        display: none;
-      }
+    @include-media ('desktop') {
+      gap: desktop-vw(80px);
+      padding: desktop-vw(40px);
     }
 
     .mask {
@@ -67,55 +59,85 @@
       position: relative;
     }
 
+    .imgC {
+      display: none;
+
+      @include-media ('tablet') {
+        display: block;
+        height: tablet-vw(650px);
+        width: tablet-vw(400px);
+      }
+
+      @include-media ('desktop') {
+        height: desktop-vw(600px);
+        width: desktop-vw(400px);
+      }
+    }
+
     .img {
-      height: desktop-vw(650px);
+      display: none;
+
+      @include-media ('tablet') {
+        display: block;
+        height: tablet-vw(650px);
+      }
+
+      @include-media ('desktop') {
+        height: desktop-vw(650px);
+      }
     }
 
     .nav {
-      margin-bottom: desktop-vw(200px);
+      margin-bottom: mobile-vw(100px);
 
-      @include-media ('hover') {
-        &:hover {
-          .navItem {
-            opacity: 0.2;
-          }
+      @include-media ('desktop') {
+        margin-bottom: desktop-vw(50px);
+      }
+
+      .navList {
+        height: auto;
+        gap: mobile-vw(16px);
+
+        @include-media ('desktop') {
+          height: desktop-vw(400px);
+          column-gap: desktop-vw(40px);
+          row-gap: desktop-vw(16px);
         }
       }
 
       .navItem {
         color: var(--white);
         font-family: var(--font-halenoir);
-        font-size: desktop-vw(32px);
+        font-size: mobile-vw(18px);
         font-weight: 300;
+        text-align: center;
         transition: 300ms opacity ease;
 
-        @include-media ('mobile') {
-          font-size: mobile-vw(18px);
-          text-align: center;
+        @include-media ('tablet') {
+          font-size: tablet-vw(24px);
+          text-align: left;
         }
 
-        @include-media ('hover') {
-          &:hover {
-            opacity: 1;
-          }
+        @include-media ('desktop') {
+          font-size: desktop-vw(32px);
         }
       }
     }
 
     .logoC {
-      height: desktop-vw(110px);
+      height: mobile-vw(100px);
       left: 50%;
       position: absolute;
       right: auto;
-      top: desktop-vw(20px);
+      top: mobile-vw(10px);
       transform: translateX(-50%);
       transform-origin: top center;
       transition: 400ms all ease;
       z-index: 130;
 
-      @include-media ('mobile') {
-        height: mobile-vw(100px);
-        top: mobile-vw(10px);
+      @include-media ('desktop') {
+        height: desktop-vw(110px);
+        top: desktop-vw(20px);
       }
     }
   }
