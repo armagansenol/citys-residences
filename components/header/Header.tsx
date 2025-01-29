@@ -93,7 +93,7 @@ export default function Header() {
           >
             <div className={cn(s.cross, "cursor-pointer")}>
               <MenuX
-                className="hidden lg:block"
+                className="hidden dt:block"
                 isOpen={menuOpen}
                 onClick={() => setMenuOpen(!menuOpen)}
                 strokeWidth="1"
@@ -103,7 +103,7 @@ export default function Header() {
                 height="6"
               />
               <MenuX
-                className="block lg:hidden"
+                className="block dt:hidden"
                 isOpen={menuOpen}
                 onClick={() => setMenuOpen(!menuOpen)}
                 strokeWidth="1"
