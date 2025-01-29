@@ -75,8 +75,8 @@ export function HorizontalScroll({
 
       textTL.from(".gsap-text", {
         yPercent: -100,
-        ease: "power3.inOut",
-        duration: 1,
+        ease: "expo.inOut",
+        duration: 1.5,
       })
 
       ScrollTrigger.create({
@@ -91,8 +91,8 @@ export function HorizontalScroll({
       cardTL.from(".gsap-info-card", {
         yPercent: 30,
         opacity: 0,
-        duration: 1,
-        ease: "power3.inOut",
+        ease: "expo.inOut",
+        duration: 1.5,
       })
 
       ScrollTrigger.create({
@@ -101,36 +101,6 @@ export function HorizontalScroll({
         start: "center center",
         toggleActions: "play none none reverse",
       })
-
-      // green section
-      // ScrollTrigger.create({
-      //   trigger: `.${s.green}`,
-      //   containerAnimation: scrollTween,
-      //   start: "center 65%",
-      //   end: "center 51%",
-      //   onEnter: () => console.log("enter"),
-      //   onLeave: () => console.log("leave"),
-      //   onEnterBack: () => console.log("enterBack"),
-      //   onLeaveBack: () => console.log("leaveBack"),
-      //   onToggle: (self) => console.log("active", self.isActive),
-      //   id: "4",
-      // })
-
-      // only show the relevant section's markers at any given time
-      // gsap.set(".gsap-marker-start, .gsap-marker-end, .gsap-marker-scroller-start, .gsap-marker-scroller-end", {
-      //   autoAlpha: 0,
-      // })
-
-      // Array.from(["blue", "red", "gray", "purple"]).forEach((triggerClass, i) => {
-      //   ScrollTrigger.create({
-      //     trigger: `.${triggerClass}`,
-      //     containerAnimation: scrollTween,
-      //     start: "left 30%",
-      //     end: i === 3 ? "right right" : "right 30%",
-      //     markers: false,
-      //     onToggle: (self) => gsap.to(`.marker-${i + 1}`, { duration: 0.25, autoAlpha: self.isActive ? 1 : 0 }),
-      //   })
-      // })
     },
     {
       dependencies: [items],
