@@ -161,10 +161,10 @@ const AnimatedLink = ({ children, animate }: { children: React.ReactNode; animat
     <VerticalCutReveal
       autoStart={false}
       splitBy="characters"
-      staggerDuration={0.001}
+      staggerDuration={0.003}
       transition={{
         type: "spring",
-        stiffness: 190,
+        stiffness: 130,
         damping: 42,
       }}
       ref={textRef}
