@@ -22,8 +22,6 @@ export function StyleVariables({ colors = {}, themes = {} }: StyleVariablesProps
       .join("\n")}
   `.trim()
 
-  console.log(cssText)
-
   return (
     <style
       // biome-ignore lint/security/noDangerouslySetInnerHtml: CSS variables injection
