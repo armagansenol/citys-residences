@@ -103,8 +103,8 @@ export function VerticalParallaxSections({ title, description, items }: Vertical
 
       textTL.from(".gsap-text", {
         yPercent: -100,
-        ease: "power3.inOut",
-        duration: 1,
+        ease: "expo.inOut",
+        duration: 1.5,
       })
 
       ScrollTrigger.create({
@@ -119,8 +119,8 @@ export function VerticalParallaxSections({ title, description, items }: Vertical
       cardTL.from(".gsap-info-card", {
         yPercent: 30,
         opacity: 0,
-        duration: 1,
-        ease: "power3.inOut",
+        ease: "expo.inOut",
+        duration: 1.5,
       })
 
       ScrollTrigger.create({

@@ -13,6 +13,7 @@
   font-size: desktop-vw(100px);
   font-weight: 700;
   left: 50%;
+  line-height: 1;
   position: absolute;
   top: desktop-vw(50px);
   transform: translateX(-50%);
