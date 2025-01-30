@@ -33,10 +33,10 @@
     right: 0;
     bottom: 0;
     height: 100%;
-    background: hsla(10, 66%, 43%, 0.8);
+    background: hsla(10, 66%, 43%, 0.9);
     pointer-events: none;
     backdrop-filter: blur(16px);
-    mask-image: hsla(10, 66%, 43%, 0.8);
+    mask-image: hsla(10, 66%, 43%, 0.9);
     z-index: 1390;
   }
 
