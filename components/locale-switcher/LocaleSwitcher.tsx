@@ -9,7 +9,11 @@ import { useLocale } from "next-intl"
 import { useParams } from "next/navigation"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
-export default function LocaleSwitcher() {
+interface LocaleSwitcherProps {
+  theme?: "light" | "dark"
+}
+
+export default function LocaleSwitcher({ theme = "light" }: LocaleSwitcherProps) {
   const router = useRouter()
   const pathname = usePathname()
   const params = useParams()
@@ -27,10 +31,10 @@ export default function LocaleSwitcher() {
 
   return (
     <Select value={locale} onValueChange={setLocale}>
-      <SelectTrigger className={cn(s.selectTrigger, "text-foreground rounded-md")}>
+      <SelectTrigger className={cn(s.selectTrigger, "rounded-md", s[theme])}>
         <SelectValue placeholder={locale.toUpperCase()} />
       </SelectTrigger>
-      <SelectContent className={cn(s.selectContent, "text-foreground")}>
+      <SelectContent className={cn(s.selectContent)}>
         {routing.locales.map((loc) => (
           <SelectItem className={cn(s.selectItem)} key={loc} value={loc}>
             {loc.toUpperCase()}

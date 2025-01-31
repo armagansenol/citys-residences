@@ -1,6 +1,11 @@
 .selectTrigger {
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: var(--white);
+
+  &.dark {
+    border: 1px solid var(--bricky-brick);
+    color: var(--bricky-brick);
+  }
 }
 
 .selectContent {

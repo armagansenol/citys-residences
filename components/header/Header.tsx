@@ -81,7 +81,7 @@ export default function Header() {
             [s.atTop]: atTop,
           })}
         >
-          <LocalizedLink className={cn(s.logoC, "cursor-pointer")} href="/" scroll={initialScroll}>
+          <LocalizedLink className={cn(s.logoC, "cursor-pointer gsap-blur")} href="/" scroll={initialScroll}>
             <Logo fill="var(--foreground)" />
           </LocalizedLink>
           <button

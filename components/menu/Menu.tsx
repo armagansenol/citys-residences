@@ -36,11 +36,63 @@ export default function Menu({ open }: MenuProps) {
   const ref = useRef<HTMLDivElement>(null)
   const menuTL = useRef<gsap.core.Timeline>()
   const maskTL = useRef<gsap.core.Timeline>()
+  // const blurTL = useRef<gsap.core.Timeline>()
 
   const [animateLinks, setAnimateLinks] = useState(false)
 
   const animateLinksForwards = () => setAnimateLinks(true)
   const animateLinksBackwards = () => setAnimateLinks(false)
+
+  // useGSAP(
+  //   () => {
+  //     const blurElements = Array.from(document.querySelectorAll(".gsap-blur"))
+
+  //     blurElements.forEach((element) => {
+  //       element.style.filter = "blur(16px)"
+  //     })
+
+  //     // if (blurElements.length === 0) return
+
+  //     // blurTL.current = gsap.timeline({
+  //     //   paused: true,
+  //     // })
+
+  //     // blurTL.current?.fromTo(
+  //     //   blurElements,
+  //     //   {
+  //     //     filter: "blur(0px)",
+  //     //     ease: "power1.inOut",
+  //     //   },
+  //     //   {
+  //     //     filter: "blur(16px)",
+  //     //     delay: 0.4,
+  //     //     duration: 1.2,
+  //     //     ease: "power1.inOut",
+  //     //   }
+  //     // )
+  //   },
+  //   {
+  //     dependencies: [],
+  //   }
+  // )
+
+  // function addBlur() {
+  //   const blurElements = Array.from(document.querySelectorAll(".gsap-blur"))
+
+  //   blurElements.forEach((element) => {
+  //     element.style.filter = "blur(16px)"
+  //     element.style.transition = "filter 0.8s ease-in-out"
+  //   })
+  // }
+
+  // function removeBlur() {
+  //   const blurElements = Array.from(document.querySelectorAll(".gsap-blur"))
+
+  //   blurElements.forEach((element) => {
+  //     element.style.filter = "blur(0px)"
+  //     element.style.transition = "filter 0.8s ease-in-out"
+  //   })
+  // }
 
   useGSAP(
     () => {
@@ -56,7 +108,11 @@ export default function Menu({ open }: MenuProps) {
       menuTL.current?.fromTo(
         ref.current,
         { clipPath: "inset(0% 10% 100%)" },
-        { clipPath: "inset(0% 0% 0%)", duration: 1.2, ease: "expo.inOut" }
+        {
+          clipPath: "inset(0% 0% 0%)",
+          duration: 1.2,
+          ease: "expo.inOut",
+        }
       )
 
       maskTL.current?.fromTo(
@@ -91,8 +147,12 @@ export default function Menu({ open }: MenuProps) {
 
         menuTL.current?.play()
         maskTL.current?.play()
+        // blurTL.current?.play()
+        // addBlur()
       } else {
         menuTL.current?.reverse()
+        // blurTL.current?.reverse()
+        // removeBlur()
       }
     },
     {

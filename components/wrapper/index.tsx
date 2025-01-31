@@ -11,6 +11,7 @@ import Script from "next/script"
 
 import { Header } from "@/components/header"
 import { SmoothScroll } from "@/components/smooth-scroll"
+import { Footer } from "@/components/footer"
 
 interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: (typeof themeNames)[number]
@@ -32,6 +33,7 @@ export function Wrapper({ children, theme = "light", className, lenis, ...props 
         {children}
         <Script id="theme-script">{`document.documentElement.setAttribute('data-theme', '${theme}');`}</Script>
       </main>
+      <Footer />
       {lenis && <SmoothScroll root />}
     </>
   )
