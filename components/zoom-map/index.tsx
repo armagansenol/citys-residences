@@ -42,7 +42,13 @@ export function ZoomMap() {
   return (
     <div className="w-screen h-screen flex gap-24 items-center justify-center" ref={ref}>
       <div className={cn(s.mapC, "relative rounded-full overflow-hidden z-10")}>
-        <Image src={map} alt="City's Residences Istanbul" className="object-cover gsap-img w-full h-full" priority />
+        <Image
+          src={map}
+          alt="City's Residences Istanbul"
+          className="object-cover gsap-img w-full h-full"
+          priority
+          quality={100}
+        />
       </div>
       <div className="max-w-xl">
         <h2 className="text-halenoir text-3xl font-normal leading-relaxed text-black">
