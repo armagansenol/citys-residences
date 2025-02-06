@@ -1,4 +1,5 @@
 .mapC {
   height: desktop-vw(600px);
   width: desktop-vw(600px);
+  border: 2px solid var(--bricky-brick);
 }

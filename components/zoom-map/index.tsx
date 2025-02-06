@@ -2,12 +2,14 @@
 
 import s from "./zoom-map.module.css"
 
-import cn from "clsx"
 import { useGSAP } from "@gsap/react"
+import cn from "clsx"
 import Image from "next/image"
 import { useRef } from "react"
 
 import { gsap, ScrollTrigger } from "@/components/gsap"
+
+import map from "@/public/img/map.jpg"
 
 export function ZoomMap() {
   const ref = useRef(null)
@@ -39,14 +41,8 @@ export function ZoomMap() {
 
   return (
     <div className="w-screen h-screen flex gap-24 items-center justify-center" ref={ref}>
-      <div className={cn("relative aspect-square w-full h-full rounded-full overflow-hidden z-10", s.mapC)}>
-        <Image
-          src="/img/map.jpg"
-          alt="City's Residences Istanbul"
-          className="object-cover gsap-img w-full h-full"
-          height={8283}
-          width={8283}
-        />
+      <div className={cn(s.mapC, "relative rounded-full overflow-hidden z-10")}>
+        <Image src={map} alt="City's Residences Istanbul" className="object-cover gsap-img w-full h-full" priority />
       </div>
       <div className="max-w-xl">
         <h2 className="text-halenoir text-3xl font-normal leading-relaxed text-black">
