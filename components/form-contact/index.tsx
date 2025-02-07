@@ -201,12 +201,12 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="font-halenoir space-y-8">
-        <div className="grid grid-flow-col gap-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="font-halenoir space-y-4 lg:space-y-8">
+        <div className="flex flex-col lg:grid grid-flow-col gap-4 md:grid-cols-2">
           <FormInput control={form.control} name="name" placeholder={"ADINIZ*"} />
           <FormInput control={form.control} name="surname" placeholder={"SOYADINIZ*"} />
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="grid grid-cols-12 gap-2 items-end col-span-1">
             <div className="col-span-3">
               <FormField
@@ -248,10 +248,10 @@ export function ContactForm() {
             name="email"
             type="email"
             placeholder={"EMAIL ADRESİNİZ*"}
-            className="col-span-1"
+            className="col-span-1 md:col-span-1"
           />
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="flex flex-col lg:grid grid-cols-2 gap-4">
           <FormSelect
             control={form.control}
             name="residenceType"
@@ -315,7 +315,7 @@ export function ContactForm() {
             )}
           />
         </div>
-        <button type="submit" disabled={mutation.isPending}>
+        <button type="submit" disabled={mutation.isPending} className="w-full md:w-auto">
           <AnimatedButton text={mutation.isPending ? "GÖNDERİLİYOR..." : "GÖNDER"} />
         </button>
       </form>
