@@ -1,0 +1,47 @@
+.button {
+  --padding: desktop-vw(6px);
+  --height: desktop-vw(42px);
+  --width: desktop-vw(200px);
+
+  color: var(--bricky-brick);
+  height: var(--height);
+  width: var(--width);
+  border: 1px solid var(--bricky-brick);
+  border-radius: desktop-vw(5px);
+  padding: var(--padding);
+
+  @include-media ('hover') {
+    &:hover {
+      .text {
+        color: var(--white);
+        transform: translateX(50%);
+      }
+    }
+  }
+
+  .text {
+    font-family: var(--font-halenoir);
+    font-size: desktop-vw(14px);
+    font-weight: 500;
+    padding-left: var(--padding);
+    white-space: nowrap;
+    transition: 0.8s color ease, 0.8s transform ease;
+  }
+
+  .iconC {
+    height: calc(var(--height) - var(--padding) * 2);
+    width: calc(var(--height) - var(--padding) * 2);
+    position: relative;
+
+    .transformC {
+      height: 100%;
+      width: 100%;
+      will-change: transform;
+    }
+
+    .icon {
+      height: desktop-vw(15px);
+      width: desktop-vw(15px);
+    }
+  }
+}

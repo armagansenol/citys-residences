@@ -7,13 +7,13 @@ import { useState } from "react"
 import { Control, useForm } from "react-hook-form"
 import { z } from "zod"
 
-import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import { countryPhoneCodes } from "@/lib/constants"
+import AnimatedButton from "../animated-button"
 
 // interface FormContactProps {
 //   translations: FormTranslations
@@ -84,6 +84,48 @@ const FormInput = ({ name, control, placeholder, type = "text", className }: For
               }
             }}
           />
+        </FormControl>
+        <FormMessage />
+      </FormItem>
+    )}
+  />
+)
+
+const FormSelect = ({
+  name,
+  control,
+  placeholder,
+  options,
+}: {
+  name: keyof FormValues
+  control: Control<FormValues>
+  placeholder: string
+  options: { value: string; label: string }[]
+}) => (
+  <FormField
+    control={control}
+    name={name}
+    render={({ field }) => (
+      <FormItem>
+        <FormControl>
+          <Select onValueChange={field.onChange} value={field.value?.toString() || ""}>
+            <SelectTrigger className="h-11 border border-bricky-brick-light rounded-md text-neutral-900 cursor-pointer">
+              <SelectValue placeholder={placeholder} />
+            </SelectTrigger>
+            <SelectContent className="text-neutral-900">
+              <SelectGroup>
+                {options.map((option) => (
+                  <SelectItem
+                    key={option.value}
+                    className="focus:bg-neutral-50 focus:text-neutral-900 cursor-pointer"
+                    value={option.value}
+                  >
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </FormControl>
         <FormMessage />
       </FormItem>
@@ -174,15 +216,15 @@ export function ContactForm() {
                   <FormItem className="col-span-1">
                     <FormControl>
                       <Select onValueChange={field.onChange} value={field.value} defaultValue={"+90"}>
-                        <SelectTrigger className="h-9 border-b border-bricky-brick-light rounded-none text-bricky-brick cursor-pointer">
+                        <SelectTrigger className="h-9 border-b border-bricky-brick-light rounded-none text-neutral-900 cursor-pointer">
                           <SelectValue placeholder={field.value || "ÜLKE KODU"}>{field.value}</SelectValue>
                         </SelectTrigger>
-                        <SelectContent className="text-bricky-brick">
+                        <SelectContent className="text-neutral-900">
                           <SelectGroup>
                             {countryPhoneCodes["tr"].map((country, index) => (
                               <SelectItem
                                 key={index}
-                                className="focus:bg-bricky-brick-light focus:text-bricky-brick cursor-pointer"
+                                className="focus:bg-neutral-50 focus:text-neutral-900 cursor-pointer"
                                 value={country.code}
                               >
                                 ({country.code}) {country.name}
@@ -210,107 +252,38 @@ export function ContactForm() {
           />
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <FormField
+          <FormSelect
             control={form.control}
             name="residenceType"
-            render={({ field }) => (
-              <FormItem className="col-span-1">
-                <FormControl>
-                  <Select onValueChange={field.onChange} value={field.value || ""}>
-                    <SelectTrigger className="h-11 border border-bricky-brick-light rounded-md text-bricky-brick cursor-pointer">
-                      <SelectValue placeholder="TERCİH EDİLEN KONUT TÜRÜ" />
-                    </SelectTrigger>
-                    <SelectContent className="text-bricky-brick">
-                      <SelectGroup>
-                        <SelectItem
-                          className="focus:bg-bricky-brick-light focus:text-bricky-brick cursor-pointer"
-                          value="apple"
-                        >
-                          X
-                        </SelectItem>
-                        <SelectItem
-                          className="focus:bg-bricky-brick-light focus:text-bricky-brick cursor-pointer"
-                          value="banana"
-                        >
-                          Y
-                        </SelectItem>
-                        <SelectItem
-                          className="focus:bg-bricky-brick-light focus:text-bricky-brick cursor-pointer"
-                          value="blueberry"
-                        >
-                          Z
-                        </SelectItem>
-                        <SelectItem
-                          className="focus:bg-bricky-brick-light focus:text-bricky-brick cursor-pointer"
-                          value="grapes"
-                        >
-                          W
-                        </SelectItem>
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            placeholder="TERCİH EDİLEN KONUT TÜRÜ"
+            options={[
+              { value: "apple", label: "X" },
+              { value: "banana", label: "Y" },
+              { value: "blueberry", label: "Z" },
+              { value: "grapes", label: "W" },
+            ]}
           />
-          <FormField
+          <FormSelect
             control={form.control}
             name="howDidYouHearAboutUs"
-            render={({ field }) => (
-              <FormItem className="col-span-1">
-                <FormControl>
-                  <Select onValueChange={field.onChange} value={field.value || ""}>
-                    <SelectTrigger className="h-11 border border-bricky-brick-light rounded-md text-bricky-brick cursor-pointer">
-                      <SelectValue placeholder="BİZİ NEREDEN DUYDUNUZ?" />
-                    </SelectTrigger>
-                    <SelectContent className="text-bricky-brick">
-                      <SelectGroup>
-                        <SelectItem
-                          className="focus:bg-bricky-brick-light focus:text-bricky-brick cursor-pointer"
-                          value="apple"
-                        >
-                          X
-                        </SelectItem>
-                        <SelectItem
-                          className="focus:bg-bricky-brick-light focus:text-bricky-brick cursor-pointer"
-                          value="banana"
-                        >
-                          Y
-                        </SelectItem>
-                        <SelectItem
-                          className="focus:bg-bricky-brick-light focus:text-bricky-brick cursor-pointer"
-                          value="blueberry"
-                        >
-                          Z
-                        </SelectItem>
-                        <SelectItem
-                          className="focus:bg-bricky-brick-light focus:text-bricky-brick cursor-pointer"
-                          value="grapes"
-                        >
-                          W
-                        </SelectItem>
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
+            placeholder="BİZİ NEREDEN DUYDUNUZ?"
+            options={[
+              { value: "apple", label: "X" },
+              { value: "banana", label: "Y" },
+              { value: "blueberry", label: "Z" },
+              { value: "grapes", label: "W" },
+            ]}
           />
         </div>
-        <div className="grid grid-flow-col">
+        <div className="grid grid-flow-col rounded-md border border-bricky-brick-light">
           <FormField
             control={form.control}
             name="message"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-bricky-brick font-light pl-2">MESAJINIZ</FormLabel>
+              <FormItem className="space-y-0 pt-2">
+                <FormLabel className="text-neutral-900 pl-4 leading-none">MESAJINIZ</FormLabel>
                 <FormControl>
-                  <Textarea
-                    {...field}
-                    className={`${commonInputStyles} p-4 min-h-[140px] rounded-md border-bricky-brick-light`}
-                  />
+                  <Textarea {...field} className={`${commonInputStyles} min-h-[140px] border-none p-4 pt-0`} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -326,14 +299,15 @@ export function ContactForm() {
                 <div className="flex flex-row gap-3 space-y-0">
                   <FormControl>
                     <Checkbox
-                      className="border-bricky-brick data-[state=checked]:bg-bricky-brick"
+                      className="border-neutral-900 data-[state=checked]:bg-neutral-900"
                       checked={field.value}
                       onCheckedChange={field.onChange}
                     />
                   </FormControl>
-                  <FormLabel className="text-bricky-brick font-light leading-snug cursor-pointer">
-                    Kişisel verilerimin City’s Residences İstanbul tarafından, 6698 sayılı Kişisel Verilerin Korunması
-                    Kanunu’na uygun olarak işlenmesini, saklanmasını ve paylaşılmasını kabul ediyorum.
+                  <FormLabel className="text-neutral-900 font-light leading-snug cursor-pointer">
+                    Bize Ulaşın uygulaması kapsamında paylaşacağım kişisel verilere ilişkin Aydınlatma Metni&apos;ni
+                    okudum ve aydınlatma metni kapsamında paylaşacağım kişisel verilere ilişkin Açık Rıza Metni&apos;ni
+                    okudum, kabul ediyorum.
                   </FormLabel>
                 </div>
                 <FormMessage />
@@ -341,13 +315,9 @@ export function ContactForm() {
             )}
           />
         </div>
-        <Button
-          type="submit"
-          disabled={mutation.isPending}
-          className="w-full bg-white text-black hover:bg-gray-200 rounded-md py-4 md:py-10 text-base border border-bricky-brick"
-        >
-          {mutation.isPending ? "Sending" : "Submit"}
-        </Button>
+        <button type="submit" disabled={mutation.isPending}>
+          <AnimatedButton text={mutation.isPending ? "GÖNDERİLİYOR..." : "GÖNDER"} />
+        </button>
       </form>
       <AnimatePresence>
         {message && (
