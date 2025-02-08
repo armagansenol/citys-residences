@@ -23,7 +23,7 @@ export function TextRevealOnScroll({ children, staggerDuration = 0.005, classNam
       trigger: ref.current,
       onEnter: () => textRef.current?.startAnimation(),
       start: "top-=100px bottom",
-      markers: true,
+      markers: false,
     })
   })
 
