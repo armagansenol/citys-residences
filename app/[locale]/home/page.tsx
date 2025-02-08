@@ -28,16 +28,31 @@ export default function Home() {
 
   const moreSectionData = [
     {
-      title: "DAHA HUZURLU YAŞA",
+      imgSrc: "/img/aol-1.jpg",
+      title: (
+        <>
+          DAHA <br /> HUZURLU YAŞA
+        </>
+      ),
       description: "Huzur, sessiz lüks mimaride sonsuz bir güvenle ve cömert doğayla iç içe yaşama ayrıcalığıdır.",
     },
     {
-      title: "DAHA ÇOK YAŞA",
+      imgSrc: "/img/aol-2.jpg",
+      title: (
+        <>
+          DAHA ÇOK <br /> YAŞA
+        </>
+      ),
       description:
         "Hayatın tam merkezinde, zamanı kendinize ve sevdiklerinize ayırabilmek, yaşamı sanata dönüştürmektir.",
     },
     {
-      title: "DAHA DOLU YAŞA",
+      imgSrc: "/img/aol-3.jpg",
+      title: (
+        <>
+          DAHA DOLU <br /> YAŞA
+        </>
+      ),
       description: "Sporun, sanatın, eğlencenin ve daha fazlasının bir araya geldiği bir yaşam, her anı değerli kılar.",
     },
   ]
@@ -80,7 +95,7 @@ export default function Home() {
               </TextRevealOnScroll>
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-8 mt-24">
+          <div className="grid grid-cols-3 gap-16 mt-24">
             {moreSectionData.map((item, index) => (
               <div
                 key={index}
@@ -91,11 +106,11 @@ export default function Home() {
                   index === 2 && "mt-32"
                 )}
               >
-                <div className="relative w-4/5 aspect-w-10 aspect-h-11 mx-auto">
-                  <MPImg imgSrc="/img/menu.jpg" />
+                <div className="relative w-3/5 aspect-w-10 aspect-h-8 mx-auto">
+                  <MPImg imgSrc={item.imgSrc} />
                 </div>
                 <div className="space-y-4">
-                  <h2 className="font-lexend-giga font-medium text-3xl text-bricky-brick">{item.title}</h2>
+                  <h2 className="font-lexend-giga font-normal text-3xl text-bricky-brick">{item.title}</h2>
                   <p className="font-halenoir text-xl">{item.description}</p>
                 </div>
               </div>

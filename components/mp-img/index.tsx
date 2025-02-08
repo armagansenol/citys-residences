@@ -30,10 +30,10 @@ export function MPImg(props: MPImgProps) {
         .fromTo(
           ".gsap-parallax-img",
           {
-            yPercent: -10,
+            yPercent: -5,
           },
           {
-            yPercent: 10,
+            yPercent: 5,
           },
           "s"
         )
@@ -59,8 +59,11 @@ export function MPImg(props: MPImgProps) {
   )
 
   return (
-    <div className={cn("gsap-parallax-img-c rounded-lg w-full h-full overflow-hidden")} ref={ref}>
-      <div className="relative w-full h-[110%] gsap-parallax-img">
+    <div
+      className={cn("gsap-parallax-img-c rounded-lg w-full h-full flex items-center justify-center overflow-hidden")}
+      ref={ref}
+    >
+      <div className="relative w-full h-[120%] gsap-parallax-img">
         <div className="absolute top-0 left-0 right-0 bottom-0 z-50 isolate gsap-parallax-img-overlay">
           <div className="bg-bricky-brick absolute w-full h-full z-10"></div>
           <Image src={props.imgSrc} alt="Parallax Image" fill className="object-cover mix-blend-overlay z-20" />

@@ -2,12 +2,11 @@
 
 import { useGSAP } from "@gsap/react"
 import cn from "clsx"
-import Image from "next/image"
 import { useRef } from "react"
 
+import { TextRevealOnScroll } from "@/components/animations/text-reveal-on-scroll"
 import { gsap, ScrollTrigger } from "@/components/gsap"
-import { TextRevealOnScroll } from "../animations/text-reveal-on-scroll"
-import { VerticalCutRevealRef } from "../animations/vertical-cut-reveal"
+import { MPImg } from "@/components/mp-img"
 
 export interface MaskedParallaxImageProps {
   horizontalAlignment?: "rtl" | "ltr"
@@ -15,7 +14,7 @@ export interface MaskedParallaxImageProps {
 
 export function MaskedParallaxImage({ horizontalAlignment = "ltr" }: MaskedParallaxImageProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const textRef = useRef<VerticalCutRevealRef>(null)
+  // const textRef = useRef<VerticalCutRevealRef>(null)
 
   useGSAP(
     () => {
@@ -31,37 +30,37 @@ export function MaskedParallaxImage({ horizontalAlignment = "ltr" }: MaskedParal
         },
         "s"
       )
-        .fromTo(
-          ".gsap-parallax-img-c",
-          {
-            yPercent: -10,
-          },
-          {
-            yPercent: 10,
-          },
-          "s"
-        )
-        .fromTo(
-          ".gsap-parallax-img",
-          {
-            yPercent: -20,
-          },
-          {
-            yPercent: 20,
-            onStart: () => {
-              textRef.current?.startAnimation()
-            },
-          },
-          "s"
-        )
-        .from(
-          ".gsap-parallax-img",
-          {
-            opacity: 0,
-            duration: 0.25,
-          },
-          "s"
-        )
+      // .fromTo(
+      //   ".gsap-parallax-img-c",
+      //   {
+      //     yPercent: -10,
+      //   },
+      //   {
+      //     yPercent: 10,
+      //   },
+      //   "s"
+      // )
+      // .fromTo(
+      //   ".gsap-parallax-img",
+      //   {
+      //     yPercent: -20,
+      //   },
+      //   {
+      //     yPercent: 20,
+      //     onStart: () => {
+      //       textRef.current?.startAnimation()
+      //     },
+      //   },
+      //   "s"
+      // )
+      // .from(
+      //   ".gsap-parallax-img",
+      //   {
+      //     opacity: 0,
+      //     duration: 0.25,
+      //   },
+      //   "s"
+      // )
 
       ScrollTrigger.create({
         animation: tl,
@@ -97,14 +96,15 @@ export function MaskedParallaxImage({ horizontalAlignment = "ltr" }: MaskedParal
             horizontalAlignment === "ltr" ? "col-start-9 order-2" : "col-start-1 order-1"
           )}
         >
-          <div className="absolute top-0 left-0 right-0 bottom-0 gsap-overlay z-10 bg-bricky-brick"></div>
+          {/* <div className="absolute top-0 left-0 right-0 bottom-0 gsap-overlay z-10 bg-bricky-brick"></div>
           <Image
             src="/img/menu.jpg"
             alt="Parallax Image"
             fill
             className="object-cover gsap-parallax-img mix-blend-overlay z-20"
           />
-          <Image src="/img/menu.jpg" alt="Parallax Image" fill className="object-cover gsap-parallax-img z-30" />
+          <Image src="/img/menu.jpg" alt="Parallax Image" fill className="object-cover gsap-parallax-img z-30" /> */}
+          <MPImg imgSrc="/img/menu.jpg" />
         </div>
       </div>
     </div>
