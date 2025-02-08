@@ -9,8 +9,6 @@ import { useRef } from "react"
 
 import { gsap, ScrollTrigger } from "@/components/gsap"
 
-import map from "@/public/img/map.jpg"
-
 export function ZoomMap() {
   const ref = useRef(null)
 
@@ -30,7 +28,7 @@ export function ZoomMap() {
         animation: tl,
         trigger: ref.current,
         pin: true,
-        scrub: 1,
+        scrub: true,
         end: "+=2000",
       })
     },
@@ -43,11 +41,13 @@ export function ZoomMap() {
     <div className="w-screen h-screen flex gap-24 items-center justify-center" ref={ref}>
       <div className={cn(s.mapC, "relative rounded-full overflow-hidden z-10")}>
         <Image
-          src={map}
+          src="/img/map.jpg"
           alt="City's Residences Istanbul"
           className="object-cover gsap-img w-full h-full"
           priority
           quality={100}
+          height={8000}
+          width={8000}
         />
       </div>
       <div className="max-w-xl">
