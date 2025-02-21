@@ -6,7 +6,6 @@ import cn from "clsx"
 import { useRef } from "react"
 
 import { ContactForm } from "@/components/form-contact"
-import { gsap, useGSAP } from "@/components/gsap"
 import { Video } from "@/components/utility/video"
 
 interface ModalContactFormProps {
@@ -15,47 +14,49 @@ interface ModalContactFormProps {
 
 export default function ModalContactForm({ open }: ModalContactFormProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const menuTL = useRef<gsap.core.Timeline>()
+  console.log(open)
 
-  useGSAP(
-    () => {
-      menuTL.current = gsap.timeline({
-        paused: true,
-      })
+  // const menuTL = useRef<gsap.core.Timeline>()
 
-      menuTL.current?.fromTo(
-        ref.current,
-        { clipPath: "inset(0% 0% 0% 100%)" },
-        {
-          clipPath: "inset(0% 0% 0% 0%)",
-          duration: 1.2,
-          ease: "expo.inOut",
-        }
-      )
-    },
+  // useGSAP(
+  //   () => {
+  //     menuTL.current = gsap.timeline({
+  //       paused: true,
+  //     })
 
-    {
-      scope: ref,
-      revertOnUpdate: true,
-    }
-  )
+  //     menuTL.current?.fromTo(
+  //       ref.current,
+  //       { clipPath: "inset(0% 0% 0% 100%)" },
+  //       {
+  //         clipPath: "inset(0% 0% 0% 0%)",
+  //         duration: 1.2,
+  //         ease: "expo.inOut",
+  //       }
+  //     )
+  //   },
 
-  useGSAP(
-    () => {
-      if (open) {
-        menuTL.current?.play()
-      } else {
-        menuTL.current?.reverse()
-      }
-    },
-    {
-      dependencies: [open],
-      revertOnUpdate: true,
-    }
-  )
+  //   {
+  //     scope: ref,
+  //     revertOnUpdate: true,
+  //   }
+  // )
+
+  // useGSAP(
+  //   () => {
+  //     if (open) {
+  //       menuTL.current?.play()
+  //     } else {
+  //       menuTL.current?.reverse()
+  //     }
+  //   },
+  //   {
+  //     dependencies: [open],
+  //     revertOnUpdate: true,
+  //   }
+  // )
 
   return (
-    <div className={cn(s.frame)} ref={ref}>
+    <div className={cn(s.frame, "blur-bg")} ref={ref}>
       <div className={cn(s.wrapper, "wrapper")}>
         <div className={cn(s.menu, "menu")}>
           <div className={cn(s.content, "flex items-center justify-center w-full h-full")}>

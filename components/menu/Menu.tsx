@@ -81,7 +81,11 @@ export default function Menu({ open }: MenuProps) {
   return (
     <div className={cn(s.frame)} ref={ref}>
       <div
-        className={cn(s.menu, "menu", "absolute top-0 left-0 w-full h-full flex items-center justify-start p-10")}
+        className={cn(
+          s.menu,
+          "menu",
+          "absolute top-0 left-0 w-full h-full flex items-center justify-center bd:justify-start p-10"
+        )}
         onClick={() => animateLinksForwards()}
       >
         <nav>
@@ -90,7 +94,7 @@ export default function Menu({ open }: MenuProps) {
               <li
                 className={cn(
                   s.navItem,
-                  "font-halenoir font-light text-white text-base bt:text-4xl text-center bt:text-left"
+                  "font-halenoir font-light text-white text-base bt:text-3xl text-center bt:text-left"
                 )}
                 key={title}
               >

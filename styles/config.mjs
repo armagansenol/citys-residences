@@ -5,6 +5,7 @@ const colors = {
   "bricky-brick": "#b73d25",
   "namara-grey": "#7b7b7b",
   "moon-veil": "#8B9BB1",
+  "bengala-red": "#932d19",
 }
 
 const themes = {

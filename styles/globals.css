@@ -15,6 +15,15 @@
   @include-media ('desktop') {
     --header-height: desktop-vw(84px);
   }
+
+  --z-content: z-stack();
+  --z-menu: z-stack();
+  --z-header: z-stack();
+  --z-header-content: z-stack();
+  --z-sticky: z-stack();
+  --z-popup: z-stack();
+  --z-modal: z-stack();
+  --z-gsap-markers: z-stack();
 }
 
 * {
@@ -53,6 +62,24 @@ body {
 
 .add-header-height {
   margin-top: var(--header-height);
+}
+
+.blur-bg {
+  background: hsla(0, 0%, 15%, 0.8);
+  backdrop-filter: blur(16px);
+  mask-image: hsla(0, 0%, 15%, 0.8);
+}
+
+.blur-bg-bricky-brick {
+  background: hsla(10, 66%, 43%, 0.8);
+  backdrop-filter: blur(16px);
+  mask-image: hsla(10, 66%, 43%, 0.8);
+}
+
+.blur-bg-white {
+  background: hsla(0, 0%, 98%, 0.1);
+  backdrop-filter: blur(16px);
+  mask-image: hsla(0, 0%, 98%, 0.1);
 }
 
 @layer base {

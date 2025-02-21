@@ -5,8 +5,8 @@
   overflow: hidden;
   position: fixed;
   top: 0;
+  z-index: var(--z-menu);
   width: 100vw;
-  z-index: 150;
 
   background: hsla(10, 66%, 43%, 0.8);
   backdrop-filter: blur(16px);
@@ -22,7 +22,7 @@
 }
 
 .menu {
-  z-index: 150;
+  z-index: var(--z-menu);
 
   .navList {
     .navItem {
@@ -51,7 +51,7 @@
     transform: translateX(-50%);
     transform-origin: top center;
     transition: 400ms all ease;
-    z-index: 130;
+    z-index: var(--z-menu);
 
     @include-media ('desktop') {
       height: desktop-vw(110px);

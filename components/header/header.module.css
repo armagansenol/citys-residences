@@ -8,7 +8,7 @@
   top: 0;
   transition: 400ms transform ease;
   width: 100vw;
-  z-index: 100;
+  z-index: var(--z-header);
 
   &.hidden {
     transform: translateY(-100%);
@@ -48,7 +48,7 @@
 
   .content {
     padding: 0 desktop-vw(40px);
-    z-index: 200;
+    z-index: var(--z-header-content);
   }
 
   &:before {
@@ -62,7 +62,7 @@
     right: 0;
     top: 0;
     transition: 400ms all ease;
-    z-index: 50;
+    z-index: var(--z-header-content);
 
     @include-media ('mobile') {
       height: mobile-vw(100px);
@@ -80,7 +80,7 @@
     transform: translateX(-50%);
     transform-origin: top center;
     transition: 400ms all ease;
-    z-index: 130;
+    z-index: var(--z-header-content);
 
     @include-media ('tablet') {
       height: tablet-vw(80px);
@@ -92,7 +92,7 @@
   }
 
   .trigger {
-    z-index: 200;
+    z-index: var(--z-header-content);
 
     .text {
       display: grid;
@@ -139,7 +139,7 @@
     position: relative;
     pointer-events: none;
     transition: 400ms all ease;
-    z-index: 200;
+    z-index: var(--z-header-content);
 
     .navItem {
       font-size: desktop-vw(12px);

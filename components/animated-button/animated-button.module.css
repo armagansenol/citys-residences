@@ -1,58 +1,68 @@
 .button {
-  --padding: desktop-vw(6px);
-  --height: desktop-vw(42px);
-  --width: desktop-vw(200px);
-
-  color: var(--bricky-brick);
-  height: var(--height);
-  width: var(--width);
   border: 1px solid var(--bricky-brick);
-  border-radius: desktop-vw(5px);
+  border-radius: mobile-vw(5px);
+  color: var(--bricky-brick);
+  font-family: var(--font-lexend-giga);
+  font-size: var(--font-size);
+  font-weight: 700;
+  height: var(--height);
+  overflow: hidden;
   padding: var(--padding);
+  position: relative;
+  width: var(--width);
 
-  @include-media ('mobile') {
-    --padding: mobile-vw(4px);
+  @include-media ("desktop") {
+    border-radius: desktop-vw(5px);
+  }
+
+  &.sm {
+    --font-size: mobile-vw(12px);
+    --padding: mobile-vw(6px);
     --height: mobile-vw(36px);
-    --width: mobile-vw(180px);
+    --width: mobile-vw(160px);
 
-    .text {
-      font-size: mobile-vw(12px);
+    @include-media ("desktop") {
+      --font-size: desktop-vw(12px);
+      --padding: desktop-vw(6px);
+      --height: desktop-vw(36px);
+      --width: desktop-vw(160px);
     }
   }
 
-  @include-media ('tablet') {
-    --padding: mobile-vw(2px);
-    --height: mobile-vw(30px);
-    --width: mobile-vw(150px);
+  &.md {
+    --font-size: mobile-vw(14px);
+    --padding: mobile-vw(6px);
+    --height: mobile-vw(42px);
+    --width: mobile-vw(200px);
 
-    .text {
-      font-size: mobile-vw(10px);
+    @include-media ("desktop") {
+      --font-size: desktop-vw(14px);
+      --padding: desktop-vw(6px);
+      --height: desktop-vw(42px);
+      --width: desktop-vw(200px);
     }
   }
 
-  @include-media ('desktop') {
-    --padding: desktop-vw(6px);
-    --height: desktop-vw(42px);
-    --width: desktop-vw(200px);
+  &.lg {
+    --font-size: mobile-vw(16px);
+    --padding: mobile-vw(8px);
+    --height: mobile-vw(52px);
+    --width: mobile-vw(280px);
 
-    .text {
-      font-size: desktop-vw(14px);
-    }
-  }
-
-  @include-media ('hover') {
-    &:hover {
+    @include-media ("desktop") {
+      --font-size: desktop-vw(16px);
+      --padding: desktop-vw(8px);
+      --height: desktop-vw(52px);
+      --width: desktop-vw(280px);
     }
   }
 
   .text {
     color: var(--bricky-brick);
     font-family: var(--font-halenoir);
-    font-size: desktop-vw(14px);
     font-weight: 500;
     line-height: 1;
     white-space: nowrap;
-    padding-top: 2px;
   }
 
   .iconC {
@@ -60,12 +70,12 @@
     width: calc(var(--height) - var(--padding) * 2);
 
     .icon {
-      height: desktop-vw(15px);
-      width: desktop-vw(15px);
+      height: mobile-vw(15px);
+      width: mobile-vw(15px);
 
-      @include-media ('mobile') {
-        height: mobile-vw(12px);
-        width: mobile-vw(12px);
+      @include-media ("desktop") {
+        height: desktop-vw(15px);
+        width: desktop-vw(15px);
       }
     }
   }

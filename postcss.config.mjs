@@ -17,7 +17,8 @@ const config = {
   plugins: {
     tailwindcss: {},
     "postcss-import": {},
-    "postcss-extend": {},
+    "postcss-extend-rule": {},
+    "postcss-easy-z": {},
     "postcss-preset-env": {
       autoprefixer: {
         flexbox: "no-2009",

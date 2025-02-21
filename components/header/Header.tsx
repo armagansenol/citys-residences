@@ -34,8 +34,11 @@ export default function Header() {
   // { variant }: HeaderVariantsProps
   const lenis = useLenis()
   const [menuOpen, setMenuOpen] = useState(false)
-  const [hidden, setHidden] = useState(false)
-  const [atTop, setAtTop] = useState(true)
+  const [scrollState, setScrollState] = useState({
+    hidden: false,
+    atTop: true,
+    sticky: false,
+  })
   const pathname = usePathname()
   // const t = useTranslations("routes")
   // const locale = useLocale()
@@ -50,21 +53,14 @@ export default function Header() {
 
   useEffect(() => {
     const handleEvents = (e: Lenis) => {
-      if (e.className && e.actualScroll < 10) {
-        setAtTop(true)
-      } else {
-        setAtTop(false)
-      }
-
-      if (lenis?.direction === 1 && e.actualScroll > window.innerHeight / 2) {
-        setHidden(true)
-      } else {
-        setHidden(false)
-      }
+      setScrollState(() => ({
+        atTop: Boolean(e.className) && e.actualScroll < 10,
+        hidden: lenis?.direction === 1 && e.actualScroll > window.innerHeight / 2,
+        sticky: e.actualScroll > window.innerHeight / 2,
+      }))
     }
 
     lenis?.on("scroll", handleEvents)
-
     return () => lenis?.off("scroll", handleEvents)
   }, [lenis])
 
@@ -72,17 +68,23 @@ export default function Header() {
     <>
       <header
         className={cn(s.header, "flex items-center", {
-          [s.hidden]: hidden,
-          [s.atTop]: atTop,
+          [s.hidden]: scrollState.hidden,
+          [s.atTop]: scrollState.atTop,
           [s.menuOpen]: menuOpen,
         })}
+        role="banner"
       >
         <div
           className={cn(s.content, "flex items-center justify-between flex-1", {
-            [s.atTop]: atTop,
+            [s.atTop]: scrollState.atTop,
           })}
         >
-          <LocalizedLink className={cn(s.logoC, "cursor-pointer gsap-blur")} href="/" scroll={initialScroll}>
+          <LocalizedLink
+            className={cn(s.logoC, "cursor-pointer gsap-blur")}
+            href="/"
+            scroll={initialScroll}
+            aria-label="Home"
+          >
             <Logo fill="var(--foreground)" />
           </LocalizedLink>
           <button
@@ -91,6 +93,8 @@ export default function Header() {
             })}
             onClick={() => setMenuOpen((prev) => !prev)}
             type="button"
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
             <div className={cn(s.cross, "cursor-pointer")}>
               <MenuX
@@ -119,11 +123,8 @@ export default function Header() {
               <span>MENÜ</span>
             </div>
           </button>
-          <nav className={cn(s.nav, "flex flex-col gap-10 lg:flex-row items-center")}>
+          <nav className={cn(s.nav, "flex flex-col gap-10 lg:flex-row items-center")} role="navigation">
             <div className={"flex flex-col lg:flex-row items-center gap-10"}>
-              {/* <div className={cn(s.navItem, "cursor-pointer hidden lg:block animated-underline-single")}>
-                {t("contact")}
-              </div> */}
               <div className={cn(s.navItem, "cursor-pointer")}>
                 <LocaleSwitcher />
               </div>
@@ -132,7 +133,7 @@ export default function Header() {
           <Menu open={menuOpen} />
         </div>
       </header>
-      <StickyBadge hidden={hidden} />
+      <StickyBadge hidden={scrollState.sticky} />
     </>
   )
 }

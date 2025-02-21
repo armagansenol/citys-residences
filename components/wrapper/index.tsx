@@ -29,7 +29,7 @@ export function Wrapper({ children, theme = "light", className, lenis, ...props 
   return (
     <>
       <Header />
-      <main className={cn(s.main, className)} {...props}>
+      <main className={cn(s.main, className)} {...props} style={{ zIndex: "var(--z-content)" }}>
         {children}
         <Script id="theme-script">{`document.documentElement.setAttribute('data-theme', '${theme}');`}</Script>
       </main>

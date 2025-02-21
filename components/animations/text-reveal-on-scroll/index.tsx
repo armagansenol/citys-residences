@@ -28,7 +28,6 @@ export function TextRevealOnScroll({
     ScrollTrigger.create({
       trigger: ref.current,
       onEnter: () => textRef.current?.startAnimation(),
-      start: "top-=100px bottom",
       markers: false,
     })
   })

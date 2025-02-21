@@ -7,16 +7,12 @@
   right: 0;
   top: 0;
   z-index: 150;
-
-  background: hsla(10, 66%, 43%, 0.8);
-  backdrop-filter: blur(16px);
-  mask-image: hsla(10, 66%, 43%, 0.8);
 }
 
 .wrapper {
+  position: absolute;
   bottom: 0;
   left: 0;
-  position: absolute;
   right: 0;
   top: 0;
 }

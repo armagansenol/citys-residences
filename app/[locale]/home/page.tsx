@@ -95,23 +95,27 @@ export default function Home() {
               </TextRevealOnScroll>
             </p>
           </div>
-          <div className="flex flex-col gap-16 bt:grid bt:grid-cols-3 bt:gap-16 mt-24">
+        </div>
+      </section>
+      <section className="bg-white font-halenoir px-4 bt:px-8 py-6 bt:py-12 pt-0 z-20 relative">
+        <div className="py-6 bt:py-12 relative flex flex-col items-center">
+          <div className="w-full flex flex-col gap-16 bt:grid bt:grid-cols-3 bt:gap-6">
             {moreSectionData.map((item, index) => (
               <div
                 key={index}
                 className={cn(
-                  "col-span-1 space-y-8 text-center",
+                  "col-span-1 space-y-10 bt:space-y-16 text-center",
                   index === 0 && "bt:mt-60",
                   index === 1 && "bt:mt-0",
-                  index === 2 && "bt:mt-32"
+                  index === 2 && "bt:mt-96"
                 )}
               >
-                <div className="relative w-full aspect-w-10 aspect-h-14 mx-auto">
+                <div className="relative aspect-w-10 aspect-h-16 mx-auto">
                   <MPImg imgSrc={item.imgSrc} />
                 </div>
-                <div className="space-y-4">
-                  <h2 className="font-lexend-giga font-normal text-3xl text-bricky-brick">{item.title}</h2>
-                  <p className="font-halenoir text-base bt:text-xl">{item.description}</p>
+                <div className="space-y-6">
+                  <h2 className="font-lexend-giga font-normal text-4xl text-bricky-brick mx-auto">{item.title}</h2>
+                  <p className="font-halenoir text-base bt:text-xl max-w-sm mx-auto">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -140,6 +144,9 @@ export default function Home() {
           description="Citys Residences, İstanbul'un eşsiz sosyal olanaklarıyla donatılmış bir yaşam sunuyor. Havuzlar, yürüyüş parkurları ve dinlenme alanlarıyla her anı keyifle yaşayın."
           items={slides3}
         />
+      </section>
+      <section className="relative">
+        <ParallaxVideoPanel />
       </section>
     </Wrapper>
   )

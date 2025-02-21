@@ -1,21 +1,11 @@
 .stickyBadge {
-  border-radius: desktop-vw(4px);
-  color: var(--white);
-  font-family: var(--font-lexend-giga);
-  height: desktop-vw(40px);
-  opacity: 1;
   pointer-events: auto;
   position: fixed;
   top: calc(var(--header-height) / 2);
   transform: translateY(-50%);
   transition: 400ms all ease;
   right: desktop-vw(40px);
-  width: desktop-vw(160px);
-  z-index: 200;
-
-  background: hsla(10, 66%, 43%, 0.8);
-  backdrop-filter: blur(16px);
-  mask-image: hsla(10, 66%, 43%, 0.8);
+  z-index: var(--z-sticky);
 
   &.hidden {
     opacity: 0;
