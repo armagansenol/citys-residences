@@ -38,7 +38,10 @@ export function ZoomMap() {
   )
 
   return (
-    <div className="w-screen h-screen flex flex-col bd:flex-row gap-8 bd:gap-4 items-center justify-center" ref={ref}>
+    <div
+      className="w-screen h-[var(--svh-calc)] flex flex-col bd:flex-row gap-8 bd:gap-4 items-center justify-center"
+      ref={ref}
+    >
       <div className="max-w-xs mb-0 bd:mb-64">
         <h2 className="text-halenoir text-xl bd:text-3xl font-normal leading-relaxed text-black text-center bd:text-left">
           İstanbul&apos;un kalbinde, Kozyatağı&apos;nın prestijli lokasyonunda
