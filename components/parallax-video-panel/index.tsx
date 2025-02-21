@@ -61,13 +61,13 @@ export function ParallaxVideoPanel() {
 
   return (
     <div
-      className="w-screen h-screen overflow-hidden bg-bricky-brick"
+      className="w-screen h-[var(--svh-calc)] overflow-hidden bg-bricky-brick"
       ref={ref}
       onClick={() => {
         videoRef.current?.play()
       }}
     >
-      <div className="gsap-img-c w-screen h-screen relative inset-0">
+      <div className="gsap-img-c w-screen h-[var(--svh-calc)] relative inset-0">
         <Image
           src="/img/slides-2/1.jpg"
           alt="Parallax Image"
@@ -75,8 +75,13 @@ export function ParallaxVideoPanel() {
           className="gsap-img object-cover gsap-parallax-img z-30"
         />
       </div>
-      <div className={cn(s["video-panel-c"], "gsap-video-panel-c w-screen h-screen flex items-center justify-center")}>
-        <div className="w-screen aspect-video bd:aspect-none bd:h-screen overflow-hidden relative z-10 flex items-center justify-center">
+      <div
+        className={cn(
+          s["video-panel-c"],
+          "gsap-video-panel-c w-screen h-[var(--svh-calc)] flex items-center justify-center"
+        )}
+      >
+        <div className="w-screen aspect-video bd:aspect-none bd:h-[var(--svh-calc)] overflow-hidden relative z-10 flex items-center justify-center">
           <Video
             primaryVideoUrl="https://player.vimeo.com/progressive_redirect/playback/1050026684/rendition/1080p/file.mp4?loc=external&log_user=0&signature=fda1ef0d723ecd6a77745792fc70643e9bc8e0cce3e4b8e3cf266d25613fb891#t=0.01"
             className="w-full h-full object-cover"

@@ -1,5 +1,5 @@
 .mapC {
-  --cutoff: mobile-vw(20px);
+  --cutoff: mobile-vw(60px);
   height: calc(100vw - var(--cutoff));
   width: calc(100vw - var(--cutoff));
 

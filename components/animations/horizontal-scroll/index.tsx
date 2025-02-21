@@ -117,7 +117,7 @@ export function HorizontalScroll({
             className={cn(
               s.title,
               "gsap-title-c",
-              "font-lexend-giga text-white font-bold text-2xl bt:text-8xl bd:text-6xl leading-tight text-center overflow-hidden"
+              "font-lexend-giga text-white font-bold text-5xl bt:text-8xl bd:text-6xl leading-tight text-center overflow-hidden"
             )}
           >
             <div className="gsap-title hidden bd:block">
@@ -135,7 +135,7 @@ export function HorizontalScroll({
               <p
                 className={cn(
                   s.infoText,
-                  "font-halenoir text-base  text-white font-normal leading-relaxed text-center bd:text-left"
+                  "font-halenoir text-base text-white font-normal leading-relaxed text-center bd:text-left"
                 )}
               >
                 {description}
