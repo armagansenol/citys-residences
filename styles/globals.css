@@ -8,6 +8,8 @@
 
   --header-height: mobile-vw(64px);
 
+  --svh-calc: calc(var(--svh, 1vh) * 100);
+
   @include-media ('tablet') {
     --header-height: tablet-vw(84px);
   }

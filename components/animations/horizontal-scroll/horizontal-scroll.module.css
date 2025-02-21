@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  height: calc(var(--svh, 1vh) * 100);
+  height: var(--svh-calc);
   outline: mobile-vw(15px) solid var(--bricky-brick);
   outline-offset: mobile-vw(-15px);
   pointer-events: none;
@@ -23,9 +23,9 @@
 .panel {
   width: 100vw;
   height: 100vh;
-  height: calc(var(--svh, 1vh) * 100);
+  height: var(--svh-calc);
   min-height: 100vh;
-  min-height: calc(var(--svh, 1vh) * 100);
+  min-height: var(--svh-calc);
 }
 .title {
   position: absolute;
