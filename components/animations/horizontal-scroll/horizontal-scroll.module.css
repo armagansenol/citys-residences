@@ -9,6 +9,11 @@
   pointer-events: none;
   z-index: 100;
 
+  @include-media ('tablet') {
+    outline: tablet-vw(10px) solid var(--bricky-brick);
+    outline-offset: tablet-vw(-10px);
+  }
+
   @include-media ('desktop') {
     outline: desktop-vw(15px) solid var(--bricky-brick);
     outline-offset: desktop-vw(-15px);
@@ -16,12 +21,19 @@
 }
 .title {
   position: absolute;
-  top: desktop-vw(50px);
-  left: desktop-vw(100px);
-  width: desktop-vw(1230px);
   z-index: 150;
 
+  @include-media ('tablet') {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: tablet-vw(600px);
+  }
+
   @include-media ('desktop') {
+    top: desktop-vw(50px);
+    left: desktop-vw(100px);
+    width: desktop-vw(1230px);
     white-space: nowrap;
   }
 }
@@ -55,19 +67,20 @@
   width: mobile-vw(300px);
   transform: translateX(-50%);
 
+  @include-media ("tablet") {
+    bottom: tablet-vw(250px);
+    width: tablet-vw(300px);
+  }
+
   @include-media ("desktop") {
     left: desktop-vw(100px);
     bottom: desktop-vw(100px);
     width: desktop-vw(400px);
+    transform: translateX(0);
   }
 }
 .infoText {
-  width: mobile-vw(400px);
   z-index: 150;
-
-  @include-media ("desktop") {
-    width: desktop-vw(400px);
-  }
 }
 .container {
   position: relative;
