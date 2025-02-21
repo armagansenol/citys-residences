@@ -39,7 +39,7 @@ export function ZoomMap() {
 
   return (
     <div
-      className="w-screen h-[var(--svh-calc)] flex flex-col bd:flex-row gap-8 bd:gap-4 items-center justify-center"
+      className="w-screen h-[var(--lvh-calc)] flex flex-col bd:flex-row gap-8 bd:gap-4 items-center justify-center"
       ref={ref}
     >
       <div className="max-w-xs mb-0 bd:mb-64">

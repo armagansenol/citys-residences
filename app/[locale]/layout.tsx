@@ -9,10 +9,9 @@ import localFont from "next/font/local"
 
 import { GSAP } from "@/components/gsap"
 import { ReactQueryProvider } from "@/components/react-query-provider"
-import { SmoothScroll } from "@/components/smooth-scroll"
 
-import { Lexend_Giga } from "next/font/google"
 import { RealViewport } from "@/components/real-viewport"
+import { Lexend_Giga } from "next/font/google"
 
 const lexendGiga = Lexend_Giga({
   subsets: ["latin"],
@@ -105,7 +104,7 @@ export default async function LocaleLayout({
           <ReactQueryProvider>{children}</ReactQueryProvider>
         </NextIntlClientProvider>
         <GSAP scrollTrigger={true} />
-        <SmoothScroll root={true} />
+        {/* <SmoothScroll root={true} /> */}
       </body>
     </html>
   )

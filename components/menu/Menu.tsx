@@ -3,6 +3,7 @@
 import s from "./menu.module.css"
 
 import cn from "clsx"
+import { useLenis } from "lenis/react"
 import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
@@ -31,6 +32,7 @@ interface MenuProps {
 export default function Menu({ open }: MenuProps) {
   const ref = useRef<HTMLDivElement>(null)
   const menuTL = useRef<gsap.core.Timeline>()
+  const lenis = useLenis()
 
   const [animateLinks, setAnimateLinks] = useState(false)
 
@@ -41,9 +43,6 @@ export default function Menu({ open }: MenuProps) {
     () => {
       menuTL.current = gsap.timeline({
         paused: true,
-        // onReverseComplete: () => {
-        //   animateLinksBackwards()
-        // },
       })
 
       menuTL.current?.fromTo(
@@ -69,17 +68,19 @@ export default function Menu({ open }: MenuProps) {
     () => {
       if (open) {
         menuTL.current?.play()
+        lenis?.stop()
       } else {
         menuTL.current?.reverse()
+        lenis?.start()
       }
     },
     {
-      dependencies: [open],
+      dependencies: [open, lenis],
     }
   )
 
   return (
-    <div className={cn(s.frame)} ref={ref}>
+    <div className={cn(s.frame, "blur-bg-bricky-brick")} ref={ref}>
       <div
         className={cn(
           s.menu,

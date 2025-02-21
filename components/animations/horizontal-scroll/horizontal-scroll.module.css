@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  height: var(--svh-calc);
+  height: var(--lvh-calc);
   outline: mobile-vw(15px) solid var(--bricky-brick);
   outline-offset: mobile-vw(-15px);
   pointer-events: none;
@@ -23,9 +23,9 @@
 .panel {
   width: 100vw;
   height: 100vh;
-  height: var(--svh-calc);
+  height: var(--lvh-calc);
   min-height: 100vh;
-  min-height: var(--svh-calc);
+  min-height: var(--lvh-calc);
 }
 .title {
   left: 50%;

@@ -12,7 +12,7 @@ export function ScrollTriggerConfig() {
     ScrollTrigger.defaults({
       markers: process.env.NODE_ENV === "development",
     })
-    ScrollTrigger.normalizeScroll(true)
+    // ScrollTrigger.normalizeScroll(true)
   }, [])
 
   const lenis = useLenis(ScrollTrigger.update)

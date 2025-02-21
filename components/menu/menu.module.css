@@ -8,10 +8,6 @@
   z-index: var(--z-menu);
   width: 100vw;
 
-  background: hsla(10, 66%, 43%, 0.8);
-  backdrop-filter: blur(16px);
-  mask-image: hsla(10, 66%, 43%, 0.8);
-
   @include-media ('tablet') {
     width: 100vw;
   }

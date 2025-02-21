@@ -36,7 +36,7 @@ function AnimatedButton({ size = "md", text = "Button Text", theme = "primary" }
 
   return (
     <span
-      className={cn(s.button, "blur-bg-white", "test flex items-center justify-center cursor-pointer", {
+      className={cn(s.button, "blur-bg-bricky-brick", "test flex items-center justify-center cursor-pointer", {
         [s.sm]: size === "sm",
         [s.md]: size === "md",
         [s.lg]: size === "lg",
