@@ -11,6 +11,10 @@
   position: relative;
   width: var(--width);
 
+  @include-media ("tablet") {
+    border-radius: tablet-vw(5px);
+  }
+
   @include-media ("desktop") {
     border-radius: desktop-vw(5px);
   }
@@ -20,6 +24,13 @@
     --padding: mobile-vw(6px);
     --height: mobile-vw(36px);
     --width: mobile-vw(160px);
+
+    @include-media ("tablet") {
+      --font-size: tablet-vw(12px);
+      --padding: tablet-vw(6px);
+      --height: tablet-vw(36px);
+      --width: tablet-vw(160px);
+    }
 
     @include-media ("desktop") {
       --font-size: desktop-vw(12px);
@@ -35,6 +46,13 @@
     --height: mobile-vw(42px);
     --width: mobile-vw(200px);
 
+    @include-media ("tablet") {
+      --font-size: tablet-vw(14px);
+      --padding: tablet-vw(6px);
+      --height: tablet-vw(42px);
+      --width: tablet-vw(200px);
+    }
+
     @include-media ("desktop") {
       --font-size: desktop-vw(14px);
       --padding: desktop-vw(6px);
@@ -48,6 +66,13 @@
     --padding: mobile-vw(8px);
     --height: mobile-vw(52px);
     --width: mobile-vw(280px);
+
+    @include-media ("tablet") {
+      --font-size: tablet-vw(16px);
+      --padding: tablet-vw(8px);
+      --height: tablet-vw(52px);
+      --width: tablet-vw(280px);
+    }
 
     @include-media ("desktop") {
       --font-size: desktop-vw(16px);
@@ -72,6 +97,11 @@
     .icon {
       height: mobile-vw(15px);
       width: mobile-vw(15px);
+
+      @include-media ("tablet") {
+        height: tablet-vw(15px);
+        width: tablet-vw(15px);
+      }
 
       @include-media ("desktop") {
         height: desktop-vw(15px);
