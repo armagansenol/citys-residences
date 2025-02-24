@@ -125,11 +125,16 @@ export default function Header() {
           </button>
           <nav className={cn(s["nav"], "flex flex-col gap-10 lg:flex-row items-center text-white")} role="navigation">
             <div className={"flex items-center gap-6"}>
-              <div className={cn(s["locale-switcher"], s["nav-item"], "cursor-pointer")}>
+              <div className={cn(s["locale-switcher"], s["nav-item"], "cursor-pointer hidden bt:block")}>
                 <LocaleSwitcher />
               </div>
               <div className={cn(s["sticky-badge"], s["nav-item"], "cursor-pointer")}>
-                <StickyBadge hidden={true} />
+                <div className="hidden bt:block">
+                  <StickyBadge hidden={true} />
+                </div>
+                <div className="block bt:hidden font-lexend-giga font-light text-white text-[0.7rem] text-center blur-bg-bricky-brick py-2 px-2 rounded-sm">
+                  RANDEVU AL
+                </div>
               </div>
             </div>
           </nav>

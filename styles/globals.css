@@ -20,10 +20,10 @@
   }
 
   --z-content: z-stack();
+  --z-book-button: z-stack();
   --z-menu: z-stack();
   --z-header: z-stack();
   --z-header-content: z-stack();
-  --z-sticky: z-stack();
   --z-popup: z-stack();
   --z-modal: z-stack();
   --z-gsap-markers: z-stack();

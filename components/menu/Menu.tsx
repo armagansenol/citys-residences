@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react"
 
 import VerticalCutReveal, { VerticalCutRevealRef } from "@/components/animations/vertical-cut-reveal"
 import { gsap, useGSAP } from "@/components/gsap"
+import { LocaleSwitcher } from "../locale-switcher"
 
 const navigationItems: Array<{
   title: string
@@ -81,37 +82,40 @@ export default function Menu({ open }: MenuProps) {
 
   return (
     <div className={cn(s.frame, "blur-bg-bricky-brick")} ref={ref}>
-      <div
+      <nav
         className={cn(
           s.menu,
           "menu",
-          "absolute top-0 left-0 w-full h-full flex items-center justify-center bd:justify-start p-4 bt:p-10"
+          "absolute top-0 left-0 w-full h-full p-4 bt:p-10 flex items-center justify-center bd:justify-start"
         )}
         onClick={() => animateLinksForwards()}
       >
-        <nav>
-          <ul
+        <ul
+          className={cn(s.navList, "flex flex-col items-center bd:items-start gap-3 bt:gap-10 bd:gap-6 pt-24 bt:pt-0")}
+        >
+          {navigationItems.map(({ title, href }) => (
+            <li
+              className={cn(
+                s.navItem,
+                "font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-2xl text-center bd:text-left"
+              )}
+              key={title}
+            >
+              <Link className="cursor-pointer" href={href}>
+                <AnimatedLink animate={animateLinks}>{title}</AnimatedLink>
+              </Link>
+            </li>
+          ))}
+          <li
             className={cn(
-              s.navList,
-              "flex flex-col flex-wrap items-center bd:items-start justify-center gap-3 bt:gap-10 bd:gap-6"
+              s.navItem,
+              "block bt:hidden font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-2xl text-center bd:text-left"
             )}
           >
-            {navigationItems.map(({ title, href }) => (
-              <li
-                className={cn(
-                  s.navItem,
-                  "font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-2xl text-center bd:text-left"
-                )}
-                key={title}
-              >
-                <Link className="cursor-pointer" href={href}>
-                  <AnimatedLink animate={animateLinks}>{title}</AnimatedLink>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+            <LocaleSwitcher />
+          </li>
+        </ul>
+      </nav>
     </div>
   )
 }
