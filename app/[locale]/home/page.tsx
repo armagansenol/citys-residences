@@ -146,7 +146,13 @@ export default function Home() {
         />
       </section>
       <section className="relative">
-        <ParallaxVideoPanel />
+        <div className="w-screen aspect-video bd:aspect-none bd:h-[var(--lvh-calc)] overflow-hidden relative z-10 flex items-center justify-center">
+          <Video
+            primaryVideoUrl="https://player.vimeo.com/progressive_redirect/playback/1050026684/rendition/1080p/file.mp4?loc=external&log_user=0&signature=fda1ef0d723ecd6a77745792fc70643e9bc8e0cce3e4b8e3cf266d25613fb891#t=0.01"
+            className="w-full h-full object-cover"
+            controls
+          />
+        </div>
       </section>
     </Wrapper>
   )

@@ -1,9 +1,10 @@
 .intro {
-  height: mobile-vw(300px);
+  /* height: mobile-vw(300px);
 
   @include-media ('tablet') {
     height: tablet-vw(500px);
-  }
+  } */
+  height: 100vh;
 
   @include-media ('desktop') {
     height: 100vh;
