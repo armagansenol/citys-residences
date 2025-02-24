@@ -5,6 +5,8 @@ import cn from "clsx"
 import Image from "next/image"
 import { useRef } from "react"
 import { gsap, ScrollTrigger } from "@/components/gsap"
+import { useWindowSize } from "hamo"
+import { breakpoints } from "@/styles/config.mjs"
 
 export interface MPImgProps {
   imgSrc: string
@@ -12,9 +14,13 @@ export interface MPImgProps {
 
 export function MPImg(props: MPImgProps) {
   const ref = useRef<HTMLDivElement>(null)
+  const { width } = useWindowSize()
 
   useGSAP(
     () => {
+      if (!width) return
+      if (width < breakpoints.breakpointTablet) return
+
       const tl = gsap.timeline({ paused: true })
 
       tl.fromTo(
@@ -55,6 +61,7 @@ export function MPImg(props: MPImgProps) {
     },
     {
       scope: ref,
+      dependencies: [width],
     }
   )
 
@@ -64,7 +71,7 @@ export function MPImg(props: MPImgProps) {
       ref={ref}
     >
       <div className="relative w-full h-[120%] gsap-parallax-img">
-        <div className="absolute top-0 left-0 right-0 bottom-0 z-50 isolate gsap-parallax-img-overlay">
+        <div className="absolute top-0 left-0 right-0 bottom-0 z-50 isolate gsap-parallax-img-overlay hidden bd:block">
           <div className="bg-bricky-brick absolute w-full h-full z-10"></div>
           <Image src={props.imgSrc} alt="Parallax Image" fill className="object-cover mix-blend-overlay z-20" />
         </div>

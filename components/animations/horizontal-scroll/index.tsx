@@ -135,7 +135,7 @@ export function HorizontalScroll({
               <p
                 className={cn(
                   s.infoText,
-                  "font-halenoir text-base text-white font-normal leading-relaxed text-center bd:text-left"
+                  "font-halenoir text-base bt:text-2xl bd:text-base text-white font-normal leading-relaxed text-center bd:text-left"
                 )}
               >
                 {description}

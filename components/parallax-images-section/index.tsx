@@ -20,13 +20,8 @@ export function ParallaxImagesSection() {
       gsap.registerPlugin(ScrollTrigger)
 
       const textTL = gsap.timeline({ paused: true })
-      const frameTL = gsap.timeline({ paused: true })
 
-      frameTL.to(".frame", {
-        y: `${1500}px`,
-      })
-
-      textTL.from(".gsap-text", {
+      textTL.from(".gsap-title", {
         yPercent: -100,
         ease: "expo.out",
         duration: 1.5,
@@ -34,23 +29,18 @@ export function ParallaxImagesSection() {
 
       ScrollTrigger.create({
         animation: textTL,
-        trigger: ".gsap-text-container",
+        trigger: ".gsap-title-c",
         start: "center center",
         toggleActions: "play none none reverse",
       })
 
       ScrollTrigger.create({
-        // animation: frameTL,
         trigger: ".frame",
-        // start: "top top",
-        // scrub: true,
         pin: true,
         pinSpacing: false,
-        // markers: true,
       })
     },
     {
-      dependencies: [],
       scope: ref,
     }
   )
@@ -58,10 +48,17 @@ export function ParallaxImagesSection() {
   return (
     <div className="relative" ref={ref}>
       <div className={cn(s.frame, "frame")}>
-        <div className={cn(s.text, "gsap-text-container overflow-hidden")}>
-          <div className="gsap-text">
+        <div
+          className={cn(
+            s.title,
+            "gsap-title-c",
+            "font-lexend-giga text-neutral-200 drop-shadow-md font-bold text-5xl bt:text-7xl bd:text-6xl leading-tight text-center overflow-hidden"
+          )}
+        >
+          <div className="gsap-title hidden bd:block">
             <ResponsiveLetterSpacing text="DAHA HUZURLU YAŞA" />
           </div>
+          <div className="gsap-title block bd:hidden">DAHA HUZURLU YAŞA</div>
         </div>
       </div>
       <div className="flex flex-col gap-8 bt:gap-0">

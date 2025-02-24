@@ -97,23 +97,23 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-white font-halenoir px-4 bt:px-8 py-6 bt:py-12 pt-0 z-20 relative">
+      <section className="bg-white font-halenoir px-4 bd:px-8 py-6 bd:py-12 pt-0 z-20 relative">
         <div className="py-6 bt:py-12 relative flex flex-col items-center">
           <div className="w-full flex flex-col gap-16 bt:grid bt:grid-cols-3 bt:gap-6">
             {moreSectionData.map((item, index) => (
               <div
                 key={index}
                 className={cn(
-                  "col-span-1 space-y-10 bt:space-y-16 text-center",
+                  "col-span-1 space-y-5 bt:space-y-6 bd:space-y-16 text-center",
                   index === 0 && "bt:mt-60",
                   index === 1 && "bt:mt-0",
                   index === 2 && "bt:mt-96"
                 )}
               >
-                <div className="relative aspect-w-10 aspect-h-16 mx-auto">
+                <div className="relative aspect-w-10 aspect-h-10 bt:aspect-h-14 bd:aspect-h-16 mx-auto">
                   <MPImg imgSrc={item.imgSrc} />
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-6 bt:space-y-4 bd:space-y-6">
                   <h2 className="font-lexend-giga font-normal text-4xl text-bricky-brick mx-auto">{item.title}</h2>
                   <p className="font-halenoir text-base bt:text-xl max-w-sm mx-auto">{item.description}</p>
                 </div>

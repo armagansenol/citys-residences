@@ -39,15 +39,20 @@ export function ZoomMap() {
 
   return (
     <div
-      className="w-screen h-[var(--lvh-calc)] flex flex-col bd:flex-row gap-8 bd:gap-4 items-center justify-center"
+      className="w-screen h-[var(--lvh-calc)] flex flex-col bd:flex-row gap-4 bd:gap-4 items-center justify-center"
       ref={ref}
     >
-      <div className="max-w-xs mb-0 bd:mb-64">
-        <h2 className="text-halenoir text-xl bd:text-3xl font-normal leading-relaxed text-black text-center bd:text-left">
+      <div className="order-1 bd:order-1 max-w-lg bd:max-w-xs mb-0 bd:mb-64">
+        <h2 className="text-halenoir text-xl bt:text-3xl bd:text-3xl font-normal leading-relaxed text-black text-center bd:text-left">
           İstanbul&apos;un kalbinde, Kozyatağı&apos;nın prestijli lokasyonunda
         </h2>
       </div>
-      <div className={cn(s.mapC, "relative rounded-full overflow-hidden z-10 flex-shrink-0")}>
+      <div
+        className={cn(
+          s.mapC,
+          "order-3 bd:order-2 relative rounded-full overflow-hidden z-10 flex-shrink-0 mt-12 bd:mt-0"
+        )}
+      >
         <Image
           src="/img/map.jpg"
           alt="City's Residences Istanbul"
@@ -58,8 +63,8 @@ export function ZoomMap() {
           width={8000}
         />
       </div>
-      <div className="max-w-xs mb-0 bd:mb-32 bd:ml-8">
-        <h2 className="text-halenoir text-xl bd:text-3xl font-normal leading-relaxed text-black text-center bd:text-left">
+      <div className="order-2 bd:order-3 max-w-lg bd:max-w-xs mb-0 bd:mb-32 bd:ml-8">
+        <h2 className="text-halenoir text-xl bt:text-3xl bd:text-3xl font-normal leading-relaxed text-black text-center bd:text-left">
           şehri ve zamanı kendi ritminize göre yaşama fırsatı edinin.
         </h2>
       </div>

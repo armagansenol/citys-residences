@@ -1,19 +1,15 @@
 .intro {
-  /* height: mobile-vw(300px);
-
-  @include-media ('tablet') {
-    height: tablet-vw(500px);
-  } */
   height: 100vh;
-
-  @include-media ('desktop') {
-    height: 100vh;
-  }
 }
 
 .sanati {
   height: mobile-vw(100px);
   width: mobile-vw(360px);
+
+  @include-media ('tablet') {
+    height: tablet-vw(180px);
+    width: tablet-vw(700px);
+  }
 
   @include-media ('desktop') {
     height: desktop-vw(240px);

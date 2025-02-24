@@ -25,16 +25,16 @@ export function MaskedParallaxImage({ horizontalAlignment = "ltr" }: MaskedParal
 
       const tl = gsap.timeline({ paused: true })
 
-      tl.fromTo(
-        ".gsap-parallax-text",
-        {
-          yPercent: 600,
-        },
-        {
-          yPercent: 200,
-        },
-        "s"
-      )
+      // tl.fromTo(
+      //   ".gsap-parallax-text",
+      //   {
+      //     yPercent: 600,
+      //   },
+      //   {
+      //     yPercent: 200,
+      //   },
+      //   "s"
+      // )
 
       ScrollTrigger.create({
         animation: tl,
@@ -50,7 +50,7 @@ export function MaskedParallaxImage({ horizontalAlignment = "ltr" }: MaskedParal
   )
 
   return (
-    <div className="px-4 bt:px-10 py-4 bt:py-28" ref={ref}>
+    <div className="px-4 bt:px-10 py-4 bt:py-14 bd:py-28" ref={ref}>
       <div className={cn("flex flex-col-reverse bt:grid bt:grid-cols-24 bt:items-center gap-8 bt:gap-0")}>
         <div
           className={cn(
@@ -58,14 +58,14 @@ export function MaskedParallaxImage({ horizontalAlignment = "ltr" }: MaskedParal
             horizontalAlignment === "ltr" ? "col-start-1 order-2 bt:order-1" : "col-start-[18] order-1 bt:order-2"
           )}
         >
-          <p className="hidden bt:block">
-            <TextRevealOnScroll splitBy="lines" textAlign="left">
+          <p className="hidden bt:block bt:text-2xl bd:text-3xl">
+            <TextRevealOnScroll splitBy="lines" textAlign="left" staggerDuration={0.0005}>
               Şehrin yoğunluğundan sıyrılıp eve atılan ilk adımdaki huzur cömertçe sunan City’s Residences, yemyeşil
               alanları ve zamana meydan okuyan tasarımıyla sizi dinginliğin tam kalbine taşır.
             </TextRevealOnScroll>
           </p>
           <p className="block bt:hidden">
-            <TextRevealOnScroll splitBy="lines" textAlign="center">
+            <TextRevealOnScroll splitBy="lines" textAlign="center" staggerDuration={0.0005}>
               Şehrin yoğunluğundan sıyrılıp eve atılan ilk adımdaki huzur cömertçe sunan City’s Residences, yemyeşil
               alanları ve zamana meydan okuyan tasarımıyla sizi dinginliğin tam kalbine taşır.
             </TextRevealOnScroll>
