@@ -11,13 +11,11 @@
   z-index: var(--z-header);
 
   &.hidden {
-    transform: translateY(-100%);
-
     &:before {
       opacity: 0;
     }
 
-    .logoC {
+    .logo-c {
       height: desktop-vw(50px);
     }
   }
@@ -28,19 +26,24 @@
       pointer-events: auto;
     }
 
-    .logoC {
+    .logo-c {
       opacity: 1;
       pointer-events: auto;
     }
 
-    .nav {
+    .sticky-badge {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .locale-switcher {
       opacity: 1;
       pointer-events: auto;
     }
   }
 
   &.menuOpen {
-    .nav {
+    .locale-switcher {
       opacity: 1;
       pointer-events: auto;
     }
@@ -61,7 +64,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    transition: 400ms all ease;
+    transition: 400ms opacity ease;
     z-index: var(--z-header-content);
 
     @include-media ('mobile') {
@@ -69,7 +72,7 @@
     }
   }
 
-  .logoC {
+  .logo-c {
     height: mobile-vw(64px);
     left: 50%;
     opacity: 0;
@@ -79,7 +82,7 @@
     top: desktop-vw(20px);
     transform: translateX(-50%);
     transform-origin: top center;
-    transition: 400ms all ease;
+    transition: 400ms opacity ease;
     z-index: var(--z-header-content);
 
     @include-media ('tablet') {
@@ -133,15 +136,16 @@
     }
   }
 
-  .nav {
-    color: var(--white);
+  .locale-switcher {
     opacity: 0;
-    position: relative;
     pointer-events: none;
-    transition: 400ms all ease;
+    transition: 400ms opacity ease;
+  }
+
+  .nav {
     z-index: var(--z-header-content);
 
-    .navItem {
+    .nav-item {
       font-size: desktop-vw(12px);
       font-weight: 400;
 

@@ -80,7 +80,7 @@ export default function Header() {
           })}
         >
           <LocalizedLink
-            className={cn(s.logoC, "cursor-pointer gsap-blur")}
+            className={cn(s["logo-c"], "cursor-pointer gsap-blur")}
             href="/"
             scroll={initialScroll}
             aria-label="Home"
@@ -123,17 +123,19 @@ export default function Header() {
               <span>MENÜ</span>
             </div>
           </button>
-          <nav className={cn(s.nav, "flex flex-col gap-10 lg:flex-row items-center")} role="navigation">
-            <div className={"flex flex-col lg:flex-row items-center gap-10"}>
-              <div className={cn(s.navItem, "cursor-pointer")}>
+          <nav className={cn(s["nav"], "flex flex-col gap-10 lg:flex-row items-center text-white")} role="navigation">
+            <div className={"flex items-center gap-6"}>
+              <div className={cn(s["locale-switcher"], s["nav-item"], "cursor-pointer")}>
                 <LocaleSwitcher />
+              </div>
+              <div className={cn(s["sticky-badge"], s["nav-item"], "cursor-pointer")}>
+                <StickyBadge hidden={true} />
               </div>
             </div>
           </nav>
           <Menu open={menuOpen} />
         </div>
       </header>
-      <StickyBadge hidden={scrollState.sticky} />
     </>
   )
 }
