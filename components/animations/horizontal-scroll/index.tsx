@@ -75,7 +75,7 @@ export function HorizontalScroll({
       const textTL = gsap.timeline({ paused: true })
 
       textTL.from(".gsap-title", {
-        yPercent: -100,
+        yPercent: -150,
         ease: "expo.out",
         duration: 1.5,
       })
@@ -117,7 +117,7 @@ export function HorizontalScroll({
             className={cn(
               s.title,
               "gsap-title-c",
-              "font-lexend-giga text-white font-bold text-5xl bt:text-8xl bd:text-6xl leading-tight text-center overflow-hidden"
+              "font-lexend-giga text-white font-bold text-5xl bt:text-8xl bd:text-6xl leading-none text-center overflow-hidden py-2"
             )}
           >
             <div className="gsap-title hidden bd:block">

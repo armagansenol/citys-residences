@@ -79,7 +79,7 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
               }}
               transition={{
                 ...transition,
-                duration: 1,
+                duration: 0.4,
               }}
             >
               <ArrowRight

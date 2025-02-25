@@ -99,7 +99,7 @@ export default function Home() {
       </section>
       <section className="bg-white font-halenoir px-4 bd:px-8 py-6 bd:py-12 pt-0 z-20 relative">
         <div className="py-6 bt:py-12 relative flex flex-col items-center">
-          <div className="w-full flex flex-col gap-16 bt:grid bt:grid-cols-3 bt:gap-6">
+          <div className="w-full flex flex-col gap-16 bt:grid bt:grid-cols-3 bt:gap-6 bt:pb-16">
             {moreSectionData.map((item, index) => (
               <div
                 key={index}
@@ -145,8 +145,8 @@ export default function Home() {
           items={slides3}
         />
       </section>
-      <section className="relative">
-        <div className="w-screen aspect-video bd:aspect-none bd:h-[var(--lvh-calc)] overflow-hidden relative z-10 flex items-center justify-center">
+      <section className="relative container py-10">
+        <div className="w-full aspect-video overflow-hidden relative z-10 flex items-center justify-center">
           <Video
             primaryVideoUrl="https://player.vimeo.com/progressive_redirect/playback/1050026684/rendition/1080p/file.mp4?loc=external&log_user=0&signature=fda1ef0d723ecd6a77745792fc70643e9bc8e0cce3e4b8e3cf266d25613fb891#t=0.01"
             className="w-full h-full object-cover"

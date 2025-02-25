@@ -6,6 +6,7 @@ const colors = {
   "namara-grey": "#7b7b7b",
   "moon-veil": "#8B9BB1",
   "bengala-red": "#932d19",
+  grenadier: "#c24e37",
 }
 
 const themes = {

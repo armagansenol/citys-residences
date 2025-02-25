@@ -89,7 +89,7 @@ export function Footer() {
             <div className="bt:col-span-9 grid grid-cols-1 gap-10 bt:gap-0 bt:grid-cols-12">
               {/* İletişim Section */}
               <div className="bt:col-span-8">
-                <h2 className="text-base font-normal mb-6 border-b border-bengala-red pb-2">İletişim</h2>
+                <h2 className="text-base font-normal mb-6 border-b border-grenadier pb-2">İletişim</h2>
                 <div className="grid grid-cols-1 bt:grid-cols-2 gap-6 mr-24">
                   {menuItems.iletisim.map((office) => (
                     <div key={office.title} className="space-y-2">
@@ -105,7 +105,7 @@ export function Footer() {
               </div>
               {/* Sosyal Medya Section */}
               <div className="bt:col-span-4 bt:col-start-9">
-                <h2 className="text-base font-normal mb-6 border-b border-bengala-red pb-2">Sosyal Medya</h2>
+                <h2 className="text-base font-normal mb-6 border-b border-grenadier pb-2">Sosyal Medya</h2>
                 <div className="space-y-2">
                   {menuItems.sosyalMedya.map((item) => (
                     <Link
@@ -123,7 +123,7 @@ export function Footer() {
             <div className="grid grid-cols-1 bt:grid-cols-12 gap-10 bt:gap-0 pt-8 mt-0 bd:mt-10">
               {/* Menü Section */}
               <div className="bt:col-span-8">
-                <h2 className="text-base font-normal mb-6 border-b border-bengala-red pb-2">Menü</h2>
+                <h2 className="text-base font-normal mb-6 border-b border-grenadier pb-2">Menü</h2>
                 <div className="flex flex-col bt:grid grid-cols-2 gap-y-2 gap-x-6 mr-24">
                   {menuItems.menu.map((item, i) => (
                     <Link key={i} href={item.href} className="text-sm text-white/80 hover:text-white transition-colors">
@@ -134,7 +134,7 @@ export function Footer() {
               </div>
               {/* Bilgilendirme Section */}
               <div className="bt:col-span-4 bt:col-start-9">
-                <h2 className="text-base font-normal mb-6 border-b border-bengala-red pb-2">Bilgilendirme</h2>
+                <h2 className="text-base font-normal mb-6 border-b border-grenadier pb-2">Bilgilendirme</h2>
                 <div className="space-y-2">
                   {menuItems.bilgilendirme.map((item, i) => (
                     <Link
@@ -151,7 +151,7 @@ export function Footer() {
           </div>
         </div>
         {/* Copyright Section */}
-        <div className="flex flex-col bt:flex-row justify-between items-center gap-5 bd:gap-0 pt-5 border-t border-bengala-red text-sm">
+        <div className="flex flex-col bt:flex-row justify-between items-center gap-5 bd:gap-0 pt-5 border-t border-grenadier text-sm">
           <span>2025 © City&apos;s Residences - Tüm hakları saklıdır.</span>
           <span>
             Made by{" "}
