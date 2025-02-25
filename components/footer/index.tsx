@@ -79,18 +79,18 @@ export function Footer() {
       <div className="container flex flex-col">
         <div className="flex flex-col items-stretch bd:grid grid-cols-1 bd:grid-cols-24 gap-16 bt:gap-24 bd:gap-8 mb-12">
           {/* Logo Section */}
-          <div className="bt:col-span-9">
-            <div className="mx-auto w-[200px] bd:w-[260px]">
+          <div className="bt:col-span-8 flex">
+            <div className="mx-auto bt:mx-0 bt:mb-auto bt:mr-auto w-[200px] bd:w-[260px]">
               <Logo fill="var(--white)" />
             </div>
           </div>
-          <div className="bt:col-span-15">
+          <div className="bt:col-span-16">
             {/* Top Section: İletişim and Sosyal Medya */}
-            <div className="bt:col-span-9 grid grid-cols-1 bt:grid-cols-12 gap-12 bd:gap-0">
+            <div className="bt:col-span-9 grid grid-cols-1 gap-10 bt:gap-0 bt:grid-cols-12">
               {/* İletişim Section */}
-              <div className="bt:col-span-7">
+              <div className="bt:col-span-8">
                 <h2 className="text-base font-normal mb-6 border-b border-bengala-red pb-2">İletişim</h2>
-                <div className="grid grid-cols-1 bt:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 bt:grid-cols-2 gap-6 mr-24">
                   {menuItems.iletisim.map((office) => (
                     <div key={office.title} className="space-y-2">
                       <h3 className="text-sm font-medium">{office.title}</h3>
@@ -120,11 +120,11 @@ export function Footer() {
               </div>
             </div>
             {/* Bottom Section: Menü and Bilgilendirme */}
-            <div className="grid grid-cols-1 bt:grid-cols-12 pt-8 mt-0 bd:mt-10 gap-12 bd:gap-0">
+            <div className="grid grid-cols-1 bt:grid-cols-12 gap-10 bt:gap-0 pt-8 mt-0 bd:mt-10">
               {/* Menü Section */}
-              <div className="bt:col-span-7">
+              <div className="bt:col-span-8">
                 <h2 className="text-base font-normal mb-6 border-b border-bengala-red pb-2">Menü</h2>
-                <div className="flex flex-col bd:grid grid-cols-2 gap-2">
+                <div className="flex flex-col bt:grid grid-cols-2 gap-y-2 gap-x-6 mr-24">
                   {menuItems.menu.map((item, i) => (
                     <Link key={i} href={item.href} className="text-sm text-white/80 hover:text-white transition-colors">
                       {item.title}
@@ -152,8 +152,13 @@ export function Footer() {
         </div>
         {/* Copyright Section */}
         <div className="flex flex-col bt:flex-row justify-between items-center gap-5 bd:gap-0 pt-5 border-t border-bengala-red text-sm">
-          <p>2025 © City&apos;s Residences - Tüm hakları saklıdır.</p>
-          <p>Made by JUST DESIGN FX</p>
+          <span>2025 © City&apos;s Residences - Tüm hakları saklıdır.</span>
+          <span>
+            Made by{" "}
+            <Link href="https://justdesignfx.com" target="_blank" rel="noopener noreferrer" className="underline">
+              JUST DESIGN FX
+            </Link>
+          </span>
         </div>
       </div>
     </footer>
