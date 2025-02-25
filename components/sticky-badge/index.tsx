@@ -3,12 +3,11 @@
 import s from "./sticky-badge.module.css"
 
 import cn from "clsx"
-import { useEffect, useState } from "react"
 import { useLenis } from "lenis/react"
+import { useEffect, useState } from "react"
 
-import { ContactForm } from "@/components/form-contact"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
-import AnimatedButton from "@/components/animated-button"
+import { AnimatedButton } from "@/components/animated-button"
+import { ModalContactForm } from "@/components/modal-contact-form"
 
 interface StickyBadgeProps {
   hidden: boolean
@@ -28,18 +27,10 @@ export function StickyBadge({ hidden }: StickyBadgeProps) {
 
   return (
     <>
-      <Dialog open={open} onOpenChange={setOpen}>
-        <DialogTrigger asChild>
-          <div
-            className={cn(s.stickyBadge, "flex items-center justify-center cursor-pointer", { [s.hidden]: !hidden })}
-          >
-            <AnimatedButton text="RANDEVU AL" size="sm" theme="secondary" />
-          </div>
-        </DialogTrigger>
-        <DialogContent>
-          <ContactForm />
-        </DialogContent>
-      </Dialog>
+      <div className={cn(s.stickyBadge, { [s.hidden]: !hidden })} onClick={() => setOpen((prev) => !prev)}>
+        <AnimatedButton text="RANDEVU AL" size="sm" theme="secondary" />
+      </div>
+      <ModalContactForm open={open} setOpen={setOpen} />
     </>
   )
 }

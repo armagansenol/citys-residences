@@ -88,7 +88,7 @@ export default function Header() {
             <Logo fill="var(--foreground)" />
           </LocalizedLink>
           <button
-            className={cn(s.trigger, "cursor-pointer flex items-center gap-2 lg:gap-4", {
+            className={cn(s.trigger, "cursor-pointer flex items-center gap-2 bt:gap-4", {
               [s.active]: menuOpen,
             })}
             onClick={() => setMenuOpen((prev) => !prev)}
@@ -123,7 +123,7 @@ export default function Header() {
               <span>MENÜ</span>
             </div>
           </button>
-          <nav className={cn(s["nav"], "flex flex-col gap-10 lg:flex-row items-center text-white")} role="navigation">
+          <nav className={cn(s["nav"], "flex gap-10 items-center text-white")} role="navigation">
             <div className={"flex items-center gap-6"}>
               <div className={cn(s["locale-switcher"], s["nav-item"], "cursor-pointer hidden bt:block")}>
                 <LocaleSwitcher />

@@ -13,7 +13,7 @@ interface AnimatedButtonProps {
   theme?: "primary" | "secondary"
 }
 
-function AnimatedButton({ size = "md", text = "Button Text", theme = "primary" }: AnimatedButtonProps) {
+export function AnimatedButton({ size = "md", text = "Button Text", theme = "primary" }: AnimatedButtonProps) {
   const [isOn, setIsOn] = useState(false)
   const toggleSwitch = () => setIsOn(!isOn)
 
@@ -132,5 +132,3 @@ function AnimatedButton({ size = "md", text = "Button Text", theme = "primary" }
     </span>
   )
 }
-
-export default AnimatedButton

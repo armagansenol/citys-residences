@@ -97,7 +97,7 @@ export default function Menu({ open }: MenuProps) {
             <li
               className={cn(
                 s.navItem,
-                "font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-4xl text-center bd:text-left"
+                "font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-3xl text-center bd:text-left"
               )}
               key={title}
             >
@@ -106,12 +106,7 @@ export default function Menu({ open }: MenuProps) {
               </Link>
             </li>
           ))}
-          <li
-            className={cn(
-              s.navItem,
-              "block bt:hidden font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-2xl text-center bd:text-left"
-            )}
-          >
+          <li className={cn(s.navItem, "block bt:hidden")}>
             <LocaleSwitcher />
           </li>
         </ul>

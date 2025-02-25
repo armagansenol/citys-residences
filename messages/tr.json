@@ -34,5 +34,95 @@
     },
     "gallery": {
         "title": "GALERİ"
+    },
+    "contact": {
+        "description": "City's Residences projesine gösterdiğiniz ilgi için teşekkür ederiz. <br></br> Ekibimizin sizinle iletişime geçebilmesi için lütfen aşağıdaki kayıt formunu doldurunuz.",
+        "form": {
+            "inputs": {
+                "name": {
+                    "placeholder": "Adınız",
+                    "errors": {
+                        "required": "Zorunlu alan"
+                    }
+                },
+                "surname": {
+                    "placeholder": "Soyadınız",
+                    "errors": {
+                        "required": "Zorunlu alan"
+                    }
+                },
+                "phone": {
+                    "placeholder": "Telefon Numaranız",
+                    "errors": {
+                        "required": "Lütfen geçerli bir telefon numarası giriniz",
+                        "min": "Telefon numarası en az 8 karakter olmalıdır",
+                        "max": "Telefon numarası en fazla 15 karakter olmalıdır"
+                    }
+                },
+                "email": {
+                    "placeholder": "E-Posta Adresiniz",
+                    "errors": {
+                        "required": "Zorunlu alan",
+                        "email": "Lütfen geçerli bir e-posta adresi giriniz"
+                    }
+                },
+                "residenceType": {
+                    "placeholder": "Tercih Edilen Konut Türü",
+                    "errors": {
+                        "required": "Zorunlu alan"
+                    }
+                },
+                "howDidYouHearAboutUs": {
+                    "placeholder": "Bizi Nereden Duydunuz?",
+                    "errors": {
+                        "required": "Zorunlu alan"
+                    },
+                    "options": {
+                        "reference": "Referans",
+                        "projectVisit": "Avm / Proje Alanı Ziyaret",
+                        "internetSocialMedia": "İnternet / Sosyal Medya",
+                        "billboard": "Billboard",
+                        "newspaperMagazine": "Gazete / Dergi"
+                    }
+                },
+                "message": {
+                    "placeholder": "Mesajınız"
+                },
+                "consent": {
+                    "placeholder": "citysresidences.com uygulaması kapsamında paylaşacağım kişisel verilere ilişkin <legal1>Kişisel Verilerin Korunmasına İlişkin Aydınlatma Metni</legal1>’ni, <legal2>Açık Rıza Metni</legal2>’ni, <legal3>Ticari Elektronik İleti Aydınlatma Metni</legal3>’ni okudum, kabul ediyorum.",
+                    "errors": {
+                        "required": "Zorunlu alan"
+                    }
+                },
+                "consentElectronicMessage": {
+                    "placeholder": "Tarafıma ticari elektronik ileti gönderilmesine <legal4>açık rızam var</legal4>.",
+                    "errors": {
+                        "required": "Zorunlu alan, lütfen aşağıdaki seçeneklerden en az birini seçiniz"
+                    }
+                },
+                "consentSms": {
+                    "placeholder": "SMS"
+                },
+                "consentEmail": {
+                    "placeholder": "Email"
+                },
+                "consentPhone": {
+                    "placeholder": "Phone"
+                }
+            },
+            "submit": {
+                "default": "GÖNDER",
+                "sending": "GÖNDERİLİYOR..."
+            },
+            "messages": {
+                "error": "Form gönderilirken hata oluştu",
+                "success": "Form başarıyla gönderildi",
+                "successDialog": {
+                    "title": "İlginiz İçin Teşekkür Ederiz",
+                    "description": "Satış ekibimizden bir temsilcimiz en kısa sürede sizinle iletişime geçecektir. Bu özel proje hakkında sizinle görüşmek ve detayları paylaşmak için sabırsızlanıyoruz.",
+                    "button": "Sayfaya Dön"
+                }
+            }
+        }
     }
 }

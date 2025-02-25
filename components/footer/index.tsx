@@ -20,23 +20,56 @@ const menuItems = {
     { title: "X", icon: <div></div> },
   ],
   menu: [
-    "Konutlar",
-    "City's Park",
-    "City's Club House",
-    "Konum",
-    "Yeme İçme",
-    "Alışveriş",
-    "Justwork Campus",
-    "Performans Sanatları Merkezi",
-    "City's Club Ayrıcalıkları",
-    "İletişim",
+    {
+      title: "Konutlar",
+      href: "#",
+    },
+    {
+      title: "City's Park",
+      href: "#",
+    },
+    {
+      title: "City's Club House",
+      href: "#",
+    },
+    {
+      title: "Konum",
+      href: "#",
+    },
+    {
+      title: "Yeme İçme",
+      href: "#",
+    },
+    {
+      title: "Alışveriş",
+      href: "#",
+    },
+    {
+      title: "Justwork Campus",
+      href: "#",
+    },
   ],
   bilgilendirme: [
-    "KVKK",
-    "Ticari Elektronik İleti Aydınlatma Metni",
-    "Açık Rıza Metni",
-    "KVK İlişkin Aydınlatma Metni",
-    "Çerez Politikası",
+    {
+      title: "KVKK",
+      href: "#",
+    },
+    {
+      title: "Ticari Elektronik İleti Aydınlatma Metni",
+      href: "#",
+    },
+    {
+      title: "Açık Rıza Metni",
+      href: "#",
+    },
+    {
+      title: "KVK İlişkin Aydınlatma Metni",
+      href: "#",
+    },
+    {
+      title: "Çerez Politikası",
+      href: "#",
+    },
   ],
 }
 
@@ -92,9 +125,9 @@ export function Footer() {
               <div className="bt:col-span-7">
                 <h2 className="text-base font-normal mb-6 border-b border-bengala-red pb-2">Menü</h2>
                 <div className="flex flex-col bd:grid grid-cols-2 gap-2">
-                  {menuItems.menu.map((item) => (
-                    <Link key={item} href="#" className="text-sm text-white/80 hover:text-white transition-colors">
-                      {item}
+                  {menuItems.menu.map((item, i) => (
+                    <Link key={i} href={item.href} className="text-sm text-white/80 hover:text-white transition-colors">
+                      {item.title}
                     </Link>
                   ))}
                 </div>
@@ -103,13 +136,13 @@ export function Footer() {
               <div className="bt:col-span-4 bt:col-start-9">
                 <h2 className="text-base font-normal mb-6 border-b border-bengala-red pb-2">Bilgilendirme</h2>
                 <div className="space-y-2">
-                  {menuItems.bilgilendirme.map((item) => (
+                  {menuItems.bilgilendirme.map((item, i) => (
                     <Link
-                      key={item}
-                      href="#"
+                      key={i}
+                      href={item.href}
                       className="block text-sm text-white/80 hover:text-white transition-colors"
                     >
-                      {item}
+                      {item.title}
                     </Link>
                   ))}
                 </div>
@@ -117,7 +150,6 @@ export function Footer() {
             </div>
           </div>
         </div>
-
         {/* Copyright Section */}
         <div className="flex flex-col bt:flex-row justify-between items-center gap-5 bd:gap-0 pt-5 border-t border-bengala-red text-sm">
           <p>2025 © City&apos;s Residences - Tüm hakları saklıdır.</p>

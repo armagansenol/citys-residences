@@ -8,7 +8,6 @@
   top: 0;
   z-index: 150;
 }
-
 .wrapper {
   position: absolute;
   bottom: 0;
@@ -16,7 +15,6 @@
   right: 0;
   top: 0;
 }
-
 .menu {
   height: 100vh;
   left: 50%;

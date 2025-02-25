@@ -34,5 +34,95 @@
     },
     "gallery": {
         "title": "GALLERY"
+    },
+    "contact": {
+        "description": "Thank you for your interest in City's Residences. <br></br> Please fill out the registration form below so our team can contact you.",
+        "form": {
+            "inputs": {
+                "name": {
+                    "placeholder": "Name",
+                    "errors": {
+                        "required": "Required field"
+                    }
+                },
+                "surname": {
+                    "placeholder": "Surname",
+                    "errors": {
+                        "required": "Required field"
+                    }
+                },
+                "phone": {
+                    "placeholder": "Telephone Number",
+                    "errors": {
+                        "required": "Please enter a valid telephone number",
+                        "min": "Telephone number must be at least 8 characters long",
+                        "max": "Telephone number must be at most 15 characters long"
+                    }
+                },
+                "email": {
+                    "placeholder": "Email Address",
+                    "errors": {
+                        "required": "Required field",
+                        "email": "Please enter a valid email address"
+                    }
+                },
+                "residenceType": {
+                    "placeholder": "Preferred Residence Type",
+                    "errors": {
+                        "required": "Required field"
+                    }
+                },
+                "howDidYouHearAboutUs": {
+                    "placeholder": "How did you hear about us?",
+                    "errors": {
+                        "required": "Required field"
+                    },
+                    "options": {
+                        "reference": "Reference",
+                        "projectVisit": "Shopping Mall / Project Area Visit",
+                        "internetSocialMedia": "Internet / Social Media",
+                        "billboard": "Billboard",
+                        "newspaperMagazine": "Newspaper / Magazine"
+                    }
+                },
+                "message": {
+                    "placeholder": "Message"
+                },
+                "consent": {
+                    "placeholder": "I have read and accept the <legal1>Personal Data Protection Disclosure Text</legal1>, <legal2>Explicit Consent Text</legal2>, and <legal3>Commercial Electronic Message Disclosure Text</legal3> regarding the personal data I will share within the scope of the citysresidences.com application.",
+                    "errors": {
+                        "required": "Required field"
+                    }
+                },
+                "consentElectronicMessage": {
+                    "placeholder": "<legal4>I consent</legal4> to receiving commercial electronic messages.",
+                    "errors": {
+                        "required": "Required field, please select at least one of the options below"
+                    }
+                },
+                "consentSms": {
+                    "placeholder": "SMS"
+                },
+                "consentEmail": {
+                    "placeholder": "Email"
+                },
+                "consentPhone": {
+                    "placeholder": "Phone"
+                }
+            },
+            "submit": {
+                "default": "SUBMIT",
+                "sending": "SUBMITTING..."
+            },
+            "messages": {
+                "error": "Failed to submit form",
+                "success": "Form submitted successfully",
+                "successDialog": {
+                    "title": "Thank You for Your Interest",
+                    "description": "A representative from our sales team will contact you shortly. We look forward to speaking with you and sharing details about this special project.",
+                    "button": "Return to Page"
+                }
+            }
+        }
     }
 }
