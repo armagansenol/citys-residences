@@ -40,7 +40,7 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
       textColor: "--white",
       textHoverColor: "--white",
       bgColorClassName: "blur-bg-bricky-brick",
-      bgHoverColorClassName: "bg-transparent",
+      bgHoverColorClassName: "blur-bg-bricky-brick",
     },
   }
 
