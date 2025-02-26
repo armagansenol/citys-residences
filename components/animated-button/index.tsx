@@ -10,7 +10,7 @@ import { useState } from "react"
 interface AnimatedButtonProps {
   size?: "sm" | "md" | "lg"
   text: string
-  theme?: "primary" | "secondary"
+  theme?: "primary" | "secondary" | "tertiary"
 }
 
 export function AnimatedButton({ size = "md", text = "Button Text", theme = "primary" }: AnimatedButtonProps) {
@@ -25,18 +25,28 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
 
   const themes = {
     primary: {
-      c1: "--white",
-      c2: "--bricky-brick",
+      textColor: "--white",
+      textHoverColor: "--bricky-brick",
+      bgColorClassName: "blur-bg-white",
+      bgHoverColorClassName: "blur-bg-bricky-brick",
     },
     secondary: {
-      c1: "--bricky-brick",
-      c2: "--white",
+      textColor: "--bricky-brick",
+      textHoverColor: "--white",
+      bgColorClassName: "bg-white",
+      bgHoverColorClassName: "bg-bricky-brick",
+    },
+    tertiary: {
+      textColor: "--white",
+      textHoverColor: "--white",
+      bgColorClassName: "blur-bg-bricky-brick",
+      bgHoverColorClassName: "bg-transparent",
     },
   }
 
   return (
     <span
-      className={cn(s.button, "blur-bg-bricky-brick", "test flex items-center justify-center cursor-pointer", {
+      className={cn(s.button, themes[theme].bgColorClassName, "test flex items-center justify-center cursor-pointer", {
         [s.sm]: size === "sm",
         [s.md]: size === "md",
         [s.lg]: size === "lg",
@@ -54,10 +64,10 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
         <motion.span
           className={cn("z-20 relative")}
           initial={{
-            color: `var(${themes[theme].c2})`,
+            color: `var(${themes[theme].textColor})`,
           }}
           animate={{
-            color: isOn ? `var(${themes[theme].c1})` : `var(${themes[theme].c2})`,
+            color: isOn ? `var(${themes[theme].textHoverColor})` : `var(${themes[theme].textColor})`,
           }}
           layout
           transition={transition}
@@ -72,6 +82,7 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
             <motion.span
               className="block"
               initial={{
+                color: `var(${themes[theme].textHoverColor})`,
                 x: "-600%",
               }}
               animate={{
@@ -82,12 +93,7 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
                 duration: 0.4,
               }}
             >
-              <ArrowRight
-                className={cn(s.icon, {
-                  "text-bricky-brick": theme === "secondary",
-                  "text-white": theme === "primary",
-                })}
-              />
+              <ArrowRight className={cn(s.icon)} />
             </motion.span>
           </span>
           {text}
@@ -95,10 +101,11 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
       </span>
       {/* background */}
       <motion.span
-        className={cn(s["bg"], "absolute block w-full h-full translate-y-full z-10", {
-          "bg-bricky-brick": theme === "primary",
-          "bg-white": theme === "secondary",
-        })}
+        className={cn(
+          s["bg"],
+          themes[theme].bgHoverColorClassName,
+          "absolute block w-full h-full translate-y-full z-10"
+        )}
         initial={{
           y: "100%",
         }}
@@ -116,17 +123,15 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
       >
         <motion.span
           className="block"
+          initial={{
+            color: `var(${themes[theme].textColor})`,
+          }}
           animate={{
             x: isOn ? "200%" : 0,
           }}
           transition={transition}
         >
-          <ArrowRight
-            className={cn(s.icon, {
-              "text-bricky-brick": theme === "primary",
-              "text-white": theme === "secondary",
-            })}
-          />
+          <ArrowRight className={cn(s.icon)} />
         </motion.span>
       </motion.span>
     </span>
