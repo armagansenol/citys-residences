@@ -77,7 +77,7 @@ export function Footer() {
                     <div key={office.title} className="space-y-2">
                       <h3 className="text-sm font-medium">{office.title}</h3>
                       {office.items.map((item, index) => (
-                        <p key={index} className="text-sm text-white/80 whitespace-pre-line">
+                        <p key={index} className="text-sm text-white whitespace-pre-line">
                           {item}
                         </p>
                       ))}
@@ -93,7 +93,7 @@ export function Footer() {
                     <Link
                       key={item.title}
                       href="#"
-                      className="flex items-center gap-2 text-sm text-white/80 hover:text-white transition-colors"
+                      className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
                     >
                       {item.title}
                     </Link>
@@ -108,7 +108,7 @@ export function Footer() {
                 <h2 className="text-base font-normal mb-6 border-b border-grenadier pb-2">Menü</h2>
                 <div className="flex flex-col bt:grid grid-cols-2 gap-y-2 gap-x-6 mr-24">
                   {menuItems.menu.map((item, i) => (
-                    <Link key={i} href={item.href} className="text-sm text-white/80 hover:text-white transition-colors">
+                    <Link key={i} href={item.href} className="text-sm text-white/60 hover:text-white transition-colors">
                       {item.title}
                     </Link>
                   ))}
@@ -122,7 +122,7 @@ export function Footer() {
                     <Link
                       key={i}
                       href={item.href}
-                      className="block text-sm text-white/80 hover:text-white transition-colors"
+                      className="block text-sm text-white/60 hover:text-white transition-colors"
                     >
                       {item.title}
                     </Link>
