@@ -9,13 +9,14 @@ import Lenis from "lenis"
 import { useLenis } from "lenis/react"
 import { useTranslations } from "next-intl"
 import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 
 import { AnimatedButton } from "@/components/animated-button"
 import { Logo } from "@/components/icons"
 import { LocaleSwitcher } from "@/components/locale-switcher"
 import { Menu } from "@/components/menu"
 import { MenuX } from "@/components/menu-x"
+import { ModalContactForm } from "@/components/modal-contact-form"
 import { colors } from "@/styles/config.mjs"
 
 export function Header() {
@@ -79,6 +80,10 @@ export function Header() {
 
     lenis?.start()
   }, [lenis, modalOpen])
+
+  const memoizedModal = useMemo(() => {
+    return <ModalContactForm open={modalOpen} setOpen={setModalOpen} />
+  }, [modalOpen, setModalOpen])
 
   return (
     <>
@@ -163,7 +168,7 @@ export function Header() {
           <Menu open={menuOpen} items={navigationItems} />
         </div>
       </header>
-      {/* <ModalContactForm open={modalOpen} setOpen={setModalOpen} /> */}
+      {memoizedModal}
     </>
   )
 }
