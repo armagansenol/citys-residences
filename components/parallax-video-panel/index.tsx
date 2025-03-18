@@ -22,7 +22,6 @@ export function ParallaxVideoPanel() {
         ".gsap-img-c",
         {
           filter: "blur(8px)",
-          opacity: 0.3,
         },
         "s"
       )
@@ -67,7 +66,7 @@ export function ParallaxVideoPanel() {
     <>
       <div className="w-screen overflow-hidden relative z-10 flex bd:hidden items-center justify-center">{video}</div>
       <div
-        className="hidden bd:block w-screen h-[var(--lvh-calc)] overflow-hidden bg-bricky-brick"
+        className="hidden bd:block w-screen h-[var(--lvh-calc)] overflow-hidden"
         ref={ref}
         onClick={() => {
           videoRef.current?.play()
