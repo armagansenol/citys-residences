@@ -116,15 +116,15 @@
 
 .trigger {
   left: desktop-vw(40px);
-  mix-blend-mode: difference;
   position: fixed;
   top: calc(var(--header-height) / 2);
   transform: translateY(-50%);
   transition: 400ms all ease;
   z-index: var(--z-header-content);
 
+  mix-blend-mode: difference;
+
   &.active {
-    mix-blend-mode: normal;
     .text {
       > span {
         &:first-child {
