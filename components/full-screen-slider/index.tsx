@@ -12,7 +12,7 @@ import { EmblaCarousel } from "@/components/utility/embla-carousel"
 export interface FullScreenSliderProps {
   title: string
   description: string
-  items: string[]
+  items: React.ReactNode[]
 }
 
 export function FullScreenSlider({ title, description, items }: FullScreenSliderProps) {

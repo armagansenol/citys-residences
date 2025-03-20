@@ -146,6 +146,9 @@
                 "button": "EXPLORE"
             }
         },
+        "map": {
+            "title": "In the heart of Istanbul, in the prestigious location of Kozyatağı, have the privilege of shaping the city and time according to your own rhythm."
+        },
         "live": {
             "p1": {
                 "title": "LIVE FULLY",

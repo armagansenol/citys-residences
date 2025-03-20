@@ -27,7 +27,7 @@
   }
 
   @include-media ('desktop') {
-    --cutoff: desktop-vw(150px);
+    --cutoff: desktop-vw(100px);
     height: calc(var(--lvh-calc) - var(--cutoff));
     width: calc(var(--lvh-calc) - var(--cutoff));
   }

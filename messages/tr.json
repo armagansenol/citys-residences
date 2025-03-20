@@ -140,6 +140,9 @@
                 "button": "İNCELE"
             }
         },
+        "map": {
+            "title": "İstanbul'un kalbinde, Kozyatağı'nın prestijli lokasyonunda şehri ve zamanı kendi ritminize göre şekillendirme ayrıcalığına sahip olun."
+        },
         "live": {
             "p1": {
                 "title": "DAHA ÇOK YAŞA",

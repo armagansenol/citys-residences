@@ -5,12 +5,11 @@ import Autoplay from "embla-carousel-autoplay"
 import useEmblaCarousel from "embla-carousel-react"
 import React from "react"
 
-import { NextButton, PrevButton, usePrevNextButtons } from "./embla-carousel-buttons"
-import { Img } from "@/components/utility/img"
 import { useAutoplay } from "./autoplay"
+import { NextButton, PrevButton, usePrevNextButtons } from "./embla-carousel-buttons"
 
 type PropType = {
-  slides: string[]
+  slides: React.ReactNode[]
   options?: EmblaOptionsType
 }
 
@@ -28,7 +27,7 @@ export const EmblaCarousel: React.FC<PropType> = (props) => {
         <div className={s["embla-container"]}>
           {slides.map((item, index) => (
             <div className={s["embla-slide"]} key={index}>
-              <Img src={item} alt={`Slide ${index + 1}`} height={1000} width={1000} />
+              {item}
             </div>
           ))}
         </div>
