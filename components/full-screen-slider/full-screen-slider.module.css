@@ -1,8 +1,6 @@
 .container {
   position: relative;
   width: 100vw;
-  height: 100vh;
-  height: var(--lvh-calc);
   min-height: var(--lvh-calc);
   overflow: hidden;
   z-index: 100;
@@ -40,9 +38,10 @@
     width: tablet-vw(600px);
   }
   @include-media ('desktop') {
+    letter-spacing: desktop-vw(20em);
+    left: desktop-vw(100px);
     top: desktop-vw(100px);
     transform: translate(0, 0);
-    left: desktop-vw(100px);
     width: desktop-vw(1230px);
     white-space: nowrap;
   }

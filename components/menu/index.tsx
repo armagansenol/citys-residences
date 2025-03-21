@@ -10,7 +10,7 @@ import { useRef } from "react"
 import { gsap, useGSAP } from "@/components/gsap"
 import { socialIcons } from "@/components/icons"
 import { LocaleSwitcher } from "@/components/locale-switcher"
-import { ArrowRight } from "lucide-react"
+import { AnimatedButton } from "../animated-button"
 
 interface MenuItem {
   title: string
@@ -96,7 +96,7 @@ export function Menu({ open, items }: MenuProps) {
               </Link>
             </li>
           ))}
-          <li className="w-full flex flex-col my-4">
+          <li className="w-full flex flex-col my-6">
             <p className="w-full font-halenoir font-normal text-white text-base py-2 border-b border-white/30">
               Bizi Takip Edin
             </p>
@@ -120,14 +120,8 @@ export function Menu({ open, items }: MenuProps) {
               "font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-base text-center bd:text-left"
             )}
           >
-            <a
-              href="https://g.co/kgs/qgRLq9q"
-              className="opacity-100 hover:opacity-90 transition-opacity whitespace-pre-line flex items-center gap-2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Satış Ofisi Konum
-              <ArrowRight className="w-4 h-4" />
+            <a className="flex -ml-2" href="https://g.co/kgs/qgRLq9q" target="_blank" rel="noopener noreferrer">
+              <AnimatedButton theme="transparent" size="sm" text="Satış Ofisi Konum" fontFamily="halenoir" />
             </a>
           </li>
           <li className={cn(s.navItem, "block bt:hidden")}>

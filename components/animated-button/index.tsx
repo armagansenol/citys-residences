@@ -12,10 +12,16 @@ import { useMeasure } from "react-use"
 interface AnimatedButtonProps {
   size?: "sm" | "md" | "lg" | "fit-content"
   text: string
-  theme?: "primary" | "secondary" | "tertiary"
+  theme?: "primary" | "secondary" | "tertiary" | "transparent"
+  fontFamily?: "lexend-giga" | "halenoir"
 }
 
-export function AnimatedButton({ size = "md", text = "Button Text", theme = "primary" }: AnimatedButtonProps) {
+export function AnimatedButton({
+  size = "md",
+  text = "Button Text",
+  theme = "primary",
+  fontFamily = "lexend-giga",
+}: AnimatedButtonProps) {
   const [isOn, setIsOn] = useState(false)
   const toggleSwitch = () => setIsOn(!isOn)
   const [buttonMeasureRef, { width: buttonWidth }] = useMeasure<HTMLSpanElement>()
@@ -52,6 +58,13 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
       borderColorClassName: "border-none",
       borderHoverColorClassName: "border-none",
     },
+    transparent: {
+      textColor: colors.white,
+      textHoverColor: colors.white,
+      bgColorClassName: "bg-transparent",
+      bgHoverColorClassName: "bg-transparent",
+      borderColorClassName: "border-none",
+    },
   }
 
   return (
@@ -60,6 +73,7 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
         s.button,
         themes[theme].bgColorClassName,
         themes[theme].borderColorClassName,
+        fontFamily === "lexend-giga" ? "font-lexend-giga" : "font-halenoir",
         "relative flex items-center cursor-pointer rounded-md overflow-hidden",
         {
           [s.sm]: size === "sm",
@@ -107,7 +121,7 @@ export function AnimatedButton({ size = "md", text = "Button Text", theme = "pri
               <ArrowRight className={cn(s.icon)} />
             </motion.span>
           </span>
-          <span className={cn(s["text-c"], "font-lexend-giga font-normal whitespace-nowrap")}>{text}</span>
+          <span className={cn(s["text-c"], "font-normal whitespace-nowrap")}>{text}</span>
         </motion.span>
       </span>
       {/* icon right */}

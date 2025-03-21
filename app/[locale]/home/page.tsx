@@ -18,36 +18,36 @@ export default function Home() {
   const t = useTranslations("home")
 
   const slides1 = [
-    <div className="relative w-screen h-screen" key={1}>
+    <div className="relative w-screen h-[105vh]" key={1}>
       <Img src="/img/slides-1/1.jpg" alt="Slide 1" fill className="object-cover" sizes="100vw" />
     </div>,
-    <div className="relative w-screen h-screen" key={2}>
+    <div className="relative w-screen h-[105vh]" key={2}>
       <Img src="/img/slides-1/2.jpg" alt="Slide 2" fill className="object-cover" sizes="100vw" />
     </div>,
-    <div className="relative w-screen h-screen" key={3}>
+    <div className="relative w-screen h-[105vh]" key={3}>
       <Img src="/img/slides-1/3.jpg" alt="Slide 3" fill className="object-cover" sizes="100vw" />
     </div>,
-    <div className="relative w-screen h-screen" key={4}>
+    <div className="relative w-screen h-[105vh]" key={4}>
       <Img src="/img/slides-1/4.jpg" alt="Slide 4" fill className="object-cover" sizes="100vw" />
     </div>,
   ]
   const slides3 = [
-    <div className="relative w-screen h-screen" key={1}>
+    <div className="relative w-screen h-[105vh]" key={1}>
       <Img src="/img/slides-3/1.jpg" alt="Slide 1" fill className="object-cover" sizes="100vw" />
     </div>,
-    <div className="relative w-screen h-screen" key={2}>
+    <div className="relative w-screen h-[105vh]" key={2}>
       <Img src="/img/slides-3/2.jpg" alt="Slide 2" fill className="object-cover" sizes="100vw" />
     </div>,
-    <div className="relative w-screen h-screen" key={3}>
+    <div className="relative w-screen h-[105vh]" key={3}>
       <Img src="/img/slides-3/3.jpg" alt="Slide 3" fill className="object-cover" sizes="100vw" />
     </div>,
-    <div className="relative w-screen h-screen" key={4}>
+    <div className="relative w-screen h-[105vh]" key={4}>
       <Img src="/img/slides-3/4.jpg" alt="Slide 4" fill className="object-cover" sizes="100vw" />
     </div>,
-    <div className="relative w-screen h-screen" key={5}>
+    <div className="relative w-screen h-[105vh]" key={5}>
       <Img src="/img/slides-3/5.jpg" alt="Slide 5" fill className="object-cover" sizes="100vw" />
     </div>,
-    <div className="relative w-screen h-screen" key={6}>
+    <div className="relative w-screen h-[105vh]" key={6}>
       <Img src="/img/slides-3/6.jpg" alt="Slide 6" fill className="object-cover" sizes="100vw" />
     </div>,
   ]

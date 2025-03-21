@@ -12,14 +12,34 @@
   }
 
   &.md {
-    --padding: mobile-vw(6px);
+    --padding: mobile-vw(7px);
 
     @include-media ("tablet") {
-      --padding: tablet-vw(6px);
+      --padding: tablet-vw(7px);
     }
 
     @include-media ("desktop") {
-      --padding: desktop-vw(6px);
+      --padding: desktop-vw(7px);
+      font-size: desktop-vw(16px);
+    }
+
+    .icon-c {
+      padding: var(--padding);
+
+      .icon {
+        height: mobile-vw(12px);
+        width: mobile-vw(12px);
+
+        @include-media ("tablet") {
+          height: tablet-vw(12px);
+          width: tablet-vw(12px);
+        }
+
+        @include-media ("desktop") {
+          height: desktop-vw(16px);
+          width: desktop-vw(16px);
+        }
+      }
     }
   }
 
@@ -60,7 +80,7 @@
   }
 
   .text-c {
-    padding: var(--padding);
+    padding-left: calc(var(--padding) * 2);
   }
 
   .icon-c {
