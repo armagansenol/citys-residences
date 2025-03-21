@@ -1,9 +1,6 @@
 "use client"
 
-import s from "./parallax-video-panel.module.css"
-
 import { useGSAP } from "@gsap/react"
-import cn from "clsx"
 import Image from "next/image"
 import { useRef } from "react"
 
@@ -32,25 +29,23 @@ export function ParallaxVideoPanel() {
           },
           "s"
         )
-        .to(
+        .fromTo(
           ".gsap-video-panel-c",
           {
-            y: `-100%`,
-            scale: 1,
+            yPercent: -20,
+          },
+          {
+            yPercent: -100,
           },
           "s"
         )
-        .to(".gsap-video-panel-c", {
-          y: `-100%`,
-          duration: 0.05,
-        })
 
       ScrollTrigger.create({
         animation: tl,
         trigger: ref.current,
         scrub: true,
         pin: true,
-        end: "+=2500",
+        end: "+=1000",
       })
     },
     {
@@ -81,10 +76,7 @@ export function ParallaxVideoPanel() {
           />
         </div>
         <div
-          className={cn(
-            s["video-panel-c"],
-            "gsap-video-panel-c container h-[var(--lvh-calc)] flex items-center justify-center"
-          )}
+          className={"gsap-video-panel-c container h-[var(--lvh-calc)] flex items-center justify-center relative z-50"}
         >
           <div className="w-full h-auto overflow-hidden relative z-10 flex items-center justify-center">{video}</div>
         </div>

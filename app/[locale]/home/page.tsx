@@ -116,6 +116,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section className="bg-white font-halenoir px-4 bd:px-8 py-6 bd:py-12 pt-0 z-20 relative">
         <div className="py-6 bt:py-12 relative flex flex-col items-center">
           <div className="w-full flex flex-col gap-16 bt:grid bt:grid-cols-3 bt:gap-6 bt:pb-16">
@@ -157,11 +158,11 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="relative py-4 bt:py-24">
-        <ParallaxImagesSection />
-      </section>
       <section className="relative">
         <ParallaxVideoPanel />
+      </section>
+      <section className="relative py-4 bt:py-24">
+        <ParallaxImagesSection />
       </section>
       <section className="relative">
         <FullScreenSlider title={t("live.p3.title")} description={t("live.p3.description")} items={slides3} />

@@ -1,7 +1,0 @@
-.video-panel-c {
-  transform: translateY(0) scale(1);
-
-  @include-media ('desktop') {
-    transform: translateY(-20%) scale(0.75);
-  }
-}
