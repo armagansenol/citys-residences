@@ -122,7 +122,12 @@ export function Menu({ open, items }: MenuProps) {
               "font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-base text-center bd:text-left"
             )}
           >
-            <a className="flex -ml-2" href="https://g.co/kgs/qgRLq9q" target="_blank" rel="noopener noreferrer">
+            <a
+              className="flex -ml-2"
+              href="https://maps.app.goo.gl/2hSJUsgo2U198Kqq9"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <AnimatedButton theme="transparent" size="sm" text="Satış Ofisi Konum" fontFamily="halenoir" />
             </a>
           </li>

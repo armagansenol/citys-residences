@@ -60,7 +60,7 @@ export function Footer() {
                   })}
                 </span>
                 <a
-                  href="https://g.co/kgs/qgRLq9q"
+                  href="https://maps.app.goo.gl/2hSJUsgo2U198Kqq9"
                   className="block text-sm text-white opacity-50 hover:opacity-100 transition-opacity whitespace-pre-line"
                   target="_blank"
                   rel="noopener noreferrer"
