@@ -124,7 +124,7 @@ export default function Home() {
             'before:content-[""] before:absolute before:left-0 before:bottom-0 before:right-0 before:h-4/5 before:w-full before:bg-gradient-to-t before:from-white before:to-transparent before:z-10'
           )}
         >
-          <div className="w-full h-[420px] bt:h-[500px] bd:[700px] relative group-hover:scale-110 transition-all duration-700">
+          <div className="w-full h-[420px] bt:h-[500px] bd:h-[700px] relative group-hover:scale-110 transition-all duration-700">
             <Img src={moreSectionData[0].imgSrc} alt="City's Lifestyle" fill className="object-cover" sizes="30vw" />
           </div>
           <div className="absolute left-0 bottom-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-black px-4 bt:px-4 bd:px-8 py-5 bt:py-8 bd:py-12 z-20">
@@ -143,13 +143,7 @@ export default function Home() {
           )}
         >
           <div className="w-full h-[420px] bt:h-[500px] bd:h-[700px] relative group-hover:scale-110 transition-all duration-700">
-            <Img
-              src={moreSectionData[1].imgSrc}
-              alt="City's Lifestyle"
-              fill
-              className="object-cover object-bottom"
-              sizes="30vw"
-            />
+            <Img src={moreSectionData[1].imgSrc} alt="City's Lifestyle" fill className="object-cover" sizes="30vw" />
           </div>
           <div className="absolute left-0 top-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-black px-4 bt:px-4 bd:px-8 py-5 bt:py-8 bd:py-12 z-20">
             <h2 className="font-lexend-giga font-normal text-3xl bt:text-2xl bd:text-4xl">
