@@ -22,7 +22,7 @@
     top: tablet-vw(100px);
   }
   @include-media ('desktop') {
-    font-size: desktop-vw(70px);
+    font-size: desktop-vw(64px);
     letter-spacing: 0.3em;
     left: 50%;
     top: desktop-vw(100px);
