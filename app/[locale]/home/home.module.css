@@ -21,11 +21,10 @@
   --cutoff: mobile-vw(20px);
   height: calc(100vw - var(--cutoff));
   width: calc(100vw - var(--cutoff));
-
   @include-media ('tablet') {
-    --cutoff: tablet-vw(150px);
+    height: tablet-vw(350px);
+    width: tablet-vw(350px);
   }
-
   @include-media ('desktop') {
     --cutoff: desktop-vw(100px);
     height: calc(var(--lvh-calc) - var(--cutoff));

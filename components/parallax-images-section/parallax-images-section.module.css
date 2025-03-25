@@ -10,12 +10,15 @@
 }
 .title-c {
   left: 50%;
+  font-size: mobile-vw(35px);
   position: absolute;
   transform: translateX(-50%);
   top: mobile-vw(75px);
-  width: 96vw;
+  width: 90vw;
   z-index: 150;
   @include-media ('tablet') {
+    font-size: tablet-vw(35px);
+    letter-spacing: 0.3em;
     top: tablet-vw(100px);
   }
   @include-media ('desktop') {

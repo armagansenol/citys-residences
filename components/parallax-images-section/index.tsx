@@ -54,7 +54,7 @@ export function ParallaxImagesSection() {
             className={cn(
               s.title,
               "gsap-title",
-              "font-lexend-giga text-bricky-brick font-bold leading-none overflow-hidden py-2 text-left bt:text-center"
+              "font-lexend-giga text-bricky-brick font-bold leading-snug bt:leading-none overflow-hidden py-2 text-center"
             )}
           >
             {t("title")}

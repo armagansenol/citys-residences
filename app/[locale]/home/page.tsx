@@ -92,7 +92,7 @@ export default function Home() {
         </ScaleOut>
       </section>
       <section className="bg-white font-halenoir pt-6 bt:pt-12 z-20 relative">
-        <div className="container mx-auto py-6 bt:py-40 relative flex flex-col items-center">
+        <div className="container mx-auto py-6 bt:py-28 bd:py-40 relative flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
             <h1 className="font-lexend-giga text-bricky-brick text-5xl bt:text-8xl font-medium tracking-widest">
               <TextRevealOnScroll className="leading-tight" staggerDuration={0.05}>
@@ -124,12 +124,14 @@ export default function Home() {
             'before:content-[""] before:absolute before:left-0 before:bottom-0 before:right-0 before:h-4/5 before:w-full before:bg-gradient-to-t before:from-white before:to-transparent before:z-10'
           )}
         >
-          <div className="w-full h-[420px] bt:h-[700px] relative group-hover:scale-110 transition-all duration-700">
+          <div className="w-full h-[420px] bt:h-[500px] bd:[700px] relative group-hover:scale-110 transition-all duration-700">
             <Img src={moreSectionData[0].imgSrc} alt="City's Lifestyle" fill className="object-cover" sizes="30vw" />
           </div>
-          <div className="absolute left-0 bottom-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-black px-4 bt:px-8 py-5 bt:py-12 z-20">
-            <h2 className="font-lexend-giga font-normal text-3xl bt:text-4xl">{moreSectionData[0].title}</h2>
-            <p className="font-halenoir text-base bt:text-xl max-w-sm">{moreSectionData[0].description}</p>
+          <div className="absolute left-0 bottom-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-black px-4 bt:px-4 bd:px-8 py-5 bt:py-8 bd:py-12 z-20">
+            <h2 className="font-lexend-giga font-normal text-3xl bt:text-2xl bd:text-4xl">
+              {moreSectionData[0].title}
+            </h2>
+            <p className="font-halenoir text-base bt:text-md bd:text-xl max-w-sm">{moreSectionData[0].description}</p>
           </div>
         </div>
         <div
@@ -140,7 +142,7 @@ export default function Home() {
             'before:content-[""] before:absolute before:left-0 before:top-0 before:right-0 before:h-4/5 before:w-full before:bg-gradient-to-b before:from-white before:to-transparent before:z-10'
           )}
         >
-          <div className="w-full h-[420px] bt:h-[700px] relative group-hover:scale-110 transition-all duration-700">
+          <div className="w-full h-[420px] bt:h-[500px] bd:h-[700px] relative group-hover:scale-110 transition-all duration-700">
             <Img
               src={moreSectionData[1].imgSrc}
               alt="City's Lifestyle"
@@ -149,9 +151,11 @@ export default function Home() {
               sizes="30vw"
             />
           </div>
-          <div className="absolute left-0 top-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-black px-4 bt:px-8 py-5 bt:py-12 z-20">
-            <h2 className="font-lexend-giga font-normal text-3xl bt:text-4xl">{moreSectionData[1].title}</h2>
-            <p className="font-halenoir text-base bt:text-xl max-w-sm">{moreSectionData[1].description}</p>
+          <div className="absolute left-0 top-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-black px-4 bt:px-4 bd:px-8 py-5 bt:py-8 bd:py-12 z-20">
+            <h2 className="font-lexend-giga font-normal text-3xl bt:text-2xl bd:text-4xl">
+              {moreSectionData[1].title}
+            </h2>
+            <p className="font-halenoir text-base bt:text-md bd:text-xl max-w-sm">{moreSectionData[1].description}</p>
           </div>
         </div>
         <div
@@ -162,19 +166,21 @@ export default function Home() {
             'before:content-[""] before:absolute before:left-0 before:bottom-0 before:right-0 before:h-1/2 before:w-full before:bg-gradient-to-t before:from-black before:to-transparent before:z-10'
           )}
         >
-          <div className="w-full h-[420px] bt:h-[700px] relative group-hover:scale-110 transition-all duration-700">
+          <div className="w-full h-[420px] bt:h-[500px] bd:h-[700px] relative group-hover:scale-110 transition-all duration-700">
             <Img src={moreSectionData[2].imgSrc} alt="City's Lifestyle" fill className="object-cover" sizes="30vw" />
           </div>
-          <div className="absolute left-0 bottom-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-white px-4 bt:px-8 py-5 bt:py-12 z-20">
-            <h2 className="font-lexend-giga font-normal text-3xl bt:text-4xl">{moreSectionData[2].title}</h2>
-            <p className="font-halenoir text-base bt:text-xl max-w-sm">{moreSectionData[2].description}</p>
+          <div className="absolute left-0 bottom-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-white px-4 bt:px-4 bd:px-8 py-5 bt:py-8 bd:py-12 z-20">
+            <h2 className="font-lexend-giga font-normal text-3xl bt:text-2xl bd:text-4xl">
+              {moreSectionData[2].title}
+            </h2>
+            <p className="font-halenoir text-base bt:text-md bd:text-xl max-w-sm">{moreSectionData[2].description}</p>
           </div>
         </div>
       </section>
-      <section className="flex flex-col-reverse bt:flex-row items-center justify-center gap-8 bt:gap-16 py-12 bt:py-24">
+      <section className="flex flex-col-reverse bt:flex-row items-center justify-center gap-8 bt:gap-0 bd:gap-16 py-12 bt:py-24">
         {/* <ZoomMap /> */}
-        <div className="max-w-sm bt:max-w-lg px-4 bt:px-0">
-          <p className="font-halenoir text-2xl bt:text-3xl text-center">
+        <div className="max-w-sm bt:max-w-md bd:max-w-lg px-4 bt:px-0">
+          <p className="font-halenoir text-2xl bt:text-2xl bd:text-3xl text-center">
             <TextRevealOnScroll className="hidden bt:block" splitBy="lines" textAlign="left" staggerDuration={0.005}>
               {t("map.title")}
             </TextRevealOnScroll>
