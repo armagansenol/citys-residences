@@ -56,8 +56,8 @@
     }
 
     @include-media ("desktop") {
-      --padding: desktop-vw(8px);
-      font-size: desktop-vw(18px);
+      --padding: desktop-vw(7px);
+      font-size: desktop-vw(16px);
     }
 
     .icon-c {
