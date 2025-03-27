@@ -101,11 +101,12 @@ export function Menu({ open, setOpen, items }: MenuProps) {
             <li
               className={cn(
                 s.navItem,
-                "font-halenoir font-medium text-white text-2xl bt:text-4xl bd:text-2xl text-center bd:text-left",
+                "font-halenoir text-white text-2xl bt:text-4xl bd:text-2xl text-center bd:text-left",
                 "transition-opacity duration-300 ease-in-out",
                 {
                   "opacity-30": hover && active !== i,
-                  "font-black": active === i,
+                  "font-bold": active === i,
+                  "font-medium": active !== i,
                 }
               )}
               key={title}
