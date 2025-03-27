@@ -5,10 +5,12 @@ import cn from "clsx"
 
 import { Video } from "@/components/utility/video"
 import { IconPlay } from "@/components/icons"
+import { Img } from "../img"
 
 export interface IVideoWithPlayButtonProps {
   primaryVideoUrl: string
   primaryVideoType?: string
+  thumbnail?: string
 }
 
 export function VideoWithPlayButton(props: IVideoWithPlayButtonProps) {
@@ -29,16 +31,24 @@ export function VideoWithPlayButton(props: IVideoWithPlayButtonProps) {
         controls={isPlaying}
       />
       <div
-        className={cn(
-          "absolute top-0 left-0 w-full h-full flex items-center justify-center bg-neutral-900/50 transition-all duration-500 cursor-pointer",
-          "group-hover:bg-neutral-900/70",
-          {
-            "opacity-0 pointer-events-none": isPlaying,
-          }
-        )}
+        className={cn("absolute top-0 left-0 w-full h-full transition-all duration-500 cursor-pointer", {
+          "opacity-0 pointer-events-none invisible": isPlaying,
+        })}
         onClick={handlePlay}
       >
+        {props.thumbnail && (
+          <div className="absolute top-0 left-0 w-full h-full">
+            <Img src={props.thumbnail} alt="Thumbnail" className="w-full h-full object-cover" fill sizes="100vw" />
+          </div>
+        )}
+        <div
+          className={cn(
+            "absolute top-0 left-0 w-full h-full bg-neutral-900/50 transition-all duration-500",
+            "group-hover:bg-neutral-900/70"
+          )}
+        />
         <button
+          type="button"
           className={cn(
             "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center transition-transform duration-300",
             "group-hover:scale-125"

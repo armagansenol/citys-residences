@@ -77,7 +77,7 @@ export function FullScreenSlider({ title, description, items }: FullScreenSlider
           className={cn(
             s.description,
             "gsap-description",
-            "w-full h-full rounded-lg overflow-hidden blur-bg-bricky-brick-light"
+            "w-full h-full rounded-lg overflow-hidden blur-bg-bricky-brick-lighter"
           )}
         >
           <p

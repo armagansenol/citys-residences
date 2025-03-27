@@ -98,7 +98,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
             <li
               className={cn(
                 s.navItem,
-                "font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-2xl text-center bd:text-left"
+                "font-halenoir font-medium text-white text-2xl bt:text-4xl bd:text-2xl text-center bd:text-left"
               )}
               key={title}
             >

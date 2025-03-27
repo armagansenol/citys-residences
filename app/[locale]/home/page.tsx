@@ -12,7 +12,7 @@ import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
 import { Wrapper } from "@/components/wrapper"
-import { mainVideoDesktop, mainVideoMobile, muratKaderVideo } from "@/lib/constants"
+import { kolajVideo, mainVideoDesktop, mainVideoMobile, muratKaderVideo } from "@/lib/constants"
 
 export default function Home() {
   const t = useTranslations("home")
@@ -90,7 +90,7 @@ export default function Home() {
             <div className={s.sanati}>
               <FadeInOnScroll>
                 <div className="relative w-full h-full">
-                  <Img src="/img/sanati.png" alt="Sanatı" fill className="object-contain" sizes="90vw" />
+                  <Img src="/img/sanati.png" alt="Sanatı" fill className="object-contain" sizes="100vw" />
                 </div>
               </FadeInOnScroll>
               <span className="sr-only">{t("section1.title2")}</span>
@@ -160,7 +160,6 @@ export default function Home() {
         </div>
       </section>
       <section className="flex flex-col-reverse bt:flex-row items-center justify-center gap-8 bt:gap-0 bd:gap-16 py-12 bt:py-24">
-        {/* <ZoomMap /> */}
         <div className="max-w-sm bt:max-w-md bd:max-w-lg px-4 bt:px-0">
           <p className="font-halenoir text-2xl bt:text-2xl bd:text-3xl text-center">
             <TextRevealOnScroll className="hidden bt:block" splitBy="lines" textAlign="left" staggerDuration={0.005}>
@@ -183,25 +182,22 @@ export default function Home() {
         </div>
       </section>
       <section className="relative container py-20">
-        {/* <ParallaxVideoPanel /> */}
         <div className="w-full aspect-video overflow-hidden relative z-10 flex items-center justify-center">
-          <VideoWithPlayButton primaryVideoUrl={mainVideoDesktop} />
+          <VideoWithPlayButton primaryVideoUrl={kolajVideo} thumbnail="/img/thumbnail-kolaj-video.jpg" />
         </div>
       </section>
       <section className="relative">
         <FullScreenSlider title={t("live.p1.title")} description={t("live.p1.description")} items={slides1} />
-        {/* <HorizontalScroll title={t("live.p1.title")} description={t("live.p1.description")} items={slides1} /> */}
       </section>
       <section className="relative py-4 bt:py-24">
         <ParallaxImagesSection />
       </section>
       <section className="relative">
         <FullScreenSlider title={t("live.p3.title")} description={t("live.p3.description")} items={slides3} />
-        {/* <HorizontalScroll title={t("live.p3.title")} description={t("live.p3.description")} items={slides3} /> */}
       </section>
       <section className="relative container py-20">
         <div className="w-full aspect-video overflow-hidden relative z-10 flex items-center justify-center">
-          <VideoWithPlayButton primaryVideoUrl={muratKaderVideo} />
+          <VideoWithPlayButton primaryVideoUrl={muratKaderVideo} thumbnail="/img/thumbnail-murat-kader.jpg" />
         </div>
       </section>
     </Wrapper>

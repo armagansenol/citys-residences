@@ -81,7 +81,8 @@
   }
 
   &.fit-content {
-    --padding: desktop-vw(7px);
+    --padding: desktop-vw(10px);
+    font-size: desktop-vw(16px);
   }
 
   .text-c {
@@ -101,8 +102,8 @@
       }
 
       @include-media ("desktop") {
-        height: desktop-vw(12px);
-        width: desktop-vw(12px);
+        height: desktop-vw(16px);
+        width: desktop-vw(16px);
       }
     }
   }
