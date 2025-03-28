@@ -161,7 +161,7 @@ export default function Home() {
       </section>
       <section className="flex flex-col-reverse bt:flex-row items-center justify-center gap-8 bt:gap-0 bd:gap-16 py-12 bt:py-24">
         <div className="max-w-sm bt:max-w-md bd:max-w-lg px-4 bt:px-0">
-          <p className="font-halenoir text-2xl bt:text-2xl bd:text-3xl text-center">
+          <p className="font-halenoir text-3xl bt:text-2xl bd:text-3xl text-center">
             <TextRevealOnScroll className="hidden bt:block" splitBy="lines" textAlign="left" staggerDuration={0.005}>
               {t("map.title")}
             </TextRevealOnScroll>

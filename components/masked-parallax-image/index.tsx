@@ -16,22 +16,22 @@ export interface MaskedParallaxImageProps {
 export function MaskedParallaxImage({ imgSrc, sizes = "100vw" }: MaskedParallaxImageProps) {
   const ref = useRef<HTMLDivElement>(null)
   const { width } = useWindowSize()
-  const distance = 100
 
   useGSAP(
     () => {
       if (!width) return
-      if (width < breakpoints.breakpointMobile) return
+
+      const distance = width < breakpoints.breakpointMobile ? 50 : 100
 
       const tl = gsap.timeline({ paused: true })
 
       tl.fromTo(
         ".gsap-parallax-img-c",
         {
-          y: `-${distance}px`,
+          y: `-${width < breakpoints.breakpointMobile ? 0 : 100}px`,
         },
         {
-          y: `${distance}px`,
+          y: `${width < breakpoints.breakpointMobile ? 0 : 100}px`,
         },
         "s"
       ).fromTo(
@@ -44,14 +44,6 @@ export function MaskedParallaxImage({ imgSrc, sizes = "100vw" }: MaskedParallaxI
         },
         "s"
       )
-      // .to(
-      //   ".gsap-parallax-img-overlay",
-      //   {
-      //     opacity: 0,
-      //     duration: 0.25,
-      //   },
-      //   "s"
-      // )
 
       ScrollTrigger.create({
         animation: tl,
