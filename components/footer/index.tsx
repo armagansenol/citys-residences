@@ -173,17 +173,17 @@ export function Footer() {
           <div className="bt:col-span-9 bd:col-span-8 text-center bt:text-left order-2 bt:order-1 text-[0.8rem] bt:text-xs bd:text-sm">
             <span>{t("copyright")}</span>
           </div>
-          <div className="bt:col-span-8 bd:col-span-10 flex gap-4 order-1 bt:order-2">
-            <div className="h-5 w-5 bt:h-4 bt:w-4 bd:h-5 bd:w-5 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+          <div className="bt:col-span-8 bd:col-span-10 flex gap-6 bt:gap-4 order-1 bt:order-2">
+            <div className="h-6 w-6 bt:h-4 bt:w-4 bd:h-5 bd:w-5 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
               {socialIcons.instagram}
             </div>
-            <div className="h-5 w-5 bt:h-4 bt:w-4 bd:h-5 bd:w-5 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+            <div className="h-6 w-6 bt:h-4 bt:w-4 bd:h-5 bd:w-5 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
               {socialIcons.facebook}
             </div>
-            <div className="h-5 w-5 bt:h-4 bt:w-4 bd:h-5 bd:w-5 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+            <div className="h-6 w-6 bt:h-4 bt:w-4 bd:h-5 bd:w-5 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
               {socialIcons.tiktok}
             </div>
-            <div className="h-5 w-5 bt:h-4 bt:w-4 bd:h-5 bd:w-5 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+            <div className="h-6 w-6 bt:h-4 bt:w-4 bd:h-5 bd:w-5 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
               {socialIcons.youtube}
             </div>
           </div>
