@@ -11,7 +11,7 @@ import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
 import { Wrapper } from "@/components/wrapper"
-import { kolajVideo, mainVideoDesktop, mainVideoMobile, muratKaderVideo } from "@/lib/constants"
+import { kolajVideo, locationVideo, mainVideoDesktop, mainVideoMobile, muratKaderVideo } from "@/lib/constants"
 
 export default function Home() {
   const t = useTranslations("home")
@@ -200,7 +200,7 @@ export default function Home() {
         </div>
         <div className={cn(s.circleVideoC, "overflow-hidden rounded-full z-20")}>
           <Video
-            primaryVideoUrl={mainVideoDesktop}
+            primaryVideoUrl={locationVideo}
             autoPlay
             loop
             muted
