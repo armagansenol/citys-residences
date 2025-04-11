@@ -228,13 +228,6 @@ export default function Home() {
           <VideoWithPlayButton primaryVideoUrl={muratKaderVideo} thumbnail="/img/thumbnail-murat-kader.jpg" />
         </div>
       </section>
-      <section className="relative w-full h-screen">
-        <iframe
-          src="https://www.lunas.pro/l-touch/web-version/london.html"
-          className="w-full h-full border-0"
-          allowFullScreen
-        />
-      </section>
     </Wrapper>
   )
 }

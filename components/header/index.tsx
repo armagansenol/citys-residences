@@ -31,7 +31,7 @@ export function Header() {
 
   const navigationItems = [
     { title: t("navigation.residences"), href: "#" },
-    { title: t("navigation.location"), href: "#" },
+    { title: t("navigation.location"), href: "/location" },
     { title: t("navigation.citysPark"), href: "#" },
     { title: t("navigation.citysMembersClub"), href: "#" },
     { title: t("navigation.citysLifePrivileges"), href: "#" },
