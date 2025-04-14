@@ -40,7 +40,7 @@
 .title {
   font-size: mobile-vw(32px);
   @include-media ("tablet") {
-    font-size: tablet-vw(32px);
+    font-size: tablet-vw(24px);
   }
   @include-media ("desktop") {
     font-size: desktop-vw(25px);
