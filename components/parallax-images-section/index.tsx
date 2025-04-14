@@ -16,6 +16,7 @@ import { breakpoints } from "@/styles/config.mjs"
 
 export interface MaskedParallaxImageSectionProps {
   horizontalAlignment?: "rtl" | "ltr"
+  title?: string
   text: string
   imgSrc: string
   link?: {
@@ -26,6 +27,7 @@ export interface MaskedParallaxImageSectionProps {
 
 export function MaskedParallaxImageSection({
   horizontalAlignment = "ltr",
+  title,
   text,
   imgSrc,
   link,
@@ -39,14 +41,30 @@ export function MaskedParallaxImageSection({
             horizontalAlignment === "ltr" ? "col-start-1 order-2 bt:order-1" : "col-start-[18] order-1 bt:order-2"
           )}
         >
+          {title && (
+            <>
+              <div className={cn(s.title, "font-lexend-giga font-normal leading-none text-bricky-brick")}>
+                <h3 className="hidden bt:block">
+                  <TextRevealOnScroll splitBy="lines" textAlign="left" staggerDuration={0.0025}>
+                    {title}
+                  </TextRevealOnScroll>
+                </h3>
+                <h3 className="block bt:hidden max-w-xs mx-auto">
+                  <TextRevealOnScroll splitBy="lines" textAlign="center" staggerDuration={0.0025}>
+                    {title}
+                  </TextRevealOnScroll>
+                </h3>
+              </div>
+            </>
+          )}
           <div className={s.text}>
             <p className="hidden bt:block">
-              <TextRevealOnScroll splitBy="lines" textAlign="left" staggerDuration={0.0075}>
+              <TextRevealOnScroll splitBy="lines" textAlign="left" staggerDuration={0.0025}>
                 {text}
               </TextRevealOnScroll>
             </p>
             <p className="block bt:hidden max-w-xs mx-auto">
-              <TextRevealOnScroll splitBy="lines" textAlign="center" staggerDuration={0.0075}>
+              <TextRevealOnScroll splitBy="lines" textAlign="center" staggerDuration={0.0025}>
                 {text}
               </TextRevealOnScroll>
             </p>
@@ -112,7 +130,7 @@ export function ParallaxImagesSection() {
   return (
     <div className="relative" ref={ref}>
       <div className={cn(s.frame, "frame")}>
-        <div className={cn(s["title-c"], "gsap-title-c", "overflow-hidden py-2")}>
+        <div className={cn(s["title-c"], "gsap-title-c", "overflow-hidden py-2 hidden bt:block")}>
           <h2
             className={cn(
               s.title,
@@ -123,6 +141,13 @@ export function ParallaxImagesSection() {
             {t("title")}
           </h2>
         </div>
+        <h2
+          className={cn(
+            "font-lexend-giga text-4xl text-bricky-brick font-bold leading-snug py-2 text-center block bt:hidden"
+          )}
+        >
+          {t("title")}
+        </h2>
       </div>
       <div className="flex flex-col gap-12 bt:gap-32 bd:gap-48 py-12 bt:py-16 bd:py-32">
         {[

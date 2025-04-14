@@ -37,12 +37,22 @@
   }
 }
 
+.title {
+  font-size: mobile-vw(32px);
+  @include-media ("tablet") {
+    font-size: tablet-vw(32px);
+  }
+  @include-media ("desktop") {
+    font-size: desktop-vw(30px);
+  }
+}
+
 .text {
   font-size: mobile-vw(18px);
   @include-media ("tablet") {
     font-size: tablet-vw(18px);
   }
   @include-media ("desktop") {
-    font-size: desktop-vw(24px);
+    font-size: desktop-vw(22px);
   }
 }

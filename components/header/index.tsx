@@ -30,12 +30,12 @@ export function Header() {
   const t = useTranslations("common")
 
   const navigationItems = [
-    { title: t("navigation.residences"), href: "#" },
+    { title: t("navigation.residences"), href: "/residences" },
     { title: t("navigation.location"), href: "/location" },
-    { title: t("navigation.citysPark"), href: "#" },
-    { title: t("navigation.citysMembersClub"), href: "#" },
-    { title: t("navigation.citysLifePrivileges"), href: "#" },
-    { title: t("navigation.citysIstanbul"), href: "#" },
+    { title: t("navigation.citysPark"), href: "/citys-park" },
+    { title: t("navigation.citysMembersClub"), href: "/citys-members-club" },
+    { title: t("navigation.citysLifePrivileges"), href: "/citys-life-privileges" },
+    { title: t("navigation.citysIstanbul"), href: "https://citys-istanbul.com/" },
   ]
 
   useEffect(() => {
