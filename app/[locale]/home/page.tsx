@@ -1,6 +1,6 @@
 import s from "./home.module.css"
 
-import cn from "clsx"
+import { cn } from "@/lib/utils"
 import { useTranslations } from "next-intl"
 
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
@@ -17,7 +17,7 @@ export default function Home() {
   const t = useTranslations("home")
 
   const createSlide = (imgSrc: string, index: number) => (
-    <div className="relative w-screen h-[80vh] bt:h-[105vh]" key={index}>
+    <div className="relative w-screen h-[40vh] bt:h-[105vh]" key={index}>
       <Img src={imgSrc} alt={`Slide ${index}`} fill className="object-cover" sizes="100vw" />
     </div>
   )
