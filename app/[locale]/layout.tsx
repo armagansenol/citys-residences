@@ -5,13 +5,13 @@ import { StyleVariables } from "@/lib/style-variables"
 import { colors, themes } from "@/styles/config.mjs"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages, getTranslations } from "next-intl/server"
+import { Lexend_Giga } from "next/font/google"
 import localFont from "next/font/local"
 
 import { GSAP } from "@/components/gsap"
+import { ImageGalleryModal } from "@/components/image-gallery/modal"
 import { ReactQueryProvider } from "@/components/react-query-provider"
-
 import { RealViewport } from "@/components/real-viewport"
-import { Lexend_Giga } from "next/font/google"
 
 const lexendGiga = Lexend_Giga({
   subsets: ["latin"],
@@ -105,6 +105,7 @@ export default async function LocaleLayout({
         </NextIntlClientProvider>
         <GSAP scrollTrigger={true} />
         {/* <SmoothScroll root={true} /> */}
+        <ImageGalleryModal />
       </body>
     </html>
   )
