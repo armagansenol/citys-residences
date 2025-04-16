@@ -58,7 +58,7 @@ export function FullScreenSlider({ title, description, items }: FullScreenSlider
   // )
 
   return (
-    <div className="relative flex flex-col bt:flex-row gap-5 w-screen z-[100]" ref={ref}>
+    <div className="relative flex flex-col bt:flex-row bt:overflow-hidden gap-5 w-screen z-[100]" ref={ref}>
       <div className={cn(s["title-c"], "gsap-title-c", "z-[150]")}>
         <h2
           className={cn(
