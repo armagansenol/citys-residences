@@ -1,20 +1,25 @@
 .title-c {
+  font-size: mobile-vw(32px);
   left: 50%;
-  font-size: mobile-vw(45px);
   letter-spacing: 0em;
-  position: absolute;
-  top: mobile-vw(200px);
-  transform: translate(-50%, -100%);
+  overflow: hidden;
+  position: relative;
+  transform: translate(-50%, 0);
   width: 96%;
   @include-media ("tablet") {
+    position: absolute;
     font-size: tablet-vw(45px);
+    left: 50%;
     letter-spacing: 0.3em;
+    transform: translate(-50%, -100%);
     top: tablet-vw(150px);
   }
   @include-media ("desktop") {
+    position: absolute;
     font-size: desktop-vw(70px);
     letter-spacing: 0.2em;
     left: desktop-vw(100px);
+    padding: desktop-vw(30px) 0;
     top: desktop-vw(100px);
     transform: translate(0, 0);
     white-space: nowrap;
@@ -23,17 +28,20 @@
     /* filter: drop-shadow(-0.5px 0 0 black) drop-shadow(0.5px 0 0 black) drop-shadow(0 -0.5px 0 black)
       drop-shadow(0 0.5px 0 black); */
 
-    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    @include-media ("tablet") {
+      text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    }
   }
 }
 .descriptionC {
-  bottom: mobile-vw(50px);
   left: 50%;
-  font-size: mobile-vw(14px);
-  position: absolute;
+  font-size: mobile-vw(16px);
+  position: relative;
   transform: translateX(-50%);
-  width: mobile-vw(300px);
+  width: mobile-vw(340px);
   @include-media ("tablet") {
+    margin-top: 0;
+    position: absolute;
     bottom: tablet-vw(150px);
     font-size: tablet-vw(16px);
     width: tablet-vw(400px);
@@ -42,10 +50,10 @@
     bottom: desktop-vw(100px);
     font-size: desktop-vw(15px);
     left: desktop-vw(100px);
+    position: absolute;
     transform: translateX(0);
     width: desktop-vw(500px);
   }
-
   .description {
     padding: mobile-vw(10px);
     @include-media ("tablet") {

@@ -7,19 +7,19 @@ import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { ScaleOut } from "@/components/animations/scale-out"
 import { TextRevealOnScroll } from "@/components/animations/text-reveal-on-scroll"
 import { FullScreenSlider } from "@/components/full-screen-slider"
+import { Logo } from "@/components/icons"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
 import { Wrapper } from "@/components/wrapper"
 import { kolajVideo, locationVideo, mainVideoDesktop, muratKaderVideo } from "@/lib/constants"
-import { Logo } from "@/components/icons"
 
 export default function Home() {
   const t = useTranslations("home")
 
   const createSlide = (imgSrc: string, index: number) => (
-    <div className="relative w-screen h-[40vh] bt:h-[105vh]" key={index}>
-      <Img src={imgSrc} alt={`Slide ${index}`} fill className="object-cover" sizes="100vw" />
+    <div className="relative w-screen h-[35vh] bt:h-[105vh]" key={index}>
+      <Img src={imgSrc} alt={`Slide ${index}`} fill className="w-full h-full object-cover" sizes="100vw" />
     </div>
   )
 
@@ -215,28 +215,36 @@ export default function Home() {
       </section>
       <section className="relative container py-8 bt:py-20">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video overflow-hidden relative z-10 flex items-center justify-center bg-black rounded-md">
-          <VideoWithPlayButton primaryVideoUrl={kolajVideo} thumbnail="/img/thumbnail-kolaj-video.jpg" />
+          <VideoWithPlayButton
+            primaryVideoUrl={kolajVideo}
+            thumbnail="/img/thumbnail-kolaj-video.jpg"
+            title="Kolaj Video"
+          />
         </div>
       </section>
-      <section className="relative container py-12 bt:py-40">
+      {/* <section className="relative container py-12 bt:py-40">
         <h3 className="font-halenoir text-black text-4xl bt:text-7xl font-black tracking-widest text-center">
           <TextRevealOnScroll splitBy="lines" textAlign="center" staggerDuration={0.005}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
           </TextRevealOnScroll>
         </h3>
-      </section>
-      <section className="relative">
+      </section> */}
+      <section className="py-8">
         <FullScreenSlider title={t("live.p1.title")} description={t("live.p1.description")} items={slides1} />
       </section>
-      <section className="relative py-4 bt:py-24">
+      <section className="py-8">
         <FullScreenSlider title={t("live.p2.title")} description={t("live.p1.description")} items={slides2} />
       </section>
-      <section className="relative">
+      <section className="py-8">
         <FullScreenSlider title={t("live.p3.title")} description={t("live.p3.description")} items={slides3} />
       </section>
       <section className="relative container py-20">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video overflow-hidden relative z-10 flex items-center justify-center bg-black rounded-md">
-          <VideoWithPlayButton primaryVideoUrl={muratKaderVideo} thumbnail="/img/thumbnail-murat-kader.jpg" />
+          <VideoWithPlayButton
+            primaryVideoUrl={muratKaderVideo}
+            thumbnail="/img/thumbnail-murat-kader.jpg"
+            title="Murat Kader Video"
+          />
         </div>
       </section>
     </Wrapper>
