@@ -65,6 +65,10 @@
     }
     @include-media ("desktop") {
       padding: desktop-vw(16px) desktop-vw(20px);
+
+      background: hsla(10, 66%, 43%, 0.2);
+      backdrop-filter: blur(16px);
+      mask-image: hsla(10, 66%, 43%, 0.2);
     }
   }
 }
