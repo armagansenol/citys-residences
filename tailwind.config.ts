@@ -15,11 +15,11 @@ const config: Config = {
     container: {
       center: true,
       screens: {
-        sm: "360px",
+        sm: "350px",
         md: "640px",
         lg: "960px",
         xl: "1280px",
-        "2xl": "1520px",
+        "2xl": "1580px",
       },
     },
     screens: {
