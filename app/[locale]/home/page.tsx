@@ -29,37 +29,37 @@ export default function Home() {
     slides3: [1, 2, 3, 4, 5, 6].map((num) => `/img/slides-3/${num}.jpg`),
   }
 
-  const slides1 = slideImages.slides1.map((src, index) => createSlide(src, index + 1))
+  // const slides1 = slideImages.slides1.map((src, index) => createSlide(src, index + 1))
   const slides2 = slideImages.slides2.map((src, index) => createSlide(src, index + 1))
   const slides3 = slideImages.slides3.map((src, index) => createSlide(src, index + 1))
 
-  const moreSectionData = [
-    {
-      imgSrc: "/img/aol-1.jpg",
-      title: t.rich("section1.p1.title", {
-        br: () => <br></br>,
-      }),
-      description: t("section1.p1.description"),
-    },
-    {
-      imgSrc: "/img/aol-2.jpg",
-      imgSrcMobile: "/img/aol-2-mobile.jpg",
-      title: t.rich("section1.p2.title", {
-        br: () => <br></br>,
-      }),
-      description: t("section1.p2.description"),
-    },
-    {
-      imgSrc: "/img/aol-3.jpg",
-      title: t.rich("section1.p3.title", {
-        br: () => <br></br>,
-      }),
-      description: t("section1.p3.description"),
-    },
-  ]
+  // const moreSectionData = [
+  //   {
+  //     imgSrc: "/img/aol-1.jpg",
+  //     title: t.rich("section1.p1.title", {
+  //       br: () => <br></br>,
+  //     }),
+  //     description: t("section1.p1.description"),
+  //   },
+  //   {
+  //     imgSrc: "/img/aol-2.jpg",
+  //     imgSrcMobile: "/img/aol-2-mobile.jpg",
+  //     title: t.rich("section1.p2.title", {
+  //       br: () => <br></br>,
+  //     }),
+  //     description: t("section1.p2.description"),
+  //   },
+  //   {
+  //     imgSrc: "/img/aol-3.jpg",
+  //     title: t.rich("section1.p3.title", {
+  //       br: () => <br></br>,
+  //     }),
+  //     description: t("section1.p3.description"),
+  //   },
+  // ]
 
   return (
-    <Wrapper>
+    <Wrapper className="pb-20">
       <section className={cn(s.intro, "h-[50vh] bt:h-screen bg-bricky-brick relative z-10 overflow-hidden")}>
         <ScaleOut>
           <div className="h-full w-full">
@@ -109,7 +109,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-white px-4 bd:px-12 py-12 bt:pb-16 bd:py-12 z-20 relative flex-col hidden bt:grid bt:grid-cols-3 gap-4 bt:gap-6">
+      {/* <section className="bg-white px-4 bd:px-12 py-12 bt:pb-16 bd:py-12 z-20 relative flex-col hidden bt:grid bt:grid-cols-3 gap-4 bt:gap-6">
         <div
           className={cn(
             "group",
@@ -119,11 +119,9 @@ export default function Home() {
             "order-1 bt:order-none"
           )}
         >
-          {/* desktop */}
           <div className="w-full h-[360px] bt:h-[500px] bd:h-[700px] relative group-hover:scale-110 transition-all duration-700 hidden bt:block">
             <Img src={moreSectionData[1].imgSrc} alt="City's Lifestyle" fill className="object-cover" sizes="30vw" />
           </div>
-          {/* mobile */}
           <div className="w-full h-[360px] bt:h-[500px] bd:h-[700px] relative group-hover:scale-110 transition-all duration-700 block bt:hidden">
             <Img
               src={moreSectionData[1].imgSrcMobile as string}
@@ -190,14 +188,26 @@ export default function Home() {
             <p className="font-halenoir text-base bt:text-md bd:text-xl max-w-sm">{moreSectionData[2].description}</p>
           </div>
         </div>
-      </section>
-      <section className="flex flex-col-reverse bd:flex-row items-center justify-center gap-12 bt:gap-20 bd:gap-16 py-6 bt:py-24">
-        <div className="max-w-sm bt:max-w-xl bd:max-w-lg px-4 bt:px-0">
-          <p className="font-halenoir text-3xl bt:text-4xl bd:text-3xl text-center">
-            <TextRevealOnScroll className="hidden bd:block" splitBy="lines" textAlign="left" staggerDuration={0.005}>
+      </section> */}
+      <section className="container flex flex-col-reverse bd:flex-row items-center justify-between gap-12 bt:gap-20 bd:gap-16 py-6 bt:py-24">
+        <div className="max-w-sm bt:max-w-xl bd:max-w-xl px-4 bt:px-0">
+          <p className="font-halenoir text-3xl bt:text-4xl bd:text-4xl text-center">
+            <TextRevealOnScroll
+              className="hidden bd:block"
+              elementLevelClassName="leading-relaxed"
+              splitBy="lines"
+              textAlign="left"
+              staggerDuration={0.005}
+            >
               {t("map.title")}
             </TextRevealOnScroll>
-            <TextRevealOnScroll className="block bd:hidden" splitBy="lines" textAlign="center" staggerDuration={0.005}>
+            <TextRevealOnScroll
+              className="block bd:hidden"
+              elementLevelClassName="leading-relaxed"
+              splitBy="lines"
+              textAlign="center"
+              staggerDuration={0.005}
+            >
               {t("map.title")}
             </TextRevealOnScroll>
           </p>
@@ -229,14 +239,11 @@ export default function Home() {
           </TextRevealOnScroll>
         </h3>
       </section> */}
-      <section className="py-8">
+      {/* <section className="py-8">
         <FullScreenSlider title={t("live.p1.title")} description={t("live.p1.description")} items={slides1} />
-      </section>
+      </section> */}
       <section className="py-8">
         <FullScreenSlider title={t("live.p2.title")} description={t("live.p1.description")} items={slides2} />
-      </section>
-      <section className="py-8">
-        <FullScreenSlider title={t("live.p3.title")} description={t("live.p3.description")} items={slides3} />
       </section>
       <section className="relative container py-20">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
@@ -246,6 +253,9 @@ export default function Home() {
             title="Murat Kader Video"
           />
         </div>
+      </section>
+      <section className="py-8">
+        <FullScreenSlider title={t("live.p3.title")} description={t("live.p3.description")} items={slides3} />
       </section>
     </Wrapper>
   )

@@ -4,14 +4,13 @@ import s from "./header.module.css"
 
 import { Link as LocalizedLink } from "@/i18n/routing"
 import { initialScroll } from "@/lib/constants"
-import cn from "clsx"
+import { cn } from "@/lib/utils"
 import Lenis from "lenis"
 import { useLenis } from "lenis/react"
 import { useTranslations } from "next-intl"
 import { usePathname } from "next/navigation"
 import { useEffect, useMemo, useState } from "react"
 
-import { AnimatedButton } from "@/components/animated-button"
 import { Logo } from "@/components/icons"
 import { Menu } from "@/components/menu"
 import { MenuX } from "@/components/menu-x"
@@ -147,18 +146,19 @@ export function Header() {
               {/* <div className={cn(s["locale-switcher"], s["nav-item"], "cursor-pointer hidden bt:block")}>
                 <LocaleSwitcher />
               </div> */}
-              <div className={cn(s["sticky-badge"], s["nav-item"], "cursor-pointer")}>
+              {/* <div className={cn(s["sticky-badge"], s["nav-item"], "cursor-pointer")}>
                 <div className="hidden bt:block">
                   <div className={cn(s.stickyBadge, "cursor-pointer")} onClick={() => setModalOpen((prev) => !prev)}>
                     <AnimatedButton text={t("inquiry")} size="fit-content" theme="tertiary" />
                   </div>
                 </div>
-                <div
-                  className="block bt:hidden fixed left-4 bottom-4 font-lexend-giga font-light text-white text-lg text-center blur-bg-bricky-brick py-1.5 px-4 rounded-md"
-                  onClick={() => setModalOpen((prev) => !prev)}
-                >
-                  {t("inquiry")}
-                </div>
+           
+              </div> */}
+              <div
+                className="fixed top-auto bd:top-0 left-0 bd:left-auto right-0 bottom-0 font-lexend-giga font-light text-white text-lg bd:text-2xl text-center blur-bg-bricky-brick px-4 flex items-center justify-center w-full bd:w-16 h-14 bd:h-full opacity-70 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+                onClick={() => setModalOpen((prev) => !prev)}
+              >
+                <span className="block bd:-rotate-90 whitespace-nowrap">{t("inquiry")}</span>
               </div>
             </div>
           </nav>

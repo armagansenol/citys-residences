@@ -2,7 +2,7 @@
 
 import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
 import { useRef } from "react"
-
+import { cn } from "@/lib/utils"
 import VerticalCutReveal, { VerticalCutRevealRef } from "@/components/animations/vertical-cut-reveal"
 
 interface TextRevealOnScrollProps {
@@ -10,6 +10,7 @@ interface TextRevealOnScrollProps {
   staggerDuration?: number
   splitBy?: "words" | "characters" | "lines" | string
   className?: string
+  elementLevelClassName?: string
   textAlign?: "left" | "center" | "right"
 }
 
@@ -18,6 +19,7 @@ export function TextRevealOnScroll({
   staggerDuration = 0.005,
   className,
   textAlign = "left",
+  elementLevelClassName,
 }: TextRevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null)
   const textRef = useRef<VerticalCutRevealRef>(null)
@@ -50,7 +52,7 @@ export function TextRevealOnScroll({
             left: "justify-start",
           }[textAlign]
         }
-        elementLevelClassName="leading-tight"
+        elementLevelClassName={cn(elementLevelClassName, "leading-tight")}
         ref={textRef}
       >
         {children}

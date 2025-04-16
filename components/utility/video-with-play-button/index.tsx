@@ -65,7 +65,7 @@ export function VideoWithPlayButton({
         </button>
       </div>
       {title && (
-        <div className="absolute bottom-0 translate-y-full left-1/2 -translate-x-1/2 w-full flex bg-white">
+        <div className="absolute bottom-0 bd:bottom-auto bd:top-0 translate-y-full bd:-translate-y-full left-1/2 -translate-x-1/2 w-full flex bg-white">
           <article className="text-black font-halenoir text-md bt:text-2xl font-medium mx-auto py-3 bt:py-4">
             {title}
           </article>
