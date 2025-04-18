@@ -70,6 +70,17 @@ export default function Page() {
           </div>
         </ScaleOut>
       </section>
+      <section className="py-32 bg-white z-20">
+        <div className="relative container">
+          <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
+            <VideoWithPlayButton
+              primaryVideoUrl={melihBulgurVideo}
+              thumbnail="/img/thumbnail-melih-bulgur.jpg"
+              title="Melih Bulgur Video"
+            />
+          </div>
+        </div>
+      </section>
       <section className="relative h-screen bg-white z-20 flex items-center justify-center">
         <span className="text-8xl font-black text-center">3D</span>
       </section>
@@ -77,13 +88,12 @@ export default function Page() {
         <StackingCards items={items} />
       </section>
       <section className="relative container py-20">
-        <div className="w-full h-[350px] bt:h-auto bt:aspect-video overflow-hidden relative z-10 flex items-center justify-center bg-black rounded-md">
-          <VideoWithPlayButton primaryVideoUrl={mustafaTonerVideo} thumbnail="/img/thumbnail-toners.jpg" />
-        </div>
-      </section>
-      <section className="relative container py-20">
-        <div className="w-full h-[350px] bt:h-auto bt:aspect-video overflow-hidden relative z-10 flex items-center justify-center bg-black rounded-md">
-          <VideoWithPlayButton primaryVideoUrl={melihBulgurVideo} thumbnail="/img/thumbnail-melih-bulgur.jpg" />
+        <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
+          <VideoWithPlayButton
+            primaryVideoUrl={mustafaTonerVideo}
+            thumbnail="/img/thumbnail-toners.jpg"
+            title="Tonerler Video"
+          />
         </div>
       </section>
     </Wrapper>

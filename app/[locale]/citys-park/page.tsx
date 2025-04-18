@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils"
 import { ScaleOut } from "@/components/animations/scale-out"
 import { TextRevealOnScroll } from "@/components/animations/text-reveal-on-scroll"
 import { Video } from "@/components/utility/video"
-import { Wrapper } from "@/components/wrapper"
-import { mainVideoDesktop, muratKaderVideo } from "@/lib/constants"
-import { ImagesSection } from "./images-section"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
+import { Wrapper } from "@/components/wrapper"
+import { mainVideoDesktop, pinarVeCemilAktasVideo } from "@/lib/constants"
+import { ImagesSection } from "./images-section"
 
 export default function Page() {
   const images = [
@@ -77,9 +77,9 @@ export default function Page() {
       <section className="relative container py-16 bt:py-20 bd:py-32">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
           <VideoWithPlayButton
-            primaryVideoUrl={muratKaderVideo}
-            thumbnail="/img/thumbnail-murat-kader.jpg"
-            title="Pınar & Cemil Akbaş Video"
+            primaryVideoUrl={pinarVeCemilAktasVideo}
+            thumbnail="/img/thumbnail-pinar-cemil-aktas.jpg"
+            title="Pınar & Cemil Aktaş Video"
           />
         </div>
       </section>

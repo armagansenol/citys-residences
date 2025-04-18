@@ -6,7 +6,7 @@ import { TextRevealOnScroll } from "@/components/animations/text-reveal-on-scrol
 import { MaskedParallaxImageSection } from "@/components/parallax-images-section"
 import { Video } from "@/components/utility/video"
 import { Wrapper } from "@/components/wrapper"
-import { mainVideoDesktop, mainVideoMobile } from "@/lib/constants"
+import { mainVideoDesktop } from "@/lib/constants"
 
 export default function Page() {
   const t = useTranslations("citys-life")
@@ -22,14 +22,6 @@ export default function Page() {
               muted
               playsInline
               className="w-full h-full object-cover hidden bd:block"
-            />
-            <Video
-              primaryVideoUrl={mainVideoMobile}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover block bd:hidden"
             />
           </div>
           <div className="absolute top-0 left-0 w-full h-full bg-black/50">
