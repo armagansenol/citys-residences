@@ -7,7 +7,6 @@ import { useLenis } from "lenis/react"
 import { useEffect, useState } from "react"
 
 import { AnimatedButton } from "@/components/animated-button"
-import { ModalContactForm } from "@/components/modal-contact-form"
 
 interface StickyBadgeProps {
   hidden: boolean
@@ -30,7 +29,6 @@ export function StickyBadge({ hidden }: StickyBadgeProps) {
       <div className={cn(s.stickyBadge, { [s.hidden]: !hidden })} onClick={() => setModalOpen((prev) => !prev)}>
         <AnimatedButton text="RANDEVU AL" size="sm" theme="secondary" />
       </div>
-      <ModalContactForm open={modalOpen} setOpen={setModalOpen} />
     </>
   )
 }
