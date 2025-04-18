@@ -5,17 +5,20 @@ import { StyleVariables } from "@/lib/style-variables"
 import { colors, themes } from "@/styles/config.mjs"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages, getTranslations } from "next-intl/server"
-import { Lexend_Giga } from "next/font/google"
+import { Montserrat } from "next/font/google"
 import localFont from "next/font/local"
 
+import { AlotechWidget } from "@/components/alotech-widget"
 import { GSAP } from "@/components/gsap"
 import { ImageGalleryModal } from "@/components/image-gallery/modal"
+import { ModalContactForm } from "@/components/modal-contact-form"
 import { ReactQueryProvider } from "@/components/react-query-provider"
 import { RealViewport } from "@/components/real-viewport"
+import StickyContactMenu from "@/components/sticky-contact-menu"
 
-const lexendGiga = Lexend_Giga({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-lexend-giga",
+  variable: "--font-montserrat",
   weight: ["400", "500", "600", "700", "800"],
 })
 
@@ -97,15 +100,19 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <head>
         <StyleVariables colors={colors} themes={themes} />
+        <AlotechWidget />
       </head>
-      <body className={`${halenoir.variable} ${lexendGiga.variable} antialiased`}>
+      <body className={`${halenoir.variable} ${montserrat.variable} antialiased`}>
         <RealViewport />
         <NextIntlClientProvider messages={messages}>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
+          <ReactQueryProvider>
+            {children}
+            <ImageGalleryModal />
+            <ModalContactForm />
+            <StickyContactMenu />
+          </ReactQueryProvider>
         </NextIntlClientProvider>
         <GSAP scrollTrigger={true} />
-        {/* <SmoothScroll root={true} /> */}
-        <ImageGalleryModal />
       </body>
     </html>
   )

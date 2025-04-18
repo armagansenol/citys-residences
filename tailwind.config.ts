@@ -141,7 +141,7 @@ const config: Config = {
       },
       fontFamily: {
         halenoir: "var(--font-halenoir)",
-        "lexend-giga": "var(--font-lexend-giga)",
+        montserrat: "var(--font-montserrat)",
       },
       borderRadius: {
         lg: "var(--radius)",

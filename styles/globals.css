@@ -97,6 +97,13 @@ body {
   mask-image: hsla(0, 0%, 98%, 0.1);
 }
 
+#Click2ConnectPackageFrame {
+  display: none !important;
+  @include-media ("desktop") {
+    display: block !important;
+  }
+}
+
 @layer base {
   :root {
     --radius: 0.5rem;

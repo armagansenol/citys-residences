@@ -29,7 +29,7 @@ export function VideoWithPlayButton({
   }
 
   return (
-    <div className="group relative w-full h-full flex items-center justify-center">
+    <div className="group relative w-full h-full flex items-center justify-center mb-8 bt:mb-0 bd:mt-8">
       <Video
         className="w-full h-auto bt:h-full"
         primaryVideoUrl={primaryVideoUrl}
@@ -66,7 +66,7 @@ export function VideoWithPlayButton({
       </div>
       {title && (
         <div className="absolute bottom-0 bd:bottom-auto bd:top-0 translate-y-full bd:-translate-y-full left-1/2 -translate-x-1/2 w-full flex bg-white">
-          <article className="text-black font-halenoir text-md bt:text-2xl font-medium mx-auto py-3 bt:py-4">
+          <article className="text-black font-montserrat italic text-md bt:text-2xl font-normal mx-auto py-3 bt:py-4">
             {title}
           </article>
         </div>

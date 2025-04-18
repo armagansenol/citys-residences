@@ -62,7 +62,7 @@ export default function Page() {
           </div>
           <div className="absolute top-0 left-0 w-full h-full bg-black/50">
             <div className="container flex h-full">
-              <h1 className="block font-lexend-giga text-white text-2xl bt:text-4xl font-medium mt-auto mb-20">
+              <h1 className="block font-montserrat text-white text-2xl bt:text-4xl font-medium mt-auto mb-20">
                 <TextRevealOnScroll splitBy="characters" textAlign="left" staggerDuration={0.005}>
                   CITY&apos;S PARK
                 </TextRevealOnScroll>
@@ -79,7 +79,7 @@ export default function Page() {
           <VideoWithPlayButton
             primaryVideoUrl={pinarVeCemilAktasVideo}
             thumbnail="/img/thumbnail-pinar-cemil-aktas.jpg"
-            title="Pınar & Cemil Aktaş Video"
+            title="Peyzaj: 'Bir Vaha Tasarımı'"
           />
         </div>
       </section>
