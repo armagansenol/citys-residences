@@ -26,7 +26,7 @@ export default function Home() {
   const slideImages = {
     slides1: [1, 2, 3, 4].map((num) => `/img/slides-1/${num}.jpg`),
     slides2: [1, 2, 3, 4].map((num) => `/img/slides-2/${num}.jpg`),
-    slides3: [1, 2, 3, 4, 5, 6].map((num) => `/img/slides-3/${num}.jpg`),
+    slides3: [1, 2, 3, 4].map((num) => `/img/slides-3/${num}.jpg`),
   }
 
   // const slides1 = slideImages.slides1.map((src, index) => createSlide(src, index + 1))
@@ -85,7 +85,7 @@ export default function Home() {
       <section className="bg-white font-halenoir pt-6 bt:pt-12 z-20 relative">
         <div className="container mx-auto py-6 bt:py-28 bd:pt-40 bd:pb-8 relative flex flex-col items-center">
           <div className="flex flex-col items-center text-center">
-            <h1 className="font-lexend-giga text-bricky-brick text-4xl bt:text-8xl font-medium tracking-widest">
+            <h1 className="font-montserrat text-bricky-brick text-4xl bt:text-8xl font-medium tracking-widest">
               <TextRevealOnScroll className="leading-tight" staggerDuration={0.05}>
                 {t("section1.title1")}
               </TextRevealOnScroll>
@@ -106,12 +106,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="w-64 h-64 mx-auto hidden bt:block">
+        <Logo fill={"var(--bricky-brick)"} />
+      </section>
       <section className="relative container py-8 bt:py-20">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
           <VideoWithPlayButton
             primaryVideoUrl={kolajVideo}
             thumbnail="/img/thumbnail-kolaj-video.jpg"
-            title="Kolaj Video"
+            title="Karma yaşamın mimarisi"
           />
         </div>
       </section>
@@ -138,7 +141,7 @@ export default function Home() {
             />
           </div>
           <div className="absolute left-0 bottom-0 bt:bottom-auto bt:top-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-black px-4 bt:px-4 bd:px-8 py-5 bt:py-8 bd:py-12 z-20">
-            <h2 className="font-lexend-giga font-normal text-3xl bt:text-2xl bd:text-4xl">
+            <h2 className="font-montserrat font-normal text-3xl bt:text-2xl bd:text-4xl">
               {moreSectionData[1].title}
             </h2>
             <p className="font-halenoir text-base bt:text-md bd:text-xl max-w-sm">{moreSectionData[1].description}</p>
@@ -163,7 +166,7 @@ export default function Home() {
             />
           </div>
           <div className="absolute left-0 bottom-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-black px-4 bt:px-4 bd:px-8 py-5 bt:py-8 bd:py-12 z-20">
-            <h2 className="font-lexend-giga font-normal text-3xl bt:text-2xl bd:text-4xl">
+            <h2 className="font-montserrat font-normal text-3xl bt:text-2xl bd:text-4xl">
               {moreSectionData[0].title}
             </h2>
             <p className="font-halenoir text-base bt:text-md bd:text-xl max-w-sm">{moreSectionData[0].description}</p>
@@ -188,7 +191,7 @@ export default function Home() {
             />
           </div>
           <div className="absolute left-0 top-0 right-0 space-y-4 bt:space-y-4 bd:space-y-8 text-left text-black px-4 bt:px-4 bd:px-8 py-5 bt:py-8 bd:py-12 z-20">
-            <h2 className="font-lexend-giga font-normal text-3xl bt:text-2xl bd:text-4xl">
+            <h2 className="font-montserrat font-normal text-3xl bt:text-2xl bd:text-4xl">
               {moreSectionData[2].title}
             </h2>
             <p className="font-halenoir text-base bt:text-md bd:text-xl max-w-sm">{moreSectionData[2].description}</p>
@@ -250,7 +253,7 @@ export default function Home() {
           <VideoWithPlayButton
             primaryVideoUrl={muratKaderVideo}
             thumbnail="/img/thumbnail-murat-kader.jpg"
-            title="Murat Kader Video"
+            title="Mimari: 'Bir Düşünceden Doğan Yaşam'"
           />
         </div>
       </section>
