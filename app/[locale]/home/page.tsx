@@ -59,7 +59,7 @@ export default function Home() {
   // ]
 
   return (
-    <Wrapper className="pb-20">
+    <Wrapper className="pb-10 bt:pb-20">
       <section className={cn(s.intro, "h-[50vh] bt:h-screen bg-bricky-brick relative z-10 overflow-hidden")}>
         <ScaleOut>
           <div className="h-full w-full">
@@ -103,10 +103,16 @@ export default function Home() {
                 {t("section1.title3")}
               </TextRevealOnScroll>
             </p>
-            <div className="w-48 h-48 bt:w-72 bt:h-72 mt-12">
-              <Logo fill={"var(--bricky-brick)"} />
-            </div>
           </div>
+        </div>
+      </section>
+      <section className="relative container py-8 bt:py-20">
+        <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
+          <VideoWithPlayButton
+            primaryVideoUrl={kolajVideo}
+            thumbnail="/img/thumbnail-kolaj-video.jpg"
+            title="Kolaj Video"
+          />
         </div>
       </section>
       {/* <section className="bg-white px-4 bd:px-12 py-12 bt:pb-16 bd:py-12 z-20 relative flex-col hidden bt:grid bt:grid-cols-3 gap-4 bt:gap-6">
@@ -223,15 +229,6 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="relative container py-8 bt:py-20">
-        <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
-          <VideoWithPlayButton
-            primaryVideoUrl={kolajVideo}
-            thumbnail="/img/thumbnail-kolaj-video.jpg"
-            title="Kolaj Video"
-          />
-        </div>
-      </section>
       {/* <section className="relative container py-12 bt:py-40">
         <h3 className="font-halenoir text-black text-4xl bt:text-7xl font-black tracking-widest text-center">
           <TextRevealOnScroll splitBy="lines" textAlign="center" staggerDuration={0.005}>
@@ -242,10 +239,13 @@ export default function Home() {
       {/* <section className="py-8">
         <FullScreenSlider title={t("live.p1.title")} description={t("live.p1.description")} items={slides1} />
       </section> */}
-      <section className="py-8">
+      <section className="py-4 bt:py-8">
         <FullScreenSlider title={t("live.p2.title")} description={t("live.p1.description")} items={slides2} />
+        <div className="w-40 h-40 mx-auto bt:hidden">
+          <Logo fill={"var(--bricky-brick)"} />
+        </div>
       </section>
-      <section className="relative container py-20">
+      <section className="relative container py-12 bt:py-20">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
           <VideoWithPlayButton
             primaryVideoUrl={muratKaderVideo}
@@ -254,8 +254,11 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="py-8">
+      <section className="py-4 bt:py-8">
         <FullScreenSlider title={t("live.p3.title")} description={t("live.p3.description")} items={slides3} />
+        <div className="w-40 h-40 mx-auto bt:hidden">
+          <Logo fill={"var(--bricky-brick)"} />
+        </div>
       </section>
     </Wrapper>
   )
