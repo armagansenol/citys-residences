@@ -13,14 +13,14 @@ interface AnimatedButtonProps {
   size?: "sm" | "md" | "lg" | "fit-content"
   text: string
   theme?: "primary" | "secondary" | "tertiary" | "transparent"
-  fontFamily?: "lexend-giga" | "halenoir"
+  fontFamily?: "montserrat" | "halenoir"
 }
 
 export function AnimatedButton({
   size = "md",
   text = "Button Text",
   theme = "primary",
-  fontFamily = "lexend-giga",
+  fontFamily = "montserrat",
 }: AnimatedButtonProps) {
   const [isOn, setIsOn] = useState(false)
   const toggleSwitch = () => setIsOn(!isOn)
@@ -73,7 +73,7 @@ export function AnimatedButton({
         s.button,
         themes[theme].bgColorClassName,
         themes[theme].borderColorClassName,
-        fontFamily === "lexend-giga" ? "font-lexend-giga" : "font-halenoir",
+        fontFamily === "montserrat" ? "font-montserrat" : "font-halenoir",
         "relative flex items-center cursor-pointer rounded-lg overflow-hidden",
         {
           [s.sm]: size === "sm",
