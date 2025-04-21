@@ -155,3 +155,6 @@ export const melihBulgurVideo =
 
 export const pinarVeCemilAktasVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1076669307/rendition/1080p/file.mp4?loc=external&log_user=0&signature=7ae58e9ab6d78fb58ee636c7702acb47f7202f7f7a129974894b28abecc11ba6"
+
+export const residencesVideo =
+  "https://player.vimeo.com/progressive_redirect/playback/1076676620/rendition/1080p/file.mp4?loc=external&log_user=0&signature=c03831c6797fba1aa5fb5ba19069a72fff340518a5ba6a4e38e119e1e321eb45"
