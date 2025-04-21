@@ -2,14 +2,13 @@
 
 import { useGSAP } from "@gsap/react"
 import { useLenis } from "lenis/react"
-import { X } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useEffect, useRef, useState } from "react"
 
 import { ContactForm } from "@/components/form-contact"
 import { gsap, ScrollTrigger } from "@/components/gsap"
 import { IconInquiry, IconTelephone, IconWhatsapp } from "@/components/icons"
-import { Dialog, DialogClose, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Link } from "@/components/utility/link"
 import { FormTranslations } from "@/types"
 
@@ -152,10 +151,10 @@ export default function StickyContactMenu() {
           </div>
         </DialogTrigger>
         <DialogContent className="py-0 px-4 h-[80vh] w-[96vw] rounded-tr-3xl rounded-tl-3xl bottom-0 top-auto translate-y-0">
-          <DialogClose>
+          {/* <DialogClose>
             <X className="fixed top-4 right-4 w-6 h-6 text-white" />
             <span className="sr-only">Close</span>
-          </DialogClose>
+          </DialogClose> */}
           <div className="h-full overflow-y-scroll">
             <p className="text-neutral-900 text-base bt:text-sm font-normal font-halenoir text-left bt:text-center bd:text-left leading-normal mt-5">
               {t.rich("description", {
