@@ -73,23 +73,23 @@
   }
 
   .logo-c {
-    height: mobile-vw(64px);
+    height: mobile-vw(72px);
     left: 50%;
     opacity: 0;
     pointer-events: none;
     position: absolute;
     right: auto;
-    top: desktop-vw(20px);
+    top: mobile-vw(10px);
     transform: translateX(-50%);
     transform-origin: top center;
     transition: 400ms opacity ease;
     z-index: var(--z-header-content);
-
     @include-media ('tablet') {
-      height: tablet-vw(80px);
+      top: tablet-vw(10px);
+      height: tablet-vw(90px);
     }
-
     @include-media ('desktop') {
+      top: desktop-vw(10px);
       height: desktop-vw(110px);
     }
   }
