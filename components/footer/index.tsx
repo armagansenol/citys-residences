@@ -39,28 +39,28 @@ export function Footer() {
   return (
     <footer className="relative bg-bricky-brick text-white py-12 bd:py-14 bd:pb-8 font-halenoir">
       <div className="container px-2 bt:px-0flex flex-col">
-        <div className="flex flex-col items-stretch bt:items-start bt:grid bt:grid-cols-24 gap-4 bt:gap-4 bd:gap-8 mb-14">
+        <div className="flex flex-col items-stretch bt:items-start bt:grid bt:grid-cols-24 gap-4 bt:gap-4 bd:gap-8 mb-7 bt:mb-14">
           {/* Logo Section */}
-          <div className="bt:col-span-9 bd:col-span-8 flex">
-            <div className="mx-auto bt:mx-0 bt:mb-auto bt:mr-auto w-[260px] bt:w-[200px] bd:w-[260px]">
+          <div className="order-2 bt:-order-none bt:col-span-9 bd:col-span-8 flex">
+            <div className="mx-auto bt:mx-0 bt:mb-auto bt:mr-auto w-[200px] bt:w-[200px] bd:w-[260px]">
               <Logo fill="var(--white)" />
             </div>
           </div>
           {/* Contact Section */}
-          <div className="bt:col-span-6 bd:col-span-5 py-10 bt:py-0">
-            <h2 className="text-base bt:text-sm bd:text-base font-normal mb-5 border-b border-grenadier pb-2">
+          <div className="order-1 bt:order-none bt:col-span-6 bd:col-span-5 py-10 bt:py-0">
+            <h2 className="text-lg bt:text-sm bd:text-base font-normal mb-5 border-b border-grenadier pb-2">
               {t("contact")}
             </h2>
             <div className="flex flex-col items-stretch gap-6 mr-0 bd:mr-12">
               <div className="space-y-2">
-                <span className="block text-sm text-white whitespace-pre-line">
+                <span className="block text-base text-white whitespace-pre-line">
                   {t.rich("contactInfo", {
                     br: () => <br />,
                   })}
                 </span>
                 <a
                   href="https://maps.app.goo.gl/2hSJUsgo2U198Kqq9"
-                  className="block text-sm bt:text-xs bd:text-sm text-white opacity-50 hover:opacity-100 transition-opacity whitespace-pre-line"
+                  className="block text-base bt:text-xs bd:text-sm text-white opacity-50 hover:opacity-100 transition-opacity whitespace-pre-line"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -68,13 +68,13 @@ export function Footer() {
                 </a>
                 <a
                   href="mailto:info@citysresidences.com"
-                  className="block text-sm bt:text-xs bd:text-sm text-white opacity-50 hover:opacity-100 transition-opacity whitespace-pre-line"
+                  className="block text-base bt:text-xs bd:text-sm text-white opacity-50 hover:opacity-100 transition-opacity whitespace-pre-line"
                 >
                   info@citysresidences.com
                 </a>
                 <a
                   href="tel:+902162666600"
-                  className="block text-sm bt:text-xs bd:text-sm text-white opacity-50 hover:opacity-100 transition-opacity whitespace-pre-line"
+                  className="block text-base bt:text-xs bd:text-sm text-white opacity-50 hover:opacity-100 transition-opacity whitespace-pre-line"
                 >
                   +90 (216) 266 66 00
                 </a>
@@ -85,7 +85,7 @@ export function Footer() {
           <div className="bt:col-span-5 bd:col-span-5">
             {/* desktop */}
             <div className="hidden bt:block">
-              <h2 className="text-base bt:text-sm bd:text-base font-normal mb-5 border-b border-grenadier pb-2">
+              <h2 className="text-lg bt:text-sm bd:text-base font-normal mb-5 border-b border-grenadier pb-2">
                 {t("menu")}
               </h2>
               <div className="flex flex-col gap-y-2 gap-x-6 mr-0 bd:mr-12">
@@ -93,7 +93,7 @@ export function Footer() {
                   <Link
                     key={i}
                     href={item.href}
-                    className="text-sm bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
+                    className="text-base bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
                   >
                     {item.title}
                   </Link>
@@ -104,7 +104,7 @@ export function Footer() {
             <Accordion className="block bt:hidden" type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger className="[&>svg]:text-white [&>svg]:w-5 [&>svg]:h-5 border-b border-grenadier pb-2">
-                  <h2 className="text-base bt:text-sm bd:text-base font-normal">{t("menu")}</h2>
+                  <h2 className="text-lg bt:text-sm bd:text-base font-normal">{t("menu")}</h2>
                 </AccordionTrigger>
                 <AccordionContent className="py-4">
                   <div className="flex flex-col gap-y-2 gap-x-6 mr-0 bd:mr-12">
@@ -112,7 +112,7 @@ export function Footer() {
                       <Link
                         key={i}
                         href={item.href}
-                        className="text-sm bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
+                        className="text-base bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
                       >
                         {item.title}
                       </Link>
@@ -126,7 +126,7 @@ export function Footer() {
           <div className="w-full bt:col-span-4 bd:col-span-6">
             {/* desktop */}
             <div className="hidden bt:block">
-              <h2 className="text-base bt:text-sm bd:text-base font-normal mb-5 border-b border-grenadier pb-2">
+              <h2 className="text-lg bt:text-sm bd:text-base font-normal mb-5 border-b border-grenadier pb-2">
                 {t("legal")}
               </h2>
               <div className="space-y-2">
@@ -136,7 +136,7 @@ export function Footer() {
                     rel="noopener noreferrer"
                     key={i}
                     href={item.href}
-                    className="block text-sm bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
+                    className="block text-base bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
                   >
                     {item.title}
                   </Link>
@@ -147,7 +147,7 @@ export function Footer() {
             <Accordion className="w-full block bt:hidden" type="single" collapsible>
               <AccordionItem value="item-1">
                 <AccordionTrigger className="[&>svg]:text-white [&>svg]:w-5 [&>svg]:h-5 border-b border-grenadier pb-2">
-                  <h2 className="text-base bt:text-sm bd:text-base font-normal">{t("legal")}</h2>
+                  <h2 className="text-lg bt:text-sm bd:text-base font-normal">{t("legal")}</h2>
                 </AccordionTrigger>
                 <AccordionContent className="py-4">
                   <div className="space-y-2">
@@ -157,7 +157,7 @@ export function Footer() {
                         rel="noopener noreferrer"
                         key={i}
                         href={item.href}
-                        className="block text-sm bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
+                        className="block text-base bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
                       >
                         {item.title}
                       </Link>
