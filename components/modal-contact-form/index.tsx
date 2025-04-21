@@ -164,13 +164,13 @@ export function ModalContactForm() {
   return (
     <>
       <div
-        className={cn("fixed top-0 left-0 w-full h-full blur-bg opacity-0 z-[150] hidden lg:block", {
+        className={cn("fixed top-0 left-0 w-full h-full blur-bg opacity-0 z-[150] hidden bt:block", {
           "pointer-events-none": !open,
         })}
         ref={bgRef}
         onClick={() => setOpen(false)}
       ></div>
-      <div className={cn(s.form, "hidden lg:block")}>
+      <div className={cn(s.form)}>
         <div className={cn("relative box bg-white h-full w-0")} onClick={(e) => e.stopPropagation()} ref={formRef}>
           <div className="absolute top-0 left-0 w-[700px] h-full flex right-0">
             <button
@@ -191,11 +191,11 @@ export function ModalContactForm() {
               className={cn(
                 "absolute top-1/2 left-0 bottom-0 -translate-x-full -translate-y-1/2",
                 "h-72 w-16",
-                "font-montserrat font-light text-white text-lg bd:text-2xl blur-bg-bricky-brick",
+                "font-montserrat font-normal text-white text-lg bd:text-2xl blur-bg-bricky-brick",
                 "rounded-bl-2xl rounded-tl-2xl",
                 "inline-flex items-center justify-center",
                 "cursor-pointer",
-                "opacity-80"
+                "opacity-90"
               )}
               onClick={() => setOpen((prev) => !prev)}
             >

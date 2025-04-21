@@ -4,14 +4,14 @@
   position: fixed;
   right: 0;
   top: 0;
-  /* width: 100vw; */
   z-index: 200;
+  display: none;
   @include-media ('tablet') {
     height: auto;
-    /* width: tablet-vw(700px); */
+    display: none;
   }
   @include-media ('desktop') {
     height: 100%;
-    /* width: desktop-vw(650px); */
+    display: block;
   }
 }
