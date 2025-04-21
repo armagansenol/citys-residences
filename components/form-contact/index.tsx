@@ -295,7 +295,7 @@ export function ContactForm({ translations }: FormContactProps) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit((data) => mutation.mutate(data))}
-          className="font-halenoir space-y-6 bt:space-y-6"
+          className="font-halenoir space-y-6 bt:space-y-6 py-10 bt:py-0"
           noValidate
         >
           <div className="flex flex-col bt:grid grid-flow-col gap-6 bt:gap-4 bt:grid-cols-2">
@@ -393,7 +393,7 @@ export function ContactForm({ translations }: FormContactProps) {
             />
           </div>
           <ConsentCheckboxes form={form} control={form.control} />
-          <button type="submit" disabled={mutation.isPending} className="flex relative w-56">
+          <button type="submit" disabled={mutation.isPending} className="flex relative w-40 bt:w-56">
             <AnimatedButton text={translations.submit.default} theme="secondary" size="md" />
             {mutation.isPending && (
               <span className="absolute top-1/2 -right-4 -translate-y-1/2 translate-x-full flex items-center justify-center w-6 h-6">

@@ -144,7 +144,7 @@ export default function StickyContactMenu() {
               <div className="text-sm font-medium leading-none">Randevu Al</div>
             </div>
           </DialogTrigger>
-          <DialogContent className="py-10 h-[80vh] w-[100vw] rounded-md">
+          <DialogContent className="py-0 px-4 h-[80vh] w-[96vw] rounded-md">
             <div className="h-full overflow-y-scroll">
               <ContactForm translations={formTranslations} />
             </div>
