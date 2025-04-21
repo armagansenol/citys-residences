@@ -60,7 +60,7 @@ export default function Home() {
 
   return (
     <Wrapper className="pb-10 bt:pb-20">
-      <section className={cn(s.intro, "h-[50vh] bt:h-screen bg-bricky-brick relative z-10 overflow-hidden")}>
+      <section className={cn(s.intro, "h-[40vh] bt:h-screen bg-bricky-brick relative z-10 overflow-hidden")}>
         <ScaleOut>
           <div className="h-full w-full">
             <Video
