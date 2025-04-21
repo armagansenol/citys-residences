@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils"
 
 import { ScaleOut } from "@/components/animations/scale-out"
-import { TextRevealOnScroll } from "@/components/animations/text-reveal-on-scroll"
 import { StackingCards } from "@/components/stacking-cards"
 import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
@@ -59,7 +58,7 @@ export default function Page() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute top-0 left-0 w-full h-full bg-black/50">
+          {/* <div className="absolute top-0 left-0 w-full h-full bg-black/50">
             <div className="container flex h-full">
               <h1 className="block font-montserrat text-white text-2xl bt:text-4xl font-medium mt-auto mb-20">
                 <TextRevealOnScroll splitBy="characters" textAlign="left" staggerDuration={0.005}>
@@ -67,7 +66,7 @@ export default function Page() {
                 </TextRevealOnScroll>
               </h1>
             </div>
-          </div>
+          </div> */}
         </ScaleOut>
       </section>
       <section className="py-32 bg-white z-20">
