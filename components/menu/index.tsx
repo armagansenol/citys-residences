@@ -2,7 +2,7 @@
 
 import s from "./menu.module.css"
 
-import cn from "clsx"
+import { cn } from "@/lib/utils"
 import { useLenis } from "lenis/react"
 import { useRef, useState } from "react"
 import { useClickAway } from "react-use"
@@ -26,6 +26,9 @@ export function Menu({ open, setOpen, items }: MenuProps) {
   const ref = useRef<HTMLDivElement>(null)
   const menuTL = useRef<gsap.core.Timeline>()
   const lenis = useLenis()
+
+  const [hover, setHover] = useState(false)
+  const [active, setActive] = useState<number | null>(null)
 
   useClickAway(ref, (e) => {
     if ((e.target as HTMLElement).closest("[data-ignore-click-away]")) {
@@ -77,9 +80,6 @@ export function Menu({ open, setOpen, items }: MenuProps) {
     }
   )
 
-  const [hover, setHover] = useState(false)
-  const [active, setActive] = useState<number | null>(null)
-
   return (
     <div className={cn(s.frame, "blur-bg-bricky-brick-light")} ref={ref}>
       <nav
@@ -105,8 +105,6 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                 "font-normal",
                 {
                   "opacity-30": hover && active !== i,
-                  // "font-normal": active === i,
-                  // "font-normal": active !== i,
                 }
               )}
               key={title}

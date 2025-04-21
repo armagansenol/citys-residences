@@ -7,11 +7,9 @@
   top: 0;
   width: 100vw;
   z-index: var(--z-menu);
-
   @include-media ('tablet') {
     width: 100vw;
   }
-
   @include-media ('desktop') {
     width: 24vw;
   }
@@ -19,25 +17,6 @@
 
 .menu {
   z-index: var(--z-menu);
-
-  /* .navList {
-
-    .navItem {
-      transition: 300ms opacity ease;
-    }
-    
-    @include-media ('hover') {
-      &:hover {
-        .navItem {
-          opacity: 0.5;
-        }
-
-        .navItem:hover {
-          opacity: 1;
-        }
-      }
-    }
-  } */
 
   .logoC {
     height: mobile-vw(100px);
@@ -49,7 +28,6 @@
     transform-origin: top center;
     transition: 400ms all ease;
     z-index: var(--z-menu);
-
     @include-media ('desktop') {
       height: desktop-vw(110px);
       top: desktop-vw(20px);
