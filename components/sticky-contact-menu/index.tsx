@@ -1,19 +1,23 @@
 "use client"
 
 import { useGSAP } from "@gsap/react"
+import { useLenis } from "lenis/react"
+import { X } from "lucide-react"
 import { useTranslations } from "next-intl"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { ContactForm } from "@/components/form-contact"
 import { gsap, ScrollTrigger } from "@/components/gsap"
 import { IconInquiry, IconTelephone, IconWhatsapp } from "@/components/icons"
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
+import { Dialog, DialogClose, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Link } from "@/components/utility/link"
 import { FormTranslations } from "@/types"
 
 export default function StickyContactMenu() {
   const t = useTranslations("contact")
   const ref = useRef<HTMLDivElement>(null)
+  const [isOpen, setIsOpen] = useState(false)
+  const lenis = useLenis()
 
   const formTranslations: FormTranslations = {
     inputs: {
@@ -124,45 +128,51 @@ export default function StickyContactMenu() {
     })
   })
 
+  useEffect(() => {
+    return isOpen ? lenis?.stop() : lenis?.start()
+  }, [isOpen, lenis])
+
   return (
-    <>
-      <div
-        className="font-montserrat fixed left-0 bottom-0 right-0 bg-bricky-brick grid grid-cols-3 z-[var(--z-sticky)] bt:hidden"
-        ref={ref}
+    <div
+      className="font-montserrat fixed left-0 bottom-0 right-0 blur-bg-bricky-brick-light grid grid-cols-3 z-[var(--z-sticky)] bt:hidden"
+      ref={ref}
+    >
+      <Link
+        href="tel:+902162666600"
+        className="py-3 text-white flex flex-col items-center justify-center gap-2 border-r border-black/15"
       >
-        <Link
-          href="tel:+902162666600"
-          className="py-3 text-white flex flex-col items-center justify-center gap-2 border-r border-black/15"
-        >
-          <IconTelephone className="w-6 h-6" />
-          <div className="text-sm font-medium leading-none">Telefon</div>
-        </Link>
-        <Dialog>
-          <DialogTrigger asChild>
-            <div className="py-3 text-white flex flex-col items-center justify-center gap-2 border-r border-black/15">
-              <IconInquiry className="w-6 h-6" />
-              <div className="text-sm font-medium leading-none">Randevu Al</div>
-            </div>
-          </DialogTrigger>
-          <DialogContent className="py-0 px-4 h-[80vh] w-[96vw] rounded-md">
-            <div className="h-full overflow-y-scroll">
-              <p className="text-neutral-900 text-base bt:text-sm font-normal font-halenoir text-left bt:text-center bd:text-left leading-normal mt-10">
-                {t.rich("description", {
-                  br: () => <br className="hidden bt:block" />,
-                })}
-              </p>
-              <ContactForm translations={formTranslations} />
-            </div>
-          </DialogContent>
-        </Dialog>
-        <Link
-          href="https://wa.me/02162666600"
-          className="py-3 text-white flex flex-col items-center justify-center gap-2"
-        >
-          <IconWhatsapp className="w-6 h-6" />
-          <div className="text-sm font-medium leading-none">Whatsapp</div>
-        </Link>
-      </div>
-    </>
+        <IconTelephone className="w-6 h-6" />
+        <div className="text-sm font-medium leading-none">Telefon</div>
+      </Link>
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogTrigger asChild>
+          <div className="py-3 text-white flex flex-col items-center justify-center gap-2 border-r border-black/15">
+            <IconInquiry className="w-6 h-6" />
+            <div className="text-sm font-medium leading-none">Randevu Al</div>
+          </div>
+        </DialogTrigger>
+        <DialogContent className="py-0 px-4 h-screen w-[96vw] rounded-lg mt-10">
+          <DialogClose>
+            <X className="fixed top-4 right-4 w-6 h-6 text-white" />
+            <span className="sr-only">Close</span>
+          </DialogClose>
+          <div className="h-full overflow-y-scroll">
+            <p className="text-neutral-900 text-base bt:text-sm font-normal font-halenoir text-left bt:text-center bd:text-left leading-normal mt-10">
+              {t.rich("description", {
+                br: () => <br className="hidden bt:block" />,
+              })}
+            </p>
+            <ContactForm translations={formTranslations} />
+          </div>
+        </DialogContent>
+      </Dialog>
+      <Link
+        href="https://wa.me/02162666600"
+        className="py-3 text-white flex flex-col items-center justify-center gap-2"
+      >
+        <IconWhatsapp className="w-6 h-6" />
+        <div className="text-sm font-medium leading-none">Whatsapp</div>
+      </Link>
+    </div>
   )
 }
