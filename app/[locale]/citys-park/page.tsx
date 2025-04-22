@@ -3,145 +3,112 @@
 import { cn } from "@/lib/utils"
 
 import { ScaleOut } from "@/components/animations/scale-out"
+import { MaskedParallaxImageSection } from "@/components/parallax-images-section"
 import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
 import { Wrapper } from "@/components/wrapper"
 import { mainVideoDesktop, pinarVeCemilAktasVideo } from "@/lib/constants"
-import { ImagesSection } from "./images-section"
 
 export default function Page() {
   const images = [
     {
       url: "/img/citys-park/01.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/02.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/03.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/04.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/05.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/06.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/07.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/08.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/09.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/10.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/11.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/12.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/13.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/14.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/15.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/16.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/17.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/18.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/19.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/20.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/21.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/22.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/23.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/24.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/25.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/26.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/27.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/28.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/29.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/30.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/31.jpg",
-      fullWidth: false,
     },
     {
       url: "/img/citys-park/32.jpg",
-      fullWidth: true,
     },
     {
       url: "/img/citys-park/33.jpg",
-      fullWidth: true,
     },
   ]
 
@@ -170,8 +137,21 @@ export default function Page() {
           </div>
         </ScaleOut>
       </section>
-      <section className="relative bg-white pt-16 bt:pt-24 bd:pt-32 z-20">
+      {/* <section className="relative bg-white pt-16 bt:pt-24 bd:pt-32 z-20">
         <ImagesSection images={images} />
+      </section> */}
+      <section className="relative z-20 bg-white">
+        <div className="container flex flex-col gap-12 bt:gap-32 bd:gap-48 py-12 bt:py-36 bd:py-40">
+          {images.map((image, index) => (
+            <MaskedParallaxImageSection
+              key={index}
+              title="Park Alanı"
+              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+              imgSrc={image.url}
+              horizontalAlignment={index % 2 === 0 ? "ltr" : "rtl"}
+            />
+          ))}
+        </div>
       </section>
       <section className="relative container py-16 bt:py-20 bd:py-32">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">

@@ -20,7 +20,7 @@
     left: 50%;
     letter-spacing: 0.2em;
     padding: desktop-vw(30px) 0;
-    top: desktop-vw(100px);
+    top: desktop-vw(50px);
     transform: translate(-50%, 0);
     white-space: nowrap;
   }
