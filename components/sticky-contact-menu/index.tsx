@@ -150,19 +150,17 @@ export default function StickyContactMenu() {
             <div className="text-sm font-medium leading-none">Randevu Al</div>
           </div>
         </DialogTrigger>
-        <DialogContent className="py-0 px-4 h-[80vh] w-[96vw] rounded-tr-3xl rounded-tl-3xl bottom-0 top-auto translate-y-0">
+        <DialogContent className="py-0 px-4 w-[96vw] rounded-tr-3xl rounded-tl-3xl h-screen">
           {/* <DialogClose>
             <X className="fixed top-4 right-4 w-6 h-6 text-white" />
             <span className="sr-only">Close</span>
           </DialogClose> */}
-          <div className="h-[80vh] overflow-y-scroll">
-            <p className="text-neutral-900 text-base bt:text-sm font-normal font-halenoir text-left bt:text-center bd:text-left leading-normal mt-5">
-              {t.rich("description", {
-                br: () => <br className="hidden bt:block" />,
-              })}
-            </p>
-            <ContactForm translations={formTranslations} />
-          </div>
+          <p className="text-neutral-900 text-base bt:text-sm font-normal font-halenoir text-left bt:text-center bd:text-left leading-normal mt-5">
+            {t.rich("description", {
+              br: () => <br className="hidden bt:block" />,
+            })}
+          </p>
+          <ContactForm translations={formTranslations} />
         </DialogContent>
       </Dialog>
       <Link

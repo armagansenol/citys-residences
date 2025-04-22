@@ -141,19 +141,16 @@
         },
         "live": {
             "p1": {
-                "title": "LIVE FULLY",
-                "description": "A living space where luxury and elegance meet, defying time - a unique collection with each piece having its own character and story..."
+                "title": "LIVE MORE",
+                "description": "At the center of life, live more by joyfully dedicating time to yourself and your loved ones, transforming life into art."
             },
             "p2": {
-                "title": "LIVE PEACEFULLY",
-                "t1": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-                "t2": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-                "t3": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-                "t4": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+                "title": "LIVE MORE PEACEFULLY",
+                "description": "Live more peacefully in secure spaces where different and timeless architecture meets the generosity of nature."
             },
             "p3": {
-                "title": "LIVE RICHLY",
-                "description": "City's Residences offers a life equipped with Istanbul's unique social amenities. Enjoy every moment with pools, walking tracks, and relaxation areas."
+                "title": "LIVE MORE RICHLY",
+                "description": "Live more richly with a new life design that brings together sports, art, culture, shopping, entertainment, and much more."
             }
         }
     },
@@ -161,7 +158,7 @@
         "items": {
             "i1": {
                 "title": "HER ŞEYİN BAŞLADIĞI NOKTA: RESEPSİYON & CONCIERGE HİZMETLERİ",
-                "text": "City’s Life’ın kalbi, hayatınızı kolaylaştıran Resepsiyon ve Cocierge Hizmetleri’nde atıyor. Misafirlerinizi profesyonel bir karşılama ile ağırlayabilir, gün içindeki ihtiyaçlarınızı tek bir noktadan yönetebilirsiniz."
+                "text": "City's Life'ın kalbi, hayatınızı kolaylaştıran Resepsiyon ve Cocierge Hizmetleri'nde atıyor. Misafirlerinizi profesyonel bir karşılama ile ağırlayabilir, gün içindeki ihtiyaçlarınızı tek bir noktadan yönetebilirsiniz."
             },
             "i2": {
                 "title": "VALE & OTOPARK HİZMETLERİ İLE DAHA ÇOK ZAMAN",
@@ -185,12 +182,13 @@
             },
             "i7": {
                 "title": "EVCİL DOSTLARINIZA ÖZEL: PET HOTEL & PET HOSPITAL",
-                "text": "Şehir hayatının temposunda evcil dostlarınız da hak ettiği ilgili görmeli. City’s Residences’ta onların konforu için özel bir alan oluşturduk. Pet Hotel sayesinde seyahatteyken gözünüz arkada kalmaz, Pet Hospital ile patili dostlarınıza sağlıklı ve mutlu bir yaşam sunarak her an yanlarında olabilirsiniz."
+                "text": "Şehir hayatının temposunda evcil dostlarınız da hak ettiği ilgili görmeli. City's Residences'ta onların konforu için özel bir alan oluşturduk. Pet Hotel sayesinde seyahatteyken gözünüz arkada kalmaz, Pet Hospital ile patili dostlarınıza sağlıklı ve mutlu bir yaşam sunarak her an yanlarında olabilirsiniz."
             }
         }
     },
     "common": {
         "navigation": {
+            "home": "Home",
             "residences": "Residences",
             "location": "Location",
             "citysPark": "City's Park",

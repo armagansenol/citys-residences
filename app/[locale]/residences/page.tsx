@@ -58,24 +58,24 @@ export default function Page() {
               className="w-full h-full object-cover"
             />
           </div>
-          {/* <div className="absolute top-0 left-0 w-full h-full bg-black/50">
-            <div className="container flex h-full">
+          <div className="absolute top-0 left-0 w-full h-full bg-black/50">
+            {/* <div className="container flex h-full">
               <h1 className="block font-montserrat text-white text-2xl bt:text-4xl font-medium mt-auto mb-20">
                 <TextRevealOnScroll splitBy="characters" textAlign="left" staggerDuration={0.005}>
                   DAİRELER
                 </TextRevealOnScroll>
               </h1>
-            </div>
-          </div> */}
+            </div> */}
+          </div>
         </ScaleOut>
       </section>
       <section className="py-32 bg-white z-20">
         <div className="relative container">
           <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
             <VideoWithPlayButton
-              primaryVideoUrl={melihBulgurVideo}
-              thumbnail="/img/thumbnail-melih-bulgur.jpg"
-              title="Statik: Zeminden Başlayan Güven"
+              primaryVideoUrl={mustafaTonerVideo}
+              thumbnail="/img/thumbnail-toners.jpg"
+              title="İç Mimari: 'Doğal Olanın Sessiz Dili "
             />
           </div>
         </div>
@@ -86,13 +86,15 @@ export default function Page() {
       <section>
         <StackingCards items={items} />
       </section>
-      <section className="relative container py-20">
-        <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
-          <VideoWithPlayButton
-            primaryVideoUrl={mustafaTonerVideo}
-            thumbnail="/img/thumbnail-toners.jpg"
-            title="İç Mimari: 'Doğal Olanın Sessiz Dili "
-          />
+      <section className="py-32 bg-white z-20">
+        <div className="relative container">
+          <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
+            <VideoWithPlayButton
+              primaryVideoUrl={melihBulgurVideo}
+              thumbnail="/img/thumbnail-melih-bulgur.jpg"
+              title="Statik: Zeminden Başlayan Güven"
+            />
+          </div>
         </div>
       </section>
     </Wrapper>

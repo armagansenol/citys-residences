@@ -200,7 +200,7 @@ export default function Home() {
       </section> */}
       <section className="container flex flex-col-reverse bd:flex-row items-center justify-between gap-10 bt:gap-20 bd:gap-16 py-6 bt:py-24">
         <div className="px-4 bt:px-0 flex flex-col items-center justify-center bd:items-start">
-          <h2 className="font-montserrat font-bold bt:font-semibold text-bricky-brick text-4xl bt:text-7xl bd:text-7xl mb-5 bt:mb-10">
+          <h2 className="font-montserrat font-normal text-bricky-brick text-4xl bt:text-7xl bd:text-7xl mb-5 bt:mb-10">
             <TextRevealOnScroll
               className="hidden bd:block"
               elementLevelClassName="leading-relaxed"
@@ -208,7 +208,7 @@ export default function Home() {
               textAlign="left"
               staggerDuration={0.005}
             >
-              DAHA ÇOK YAŞA
+              {t("live.p1.title")}
             </TextRevealOnScroll>
             <TextRevealOnScroll
               className="block bd:hidden"
@@ -217,7 +217,7 @@ export default function Home() {
               textAlign="center"
               staggerDuration={0.005}
             >
-              DAHA ÇOK YAŞA
+              {t("live.p1.title")}
             </TextRevealOnScroll>
           </h2>
           <p className="font-halenoir text-md bt:text-4xl bd:text-3xl text-center max-w-sm bt:max-w-xl bd:max-w-xl bd:leading-normal">
@@ -228,7 +228,7 @@ export default function Home() {
               textAlign="left"
               staggerDuration={0.005}
             >
-              {t("map.title")}
+              {t("live.p1.description")}
             </TextRevealOnScroll>
             <TextRevealOnScroll
               className="block bd:hidden"
@@ -237,12 +237,9 @@ export default function Home() {
               textAlign="center"
               staggerDuration={0.005}
             >
-              {t("map.title")}
+              {t("live.p1.description")}
             </TextRevealOnScroll>
           </p>
-          <div className="w-40 h-40 mx-auto bt:hidden">
-            <Logo fill={"var(--bricky-brick)"} />
-          </div>
         </div>
         <div className={cn(s.circleVideoC, "overflow-hidden rounded-full z-20")}>
           <Video
@@ -266,7 +263,7 @@ export default function Home() {
         <FullScreenSlider title={t("live.p1.title")} description={t("live.p1.description")} items={slides1} />
       </section> */}
       <section className="py-4 bt:py-8">
-        <FullScreenSlider title={t("live.p2.title")} description={t("live.p1.description")} items={slides2} />
+        <FullScreenSlider title={t("live.p2.title")} description={t("live.p2.description")} items={slides2} />
         <div className="w-40 h-40 mx-auto bt:hidden">
           <Logo fill={"var(--bricky-brick)"} />
         </div>

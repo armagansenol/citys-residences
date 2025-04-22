@@ -23,8 +23,8 @@ export default function Page() {
               className="w-full h-full object-cover hidden bd:block"
             />
           </div>
-          {/* <div className="absolute top-0 left-0 w-full h-full bg-black/50">
-            <div className="container flex flex-col h-full">
+          <div className="absolute top-0 left-0 w-full h-full bg-black/50">
+            {/* <div className="container flex flex-col h-full">
               <h1 className="max-w-xl block font-montserrat leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-8">
                 <TextRevealOnScroll splitBy="characters" textAlign="left" staggerDuration={0.005}>
                   CITY&apos;S LIFE:
@@ -38,8 +38,8 @@ export default function Page() {
                   Hayatın en seçkin anlarını yaşamak için ayrıcalıklı dünyamıza adım adım yaklaşıyorsunuz.
                 </TextRevealOnScroll>
               </p>
-            </div>
-          </div> */}
+            </div> */}
+          </div>
         </ScaleOut>
       </section>
       <section className="relative z-20 bg-white">

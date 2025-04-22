@@ -17,11 +17,11 @@
   @include-media ("desktop") {
     position: absolute;
     font-size: desktop-vw(70px);
+    left: 50%;
     letter-spacing: 0.2em;
-    left: desktop-vw(40px);
     padding: desktop-vw(30px) 0;
     top: desktop-vw(100px);
-    transform: translate(0, 0);
+    transform: translate(-50%, 0);
     white-space: nowrap;
   }
   .title {

@@ -122,17 +122,17 @@
             "title3": "Zamanı yönetmek yaşamı sanata dönüştürmektir",
             "p1": {
                 "title": "DAHA<br></br> HUZURLU YAŞA",
-                "description": "Huzur, sessiz lüks mimaride sonsuz bir güvenle ve cömert doğayla iç içe yaşama ayrıcalığıdır.",
+                "description": "Farklı ve zamansız mimarinin, doğanın cömertliği ile buluştuğu mekanlarda güven içinde, daha huzurlu yaşa.",
                 "button": "İNCELE"
             },
             "p2": {
                 "title": "DAHA ÇOK<br></br>YAŞA",
-                "description": "Hayatın tam merkezinde, zamanı kendinize ve sevdiklerinize ayırabilmek, yaşamı sanata dönüştürmektir.",
+                "description": "Hayatın tam merkezinde, zamanı kendinize ve sevdiklerinize ayırarak keyifle, yaşamı sanata dönüştürerek daha çok yaşa.",
                 "button": "İNCELE"
             },
             "p3": {
                 "title": "DAHA DOLU<br></br>YAŞA",
-                "description": "Sporun, sanatın, eğlencenin ve daha fazlasının bir araya geldiği bir yaşam, her anı değerli kılar.",
+                "description": "Spor, sanat, kültür, alışveriş, eğlence ve çok daha fazlasını bir araya getiren yeni bir yaşam dizaynı ile daha dolu yaşa.",
                 "button": "İNCELE"
             }
         },
@@ -146,10 +146,7 @@
             },
             "p2": {
                 "title": "DAHA HUZURLU YAŞA",
-                "t1": "Zaman senin sanat eserin. İstanbul'un kalbinde, kendine ayırdığın her an bir ayrıcalığa dönüşür.",
-                "t2": "Şehir seni çevrelerken, sen kendini keşfeder, hayatın en anlamlı anlarını yaratırsın.",
-                "t3": "Konforlu, dingin ve  zarif bir yaşamın kapılarını arala.",
-                "t4": "Cömert doğayla iç içe yaşamanın ayrıcalığıyla, yaşamı sanata dönüştür."
+                "description": "Farklı ve zamansız mimarinin, doğanın cömertliği ile buluştuğu mekanlarda güven içinde, daha huzurlu yaşa."
             },
             "p3": {
                 "title": "DAHA DOLU YAŞA",
@@ -191,6 +188,7 @@
     },
     "common": {
         "navigation": {
+            "home": "Anasayfa",
             "residences": "Daireler",
             "location": "Konum",
             "citysPark": "City's Park",
@@ -198,7 +196,7 @@
             "citysLifePrivileges": "City's Life Ayrıcalıkları",
             "citysIstanbul": "City's İstanbul AVM"
         },
-        "contactInfo": "City's İstanbul Satış Ofisi / <br></br> City's Sales Gallery",
+        "contactInfo": "City's Residences Satış Ofisi / <br></br> City's Residences Sales Gallery",
         "close": "KAPAT",
         "open": "MENÜ",
         "inquiry": "RANDEVU AL",
@@ -206,7 +204,7 @@
         "socialMedia": "Sosyal Medya",
         "menu": "Menü",
         "legal": "KVKK",
-        "copyright": "2025 © City's Istanbul Residences - Tüm hakları saklıdır.",
+        "copyright": "2025 © City's Residences İstanbul - Tüm hakları saklıdır.",
         "kvkk": "KVKK",
         "commercialElectronicMessage": "Ticari Elektronik İleti Aydınlatma Metni",
         "explicitConsent": "Açık Rıza Metni",

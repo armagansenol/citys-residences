@@ -27,6 +27,7 @@ export function Header() {
   const t = useTranslations("common")
 
   const navigationItems = [
+    { title: t("navigation.home"), href: "/" },
     { title: t("navigation.residences"), href: "/residences" },
     { title: t("navigation.location"), href: "/location" },
     { title: t("navigation.citysPark"), href: "/citys-park" },
