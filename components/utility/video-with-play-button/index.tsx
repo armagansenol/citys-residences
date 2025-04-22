@@ -3,9 +3,9 @@
 import { cn } from "@/lib/utils"
 import { useRef, useState } from "react"
 
-import { IconPlay } from "@/components/icons"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
+import { PlayIcon } from "lucide-react"
 
 export interface IVideoWithPlayButtonProps {
   primaryVideoUrl: string
@@ -29,7 +29,7 @@ export function VideoWithPlayButton({
   }
 
   return (
-    <div className="group relative w-full h-full flex items-center justify-center mb-8 bt:mb-0 bd:mt-8">
+    <div className="group relative w-full h-full flex items-center justify-center">
       <Video
         className="w-full h-auto bt:h-full"
         primaryVideoUrl={primaryVideoUrl}
@@ -44,33 +44,24 @@ export function VideoWithPlayButton({
         onClick={handlePlay}
       >
         {thumbnail && (
-          <div className="absolute top-0 left-0 w-full h-full">
+          <div className="absolute top-0 left-0 w-full h-full z-10">
             <Img src={thumbnail} alt="Thumbnail" className="w-full h-full object-cover" fill sizes="100vw" />
           </div>
         )}
-        <div
-          className={cn(
-            "absolute top-0 left-0 w-full h-full bg-neutral-900/50 transition-all duration-500",
-            "group-hover:bg-neutral-900/70"
-          )}
-        />
-        <button
-          type="button"
-          className={cn(
-            "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 flex items-center justify-center transition-transform duration-300",
-            "group-hover:scale-125"
-          )}
-        >
-          <IconPlay fill="var(--white)" />
-        </button>
-      </div>
-      {title && (
-        <div className="absolute bottom-0 bd:bottom-auto bd:top-0 translate-y-full bd:-translate-y-full left-1/2 -translate-x-1/2 w-full flex bg-white">
-          <article className="text-black font-montserrat italic text-md bt:text-2xl font-normal mx-auto py-3 bt:py-4">
-            {title}
-          </article>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-neutral-900/70 to-neutral-900/40 z-20" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center gap-8 z-30">
+          {title && <article className="text-white font-montserrat text-md bt:text-4xl font-medium">{title}</article>}
+          <button
+            type="button"
+            className={cn(
+              "w-10 h-10 border-2 border-white rounded-full flex items-center justify-center transition-transform duration-300 ease-in-out p-2.5",
+              "group-hover:scale-125"
+            )}
+          >
+            <PlayIcon className="w-full h-full fill-white stroke-white" />
+          </button>
         </div>
-      )}
+      </div>
     </div>
   )
 }
