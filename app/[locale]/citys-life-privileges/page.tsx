@@ -54,13 +54,13 @@ export default function Page() {
             {
               title: t("items.i2.title"),
               text: t("items.i2.text"),
-              imgSrc: "/img/citys-life/06.jpg",
+              imgSrc: "/img/citys-life/02.jpg",
               horizontalAlignment: "rtl" as const,
             },
             {
               title: t("items.i3.title"),
               text: t("items.i3.text"),
-              imgSrc: "/img/citys-life/07.jpg",
+              imgSrc: "/img/citys-life/03.jpg",
               horizontalAlignment: "ltr" as const,
             },
             {
@@ -72,20 +72,14 @@ export default function Page() {
             {
               title: t("items.i5.title"),
               text: t("items.i5.text"),
-              imgSrc: "/img/citys-life/02.jpg",
+              imgSrc: "/img/citys-life/05.jpg",
               horizontalAlignment: "ltr" as const,
             },
             {
               title: t("items.i6.title"),
               text: t("items.i6.text"),
-              imgSrc: "/img/citys-life/05.jpg",
+              imgSrc: "/img/citys-life/06.jpg",
               horizontalAlignment: "rtl" as const,
-            },
-            {
-              title: t("items.i7.title"),
-              text: t("items.i7.text"),
-              imgSrc: "/img/citys-life/03.jpg",
-              horizontalAlignment: "ltr" as const,
             },
           ].map(
             (
