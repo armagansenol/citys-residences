@@ -178,6 +178,34 @@
             }
         }
     },
+    "citys-park": {
+        "items": {
+            "i1": {
+                "title": "City's Lounge",
+                "text": "Bir araya gelmenin doğal hali; içeride bir dünya, dışarıda bir ritim ve nefes."
+            },
+            "i2": {
+                "title": "Havuz x Bar",
+                "text": "Günün akışını yavaşlatan, suyun kenarında sosyal bir hafiflik."
+            },
+            "i3": {
+                "title": "Çocuk Parkları",
+                "text": "Oyun, doğa ve hayat güçlü bir arada; çocukların özgürce büyüdüğü alanlar."
+            },
+            "i4": {
+                "title": "Yürüyüş Parkurları",
+                "text": "Gökyüzü kadar geniş bir hareket alanı."
+            },
+            "i5": {
+                "title": "Açık Spor Alanları",
+                "text": "Açık havada kendinle buluşmanın en doğal hali."
+            },
+            "i6": {
+                "title": "Açıkhava Meydanları",
+                "text": "Birlikte olmanın bir plana ihtiyaç duymadığı, hayatın akışında paylaşılan zamanlara ayrılmış bir alan."
+            }
+        }
+    },
     "common": {
         "navigation": {
             "home": "Anasayfa",

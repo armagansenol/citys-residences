@@ -1,6 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
+import { useTranslations } from "next-intl"
 
 import { ScaleOut } from "@/components/animations/scale-out"
 import { MaskedParallaxImageSection } from "@/components/parallax-images-section"
@@ -10,105 +11,38 @@ import { Wrapper } from "@/components/wrapper"
 import { mainVideoDesktop, pinarVeCemilAktasVideo } from "@/lib/constants"
 
 export default function Page() {
-  const images = [
+  const t = useTranslations("citys-park")
+
+  const sections = [
     {
-      url: "/img/citys-park/01.jpg",
+      title: t("items.i1.title"),
+      text: t("items.i1.text"),
+      imgSrc: "/img/citys-park/01.jpg",
     },
     {
-      url: "/img/citys-park/02.jpg",
+      title: t("items.i2.title"),
+      text: t("items.i2.text"),
+      imgSrc: "/img/citys-park/02.jpg",
     },
     {
-      url: "/img/citys-park/03.jpg",
+      title: t("items.i3.title"),
+      text: t("items.i3.text"),
+      imgSrc: "/img/citys-park/03.jpg",
     },
     {
-      url: "/img/citys-park/04.jpg",
+      title: t("items.i4.title"),
+      text: t("items.i4.text"),
+      imgSrc: "/img/citys-park/04.jpg",
     },
     {
-      url: "/img/citys-park/05.jpg",
+      title: t("items.i5.title"),
+      text: t("items.i5.text"),
+      imgSrc: "/img/citys-park/05.jpg",
     },
     {
-      url: "/img/citys-park/06.jpg",
-    },
-    {
-      url: "/img/citys-park/07.jpg",
-    },
-    {
-      url: "/img/citys-park/08.jpg",
-    },
-    {
-      url: "/img/citys-park/09.jpg",
-    },
-    {
-      url: "/img/citys-park/10.jpg",
-    },
-    {
-      url: "/img/citys-park/11.jpg",
-    },
-    {
-      url: "/img/citys-park/12.jpg",
-    },
-    {
-      url: "/img/citys-park/13.jpg",
-    },
-    {
-      url: "/img/citys-park/14.jpg",
-    },
-    {
-      url: "/img/citys-park/15.jpg",
-    },
-    {
-      url: "/img/citys-park/16.jpg",
-    },
-    {
-      url: "/img/citys-park/17.jpg",
-    },
-    {
-      url: "/img/citys-park/18.jpg",
-    },
-    {
-      url: "/img/citys-park/19.jpg",
-    },
-    {
-      url: "/img/citys-park/20.jpg",
-    },
-    {
-      url: "/img/citys-park/21.jpg",
-    },
-    {
-      url: "/img/citys-park/22.jpg",
-    },
-    {
-      url: "/img/citys-park/23.jpg",
-    },
-    {
-      url: "/img/citys-park/24.jpg",
-    },
-    {
-      url: "/img/citys-park/25.jpg",
-    },
-    {
-      url: "/img/citys-park/26.jpg",
-    },
-    {
-      url: "/img/citys-park/27.jpg",
-    },
-    {
-      url: "/img/citys-park/28.jpg",
-    },
-    {
-      url: "/img/citys-park/29.jpg",
-    },
-    {
-      url: "/img/citys-park/30.jpg",
-    },
-    {
-      url: "/img/citys-park/31.jpg",
-    },
-    {
-      url: "/img/citys-park/32.jpg",
-    },
-    {
-      url: "/img/citys-park/33.jpg",
+      title: t("items.i6.title"),
+      text: t("items.i6.text"),
+      imgSrc: "/img/citys-park/06.jpg",
     },
   ]
 
@@ -142,12 +76,12 @@ export default function Page() {
       </section> */}
       <section className="relative z-20 bg-white">
         <div className="container flex flex-col gap-12 bt:gap-32 bd:gap-48 py-12 bt:py-36 bd:py-40">
-          {images.map((image, index) => (
+          {sections.map((section, index) => (
             <MaskedParallaxImageSection
               key={index}
-              title="Park Alanı"
-              text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
-              imgSrc={image.url}
+              title={section.title}
+              text={section.text}
+              imgSrc={section.imgSrc}
               horizontalAlignment={index % 2 === 0 ? "ltr" : "rtl"}
             />
           ))}

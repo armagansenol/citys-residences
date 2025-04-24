@@ -25,8 +25,8 @@ export default function Home() {
 
   const slideImages = {
     slides1: [1, 2, 3, 4].map((num) => `/img/slides-1/${num}.jpg`),
-    slides2: [1, 2, 3, 4].map((num) => `/img/slides-2/${num}.jpg`),
-    slides3: [1, 2, 3, 4].map((num) => `/img/slides-3/${num}.jpg`),
+    slides2: [1, 2, 3, 4].map((num) => `/img/slides-2/0${num}.jpg`),
+    slides3: [1, 2, 3, 4].map((num) => `/img/slides-3/0${num}.jpg`),
   }
 
   // const slides1 = slideImages.slides1.map((src, index) => createSlide(src, index + 1))
