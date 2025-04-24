@@ -8,7 +8,7 @@ import { MaskedParallaxImageSection } from "@/components/parallax-images-section
 import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
 import { Wrapper } from "@/components/wrapper"
-import { mainVideoDesktop, pinarVeCemilAktasVideo } from "@/lib/constants"
+import { citysParkVideo, pinarVeCemilAktasVideo } from "@/lib/constants"
 
 export default function Page() {
   const t = useTranslations("citys-park")
@@ -52,7 +52,7 @@ export default function Page() {
         <ScaleOut>
           <div className="h-full w-full">
             <Video
-              primaryVideoUrl={mainVideoDesktop}
+              primaryVideoUrl={citysParkVideo}
               autoPlay
               loop
               muted

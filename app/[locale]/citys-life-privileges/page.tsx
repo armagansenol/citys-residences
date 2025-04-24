@@ -5,7 +5,7 @@ import { ScaleOut } from "@/components/animations/scale-out"
 import { MaskedParallaxImageSection } from "@/components/parallax-images-section"
 import { Video } from "@/components/utility/video"
 import { Wrapper } from "@/components/wrapper"
-import { mainVideoDesktop } from "@/lib/constants"
+import { citysLifeVideo } from "@/lib/constants"
 
 export default function Page() {
   const t = useTranslations("citys-life")
@@ -15,7 +15,7 @@ export default function Page() {
         <ScaleOut>
           <div className="h-full w-full">
             <Video
-              primaryVideoUrl={mainVideoDesktop}
+              primaryVideoUrl={citysLifeVideo}
               autoPlay
               loop
               muted

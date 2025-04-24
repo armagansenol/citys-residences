@@ -12,7 +12,7 @@ import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
 import { Wrapper } from "@/components/wrapper"
-import { kolajVideo, locationVideo, mainVideoDesktop, muratKaderVideo } from "@/lib/constants"
+import { kolajVideo, locationVideo, mainVideo, muratKaderVideo } from "@/lib/constants"
 
 export default function Home() {
   const t = useTranslations("home")
@@ -63,14 +63,7 @@ export default function Home() {
       <section className={cn(s.intro, "h-[50vh] bt:h-screen bg-bricky-brick relative z-10 overflow-hidden")}>
         <ScaleOut>
           <div className="h-full w-full">
-            <Video
-              primaryVideoUrl={mainVideoDesktop}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
+            <Video primaryVideoUrl={mainVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
             {/* <Video
               primaryVideoUrl={mainVideoDesktop}
               autoPlay

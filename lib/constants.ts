@@ -118,8 +118,8 @@ export const countryPhoneCodes = {
 export const muratKaderVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1076668374/rendition/1080p/file.mp4?loc=external&log_user=0&signature=9cb5431c29179de45c2a9528e203a341f2aa92b6c95641659f2de5e74791354f"
 
-export const mainVideoDesktop =
-  "https://player.vimeo.com/progressive_redirect/playback/1076658613/rendition/1080p/file.mp4?loc=external&log_user=0&signature=682b08c58632c7ff143b4ae507c557edc68aa98afafe2d5d9855410f175f624f"
+export const mainVideo =
+  "https://player.vimeo.com/progressive_redirect/playback/1078304248/rendition/1080p/file.mp4?loc=external&log_user=0&signature=47a5e82287dc7996168ae6404bc71bf7c93e68964542bab2a78c2856eadfbdd6"
 
 export const kolajVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1069860586/rendition/1080p/file.mp4?loc=external&log_user=0&signature=93ffcc3ffcfe4a4ca2624cdbaef95fab5777741b7c5ab98d9e3f9bddf9f6062a"
@@ -137,4 +137,10 @@ export const pinarVeCemilAktasVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1076669307/rendition/1080p/file.mp4?loc=external&log_user=0&signature=7ae58e9ab6d78fb58ee636c7702acb47f7202f7f7a129974894b28abecc11ba6"
 
 export const residencesVideo =
-  "https://player.vimeo.com/progressive_redirect/playback/1076676620/rendition/1080p/file.mp4?loc=external&log_user=0&signature=c03831c6797fba1aa5fb5ba19069a72fff340518a5ba6a4e38e119e1e321eb45"
+  "https://player.vimeo.com/progressive_redirect/playback/1078304481/rendition/1080p/file.mp4?loc=external&log_user=0&signature=207de0f75e2956878724e2c9c434ca5b96145e863309ec695d79ad183677b210"
+
+export const citysLifeVideo =
+  "https://player.vimeo.com/progressive_redirect/playback/1078304401/rendition/1080p/file.mp4?loc=external&log_user=0&signature=aacb4e5afe166d0e590fa2a8d26f6dfa536d13bacb6cedcc1781d787244ad857"
+
+export const citysParkVideo =
+  "https://player.vimeo.com/progressive_redirect/playback/1078304328/rendition/1080p/file.mp4?loc=external&log_user=0&signature=a9210dcdecbda1aca16be3a5f42f0587b30a1e24587d3112c5a7e05296cc8e17"
