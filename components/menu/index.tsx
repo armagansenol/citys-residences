@@ -8,7 +8,7 @@ import { useRef, useState } from "react"
 import { useClickAway } from "react-use"
 
 import { gsap, useGSAP } from "@/components/gsap"
-import { socialIcons } from "@/components/icons"
+import { IconPin, socialIcons } from "@/components/icons"
 import { Link } from "@/components/utility/link"
 
 interface MenuItem {
@@ -152,13 +152,17 @@ export function Menu({ open, setOpen, items }: MenuProps) {
               rel="noopener noreferrer"
               className={cn(
                 s.navItem,
-                "font-halenoir font-normal text-white text-2xl bt:text-4xl bd:text-3xl text-center bd:text-left",
+                "font-halenoir font-normal text-white text-2xl bt:text-4xl bd:text-2xl text-center bd:text-left bd:leading-none",
                 "transition-opacity duration-300 ease-in-out",
-                "opacity-100 hover:opacity-70"
+                "opacity-100 hover:opacity-70",
+                "flex items-center gap-2"
                 // "hover:font-medium"
               )}
             >
               {/* <AnimatedButton theme="transparent" size="lg" text="Satış Ofisi Konum" fontFamily="halenoir" /> */}
+              <span className="flex items-end w-6 h-6 mb-1">
+                <IconPin fill="var(--white)" />
+              </span>
               CR Satış Ofisi Konum
             </a>
           </li>
