@@ -1,24 +1,24 @@
 "use client"
 
 import { useTranslations } from "next-intl"
+import { useEffect, useRef } from "react"
+import { useIntersection } from "react-use"
 
 import { Logo, socialIcons } from "@/components/icons"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Link } from "@/components/utility/link"
-import { useIntersection } from "react-use"
-import { useEffect, useRef } from "react"
 
 export function Footer() {
   const t = useTranslations("common")
   const footerItems = {
     menu: [
-      { title: t("navigation.residences"), href: "#" },
-      { title: t("navigation.location"), href: "#" },
-      { title: t("navigation.citysPark"), href: "#" },
-      { title: t("navigation.citysMembersClub"), href: "#" },
-      { title: t("navigation.citysLifePrivileges"), href: "#" },
-      { title: t("navigation.citysIstanbul"), href: "#" },
+      { title: t("navigation.residences"), href: "/residences" },
+      { title: t("navigation.location"), href: "/location" },
+      { title: t("navigation.citysPark"), href: "/cityspark" },
+      { title: t("navigation.citysMembersClub"), href: "/citys-members-club" },
+      { title: t("navigation.citysLifePrivileges"), href: "/citys-life-privileges" },
+      { title: t("navigation.citysIstanbul"), href: "https://citys-istanbul.com/" },
     ],
     legal: [
       {
@@ -48,8 +48,6 @@ export function Footer() {
   })
 
   useEffect(() => {
-    console.log("isVisible", observer?.isIntersecting)
-
     const aloTech = document.querySelector("#Click2ConnectPackageFrame") as HTMLIFrameElement
 
     if (!aloTech) return
@@ -71,9 +69,9 @@ export function Footer() {
         <div className="flex flex-col items-stretch bt:items-start bt:grid bt:grid-cols-24 gap-4 bt:gap-4 bd:gap-8 mb-7 bt:mb-14">
           {/* Logo Section */}
           <div className="order-2 bt:-order-none bt:col-span-9 bd:col-span-8 flex">
-            <div className="mx-auto bt:mx-0 bt:mb-auto bt:mr-auto w-[200px] bt:w-[200px] bd:w-[260px]">
+            <Link href="/" className="mx-auto bt:mx-0 bt:mb-auto bt:mr-auto w-[200px] bt:w-[200px] bd:w-[260px]">
               <Logo fill="var(--white)" />
-            </div>
+            </Link>
           </div>
           {/* Contact Section */}
           <div className="order-1 bt:order-none bt:col-span-6 bd:col-span-5 py-10 bt:py-0">
