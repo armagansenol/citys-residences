@@ -20,6 +20,11 @@ export default function Page() {
       imgSrc: "/img/citys-park/01.jpg",
     },
     {
+      title: t("items.i6.title"),
+      text: t("items.i6.text"),
+      imgSrc: "/img/citys-park/06.jpg",
+    },
+    {
       title: t("items.i2.title"),
       text: t("items.i2.text"),
       imgSrc: "/img/citys-park/02.jpg",
@@ -39,11 +44,6 @@ export default function Page() {
       text: t("items.i5.text"),
       imgSrc: "/img/citys-park/05.jpg",
     },
-    {
-      title: t("items.i6.title"),
-      text: t("items.i6.text"),
-      imgSrc: "/img/citys-park/06.jpg",
-    },
   ]
 
   return (
@@ -60,15 +60,13 @@ export default function Page() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute top-0 left-0 w-full h-full bg-black/50">
-            {/* <div className="container flex h-full">
+          {/* <div className="container flex h-full">
               <h1 className="block font-montserrat text-white text-2xl bt:text-4xl font-medium mt-auto mb-20">
                 <TextRevealOnScroll splitBy="characters" textAlign="left" staggerDuration={0.005}>
                   CITY&apos;S PARK
                 </TextRevealOnScroll>
               </h1>
             </div> */}
-          </div>
         </ScaleOut>
       </section>
       {/* <section className="relative bg-white pt-16 bt:pt-24 bd:pt-32 z-20">
