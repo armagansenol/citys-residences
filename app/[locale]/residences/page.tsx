@@ -10,19 +10,19 @@ import { melihBulgurVideo, mustafaTonerVideo, residencesVideo } from "@/lib/cons
 export default function Page() {
   const items = [
     {
-      title: "1+1",
+      title: "1+1 Tek kişilik yaşamdan çok daha fazlası.",
       images: [
         {
           url: "/img/residences/1+1/plan.jpg",
         },
         {
-          url: "/img/residences/1+1/interior.jpg",
+          url: "/img/residences/3+1/interior.jpg",
         },
       ],
       bg: "#fbfbfb",
     },
     {
-      title: "2+1",
+      title: "2+1 Kendi ritmine alan aç.",
       images: [
         {
           url: "/img/residences/2+1/plan.jpg",
@@ -34,7 +34,7 @@ export default function Page() {
       bg: "#fffdfd",
     },
     {
-      title: "3+1",
+      title: "3+1 Yaşamın farklı çizgilerine yer ver.",
       images: [
         {
           url: "/img/residences/3+1/plan.jpg",

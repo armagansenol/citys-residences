@@ -86,7 +86,7 @@ export function StackingCards({ items }: StackingCardsProps) {
             style={{ backgroundColor: item.bg }}
             key={i}
           >
-            <h2 className="absolute top-0 left-0 font-halenoir text-3xl bt:text-5xl font-normal p-3 bt:p-5 tracking-widest">
+            <h2 className="absolute top-0 left-0 font-montserrat text-3xl bt:text-4xl font-normal p-3 bt:p-5">
               {item.title}
             </h2>
             <div className="flex flex-col bt:flex-row gap-3 bt:gap-5 ml-auto w-8/12 bt:w-auto h-[100%] bt:h-[60%] bd:h-[85%]">

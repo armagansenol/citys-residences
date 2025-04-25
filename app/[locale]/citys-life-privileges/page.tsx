@@ -81,6 +81,12 @@ export default function Page() {
               imgSrc: "/img/citys-life/06.jpg",
               horizontalAlignment: "rtl" as const,
             },
+            {
+              title: t("items.i7.title"),
+              text: t("items.i7.text"),
+              imgSrc: "/img/citys-life/07.jpg",
+              horizontalAlignment: "ltr" as const,
+            },
           ].map(
             (
               item: {

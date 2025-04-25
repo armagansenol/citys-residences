@@ -53,7 +53,7 @@ export function Footer() {
             </h2>
             <div className="flex flex-col items-stretch gap-6 mr-0 bd:mr-12">
               <div className="space-y-2">
-                <span className="block text-base text-white whitespace-pre-line">
+                <span className="block text-base bd:text-base text-white whitespace-pre-line">
                   {t.rich("contactInfo", {
                     br: () => <br />,
                   })}

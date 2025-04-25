@@ -181,27 +181,27 @@
     "citys-park": {
         "items": {
             "i1": {
-                "title": "City's Lounge",
+                "title": "CITY'S LOUNGE",
                 "text": "Bir araya gelmenin doğal hali; içeride bir dünya, dışarıda bir ritim ve nefes."
             },
             "i2": {
-                "title": "Havuz x Bar",
+                "title": "HAVUZ X BAR",
                 "text": "Günün akışını yavaşlatan, suyun kenarında sosyal bir hafiflik."
             },
             "i3": {
-                "title": "Çocuk Parkları",
+                "title": "ÇOCUK PARKLARI",
                 "text": "Oyun, doğa ve hayat güçlü bir arada; çocukların özgürce büyüdüğü alanlar."
             },
             "i4": {
-                "title": "Yürüyüş Parkurları",
+                "title": "YÜRÜYÜŞ PARKURLARI",
                 "text": "Gökyüzü kadar geniş bir hareket alanı."
             },
             "i5": {
-                "title": "Açık Spor Alanları",
+                "title": "AÇIK SPOR ALANLARI",
                 "text": "Açık havada kendinle buluşmanın en doğal hali."
             },
             "i6": {
-                "title": "Açıkhava Meydanları",
+                "title": "AÇIKHAVA MEYDANLARI",
                 "text": "Birlikte olmanın bir plana ihtiyaç duymadığı, hayatın akışında paylaşılan zamanlara ayrılmış bir alan."
             }
         }
@@ -216,7 +216,7 @@
             "citysLifePrivileges": "City's Life Ayrıcalıkları",
             "citysIstanbul": "City's İstanbul AVM"
         },
-        "contactInfo": "City's Residences Satış Ofisi / <br></br> City's Residences Sales Gallery",
+        "contactInfo": "City's Residences Satış Ofisi / <br></br> Sales Gallery",
         "close": "KAPAT",
         "open": "MENÜ",
         "inquiry": "RANDEVU AL",

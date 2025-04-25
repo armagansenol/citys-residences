@@ -193,7 +193,7 @@ export default function Home() {
       </section> */}
       <section className="container flex flex-col-reverse bd:flex-row items-center justify-between gap-10 bt:gap-20 bd:gap-16 py-6 bt:py-24">
         <div className="px-4 bt:px-0 flex flex-col items-center justify-center bd:items-start">
-          <h2 className="font-montserrat font-normal text-bricky-brick text-4xl bt:text-7xl bd:text-7xl mb-5 bt:mb-10 hidden bt-block">
+          <h2 className="font-montserrat font-normal text-bricky-brick text-4xl bt:text-7xl bd:text-7xl mb-5 bt:mb-10 hidden bd:block">
             <TextRevealOnScroll
               className="hidden bd:block"
               elementLevelClassName="leading-relaxed"
@@ -244,7 +244,7 @@ export default function Home() {
             className="relative w-full h-full object-cover z-0"
           />
         </div>
-        <h2 className="font-montserrat font-normal text-bricky-brick text-4xl bt:text-7xl bd:text-7xl block bt:hidden">
+        <h2 className="font-montserrat font-normal text-bricky-brick text-4xl bt:text-7xl bd:text-7xl block bd:hidden">
           <TextRevealOnScroll
             className="hidden bd:block"
             elementLevelClassName="leading-relaxed"
