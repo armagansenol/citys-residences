@@ -13,16 +13,14 @@ export default function Page() {
     <Wrapper>
       <section className={cn("relative h-[var(--svh-calc)] bd:h-screen bg-bricky-brick z-10 overflow-hidden")}>
         <ScaleOut>
-          <div className="h-full w-full">
-            <Video
-              primaryVideoUrl={citysLifeVideo}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover hidden bd:block"
-            />
-          </div>
+          <Video
+            primaryVideoUrl={citysLifeVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
           {/* <div className="container flex flex-col h-full">
               <h1 className="max-w-xl block font-montserrat leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-8">
                 <TextRevealOnScroll splitBy="characters" textAlign="left" staggerDuration={0.005}>
