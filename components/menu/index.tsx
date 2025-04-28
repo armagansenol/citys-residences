@@ -103,7 +103,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                 setActive(null)
               }}
             >
-              <Link className="cursor-pointer block bd:py-2" href={href}>
+              <Link className="cursor-pointer block bd:py-1" href={href}>
                 {title}
               </Link>
             </li>
