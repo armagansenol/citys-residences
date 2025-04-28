@@ -15,6 +15,7 @@ import { ModalContactForm } from "@/components/modal-contact-form"
 import { ReactQueryProvider } from "@/components/react-query-provider"
 import { RealViewport } from "@/components/real-viewport"
 import { StickyContactMenu } from "@/components/sticky-contact-menu"
+import { Preloader } from "@/components/preloader"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -110,6 +111,7 @@ export default async function LocaleLayout({
             <ImageGalleryModal />
             <ModalContactForm />
             <StickyContactMenu />
+            <Preloader />
           </ReactQueryProvider>
         </NextIntlClientProvider>
         <GSAP scrollTrigger={true} />

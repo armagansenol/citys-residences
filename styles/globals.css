@@ -19,7 +19,7 @@
     --header-height: desktop-vw(84px);
   }
 
-  --z-content: z-stack();
+  --z-content: z-stack(100000000);
   --z-book-button: z-stack();
   --z-sticky: z-stack();
   --z-menu: z-stack();
@@ -29,6 +29,7 @@
   --z-modal-background: z-stack();
   --z-modal: z-stack();
   --z-alotech: z-stack();
+  --z-preloader: z-stack();
   --z-gsap-markers: z-stack();
 }
 
@@ -102,6 +103,7 @@ body {
 
 #Click2ConnectPackageFrame {
   display: none !important;
+  z-index: var("--z-alotech") !important;
   @include-media ("desktop") {
     display: block !important;
   }
