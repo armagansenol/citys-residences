@@ -11,6 +11,7 @@ import { useImageGalleryStore } from "@/lib/store/image-gallery"
 export interface StackingCardsProps {
   items: {
     title: string
+    description: string
     images: {
       url: string
     }[]
@@ -36,17 +37,30 @@ export function StackingCards({ items }: StackingCardsProps) {
       tl.to(
         cards[0],
         {
-          scale: 0.9,
-          opacity: 0,
+          scale: 0.95,
+          yPercent: -40,
         },
         "a"
       )
-        .to(cards[1], { yPercent: 0 }, "a")
+        .to(
+          cards[0].querySelector(".gsap-card-content"),
+          {
+            opacity: 0.25,
+          },
+          "a"
+        )
+        .to(cards[1], { yPercent: -20 }, "a")
         .to(
           cards[1],
           {
-            scale: 0.9,
-            opacity: 0,
+            scale: 0.975,
+          },
+          "b"
+        )
+        .to(
+          cards[1].querySelector(".gsap-card-content"),
+          {
+            opacity: 0.5,
           },
           "b"
         )
@@ -55,7 +69,7 @@ export function StackingCards({ items }: StackingCardsProps) {
       ScrollTrigger.create({
         animation: tl,
         trigger: ".gsap-stacking-cards-container",
-        start: "center center",
+        start: "top top+=30%",
         pin: true,
         scrub: true,
         end: "+=1500px",
@@ -76,29 +90,45 @@ export function StackingCards({ items }: StackingCardsProps) {
   }
 
   return (
-    <div ref={ref}>
-      <div className="gsap-stacking-cards-container relative w-full h-[65vh] bt:h-[40vh] bd:h-[70vh] mb-64">
+    <div className="container mb-32" ref={ref}>
+      <div className="gsap-stacking-cards-container relative w-full h-[65vh] bt:h-[40vh] bd:h-[60vh]">
         {items.map((item, i) => (
           <div
             className={cn(
-              "gsap-stacking-card absolute left-0 w-full h-full overflow-hidden border-t bg-white p-3 bt:p-10 flex items-end justify-end"
+              "gsap-stacking-card",
+              "absolute left-1/2 -translate-x-1/2 w-full h-full overflow-hidden border-t bg-white"
             )}
-            style={{ backgroundColor: item.bg }}
             key={i}
           >
-            <h2 className="absolute top-0 left-0 font-montserrat text-3xl bt:text-4xl font-normal p-3 bt:p-5">
-              {item.title}
-            </h2>
-            <div className="flex flex-col bt:flex-row gap-3 bt:gap-5 ml-auto w-8/12 bt:w-auto h-[100%] bt:h-[60%] bd:h-[85%]">
-              {item.images.map((image, i) => (
-                <div
-                  key={i}
-                  className="flex-shrink-0 bt:h-full rounded-md overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                  onClick={() => handleImageClick(item.images, i)}
-                >
-                  <Img src={image.url} alt={item.title} width={1000} height={1000} />
-                </div>
-              ))}
+            <div className="gsap-card-content grid grid-cols-12 py-12 h-full">
+              <div className="col-span-3 -mt-2">
+                <h2 className="font-montserrat text-3xl bt:text-4xl bd:text-5xl font-medium text-bricky-brick mb-4">
+                  {item.title}
+                </h2>
+                <small className="font-montserrat text-sm bt:text-base bd:text-xl font-normal">
+                  {item.description}
+                </small>
+              </div>
+              <div className="col-span-9 grid grid-cols-2 gap-4 pl-10 pt-14">
+                {item.images.map((image, i) => (
+                  <div
+                    key={i}
+                    className={cn(
+                      "relative rounded-md overflow-hidden cursor-pointer",
+                      "hover:opacity-90 transition-opacity"
+                    )}
+                    onClick={() => handleImageClick(item.images, i)}
+                  >
+                    <Img
+                      src={image.url}
+                      alt={item.title}
+                      fill
+                      sizes="50vw"
+                      className={i % 2 === 0 ? "object-cover" : "object-cover"}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         ))}

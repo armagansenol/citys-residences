@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils"
 
 import { ScaleOut } from "@/components/animations/scale-out"
+import { Sequenced } from "@/components/sequenced"
 import { StackingCards } from "@/components/stacking-cards"
 import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
@@ -10,7 +11,8 @@ import { melihBulgurVideo, mustafaTonerVideo, residencesVideo } from "@/lib/cons
 export default function Page() {
   const items = [
     {
-      title: "1+1 Tek kişilik yaşamdan çok daha fazlası",
+      title: "1+1",
+      description: "Tek kişilik yaşamdan çok daha fazlası",
       images: [
         {
           url: "/img/residences/1+1/plan.jpg",
@@ -22,7 +24,8 @@ export default function Page() {
       bg: "#fbfbfb",
     },
     {
-      title: "2+1 Kendi ritmine alan aç",
+      title: "2+1",
+      description: "Kendi ritmine alan aç",
       images: [
         {
           url: "/img/residences/2+1/plan.jpg",
@@ -34,7 +37,8 @@ export default function Page() {
       bg: "#fffdfd",
     },
     {
-      title: "3+1 Yaşamın farklı çizgilerine yer ver",
+      title: "3+1",
+      description: "Yaşamın farklı çizgilerine yer ver",
       images: [
         {
           url: "/img/residences/3+1/plan.jpg",
@@ -61,15 +65,13 @@ export default function Page() {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute top-0 left-0 w-full h-full bg-black/50">
-            {/* <div className="container flex h-full">
+          {/* <div className="container flex h-full">
               <h1 className="block font-montserrat text-white text-2xl bt:text-4xl font-medium mt-auto mb-20">
                 <TextRevealOnScroll splitBy="characters" textAlign="left" staggerDuration={0.005}>
                   DAİRELER
                 </TextRevealOnScroll>
               </h1>
             </div> */}
-          </div>
         </ScaleOut>
       </section>
       <section className="py-32 bg-white z-20">
@@ -83,8 +85,8 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="relative h-screen bg-white z-20 flex items-center justify-center">
-        <span className="text-8xl font-black text-center">3D</span>
+      <section className="relative">
+        <Sequenced />
       </section>
       <section className="bg-white z-30">
         <StackingCards items={items} />
