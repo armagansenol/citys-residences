@@ -108,7 +108,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
               </Link>
             </li>
           ))}
-          <li className="w-full flex flex-col items-center bd:items-start mt-5 bt:mt-10 bd:mt-5 mb-0 bd:my-6">
+          <li className="w-full flex flex-col items-center bd:items-start mt-2 bt:mt-10 bd:mt-5 mb-0 bd:my-6 order-last bd:order-none">
             <p className="w-full font-halenoir font-normal text-white text-sm bd:text-base py-2 bd:border-b bd:border-white/30 text-center bd:text-left">
               Bizi Takip Edin
             </p>
@@ -129,7 +129,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
           </li>
           <li
             className={cn(
-              "font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-3xl text-center bd:text-left"
+              "font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-3xl text-center bd:text-left mt-4 bt:mt-0"
             )}
           >
             <a
@@ -137,7 +137,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "font-halenoir font-normal text-white text-2xl bt:text-4xl bd:text-2xl text-center bd:text-left bd:leading-none",
+                "font-halenoir font-normal text-white text-base bt:text-4xl bd:text-2xl text-center bd:text-left bd:leading-none",
                 "transition-opacity duration-300 ease-in-out",
                 "opacity-100 hover:opacity-70",
                 "flex items-center gap-2"
@@ -145,7 +145,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
               )}
             >
               {/* <AnimatedButton theme="transparent" size="lg" text="Satış Ofisi Konum" fontFamily="halenoir" /> */}
-              <span className="flex items-end w-6 h-6 mb-1">
+              <span className="flex items-end h-5 w-5 bt:w-6 bt:h-6 mb-1">
                 <IconPin fill="var(--white)" />
               </span>
               CR Satış Ofisi Konum

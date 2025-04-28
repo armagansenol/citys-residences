@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Link } from "@/components/utility/link"
 import { FormTranslations } from "@/types"
 
-export default function StickyContactMenu() {
+export function StickyContactMenu() {
   const t = useTranslations("contact")
   const ref = useRef<HTMLDivElement>(null)
   const [isOpen, setIsOpen] = useState(false)

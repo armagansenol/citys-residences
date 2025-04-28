@@ -14,7 +14,7 @@ import { ImageGalleryModal } from "@/components/image-gallery/modal"
 import { ModalContactForm } from "@/components/modal-contact-form"
 import { ReactQueryProvider } from "@/components/react-query-provider"
 import { RealViewport } from "@/components/real-viewport"
-import StickyContactMenu from "@/components/sticky-contact-menu"
+import { StickyContactMenu } from "@/components/sticky-contact-menu"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
