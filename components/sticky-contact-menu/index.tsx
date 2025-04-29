@@ -1,21 +1,22 @@
 "use client"
 
-import { useGSAP } from "@gsap/react"
+import { cn } from "@/lib/utils"
 import { useLenis } from "lenis/react"
 import { useTranslations } from "next-intl"
 import { useEffect, useRef, useState } from "react"
 
 import { ContactForm } from "@/components/form-contact"
-import { gsap, ScrollTrigger } from "@/components/gsap"
 import { IconInquiry, IconTelephone, IconWhatsapp } from "@/components/icons"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 import { Link } from "@/components/utility/link"
+import { useVisibilityStore } from "@/lib/store/visibility"
 import { FormTranslations } from "@/types"
 
 export function StickyContactMenu() {
   const t = useTranslations("contact")
   const ref = useRef<HTMLDivElement>(null)
   const [isOpen, setIsOpen] = useState(false)
+  const { isStickyContactMenuVisible } = useVisibilityStore()
   const lenis = useLenis()
 
   const formTranslations: FormTranslations = {
@@ -100,40 +101,20 @@ export function StickyContactMenu() {
     },
   }
 
-  useGSAP(() => {
-    gsap.to(ref.current, {
-      y: 0,
-      duration: 0.5,
-      ease: "power2.inOut",
-    })
-
-    ScrollTrigger.create({
-      trigger: ref.current,
-      end: `${ScrollTrigger.maxScroll(window) - window.innerHeight * 2}`,
-      onLeave: () => {
-        gsap.to(ref.current, {
-          yPercent: 100,
-          duration: 0.4,
-          ease: "power2.inOut",
-        })
-      },
-      onEnterBack: () => {
-        gsap.to(ref.current, {
-          yPercent: 0,
-          duration: 0.4,
-          ease: "power2.inOut",
-        })
-      },
-    })
-  })
-
   useEffect(() => {
     return isOpen ? lenis?.stop() : lenis?.start()
   }, [isOpen, lenis])
 
   return (
     <div
-      className="font-montserrat fixed left-0 bottom-0 right-0 blur-bg-bricky-brick-light grid grid-cols-3 z-[var(--z-sticky)] bt:hidden"
+      className={cn(
+        "font-montserrat fixed left-0 bottom-0 right-0 blur-bg-bricky-brick-light grid grid-cols-3 z-[var(--z-sticky)] bt:hidden",
+        "transition-opacity duration-300 ease-in-out",
+        {
+          "opacity-100": isStickyContactMenuVisible,
+          "opacity-0": !isStickyContactMenuVisible,
+        }
+      )}
       ref={ref}
     >
       <Link

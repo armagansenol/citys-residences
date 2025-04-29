@@ -8,9 +8,11 @@ import { Logo, socialIcons } from "@/components/icons"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Link } from "@/components/utility/link"
+import { useVisibilityStore } from "@/lib/store/visibility"
 
 export function Footer() {
   const t = useTranslations("common")
+  const { setAloTechVisibility, setStickyContactMenuVisibility } = useVisibilityStore()
   const footerItems = {
     menu: [
       { title: t("navigation.residences"), href: "/residences" },
@@ -44,24 +46,18 @@ export function Footer() {
 
   const observer = useIntersection(footerRef, {
     rootMargin: "0px",
-    threshold: 0.5,
+    threshold: 0,
   })
 
   useEffect(() => {
-    const aloTech = document.querySelector("#Click2ConnectPackageFrame") as HTMLIFrameElement
-
-    if (!aloTech) return
-
-    aloTech.style.transition = "opacity 200ms ease"
-
     if (observer?.isIntersecting) {
-      aloTech?.style.setProperty("opacity", "0")
-      aloTech?.style.setProperty("pointer-events", "none")
+      setAloTechVisibility(false)
+      setStickyContactMenuVisibility(false)
     } else if (!observer?.isIntersecting) {
-      aloTech?.style.setProperty("opacity", "1")
-      aloTech?.style.setProperty("pointer-events", "auto")
+      setAloTechVisibility(true)
+      setStickyContactMenuVisibility(true)
     }
-  }, [observer])
+  }, [observer, setAloTechVisibility, setStickyContactMenuVisibility])
 
   return (
     <footer className="relative bg-bricky-brick text-white py-12 bd:py-14 bd:pb-8 font-halenoir" ref={footerRef}>

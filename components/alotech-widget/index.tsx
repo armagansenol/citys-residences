@@ -1,7 +1,9 @@
 "use client"
 
+import { useVisibilityStore } from "@/lib/store/visibility"
 import { breakpoints } from "@/styles/config.mjs"
 import Script from "next/script"
+import { useEffect } from "react"
 import { useWindowSize } from "react-use"
 
 declare global {
@@ -12,8 +14,20 @@ declare global {
 
 export function AlotechWidget() {
   const { width } = useWindowSize()
+  const { isAloTechVisible } = useVisibilityStore()
 
-  if (width < breakpoints.breakpointTablet) {
+  useEffect(() => {
+    const aloTech = document.querySelector("#Click2ConnectPackageFrame") as HTMLIFrameElement
+
+    if (!aloTech) return
+
+    aloTech.style.transition = "opacity 200ms ease"
+
+    aloTech.style.setProperty("opacity", isAloTechVisible ? "1" : "0")
+    aloTech.style.setProperty("pointer-events", isAloTechVisible ? "auto" : "none")
+  }, [isAloTechVisible])
+
+  if (width < breakpoints.breakpointMobile) {
     return null
   }
 

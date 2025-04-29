@@ -102,11 +102,7 @@ body {
 }
 
 #Click2ConnectPackageFrame {
-  display: none !important;
   z-index: var("--z-alotech") !important;
-  @include-media ("desktop") {
-    display: block !important;
-  }
 }
 
 @layer base {
