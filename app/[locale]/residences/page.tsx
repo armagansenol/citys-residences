@@ -7,6 +7,7 @@ import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
 import { Wrapper } from "@/components/wrapper"
 import { melihBulgurVideo, mustafaTonerVideo, residencesVideo } from "@/lib/constants"
+import { LinkToPage } from "@/components/link-to-page"
 
 export default function Page() {
   const items = [
@@ -89,7 +90,7 @@ export default function Page() {
       <section className="bg-white z-30 mb-16 bt:mb-32">
         <StackingCards items={items} />
       </section>
-      <section className="pb-16 bt:pb-24 bd:pb-32 bg-white z-20">
+      <section>
         <div className="relative container">
           <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
             <VideoWithPlayButton
@@ -100,6 +101,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <LinkToPage title="Konum" href="/location" />
     </Wrapper>
   )
 }

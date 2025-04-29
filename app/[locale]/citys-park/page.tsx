@@ -9,6 +9,7 @@ import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
 import { Wrapper } from "@/components/wrapper"
 import { citysParkVideo, pinarVeCemilAktasVideo } from "@/lib/constants"
+import { LinkToPage } from "@/components/link-to-page"
 
 export default function Page() {
   const t = useTranslations("citys-park")
@@ -85,7 +86,7 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section className="relative container py-16 bt:py-20 bd:py-32">
+      <section className="relative container">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
           <VideoWithPlayButton
             primaryVideoUrl={pinarVeCemilAktasVideo}
@@ -94,6 +95,7 @@ export default function Page() {
           />
         </div>
       </section>
+      <LinkToPage title="City's Members Club" href="/citys-members-club" />
     </Wrapper>
   )
 }

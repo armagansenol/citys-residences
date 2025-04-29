@@ -10,10 +10,26 @@ export const routing = defineRouting({
       tr: "/iletisim",
       en: "/contact",
     },
-    // "/gallery": {
-    //   tr: "/galeri",
-    //   en: "/gallery",
-    // },
+    "/location": {
+      tr: "/konum",
+      en: "/location",
+    },
+    "/residences": {
+      tr: "/konutlar",
+      en: "/residences",
+    },
+    "/citys-members-club": {
+      tr: "/citys-members-club",
+      en: "/citys-members-club",
+    },
+    "/iletisim": {
+      tr: "/iletisim",
+      en: "/contact",
+    },
+    "/citys-life-privileges": {
+      tr: "/citys-life-privileges",
+      en: "/citys-life-privileges",
+    },
   },
   localePrefix: "as-needed",
   localeDetection: false,

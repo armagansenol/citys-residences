@@ -13,6 +13,7 @@ import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
 import { Wrapper } from "@/components/wrapper"
 import { kolajVideo, locationVideo, mainVideo, muratKaderVideo } from "@/lib/constants"
+import { LinkToPage } from "@/components/link-to-page"
 
 export default function Home() {
   const t = useTranslations("home")
@@ -59,7 +60,7 @@ export default function Home() {
   // ]
 
   return (
-    <Wrapper className="pb-10 bt:pb-20">
+    <Wrapper>
       <section className={cn(s.intro, "h-[50vh] bt:h-screen bg-bricky-brick relative z-10 overflow-hidden")}>
         <ScaleOut>
           <div className="h-full w-full">
@@ -275,7 +276,7 @@ export default function Home() {
       {/* <section className="py-8">
         <FullScreenSlider title={t("live.p1.title")} description={t("live.p1.description")} items={slides1} />
       </section> */}
-      <section className="py-4 bt:py-8">
+      <section>
         <FullScreenSlider title={t("live.p2.title")} description={t("live.p2.description")} items={slides2} />
         <div className="w-40 h-40 mx-auto bt:hidden">
           <Logo fill={"var(--bricky-brick)"} />
@@ -290,12 +291,13 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="py-4 bt:py-8">
+      <section>
         <FullScreenSlider title={t("live.p3.title")} description={t("live.p3.description")} items={slides3} />
         <div className="w-40 h-40 mx-auto bt:hidden">
           <Logo fill={"var(--bricky-brick)"} />
         </div>
       </section>
+      <LinkToPage title="Konutlar" href="/residences" />
     </Wrapper>
   )
 }
