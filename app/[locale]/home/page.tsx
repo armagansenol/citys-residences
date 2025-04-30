@@ -8,12 +8,12 @@ import { ScaleOut } from "@/components/animations/scale-out"
 import { TextRevealOnScroll } from "@/components/animations/text-reveal-on-scroll"
 import { FullScreenSlider } from "@/components/full-screen-slider"
 import { Logo } from "@/components/icons"
+import { LinkToPage } from "@/components/link-to-page"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { VideoWithPlayButton } from "@/components/utility/video-with-play-button"
 import { Wrapper } from "@/components/wrapper"
 import { kolajVideo, locationVideo, mainVideo, muratKaderVideo } from "@/lib/constants"
-import { LinkToPage } from "@/components/link-to-page"
 
 export default function Home() {
   const t = useTranslations("home")
@@ -297,7 +297,10 @@ export default function Home() {
           <Logo fill={"var(--bricky-brick)"} />
         </div>
       </section>
-      <LinkToPage title="Konutlar" href="/residences" />
+      <LinkToPage
+        previous={{ title: "City's Life Ayrıcalıkları", href: "/citys-life-privileges" }}
+        next={{ title: "Konutlar", href: "/residences" }}
+      />
     </Wrapper>
   )
 }

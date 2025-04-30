@@ -98,7 +98,10 @@ export default function Page() {
       <section className="bg-white z-30">
         <AccordionStackingCards items={items} />
       </section>
-      <LinkToPage title="City's Life Ayrıcalıkları" href="/citys-life-privileges" />
+      <LinkToPage
+        previous={{ title: "City's Park", href: "/citys-park" }}
+        next={{ title: "City's Life Ayrıcalıkları", href: "/citys-life-privileges" }}
+      />
     </Wrapper>
   )
 }

@@ -101,7 +101,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <LinkToPage title="Konum" href="/location" />
+      <LinkToPage previous={{ title: "Anasayfa", href: "/" }} next={{ title: "Konum", href: "/location" }} />
     </Wrapper>
   )
 }

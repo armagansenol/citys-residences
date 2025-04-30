@@ -22,6 +22,10 @@ export const routing = defineRouting({
       tr: "/citys-members-club",
       en: "/citys-members-club",
     },
+    "/citys-park": {
+      tr: "/citys-park",
+      en: "/citys-park",
+    },
     "/iletisim": {
       tr: "/iletisim",
       en: "/contact",
