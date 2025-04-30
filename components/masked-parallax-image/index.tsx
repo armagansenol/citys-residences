@@ -1,10 +1,9 @@
 "use client"
 
-import { useGSAP } from "@gsap/react"
+import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
 import { useWindowSize } from "hamo"
 import { useRef } from "react"
 
-import { gsap, ScrollTrigger } from "@/components/gsap"
 import { Img } from "@/components/utility/img"
 import { breakpoints } from "@/styles/config.mjs"
 
@@ -21,17 +20,19 @@ export function MaskedParallaxImage({ imgSrc, sizes = "100vw" }: MaskedParallaxI
     () => {
       if (!width) return
 
-      const distance = width < breakpoints.breakpointMobile ? 20 : 100
+      const isBelowTablet = width < breakpoints.breakpointTablet
+
+      const distance = isBelowTablet ? 20 : 100
 
       const tl = gsap.timeline({ paused: true })
 
       tl.fromTo(
         ".gsap-parallax-img-c",
         {
-          y: `-${width < breakpoints.breakpointMobile ? 0 : 100}px`,
+          y: `-${isBelowTablet ? 0 : 100}px`,
         },
         {
-          y: `${width < breakpoints.breakpointMobile ? 0 : 100}px`,
+          y: `${isBelowTablet ? 0 : 100}px`,
         },
         "s"
       ).fromTo(
