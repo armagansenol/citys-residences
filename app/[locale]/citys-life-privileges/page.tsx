@@ -46,6 +46,7 @@ export default function Page() {
               title: t("items.i1.title"),
               text: t.rich("items.i1.text", {
                 br: () => <br />,
+                strong: (chunks) => <strong>{chunks}</strong>,
               }),
               imgSrc: "/img/citys-life/01.jpg",
               horizontalAlignment: "ltr" as const,
@@ -54,6 +55,7 @@ export default function Page() {
               title: t("items.i2.title"),
               text: t.rich("items.i2.text", {
                 br: () => <br />,
+                strong: (chunks) => <strong>{chunks}</strong>,
               }),
               imgSrc: "/img/citys-life/02.jpg",
               horizontalAlignment: "rtl" as const,
@@ -62,6 +64,7 @@ export default function Page() {
               title: t("items.i3.title"),
               text: t.rich("items.i3.text", {
                 br: () => <br />,
+                strong: (chunks) => <strong>{chunks}</strong>,
               }),
               imgSrc: "/img/citys-life/03.jpg",
               horizontalAlignment: "ltr" as const,
@@ -70,6 +73,7 @@ export default function Page() {
               title: t("items.i4.title"),
               text: t.rich("items.i4.text", {
                 br: () => <br />,
+                strong: (chunks) => <strong>{chunks}</strong>,
               }),
               imgSrc: "/img/citys-life/04.jpg",
               horizontalAlignment: "rtl" as const,
@@ -78,6 +82,7 @@ export default function Page() {
               title: t("items.i5.title"),
               text: t.rich("items.i5.text", {
                 br: () => <br />,
+                strong: (chunks) => <strong>{chunks}</strong>,
               }),
               imgSrc: "/img/citys-life/05.jpg",
               horizontalAlignment: "ltr" as const,
@@ -86,6 +91,7 @@ export default function Page() {
               title: t("items.i6.title"),
               text: t.rich("items.i6.text", {
                 br: () => <br />,
+                strong: (chunks) => <strong>{chunks}</strong>,
               }),
               imgSrc: "/img/citys-life/06.jpg",
               horizontalAlignment: "rtl" as const,
@@ -94,6 +100,7 @@ export default function Page() {
               title: t("items.i7.title"),
               text: t.rich("items.i7.text", {
                 br: () => <br />,
+                strong: (chunks) => <strong>{chunks}</strong>,
               }),
               imgSrc: "/img/citys-life/07.jpg",
               horizontalAlignment: "ltr" as const,

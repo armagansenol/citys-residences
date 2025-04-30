@@ -150,31 +150,31 @@
         "items": {
             "i1": {
                 "title": "RESEPSİYON & CONCIERGE HİZMETLERİ",
-                "text": "-Günün her anında destek. <br></br> Rezervasyonlardan günlük ihtiyaçlara kadar her detayı sizin yerinize düşünen bir yaşam destek sistemi."
+                "text": "<strong>Günün her anında destek.</strong><br></br>Rezervasyonlardan günlük ihtiyaçlara kadar her detayı sizin yerinize düşünen bir yaşam destek sistemi."
             },
             "i2": {
                 "title": "VALE & OTOPARK HİZMETLERİ",
-                "text": "-Aracınız için her zaman bir yer var. <br></br><br></br> City’s Residences’da konfor sadece evin içinde değil; aracınızı bıraktığınız ilk anda başlar."
+                "text": "<strong>Aracınız için her zaman bir yer var.</strong><br></br>City’s Residences’da konfor sadece evin içinde değil; aracınızı bıraktığınız ilk anda başlar."
             },
             "i3": {
                 "title": "KARGO TESLİM SERVİSİ",
-                "text": "-Gelen her paket doğru adrese ulaşır. <br></br><br></br> Kargolarınız profesyonel ekip tarafından teslim alınır ve size güvenle ulaştırılır."
+                "text": "<strong>Gelen her paket doğru adrese ulaşır.</strong><br></br>Kargolarınız profesyonel ekip tarafından teslim alınır ve size güvenle ulaştırılır."
             },
             "i4": {
                 "title": "JUSTWORK | OFFICE CAMPUS",
-                "text": "-Çalışmak, evinizden uzaklaşmadan mümkün. <br></br><br></br> Günlük, haftalık veya dönemsel çalışma ihtiyaçlarınıza uyum sağlayan modern ofis alanları bir adım uzağınızda."
+                "text": "<strong>Çalışmak, evinizden uzaklaşmadan mümkün.</strong><br></br>Günlük, haftalık veya dönemsel çalışma ihtiyaçlarınıza uyum sağlayan modern ofis alanları bir adım uzağınızda."
             },
             "i5": {
                 "title": "JUST STAY | MODERN KONAKLAMA DENEYİMİ",
-                "text": "-Misafirleriniz için ev konforunda, otel şıklığında kısa konaklama seçenekleri. <br></br><br></br> Seyahat eden dostlarınız ve yakınlarınız için, City’s ruhunu yansıtan bir misafirlik deneyimi."
+                "text": "<strong>Misafirleriniz için ev konforunda, otel şıklığında kısa konaklama seçenekleri.</strong><br></br>Seyahat eden dostlarınız ve yakınlarınız için, City’s ruhunu yansıtan bir misafirlik deneyimi."
             },
             "i6": {
                 "title": "JUST EVENTS",
-                "text": "-Hayatı kutlamak için her zaman bir alan var. <br></br><br></br> Özel etkinlikler, davetler ve sosyal buluşmalar için tasarlanmış esnek etkinlik alanları."
+                "text": "<strong>Hayatı kutlamak için her zaman bir alan var.</strong><br></br>Özel etkinlikler, davetler ve sosyal buluşmalar için tasarlanmış esnek etkinlik alanları."
             },
             "i7": {
                 "title": "PET HOTEL & PET HOSPITAL",
-                "text": "-Evcil dostlarınız da bu yaşamın bir parçası. <br></br><br></br> Pet Hotel ve Pet Hospital hizmetleriyle, onların konforu ve sağlığı da City’s Life ayrıcalıkları arasında."
+                "text": "<strong>Evcil dostlarınız da bu yaşamın bir parçası.</strong><br></br>Pet Hotel ve Pet Hospital hizmetleriyle, onların konforu ve sağlığı da City’s Life ayrıcalıkları arasında."
             }
         }
     },
