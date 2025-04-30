@@ -131,7 +131,7 @@ export function StickyContactMenu() {
             <div className="text-sm font-medium leading-none">Randevu Al</div>
           </div>
         </DialogTrigger>
-        <DialogContent className="py-0 px-4 w-[96vw] rounded-tr-3xl rounded-tl-3xl h-screen">
+        <DialogContent className="py-0 px-4 w-[96vw] rounded-tr-3xl rounded-tl-3xl h-screen mt-10 z-[var(--z-modal)] overflow-y-scroll">
           {/* <DialogClose>
             <X className="fixed top-4 right-4 w-6 h-6 text-white" />
             <span className="sr-only">Close</span>
