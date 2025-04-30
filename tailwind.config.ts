@@ -16,7 +16,7 @@ const config: Config = {
       center: true,
       screens: {
         sm: "350px",
-        md: "640px",
+        md: "720px",
         lg: "960px",
         xl: "1280px",
         "2xl": "1580px",
