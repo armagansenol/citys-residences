@@ -119,7 +119,7 @@ export const muratKaderVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1076668374/rendition/1080p/file.mp4?loc=external&log_user=0&signature=9cb5431c29179de45c2a9528e203a341f2aa92b6c95641659f2de5e74791354f"
 
 export const mainVideo =
-  "https://player.vimeo.com/progressive_redirect/playback/1078304248/rendition/1080p/file.mp4?loc=external&log_user=0&signature=47a5e82287dc7996168ae6404bc71bf7c93e68964542bab2a78c2856eadfbdd6"
+  "https://player.vimeo.com/progressive_redirect/playback/1080118540/rendition/1080p/file.mp4?loc=external&log_user=0&signature=8e3d39f3203d41297dd8e4da7de98b9f180d07cbca6fe5a63e8cfae46fd805f2"
 
 export const kolajVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1069860586/rendition/1080p/file.mp4?loc=external&log_user=0&signature=93ffcc3ffcfe4a4ca2624cdbaef95fab5777741b7c5ab98d9e3f9bddf9f6062a"
@@ -137,10 +137,10 @@ export const pinarVeCemilAktasVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1076669307/rendition/1080p/file.mp4?loc=external&log_user=0&signature=7ae58e9ab6d78fb58ee636c7702acb47f7202f7f7a129974894b28abecc11ba6"
 
 export const residencesVideo =
-  "https://player.vimeo.com/progressive_redirect/playback/1078304481/rendition/1080p/file.mp4?loc=external&log_user=0&signature=207de0f75e2956878724e2c9c434ca5b96145e863309ec695d79ad183677b210"
+  "https://player.vimeo.com/progressive_redirect/playback/1079831509/rendition/1080p/file.mp4?loc=external&log_user=0&signature=e241a7e40c7a2ea7942c99b95c0e94d75abe2242451645926e84e9b42cd1dcd9"
 
 export const citysLifeVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1078304401/rendition/1080p/file.mp4?loc=external&log_user=0&signature=aacb4e5afe166d0e590fa2a8d26f6dfa536d13bacb6cedcc1781d787244ad857"
 
 export const citysParkVideo =
-  "https://player.vimeo.com/progressive_redirect/playback/1078304328/rendition/1080p/file.mp4?loc=external&log_user=0&signature=a9210dcdecbda1aca16be3a5f42f0587b30a1e24587d3112c5a7e05296cc8e17"
+  "https://player.vimeo.com/progressive_redirect/playback/1079831610/rendition/1080p/file.mp4?loc=external&log_user=0&signature=81754666ef16089e510188f2e7ef911d19be58647e5604d384f0362f04d3e16d"
