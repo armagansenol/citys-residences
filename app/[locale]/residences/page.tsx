@@ -64,7 +64,7 @@ export default function Page() {
             playsInline
             className="w-full h-full object-cover"
           />
-          {/* <div className="container flex h-full">
+          {/* <div className="bd:container flex h-full">
               <h1 className="block font-montserrat text-white text-2xl bt:text-4xl font-medium mt-auto mb-20">
                 <TextRevealOnScroll splitBy="characters" textAlign="left" staggerDuration={0.005}>
                   DAİRELER
@@ -73,8 +73,8 @@ export default function Page() {
             </div> */}
         </ScaleOut>
       </section>
-      <section className="py-16 bt:py-32 bg-white z-20">
-        <div className="relative container">
+      <section className="bg-white z-20 py-16 bt:py-32 px-4 bt:px-10">
+        <div className="relative bd:container">
           <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
             <VideoWithPlayButton
               primaryVideoUrl={mustafaTonerVideo}
@@ -87,11 +87,11 @@ export default function Page() {
       <section className="relative mb-16 bt:mb-32">
         <Sequenced />
       </section>
-      <section className="bg-white z-30 mb-16 bt:mb-32">
+      <section className="bg-white z-30 mb-16 bt:mb-32 px-4 bt:px-10">
         <StackingCards items={items} />
       </section>
-      <section>
-        <div className="relative container">
+      <section className="px-4 bt:px-10">
+        <div className="relative bd:container">
           <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
             <VideoWithPlayButton
               primaryVideoUrl={melihBulgurVideo}
