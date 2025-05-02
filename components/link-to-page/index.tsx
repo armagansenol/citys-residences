@@ -15,7 +15,7 @@ export interface LinkToPageProps {
 
 export function LinkToPage(props: LinkToPageProps) {
   return (
-    <div className="container flex items-center justify-between gap-6 bd:gap-2 py-12 bt:py-20">
+    <div className="container flex items-center justify-between gap-6 bd:gap-2 py-12 bt:py-20 px-4 bt:px-10">
       <LocalizedLink
         className="flex items-center gap-2 text-bricky-brick font-halenoir text-base bt:text-xl"
         href={props.previous.href}

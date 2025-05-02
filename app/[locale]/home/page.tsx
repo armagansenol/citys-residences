@@ -103,7 +103,7 @@ export default function Home() {
       <section className="w-64 h-64 mx-auto hidden bt:block">
         <Logo fill={"var(--bricky-brick)"} />
       </section>
-      <section className="relative container py-8 bt:py-20">
+      <section className="relative bd:container py-8 bt:py-20 px-4 bt:px-10">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
           <VideoWithPlayButton
             primaryVideoUrl={kolajVideo}
@@ -192,7 +192,7 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-      <section className="container flex flex-col-reverse bd:flex-row items-center justify-between gap-10 bt:gap-20 bd:gap-16 py-6 bt:py-24">
+      <section className="bd:container flex flex-col-reverse bd:flex-row items-center justify-between gap-10 bt:gap-20 bd:gap-16 py-6 bt:py-24 px-4 bt:px-10">
         <div className="px-4 bt:px-0 flex flex-col items-center justify-center bd:items-start">
           <h2 className="font-montserrat font-normal text-bricky-brick text-4xl bt:text-7xl bd:text-7xl mb-5 bt:mb-10 hidden bd:block">
             <TextRevealOnScroll
@@ -282,7 +282,7 @@ export default function Home() {
           <Logo fill={"var(--bricky-brick)"} />
         </div>
       </section>
-      <section className="relative container py-12 bt:py-20">
+      <section className="relative container py-12 bt:py-20 px-4 bt:px-10">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
           <VideoWithPlayButton
             primaryVideoUrl={muratKaderVideo}
