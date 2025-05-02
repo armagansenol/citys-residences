@@ -7,6 +7,7 @@ import { useWindowSize } from "react-use"
 
 import { ScrollTrigger, gsap } from "@/components/gsap"
 import { Img } from "@/components/utility/img"
+import { useImageGalleryStore } from "@/lib/store/image-gallery"
 import { breakpoints } from "@/styles/config.mjs"
 
 export interface StackingCardsProps {
@@ -22,7 +23,7 @@ export interface StackingCardsProps {
 
 export function StackingCards({ items }: StackingCardsProps) {
   const ref = useRef(null)
-  // const { openModal } = useImageGalleryStore()
+  const { openModal } = useImageGalleryStore()
   const { width } = useWindowSize()
   const isMobile = width < breakpoints.breakpointMobile
 
@@ -57,14 +58,14 @@ export function StackingCards({ items }: StackingCardsProps) {
     }
   )
 
-  // const handleImageClick = (itemImages: { url: string }[], index: number) => {
-  //   const slides = itemImages.map((image) => (
-  //     <div key={image.url} className="h-[60vh] w-[100vw] relative">
-  //       <Img src={image.url} fill sizes="100vw" alt="Residence Interior" className="object-contain" />
-  //     </div>
-  //   ))
-  //   openModal(slides, index)
-  // }
+  const handleImageClick = (itemImages: { url: string }[], index: number) => {
+    const slides = itemImages.map((image) => (
+      <div key={image.url} className="h-[90vh] w-[100vw] relative">
+        <Img src={image.url} fill sizes="100vw" alt="Residence" className="object-contain" />
+      </div>
+    ))
+    openModal(slides, index)
+  }
 
   return (
     <div className="bd:mb-64" ref={ref}>
@@ -95,7 +96,7 @@ export function StackingCards({ items }: StackingCardsProps) {
                       "relative rounded-md overflow-hidden cursor-pointer h-[64vw] bt:h-[33.5vw] flex-shrink-0 bt:flex-1",
                       "hover:opacity-90 transition-opacity"
                     )}
-                    // onClick={() => handleImageClick(item.images, i)}
+                    onClick={() => handleImageClick(item.images, i)}
                   >
                     <Img
                       src={image.url}

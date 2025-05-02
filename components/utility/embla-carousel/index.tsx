@@ -40,12 +40,12 @@ export const EmblaCarousel: React.FC<PropType> = (props) => {
       <div className={s["embla-buttons"]}>
         <PrevButton
           className="blur-bg-white"
-          onClick={() => onAutoplayButtonClick(onPrevButtonClick)}
+          onClick={autoplay ? () => onAutoplayButtonClick(onPrevButtonClick) : onPrevButtonClick}
           disabled={prevBtnDisabled}
         />
         <NextButton
           className="blur-bg-white"
-          onClick={() => onAutoplayButtonClick(onNextButtonClick)}
+          onClick={autoplay ? () => onAutoplayButtonClick(onNextButtonClick) : onNextButtonClick}
           disabled={nextBtnDisabled}
         />
       </div>
