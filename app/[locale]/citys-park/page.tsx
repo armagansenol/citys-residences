@@ -50,7 +50,7 @@ export default function Page() {
 
   return (
     <Wrapper>
-      <section className={cn("h-[var(--svh-calc)] bg-bricky-brick relative z-10 overflow-hidden")}>
+      <section className={cn("h-[50vh] bd:h-screen bg-bricky-brick relative z-10 overflow-hidden")}>
         <ScaleOut>
           <Video
             primaryVideoUrl={citysParkVideo}
@@ -60,20 +60,10 @@ export default function Page() {
             playsInline
             className="w-full h-full object-cover"
           />
-          {/* <div className="container flex h-full">
-              <h1 className="block font-montserrat text-white text-2xl bt:text-4xl font-medium mt-auto mb-20">
-                <TextRevealOnScroll splitBy="characters" textAlign="left" staggerDuration={0.005}>
-                  CITY&apos;S PARK
-                </TextRevealOnScroll>
-              </h1>
-            </div> */}
         </ScaleOut>
       </section>
-      {/* <section className="relative bg-white pt-16 bt:pt-24 bd:pt-32 z-20">
-        <ImagesSection images={images} />
-      </section> */}
       <section className="relative z-20 bg-white">
-        <div className="w-full h-[30vh] bt:h-[35vh] bd:h-[80vh]">
+        <div className="w-full h-[40vh] bt:h-[35vh] bd:h-[80vh]">
           <IconCitysParkBgLogo fill="#5D7261" />
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-16 bt:h-40">
@@ -81,7 +71,7 @@ export default function Page() {
         </div>
       </section>
       <section className="relative z-20 bg-white">
-        <div className="container flex flex-col gap-12 bt:gap-32 bd:gap-48 py-12 bt:py-36 bd:py-40">
+        <div className="bd:container flex flex-col gap-12 bt:gap-32 bd:gap-48 py-12 bt:py-36 bd:py-40 px-4 bt:px-10 bd:px-16">
           {sections.map((section, index) => (
             <MaskedParallaxImageSection
               key={index}
@@ -93,7 +83,7 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section className="relative container">
+      <section className="relative bd:container px-4 bt:px-10 bd:px-16">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
           <VideoWithPlayButton
             primaryVideoUrl={pinarVeCemilAktasVideo}

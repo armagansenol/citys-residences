@@ -46,7 +46,7 @@ export function MaskedParallaxImageSection({
                   {title}
                 </TextRevealOnScroll>
               </h3>
-              <h3 className="block bt:hidden max-w-xs mx-auto">
+              <h3 className="block bt:hidden mx-auto">
                 <TextRevealOnScroll splitBy="lines" textAlign="center" staggerDuration={0.0025}>
                   {title}
                 </TextRevealOnScroll>
@@ -60,8 +60,13 @@ export function MaskedParallaxImageSection({
               {text}
             </TextRevealOnScroll>
           </p>
-          <p className="block bt:hidden mx-auto">
-            <TextRevealOnScroll splitBy="lines" elementLevelClassName="text-center text-base" staggerDuration={0.0025}>
+          <p className="block bt:hidden max-w-sm mx-auto">
+            <TextRevealOnScroll
+              splitBy="characters"
+              textAlign="center"
+              elementLevelClassName="text-center text-base"
+              staggerDuration={0.0025}
+            >
               {text}
             </TextRevealOnScroll>
           </p>
