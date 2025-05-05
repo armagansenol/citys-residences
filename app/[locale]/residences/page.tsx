@@ -64,16 +64,9 @@ export default function Page() {
             playsInline
             className="w-full h-full object-cover"
           />
-          {/* <div className="bd:container flex h-full">
-              <h1 className="block font-montserrat text-white text-2xl bt:text-4xl font-medium mt-auto mb-20">
-                <TextRevealOnScroll splitBy="characters" textAlign="left" staggerDuration={0.005}>
-                  DAİRELER
-                </TextRevealOnScroll>
-              </h1>
-            </div> */}
         </ScaleOut>
       </section>
-      <section className="bg-white z-20 py-16 bt:py-32 px-4 bt:px-10">
+      <section className="bg-white z-20 py-16 bt:py-32 px-4 bt:px-10 bd:px-16">
         <div className="relative bd:container">
           <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
             <VideoWithPlayButton
@@ -84,13 +77,13 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="relative mb-16 bt:mb-32">
+      <section>
         <Sequenced />
       </section>
-      <section className="bg-white z-30 mb-16 bt:mb-32 px-4 bt:px-10">
+      <section className="bg-white z-30 mb-16 bt:mb-32 px-4 bt:px-10 bd:px-16">
         <StackingCards items={items} />
       </section>
-      <section className="px-4 bt:px-10">
+      <section className="px-4 bt:px-10 bd:px-16">
         <div className="relative bd:container">
           <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
             <VideoWithPlayButton
