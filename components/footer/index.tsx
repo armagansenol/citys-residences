@@ -61,7 +61,7 @@ export function Footer() {
 
   return (
     <footer className="relative bg-bricky-brick text-white py-12 bd:py-14 bd:pb-8 font-halenoir" ref={footerRef}>
-      <div className="bd:container px-4 bt:px-10 flex flex-col">
+      <div className="bd:container px-4 bt:px-10 bd:px-16 flex flex-col">
         <div className="flex flex-col items-stretch bt:items-start bt:grid bt:grid-cols-24 gap-4 bt:gap-4 bd:gap-8 mb-7 bt:mb-14">
           {/* Logo Section */}
           <div className="order-2 bt:-order-none bt:col-span-9 bd:col-span-8 flex">
