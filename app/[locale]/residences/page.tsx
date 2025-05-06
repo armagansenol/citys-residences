@@ -68,7 +68,7 @@ export default function Page() {
           />
         </ScaleOut>
       </section>
-      <section className="relative z-20 bg-white">
+      <section className="relative z-20 bg-white mb-16 bt:mb-0">
         <div className="w-full h-40 bt:h-64 mx-auto my-12 bt:my-32">
           <Logo fill="var(--bricky-brick)" />
         </div>
