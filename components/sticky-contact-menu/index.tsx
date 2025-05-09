@@ -4,16 +4,16 @@ import s from "./sticky-contact-menu.module.css"
 
 import { cn } from "@/lib/utils"
 import { useLenis } from "lenis/react"
+import { X } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useEffect, useRef, useState } from "react"
 
 import { ContactForm } from "@/components/form-contact"
 import { IconInquiry, IconTelephone, IconWhatsapp } from "@/components/icons"
 import { Link } from "@/components/utility/link"
+import { ScrollableBox } from "@/components/utility/scrollable-box"
 import { useVisibilityStore } from "@/lib/store/visibility"
 import { FormTranslations } from "@/types"
-import { X } from "lucide-react"
-import { ScrollableBox } from "../utility/scrollable-box"
 
 export function StickyContactMenu() {
   const t = useTranslations("contact")

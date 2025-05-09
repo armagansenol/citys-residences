@@ -36,8 +36,5 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-
-  overflow-y: scroll !important;
-  -webkit-overflow-scrolling: touch;
   z-index: var(--z-modal);
 }
