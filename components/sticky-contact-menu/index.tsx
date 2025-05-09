@@ -13,6 +13,7 @@ import { Link } from "@/components/utility/link"
 import { useVisibilityStore } from "@/lib/store/visibility"
 import { FormTranslations } from "@/types"
 import { X } from "lucide-react"
+import { ScrollableBox } from "../utility/scrollable-box"
 
 export function StickyContactMenu() {
   const t = useTranslations("contact")
@@ -156,12 +157,14 @@ export function StickyContactMenu() {
           <span className="sr-only">Close</span>
         </div>
         <div className={cn(s.dContent, "px-4 pb-20")} onClick={(e) => e.stopPropagation()}>
-          <p className="text-neutral-900 text-base bt:text-sm font-normal font-halenoir text-left bt:text-center bd:text-left leading-normal mt-5">
-            {t.rich("description", {
-              br: () => <br className="hidden bt:block" />,
-            })}
-          </p>
-          <ContactForm translations={formTranslations} />
+          <ScrollableBox>
+            <p className="text-neutral-900 text-base bt:text-sm font-normal font-halenoir text-left bt:text-center bd:text-left leading-normal mt-5">
+              {t.rich("description", {
+                br: () => <br className="hidden bt:block" />,
+              })}
+            </p>
+            <ContactForm translations={formTranslations} />
+          </ScrollableBox>
         </div>
       </div>
     </>

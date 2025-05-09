@@ -26,22 +26,18 @@
 }
 
 .dContent {
+  background-color: var(--white);
   border-top-left-radius: mobile-vw(20px);
   border-top-right-radius: mobile-vw(20px);
-  background-color: var(--white);
   height: 90vh;
   width: 96vw;
-
-  overflow-y: scroll !important;
-  -webkit-overflow-scrolling: touch;
-
-  z-index: var(--z-modal);
 
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 
-  transition: transform 0.3s ease-in-out;
-  transition-delay: 0.3s;
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch;
+  z-index: var(--z-modal);
 }
