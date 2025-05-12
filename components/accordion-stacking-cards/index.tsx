@@ -34,13 +34,13 @@ export function AccordionStackingCards({ title, items, images, reverse = false }
         scrub: 0.1,
         end: `+=${images.length * 1000}px`,
         start: "center center",
-        snap: {
-          snapTo: Array.from({ length: images.length }, (_, i) => i / (images.length - 1)),
-          duration: { min: 0.1, max: 0.15 },
-          delay: 0,
-          ease: "power2.inOut",
-          inertia: false,
-        },
+        // snap: {
+        //   snapTo: Array.from({ length: images.length }, (_, i) => i / (images.length - 1)),
+        //   duration: { min: 0.1, max: 0.15 },
+        //   delay: 0,
+        //   ease: "power2.inOut",
+        //   inertia: false,
+        // },
         onUpdate: ({ progress }) => {
           // Calculate image progress
           const imageProgress = progress * images.length
@@ -75,17 +75,15 @@ export function AccordionStackingCards({ title, items, images, reverse = false }
   return (
     <div className="w-full h-[80vh]" ref={ref}>
       <div className="gsap-stacking-cards-container h-full relative">
-        <div className={cn("absolute top-0 left-0 w-full h-full flex gap-10")}>
+        <div className={cn("absolute top-0 left-0 w-full h-full flex gap-10 xl:gap-10 2xl:gap-10")}>
           <div className={cn("relative basis-4/12", reverse && "order-last")}>
-            <h2 className="font-montserrat text-3xl bt:text-4xl bd:text-5xl font-medium text-bricky-brick bd:leading-tight">
-              {title}
-            </h2>
-            <div className="flex flex-col items-start justify-start gap-2 pt-4">
+            <h2 className="font-montserrat text-3xl lg:text-4xl xl:text-5xl font-medium text-bricky-brick">{title}</h2>
+            <div className="flex flex-col items-start justify-start gap-2 pt-6">
               {items.map((item, itemIndex) => (
                 <motion.div
                   key={itemIndex}
                   className={cn(
-                    "whitespace-nowrap relative font-montserrat text-base bt:text-lg bd:text-base font-normal text-black cursor-pointer",
+                    "whitespace-nowrap relative font-montserrat text-base lg:text-lg xl:text-sm 2xl:text-base font-normal text-black cursor-pointer",
                     {
                       "opacity-100": currentText === itemIndex,
                       "opacity-50": currentText !== itemIndex,
@@ -109,14 +107,14 @@ export function AccordionStackingCards({ title, items, images, reverse = false }
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="font-montserrat text-3xl bt:text-4xl bd:text-3xl font-medium text-bricky-brick mb-8">
+                  <h3 className="font-montserrat text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl font-medium text-bricky-brick mb-8">
                     {items[currentText].title}
                   </h3>
                   <div className="xl:pr-8 2xl:pr-16">
-                    <p className="font-montserrat text-base bt:text-lg bd:text-xl font-bold text-black">
+                    <p className="font-montserrat text-base lg:text-lg xl:text-lg 2xl:text-lg font-bold text-black">
                       {items[currentText].subtitle}
                     </p>
-                    <p className="font-montserrat text-base bt:text-lg bd:text-xl font-normal text-black">
+                    <p className="font-montserrat text-base lg:text-lg xl:text-lg 2xl:text-lg font-normal text-black">
                       {items[currentText].description}
                     </p>
                   </div>
