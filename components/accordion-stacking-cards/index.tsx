@@ -2,7 +2,7 @@
 
 import { ScrollTrigger, useGSAP } from "@/components/gsap"
 import { cn } from "@/lib/utils"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { useRef, useState } from "react"
 
 import { Img } from "@/components/utility/img"
@@ -98,45 +98,59 @@ export function AccordionStackingCards({ title, items, images, reverse = false }
                 </motion.div>
               ))}
             </div>
-            <div className="relative pt-20">
-              <AnimatePresence mode="wait">
+            <div className="relative mt-20">
+              {items.map((item, index) => (
                 <motion.div
-                  key={currentText}
+                  key={index}
                   initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3 }}
+                  animate={{
+                    opacity: currentText === index ? 1 : 0,
+                    y: currentText === index ? 0 : 10,
+                    zIndex: currentText === index ? 1 : 0,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeInOut",
+                    delay: currentText === index ? 0.3 : 0,
+                  }}
+                  className="absolute left-0 top-0 w-full"
                 >
                   <h3 className="font-montserrat text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl font-medium text-bricky-brick mb-8">
-                    {items[currentText].title}
+                    {item.title}
                   </h3>
                   <div className="xl:pr-8 2xl:pr-16">
                     <p className="font-montserrat text-base lg:text-lg xl:text-lg 2xl:text-lg font-bold text-black">
-                      {items[currentText].subtitle}
+                      {item.subtitle}
                     </p>
                     <p className="font-montserrat text-base lg:text-lg xl:text-lg 2xl:text-lg font-normal text-black">
-                      {items[currentText].description}
+                      {item.description}
                     </p>
                   </div>
                 </motion.div>
-              </AnimatePresence>
+              ))}
             </div>
           </div>
           <div className={cn("relative overflow-hidden basis-8/12")}>
-            <AnimatePresence mode="wait">
+            {images.map((image, index) => (
               <motion.div
-                key={currentImage}
+                key={index}
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+                animate={{
+                  opacity: currentImage === index ? 1 : 0,
+                  zIndex: currentImage === index ? 1 : 0,
+                }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeInOut",
+                  delay: currentImage === index ? 0.2 : 0, // Add delay only when fading in
+                }}
                 className="absolute left-0 top-0 w-full h-full overflow-hidden"
               >
                 <div className="absolute top-0 left-0 w-full h-full">
-                  <Img src={images[currentImage].url} alt="Members Club" fill sizes="100vw" className="object-cover" />
+                  <Img src={image.url} alt="Members Club" fill sizes="100vw" className="object-cover" />
                 </div>
               </motion.div>
-            </AnimatePresence>
+            ))}
           </div>
         </div>
       </div>
