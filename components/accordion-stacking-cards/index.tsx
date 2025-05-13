@@ -25,6 +25,21 @@ export function AccordionStackingCards({ title, items, images, reverse = false }
   const [currentText, setCurrentText] = useState(0)
   const [currentImage, setCurrentImage] = useState(0)
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null)
+  const prevIndices = useRef({ text: 0, image: 0 })
+  // const observer = useIntersection(ref, {
+  //   root: null,
+  //   rootMargin: "0px",
+  //   threshold: 0,
+  // })
+  // const lenis = useLenis()
+
+  // useEffect(() => {
+  //   if (observer?.isIntersecting) {
+  //     console.log("intersecting", ref.current)
+
+  //     lenis?.scrollTo(ref.current as HTMLElement, { duration: 1 })
+  //   }
+  // }, [observer, lenis])
 
   useGSAP(
     () => {
@@ -45,13 +60,23 @@ export function AccordionStackingCards({ title, items, images, reverse = false }
           // Calculate image progress
           const imageProgress = progress * images.length
           const newImageIndex = Math.min(Math.floor(imageProgress), images.length - 1)
-          setCurrentImage(newImageIndex)
+
+          // Only update if image index changed
+          if (newImageIndex !== prevIndices.current.image) {
+            prevIndices.current.image = newImageIndex
+            setCurrentImage(newImageIndex)
+          }
 
           // Calculate text progress (only if we have text items)
           if (items.length > 0) {
             const textProgress = progress * items.length
             const newTextIndex = Math.min(Math.floor(textProgress), items.length - 1)
-            setCurrentText(newTextIndex)
+
+            // Only update if text index changed
+            if (newTextIndex !== prevIndices.current.text) {
+              prevIndices.current.text = newTextIndex
+              setCurrentText(newTextIndex)
+            }
           }
         },
       })
