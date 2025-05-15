@@ -55,7 +55,7 @@ const Sequenced = () => {
   )
 
   return (
-    <div className="relative h-[60vh] bt:h-[60vh] bd:h-[100vh] w-screen overflow-hidden pointer-events-none" ref={ref}>
+    <div className="relative h-[60vh] bt:h-[60vh] bd:h-[100vh] w-full overflow-hidden pointer-events-none" ref={ref}>
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center max-w-xl mx-auto">
         <h2 className="font-montserrat font-normal text-bricky-brick text-4xl bt:text-7xl bd:text-6xl mb-5 bt:mb-10 text-center">
           <TextRevealOnScroll
