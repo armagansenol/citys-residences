@@ -36,15 +36,15 @@ export function StackingCards({ items }: StackingCardsProps) {
       cards.forEach((card, i) => {
         if (i === 0) return
 
-        gsap.set(card, { yPercent: 150 })
+        gsap.set(card, { yPercent: 150, scale: 1.25 })
 
-        tl.to(card, { yPercent: 0 })
+        tl.to(card, { yPercent: 0, scale: 1 })
       })
 
       ScrollTrigger.create({
         animation: tl,
         trigger: ref.current,
-        start: "top top+=12%",
+        start: "top top+=2%",
         pin: true,
         scrub: true,
         end: "+=1500px",
@@ -71,7 +71,8 @@ export function StackingCards({ items }: StackingCardsProps) {
         <div
           className={cn(
             "gsap-stacking-card",
-            "relative bt:absolute left-1/2 -translate-x-1/2 w-full h-full overflow-hidden border-t bg-white"
+            "relative bt:absolute left-1/2 -translate-x-1/2 w-full h-full overflow-hidden",
+            "border border-s-neutral-300 bg-white px-4 bt:px-8 bd:px-4 rounded-xl"
           )}
           key={i}
           style={{
@@ -90,7 +91,7 @@ export function StackingCards({ items }: StackingCardsProps) {
                 <div
                   key={i}
                   className={cn(
-                    "relative rounded-md overflow-hidden cursor-pointer h-[64vw] bt:h-[35vw] flex-shrink-0 bt:flex-1",
+                    "relative rounded-md overflow-hidden cursor-pointer h-[64vw] bt:h-[32vw] flex-shrink-0 bt:flex-1",
                     "hover:opacity-90 transition-opacity"
                   )}
                   onClick={() => handleImageClick(item.images, i)}
