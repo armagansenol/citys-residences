@@ -1,9 +1,10 @@
 import { LegalLayout } from "@/components/legal-layout"
+import { Link } from "@/components/utility/link"
 import { Wrapper } from "@/components/wrapper"
 
 export default function Page() {
   return (
-    <Wrapper className="grid grid-cols-12">
+    <Wrapper>
       <LegalLayout>
         <h1>Çerez Politikası</h1>
         <p>
@@ -144,32 +145,32 @@ export default function Page() {
         </p>
         <ul>
           <li>
-            Google Chrome
-            <a href="http://www.google.com/support/chrome/bin/answer.py?hl=en&amp;answer=95647">
+            Google Chrome:{" "}
+            <Link href="http://www.google.com/support/chrome/bin/answer.py?hl=en&amp;answer=95647">
               http://www.google.com/support/chrome/bin/answer.py?hl=en&amp;answer=95647
-            </a>
+            </Link>
           </li>
           <li>
-            Internet Explorer
-            <a href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies">
+            Internet Explorer:{" "}
+            <Link href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies">
               https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies
-            </a>
+            </Link>
           </li>
           <li>
-            Mozilla Firefox
-            <a href="http://support.mozilla.com/en-US/kb/Cookies">http://support.mozilla.com/en-US/kb/Cookies</a>
+            Mozilla Firefox:{" "}
+            <Link href="http://support.mozilla.com/en-US/kb/Cookies">http://support.mozilla.com/en-US/kb/Cookies</Link>
           </li>
           <li>
-            Opera
-            <a href="http://www.google.com/support/chrome/bin/answer.py?hl=en&amp;answer=95647">
+            Opera:{" "}
+            <Link href="http://www.google.com/support/chrome/bin/answer.py?hl=en&amp;answer=95647">
               http://www.google.com/support/chrome/bin/answer.py?hl=en&amp;answer=95647
-            </a>
+            </Link>
           </li>
           <li>
-            Safari
-            <a href="http://www.google.com/support/chrome/bin/answer.py?hl=en&amp;answer=95647">
+            Safari:{" "}
+            <Link href="http://www.google.com/support/chrome/bin/answer.py?hl=en&amp;answer=95647">
               http://www.google.com/support/chrome/bin/answer.py?hl=en&amp;answer=95647
-            </a>
+            </Link>
           </li>
         </ul>
         <h2>5. Kullanılan Çerezler ve Kullanım amaçları</h2>
@@ -202,7 +203,9 @@ export default function Page() {
                 <td className="px-6 py-4 text-sm text-gray-900">
                   Google Analytics tarafından, bir kullanıcının web sitesini kaç kez ziyaret ettiğinin yanı sıra ilk ve
                   en son ziyaretin tarihlerine ilişkin verileri toplamak için kullanılır.{" "}
-                  <a href="https://policies.google.com/privacy?hl=tr">https://policies.google.com/privacy?hl=tr</a>
+                  <Link href="https://policies.google.com/privacy?hl=tr">
+                    https://policies.google.com/privacy?hl=tr
+                  </Link>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">2 Yıl</td>
               </tr>

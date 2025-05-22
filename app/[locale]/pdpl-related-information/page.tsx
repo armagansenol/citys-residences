@@ -1,4 +1,5 @@
 import { LegalLayout } from "@/components/legal-layout"
+import { Link } from "@/components/utility/link"
 import { Wrapper } from "@/components/wrapper"
 
 export default function Page() {
@@ -101,9 +102,11 @@ export default function Page() {
           <li>Zarara uğramanız durumunda tazminat talep etme.</li>
         </ul>
         <p>
-          Başvurularınızı [www.citysresidences.com], [info@citysresidences.com], [citysgayrimenkul@hs02.Kep.tr]
-          adreslerine veya fiziksel olarak [Teşvikiye Mah. Teşvikiye Cd. Nişantaşı City&apos;s No: 12 İç Kapı No: K.5
-          Şişli/ İstanbul] adresine yapabilirsiniz. Başvuru Türkçe olmalı, kimlik bilgileri ve ilgili belgeler
+          Başvurularınızı <Link href="https://www.citysresidences.com">www.citysresidences.com</Link>,{" "}
+          <Link href="mailto:info@citysresidences.com">info@citysresidences.com</Link>,{" "}
+          <Link href="mailto:citysgayrimenkul@hs02.Kep.tr">citysgayrimenkul@hs02.Kep.tr</Link> adreslerine veya fiziksel
+          olarak &quot;Teşvikiye Mah. Teşvikiye Cd. Nişantaşı City&apos;s No: 12 İç Kapı No: K.5 Şişli/ İstanbul&quot;
+          adresine yapabilirsiniz. Başvuru Türkçe olmalı, kimlik bilgileri ve ilgili belgeler eklenmelidir. Vekâleten
           eklenmelidir. Vekâleten yapılan başvurular için vekâletname sunulmalıdır.
         </p>
         <p>

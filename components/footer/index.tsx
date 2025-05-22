@@ -1,17 +1,19 @@
 "use client"
 
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { useEffect, useRef } from "react"
 import { useIntersection } from "react-use"
 
 import { Logo, socialIcons } from "@/components/icons"
 import { ScrollToTop } from "@/components/scroll-to-top"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Link } from "@/components/utility/link"
+import { Link as LocalizedLink } from "@/components/utility/link"
 import { useVisibilityStore } from "@/lib/store/visibility"
+import { Locale, routing } from "@/i18n/routing"
 
 export function Footer() {
   const t = useTranslations("common")
+  const locale = useLocale()
   const { setAloTechVisibility, setStickyContactMenuVisibility } = useVisibilityStore()
   const footerItems = {
     menu: [
@@ -25,19 +27,19 @@ export function Footer() {
     legal: [
       {
         title: t("kvkRelatedInformation"),
-        href: "/pdf/citys-residences-kvkk-aydinlatma-metni.pdf",
+        href: routing.pathnames["/pdpl-related-information"][locale as Locale],
       },
       {
         title: t("commercialElectronicMessage"),
-        href: "/pdf/citys-residences-ticari-elektronik-ileti-aydinlatma-metni.pdf",
+        href: routing.pathnames["/commercial-electronic-message"][locale as Locale],
       },
       {
         title: t("explicitConsent"),
-        href: "/pdf/citys-residences-acik-riza-metni.pdf",
+        href: routing.pathnames["/explicit-consent"][locale as Locale],
       },
       {
         title: t("cookiePolicy"),
-        href: "#",
+        href: routing.pathnames["/cookie-policy"][locale as Locale],
       },
     ],
   }
@@ -65,9 +67,12 @@ export function Footer() {
         <div className="flex flex-col items-stretch bt:items-start bt:grid bt:grid-cols-24 gap-4 bt:gap-4 bd:gap-8 mb-7 bt:mb-14">
           {/* Logo Section */}
           <div className="order-2 bt:-order-none bt:col-span-9 bd:col-span-8 flex">
-            <Link href="/" className="mx-auto bt:mx-0 bt:mb-auto bt:mr-auto w-[200px] bt:w-[200px] bd:w-[260px]">
+            <LocalizedLink
+              href="/"
+              className="mx-auto bt:mx-0 bt:mb-auto bt:mr-auto w-[200px] bt:w-[200px] bd:w-[260px]"
+            >
               <Logo fill="var(--white)" />
-            </Link>
+            </LocalizedLink>
           </div>
           {/* Contact Section */}
           <div className="order-1 bt:order-none bt:col-span-6 bd:col-span-5 py-10 bt:py-0">
@@ -113,13 +118,13 @@ export function Footer() {
               </h2>
               <div className="flex flex-col gap-y-2 gap-x-6 mr-0 bd:mr-12">
                 {footerItems.menu.map((item, i) => (
-                  <Link
+                  <LocalizedLink
                     key={i}
                     href={item.href}
                     className="text-base bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
                   >
                     {item.title}
-                  </Link>
+                  </LocalizedLink>
                 ))}
               </div>
             </div>
@@ -132,13 +137,13 @@ export function Footer() {
                 <AccordionContent className="py-4">
                   <div className="flex flex-col gap-y-2 gap-x-6 mr-0 bd:mr-12">
                     {footerItems.menu.map((item, i) => (
-                      <Link
+                      <LocalizedLink
                         key={i}
                         href={item.href}
                         className="text-base bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
                       >
                         {item.title}
-                      </Link>
+                      </LocalizedLink>
                     ))}
                   </div>
                 </AccordionContent>
@@ -154,7 +159,7 @@ export function Footer() {
               </h2>
               <div className="space-y-2">
                 {footerItems.legal.map((item, i) => (
-                  <Link
+                  <LocalizedLink
                     target="_blank"
                     rel="noopener noreferrer"
                     key={i}
@@ -162,7 +167,7 @@ export function Footer() {
                     className="block text-base bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
                   >
                     {item.title}
-                  </Link>
+                  </LocalizedLink>
                 ))}
               </div>
             </div>
@@ -175,7 +180,7 @@ export function Footer() {
                 <AccordionContent className="py-4">
                   <div className="space-y-2">
                     {footerItems.legal.map((item, i) => (
-                      <Link
+                      <LocalizedLink
                         target="_blank"
                         rel="noopener noreferrer"
                         key={i}
@@ -183,7 +188,7 @@ export function Footer() {
                         className="block text-base bt:text-xs bd:text-sm text-white/60 hover:text-white transition-colors"
                       >
                         {item.title}
-                      </Link>
+                      </LocalizedLink>
                     ))}
                   </div>
                 </AccordionContent>
@@ -213,9 +218,14 @@ export function Footer() {
           <div className="bt:col-span-7 bd:col-span-6 flex flex-col bt:flex-row justify-between gap-5 order-3 bt:order-3">
             <span className="flex-shrink-0 text-[0.8rem] bt:text-xs bd:text-sm">
               Made by{" "}
-              <Link href="https://justdesignfx.com" target="_blank" rel="noopener noreferrer" className="underline">
+              <LocalizedLink
+                href="https://justdesignfx.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
                 JUST DESIGN FX
-              </Link>
+              </LocalizedLink>
             </span>
             <ScrollToTop />
           </div>

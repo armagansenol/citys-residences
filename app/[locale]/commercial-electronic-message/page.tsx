@@ -1,5 +1,6 @@
 import { LegalLayout } from "@/components/legal-layout"
 import { Wrapper } from "@/components/wrapper"
+import { Link } from "@/i18n/routing"
 
 export default function Page() {
   return (
@@ -40,9 +41,12 @@ export default function Page() {
         </p>
         <p>
           Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ&apos;e göre KVKK&apos;nın 11. Maddesinde sayılan
-          haklarınız mevcut olup, işlenen kişisel verilerinize ilişkin hak ve talepleriniz ile ilgili başvuru
-          yöntemlerine, &ldquo;Citys Gayrimenkul Geliştirme A.Ş. Kişisel Verilerin İşlenmesi ve Korunması Hakkında
-          Aydınlatma Metni&rdquo; nden ulaşabilirsiniz.
+          haklarınız mevcut olup, işlenenÒ kişisel verilerinize ilişkin hak ve talepleriniz ile ilgili başvuru
+          yöntemlerine, &ldquo;
+          <Link target="_blank" rel="noopener noreferrer" href="/pdpl-related-information">
+            Citys Gayrimenkul Geliştirme A.Ş. Kişisel Verilerin İşlenmesi ve Korunması Hakkında Aydınlatma Metni
+          </Link>
+          &rdquo;nden ulaşabilirsiniz.
         </p>
       </LegalLayout>
     </Wrapper>
