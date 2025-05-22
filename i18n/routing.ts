@@ -34,6 +34,22 @@ export const routing = defineRouting({
       tr: "/citys-life-privileges",
       en: "/citys-life-privileges",
     },
+    "/explicit-consent": {
+      tr: "/acik-riza-metni",
+      en: "/explicit-consent",
+    },
+    "/cookie-policy": {
+      tr: "/cerez-politikasi",
+      en: "/cookie-policy",
+    },
+    "/commercial-electronic-message": {
+      tr: "/ticari-elektronik-ileti-aydinlatma-metni",
+      en: "/commercial-electronic-message",
+    },
+    "/pdpl-related-information": {
+      tr: "/kvkk-iliskin-aydinlatma-metni",
+      en: "/pdpl-related-information",
+    },
   },
   localePrefix: "as-needed",
   localeDetection: false,

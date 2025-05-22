@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss"
 
 import aspectRatio from "@tailwindcss/aspect-ratio"
 import animate from "tailwindcss-animate"
+import typography from "@tailwindcss/typography"
 import { breakpoints, colors } from "./styles/config.mjs"
 
 const config: Config = {
@@ -173,7 +174,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [aspectRatio, animate],
+  plugins: [aspectRatio, animate, typography],
   future: {
     hoverOnlyWhenSupported: true,
   },
