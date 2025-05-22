@@ -5,7 +5,6 @@ import s from "./preloader.module.css"
 import { useGSAP } from "@/components/gsap"
 import { cn } from "@/lib/utils"
 import { useLenis } from "lenis/react"
-import { AnimatePresence, motion } from "motion/react"
 import { useState, useEffect } from "react"
 
 import { Img } from "@/components/utility/img"
@@ -35,29 +34,28 @@ export function Preloader() {
   }
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          className={cn(
-            s["preloader-frame"],
-            "fixed top-0 left-0 w-full h-full overflow-hidden bg-bricky-brick",
-            "flex items-center justify-center"
-          )}
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <div className="w-64 h-64">
-            <Img
-              src="/gif/citys-logo-animation.gif"
-              alt="City's Residences Logo Animation"
-              width={256}
-              height={256}
-              priority={true}
-            />
-          </div>
-        </motion.div>
+    <div
+      className={cn(
+        s["preloader-frame"],
+        "fixed top-0 left-0 w-full h-full overflow-hidden bg-bricky-brick",
+        "flex items-center justify-center"
       )}
-    </AnimatePresence>
+      style={{
+        opacity: isVisible ? 1 : 0,
+        transition: "opacity 0.3s",
+        pointerEvents: "none",
+        display: isVisible ? "flex" : "none",
+      }}
+    >
+      <div className="w-64 h-64">
+        <Img
+          src="/gif/citys-logo-animation.gif"
+          alt="City's Residences Logo Animation"
+          width={256}
+          height={256}
+          priority={true}
+        />
+      </div>
+    </div>
   )
 }
