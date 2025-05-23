@@ -22,7 +22,7 @@ export function Footer() {
       { title: t("navigation.citysPark"), href: "/citys-park" },
       { title: t("navigation.citysMembersClub"), href: "/citys-members-club" },
       { title: t("navigation.citysLifePrivileges"), href: "/citys-life-privileges" },
-      { title: t("navigation.citysIstanbul"), href: "https://citys-istanbul.com/" },
+      { title: t("navigation.citysIstanbul"), href: "/citys-istanbul-avm" },
     ],
     legal: [
       {
