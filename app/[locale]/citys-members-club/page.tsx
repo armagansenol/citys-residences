@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils"
 
-import { AccordionStackingCards } from "@/components/accordion-stacking-cards"
 import { ScaleOut } from "@/components/animations/scale-out"
 import { IconCitysMembersClubLogo, IconCitysParkBgLogo } from "@/components/icons"
 import { LinkToPage } from "@/components/link-to-page"
+import { ListCarousel } from "@/components/list-carousel"
 import { Video } from "@/components/utility/video"
 import { Wrapper } from "@/components/wrapper"
 import { membersClubVideo } from "@/lib/constants"
@@ -204,21 +204,17 @@ export default function Page() {
       </section>
       <section className="bg-white z-30 px-4 bt:px-10 bd:px-16">
         <div className="mb-40 mt-20">
-          <AccordionStackingCards
-            title={sportsAndHealth.title}
-            items={sportsAndHealth.items}
-            images={sportsAndHealth.images}
-          />
+          <ListCarousel title={sportsAndHealth.title} items={sportsAndHealth.items} images={sportsAndHealth.images} />
         </div>
         <div className="mb-40">
-          <AccordionStackingCards
+          <ListCarousel
             title={eventsAndEntertainment.title}
             items={eventsAndEntertainment.items}
             images={eventsAndEntertainment.images}
             reverse
           />
         </div>
-        <AccordionStackingCards title={kidsAndFamily.title} items={kidsAndFamily.items} images={kidsAndFamily.images} />
+        <ListCarousel title={kidsAndFamily.title} items={kidsAndFamily.items} images={kidsAndFamily.images} />
       </section>
       <LinkToPage
         previous={{ title: "City's Park", href: "/citys-park" }}
