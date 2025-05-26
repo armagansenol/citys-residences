@@ -194,7 +194,7 @@ export default function Page() {
           />
         </ScaleOut>
       </section>
-      <section className="relative z-20 bg-white pt-8 mb-20">
+      <section className="relative z-20 bg-white pt-8">
         <div className="w-full h-[40vh] lg:h-[35vh] xl:h-[50vh] 2xl:h-[60vh]">
           <IconCitysParkBgLogo fill="#000" />
         </div>
