@@ -159,22 +159,19 @@ export function ListCarousel({ title, items, images, reverse = false }: ListCaro
             </div>
           </div>
           <div className={cn("relative overflow-hidden basis-8/12")}>
-            <AnimatePresence mode="popLayout">
-              {images[activeIndex] && (
-                <motion.div
-                  key={activeIndex}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute left-0 top-0 w-full h-full overflow-hidden"
-                >
-                  <div className="absolute top-0 left-0 w-full h-full">
-                    <Img src={images[activeIndex].url} alt="Members Club" fill sizes="100vw" className="object-cover" />
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {images[activeIndex] && (
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="absolute left-0 top-0 w-full h-full overflow-hidden"
+              >
+                <div className="absolute top-0 left-0 w-full h-full">
+                  <Img src={images[activeIndex].url} alt="Members Club" fill sizes="100vw" className="object-cover" />
+                </div>
+              </motion.div>
+            )}
             <div
               className="absolute top-1/2 -translate-y-1/2 left-4 cursor-pointer blur-bg-white p-4 rounded-full border-2 border-black"
               onClick={() => goToIndex(activeIndex - 1)}
