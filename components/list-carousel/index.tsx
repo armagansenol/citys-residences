@@ -1,17 +1,17 @@
 "use client"
 
-import { ScrollTrigger, useGSAP } from "@/components/gsap" // Removed gsap import
+import { ScrollTrigger, useGSAP } from "@/components/gsap"
 import { cn } from "@/lib/utils"
+import { AnimatePresence, motion } from "framer-motion"
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
 
 import { Img } from "@/components/utility/img"
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 
 export interface ListCarouselProps {
   title: string
   items: {
-    title: string
+    title?: string
     subtitle: string
     description: string
   }[]
@@ -112,25 +112,35 @@ export function ListCarousel({ title, items, images, reverse = false }: ListCaro
         <div className={cn("absolute top-0 left-0 w-full h-full flex gap-10 xl:gap-10 2xl:gap-10")}>
           <div className={cn("relative basis-4/12", reverse && "order-last")}>
             <h2 className="font-montserrat text-3xl lg:text-4xl xl:text-5xl font-medium text-bricky-brick">{title}</h2>
-            <div className="flex flex-col items-start justify-start gap-2 pt-6">
-              {items.map((item, itemIndex) => (
-                <motion.div
-                  key={itemIndex}
-                  className={cn(
-                    "whitespace-nowrap relative font-montserrat text-base lg:text-lg xl:text-sm 2xl:text-base text-black cursor-pointer"
-                  )}
-                  onClick={() => goToIndex(itemIndex)}
-                  animate={{
-                    opacity: itemIndex === itemIndexForDisplay ? 1 : 0.5,
-                    fontWeight: itemIndex === itemIndexForDisplay ? 700 : 400,
-                    x: itemIndex === itemIndexForDisplay ? 5 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {item.title}
-                </motion.div>
-              ))}
-            </div>
+            {items.length > 0 && items[0].title && (
+              <div className="flex flex-col items-start justify-start gap-2 pt-6">
+                {items.map((item, itemIndex) => (
+                  <motion.div
+                    key={itemIndex}
+                    className={cn(
+                      "whitespace-nowrap relative font-montserrat text-base lg:text-lg xl:text-sm 2xl:text-base text-black cursor-pointer"
+                    )}
+                    onClick={() => goToIndex(itemIndex)}
+                    animate={{
+                      opacity: itemIndex === itemIndexForDisplay ? 1 : 0.5,
+                      fontWeight: itemIndex === itemIndexForDisplay ? 700 : 400,
+                      x: itemIndex === itemIndexForDisplay ? 5 : 0,
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <motion.span
+                      className="absolute top-1/2 -translate-y-1/2 -left-4 bg-bricky-brick w-1.5 h-1.5 rounded-full"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: itemIndex === itemIndexForDisplay ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.6 }}
+                    />
+                    {item.title}
+                  </motion.div>
+                ))}
+              </div>
+            )}
             <div className="relative mt-20">
               <AnimatePresence mode="wait">
                 {items[itemIndexForDisplay] && (
@@ -142,14 +152,14 @@ export function ListCarousel({ title, items, images, reverse = false }: ListCaro
                     transition={{ duration: 0.3 }}
                     className="absolute left-0 top-0 w-full"
                   >
-                    <h3 className="font-montserrat text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl font-medium text-bricky-brick mb-8">
+                    <h3 className="font-montserrat text-3xl lg:text-4xl xl:text-3xl 2xl:text-4xl font-medium text-bricky-brick mb-6">
                       {items[itemIndexForDisplay].title}
                     </h3>
                     <div className="xl:pr-8 2xl:pr-16">
-                      <p className="font-montserrat text-base lg:text-lg xl:text-lg 2xl:text-lg font-bold text-black">
+                      <p className="font-montserrat text-base lg:text-lg xl:text-base 2xl:text-lg font-bold text-black">
                         {items[itemIndexForDisplay].subtitle}
                       </p>
-                      <p className="font-montserrat text-base lg:text-lg xl:text-lg 2xl:text-lg font-normal text-black">
+                      <p className="font-montserrat text-base lg:text-lg xl:text-base 2xl:text-lg font-normal text-black">
                         {items[itemIndexForDisplay].description}
                       </p>
                     </div>

@@ -56,6 +56,12 @@ export default function Page() {
         subtitle: "Dinginlik için ayrılmış bir alan",
         description: "Doğal ışıkla beslenen yoga stüdyosu; nefesin ve hareketin uyumuna zemin hazırlıyor.",
       },
+      {
+        title: "PİLATES STÜDYOSU",
+        subtitle: "Her duruşun bir çizgisi, her çizginin bir dengesi var",
+        description:
+          "Pilates Stüdyosu, her hareketin merkezinde dengeyi arar. Alan, akışa eşlik eden ışık ve dinginlikle kendi ritmini kurar. Her seans, hareketle mekân arasında kurulan sessiz bir uyumdan doğar.",
+      },
     ],
     images: [
       {
@@ -81,6 +87,9 @@ export default function Page() {
       },
       {
         url: "/img/members-club/01/08.jpg",
+      },
+      {
+        url: "/img/members-club/01/09.jpg",
       },
     ],
   }
@@ -158,7 +167,6 @@ export default function Page() {
     title: "KIDS CLUB",
     items: [
       {
-        title: "",
         subtitle: "Oyun, gelişimin en doğal hali",
         description:
           "Yaş gruplarına özel kurgulanmış bu güvenli alan; çocukların enerjisini yönlendirirken ebeveynlere de rahat bir nefes alanı sunar.",
