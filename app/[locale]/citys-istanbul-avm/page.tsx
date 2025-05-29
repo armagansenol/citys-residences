@@ -15,13 +15,13 @@ import { citysParkVideo } from "@/lib/constants"
 export default function Page() {
   const slides = [
     {
-      image: "/img/avm-1.jpg",
+      image: "/img/citys-istanbul-avm/slide-1.jpg",
       title: "HER STİLİN, HER İHTİYACIN MERKEZİ",
       description:
         "Şehrin temposuna ayak uyduran yeme-içme alanları ve stil sahibi markalar… City’s İstanbul AVM; zamansız markalar, yeni sezon koleksiyonlar ve şehirli yaşamın ritmine uygun mağazalarla alışveriş deneyimini rutinin bir adım ötesine taşıyor.",
     },
     {
-      image: "/img/avm-2.jpg",
+      image: "/img/citys-istanbul-avm/slide-2.jpg",
       title: "GÜNLÜK YAŞAMIN TÜM İHTİYAÇLARI BİR ARADA",
       description:
         "Espressonuzdan eczanenize, kargonuzdan kişisel bakımınıza kadar her şey birkaç adım ötede. Şehrin temposunu kolaylaştıran, pratik ama şık bir yaşam akışı.",
