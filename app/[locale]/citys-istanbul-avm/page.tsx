@@ -72,21 +72,191 @@ export default function Page() {
       <section className="relative z-20 bg-white bd:container py-8 bt:py-8">
         <h2 className="font-montserrat text-3xl font-regular text-center mb-8">ALIŞVERİŞ</h2>
         <AutoScrollCarousel>
-          {Array.from({ length: 18 }).map((_, index) => (
-            <div key={index} className="flex items-center justify-center rounded-xl overflow-hidden py-14 px-16 w-64">
-              <IconCitysIstanbulLogo fill="#000" />
-            </div>
-          ))}
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/alisveris/01.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/alisveris/02.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/alisveris/03.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/alisveris/04.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/alisveris/05.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/alisveris/01.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/alisveris/02.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/alisveris/03.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/alisveris/04.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/alisveris/05.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
         </AutoScrollCarousel>
       </section>
       <section className="relative z-20 bg-white bd:container py-8 bt:py-8">
         <h2 className="font-montserrat text-3xl font-regular text-center mb-8">YEME - İÇME</h2>
         <AutoScrollCarousel>
-          {Array.from({ length: 18 }).map((_, index) => (
-            <div key={index} className="flex items-center justify-center rounded-xl overflow-hidden py-14 px-16 w-64">
-              <IconCitysIstanbulLogo fill="#000" />
-            </div>
-          ))}
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/yemek/01.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/yemek/02.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/yemek/03.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/yemek/04.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/yemek/05.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/yemek/01.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/yemek/02.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/yemek/03.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/yemek/04.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
+          <div className="flex items-center justify-center py-14 px-16 w-64 h-full">
+            <Img
+              src="/img/citys-istanbul-avm/yemek/05.png"
+              alt="City's Istanbul AVM"
+              className="w-full h-full object-contain"
+              height={400}
+              width={400}
+            />
+          </div>
         </AutoScrollCarousel>
       </section>
       <section className="relative z-20 bg-white py-8 bt:py-8 mb-20">
