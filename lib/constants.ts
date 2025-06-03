@@ -147,3 +147,6 @@ export const citysParkVideo =
 
 export const membersClubVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1080760684/rendition/1080p/file.mp4?loc=external&log_user=0&signature=f3cf12828b22d135b93eac19906ba33c50f6449135a428833e33ecb58bcbdda9"
+
+export const citysIstanbulAvmVideo =
+  "https://player.vimeo.com/progressive_redirect/playback/1090029618/rendition/1080p/file.mp4?loc=external&log_user=0&signature=f1d3f003fc9827566caaea65487458e20ce21ad51846208b95045b77f6875b34"

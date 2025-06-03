@@ -10,8 +10,8 @@ import { LinkToPage } from "@/components/link-to-page"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { Wrapper } from "@/components/wrapper"
-import { citysParkVideo } from "@/lib/constants"
 import { getBrandsData } from "@/lib/api/queries"
+import { citysIstanbulAvmVideo } from "@/lib/constants"
 
 export default async function Page() {
   // Fetch brands data
@@ -41,7 +41,7 @@ export default async function Page() {
       <section className={cn("h-[50vh] bd:h-screen bg-bricky-brick relative z-10 overflow-hidden")}>
         <ScaleOut>
           <Video
-            primaryVideoUrl={citysParkVideo}
+            primaryVideoUrl={citysIstanbulAvmVideo}
             autoPlay
             loop
             muted
