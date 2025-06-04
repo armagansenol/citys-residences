@@ -5,14 +5,7 @@
   overflow: hidden;
   position: fixed;
   top: 0;
-  width: 100vw;
   z-index: var(--z-menu);
-  @include-media ('tablet') {
-    width: 100vw;
-  }
-  @include-media ('desktop') {
-    width: 24vw;
-  }
 }
 
 .menu {
@@ -31,16 +24,6 @@
     @include-media ('desktop') {
       height: desktop-vw(110px);
       top: desktop-vw(20px);
-    }
-  }
-
-  .navItem {
-    font-size: mobile-vw(18px);
-    @include-media ('tablet') {
-      font-size: tablet-vw(26px);
-    }
-    @include-media ('desktop') {
-      font-size: desktop-vw(26px);
     }
   }
 }

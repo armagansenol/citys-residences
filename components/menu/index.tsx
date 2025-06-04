@@ -74,18 +74,19 @@ export function Menu({ open, setOpen, items }: MenuProps) {
   )
 
   return (
-    <div className={cn(s.frame, "blur-bg-bricky-brick-light")} ref={ref}>
+    <div className={cn(s.frame, "blur-bg-bricky-brick-light w-screen xl:w-3/12")} ref={ref}>
       <nav
         className={cn(
           s.menu,
           "absolute top-0 left-0 w-full h-full p-4 lg:p-10 flex items-center justify-center xl:justify-start"
         )}
       >
-        <ul className="flex flex-col items-center xl:items-start gap-3 lg:gap-10 xl:gap-0 py-0 pt-20 pb-0 lg:py-12 w-full">
+        <ul className="flex flex-col items-center xl:items-start gap-3 lg:gap-10 xl:gap-2 py-0 pt-20 pb-0 lg:py-12 w-full">
           {items.map(({ title, href }, i) => (
             <li
               className={cn(
                 s.navItem,
+                "text-lg lg:text-4xl xl:text-3xl",
                 "font-halenoir text-white text-center xl:text-left",
                 "transition-opacity duration-300 ease-in-out",
                 "font-normal",
