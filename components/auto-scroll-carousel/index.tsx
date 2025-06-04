@@ -14,7 +14,7 @@ type PropType = {
 
 export function AutoScrollCarousel({ children, options }: PropType) {
   // @ts-expect-error -- Type compatibility workaround between embla-carousel packages
-  const [emblaRef, emblaApi] = useEmblaCarousel(options, [AutoScroll({ playOnInit: true, speed: 0.65 })])
+  const [emblaRef, emblaApi] = useEmblaCarousel(options, [AutoScroll({ playOnInit: true, speed: 1.25 })])
 
   useEffect(() => {
     const autoScroll = emblaApi?.plugins()?.autoScroll

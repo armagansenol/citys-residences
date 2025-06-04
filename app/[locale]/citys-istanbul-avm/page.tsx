@@ -20,6 +20,13 @@ export default async function Page() {
   // Filter brands by category
   const shoppingBrands = brands.filter((brand) => brand.category === "alisveris")
   const foodBrands = brands.filter((brand) => brand.category === "yemeIcme")
+  const services = [
+    { logo: "/img/citys-istanbul-avm/hizmetler/01.png", name: "HİZMETLER" },
+    { logo: "/img/citys-istanbul-avm/hizmetler/02.png", name: "HİZMETLER" },
+    { logo: "/img/citys-istanbul-avm/hizmetler/03.png", name: "HİZMETLER" },
+    { logo: "/img/citys-istanbul-avm/hizmetler/04.png", name: "HİZMETLER" },
+    { logo: "/img/citys-istanbul-avm/hizmetler/05.png", name: "HİZMETLER" },
+  ]
 
   const slides = [
     {
@@ -77,7 +84,7 @@ export default async function Page() {
           </FadeInOnScroll>
         </div>
       </section>
-      <section className="relative z-20 bg-white bd:container py-8 bt:py-8">
+      <section className="relative z-20 bg-white">
         <h2 className="font-montserrat text-3xl font-regular text-center mb-8">ALIŞVERİŞ</h2>
         <AutoScrollCarousel>
           {shoppingBrands.map((brand, index) => (
@@ -108,7 +115,7 @@ export default async function Page() {
           ))}
         </AutoScrollCarousel>
       </section>
-      <section className="relative z-20 bg-white bd:container py-8 bt:py-8">
+      <section className="relative z-20 bg-white">
         <h2 className="font-montserrat text-3xl font-regular text-center mb-8">YEME - İÇME</h2>
         <AutoScrollCarousel>
           {foodBrands.map((brand, index) => (
@@ -131,6 +138,37 @@ export default async function Page() {
               <Img
                 src={brand.logo}
                 alt={brand.name}
+                className="w-full h-full object-contain"
+                height={400}
+                width={400}
+              />
+            </div>
+          ))}
+        </AutoScrollCarousel>
+      </section>
+      <section className="relative z-20 bg-white">
+        <h2 className="font-montserrat text-3xl font-regular text-center mb-8">HİZMETLER</h2>
+        <AutoScrollCarousel>
+          {services.map((service, index) => (
+            <div key={`${service.name}-${index}`} className="flex items-center justify-center py-14 px-16 w-64 h-full">
+              <Img
+                src={service.logo}
+                alt="Service Logo"
+                className="w-full h-full object-contain"
+                height={400}
+                width={400}
+              />
+            </div>
+          ))}
+          {/* Duplicate for seamless scrolling */}
+          {services.map((service, index) => (
+            <div
+              key={`${service.name}-duplicate-${index}`}
+              className="flex items-center justify-center py-14 px-16 w-64 h-full"
+            >
+              <Img
+                src={service.logo}
+                alt="Service Logo"
                 className="w-full h-full object-contain"
                 height={400}
                 width={400}
