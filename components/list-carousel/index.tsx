@@ -201,12 +201,12 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
       {withMoveDown && (
         <div
           className={cn(
-            "absolute -bottom-4 translate-y-1/2 left-16 p-10 rounded-full border-2 border-black",
+            "absolute bottom-2 translate-y-full left-16 p-5 rounded-full border-2 border-black",
             reverse && "left-auto right-16"
           )}
           onClick={() => goToIndex(activeIndex + 1)}
         >
-          <MoveDownIcon className="w-12 h-12" />
+          <MoveDownIcon className="w-8 h-8" />
         </div>
       )}
     </div>
