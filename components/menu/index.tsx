@@ -78,15 +78,15 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       <nav
         className={cn(
           s.menu,
-          "absolute top-0 left-0 w-full h-full p-4 bt:p-10 flex items-center justify-center bd:justify-start"
+          "absolute top-0 left-0 w-full h-full p-4 lg:p-10 flex items-center justify-center xl:justify-start"
         )}
       >
-        <ul className="flex flex-col items-center bd:items-start gap-3 bt:gap-10 bd:gap-0 py-0 pt-20 pb-0 bt:py-12 w-full">
+        <ul className="flex flex-col items-center xl:items-start gap-3 lg:gap-10 xl:gap-0 py-0 pt-20 pb-0 lg:py-12 w-full">
           {items.map(({ title, href }, i) => (
             <li
               className={cn(
                 s.navItem,
-                "font-halenoir text-white text-center bd:text-left",
+                "font-halenoir text-white text-center xl:text-left",
                 "transition-opacity duration-300 ease-in-out",
                 "font-normal",
                 {
@@ -103,16 +103,16 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                 setActive(null)
               }}
             >
-              <Link className="cursor-pointer block bd:py-1" href={href}>
+              <Link className="cursor-pointer block xl:py-1" href={href}>
                 {title}
               </Link>
             </li>
           ))}
-          <li className="w-full flex flex-col items-center bd:items-start mt-2 bt:mt-10 bd:mt-5 mb-0 bd:my-6 order-last bd:order-none">
-            <p className="w-full font-halenoir font-normal text-white text-sm bd:text-base py-2 bd:border-b bd:border-white/30 text-center bd:text-left">
+          <li className="w-full flex flex-col items-center xl:items-start mt-2 lg:mt-10 xl:mt-5 mb-0 xl:my-6 order-last xl:order-none">
+            <p className="w-full font-halenoir font-normal text-white text-sm xl:text-base py-2 xl:border-b xl:border-white/30 text-center xl:text-left">
               Bizi Takip Edin
             </p>
-            <div className="flex gap-4 justify-center bd:justify-start py-3 bd:py-4">
+            <div className="flex gap-4 justify-center xl:justify-start py-3 xl:py-4">
               <div className="h-6 w-6 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
                 {socialIcons.instagram}
               </div>
@@ -129,7 +129,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
           </li>
           <li
             className={cn(
-              "font-halenoir font-light text-white text-2xl bt:text-4xl bd:text-3xl text-center bd:text-left mt-4 bt:mt-0"
+              "font-halenoir font-light text-white text-2xl lg:text-4xl xl:text-3xl text-center xl:text-left mt-4 lg:mt-0"
             )}
           >
             <a
@@ -137,7 +137,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "font-halenoir font-normal text-white text-base lg:text-4xl xl:text-xl 2xl:text-2xl text-center bd:text-left bd:leading-none",
+                "font-halenoir font-normal text-white text-base lg:text-4xl xl:text-xl 2xl:text-2xl text-center xl:text-left xl:leading-none",
                 "transition-opacity duration-300 ease-in-out",
                 "opacity-100 hover:opacity-70",
                 "flex items-center gap-2"
@@ -145,13 +145,13 @@ export function Menu({ open, setOpen, items }: MenuProps) {
               )}
             >
               {/* <AnimatedButton theme="transparent" size="lg" text="Satış Ofisi Konum" fontFamily="halenoir" /> */}
-              <span className="flex items-end h-5 w-5 bt:w-6 bt:h-6 mb-1">
+              <span className="flex items-end h-5 w-5 lg:w-6 lg:h-6 mb-1">
                 <IconPin fill="var(--white)" />
               </span>
               CR Satış Ofisi Konum
             </a>
           </li>
-          {/* <li className={cn(s.navItem, "block bt:hidden")}>
+          {/* <li className={cn(s.navItem, "block lg:hidden")}>
             <LocaleSwitcher />
           </li> */}
         </ul>
