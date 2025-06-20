@@ -1,10 +1,8 @@
 .stickyContactMenu {
   z-index: var(--z-sticky);
-  pointer-events: none;
 
   &.active {
     transform: translateY(100%);
-    pointer-events: auto;
   }
 }
 

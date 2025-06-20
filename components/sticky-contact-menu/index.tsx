@@ -118,6 +118,7 @@ export function StickyContactMenu() {
           {
             "opacity-100": isStickyContactMenuVisible,
             "opacity-0": !isStickyContactMenuVisible,
+            "pointer-events-none": !isStickyContactMenuVisible,
             [s.active]: isOpen,
           }
         )}
