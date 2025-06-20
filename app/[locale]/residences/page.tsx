@@ -65,14 +65,14 @@ export default function Page() {
           />
         </ScaleOut>
       </section>
-      <section className="relative z-20 bg-white mb-16 bt:mb-0">
+      <section className="relative z-20 bg-white">
         <div className="w-full h-40 bt:h-64 mx-auto my-12 bt:my-32">
           <Logo fill="var(--bricky-brick)" />
         </div>
       </section>
       <section className="bg-white z-20 px-4 bt:px-10 bd:px-16">
         <div className="relative bd:container">
-          <div className="w-full h-[350px] bt:h-[90vh] relative z-10 flex items-center justify-center bg-black">
+          <div className="w-full h-[300px] bt:h-[90vh] relative z-10 flex items-center justify-center bg-black">
             <VideoWithPlayButton
               primaryVideoUrl={mustafaTonerVideo}
               thumbnail="/img/thumbnail-toners.jpg"
@@ -81,7 +81,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="bg-white z-30 px-4 bt:px-10 bd:px-16">
+      <section className="bg-white z-30 px-4 bt:px-10 bd:px-16 py-12 bd:py-0">
         <Sequenced />
       </section>
       <section className="bg-white z-30 px-4 bt:px-10 bd:px-16 pb-16 bt:pb-72">

@@ -57,9 +57,7 @@ export default function Home() {
               <span className="sr-only">{t("section1.title2")}</span>
             </div>
             <p className="text-bricky-brick text-md bt:text-3xl font-normal tracking-wide bt:tracking-widest text-center">
-              <TextRevealOnScroll textAlign="center" staggerDuration={0.01}>
-                {t("section1.title3")}
-              </TextRevealOnScroll>
+              <TextRevealOnScroll staggerDuration={0.01}>{t("section1.title3")}</TextRevealOnScroll>
             </p>
           </div>
         </div>
@@ -84,7 +82,6 @@ export default function Home() {
               className="hidden bd:block"
               elementLevelClassName="leading-relaxed"
               splitBy="lines"
-              textAlign="left"
               staggerDuration={0.005}
             >
               {t("live.p1.title")}
@@ -93,7 +90,6 @@ export default function Home() {
               className="block bd:hidden"
               elementLevelClassName="leading-relaxed"
               splitBy="lines"
-              textAlign="center"
               staggerDuration={0.005}
             >
               {t("live.p1.title")}
@@ -104,7 +100,6 @@ export default function Home() {
               className="hidden bd:block"
               elementLevelClassName="leading-relaxed"
               splitBy="lines"
-              textAlign="left"
               staggerDuration={0.005}
             >
               {t("live.p1.description")}
@@ -113,7 +108,6 @@ export default function Home() {
               className="block bd:hidden"
               elementLevelClassName="leading-relaxed"
               splitBy="lines"
-              textAlign="center"
               staggerDuration={0.005}
             >
               {t("live.p1.description")}
@@ -136,7 +130,6 @@ export default function Home() {
             className="hidden bd:block"
             elementLevelClassName="leading-relaxed"
             splitBy="lines"
-            textAlign="left"
             staggerDuration={0.005}
           >
             {t("live.p1.title")}
@@ -145,7 +138,6 @@ export default function Home() {
             className="block bd:hidden"
             elementLevelClassName="leading-relaxed"
             splitBy="lines"
-            textAlign="center"
             staggerDuration={0.005}
           >
             {t("live.p1.title")}

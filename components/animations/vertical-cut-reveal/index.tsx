@@ -14,6 +14,7 @@ interface TextProps {
   containerClassName?: string
   wordLevelClassName?: string
   elementLevelClassName?: string
+  containerLevelClassName?: string
   onClick?: () => void
   onStart?: () => void
   onComplete?: () => void
@@ -156,7 +157,7 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
 
     return (
       <span
-        className={cn(containerClassName, "flex flex-wrap whitespace-pre-wrap", splitBy === "lines" && "flex-col")}
+        className={cn(containerClassName, "whitespace-pre-wrap", splitBy === "lines")}
         onClick={onClick}
         ref={containerRef}
         {...props}

@@ -10,15 +10,15 @@ interface TextRevealOnScrollProps {
   staggerDuration?: number
   splitBy?: "words" | "characters" | "lines" | string
   className?: string
+  containerLevelClassName?: string
   elementLevelClassName?: string
-  textAlign?: "left" | "center" | "right"
 }
 
 export function TextRevealOnScroll({
   children,
   staggerDuration = 0.005,
   className,
-  textAlign = "left",
+  containerLevelClassName,
   elementLevelClassName,
 }: TextRevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null)
@@ -45,13 +45,7 @@ export function TextRevealOnScroll({
           stiffness: 190,
           damping: 42,
         }}
-        containerClassName={
-          {
-            center: "justify-center",
-            right: "justify-end",
-            left: "justify-start",
-          }[textAlign]
-        }
+        containerClassName={cn(containerLevelClassName)}
         elementLevelClassName={cn(elementLevelClassName, "leading-tight")}
         ref={textRef}
       >
