@@ -1,0 +1,7 @@
+.stackingCard {
+  margin-top: mobile-vw(30px);
+
+  @include-media ('desktop') {
+    margin-top: var(--card-margin);
+  }
+}
