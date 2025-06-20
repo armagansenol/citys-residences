@@ -74,10 +74,9 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="bd:container flex flex-col-reverse bd:flex-row items-center justify-between gap-10 bt:gap-20 bd:gap-4 py-6 bt:py-24 px-2 bt:px-10 bd:px-16">
+      <section className="bd:container flex flex-col bd:flex-row items-center justify-between gap-10 bt:gap-20 bd:gap-4 py-12 bt:py-24 px-2 bt:px-10 bd:px-16">
         <div className="px-4 bt:px-0 flex flex-col items-center justify-center bd:items-start">
-          {/* desktop title */}
-          <h2 className="font-suisse-intl font-normal text-bricky-brick text-4xl md:text-7xl xl:text-6xl 2xl:text-7xl mb-5 bt:mb-10 hidden bd:block text-center xl:text-left">
+          <h2 className="font-suisse-intl font-normal text-bricky-brick text-4xl md:text-7xl xl:text-6xl 2xl:text-7xl mb-5 bt:mb-10 text-center xl:text-left">
             <TextRevealOnScroll elementLevelClassName="leading-relaxed" splitBy="lines" staggerDuration={0.005}>
               {t("live.p1.title")}
             </TextRevealOnScroll>
@@ -98,25 +97,6 @@ export default function Home() {
             className="relative w-full h-full object-cover z-0"
           />
         </div>
-        {/* mobile title */}
-        <h2 className="font-suisse-intl font-normal text-bricky-brick text-4xl bt:text-7xl bd:text-7xl block bd:hidden">
-          <TextRevealOnScroll
-            className="hidden bd:block"
-            elementLevelClassName="leading-relaxed"
-            splitBy="lines"
-            staggerDuration={0.005}
-          >
-            {t("live.p1.title")}
-          </TextRevealOnScroll>
-          <TextRevealOnScroll
-            className="block bd:hidden"
-            elementLevelClassName="leading-relaxed"
-            splitBy="lines"
-            staggerDuration={0.005}
-          >
-            {t("live.p1.title")}
-          </TextRevealOnScroll>
-        </h2>
       </section>
       <section>
         <FullScreenSlider title={t("live.p2.title")} description={t("live.p2.description")} items={slides2} />
