@@ -77,39 +77,13 @@ export default function Home() {
       <section className="bd:container flex flex-col-reverse bd:flex-row items-center justify-between gap-10 bt:gap-20 bd:gap-4 py-6 bt:py-24 px-4 bt:px-10 bd:px-16">
         <div className="px-4 bt:px-0 flex flex-col items-center justify-center bd:items-start">
           {/* desktop title */}
-          <h2 className="font-montserrat font-normal text-bricky-brick text-4xl md:text-7xl xl:text-6xl 2xl:text-7xl mb-5 bt:mb-10 hidden bd:block">
-            <TextRevealOnScroll
-              className="hidden bd:block"
-              elementLevelClassName="leading-relaxed"
-              splitBy="lines"
-              staggerDuration={0.005}
-            >
-              {t("live.p1.title")}
-            </TextRevealOnScroll>
-            <TextRevealOnScroll
-              className="block bd:hidden"
-              elementLevelClassName="leading-relaxed"
-              splitBy="lines"
-              staggerDuration={0.005}
-            >
+          <h2 className="font-montserrat font-normal text-bricky-brick text-4xl md:text-7xl xl:text-6xl 2xl:text-7xl mb-5 bt:mb-10 hidden bd:block text-center xl:text-left">
+            <TextRevealOnScroll elementLevelClassName="leading-relaxed" splitBy="lines" staggerDuration={0.005}>
               {t("live.p1.title")}
             </TextRevealOnScroll>
           </h2>
-          <p className="font-halenoir text-md bt:text-4xl bd:text-2xl text-center max-w-sm bt:max-w-xl bd:max-w-xl bd:leading-normal">
-            <TextRevealOnScroll
-              className="hidden bd:block"
-              elementLevelClassName="leading-relaxed"
-              splitBy="lines"
-              staggerDuration={0.005}
-            >
-              {t("live.p1.description")}
-            </TextRevealOnScroll>
-            <TextRevealOnScroll
-              className="block bd:hidden"
-              elementLevelClassName="leading-relaxed"
-              splitBy="lines"
-              staggerDuration={0.005}
-            >
+          <p className="font-halenoir text-md bt:text-4xl bd:text-2xl max-w-sm bt:max-w-xl bd:max-w-xl bd:leading-normal text-center xl:text-left">
+            <TextRevealOnScroll elementLevelClassName="leading-relaxed" splitBy="lines" staggerDuration={0.005}>
               {t("live.p1.description")}
             </TextRevealOnScroll>
           </p>
