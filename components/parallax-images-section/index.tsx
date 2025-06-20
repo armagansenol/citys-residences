@@ -39,7 +39,7 @@ export function MaskedParallaxImageSection({
         )}
       >
         {title && (
-          <div className={cn(s.title, "font-montserrat font-normal leading-none text-bricky-brick")}>
+          <div className={cn(s.title, "font-suisse-intl font-normal leading-none text-bricky-brick")}>
             <h3 className="text-center xl:text-left">
               <TextRevealOnScroll staggerDuration={0.0025}>{title}</TextRevealOnScroll>
             </h3>
@@ -115,7 +115,7 @@ export function MaskedParallaxImageSection({
 //             className={cn(
 //               s.title,
 //               "gsap-title",
-//               "font-montserrat text-bricky-brick font-bold leading-snug bt:leading-none overflow-hidden py-2 text-center"
+//               "font-suisse-intl text-bricky-brick font-bold leading-snug bt:leading-none overflow-hidden py-2 text-center"
 //             )}
 //           >
 //             {t("title")}
@@ -123,7 +123,7 @@ export function MaskedParallaxImageSection({
 //         </div>
 //         <h2
 //           className={cn(
-//             "font-montserrat text-4xl text-bricky-brick font-bold leading-snug py-2 text-center block bt:hidden"
+//             "font-suisse-intl text-4xl text-bricky-brick font-bold leading-snug py-2 text-center block bt:hidden"
 //           )}
 //         >
 //           {t("title")}

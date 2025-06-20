@@ -60,7 +60,7 @@ const Sequenced = () => {
       ref={ref}
     >
       <div className="relative w-full xl:w-5/12 h-full flex flex-col items-start justify-center">
-        <h2 className="font-montserrat font-normal text-bricky-brick text-4xl lg:text-7xl xl:text-6xl mb-5 lg:mb-10 text-center xl:text-left">
+        <h2 className="font-suisse-intl font-normal text-bricky-brick text-4xl lg:text-7xl xl:text-6xl mb-5 lg:mb-10 text-center xl:text-left">
           <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
             YAŞAMA ALAN AÇAN DETAYLAR
           </TextRevealOnScroll>

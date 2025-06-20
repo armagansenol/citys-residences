@@ -19,7 +19,7 @@ import { Preloader } from "@/components/preloader"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-suisse-intl",
   weight: ["400", "500", "600", "700", "800"],
 })
 

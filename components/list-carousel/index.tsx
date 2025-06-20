@@ -114,7 +114,7 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
           className={cn("absolute top-0 left-0 w-full h-full flex flex-col lg:flex-row gap-10 xl:gap-10 2xl:gap-10")}
         >
           <div className={cn("relative basis-full lg:basis-4/12", reverse && "order-last")}>
-            <h2 className="font-montserrat text-3xl lg:text-4xl xl:text-5xl font-medium text-bricky-brick">{title}</h2>
+            <h2 className="font-suisse-intl text-3xl lg:text-4xl xl:text-5xl font-medium text-bricky-brick">{title}</h2>
             <div className="w-screen lg:w-auto overflow-x-auto">
               {items.length > 0 && items[0].title && (
                 <div className="flex flex-row lg:flex-col items-start justify-start gap-6 lg:gap-2 pt-6">
@@ -122,7 +122,7 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
                     <motion.div
                       key={itemIndex}
                       className={cn(
-                        "whitespace-nowrap relative font-montserrat text-sm lg:text-lg xl:text-sm 2xl:text-base text-black cursor-pointer"
+                        "whitespace-nowrap relative font-suisse-intl text-sm lg:text-lg xl:text-sm 2xl:text-base text-black cursor-pointer"
                       )}
                       onClick={() => goToIndex(itemIndex)}
                       animate={{
@@ -182,14 +182,14 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
                     transition={{ duration: 0.3 }}
                     className="relative lg:absolute left-0 top-0 w-full"
                   >
-                    <h3 className="font-montserrat text-2xl lg:text-4xl xl:text-3xl 2xl:text-4xl font-medium text-bricky-brick mb-6">
+                    <h3 className="font-suisse-intl text-2xl lg:text-4xl xl:text-3xl 2xl:text-4xl font-medium text-bricky-brick mb-6">
                       {items[itemIndexForDisplay].title}
                     </h3>
                     <div className="xl:pr-8 2xl:pr-16">
-                      <p className="font-montserrat text-base lg:text-lg xl:text-base 2xl:text-lg font-bold text-black">
+                      <p className="font-suisse-intl text-base lg:text-lg xl:text-base 2xl:text-lg font-bold text-black">
                         {items[itemIndexForDisplay].subtitle}
                       </p>
-                      <p className="font-montserrat text-base lg:text-lg xl:text-base 2xl:text-lg font-normal text-black">
+                      <p className="font-suisse-intl text-base lg:text-lg xl:text-base 2xl:text-lg font-normal text-black">
                         {items[itemIndexForDisplay].description}
                       </p>
                     </div>

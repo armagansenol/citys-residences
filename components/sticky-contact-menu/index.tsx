@@ -113,7 +113,7 @@ export function StickyContactMenu() {
       <div
         className={cn(
           s.stickyContactMenu,
-          "font-montserrat fixed left-0 bottom-0 right-0 blur-bg-bricky-brick-light grid grid-cols-3 bt:hidden",
+          "font-suisse-intl fixed left-0 bottom-0 right-0 blur-bg-bricky-brick-light grid grid-cols-3 bt:hidden",
           "transition-all duration-300 ease-in-out",
           {
             "opacity-100": isStickyContactMenuVisible,

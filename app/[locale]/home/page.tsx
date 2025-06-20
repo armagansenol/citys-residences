@@ -43,7 +43,7 @@ export default function Home() {
       <section className="bg-white font-suisse-intl pt-0 bt:pt-12 z-20 relative">
         <div className="bd:container mx-auto py-16 bt:py-28 bd:pt-40 bd:pb-8 relative flex flex-col items-center px-2 bt:px-10 bd:px-16">
           <div className="flex flex-col items-center text-center">
-            <h1 className="font-montserrat text-bricky-brick text-4xl bt:text-8xl font-semibold tracking-widest">
+            <h1 className="font-suisse-intl text-bricky-brick text-4xl bt:text-8xl font-semibold tracking-widest">
               <TextRevealOnScroll className="leading-tight" staggerDuration={0.05}>
                 {t("section1.title1")}
               </TextRevealOnScroll>
@@ -77,7 +77,7 @@ export default function Home() {
       <section className="bd:container flex flex-col-reverse bd:flex-row items-center justify-between gap-10 bt:gap-20 bd:gap-4 py-6 bt:py-24 px-2 bt:px-10 bd:px-16">
         <div className="px-4 bt:px-0 flex flex-col items-center justify-center bd:items-start">
           {/* desktop title */}
-          <h2 className="font-montserrat font-normal text-bricky-brick text-4xl md:text-7xl xl:text-6xl 2xl:text-7xl mb-5 bt:mb-10 hidden bd:block text-center xl:text-left">
+          <h2 className="font-suisse-intl font-normal text-bricky-brick text-4xl md:text-7xl xl:text-6xl 2xl:text-7xl mb-5 bt:mb-10 hidden bd:block text-center xl:text-left">
             <TextRevealOnScroll elementLevelClassName="leading-relaxed" splitBy="lines" staggerDuration={0.005}>
               {t("live.p1.title")}
             </TextRevealOnScroll>
@@ -99,7 +99,7 @@ export default function Home() {
           />
         </div>
         {/* mobile title */}
-        <h2 className="font-montserrat font-normal text-bricky-brick text-4xl bt:text-7xl bd:text-7xl block bd:hidden">
+        <h2 className="font-suisse-intl font-normal text-bricky-brick text-4xl bt:text-7xl bd:text-7xl block bd:hidden">
           <TextRevealOnScroll
             className="hidden bd:block"
             elementLevelClassName="leading-relaxed"

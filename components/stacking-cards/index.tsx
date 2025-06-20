@@ -84,10 +84,10 @@ export function StackingCards({ items }: StackingCardsProps) {
             }
           >
             <div className="gsap-card-content flex flex-col gap-3 py-4 bt:py-8 bd:py-4">
-              <h2 className="font-montserrat text-4xl bt:text-4xl bd:text-5xl font-medium text-bricky-brick">
+              <h2 className="font-suisse-intl text-4xl bt:text-4xl bd:text-5xl font-medium text-bricky-brick">
                 {item.title}
               </h2>
-              <small className="font-montserrat text-sm bt:text-base bd:text-xl font-normal mb-4">
+              <small className="font-suisse-intl text-sm bt:text-base bd:text-xl font-normal mb-4">
                 {item.description}
               </small>
               <div className="flex flex-col bt:flex-row gap-4 flex-1 flex-shrink-0">

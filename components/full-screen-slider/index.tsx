@@ -64,7 +64,7 @@ export function FullScreenSlider({ title, description, items }: FullScreenSlider
           className={cn(
             s.title,
             "gsap-title",
-            "text-bricky-brick bt:text-white font-montserrat font-normal leading-tight bt:leading-none text-center"
+            "text-bricky-brick bt:text-white font-suisse-intl font-normal leading-tight bt:leading-none text-center"
           )}
         >
           {title}

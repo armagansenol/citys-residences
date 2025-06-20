@@ -33,7 +33,7 @@ export function ScrollDownLottie() {
       <div className="w-14 h-14">
         <Lottie animationData={scrollDownAnimation} loop={true} />
       </div>
-      <span className="text-sm text-bricky-brick font-montserrat font-medium">AŞAĞI SCROLL EDİN</span>
+      <span className="text-sm text-bricky-brick font-suisse-intl font-medium">AŞAĞI SCROLL EDİN</span>
     </div>
   )
 }

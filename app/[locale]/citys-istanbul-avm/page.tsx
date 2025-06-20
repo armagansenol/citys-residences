@@ -58,7 +58,7 @@ export default async function Page() {
           />
           <div className="absolute top-0 left-0 w-full h-full bg-black/30">
             <div className="flex flex-col h-full bd:container py-8 bt:py-8 px-2 bt:px-10 bd:px-16">
-              <h1 className="max-w-lg block font-montserrat leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-2 bd:mb-8">
+              <h1 className="max-w-lg block font-suisse-intl leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-2 bd:mb-8">
                 <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
                   ŞEHİR HAYATI BİR ASANSÖR UZAKLIKTA
                 </TextRevealOnScroll>
@@ -86,7 +86,7 @@ export default async function Page() {
         </div>
       </section>
       <section className="relative z-20 bg-white mt-10 bd:mt-20">
-        <h2 className="font-montserrat text-3xl font-regular text-center mb-8">ALIŞVERİŞ</h2>
+        <h2 className="font-suisse-intl text-3xl font-regular text-center mb-8">ALIŞVERİŞ</h2>
         <AutoScrollCarousel options={{ dragFree: true, loop: true }}>
           {[...shoppingBrands, ...shoppingBrands].map((item, index) => (
             <BrandCarouselItem key={index} logo={item.logo} name={item.name} />
@@ -94,7 +94,7 @@ export default async function Page() {
         </AutoScrollCarousel>
       </section>
       <section className="relative z-20 bg-white mt-10 bd:mt-20">
-        <h2 className="font-montserrat text-3xl font-regular text-center mb-8">YEME - İÇME</h2>
+        <h2 className="font-suisse-intl text-3xl font-regular text-center mb-8">YEME - İÇME</h2>
         <AutoScrollCarousel options={{ dragFree: true, loop: true }}>
           {[...foodBrands, ...foodBrands].map((item, index) => (
             <BrandCarouselItem key={index} logo={item.logo} name={item.name} />
@@ -102,7 +102,7 @@ export default async function Page() {
         </AutoScrollCarousel>
       </section>
       <section className="relative z-20 bg-white mt-10 bd:mt-20 mb-20">
-        <h2 className="font-montserrat text-3xl font-regular text-center mb-8">HİZMETLER</h2>
+        <h2 className="font-suisse-intl text-3xl font-regular text-center mb-8">HİZMETLER</h2>
         <AutoScrollCarousel options={{ dragFree: true, loop: true }}>
           {[...services, ...services].map((item, index) => (
             <BrandCarouselItem key={index} logo={item.logo} name={item.name} />
@@ -123,7 +123,7 @@ export default async function Page() {
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 to-transparent">
                   <div className="flex flex-col h-full py-8 bt:py-8 px-4 bt:px-10 bd:px-8">
-                    <h1 className="max-w-lg block font-montserrat leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-6">
+                    <h1 className="max-w-lg block font-suisse-intl leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-6">
                       {slide.title}
                     </h1>
                     <p className="max-w-lg block font-suisse-intl leading-snug text-white text-base bt:text-lg font-normal">
@@ -155,7 +155,7 @@ export default async function Page() {
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 to-transparent">
                   <div className="flex flex-col h-full py-8 bt:py-8 px-4 bt:px-10 bd:px-8">
-                    <h1 className="max-w-lg block font-montserrat leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-6">
+                    <h1 className="max-w-lg block font-suisse-intl leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-6">
                       {slide.title}
                     </h1>
                     <p className="max-w-lg block font-suisse-intl leading-snug text-white text-base bt:text-lg font-normal">

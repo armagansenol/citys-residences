@@ -73,7 +73,7 @@ export function AnimatedButton({
         s.button,
         themes[theme].bgColorClassName,
         themes[theme].borderColorClassName,
-        fontFamily === "montserrat" ? "font-montserrat" : "font-suisse-intl",
+        fontFamily === "montserrat" ? "font-suisse-intl" : "font-suisse-intl",
         "relative flex items-center cursor-pointer rounded-lg overflow-hidden",
         {
           [s.sm]: size === "sm",
