@@ -47,7 +47,7 @@ export function Preloader() {
         display: isVisible ? "flex" : "none",
       }}
     >
-      <div className="w-64 h-64">
+      <div className="w-32 h-32 lg:w-64 lg:h-64">
         <Img
           src="/gif/citys-logo-animation.gif"
           alt="City's Residences Logo Animation"
