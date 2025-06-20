@@ -31,14 +31,15 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({ value, onChange, phoneIn
 
   const countryOptions = (
     <>
-      {defaultCountries.map((c) => {
+      {defaultCountries.map((c, index) => {
+        const country = parseCountry(c)
         return (
           <SelectItem
             className="focus:bg-neutral-50 focus:text-neutral-950 cursor-pointer px-4 py-2 font-halenoir text-base bt:text-sm"
-            key={parseCountry(c).dialCode.toString()}
-            value={parseCountry(c).dialCode.toString()}
+            key={`${index}-${country.iso2}-${country.dialCode}`}
+            value={country.iso2}
           >
-            {`${parseCountry(c).name.toString()} (+${parseCountry(c).dialCode.toString()})`}
+            {`${country.name.toString()} (+${country.dialCode.toString()})`}
             {/* {parseCountry(c).dialCode.toString()} */}
           </SelectItem>
         )
@@ -50,12 +51,12 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({ value, onChange, phoneIn
     <div className="flex items-center gap-2">
       <Select
         onValueChange={(value) => {
-          const selectedCountry = defaultCountries.find((c) => c[2] === value)
+          const selectedCountry = defaultCountries.find((c) => parseCountry(c).iso2 === value)
           if (selectedCountry) {
             phoneInput.setCountry(selectedCountry[1].toLowerCase())
           }
         }}
-        value={phoneInput.country.dialCode.toString()}
+        value={phoneInput.country.iso2}
       >
         <SelectTrigger className="w-24 h-10 rounded-md text-bricky-brick font-medium cursor-pointer text-base bt:text-sm border border-bricky-brick-light">
           <SelectValue placeholder="Code">+{phoneInput.country.dialCode}</SelectValue>

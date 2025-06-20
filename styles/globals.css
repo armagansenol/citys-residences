@@ -30,6 +30,7 @@
   --z-modal-background: z-stack();
   --z-modal: z-stack();
   --z-alotech: z-stack();
+  --z-radix-popper: z-stack();
   --z-preloader: z-stack();
   --z-gsap-markers: z-stack();
 }
@@ -103,7 +104,11 @@ body {
 }
 
 #Click2ConnectPackageFrame {
-  z-index: var("--z-alotech") !important;
+  z-index: var(--z-alotech) !important;
+}
+
+[data-radix-popper-content-wrapper] {
+  z-index: var(--z-radix-popper) !important;
 }
 
 @layer base {
