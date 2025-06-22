@@ -7,6 +7,7 @@ import { ArrowLeftIcon, ArrowRightIcon, MoveDownIcon } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 import { Img } from "@/components/utility/img"
+import { ScrollableBox } from "../utility/scrollable-box"
 
 export interface ListCarouselProps {
   title: string
@@ -114,8 +115,9 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
           className={cn("absolute top-0 left-0 w-full h-full flex flex-col lg:flex-row gap-10 xl:gap-10 2xl:gap-10")}
         >
           <div className={cn("relative basis-full lg:basis-4/12", reverse && "order-last")}>
-            <h2 className="font-suisse-intl text-3xl lg:text-4xl xl:text-5xl font-medium text-bricky-brick">{title}</h2>
-            <div className="w-screen lg:w-auto overflow-x-auto">
+            <h2 className="font-suisse-intl text-3xl lg:text-4xl xl:text-5xl font-normal text-bricky-brick">{title}</h2>
+            {/* desktop */}
+            <div className="w-screen lg:w-auto overflow-x-auto hidden lg:block">
               {items.length > 0 && items[0].title && (
                 <div className="flex flex-row lg:flex-col items-start justify-start gap-6 lg:gap-2 pt-6">
                   {items.map((item, itemIndex) => (
@@ -137,7 +139,30 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
                 </div>
               )}
             </div>
-            <div className="relative mt-5 lg:mt-20 space-y-6 lg:space-y-0">
+            {/* mobile */}
+            <div className="w-full lg:hidden">
+              <ScrollableBox scrollTo={activeIndex ? `#item${activeIndex}Button` : null} orientation="horizontal">
+                {items.length > 0 && items[0].title && (
+                  <div className="flex flex-row pt-4">
+                    {items.map((item, itemIndex) => (
+                      <motion.div
+                        id={`item${itemIndex}Button`}
+                        key={itemIndex}
+                        className={cn(
+                          "whitespace-nowrap font-suisse-intl text-sm text-black cursor-pointer pr-4",
+                          itemIndex === items.length - 1 && "pr-0",
+                          itemIndex === activeIndex && "underline"
+                        )}
+                        onClick={() => goToIndex(itemIndex)}
+                      >
+                        {item.title}
+                      </motion.div>
+                    ))}
+                  </div>
+                )}
+              </ScrollableBox>
+            </div>
+            <div className="relative mt-5 lg:mt-20  space-y-4 lg:space-y-0">
               {/* mobile */}
               <div className={cn("relative overflow-hidden h-[70vw] lg:hidden")}>
                 {images[activeIndex] && (
@@ -176,13 +201,13 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
                 {items[itemIndexForDisplay] && (
                   <motion.div
                     key={`text-${itemIndexForDisplay}`}
-                    initial={{ opacity: 0, y: -10 }}
+                    initial={{ opacity: 0, y: -5 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
+                    exit={{ opacity: 0, y: 5 }}
                     transition={{ duration: 0.3 }}
                     className="relative lg:absolute left-0 top-0 w-full"
                   >
-                    <h3 className="font-suisse-intl text-2xl lg:text-4xl xl:text-3xl 2xl:text-4xl font-medium text-bricky-brick mb-6">
+                    <h3 className="font-suisse-intl text-2xl lg:text-4xl xl:text-3xl 2xl:text-4xl font-normal text-bricky-brick mb-2 lg:mb-6">
                       {items[itemIndexForDisplay].title}
                     </h3>
                     <div className="xl:pr-8 2xl:pr-16">
@@ -214,13 +239,13 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
               </motion.div>
             )}
             <div
-              className="absolute top-1/2 -translate-y-1/2 left-4 cursor-pointer blur-bg-white p-2 lg:p-4 rounded-full border-2 border-black"
+              className="absolute top-1/2 -translate-y-1/2 left-4 cursor-pointer blur-bg-white p-2 lg:p-4 rounded-full border-px lg:border-2 border-black"
               onClick={() => goToIndex(activeIndex - 1)}
             >
               <ArrowLeftIcon className="w-4 h-4 lg:w-6 lg:h-6" />
             </div>
             <div
-              className="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer blur-bg-white p-2 lg:p-4 rounded-full border-2 border-black"
+              className="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer blur-bg-white p-2 lg:p-4 rounded-full border-px lg:border-2 border-black"
               onClick={() => goToIndex(activeIndex + 1)}
             >
               <ArrowRightIcon className="w-4 h-4 lg:w-6 lg:h-6" />

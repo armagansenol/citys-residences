@@ -58,7 +58,8 @@ const ScrollableBox = ({ children, className, infinite, reset, scrollTo = null, 
 
   useEffect(() => {
     if (!scrollTo) return
-    lenis?.scrollTo(scrollTo)
+    const scopedSelector = wrapperRef.current?.querySelector(scrollTo) as HTMLElement
+    lenis?.scrollTo(scopedSelector)
   }, [lenis, scrollTo])
 
   return (
