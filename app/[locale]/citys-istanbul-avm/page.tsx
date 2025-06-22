@@ -57,7 +57,7 @@ export default async function Page() {
             className="w-full h-full object-cover"
           />
           <div className="absolute top-0 left-0 w-full h-full bg-black/30">
-            <div className="flex flex-col h-full bd:container py-8 bt:py-8 px-2 bt:px-10 bd:px-16">
+            <div className="flex flex-col h-full bd:container py-8 bt:py-8 px-6 bt:px-10 bd:px-16">
               <h1 className="max-w-lg block font-suisse-intl leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-2 bd:mb-8">
                 <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
                   ŞEHİR HAYATI BİR ASANSÖR UZAKLIKTA
@@ -110,7 +110,7 @@ export default async function Page() {
         </AutoScrollCarousel>
       </section>
       <section className="relative z-20 bg-white">
-        <div className="flex flex-col bd:grid bd:grid-cols-2 gap-4 bd:gap-8 bd:container py-0 bt:py-8 px-2 bt:px-10 bd:px-16">
+        <div className="flex flex-col bd:grid bd:grid-cols-2 gap-4 bd:gap-8 bd:container py-0 bt:py-8 px-6 bt:px-10 bd:px-16">
           {slides.map((slide, index) => (
             <div key={index} className={cn("h-[120vw] bd:h-[40vw] w-full relative")}>
               <div className="relative w-full h-full rounded-2xl overflow-hidden">

@@ -35,7 +35,7 @@ export default function Page() {
         </div>
       </section>
       <section className="relative z-20 bg-white">
-        <div className="bd:container flex flex-col gap-12 bt:gap-32 bd:gap-48 py-12 bt:py-24 bd:py-40 px-2 bt:px-10 bd:px-16">
+        <div className="bd:container flex flex-col gap-12 bt:gap-32 bd:gap-48 py-12 bt:py-24 bd:py-40 px-6 bt:px-10 bd:px-16">
           {[
             {
               title: t("items.i1.title"),

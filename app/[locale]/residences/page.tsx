@@ -70,7 +70,7 @@ export default function Page() {
           <Logo fill="var(--bricky-brick)" />
         </div>
       </section>
-      <section className="bg-white z-20 px-2 bt:px-10 bd:px-16">
+      <section className="bg-white z-20 px-6 bt:px-10 bd:px-16">
         <div className="relative bd:container">
           <div className="w-full h-[300px] bt:h-[90vh] relative z-10 flex items-center justify-center bg-black">
             <VideoWithPlayButton
@@ -81,13 +81,13 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section className="hidden xl:block bg-white z-30 px-2 bt:px-10 bd:px-16 py-12 bd:py-0">
+      <section className="hidden xl:block bg-white z-30 px-6 bt:px-10 bd:px-16 py-12 bd:py-0">
         <Sequenced />
       </section>
-      <section className="bg-white z-30 px-2 bt:px-10 bd:px-16 pb-16 bt:pb-72">
+      <section className="bg-white z-30 px-6 bt:px-10 bd:px-16 pb-16 bt:pb-72">
         <StackingCards items={items} />
       </section>
-      <section className="px-2 bt:px-10 bd:px-16">
+      <section className="px-6 bt:px-10 bd:px-16">
         <div className="relative bd:container">
           <div className="w-full h-[350px] bt:h-[90vh] relative z-10 flex items-center justify-center bg-black">
             <VideoWithPlayButton

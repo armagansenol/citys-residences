@@ -71,7 +71,7 @@ export default function Page() {
         </div>
       </section>
       <section className="relative z-20 bg-white">
-        <div className="bd:container flex flex-col gap-12 bt:gap-32 bd:gap-48 py-12 bt:py-36 bd:py-40 px-2 bt:px-10 bd:px-16">
+        <div className="bd:container flex flex-col gap-12 bt:gap-32 bd:gap-48 py-12 bt:py-36 bd:py-40 px-6 bt:px-10 bd:px-16">
           {sections.map((section, index) => (
             <MaskedParallaxImageSection
               key={index}
@@ -83,7 +83,7 @@ export default function Page() {
           ))}
         </div>
       </section>
-      <section className="relative bd:container px-2 bt:px-10 bd:px-16">
+      <section className="relative bd:container px-6 bt:px-10 bd:px-16">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
           <VideoWithPlayButton
             primaryVideoUrl={pinarVeCemilAktasVideo}
