@@ -19,11 +19,10 @@ export interface ListCarouselProps {
   images: {
     url: string
   }[]
-  reverse?: boolean
   withMoveDown?: boolean
 }
 
-export function ListCarousel({ title, items, images, reverse = false, withMoveDown = false }: ListCarouselProps) {
+export function ListCarousel({ title, items, images, withMoveDown = false }: ListCarouselProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const [isAutoplaying, setIsAutoplaying] = useState(false) // Initialized to false
@@ -109,38 +108,12 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
   }
 
   return (
-    <div className="relative w-full h-[140vw] lg:h-[80vh]" ref={ref}>
-      <div className="gsap-stacking-cards-container h-full relative">
-        <div
-          className={cn("absolute top-0 left-0 w-full h-full flex flex-col lg:flex-row gap-10 xl:gap-10 2xl:gap-10")}
-        >
-          <div className={cn("relative basis-full lg:basis-4/12", reverse && "order-last")}>
+    <div className="relative w-full" ref={ref}>
+      <div className="h-full relative">
+        <div className={"w-full h-full flex flex-col lg:flex-row gap-10 xl:gap-10 2xl:gap-10"}>
+          <div className={"flex flex-col gap-4 w-full"}>
             <h2 className="font-suisse-intl text-3xl lg:text-4xl xl:text-5xl font-normal text-bricky-brick">{title}</h2>
-            {/* desktop */}
-            <div className="w-screen lg:w-auto overflow-x-auto hidden lg:block">
-              {items.length > 0 && items[0].title && (
-                <div className="flex flex-row lg:flex-col items-start justify-start gap-6 lg:gap-2 pt-6">
-                  {items.map((item, itemIndex) => (
-                    <motion.div
-                      key={itemIndex}
-                      className={cn(
-                        "whitespace-nowrap relative font-suisse-intl text-sm lg:text-lg xl:text-sm 2xl:text-base text-black cursor-pointer"
-                      )}
-                      onClick={() => goToIndex(itemIndex)}
-                      animate={{
-                        opacity: itemIndex === itemIndexForDisplay ? 1 : 0.5,
-                        fontWeight: itemIndex === itemIndexForDisplay ? 700 : 400,
-                      }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      {item.title}
-                    </motion.div>
-                  ))}
-                </div>
-              )}
-            </div>
-            {/* mobile */}
-            <div className="w-full lg:hidden">
+            <div className="w-full">
               <ScrollableBox scrollTo={activeIndex ? `#item${activeIndex}Button` : null} orientation="horizontal">
                 {items.length > 0 && items[0].title && (
                   <div className="flex flex-row pt-4">
@@ -149,9 +122,11 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
                         id={`item${itemIndex}Button`}
                         key={itemIndex}
                         className={cn(
-                          "whitespace-nowrap font-suisse-intl text-sm text-black cursor-pointer pr-4",
+                          "whitespace-nowrap font-suisse-intl text-sm 2xl:text-base text-black cursor-pointer pr-4 transition-opacity duration-300",
                           itemIndex === items.length - 1 && "pr-0",
-                          itemIndex === activeIndex && "underline"
+                          itemIndex === activeIndex && "underline",
+                          itemIndex === activeIndex ? "opacity-100" : "opacity-50",
+                          "hover:opacity-100"
                         )}
                         onClick={() => goToIndex(itemIndex)}
                       >
@@ -162,9 +137,33 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
                 )}
               </ScrollableBox>
             </div>
-            <div className="relative mt-5 lg:mt-20  space-y-4 lg:space-y-0">
-              {/* mobile */}
-              <div className={cn("relative overflow-hidden h-[70vw] lg:hidden")}>
+            <div className="relative mt-5 lg:mt-8 flex flex-row items-center gap-4 w-full">
+              <div className="relative w-4/12">
+                <AnimatePresence mode="wait">
+                  {items[itemIndexForDisplay] && (
+                    <motion.div
+                      key={`text-${itemIndexForDisplay}`}
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <h3 className="font-suisse-intl text-2xl lg:text-4xl xl:text-3xl 2xl:text-4xl font-normal text-bricky-brick mb-2 lg:mb-6">
+                        {items[itemIndexForDisplay].title}
+                      </h3>
+                      <div className="xl:pr-8 2xl:pr-16">
+                        <p className="font-suisse-intl text-base lg:text-lg xl:text-base 2xl:text-lg font-bold text-black">
+                          {items[itemIndexForDisplay].subtitle}
+                        </p>
+                        <p className="font-suisse-intl text-base lg:text-lg xl:text-base 2xl:text-lg font-normal text-black">
+                          {items[itemIndexForDisplay].description}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              <div className={cn("relative overflow-hidden h-[40vw] w-8/12")}>
                 {images[activeIndex] && (
                   <motion.div
                     key={activeIndex}
@@ -197,69 +196,12 @@ export function ListCarousel({ title, items, images, reverse = false, withMoveDo
                   <ArrowRightIcon className="w-4 h-4 lg:w-6 lg:h-6" />
                 </div>
               </div>
-              <AnimatePresence mode="wait">
-                {items[itemIndexForDisplay] && (
-                  <motion.div
-                    key={`text-${itemIndexForDisplay}`}
-                    initial={{ opacity: 0, y: -5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 5 }}
-                    transition={{ duration: 0.3 }}
-                    className="relative lg:absolute left-0 top-0 w-full"
-                  >
-                    <h3 className="font-suisse-intl text-2xl lg:text-4xl xl:text-3xl 2xl:text-4xl font-normal text-bricky-brick mb-2 lg:mb-6">
-                      {items[itemIndexForDisplay].title}
-                    </h3>
-                    <div className="xl:pr-8 2xl:pr-16">
-                      <p className="font-suisse-intl text-base lg:text-lg xl:text-base 2xl:text-lg font-bold text-black">
-                        {items[itemIndexForDisplay].subtitle}
-                      </p>
-                      <p className="font-suisse-intl text-base lg:text-lg xl:text-base 2xl:text-lg font-normal text-black">
-                        {items[itemIndexForDisplay].description}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
-          {/* desktop */}
-          <div className={cn("relative overflow-hidden basis-full lg:basis-8/12 h-[80vw] lg:h-auto hidden lg:block")}>
-            {images[activeIndex] && (
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="absolute left-0 top-0 w-full h-full overflow-hidden"
-              >
-                <div className="absolute top-0 left-0 w-full h-full">
-                  <Img src={images[activeIndex].url} alt="Members Club" fill sizes="100vw" className="object-cover" />
-                </div>
-              </motion.div>
-            )}
-            <div
-              className="absolute top-1/2 -translate-y-1/2 left-4 cursor-pointer blur-bg-white p-2 lg:p-4 rounded-full border-px lg:border-2 border-black"
-              onClick={() => goToIndex(activeIndex - 1)}
-            >
-              <ArrowLeftIcon className="w-4 h-4 lg:w-6 lg:h-6" />
-            </div>
-            <div
-              className="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer blur-bg-white p-2 lg:p-4 rounded-full border-px lg:border-2 border-black"
-              onClick={() => goToIndex(activeIndex + 1)}
-            >
-              <ArrowRightIcon className="w-4 h-4 lg:w-6 lg:h-6" />
             </div>
           </div>
         </div>
       </div>
       {withMoveDown && (
-        <div
-          className={cn(
-            "hidden lg:block absolute -bottom-4 translate-y-full right-0 p-5 rounded-full border-2 border-black",
-            reverse && "right-auto left-0"
-          )}
-        >
+        <div className={cn("hidden lg:block absolute bottom-0 left-0 p-5 rounded-full border border-black opacity-70")}>
           <MoveDownIcon className="w-8 h-8" />
         </div>
       )}
