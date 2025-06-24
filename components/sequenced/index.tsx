@@ -62,7 +62,7 @@ const Sequenced = () => {
       <div className="relative w-full xl:w-5/12 h-full flex flex-col items-start justify-center">
         <h2 className="font-suisse-intl font-normal text-bricky-brick text-4xl lg:text-7xl xl:text-6xl mb-5 lg:mb-10 text-center xl:text-left">
           <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
-            YAŞAMA ALAN AÇAN DETAYLAR
+            Yaşama Alan Açan Detaylar
           </TextRevealOnScroll>
         </h2>
         <p className="font-suisse-intl text-md lg:text-4xl xl:text-2xl font-bold mb-4 text-center xl:text-left">
