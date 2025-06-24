@@ -40,13 +40,14 @@ export default function Home() {
           <Video primaryVideoUrl={mainVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
         </ScaleOut>
       </section>
-      <section className="bg-white font-suisse-intl pt-0 bt:pt-12 z-20 relative">
-        <div className="bd:container mx-auto py-16 bt:py-28 bd:pt-40 bd:pb-8 relative flex flex-col items-center px-6 bt:px-10 bd:px-16">
-          <div className="flex flex-col items-center text-center">
-            <h1 className="font-suisse-intl text-bricky-brick text-4xl bt:text-8xl font-semibold tracking-widest">
-              <TextRevealOnScroll className="leading-tight" staggerDuration={0.05}>
-                {t("section1.title1")}
-              </TextRevealOnScroll>
+      <section className="bg-white pt-0 bt:pt-12 z-20 relative">
+        <div className="bd:container mx-auto py-16 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-6 bt:px-10 bd:px-16">
+          <div className="w-64 h-64 mx-auto hidden bt:block mb-10">
+            <Logo fill={"var(--bricky-brick)"} />
+          </div>
+          <div className="flex flex-col items-center">
+            <h1 className="font-halenoir text-bricky-brick text-4xl bt:text-8xl font-semibold tracking-widest text-center">
+              <TextRevealOnScroll staggerDuration={0.05}>{t("section1.title1")}</TextRevealOnScroll>
             </h1>
             <div className={s.sanati}>
               <FadeInOnScroll>
@@ -56,14 +57,11 @@ export default function Home() {
               </FadeInOnScroll>
               <span className="sr-only">{t("section1.title2")}</span>
             </div>
-            <p className="text-bricky-brick text-md bt:text-3xl font-normal tracking-wide bt:tracking-widest text-center">
+            <p className="font-halenoir text-bricky-brick text-md bt:text-3xl font-normal tracking-wide bt:tracking-widest text-center">
               <TextRevealOnScroll staggerDuration={0.01}>{t("section1.title3")}</TextRevealOnScroll>
             </p>
           </div>
         </div>
-      </section>
-      <section className="w-64 h-64 mx-auto hidden bt:block">
-        <Logo fill={"var(--bricky-brick)"} />
       </section>
       <section className="relative bd:container py-8 bt:py-20 px-6 bt:px-10 bd:px-16">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
