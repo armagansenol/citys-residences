@@ -149,59 +149,59 @@
     "citys-life": {
         "items": {
             "i1": {
-                "title": "RESEPSİYON & CONCIERGE HİZMETLERİ",
+                "title": "Resepsiyon & Concierge Hizmetleri",
                 "text": "<strong>Günün her anında destek</strong><br></br>Rezervasyonlardan günlük ihtiyaçlara kadar her detayı sizin yerinize düşünen bir yaşam destek sistemi."
             },
             "i2": {
-                "title": "VALE & OTOPARK HİZMETLERİ",
-                "text": "<strong>Aracınız için her zaman bir yer var</strong><br></br>City’s Residences’da konfor sadece evin içinde değil; aracınızı bıraktığınız ilk anda başlar."
+                "title": "Vale & Otopark Hizmetleri",
+                "text": "<strong>Aracınız için her zaman bir yer var</strong><br></br>City's Residences'da konfor sadece evin içinde değil; aracınızı bıraktığınız ilk anda başlar."
             },
             "i3": {
-                "title": "KARGO TESLİM SERVİSİ",
+                "title": "Kargo Teslim Servisi",
                 "text": "<strong>Gelen her paket doğru adrese ulaşır</strong><br></br>Kargolarınız profesyonel ekip tarafından teslim alınır ve size güvenle ulaştırılır."
             },
             "i4": {
-                "title": "JUSTWORK | OFFICE CAMPUS",
+                "title": "Justwork | Office Campus",
                 "text": "<strong>Çalışmak, evinizden uzaklaşmadan mümkün</strong><br></br>Günlük, haftalık veya dönemsel çalışma ihtiyaçlarınıza uyum sağlayan modern ofis alanları bir adım uzağınızda."
             },
             "i5": {
-                "title": "JUST STAY | MODERN KONAKLAMA DENEYİMİ",
-                "text": "<strong>Misafirleriniz için ev konforunda, otel şıklığında kısa konaklama seçenekleri</strong><br></br>Seyahat eden dostlarınız ve yakınlarınız için, City’s ruhunu yansıtan bir misafirlik deneyimi."
+                "title": "Just Stay | Modern Konaklama Deneyimi",
+                "text": "<strong>Misafirleriniz için ev konforunda, otel şıklığında kısa konaklama seçenekleri</strong><br></br>Seyahat eden dostlarınız ve yakınlarınız için, City's ruhunu yansıtan bir misafirlik deneyimi."
             },
             "i6": {
-                "title": "JUST EVENTS",
+                "title": "Just Events",
                 "text": "<strong>Hayatı kutlamak için her zaman bir alan var</strong><br></br>Özel etkinlikler, davetler ve sosyal buluşmalar için tasarlanmış esnek etkinlik alanları."
             },
             "i7": {
-                "title": "PET HOTEL & PET HOSPITAL",
-                "text": "<strong>Evcil dostlarınız da bu yaşamın bir parçası</strong><br></br>Pet Hotel ve Pet Hospital hizmetleriyle, onların konforu ve sağlığı da City’s Life ayrıcalıkları arasında."
+                "title": "Pet Hotel & Pet Hospital",
+                "text": "<strong>Evcil dostlarınız da bu yaşamın bir parçası</strong><br></br>Pet Hotel ve Pet Hospital hizmetleriyle, onların konforu ve sağlığı da City's Life ayrıcalıkları arasında."
             }
         }
     },
     "citys-park": {
         "items": {
             "i1": {
-                "title": "CITY'S LOUNGE",
-                "text": "City’s Lounge, günlük buluşmalardan özel davetlere kadar her anınıza uyum sağlayan ayrıcalıklı bir sosyal alandır; ister doğanın içinde bir masa etrafında buluşun, ister zarif bir etkinliğe ev sahipliği yapın."
+                "title": "City's Lounge",
+                "text": "City's Lounge, günlük buluşmalardan özel davetlere kadar her anınıza uyum sağlayan ayrıcalıklı bir sosyal alandır; ister doğanın içinde bir masa etrafında buluşun, ister zarif bir etkinliğe ev sahipliği yapın."
             },
             "i2": {
-                "title": "HAVUZ X BAR",
-                "text": "City’s Residences atmosferinde, günün ritmine uyum sağlayan bir kaçış: serinlik, güneş ve sohbet istediğiniz her an sizinle."
+                "title": "Havuz X Bar",
+                "text": "City's Residences atmosferinde, günün ritmine uyum sağlayan bir kaçış: serinlik, güneş ve sohbet istediğiniz her an sizinle."
             },
             "i3": {
-                "title": "ÇOCUK PARKLARI",
+                "title": "Çocuk Parkları",
                 "text": "Oyun, doğa ve hayal gücü bir arada; çocukların özgürce büyüdüğü alanlar."
             },
             "i4": {
-                "title": "YÜRÜYÜŞ PARKURLARI",
+                "title": "Yürüyüş Parkurları",
                 "text": "Gökyüzü kadar geniş bir hareket alanı; nefesinizi ve ritminizi doğaya bırakın."
             },
             "i5": {
-                "title": "AÇIK SPOR ALANLARI",
+                "title": "Açık Spor Alanları",
                 "text": "Açıkhavada kendinle buluşmanın en doğal hali."
             },
             "i6": {
-                "title": "AÇIKHAVA MEYDANLARI",
+                "title": "Açıkhava Meydanları",
                 "text": "Birlikte olmanın bir plana ihtiyaç duymadığı, hayatın akışında paylaşılan zamanlara ayrılmış mekanlar."
             }
         }
