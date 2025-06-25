@@ -32,7 +32,7 @@ export function FadeInOnScroll({ children, duration = 0.5, delay = 0.2 }: FadeIn
   })
 
   return (
-    <div className="w-full h-full" ref={ref}>
+    <div className="flex w-full h-full" ref={ref}>
       {children}
     </div>
   )

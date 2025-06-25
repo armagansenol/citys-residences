@@ -1,18 +1,3 @@
-.sanati {
-  height: mobile-vw(100px);
-  width: mobile-vw(360px);
-
-  @include-media ('tablet') {
-    height: tablet-vw(180px);
-    width: tablet-vw(700px);
-  }
-
-  @include-media ('desktop') {
-    height: desktop-vw(240px);
-    width: desktop-vw(1100px);
-  }
-}
-
 .circleVideoC {
   --cutoff: mobile-vw(20px);
   height: calc(100vw - var(--cutoff));

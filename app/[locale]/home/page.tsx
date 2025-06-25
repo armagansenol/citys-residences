@@ -42,25 +42,26 @@ export default function Home() {
         </ScaleOut>
       </section>
       <section className="bg-white pt-0 bt:pt-12 z-20 relative">
-        <div className="bd:container mx-auto py-12 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-6 bt:px-10 bd:px-16">
-          <div className="w-64 h-64 mx-auto hidden bt:block mb-10">
+        <div className="bd:container mx-auto py-16 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-0 bt:px-10 bd:px-16">
+          <div className="w-64 h-64 mx-auto hidden bt:block mb-10 lg:mb-20">
             <Logo fill={colors["bricky-brick"]} />
           </div>
-          <div className="flex flex-col items-center">
-            <h1 className="font-montserrat text-bricky-brick text-4xl bt:text-8xl font-semibold tracking-widest text-center">
-              <TextRevealOnScroll staggerDuration={0.05}>{t("section1.title1")}</TextRevealOnScroll>
-            </h1>
-            <div className={s.sanati}>
+          <div className="flex flex-col items-center gap-4 lg:gap-8">
+            <article className="relative w-screen h-10 lg:h-20 xl:h-24">
               <FadeInOnScroll>
-                <div className="relative w-full h-full">
-                  <Img src="/img/sanati.png" alt="Sanatı" fill className="object-contain" sizes="100vw" />
-                </div>
+                <Img src="/img/yasama.svg" alt="Sanatı" fill className="object-contain" sizes="100vw" />
+              </FadeInOnScroll>
+              <span className="sr-only">{t("section1.title1")}</span>
+            </article>
+            <article className="relative w-screen h-20 lg:h-44 xl:h-64">
+              <FadeInOnScroll>
+                <Img src="/img/sanati.png" alt="Sanatı" fill className="object-contain" sizes="100vw" />
               </FadeInOnScroll>
               <span className="sr-only">{t("section1.title2")}</span>
-            </div>
-            <p className="font-montserrat text-bricky-brick text-md bt:text-3xl font-normal tracking-wide bt:tracking-widest text-center">
+            </article>
+            <article className="font-montserrat text-bricky-brick text-md bt:text-3xl font-normal tracking-wide bt:tracking-widest text-center">
               <TextRevealOnScroll staggerDuration={0.01}>{t("section1.title3")}</TextRevealOnScroll>
-            </p>
+            </article>
           </div>
         </div>
       </section>
