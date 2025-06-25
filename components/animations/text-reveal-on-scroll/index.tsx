@@ -1,11 +1,10 @@
 "use client"
 
+import VerticalCutReveal, { TextProps, VerticalCutRevealRef } from "@/components/animations/vertical-cut-reveal"
 import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
 import { useRef } from "react"
-import { cn } from "@/lib/utils"
-import VerticalCutReveal, { VerticalCutRevealRef } from "@/components/animations/vertical-cut-reveal"
 
-interface TextRevealOnScrollProps {
+interface TextRevealOnScrollProps extends TextProps {
   children: React.ReactNode
   staggerDuration?: number
   splitBy?: "words" | "characters" | "lines" | string
@@ -20,6 +19,7 @@ export function TextRevealOnScroll({
   className,
   containerLevelClassName,
   elementLevelClassName,
+  ...props
 }: TextRevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null)
   const textRef = useRef<VerticalCutRevealRef>(null)
@@ -38,15 +38,15 @@ export function TextRevealOnScroll({
     <span className={className} ref={ref}>
       <VerticalCutReveal
         autoStart={false}
-        splitBy="characters"
         staggerDuration={staggerDuration}
         transition={{
           type: "spring",
           stiffness: 190,
           damping: 42,
         }}
-        containerClassName={cn(containerLevelClassName)}
-        elementLevelClassName={cn(elementLevelClassName, "leading-tight")}
+        containerClassName={containerLevelClassName}
+        elementLevelClassName={elementLevelClassName}
+        {...props}
         ref={textRef}
       >
         {children}

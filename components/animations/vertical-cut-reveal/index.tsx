@@ -4,7 +4,7 @@ import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRe
 import { AnimationOptions, motion } from "motion/react"
 import cn from "clsx"
 
-interface TextProps {
+export interface TextProps {
   children: React.ReactNode
   reverse?: boolean
   transition?: AnimationOptions
