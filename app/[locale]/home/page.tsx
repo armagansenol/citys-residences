@@ -60,7 +60,9 @@ export default function Home() {
               <span className="sr-only">{t("section1.title2")}</span>
             </article>
             <article className="font-montserrat text-bricky-brick text-md bt:text-3xl font-normal tracking-wide bt:tracking-widest text-center">
-              <TextRevealOnScroll staggerDuration={0.01}>{t("section1.title3")}</TextRevealOnScroll>
+              <TextRevealOnScroll splitBy="chars" staggerDuration={0.01}>
+                {t("section1.title3")}
+              </TextRevealOnScroll>
             </article>
           </div>
         </div>
