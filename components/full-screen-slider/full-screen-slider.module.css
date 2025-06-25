@@ -58,9 +58,15 @@
     padding: mobile-vw(10px);
     @include-media ("tablet") {
       padding: tablet-vw(10px);
+      background: hsla(10, 66%, 43%, 0.6);
+      backdrop-filter: blur(70px);
+      mask-image: hsla(10, 66%, 43%, 0.6);
     }
     @include-media ("desktop") {
       padding: desktop-vw(16px) desktop-vw(20px);
+      background: hsla(10, 66%, 43%, 0.6);
+      backdrop-filter: blur(70px);
+      mask-image: hsla(10, 66%, 43%, 0.6);
     }
   }
 }
