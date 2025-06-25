@@ -2,7 +2,8 @@
 
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from "react"
 import { AnimationOptions, motion } from "motion/react"
-import cn from "clsx"
+import { cn } from "@/lib/utils"
+import React from "react"
 
 export interface TextProps {
   children: React.ReactNode
@@ -27,9 +28,72 @@ export interface VerticalCutRevealRef {
   reset: () => void
 }
 
-interface WordObject {
-  characters: (string | React.ReactNode)[]
-  needsSpace: boolean
+interface TextSegment {
+  text: string
+  element?: React.ReactElement
+  isText: boolean
+}
+
+interface AnimatedSegment {
+  segments: (string | React.ReactNode)[]
+  totalLength: number
+}
+
+// Utility to split text into characters with support for unicode and emojis
+const splitIntoCharacters = (text: string): string[] => {
+  if (typeof Intl !== "undefined" && "Segmenter" in Intl) {
+    const segmenter = new Intl.Segmenter("en", { granularity: "grapheme" })
+    return Array.from(segmenter.segment(text), ({ segment }) => segment)
+  }
+  return Array.from(text)
+}
+
+// Utility to flatten ReactNode children and extract text segments
+const flattenReactNode = (node: React.ReactNode): TextSegment[] => {
+  const segments: TextSegment[] = []
+
+  const processNode = (n: React.ReactNode): void => {
+    if (typeof n === "string") {
+      if (n.trim()) {
+        segments.push({ text: n, isText: true })
+      }
+    } else if (typeof n === "number") {
+      segments.push({ text: n.toString(), isText: true })
+    } else if (React.isValidElement(n)) {
+      // Handle self-closing elements like <br />
+      if (!n.props.children) {
+        segments.push({ text: "", element: n, isText: false })
+      } else {
+        // For elements with children, we need to preserve the wrapper but process the children
+        const childSegments: TextSegment[] = []
+        React.Children.forEach(n.props.children, (child) => {
+          const childFlattened = flattenReactNode(child)
+          childSegments.push(...childFlattened)
+        })
+
+        // Group all text segments within this element
+        const textContent = childSegments
+          .filter((s) => s.isText)
+          .map((s) => s.text)
+          .join("")
+        if (textContent.trim()) {
+          segments.push({
+            text: textContent,
+            element: React.cloneElement(n, { ...n.props, children: textContent }),
+            isText: true,
+          })
+        }
+
+        // Add any non-text elements
+        childSegments.filter((s) => !s.isText).forEach((s) => segments.push(s))
+      }
+    } else if (Array.isArray(n)) {
+      n.forEach(processNode)
+    }
+  }
+
+  processNode(node)
+  return segments
 }
 
 const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
@@ -57,60 +121,81 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
     ref
   ) => {
     const containerRef = useRef<HTMLSpanElement>(null)
-    const text = typeof children === "string" ? children : children?.toString() || ""
     const [isAnimating, setIsAnimating] = useState(false)
 
-    // handy function to split text into characters with support for unicode and emojis
-    const splitIntoCharacters = (text: string | React.ReactNode): (string | React.ReactNode)[] => {
-      if (typeof text !== "string") {
-        return [text]
-      }
-
-      if (typeof Intl !== "undefined" && "Segmenter" in Intl) {
-        const segmenter = new Intl.Segmenter("en", { granularity: "grapheme" })
-        return Array.from(segmenter.segment(text), ({ segment }) => segment)
-      }
-      // Fallback for browsers that don't support Intl.Segmenter
-      return Array.from(text)
-    }
-
-    // Split text based on splitBy parameter
-    const elements = useMemo(() => {
+    // Process the children and create animated segments
+    const processedContent = useMemo((): AnimatedSegment => {
       if (typeof children === "string") {
-        const words = children.split(" ")
-        if (splitBy === "characters") {
-          return words.map((word, i) => ({
-            characters: splitIntoCharacters(word),
-            needsSpace: i !== words.length - 1,
-          }))
+        // Handle simple string case
+        const segments =
+          splitBy === "words"
+            ? children.split(" ")
+            : splitBy === "characters"
+            ? splitIntoCharacters(children)
+            : splitBy === "lines"
+            ? children.split("\n")
+            : children.split(splitBy)
+
+        return {
+          segments,
+          totalLength: segments.length,
         }
-        return splitBy === "words"
-          ? children.split(" ")
-          : splitBy === "lines"
-          ? children.split("\n")
-          : children.split(splitBy)
       }
 
-      // Handle React nodes (like br tags)
-      return [
-        {
-          characters: [children],
-          needsSpace: false,
-        },
-      ]
+      // Handle ReactNode case
+      const textSegments = flattenReactNode(children)
+      const allSegments: (string | React.ReactNode)[] = []
+      let totalLength = 0
+
+      textSegments.forEach((segment) => {
+        if (segment.isText && segment.text.trim()) {
+          const splitText =
+            splitBy === "words"
+              ? segment.text.split(" ")
+              : splitBy === "characters"
+              ? splitIntoCharacters(segment.text)
+              : splitBy === "lines"
+              ? segment.text.split("\n")
+              : segment.text.split(splitBy)
+
+          if (segment.element) {
+            // Wrap each split part in the original element
+            splitText.forEach((part, index) => {
+              if (part.trim()) {
+                const wrappedElement = React.cloneElement(segment.element!, {
+                  ...segment.element!.props,
+                  key: `${totalLength}-${index}`,
+                  children: part,
+                })
+                allSegments.push(wrappedElement)
+                totalLength++
+              }
+            })
+          } else {
+            // Plain text segments
+            splitText.forEach((part) => {
+              if (part.trim()) {
+                allSegments.push(part)
+                totalLength++
+              }
+            })
+          }
+        } else if (!segment.isText && segment.element) {
+          // Non-text elements like <br />
+          allSegments.push(segment.element)
+        }
+      })
+
+      return {
+        segments: allSegments,
+        totalLength,
+      }
     }, [children, splitBy])
 
     // Calculate stagger delays based on staggerFrom
     const getStaggerDelay = useCallback(
       (index: number) => {
-        const total =
-          splitBy === "characters"
-            ? elements.reduce(
-                (acc, word) =>
-                  acc + (typeof word === "string" ? 1 : word.characters.length + (word.needsSpace ? 1 : 0)),
-                0
-              )
-            : elements.length
+        const total = processedContent.totalLength
         if (staggerFrom === "first") return index * staggerDuration
         if (staggerFrom === "last") return (total - 1 - index) * staggerDuration
         if (staggerFrom === "center") {
@@ -123,7 +208,7 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
         }
         return Math.abs(staggerFrom - index) * staggerDuration
       },
-      [elements.length, staggerFrom, staggerDuration]
+      [processedContent.totalLength, staggerFrom, staggerDuration]
     )
 
     const startAnimation = useCallback(() => {
@@ -142,7 +227,7 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
       if (autoStart) {
         startAnimation()
       }
-    }, [autoStart])
+    }, [autoStart, startAnimation])
 
     const variants = {
       hidden: { y: reverse ? "-100%" : "100%" },
@@ -155,47 +240,53 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
       }),
     }
 
-    return (
-      <span
-        className={cn(containerClassName, "whitespace-pre-wrap", splitBy === "lines")}
-        onClick={onClick}
-        ref={containerRef}
-        {...props}
-      >
-        <span className="sr-only">{text}</span>
-        {(splitBy === "characters"
-          ? (elements as WordObject[])
-          : (elements as (string | React.ReactNode)[]).map((el, i) => ({
-              characters: [el],
-              needsSpace: i !== elements.length - 1,
-            }))
-        ).map((wordObj, wordIndex, array) => {
-          const previousCharsCount = array.slice(0, wordIndex).reduce((sum, word) => sum + word.characters.length, 0)
+    // Get plain text for screen readers
+    const getPlainText = (node: React.ReactNode): string => {
+      if (typeof node === "string") return node
+      if (typeof node === "number") return node.toString()
+      if (React.isValidElement(node)) {
+        if (node.props.children) {
+          return getPlainText(node.props.children)
+        }
+        return ""
+      }
+      if (Array.isArray(node)) {
+        return node.map(getPlainText).join("")
+      }
+      return ""
+    }
 
-          return (
-            <span key={wordIndex} aria-hidden="true" className={cn("inline-flex overflow-hidden", wordLevelClassName)}>
-              {wordObj.characters.map((char, charIndex) => (
-                <span className={cn(elementLevelClassName, "whitespace-pre-wrap relative")} key={charIndex}>
+    return (
+      <span className={cn(containerClassName, "whitespace-pre-wrap")} onClick={onClick} ref={containerRef} {...props}>
+        <span className="sr-only">{getPlainText(children)}</span>
+        <span aria-hidden="true" className="inline-flex flex-wrap">
+          {processedContent.segments.map((segment, index) => {
+            // Handle non-text elements (like <br />)
+            if (React.isValidElement(segment) && !segment.props.children) {
+              return React.cloneElement(segment, { key: index })
+            }
+
+            // Handle text segments (both plain and wrapped in elements)
+            return (
+              <span key={index} className={cn("inline-flex overflow-hidden", wordLevelClassName)}>
+                <span className={cn(elementLevelClassName, "whitespace-pre-wrap relative")}>
                   <motion.span
-                    custom={previousCharsCount + charIndex}
+                    custom={index}
                     initial="hidden"
                     animate={isAnimating ? "visible" : "hidden"}
                     variants={variants}
-                    onAnimationComplete={
-                      wordIndex === elements.length - 1 && charIndex === wordObj.characters.length - 1
-                        ? onComplete
-                        : undefined
-                    }
+                    onAnimationComplete={index === processedContent.segments.length - 1 ? onComplete : undefined}
                     className="inline-block"
                   >
-                    {char}
+                    {segment}
                   </motion.span>
                 </span>
-              ))}
-              {wordObj.needsSpace && <span> </span>}
-            </span>
-          )
-        })}
+                {/* Add space after words (except for last item) */}
+                {splitBy === "words" && index < processedContent.segments.length - 1 && <span> </span>}
+              </span>
+            )
+          })}
+        </span>
       </span>
     )
   }
