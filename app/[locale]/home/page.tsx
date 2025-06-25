@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <Wrapper>
-      <section className="h-screen bg-bricky-brick relative z-10 overflow-hidden">
+      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
         <ScaleOut>
           <Video primaryVideoUrl={mainVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
         </ScaleOut>

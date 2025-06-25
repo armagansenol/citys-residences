@@ -173,6 +173,18 @@ const config: Config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      height: {
+        svh: "var(--svh-calc)",
+        lvh: "var(--lvh-calc)",
+      },
+      minHeight: {
+        svh: "var(--svh-calc)",
+        lvh: "var(--lvh-calc)",
+      },
+      maxHeight: {
+        svh: "var(--svh-calc)",
+        lvh: "var(--lvh-calc)",
+      },
     },
   },
   plugins: [aspectRatio, animate, typography],

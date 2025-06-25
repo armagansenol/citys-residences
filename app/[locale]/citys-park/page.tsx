@@ -49,7 +49,7 @@ export default function Page() {
 
   return (
     <Wrapper>
-      <section className="h-screen bg-bricky-brick relative z-10 overflow-hidden">
+      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
         <ScaleOut>
           <Video
             primaryVideoUrl={citysParkVideo}

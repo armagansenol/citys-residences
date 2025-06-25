@@ -13,7 +13,7 @@ export default function Page() {
   const t = useTranslations("citys-life")
   return (
     <Wrapper>
-      <section className="relative h-screen bg-bricky-brick z-10 overflow-hidden">
+      <section className="relative h-svh bg-bricky-brick z-10 overflow-hidden">
         <ScaleOut>
           <Video
             primaryVideoUrl={citysLifeVideo}
