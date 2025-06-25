@@ -242,7 +242,7 @@ export default function Page() {
           </FadeInOnScroll>
         </div>
       </section>
-      <section className="bg-white z-30 px-6 bt:px-10 bd:px-16">
+      <section className="bg-white z-30 section-container">
         <div className="mb-20 lg:mb-40 mt-10 lg:mt-20">
           <ListCarousel
             title={sportsAndHealth.title}

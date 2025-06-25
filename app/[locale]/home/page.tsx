@@ -42,7 +42,7 @@ export default function Home() {
         </ScaleOut>
       </section>
       <section className="bg-white pt-0 bt:pt-12 z-20 relative">
-        <div className="bd:container mx-auto py-16 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-0 bt:px-10 bd:px-16">
+        <div className=" mx-auto py-16 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-0 bt:px-10 bd:px-16">
           <div className="w-64 h-64 mx-auto hidden bt:block mb-10 lg:mb-20">
             <Logo fill={colors["bricky-brick"]} />
           </div>
@@ -65,7 +65,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="relative bd:container py-8 bt:py-20 px-6 bt:px-10 bd:px-16">
+      <section className="relative  py-8 bt:py-20 section-container">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
           <VideoWithPlayButton
             primaryVideoUrl={kolajVideo}
@@ -74,7 +74,7 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="bd:container flex flex-col bd:flex-row items-center justify-between gap-10 bt:gap-20 bd:gap-4 py-6 bt:py-24 px-6 bt:px-10 bd:px-16">
+      <section className=" flex flex-col bd:flex-row items-center justify-between gap-10 bt:gap-20 bd:gap-4 py-6 bt:py-24 section-container">
         <div className="px-4 bt:px-0 flex flex-col items-center justify-center bd:items-start">
           <h2 className="font-suisse-intl font-medium text-bricky-brick text-4xl md:text-7xl xl:text-6xl 2xl:text-7xl mb-5 bt:mb-10 text-center xl:text-left">
             <TextRevealOnScroll elementLevelClassName="leading-relaxed" splitBy="lines" staggerDuration={0.005}>
@@ -104,7 +104,7 @@ export default function Home() {
           <Logo fill={colors["bricky-brick"]} />
         </div>
       </section>
-      <section className="relative bd:container py-8 bt:py-20 px-6 bt:px-10 bd:px-16">
+      <section className="relative  py-8 bt:py-20 section-container">
         <div className="w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black">
           <VideoWithPlayButton
             primaryVideoUrl={muratKaderVideo}

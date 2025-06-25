@@ -116,3 +116,7 @@ body {
     --radius: 0.5rem;
   }
 }
+
+.section-container {
+  @apply xl:container px-6 bt:px-10 bd:px-16;
+}
