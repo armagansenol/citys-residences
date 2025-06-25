@@ -63,12 +63,8 @@ export function MaskedParallaxImage({ imgSrc, sizes = "100vw" }: MaskedParallaxI
 
   return (
     <div className="w-full h-full" ref={ref}>
-      <div className="gsap-parallax-img-c rounded-lg w-full h-full flex items-center justify-center overflow-hidden">
+      <div className="gsap-parallax-img-c rounded-sm lg:rounded-lg w-full h-full flex items-center justify-center overflow-hidden">
         <div className="gsap-parallax-img relative w-full h-[120%]">
-          {/* <div className="absolute top-0 left-0 right-0 bottom-0 z-50 isolate gsap-parallax-img-overlay hidden bt:block">
-            <div className="bg-bengala-red absolute w-full h-full z-10 opacity-70"></div>
-            <Img src={imgSrc} alt="Parallax Image" className="object-cover mix-blend-overlay z-20" fill sizes={sizes} />
-          </div> */}
           <Img src={imgSrc} alt="Parallax Image" className="object-cover z-40" fill sizes={sizes} />
         </div>
       </div>
