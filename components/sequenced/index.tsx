@@ -59,25 +59,25 @@ const Sequenced = () => {
       className="flex flex-col xl:flex-row relative h-auto xl:h-[100vh] w-full overflow-hidden pointer-events-none"
       ref={ref}
     >
-      <div className="relative w-full xl:w-5/12 h-full flex flex-col items-start justify-center">
-        <h2 className="font-suisse-intl font-normal text-bricky-brick text-4xl lg:text-7xl xl:text-6xl mb-5 lg:mb-10 text-center xl:text-left">
+      <div className="relative w-full xl:w-4/12 h-full flex flex-col items-start justify-center">
+        <h2 className="font-suisse-intl font-normal text-bricky-brick text-4xl lg:text-7xl xl:text-4xl mb-5 lg:mb-10 text-center xl:text-left">
           <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
             Yaşama Alan Açan Detaylar
           </TextRevealOnScroll>
         </h2>
-        <p className="font-suisse-intl text-md lg:text-4xl xl:text-2xl font-bold mb-4 text-center xl:text-left">
-          <TextRevealOnScroll elementLevelClassName="leading-relaxed" splitBy="lines" staggerDuration={0.005}>
+        <p className="font-suisse-intl text-md lg:text-4xl xl:text-base font-bold mb-4 text-center xl:text-left">
+          <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
             Her metrekaresi ince tasarlanmış, ferah bir hayata açılan çizgiler
           </TextRevealOnScroll>
         </p>
-        <p className="font-suisse-intl text-md lg:text-4xl xl:text-xl font-normal text-center xl:text-left">
-          <TextRevealOnScroll elementLevelClassName="leading-relaxed" splitBy="lines" staggerDuration={0.005}>
+        <p className="font-suisse-intl text-md lg:text-4xl xl:text-base font-normal text-center xl:text-left">
+          <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
             Günlük alışkanlıklardan uzun vadeli konfora kadar her detay, yaşamın doğal akışına uyum sağlayacak şekilde
             tasarlandı.
           </TextRevealOnScroll>
         </p>
       </div>
-      <div className="w-full xl:w-7/12">
+      <div className="w-full xl:w-8/12">
         <div className="relative w-full h-[80vw] lg:h-[90vw] xl:h-full">
           {Array.from({ length: 24 }).map((_, i) => {
             return (

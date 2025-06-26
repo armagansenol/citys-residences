@@ -88,7 +88,7 @@ export default function Page() {
         <StackingCards items={items} />
       </section>
       <section className="section-container">
-        <div className="relative ">
+        <div className="relative">
           <div className="w-full h-[350px] bt:h-[90vh] relative z-10 flex items-center justify-center bg-black">
             <VideoWithPlayButton
               primaryVideoUrl={melihBulgurVideo}
