@@ -154,32 +154,39 @@
     "citys-life": {
         "items": {
             "i1": {
-                "title": "RESEPSİYON & CONCIERGE HİZMETLERİ",
-                "text": "<strong>Günün her anında destek</strong><br></br>Rezervasyonlardan günlük ihtiyaçlara kadar her detayı sizin yerinize düşünen bir yaşam destek sistemi."
+                "title": "Resepsiyon & Concierge Hizmetleri",
+                "spot": "Günün her anında destek",
+                "text": "Rezervasyonlardan günlük ihtiyaçlara kadar her detayı sizin yerinize düşünen bir yaşam destek sistemi."
             },
             "i2": {
-                "title": "VALE & OTOPARK HİZMETLERİ",
-                "text": "<strong>Aracınız için her zaman bir yer var</strong><br></br>City’s Residences’da konfor sadece evin içinde değil; aracınızı bıraktığınız ilk anda başlar."
+                "title": "Vale & Otopark Hizmetleri",
+                "spot": "Aracınız için her zaman bir yer var",
+                "text": "City's Residences'da konfor sadece evin içinde değil; aracınızı bıraktığınız ilk anda başlar."
             },
             "i3": {
-                "title": "KARGO TESLİM SERVİSİ",
-                "text": "<strong>Gelen her paket doğru adrese ulaşır</strong><br></br>Kargolarınız profesyonel ekip tarafından teslim alınır ve size güvenle ulaştırılır."
+                "title": "Kargo Teslim Servisi",
+                "spot": "Gelen her paket doğru adrese ulaşır",
+                "text": "Kargolarınız profesyonel ekip tarafından teslim alınır ve size güvenle ulaştırılır."
             },
             "i4": {
-                "title": "JUSTWORK | OFFICE CAMPUS",
-                "text": "<strong>Çalışmak, evinizden uzaklaşmadan mümkün</strong><br></br>Günlük, haftalık veya dönemsel çalışma ihtiyaçlarınıza uyum sağlayan modern ofis alanları bir adım uzağınızda."
+                "title": "Justwork | Office Campus",
+                "spot": "Çalışmak, evinizden uzaklaşmadan mümkün",
+                "text": "Günlük, haftalık veya dönemsel çalışma ihtiyaçlarınıza uyum sağlayan modern ofis alanları bir adım uzağınızda."
             },
             "i5": {
-                "title": "JUST STAY | MODERN KONAKLAMA DENEYİMİ",
-                "text": "<strong>Misafirleriniz için ev konforunda, otel şıklığında kısa konaklama seçenekleri</strong><br></br>Seyahat eden dostlarınız ve yakınlarınız için, City’s ruhunu yansıtan bir misafirlik deneyimi."
+                "title": "Just Stay | Modern Konaklama Deneyimi",
+                "spot": "Misafirleriniz için ev konforunda, otel şıklığında kısa konaklama seçenekleri",
+                "text": "Seyahat eden dostlarınız ve yakınlarınız için, City's ruhunu yansıtan bir misafirlik deneyimi."
             },
             "i6": {
-                "title": "JUST EVENTS",
-                "text": "<strong>Hayatı kutlamak için her zaman bir alan var</strong><br></br>Özel etkinlikler, davetler ve sosyal buluşmalar için tasarlanmış esnek etkinlik alanları."
+                "title": "Just Events",
+                "spot": "Hayatı kutlamak için her zaman bir alan var",
+                "text": "Özel etkinlikler, davetler ve sosyal buluşmalar için tasarlanmış esnek etkinlik alanları."
             },
             "i7": {
-                "title": "PET HOTEL & PET HOSPITAL",
-                "text": "<strong>Evcil dostlarınız da bu yaşamın bir parçası</strong><br></br>Pet Hotel ve Pet Hospital hizmetleriyle, onların konforu ve sağlığı da City’s Life ayrıcalıkları arasında."
+                "title": "Pet Hotel & Pet Hospital",
+                "spot": "Evcil dostlarınız da bu yaşamın bir parçası",
+                "text": "Pet Hotel ve Pet Hospital hizmetleriyle, onların konforu ve sağlığı da City's Life ayrıcalıkları arasında."
             }
         }
     },

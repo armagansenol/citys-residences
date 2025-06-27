@@ -38,64 +38,50 @@ export default function Page() {
           {[
             {
               title: t("items.i1.title"),
-              text: t.rich("items.i1.text", {
-                br: () => <br />,
-                strong: (chunks) => <strong>{chunks}</strong>,
-              }),
+              spot: t("items.i1.spot"),
+              text: t("items.i1.text"),
               imgSrc: "/img/citys-life/01.jpg",
               horizontalAlignment: "ltr" as const,
             },
             {
               title: t("items.i2.title"),
-              text: t.rich("items.i2.text", {
-                br: () => <br />,
-                strong: (chunks) => <strong>{chunks}</strong>,
-              }),
+              spot: t("items.i2.spot"),
+              text: t("items.i2.text"),
               imgSrc: "/img/citys-life/02.jpg",
               horizontalAlignment: "rtl" as const,
             },
             {
               title: t("items.i3.title"),
-              text: t.rich("items.i3.text", {
-                br: () => <br />,
-                strong: (chunks) => <strong>{chunks}</strong>,
-              }),
+              spot: t("items.i3.spot"),
+              text: t("items.i3.text"),
               imgSrc: "/img/citys-life/03.jpg",
               horizontalAlignment: "ltr" as const,
             },
             {
               title: t("items.i4.title"),
-              text: t.rich("items.i4.text", {
-                br: () => <br />,
-                strong: (chunks) => <strong>{chunks}</strong>,
-              }),
+              spot: t("items.i4.spot"),
+              text: t("items.i4.text"),
               imgSrc: "/img/citys-life/04.jpg",
               horizontalAlignment: "rtl" as const,
             },
             {
               title: t("items.i5.title"),
-              text: t.rich("items.i5.text", {
-                br: () => <br />,
-                strong: (chunks) => <strong>{chunks}</strong>,
-              }),
+              spot: t("items.i5.spot"),
+              text: t("items.i5.text"),
               imgSrc: "/img/citys-life/05.jpg",
               horizontalAlignment: "ltr" as const,
             },
             {
               title: t("items.i6.title"),
-              text: t.rich("items.i6.text", {
-                br: () => <br />,
-                strong: (chunks) => <strong>{chunks}</strong>,
-              }),
+              spot: t("items.i6.spot"),
+              text: t("items.i6.text"),
               imgSrc: "/img/citys-life/06.jpg",
               horizontalAlignment: "rtl" as const,
             },
             {
               title: t("items.i7.title"),
-              text: t.rich("items.i7.text", {
-                br: () => <br />,
-                strong: (chunks) => <strong>{chunks}</strong>,
-              }),
+              spot: t("items.i7.spot"),
+              text: t("items.i7.text"),
               imgSrc: "/img/citys-life/07.jpg",
               horizontalAlignment: "ltr" as const,
             },
@@ -103,6 +89,7 @@ export default function Page() {
             (
               item: {
                 title: string
+                spot?: ReactNode
                 text: ReactNode
                 imgSrc: string
                 horizontalAlignment: "ltr" | "rtl"
@@ -113,6 +100,7 @@ export default function Page() {
               <MaskedParallaxImageSection
                 key={index}
                 title={item.title}
+                spot={item.spot}
                 text={item.text}
                 imgSrc={item.imgSrc}
                 horizontalAlignment={item.horizontalAlignment}

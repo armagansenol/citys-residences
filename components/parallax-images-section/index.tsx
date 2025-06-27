@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils"
-import { ReactNode } from "react"
 
 import { TextRevealOnScroll } from "@/components/animations/text-reveal-on-scroll"
 import { MaskedParallaxImage } from "@/components/masked-parallax-image"
 import { breakpoints } from "@/styles/config.mjs"
+import { ReactNode } from "react"
 export interface MaskedParallaxImageSectionProps {
   horizontalAlignment?: "rtl" | "ltr"
   title?: string
+  spot?: ReactNode
   text: ReactNode
   imgSrc: string
   link?: {
@@ -18,6 +19,7 @@ export interface MaskedParallaxImageSectionProps {
 export function MaskedParallaxImageSection({
   horizontalAlignment = "ltr",
   title,
+  spot,
   text,
   imgSrc,
 }: MaskedParallaxImageSectionProps) {
@@ -38,9 +40,17 @@ export function MaskedParallaxImageSection({
             </TextRevealOnScroll>
           </h3>
         )}
+
         {text && (
           <p className="font-suisse-intl font-normal text-base lg:text-lg xl:text-base 2xl:text-lg text-black">
-            <TextRevealOnScroll splitBy="lines" staggerDuration={40.25}>
+            {spot && (
+              <strong>
+                <TextRevealOnScroll splitBy="lines" staggerDuration={0.25}>
+                  {spot}
+                </TextRevealOnScroll>
+              </strong>
+            )}
+            <TextRevealOnScroll splitBy="lines" staggerDuration={0.25}>
               {text}
             </TextRevealOnScroll>
           </p>
