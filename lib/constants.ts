@@ -119,7 +119,7 @@ export const muratKaderVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1076668374/rendition/1080p/file.mp4?loc=external&log_user=0&signature=9cb5431c29179de45c2a9528e203a341f2aa92b6c95641659f2de5e74791354f"
 
 export const mainVideo =
-  "https://player.vimeo.com/progressive_redirect/playback/1094341190/rendition/1080p/file.mp4?loc=external&log_user=0&signature=6f327be3de9041e9edfb760f121f07510e7c832d0c56eb7eb2187634fc427675"
+  "https://player.vimeo.com/progressive_redirect/playback/1096833227/rendition/1080p/file.mp4?loc=external&log_user=0&signature=e0ad4624c50728e0a3625c1c69c5f6a1459202f6b91fae8b5678201fd7181b5d"
 
 export const kolajVideo =
   "https://player.vimeo.com/progressive_redirect/playback/1069860586/rendition/1080p/file.mp4?loc=external&log_user=0&signature=93ffcc3ffcfe4a4ca2624cdbaef95fab5777741b7c5ab98d9e3f9bddf9f6062a"
