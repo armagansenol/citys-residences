@@ -97,14 +97,14 @@ export default function Home() {
           title="Denge Mimarisi: Karma Yaşam Tasarımı"
         />
       </section>
-      <section className=" flex flex-col-reverse xl:flex-row items-center justify-between gap-4 lg:gap-20 xl:gap-4 py-6 bt:py-24 section-container">
-        <div className="flex flex-col gap-2 lg:gap-8">
+      <section className=" flex flex-col-reverse xl:flex-row items-center justify-between gap-6 lg:gap-20 xl:gap-4 py-6 bt:py-24 section-container">
+        <div className="flex flex-col gap-6 lg:gap-8">
           <h2 className="font-suisse-intl font-medium text-bricky-brick text-3xl md:text-7xl xl:text-6xl 2xl:text-7xl text-left">
             <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
               {t("live.p1.title")}
             </TextRevealOnScroll>
           </h2>
-          <p className="font-suisse-intl text-base bt:text-4xl bd:text-2xl lg:max-w-xl xl:max-w-xl bd:leading-normal">
+          <p className="font-suisse-intl text-base font-normal lg:text-4xl xl:text-2xl lg:max-w-xl xl:max-w-xl leading-relaxed lg:leading-normal">
             <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
               {t("live.p1.description")}
             </TextRevealOnScroll>
