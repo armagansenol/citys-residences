@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl"
 
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { ScaleOut } from "@/components/animations/scale-out"
-import { TextRevealOnScroll } from "@/components/animations/text-reveal-on-scroll"
+import { GsapSplitText } from "@/components/gsap-split-text"
 import { FullScreenSlider } from "@/components/full-screen-slider"
 import { Logo } from "@/components/icons"
 import { LinkToPage } from "@/components/link-to-page"
@@ -60,9 +60,9 @@ export default function Home() {
               <span className="sr-only">{t("section1.title2")}</span>
             </article>
             <article className="font-montserrat text-bricky-brick text-md bt:text-3xl font-normal tracking-wide bt:tracking-widest text-center">
-              <TextRevealOnScroll splitBy="lines" staggerDuration={0.01}>
+              <GsapSplitText splitBy="lines" stagger={0.01}>
                 {t("section1.title3")}
-              </TextRevealOnScroll>
+              </GsapSplitText>
             </article>
           </div>
         </div>
@@ -71,9 +71,9 @@ export default function Home() {
         <div className=" mx-auto py-12 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-0 bt:px-10 bd:px-16">
           <div className="flex flex-col items-center gap-4 lg:gap-8">
             <article className="font-montserrat text-bricky-brick text-4xl bt:text-6xl font-semibold leading-relaxed tracking-wide bt:tracking-widest text-center">
-              <TextRevealOnScroll splitBy="characters" staggerDuration={0.01}>
+              <GsapSplitText splitBy="chars" stagger={0.05}>
                 {t("section2.title1")}
-              </TextRevealOnScroll>
+              </GsapSplitText>
               <span className="sr-only">{t("section2.title1")}</span>
             </article>
             <article className="relative w-screen h-24 lg:h-44 xl:h-64">
@@ -83,9 +83,9 @@ export default function Home() {
               <span className="sr-only">{t("section2.title2")}</span>
             </article>
             <article className="font-montserrat text-bricky-brick text-4xl bt:text-7xl font-semibold leading-relaxed tracking-wide bt:tracking-widest text-center">
-              <TextRevealOnScroll splitBy="characters" staggerDuration={0.01}>
+              <GsapSplitText splitBy="chars" stagger={0.05}>
                 {t("section2.title3")}
-              </TextRevealOnScroll>
+              </GsapSplitText>
             </article>
           </div>
         </div>
@@ -100,14 +100,14 @@ export default function Home() {
       <section className=" flex flex-col-reverse xl:flex-row items-center justify-between gap-6 lg:gap-20 xl:gap-4 py-6 bt:py-24 section-container">
         <div className="flex flex-col gap-6 lg:gap-8">
           <h2 className="font-suisse-intl font-medium text-bricky-brick text-3xl lg:text-7xl xl:text-6xl 2xl:text-7xl text-left lg:text-center xl:text-left leading-relaxed lg:leading-normal">
-            <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
+            <GsapSplitText splitBy="lines" stagger={0.005}>
               {t("live.p1.title")}
-            </TextRevealOnScroll>
+            </GsapSplitText>
           </h2>
           <p className="font-suisse-intl text-base font-normal lg:text-4xl xl:text-2xl lg:max-w-2xl xl:max-w-xl leading-relaxed lg:leading-normal text-left lg:text-center xl:text-left">
-            <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
+            <GsapSplitText splitBy="lines" stagger={0.005}>
               {t("live.p1.description")}
-            </TextRevealOnScroll>
+            </GsapSplitText>
           </p>
         </div>
         <div className={cn(s.circleVideoC, "overflow-hidden rounded-sm lg:rounded-full z-20")}>

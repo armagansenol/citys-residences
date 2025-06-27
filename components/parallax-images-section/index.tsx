@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-import { TextRevealOnScroll } from "@/components/animations/text-reveal-on-scroll"
+import { GsapSplitText } from "@/components/gsap-split-text"
 import { MaskedParallaxImage } from "@/components/masked-parallax-image"
 import { breakpoints } from "@/styles/config.mjs"
 import { ReactNode } from "react"
@@ -34,10 +34,10 @@ export function MaskedParallaxImageSection({
         )}
       >
         {title && (
-          <h3 className="font-suisse-intl font-medium leading-relaxed text-bricky-brick text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl">
-            <TextRevealOnScroll splitBy="lines" staggerDuration={0.25}>
+          <h3 className="font-suisse-intl font-medium text-bricky-brick text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl">
+            <GsapSplitText stagger={0.1} splitBy="lines" duration={0.5}>
               {title}
-            </TextRevealOnScroll>
+            </GsapSplitText>
           </h3>
         )}
 
@@ -45,14 +45,14 @@ export function MaskedParallaxImageSection({
           <p className="font-suisse-intl font-normal text-base lg:text-lg xl:text-base 2xl:text-lg text-black">
             {spot && (
               <strong>
-                <TextRevealOnScroll splitBy="lines" staggerDuration={0.25}>
+                <GsapSplitText stagger={0.1} splitBy="lines" duration={0.5}>
                   {spot}
-                </TextRevealOnScroll>
+                </GsapSplitText>
               </strong>
             )}
-            <TextRevealOnScroll splitBy="lines" staggerDuration={0.25}>
+            <GsapSplitText stagger={0.1} splitBy="lines" duration={0.5}>
               {text}
-            </TextRevealOnScroll>
+            </GsapSplitText>
           </p>
         )}
       </div>
