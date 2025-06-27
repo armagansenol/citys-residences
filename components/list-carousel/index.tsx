@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from "react"
 
 import { Img } from "@/components/utility/img"
 import { ScrollableBox } from "@/components/utility/scrollable-box"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 export interface ListCarouselProps {
   title: string
@@ -104,7 +105,7 @@ export function ListCarousel({ title, items, images, withMoveDown = false, varia
         <div className="w-full h-full flex flex-col lg:flex-row gap-10 xl:gap-10 2xl:gap-10">
           <div className="flex flex-col gap-2 lg:gap-4 w-full">
             <h2 className="font-suisse-intl text-3xl lg:text-4xl xl:text-5xl font-normal text-bricky-brick">{title}</h2>
-            {items.length > 0 && items[0].title && (
+            {variant === "default" && items.length > 0 && (
               <div className="w-full">
                 <ScrollableBox scrollTo={activeIndex ? `#item${activeIndex}Button` : null} orientation="horizontal">
                   <div className="flex flex-row pt-4">
@@ -126,6 +127,22 @@ export function ListCarousel({ title, items, images, withMoveDown = false, varia
                     ))}
                   </div>
                 </ScrollableBox>
+              </div>
+            )}
+            {variant === "v2" && items.length > 0 && (
+              <div className="pt-4 w-full lg:w-96">
+                <Select value={activeIndex.toString()} onValueChange={(value) => goToIndex(parseInt(value))}>
+                  <SelectTrigger className="border border-bricky-brick rounded-lg bg-transparent font-suisse-intl text-sm 2xl:text-base text-bricky-brick">
+                    <SelectValue placeholder="Select an item" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {items.map((item, itemIndex) => (
+                      <SelectItem key={itemIndex} value={itemIndex.toString()}>
+                        {item.title}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
             )}
             <div className="flex flex-col-reverse lg:flex-row items-center lg:items-start gap-8 lg:gap-4 w-full mt-5 lg:mt-8">
