@@ -7,9 +7,9 @@
   @include-media ("tablet") {
     position: absolute;
     left: 50%;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.14em;
     transform: translate(-50%, -100%);
-    top: tablet-vw(150px);
+    top: tablet-vw(100px);
   }
   @include-media ("desktop") {
     position: absolute;
@@ -26,7 +26,8 @@
   position: relative;
   @include-media ("tablet") {
     position: absolute;
-    bottom: tablet-vw(150px);
+    bottom: tablet-vw(50px);
+    left: tablet-vw(40px);
 
     background: hsla(10, 66%, 43%, 0.6);
     backdrop-filter: blur(70px);

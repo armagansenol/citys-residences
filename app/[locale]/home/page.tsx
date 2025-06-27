@@ -20,7 +20,7 @@ export default function Home() {
   const t = useTranslations("home")
 
   const createSlide = (imgSrc: string, index: number) => (
-    <div className="relative w-screen h-[35vh] bt:h-[105vh]" key={index}>
+    <div className="relative w-screen h-[70vw] lg:h-[60vw] xl:h-[105vh]" key={index}>
       <Img src={imgSrc} alt={`Slide ${index}`} fill className="w-full h-full object-cover" sizes="100vw" />
     </div>
   )
@@ -42,8 +42,8 @@ export default function Home() {
         </ScaleOut>
       </section>
       <section className="bg-white py-0 bt:py-12 z-20 relative">
-        <div className=" mx-auto py-16 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-0 bt:px-10 bd:px-16">
-          <div className="w-64 h-64 mx-auto hidden bt:block mb-10 lg:mb-20">
+        <div className=" mx-auto py-12 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-0 bt:px-10 bd:px-16">
+          <div className="w-48 h-48 lg:w-64 lg:h-64 mx-auto mb-10 lg:mb-20">
             <Logo fill={colors["bricky-brick"]} />
           </div>
           <div className="flex flex-col items-center gap-4 lg:gap-8">
@@ -68,7 +68,7 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-unbleached py-0 bt:py-12 z-20 relative">
-        <div className=" mx-auto py-16 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-0 bt:px-10 bd:px-16">
+        <div className=" mx-auto py-12 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-0 bt:px-10 bd:px-16">
           <div className="flex flex-col items-center gap-4 lg:gap-8">
             <article className="font-montserrat text-bricky-brick text-4xl bt:text-6xl font-semibold leading-relaxed tracking-wide bt:tracking-widest text-center">
               <TextRevealOnScroll splitBy="characters" staggerDuration={0.01}>
@@ -99,12 +99,12 @@ export default function Home() {
       </section>
       <section className=" flex flex-col-reverse xl:flex-row items-center justify-between gap-6 lg:gap-20 xl:gap-4 py-6 bt:py-24 section-container">
         <div className="flex flex-col gap-6 lg:gap-8">
-          <h2 className="font-suisse-intl font-medium text-bricky-brick text-3xl md:text-7xl xl:text-6xl 2xl:text-7xl text-left">
+          <h2 className="font-suisse-intl font-medium text-bricky-brick text-3xl lg:text-7xl xl:text-6xl 2xl:text-7xl text-left lg:text-center xl:text-left leading-relaxed lg:leading-normal">
             <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
               {t("live.p1.title")}
             </TextRevealOnScroll>
           </h2>
-          <p className="font-suisse-intl text-base font-normal lg:text-4xl xl:text-2xl lg:max-w-xl xl:max-w-xl leading-relaxed lg:leading-normal">
+          <p className="font-suisse-intl text-base font-normal lg:text-4xl xl:text-2xl lg:max-w-2xl xl:max-w-xl leading-relaxed lg:leading-normal text-left lg:text-center xl:text-left">
             <TextRevealOnScroll splitBy="lines" staggerDuration={0.005}>
               {t("live.p1.description")}
             </TextRevealOnScroll>

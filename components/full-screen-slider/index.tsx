@@ -14,14 +14,14 @@ export interface FullScreenSliderProps {
 
 export function FullScreenSlider({ title, description, items }: FullScreenSliderProps) {
   return (
-    <div className="relative flex flex-col bt:flex-row bt:overflow-hidden gap-6 w-screen z-[100]">
+    <div className="relative flex flex-col bt:flex-row bt:overflow-hidden gap-6 z-[100]">
       <div className="w-screen relative">
         <EmblaCarousel autoplay={true} autoplayDelay={5000} slides={items} options={{ duration: 35, loop: true }} />
       </div>
       <h2
         className={cn(
           s.title,
-          "text-bricky-brick lg:text-white text-3xl lg:text-7xl font-suisse-intl font-medium leading-tight lg:leading-none text-left lg:text-center z-50 section-container"
+          "text-bricky-brick lg:text-white text-3xl lg:text-7xl xl:text-7xl font-suisse-intl font-medium leading-tight lg:leading-none text-left lg:text-center z-50 section-container whitespace-nowrap"
         )}
       >
         {title}
@@ -29,7 +29,7 @@ export function FullScreenSlider({ title, description, items }: FullScreenSlider
       <p
         className={cn(
           s.description,
-          "font-suisse-intl text-black lg:text-white text-base font-normal leading-relaxed w-full lg:w-4/12 px-6 lg:px-4 lg:py-4 rounded-xl"
+          "font-suisse-intl text-black lg:text-white text-base font-normal leading-relaxed w-full lg:w-6/12 xl:w-4/12 px-6 lg:px-4 lg:py-4 rounded-xl"
         )}
       >
         {description}
