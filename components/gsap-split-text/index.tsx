@@ -20,8 +20,6 @@ export function GsapSplitText(props: GsapSplitTextProps) {
   useGSAP(() => {
     if (!ref.current) return
 
-    gsap.set(ref.current, { opacity: 1 })
-
     const splitConfig = {
       type: splitBy === "lines" ? "words,lines" : splitBy,
       linesClass: "line",
@@ -32,8 +30,7 @@ export function GsapSplitText(props: GsapSplitTextProps) {
 
         const anim = gsap.from(elements, {
           duration,
-          yPercent: 100,
-          opacity: 0,
+          yPercent: 120,
           stagger,
           ease,
           paused: true,
@@ -85,7 +82,7 @@ export function GsapSplitText(props: GsapSplitTextProps) {
   }, [splitBy, stagger, duration, triggerOn])
 
   return (
-    <span className="split" ref={ref} style={{ opacity: 0 }}>
+    <span className="split" ref={ref}>
       {children}
     </span>
   )

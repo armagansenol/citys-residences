@@ -87,7 +87,7 @@ export default function Page() {
           <VideoWithPlayButton
             primaryVideoUrl={pinarVeCemilAktasVideo}
             thumbnail="/img/thumbnail-pinar-cemil-aktas.jpg"
-            title="Peyzaj: Bir Vaha Tasarımı"
+            title="Peyzaj: Bir Vaha Tasarımı..."
           />
         </div>
       </section>

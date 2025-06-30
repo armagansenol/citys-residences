@@ -144,17 +144,8 @@
 
   .text {
     display: grid;
-    font-size: mobile-vw(14px);
     overflow: hidden;
     transform: translateY(2px);
-
-    @include-media ('tablet') {
-      font-size: tablet-vw(12px);
-    }
-
-    @include-media ('desktop') {
-      font-size: desktop-vw(14px);
-    }
 
     > span {
       display: block;

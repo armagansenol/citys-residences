@@ -38,6 +38,18 @@ export const routing = defineRouting({
       tr: "/citys-istanbul-avm",
       en: "/citys-istanbul-avm",
     },
+    "/citys-psm": {
+      tr: "/citys-psm",
+      en: "/citys-psm",
+    },
+    "/citys-times": {
+      tr: "/citys-times",
+      en: "/citys-times",
+    },
+    "/project": {
+      tr: "/proje",
+      en: "/project",
+    },
     "/explicit-consent": {
       tr: "/acik-riza-metni",
       en: "/explicit-consent",

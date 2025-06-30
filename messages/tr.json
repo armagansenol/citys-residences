@@ -226,12 +226,15 @@
             "citysPark": "City's Park",
             "citysMembersClub": "City's Members Club",
             "citysLifePrivileges": "City's Life Ayrıcalıkları",
-            "citysIstanbul": "City's İstanbul AVM"
+            "citysIstanbul": "City's İstanbul AVM",
+            "citysPsm": "City's Psm",
+            "citysTimes": "City's Times",
+            "project": "Proje"
         },
         "contactInfo": "City's Residences Satış Ofisi / Sales Gallery",
         "close": "KAPAT",
         "open": "MENÜ",
-        "inquiry": "RANDEVU AL",
+        "inquiry": "RANDEVU\u00A0\u00A0AL",
         "contact": "İletişim",
         "socialMedia": "Sosyal Medya",
         "menu": "Menü",

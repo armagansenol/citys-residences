@@ -28,12 +28,15 @@ export function Header() {
 
   const navigationItems = [
     { title: t("navigation.home"), href: "/" },
-    { title: t("navigation.residences"), href: "/residences" },
+    { title: t("navigation.project"), href: "/project" },
     { title: t("navigation.location"), href: "/location" },
+    { title: t("navigation.residences"), href: "/residences" },
     { title: t("navigation.citysPark"), href: "/citys-park" },
     { title: t("navigation.citysMembersClub"), href: "/citys-members-club" },
     { title: t("navigation.citysLifePrivileges"), href: "/citys-life-privileges" },
+    { title: t("navigation.citysPsm"), href: "/citys-psm" },
     { title: t("navigation.citysIstanbul"), href: "/citys-istanbul-avm" },
+    { title: t("navigation.citysTimes"), href: "/citys-times" },
   ]
 
   useEffect(() => {
@@ -85,7 +88,7 @@ export function Header() {
             className="hidden bt:block"
             isOpen={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
-            strokeWidth="1"
+            strokeWidth="2"
             color="#fff"
             transition={{ type: "spring", stiffness: 260, damping: 40 }}
             width="50"
@@ -95,14 +98,19 @@ export function Header() {
             className="block bt:hidden"
             isOpen={menuOpen}
             onClick={() => setMenuOpen(!menuOpen)}
-            strokeWidth="1"
+            strokeWidth="2"
             color="#fff"
             transition={{ type: "spring", stiffness: 260, damping: 40 }}
             width="35"
             height="6"
           />
         </div>
-        <div className={cn(s.text, "cursor-pointer text-white font-suisse-intl")}>
+        <div
+          className={cn(
+            s.text,
+            "cursor-pointer text-white font-suisse-intl font-semibold text-sm lg:text-base xl:text-lg"
+          )}
+        >
           <span>{t("close")}</span>
           <span>{t("open")}</span>
         </div>
@@ -128,7 +136,6 @@ export function Header() {
           >
             <Logo fill={colors.white} />
           </LocalizedLink>
-
           <nav className={cn(s["nav"], "flex gap-10 items-center text-white")} role="navigation">
             <div className={"flex items-center gap-6"}>
               {/* <div className={cn(s["locale-switcher"], s["nav-item"], "cursor-pointer hidden bt:block")}>

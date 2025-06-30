@@ -76,7 +76,7 @@ export default function Page() {
             <VideoWithPlayButton
               primaryVideoUrl={mustafaTonerVideo}
               thumbnail="/img/thumbnail-toners.jpg"
-              title="İç Mimari: Doğal Olanın Sessiz Dili"
+              title="İç Mimari: Yaşam Konforu ve Kalitesi"
             />
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function Page() {
             <VideoWithPlayButton
               primaryVideoUrl={melihBulgurVideo}
               thumbnail="/img/thumbnail-melih-bulgur.jpg"
-              title="Statik: Zeminden Başlayan Güven"
+              title="Statik: Huzur Mühendisliği"
             />
           </div>
         </div>

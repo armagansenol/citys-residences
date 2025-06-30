@@ -176,7 +176,7 @@ export function ModalContactForm() {
   return (
     <>
       <div
-        className={cn(s.bg, "fixed top-0 left-0 w-full h-full blur-bg opacity-0 hidden bt:block", {
+        className={cn(s.bg, "fixed top-0 left-0 w-full h-full blur-bg opacity-0 hidden lg:block", {
           "pointer-events-none": !open,
         })}
         ref={bgRef}
@@ -188,7 +188,7 @@ export function ModalContactForm() {
             <button
               className={cn(
                 s.close,
-                "absolute top-2 bt:top-6 -left-2 bt:-left-6 w-10 h-10 z-10 -translate-x-full bg-white rounded-full p-2 text-bricky-brick",
+                "absolute top-2 lg:top-6 -left-2 lg:-left-6 w-10 h-10 z-10 -translate-x-full bg-white rounded-full p-2 text-bricky-brick",
                 "opacity-0 transition-opacity duration-700 ease-in-out",
                 {
                   "opacity-100": open,
@@ -202,27 +202,29 @@ export function ModalContactForm() {
             <div
               className={cn(
                 "absolute top-1/2 left-0 bottom-0 -translate-x-full -translate-y-1/2",
-                "h-72 w-14",
-                "font-suisse-intl font-normal text-white text-lg bd:text-4xl blur-bg-bricky-brick-light",
+                "h-64 w-12",
+                "font-suisse-intl font-normal text-white text-lg xl:text-2xl blur-bg-bricky-brick-light",
                 "rounded-bl-2xl rounded-tl-2xl",
                 "inline-flex items-center justify-center",
                 "cursor-pointer"
               )}
               onClick={() => setOpen((prev) => !prev)}
             >
-              <span className="block bd:-rotate-90 whitespace-nowrap pointer-events-none">{commonT("inquiry")}</span>
+              <span className="block xl:-rotate-90 whitespace-nowrap pointer-events-none">{commonT("inquiry")}</span>
             </div>
-            <ScrollableBox className="h-full">
-              <div className="px-4 bt:px-8 py-14 bt:py-8 space-y-8">
-                <h2 className="text-neutral-900 text-base bt:text-sm font-normal font-suisse-intl text-left bt:text-center bd:text-left leading-normal">
-                  {t.rich("description", {
-                    br: () => <br className="hidden bt:block" />,
-                  })}
-                </h2>
-                <ContactForm translations={formTranslations} />
-              </div>
-            </ScrollableBox>
-            {/* <div className="hidden bd:block col-span-1">
+            <div className="h-full flex flex-col justify-center">
+              <ScrollableBox className="flex flex-grow-0">
+                <div className="px-4 lg:px-8 py-14 lg:py-8 space-y-8">
+                  <h2 className="text-neutral-900 text-base lg:text-sm font-normal font-suisse-intl text-left lg:text-center xl:text-left leading-normal">
+                    {t.rich("description", {
+                      br: () => <br className="hidden lg:block" />,
+                    })}
+                  </h2>
+                  <ContactForm translations={formTranslations} />
+                </div>
+              </ScrollableBox>
+            </div>
+            {/* <div className="hidden xl:block col-span-1">
                   <Video
                     primaryVideoUrl={mainVideoDesktop}
                     autoPlay

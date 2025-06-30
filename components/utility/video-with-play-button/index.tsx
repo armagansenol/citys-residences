@@ -58,7 +58,7 @@ export function VideoWithPlayButton({
           <button
             type="button"
             className={cn(
-              "w-10 h-10 border-2 border-white rounded-full flex items-center justify-center transition-transform duration-300 ease-in-out p-2.5",
+              "w-20 h-20 border-2 border-white rounded-full flex items-center justify-center transition-transform duration-300 ease-in-out p-6",
               "group-hover:scale-125"
             )}
           >

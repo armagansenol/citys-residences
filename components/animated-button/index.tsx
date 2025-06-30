@@ -2,8 +2,8 @@
 
 import s from "./animated-button.module.css"
 
+import { cn } from "@/lib/utils"
 import { colors } from "@/styles/config.mjs"
-import cn from "clsx"
 import { ArrowRight } from "lucide-react"
 import { MotionProps, motion } from "motion/react"
 import { useState } from "react"
@@ -13,14 +13,14 @@ interface AnimatedButtonProps {
   size?: "sm" | "md" | "lg" | "fit-content"
   text: string
   theme?: "primary" | "secondary" | "tertiary" | "transparent"
-  fontFamily?: "montserrat" | "halenoir"
+  fontFamily?: "font-halenoir" | "font-suisse-intl"
 }
 
 export function AnimatedButton({
   size = "md",
   text = "Button Text",
   theme = "primary",
-  fontFamily = "montserrat",
+  fontFamily = "font-suisse-intl",
 }: AnimatedButtonProps) {
   const [isOn, setIsOn] = useState(false)
   const toggleSwitch = () => setIsOn(!isOn)
@@ -73,7 +73,7 @@ export function AnimatedButton({
         s.button,
         themes[theme].bgColorClassName,
         themes[theme].borderColorClassName,
-        fontFamily === "montserrat" ? "font-suisse-intl" : "font-suisse-intl",
+        fontFamily,
         "relative flex items-center cursor-pointer rounded-lg overflow-hidden",
         {
           [s.sm]: size === "sm",

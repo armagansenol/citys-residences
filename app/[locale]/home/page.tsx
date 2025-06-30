@@ -41,25 +41,25 @@ export default function Home() {
           <Video primaryVideoUrl={mainVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
         </ScaleOut>
       </section>
-      <section className="bg-white py-0 bt:py-12 z-20 relative">
-        <div className=" mx-auto py-12 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-0 bt:px-10 bd:px-16">
+      <section className="bg-white py-0 lg:py-12 z-20 relative">
+        <div className=" mx-auto py-12 lg:py-28 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
           <div className="w-48 h-48 lg:w-64 lg:h-64 mx-auto mb-10 lg:mb-20">
             <Logo fill={colors["bricky-brick"]} />
           </div>
           <div className="flex flex-col items-center gap-4 lg:gap-8">
-            <article className="relative w-screen h-10 lg:h-20 xl:h-24">
-              <FadeInOnScroll>
-                <Img src="/img/yasama.svg" alt="Sanatı" fill className="object-contain" sizes="100vw" />
-              </FadeInOnScroll>
+            <article className="font-montserrat text-bricky-brick text-4xl lg:text-6xl font-semibold leading-tight lg:leading-tight tracking-wide lg:tracking-widest text-center">
+              <GsapSplitText splitBy="chars" stagger={0.05}>
+                {t("section1.title1")}
+              </GsapSplitText>
               <span className="sr-only">{t("section1.title1")}</span>
             </article>
-            <article className="relative w-screen h-20 lg:h-44 xl:h-64">
+            <article className="relative w-screen h-24 lg:h-44 xl:h-64">
               <FadeInOnScroll>
                 <Img src="/img/sanati.png" alt="Sanatı" fill className="object-contain" sizes="100vw" />
               </FadeInOnScroll>
               <span className="sr-only">{t("section1.title2")}</span>
             </article>
-            <article className="font-montserrat text-bricky-brick text-md bt:text-3xl font-normal tracking-wide bt:tracking-widest text-center">
+            <article className="font-montserrat text-bricky-brick text-4xl lg:text-2xl font-regular leading-relaxed tracking-wide lg:tracking-widest text-center">
               <GsapSplitText splitBy="lines" stagger={0.01}>
                 {t("section1.title3")}
               </GsapSplitText>
@@ -67,10 +67,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="bg-unbleached py-0 bt:py-12 z-20 relative">
-        <div className=" mx-auto py-12 bt:py-28 bd:pt-16 bd:pb-8 relative flex flex-col items-center px-0 bt:px-10 bd:px-16">
+      <section className="bg-unbleached py-0 lg:py-12 z-20 relative">
+        <div className=" mx-auto py-12 lg:py-28 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
           <div className="flex flex-col items-center gap-4 lg:gap-8">
-            <article className="font-montserrat text-bricky-brick text-4xl bt:text-6xl font-semibold leading-relaxed tracking-wide bt:tracking-widest text-center">
+            <article className="font-montserrat text-bricky-brick text-4xl lg:text-6xl font-semibold leading-tight lg:leading-tight tracking-wide lg:tracking-widest text-center">
               <GsapSplitText splitBy="chars" stagger={0.05}>
                 {t("section2.title1")}
               </GsapSplitText>
@@ -82,7 +82,7 @@ export default function Home() {
               </FadeInOnScroll>
               <span className="sr-only">{t("section2.title2")}</span>
             </article>
-            <article className="font-montserrat text-bricky-brick text-4xl bt:text-7xl font-semibold leading-relaxed tracking-wide bt:tracking-widest text-center">
+            <article className="font-montserrat text-bricky-brick text-4xl lg:text-7xl font-semibold leading-tight lg:leading-tight tracking-wide lg:tracking-widest text-center">
               <GsapSplitText splitBy="chars" stagger={0.05}>
                 {t("section2.title3")}
               </GsapSplitText>
@@ -90,22 +90,22 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="relative  py-8 bt:py-20 section-container">
+      <section className="relative  py-8 lg:py-20 section-container">
         <VideoSection
           primaryVideoUrl={kolajVideo}
           thumbnail="/img/thumbnail-kolaj-video.jpg"
-          title="Denge Mimarisi: Karma Yaşam Tasarımı"
+          title="Yaşam Yeniden Tasarlandı: City’s"
         />
       </section>
-      <section className=" flex flex-col-reverse xl:flex-row items-center justify-between gap-6 lg:gap-20 xl:gap-4 py-6 bt:py-24 section-container">
+      <section className=" flex flex-col-reverse xl:flex-row items-center justify-between gap-6 lg:gap-20 xl:gap-4 py-6 lg:py-24 section-container">
         <div className="flex flex-col gap-6 lg:gap-8">
-          <h2 className="font-suisse-intl font-medium text-bricky-brick text-3xl lg:text-7xl xl:text-6xl 2xl:text-7xl text-left lg:text-center xl:text-left leading-relaxed lg:leading-normal">
-            <GsapSplitText splitBy="lines" stagger={0.005}>
+          <h2 className="font-suisse-intl font-medium text-bricky-brick text-3xl lg:text-7xl xl:text-6xl 2xl:text-7xl leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight text-left lg:text-center xl:text-left">
+            <GsapSplitText splitBy="lines" stagger={0.005} duration={0.5}>
               {t("live.p1.title")}
             </GsapSplitText>
           </h2>
-          <p className="font-suisse-intl text-base font-normal lg:text-4xl xl:text-2xl lg:max-w-2xl xl:max-w-xl leading-relaxed lg:leading-normal text-left lg:text-center xl:text-left">
-            <GsapSplitText splitBy="lines" stagger={0.005}>
+          <p className="font-suisse-intl font-normal text-base lg:text-4xl xl:text-2xl leading-relaxed lg:leading-relaxed xl:leading-relaxed lg:max-w-2xl xl:max-w-xl text-left lg:text-center xl:text-left">
+            <GsapSplitText splitBy="lines" stagger={0.005} duration={0.5}>
               {t("live.p1.description")}
             </GsapSplitText>
           </p>
@@ -121,23 +121,23 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className="py-12 bt:py-24">
+      <section className="py-12 lg:py-24">
         <FullScreenSlider title={t("live.p2.title")} description={t("live.p2.description")} items={slides2} />
-        {/* <div className="w-40 h-40 mx-auto bt:hidden">
+        {/* <div className="w-40 h-40 mx-auto lg:hidden">
           <Logo fill={colors["bricky-brick"]} />
         </div> */}
       </section>
-      <section className="relative py-8 bt:py-20 section-container">
+      <section className="relative py-8 lg:py-20 section-container">
         <VideoSection
           primaryVideoUrl={muratKaderVideo}
           thumbnail="/img/thumbnail-murat-kader.jpg"
-          title="Mimari: Bir Düşünceden Doğan Yaşam"
+          title="Mimari: Yaşamın Sanata Döndüğü bir Proje Yaptık"
           className="rounded-sm overflow-hidden"
         />
       </section>
       <section>
         <FullScreenSlider title={t("live.p3.title")} description={t("live.p3.description")} items={slides3} />
-        {/* <div className="w-40 h-40 mx-auto bt:hidden">
+        {/* <div className="w-40 h-40 mx-auto lg:hidden">
           <Logo fill={colors["bricky-brick"]} />
         </div> */}
       </section>

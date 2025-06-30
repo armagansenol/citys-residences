@@ -76,21 +76,20 @@ export function Menu({ open, setOpen, items }: MenuProps) {
   )
 
   return (
-    <div className={cn(s.frame, "blur-bg-bricky-brick-light w-screen xl:w-[26vw]")} ref={ref}>
+    <div className={cn(s.frame, "blur-bg-bricky-brick-light w-screen xl:w-[20vw]")} ref={ref}>
       <nav
         className={cn(
           s.menu,
-          "absolute top-0 left-0 w-full h-full lg:px-16 flex items-center justify-center xl:justify-start"
+          "absolute top-0 left-0 w-full h-full lg:pl-16 lg:pr-6 flex items-center justify-center xl:justify-start"
         )}
       >
         <ul className="flex flex-col items-center xl:items-start gap-3 lg:gap-10 xl:gap-2 py-0 pt-20 pb-0 lg:py-12 w-full">
           {items.map(({ title, href }, i) => (
             <li
               className={cn(
-                "text-lg lg:text-3xl xl:text-2xl 2xl:text-3xl",
-                "font-suisse-intl text-white text-center xl:text-left",
+                "text-lg lg:text-3xl xl:text-2xl 2xl:text-2xl",
+                "font-suisse-intl font-normal text-white text-center xl:text-left",
                 "transition-opacity duration-300 ease-in-out",
-                "font-normal",
                 {
                   "opacity-30": hover && active !== i,
                 }
@@ -133,17 +132,13 @@ export function Menu({ open, setOpen, items }: MenuProps) {
               </div>
             </div>
           </li>
-          <li
-            className={cn(
-              "font-suisse-intl font-light text-white text-2xl lg:text-4xl xl:text-3xl text-center xl:text-left mt-4 lg:mt-0"
-            )}
-          >
+          <li className="font-suisse-intl font-light text-white text-2xl lg:text-4xl xl:text-3xl text-center xl:text-left mt-4 lg:mt-0">
             <a
               href="https://maps.app.goo.gl/2hSJUsgo2U198Kqq9"
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "font-suisse-intl font-normal text-white text-base lg:text-4xl xl:text-xl 2xl:text-2xl text-center xl:text-left xl:leading-none",
+                "font-suisse-intl font-normal text-white text-base lg:text-4xl xl:text-xl 2xl:text-xl text-center xl:text-left xl:leading-none",
                 "transition-opacity duration-300 ease-in-out",
                 "opacity-100 hover:opacity-70",
                 "flex items-center gap-2"
