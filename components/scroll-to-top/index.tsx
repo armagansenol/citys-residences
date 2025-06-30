@@ -1,11 +1,15 @@
 "use client"
 
+import { gsap } from "@/components/gsap"
+import { cn } from "@/lib/utils"
 import { useLenis } from "lenis/react"
 import { useTranslations } from "next-intl"
 
-import { gsap } from "@/components/gsap"
+interface ScrollToTopProps {
+  className?: string
+}
 
-export function ScrollToTop() {
+export function ScrollToTop({ className }: ScrollToTopProps) {
   const lenis = useLenis()
   const t = useTranslations("common")
 
@@ -25,7 +29,10 @@ export function ScrollToTop() {
   return (
     <button
       onClick={handleScrollToTop}
-      className="font-suisse-intl font-normal text-lg text-white opacity-50 hover:opacity-100 transition-opacity cursor-pointer"
+      className={cn(
+        "font-suisse-intl font-normal text-lg text-white opacity-50 hover:opacity-100 transition-opacity cursor-pointer",
+        className
+      )}
       type="button"
     >
       {t("scrollToTop")}

@@ -12,14 +12,13 @@ import { Link as LocalizedLink } from "@/components/utility/link"
 import { useVisibilityStore } from "@/lib/store/visibility"
 import { Locale, routing } from "@/i18n/routing"
 
-// Reusable style patterns
 const styles = {
   // Text size patterns
   textSizes: {
     linkText: "text-base lg:text-xs xl:text-lg",
     headingText: "text-lg lg:text-sm xl:text-lg",
     contactText: "text-base lg:text-sm xl:text-lg",
-    copyrightCredit: "text-[0.8rem] lg:text-xs xl:text-lg",
+    copyrightCredit: "text-[0.8rem] lg:text-xs xl:text-base",
     mobileAccordionLink: "text-base lg:text-xs xl:text-sm",
     mobileAccordionHeading: "text-lg lg:text-sm xl:text-base",
   },
@@ -31,7 +30,7 @@ const styles = {
   },
   // Layout patterns
   layout: {
-    sectionHeader: "border-b border-grenadier pb-2",
+    sectionHeader: "border-b border-grenadier pb-2 mb-6",
     mobileOnly: "block lg:hidden",
     desktopOnly: "hidden lg:block",
   },
@@ -93,11 +92,11 @@ export function Footer() {
   }, [observer, setAloTechVisibility, setStickyContactMenuVisibility])
 
   return (
-    <footer className="relative bg-bricky-brick text-white py-12 xl:py-14 xl:pb-8 font-suisse-intl" ref={footerRef}>
-      <div className="section-container flex flex-col">
-        <div className="flex flex-col items-stretch lg:flex-row lg:items-start">
+    <footer className="relative bg-bricky-brick text-white py-12 xl:py-28 xl:pb-12 font-suisse-intl" ref={footerRef}>
+      <div className="section-container flex flex-col gap-12 lg:gap-0">
+        <div className="flex flex-col-reverse items-stretch lg:flex-row lg:items-center gap-12 lg:gap-0">
           {/* Logo Section */}
-          <div className="w-4/12 order-2 lg:-order-none flex flex-col items-center justify-center gap-4 lg:gap-8">
+          <div className="w-full lg:w-3/12 flex flex-col items-center justify-center gap-8 lg:gap-12 mr-auto">
             <LocalizedLink href="/" className="w-[200px] lg:w-[200px] xl:w-[260px]">
               <Logo fill="var(--white)" />
             </LocalizedLink>
@@ -140,14 +139,12 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="w-8/12 flex flex-col items-stretch lg:flex-row justify-between border-b border-grenadier pb-7 lg:pb-14">
+          <div className="w-full lg:w-8/12 flex flex-col items-stretch lg:flex-row lg:border-b lg:border-grenadier pb-7 lg:pb-14">
             {/* Contact Section */}
-            <div className="order-1 lg:order-none w-3/12 py-10 lg:py-0">
-              <h5 className={cn(styles.textSizes.headingText, "font-normal mb-5", styles.layout.sectionHeader)}>
-                {t("contact")}
-              </h5>
-              <div className="flex flex-col items-stretch gap-6 mr-0 xl:mr-10">
-                <div className="space-y-2">
+            <div className="w-full lg:w-4/12 py-10 lg:py-0">
+              <h5 className={cn(styles.textSizes.headingText, styles.layout.sectionHeader)}>{t("contact")}</h5>
+              <div className="flex flex-col items-stretch gap-6 mr-0 xl:mr-10 pr-10">
+                <div className="space-y-4">
                   <span className={cn("block", styles.textSizes.contactText, "text-white whitespace-pre-line")}>
                     {t.rich("contactInfo", {
                       br: () => <br />,
@@ -192,13 +189,11 @@ export function Footer() {
               </div>
             </div>
             {/* Menu Section */}
-            <div className="w-3/12">
+            <div className="w-full lg:w-4/12">
               {/* desktop */}
               <div className={styles.layout.desktopOnly}>
-                <h5 className={cn(styles.textSizes.headingText, "font-normal mb-5", styles.layout.sectionHeader)}>
-                  {t("menu")}
-                </h5>
-                <div className="flex flex-col gap-y-2 gap-x-6 mr-0 xl:mr-12">
+                <h5 className={cn(styles.textSizes.headingText, styles.layout.sectionHeader)}>{t("menu")}</h5>
+                <div className="flex flex-col gap-y-4 gap-x-6 mr-0 xl:mr-12">
                   {footerItems.menu.map((item, i) => (
                     <LocalizedLink
                       key={i}
@@ -233,19 +228,11 @@ export function Footer() {
               </Accordion>
             </div>
             {/* Legal Section */}
-            <div className="w-3/12">
+            <div className="w-full lg:w-4/12">
               {/* desktop */}
               <div className={styles.layout.desktopOnly}>
-                <h5
-                  className={cn(
-                    styles.textSizes.mobileAccordionHeading,
-                    "font-normal mb-5",
-                    styles.layout.sectionHeader
-                  )}
-                >
-                  {t("legal")}
-                </h5>
-                <div className="space-y-2">
+                <h5 className={cn(styles.textSizes.headingText, styles.layout.sectionHeader)}>{t("legal")}</h5>
+                <div className="space-y-4">
                   {footerItems.legal.map((item, i) => (
                     <LocalizedLink
                       target="_blank"
@@ -287,10 +274,10 @@ export function Footer() {
         </div>
         {/* Copyright Section */}
         <div className="flex flex-col lg:flex-row justify-between items-center gap-5 pt-5 ">
-          <div className="w-8/12 ml-auto">
-            <div className="flex flex-col lg:flex-row justify-between gap-5">
-              <span>{t("copyright")}</span>
-              <span className={cn("flex-shrink-0", styles.textSizes.copyrightCredit)}>
+          <div className="w-full lg:w-8/12 ml-auto">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-5">
+              <span className={styles.textSizes.copyrightCredit}>{t("copyright")}</span>
+              <span className={styles.textSizes.copyrightCredit}>
                 Made by{" "}
                 <LocalizedLink
                   href="https://justdesignfx.com"
@@ -301,7 +288,7 @@ export function Footer() {
                   JUST DESIGN FX
                 </LocalizedLink>
               </span>
-              <ScrollToTop />
+              <ScrollToTop className={styles.textSizes.copyrightCredit} />
             </div>
           </div>
         </div>
