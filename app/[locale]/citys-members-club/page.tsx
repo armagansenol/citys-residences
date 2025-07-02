@@ -199,6 +199,7 @@ export default function Page() {
             </GsapSplitText>
           </h2>
         </div>
+        <AnimatedLine direction="horizontal" />
       </section>
       <section className="bg-white z-30">
         {sportsAndHealth.items.map((item, i) => (
