@@ -131,7 +131,7 @@ export default function Home() {
         <VideoSection
           primaryVideoUrl={muratKaderVideo}
           thumbnail="/img/thumbnail-murat-kader.jpg"
-          title="Mimari: Yaşamın Sanata Döndüğü bir Proje Yaptık"
+          title="Mimari: Yaşamın Sanata Döndüğü Bir Proje Yaptık"
           className="rounded-sm overflow-hidden"
         />
       </section>
