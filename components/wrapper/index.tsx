@@ -27,20 +27,25 @@ export function Wrapper({ children, theme = "light", lenis = true, className, ..
     document.documentElement.setAttribute("data-theme", theme)
   }, [pathname, theme])
 
-  useGSAP(() => {
-    const gsapGlobalFadeIn: HTMLElement[] = gsap.utils.toArray(".gsap-global-fade-in")
+  useGSAP(
+    () => {
+      const gsapGlobalFadeIn: HTMLElement[] = gsap.utils.toArray(".gsap-global-fade-in")
 
-    gsapGlobalFadeIn.forEach((element) => {
-      gsap.from(element, {
-        opacity: 0,
-        duration: 0.4,
-        scrollTrigger: {
-          trigger: element,
-          start: "center-=25% center+=25%",
-        },
+      gsapGlobalFadeIn.forEach((element) => {
+        gsap.from(element, {
+          opacity: 0,
+          duration: 0.4,
+          scrollTrigger: {
+            trigger: element,
+            start: "center-=25% center+=25%",
+          },
+        })
       })
-    })
-  })
+    },
+    {
+      dependencies: [pathname, children],
+    }
+  )
 
   return (
     <>
