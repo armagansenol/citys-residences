@@ -203,14 +203,14 @@ export default function Page() {
       </section>
       <section className="bg-white z-30">
         {sportsAndHealth.items.map((item, i) => (
-          <MembersClubItem key={i} item={item} align={i % 2 === 0 ? "ltr" : "rtl"} />
+          <MembersClubItem key={i} item={item} align={i % 2 === 0 ? "rtl" : "ltr"} />
         ))}
         <div className="h-px w-full bg-black"></div>
         {eventsAndEntertainment.items.map((item, i) => (
           <MembersClubItem key={i} item={item} align={i % 2 === 0 ? "ltr" : "rtl"} />
         ))}
         {kidsAndFamily.items.map((item, i) => (
-          <MembersClubItem key={i} item={item} align={i % 2 === 0 ? "ltr" : "rtl"} />
+          <MembersClubItem key={i} item={item} align={i % 2 === 0 ? "rtl" : "ltr"} />
         ))}
       </section>
       <LinkToPage
