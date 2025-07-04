@@ -83,7 +83,7 @@ export function Header() {
         aria-label={menuOpen ? "Close menu" : "Open menu"}
         data-ignore-click-away
       >
-        <div className={cn(s.cross, "cursor-pointer")}>
+        <div className={cn(s.cross, "cursor-pointer flex items-center")}>
           <MenuX
             className="hidden bt:block"
             isOpen={menuOpen}
@@ -106,7 +106,7 @@ export function Header() {
           />
         </div>
         <div
-          className={cn(s.text, "cursor-pointer text-white font-primary font-semibold text-sm lg:text-base xl:text-lg")}
+          className={cn(s.text, "cursor-pointer text-white font-primary font-medium text-sm lg:text-base xl:text-lg")}
         >
           <span>{t("close")}</span>
           <span>{t("open")}</span>
