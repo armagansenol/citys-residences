@@ -117,14 +117,21 @@ body {
   }
 }
 
+.section-padding {
+  @apply px-6 md:px-10 xl:px-16;
+}
+
 .section-container {
-  @apply xl:container px-6 md:px-10 xl:px-16;
+  @extend .section-padding;
+  @apply xl:container;
 }
 
 .section-container-full-left {
-  @apply px-6 md:px-10 xl:px-16 pl-0 md:pl-0 xl:pl-0;
+  @extend .section-padding;
+  @apply pl-0 md:pl-0 xl:pl-0;
 }
 
 .section-container-full-right {
-  @apply px-6 md:px-10 xl:px-16 pr-0 md:pr-0 xl:pr-0;
+  @extend .section-padding;
+  @apply pr-0 md:pr-0 xl:pr-0;
 }
