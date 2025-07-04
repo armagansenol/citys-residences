@@ -123,6 +123,11 @@ const suisseIntl = localFont({
 const aktivGrotesk = localFont({
   src: [
     {
+      path: "./fonts/aktiv-grotesk/AktivGrotesk-Hairline.woff2",
+      weight: "100",
+      style: "normal",
+    },
+    {
       path: "./fonts/aktiv-grotesk/AktivGrotesk-Thin.woff2",
       weight: "200",
       style: "normal",
@@ -140,11 +145,6 @@ const aktivGrotesk = localFont({
     {
       path: "./fonts/aktiv-grotesk/AktivGrotesk-Medium.woff2",
       weight: "500",
-      style: "normal",
-    },
-    {
-      path: "./fonts/aktiv-grotesk/AktivGrotesk-Hairline.woff2",
-      weight: "600",
       style: "normal",
     },
     {
