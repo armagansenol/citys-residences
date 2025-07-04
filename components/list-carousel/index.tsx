@@ -1,10 +1,9 @@
 "use client"
 
-import { ScrollTrigger, useGSAP } from "@/components/gsap"
 import { cn } from "@/lib/utils"
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Img } from "@/components/utility/img"
@@ -40,7 +39,6 @@ export function ListCarousel({
 }: ListCarouselProps) {
   const ref = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
-  const [isAutoplaying, setIsAutoplaying] = useState(false)
 
   const actualItemsLength = items?.length || 0
   const actualImagesLength = images?.length || 0
@@ -49,50 +47,7 @@ export function ListCarousel({
 
   const itemIndexForDisplay = actualItemsLength === 1 ? 0 : activeIndex
 
-  useEffect(() => {
-    let intervalId: NodeJS.Timeout | null = null
-
-    // Autoplay only if there's more than one slide in the effective loop
-    if (isAutoplaying && loopLength > 1) {
-      intervalId = setInterval(() => {
-        setActiveIndex((prevActiveIndex) => {
-          let nextIndex = prevActiveIndex + 1
-          if (nextIndex >= loopLength) {
-            nextIndex = 0 // Loop to the first slide
-          }
-          return nextIndex
-        })
-      }, 4000)
-    }
-
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId)
-      }
-    }
-  }, [isAutoplaying, loopLength, setActiveIndex]) // loopLength captures dependency on items & images
-
-  // ScrollTrigger for viewport-based autoplay control
-  useGSAP(
-    () => {
-      if (!items || items.length === 0) return
-
-      ScrollTrigger.create({
-        trigger: ref.current,
-        start: "top bottom",
-        end: "bottom top",
-        onEnter: () => setIsAutoplaying(true),
-        onLeave: () => setIsAutoplaying(false),
-        onEnterBack: () => setIsAutoplaying(true),
-        onLeaveBack: () => setIsAutoplaying(false),
-        // markers: true, // For debugging
-      })
-    },
-    { scope: ref, dependencies: [items, setIsAutoplaying] }
-  )
-
   const goToIndex = (targetIndex: number) => {
-    setIsAutoplaying(false)
     let newIndex = targetIndex
 
     if (loopLength > 0) {
@@ -213,8 +168,6 @@ export function ListCarousel({
           <div className="relative overflow-hidden w-full">
             {variant === "v2" && (
               <EmblaCarousel
-                autoplay={true}
-                autoplayDelay={5000}
                 slides={[...images, ...images, ...images].map((image, imageIndex) => (
                   <div key={imageIndex} className="relative h-[80vh] w-[70vw]">
                     <MaskedParallaxImage imgSrc={image.url} sizes="100vw" />

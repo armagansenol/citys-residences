@@ -99,13 +99,13 @@ export default async function Page() {
             className="w-full h-full object-cover"
           />
           <div className="absolute top-0 left-0 w-full h-full bg-black/30">
-            <div className="flex flex-col h-full py-8 bt:py-8 section-container">
-              <h1 className="max-w-lg block font-primary leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-2 bd:mb-8">
+            <div className="flex flex-col h-full py-8 md:py-8 section-container">
+              <h1 className="max-w-lg block font-primary leading-snug text-white text-2xl md:text-4xl xl:text-2xl font-medium mt-auto mb-2 lg:mb-4">
                 {/* <GsapSplitText splitBy="lines" stagger={0.5} duration={1}> */}
                 ŞEHİR HAYATI BİR ASANSÖR UZAKLIKTA
                 {/* </GsapSplitText> */}
               </h1>
-              <p className="max-w-lg block font-primary leading-snug text-white text-base bt:text-lg font-normal mb-0 bd:mb-20">
+              <p className="max-w-lg block font-primary leading-snug text-white text-base md:text-lg font-normal mb-0 lg:mb-20">
                 {/* <GsapSplitText splitBy="lines" stagger={0.5} duration={1}> */}
                 City&#39;s Residences sakinleri için alışveriş, yeme-içme ve günlük ihtiyaçlar, şehrin merkezinde ama ev
                 rahatlığında. AVM hayatı, yaşam kurgusunun doğal bir parçası.
@@ -115,15 +115,15 @@ export default async function Page() {
           </div>
         </ScaleOut>
       </section>
-      <section className="relative z-20 bg-white">
+      <section className="relative z-20 bg-white py-5">
         <div className="w-full h-[30vh] lg:h-[35vh] xl:h-[50vh] 2xl:h-[60vh]">
           <FadeInOnScroll duration={1.5}>
-            <IconCitysParkBgLogo fill="#000" />
+            <IconCitysParkBgLogo fill="#000000" />
           </FadeInOnScroll>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-16 bt:h-40">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-32 md:h-36">
           <FadeInOnScroll duration={0.5}>
-            <IconCitysIstanbulLogo fill="#000" />
+            <IconCitysIstanbulLogo fill="#000000" />
           </FadeInOnScroll>
         </div>
       </section>
@@ -155,7 +155,7 @@ export default async function Page() {
         />
       </section>
       <AnimatedLine direction="horizontal" />
-      {/* <section className="relative z-20 bg-white mt-10 bd:mt-20">
+      {/* <section className="relative z-20 bg-white mt-10 lg:mt-20">
         <h2 className="font-primary text-3xl font-regular text-center mb-8">ALIŞVERİŞ</h2>
         <AutoScrollCarousel options={{ dragFree: true, loop: true }}>
           {[...shoppingBrands, ...shoppingBrands].map((item, index) => (
@@ -163,7 +163,7 @@ export default async function Page() {
           ))}
         </AutoScrollCarousel>
       </section> */}
-      {/* <section className="relative z-20 bg-white mt-10 bd:mt-20">
+      {/* <section className="relative z-20 bg-white mt-10 lg:mt-20">
         <h2 className="font-primary text-3xl font-regular text-center mb-8">YEME - İÇME</h2>
         <AutoScrollCarousel options={{ dragFree: true, loop: true }}>
           {[...foodBrands, ...foodBrands].map((item, index) => (
@@ -171,7 +171,7 @@ export default async function Page() {
           ))}
         </AutoScrollCarousel>
       </section> */}
-      {/* <section className="relative z-20 bg-white mt-10 bd:mt-20 mb-20">
+      {/* <section className="relative z-20 bg-white mt-10 lg:mt-20 mb-20">
         <h2 className="font-primary text-3xl font-regular text-center mb-8">HİZMETLER</h2>
         <AutoScrollCarousel options={{ dragFree: true, loop: true }}>
           {[...services, ...services].map((item, index) => (
@@ -180,9 +180,9 @@ export default async function Page() {
         </AutoScrollCarousel>
       </section> */}
       {/* <section className="relative z-20 bg-white">
-        <div className="flex flex-col bd:grid bd:grid-cols-2 gap-4 bd:gap-8  py-0 bt:py-8 section-container">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 lg:gap-8  py-0 md:py-8 section-container">
           {slides.map((slide, index) => (
-            <div key={index} className={cn("h-[120vw] bd:h-[40vw] w-full relative")}>
+            <div key={index} className={cn("h-[120vw] lg:h-[40vw] w-full relative")}>
               <div className="relative w-full h-full rounded-2xl overflow-hidden">
                 <Img
                   src={slide.image}
@@ -192,11 +192,11 @@ export default async function Page() {
                   sizes="100vw"
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="flex flex-col h-full py-8 bt:py-8 px-4 bt:px-10 bd:px-8">
-                    <h1 className="max-w-lg block font-primary leading-snug text-white text-2xl bt:text-4xl font-medium mt-auto mb-6">
+                  <div className="flex flex-col h-full py-8 md:py-8 px-4 md:px-10 lg:px-8">
+                    <h1 className="max-w-lg block font-primary leading-snug text-white text-2xl md:text-4xl font-medium mt-auto mb-6">
                       {slide.title}
                     </h1>
-                    <p className="max-w-lg block font-primary leading-snug text-white text-base bt:text-lg font-normal">
+                    <p className="max-w-lg block font-primary leading-snug text-white text-base md:text-lg font-normal">
                       {slide.description}
                     </p>
                   </div>
