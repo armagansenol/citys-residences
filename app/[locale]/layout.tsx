@@ -66,7 +66,7 @@ const halenoir = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-suisse-intl",
+  variable: "--font-halenoir",
 })
 
 const suisseIntl = localFont({
@@ -120,6 +120,52 @@ const suisseIntl = localFont({
   variable: "--font-suisse-intl",
 })
 
+const aktivGrotesk = localFont({
+  src: [
+    {
+      path: "./fonts/aktiv-grotesk/AktivGrotesk-Thin.woff2",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "./fonts/aktiv-grotesk/AktivGrotesk-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "./fonts/aktiv-grotesk/AktivGrotesk-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/aktiv-grotesk/AktivGrotesk-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/aktiv-grotesk/AktivGrotesk-Hairline.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/aktiv-grotesk/AktivGrotesk-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/aktiv-grotesk/AktivGrotesk-XBold.woff2",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "./fonts/aktiv-grotesk/AktivGrotesk-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-aktiv-grotesk",
+})
+
 export async function generateMetadata({ params: { locale } }: { params: { locale: Locale } }) {
   const t = await getTranslations({ locale, namespace: "metadata.default" })
 
@@ -154,7 +200,9 @@ export default async function LocaleLayout({
         <StyleVariables colors={colors} themes={themes} />
         <AlotechWidget />
       </head>
-      <body className={`${halenoir.variable} ${montserrat.variable} ${suisseIntl.variable} antialiased`}>
+      <body
+        className={`${halenoir.variable} ${montserrat.variable} ${suisseIntl.variable} ${aktivGrotesk.variable} antialiased`}
+      >
         <RealViewport />
         <NextIntlClientProvider messages={messages}>
           <ReactQueryProvider>
