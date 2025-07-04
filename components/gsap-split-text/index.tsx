@@ -38,6 +38,7 @@ export function GsapSplitText(props: GsapSplitTextProps) {
         const anim = gsap.from(elements[splitBy], {
           duration,
           yPercent: 120,
+          opacity: 0,
           stagger,
           ease,
           paused: true,
