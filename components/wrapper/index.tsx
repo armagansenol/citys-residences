@@ -2,16 +2,16 @@
 
 import s from "./wrapper.module.css"
 
+import { cn } from "@/lib/utils"
 import type { themeNames } from "@/styles/config.mjs"
-import cn from "clsx"
 import { usePathname } from "next/navigation"
 import Script from "next/script"
 import { useEffect } from "react"
 
 import { Footer } from "@/components/footer"
+import { gsap, ScrollTrigger } from "@/components/gsap"
 import { Header } from "@/components/header"
 import { SmoothScroll } from "@/components/smooth-scroll"
-import { gsap } from "@/components/gsap"
 import { useGSAP } from "@gsap/react"
 
 interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -29,6 +29,8 @@ export function Wrapper({ children, theme = "light", lenis = true, className, ..
 
   useGSAP(
     () => {
+      gsap.registerPlugin(ScrollTrigger)
+
       const gsapGlobalFadeIn: HTMLElement[] = gsap.utils.toArray(".gsap-global-fade-in")
 
       gsapGlobalFadeIn.forEach((element) => {
