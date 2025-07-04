@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl"
+import { cn } from "@/lib/utils"
 
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { ScaleOut } from "@/components/animations/scale-out"
@@ -7,7 +8,7 @@ import { LinkToPage } from "@/components/link-to-page"
 import { MembersClubItem } from "@/components/members-club-item"
 import { Video } from "@/components/utility/video"
 import { Wrapper } from "@/components/wrapper"
-import { citysLifeVideo } from "@/lib/constants"
+import { citysLifeVideo, gsapGlobalClasses } from "@/lib/constants"
 import { AnimatedLine } from "@/components/animated-line"
 import { GsapSplitText } from "@/components/gsap-split-text"
 import { MaskedParallaxImage } from "@/components/masked-parallax-image"
@@ -87,11 +88,12 @@ export default function Page() {
       </section>
       <section>
         <AnimatedLine direction="horizontal" />
-        <div className="section-container py-20 flex flex-col gap-20">
+        <div className={cn("section-container py-20 flex flex-col gap-20", gsapGlobalClasses.fadeIn)}>
           <h2 className="font-suisse-intl font-normal text-black text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl max-w-2xl">
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1}>
-              Ayrıcalıklar dünyası City’s ile yeniden tasarlandı. Yaşamın tam merkezinde, size özel ayrıcalıklarla dolu
-              bir deneyim.
+              City’s Life ayrıcalıklarıyla modern yaşam yeniden şekilleniyor. Şehrin merkezinde, concierge
+              hizmetlerinden konaklamaya, ortak çalışma alanlarından sosyal imkanlara uzanan benzersiz bir deneyim sizi
+              bekliyor.
             </GsapSplitText>
           </h2>
           <div className="relative w-full h-[90vh]">
