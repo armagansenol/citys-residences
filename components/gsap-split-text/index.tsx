@@ -1,6 +1,6 @@
 "use client"
+
 import { ScrollTrigger, SplitText, gsap, useGSAP } from "@/components/gsap"
-import * as React from "react"
 import { useRef } from "react"
 
 export interface GsapSplitTextProps {
@@ -29,9 +29,13 @@ export function GsapSplitText(props: GsapSplitTextProps) {
       autoSplit: true,
       mask: splitBy,
       onSplit: (self: { lines: Element[]; words: Element[]; chars: Element[] }) => {
-        const elements = splitBy === "lines" ? self.lines : splitBy === "words" ? self.words : self.chars
+        const elements = {
+          lines: self.lines,
+          words: self.words,
+          chars: self.chars,
+        }
 
-        const anim = gsap.from(elements, {
+        const anim = gsap.from(elements[splitBy], {
           duration,
           yPercent: 120,
           stagger,
