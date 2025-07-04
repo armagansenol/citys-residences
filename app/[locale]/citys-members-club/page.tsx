@@ -177,20 +177,21 @@ export default function Page() {
           />
         </ScaleOut>
       </section>
-      <section className="relative z-20 bg-white py-5">
-        <div className="w-full h-[30vh] lg:h-[35vh] xl:h-[50vh] 2xl:h-[60vh]">
-          <FadeInOnScroll duration={1.5}>
-            <IconCitysParkBgLogo fill="#000" />
-          </FadeInOnScroll>
-        </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-32 bt:h-60">
-          <FadeInOnScroll duration={0.5}>
-            <IconCitysMembersClubLogo fill="#000000" />
-          </FadeInOnScroll>
+      <section className="relative z-30 bg-white">
+        <div className="bg-blue-shimmer py-5">
+          <div className="w-full h-[30vh] lg:h-[35vh] xl:h-[50vh] 2xl:h-[60vh]">
+            <FadeInOnScroll duration={1.5}>
+              <IconCitysParkBgLogo fill="#000" />
+            </FadeInOnScroll>
+          </div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-32 bt:h-60">
+            <FadeInOnScroll duration={0.5}>
+              <IconCitysMembersClubLogo fill="#000000" />
+            </FadeInOnScroll>
+          </div>
         </div>
       </section>
-      <section>
-        <AnimatedLine direction="horizontal" />
+      <section className="relative z-30 bg-white">
         <div className="section-container py-20">
           <h2 className="font-primary font-normal text-black text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl max-w-2xl">
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1}>

@@ -9,6 +9,7 @@ const colors = {
   grenadier: "#c24e37",
   tabasco: "#A02912",
   unbleached: "#FCFAF5",
+  "blue-shimmer": "#b6dce1",
 }
 
 const themes = {
