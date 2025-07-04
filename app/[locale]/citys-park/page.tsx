@@ -87,7 +87,7 @@ export default function Page() {
           </h2>
           <div className="relative w-full h-[90vh]">
             <MaskedParallaxImage
-              imgSrc={"/img/citys-park/01.jpg"}
+              imgSrc={"/img/citys-park-banner.jpg"}
               sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
             />
           </div>
