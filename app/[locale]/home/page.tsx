@@ -47,7 +47,7 @@ export default function Home() {
             <Logo fill={colors["bricky-brick"]} />
           </div>
           <div className="flex flex-col items-center gap-4 lg:gap-8">
-            <article className="font-montserrat text-bricky-brick text-4xl lg:text-6xl font-medium leading-tight lg:leading-tight tracking-wide lg:tracking-widest text-center">
+            <article className="font-montserrat text-bricky-brick text-4xl lg:text-6xl font-semibold leading-tight lg:leading-tight tracking-wide lg:tracking-widest text-center">
               <GsapSplitText splitBy="chars" stagger={0.015} duration={1}>
                 {t("section1.title1")}
               </GsapSplitText>
@@ -68,7 +68,7 @@ export default function Home() {
       <section className="bg-unbleached py-0 lg:py-12 z-20 relative">
         <div className=" mx-auto py-12 lg:py-28 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
           <div className="flex flex-col items-center gap-4 lg:gap-8">
-            <article className="font-montserrat text-bricky-brick text-4xl lg:text-6xl font-medium leading-tight lg:leading-tight tracking-wide lg:tracking-widest text-center">
+            <article className="font-montserrat text-bricky-brick text-4xl lg:text-6xl font-semibold leading-tight lg:leading-tight tracking-wide lg:tracking-widest text-center">
               <GsapSplitText splitBy="chars" stagger={0.015} duration={1}>
                 {t("section2.title1")}
               </GsapSplitText>
@@ -78,7 +78,7 @@ export default function Home() {
               <Img src="/img/tam.png" alt="Tam" fill className="object-contain" sizes="100vw" />
               <span className="sr-only">{t("section2.title2")}</span>
             </article>
-            <article className="font-montserrat text-bricky-brick text-4xl lg:text-7xl font-medium leading-tight lg:leading-tight tracking-wide lg:tracking-widest text-center">
+            <article className="font-montserrat text-bricky-brick text-4xl lg:text-7xl font-semibold leading-tight lg:leading-tight tracking-wide lg:tracking-widest text-center">
               <GsapSplitText splitBy="chars" stagger={0.015} duration={1}>
                 {t("section2.title3")}
               </GsapSplitText>
