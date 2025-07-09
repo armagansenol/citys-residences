@@ -7,25 +7,28 @@
   --foreground: var(--white);
 
   --header-height: mobile-vw(64px);
+  --header-height-slim: mobile-vw(48px);
 
   --svh-calc: calc(var(--svh, 1vh) * 100);
   --lvh-calc: calc(var(--lvh, 1vh) * 100);
 
   @include-media ('tablet') {
     --header-height: tablet-vw(84px);
+    --header-height-slim: tablet-vw(64px);
   }
 
   @include-media ('desktop') {
     --header-height: desktop-vw(84px);
+    --header-height-slim: desktop-vw(64px);
   }
 
   --z-content: z-stack(10000);
   --z-book-button: z-stack();
   --z-contact-form-mobile: z-stack();
   --z-sticky: z-stack();
-  --z-menu: z-stack();
   --z-header: z-stack();
   --z-header-content: z-stack();
+  --z-menu: z-stack();
   --z-popup: z-stack();
   --z-modal-background: z-stack();
   --z-modal: z-stack();
@@ -33,6 +36,7 @@
   --z-radix-popper: z-stack();
   --z-preloader: z-stack();
   --z-gsap-markers: z-stack();
+  --z-sticky-menu: z-stack();
 }
 
 * {

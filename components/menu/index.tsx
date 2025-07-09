@@ -1,7 +1,5 @@
 "use client"
 
-import s from "./menu.module.css"
-
 import { cn } from "@/lib/utils"
 import { useLenis } from "lenis/react"
 import { useRef, useState } from "react"
@@ -11,6 +9,7 @@ import { gsap, useGSAP } from "@/components/gsap"
 import { IconPin, socialIcons } from "@/components/icons"
 import { Link } from "@/components/utility/link"
 import { breakpoints, colors } from "@/styles/config.mjs"
+import { X } from "lucide-react"
 
 interface MenuItem {
   title: string
@@ -76,11 +75,21 @@ export function Menu({ open, setOpen, items }: MenuProps) {
   )
 
   return (
-    <div className={cn(s.frame, "blur-bg-bricky-brick-light w-screen lg:w-[30vw] xl:w-[25vw] 2xl:w-[21vw]")} ref={ref}>
+    <div
+      className={cn(
+        "fixed top-0 left-0 bottom-0 w-screen h-screen overflow-hidden",
+        "blur-bg-bricky-brick-light w-screen lg:w-[30vw] xl:w-[25vw] 2xl:w-[21vw] z-[var(--z-menu)]"
+      )}
+      style={{ clipPath: "inset(0% 10% 100%)" }}
+      ref={ref}
+    >
+      <button className="absolute top-6 left-14 z-50" onClick={() => setOpen(false)} type="button">
+        <X className="text-white h-12 w-12" />
+      </button>
       <nav
         className={cn(
-          s.menu,
-          "absolute top-0 left-0 w-full h-full lg:pl-12 xl:pl-16 lg:pr-6 flex items-center justify-center lg:justify-start"
+          "absolute top-0 left-0 w-full h-full lg:pl-12 xl:pl-16 lg:pr-6",
+          "flex items-center justify-center lg:justify-start"
         )}
       >
         <ul className="flex flex-col items-center lg:items-start gap-3 lg:gap-2 xl:gap-0 2xl:gap-2 py-0 pt-20 pb-0 lg:py-12 w-full">

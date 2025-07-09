@@ -154,3 +154,28 @@ export const citysIstanbulAvmVideo =
 export const gsapGlobalClasses = {
   fadeIn: "gsap-global-fade-in",
 }
+
+export const sections = {
+  home: {
+    section1: {
+      label: "Section 1",
+      id: "section1",
+    },
+    section2: {
+      label: "Section 2",
+      id: "section2",
+    },
+    section3: {
+      label: "Section 3",
+      id: "section3",
+    },
+    section4: {
+      label: "Section 4",
+      id: "section4",
+    },
+    section5: {
+      label: "Section 5",
+      id: "section5",
+    },
+  },
+}
