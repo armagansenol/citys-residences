@@ -16,7 +16,7 @@
     width: tablet-vw(50px);
   }
   @include-media ('desktop') {
-    height: desktop-vw(50px);
-    width: desktop-vw(50px);
+    height: desktop-vw(40px);
+    width: desktop-vw(40px);
   }
 }

@@ -14,7 +14,7 @@ export interface FullScreenSliderProps {
 
 export function FullScreenSlider({ title, description, items }: FullScreenSliderProps) {
   return (
-    <div className="relative flex flex-col bt:flex-row bt:overflow-hidden gap-6 z-[100]">
+    <div className="relative flex flex-col bt:flex-row gap-6 z-[100]">
       <div className="w-screen relative">
         <EmblaCarousel autoplay={true} autoplayDelay={5000} slides={items} options={{ duration: 35, loop: true }} />
       </div>

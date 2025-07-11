@@ -1,10 +1,10 @@
 .embla-buttons {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
+  bottom: 0;
+  left: 0;
+  transform: translate(desktop-vw(20px), calc(100% + desktop-vw(10px)));
   display: flex;
+  gap: desktop-vw(6px);
   justify-content: space-between;
   z-index: 200;
 }
@@ -25,13 +25,11 @@
   min-width: 0;
   padding-left: var(--slide-spacing);
 }
-
 /* Parallax styles */
 .embla-parallax {
   height: 100%;
   overflow: hidden;
 }
-
 .embla-parallax-layer {
   position: relative;
   width: calc(115% + (var(--slide-spacing) * 2));

@@ -2,7 +2,7 @@ import s from "./embla-carousel-buttons.module.css"
 
 import { cn } from "@/lib/utils"
 import { EmblaCarouselType } from "embla-carousel"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 import React, { ComponentPropsWithRef, useCallback, useEffect, useState } from "react"
 
 type UsePrevNextButtonsType = {
@@ -58,7 +58,7 @@ export const PrevButton: React.FC<PropType> = (props) => {
 
   return (
     <button className={cn(s["embla-button"], "cursor-pointer", className)} type="button" {...restProps}>
-      <ChevronLeft />
+      <ArrowLeft />
       {children}
     </button>
   )
@@ -69,7 +69,7 @@ export const NextButton: React.FC<PropType> = (props) => {
 
   return (
     <button className={cn(s["embla-button"], "cursor-pointer", className)} type="button" {...restProps}>
-      <ChevronRight />
+      <ArrowRight />
       {children}
     </button>
   )

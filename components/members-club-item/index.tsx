@@ -54,7 +54,7 @@ export function MembersClubItem({ item, align = "ltr", className = "" }: Members
           </p>
         </div>
         <AnimatedLine direction="vertical" />
-        <div className="flex flex-col w-9/12 relative flex-1 overflow-hidden">
+        <div className="w-9/12 relative">
           {item.url.length > 1 ? (
             <EmblaCarousel
               autoplay={true}
