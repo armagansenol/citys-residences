@@ -78,7 +78,7 @@ export default function Page() {
       <section className="relative z-20 bg-white">
         <LogoSection foregroundLogo={<IconCitysLifeLogo fill="#000000" />} foregroundDuration={0.5} />
         <div className="section-container py-20 flex flex-col items-center gap-20">
-          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-2xl 2xl:text-3xl xl:max-w-3xl 2xl:max-w-5xl text-center">
+          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-3xl xl:leading-normal 2xl:text-[40px] 2xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1.5}>
               City’s Life ayrıcalıklarıyla modern yaşam yeniden şekilleniyor. <br /> Şehrin merkezinde, concierge
               hizmetlerinden konaklamaya, ortak çalışma alanlarından sosyal imkanlara uzanan benzersiz bir deneyim sizi
