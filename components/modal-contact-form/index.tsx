@@ -196,7 +196,7 @@ export function ModalContactForm() {
         onClick={() => setOpen(false)}
       ></div>
       <div className={cn(s.form)}>
-        <div className={cn("relative box bg-white h-full w-0")} onClick={(e) => e.stopPropagation()} ref={formRef}>
+        <div className={cn("relative box bg-brilliance h-full w-0")} onClick={(e) => e.stopPropagation()} ref={formRef}>
           <div className="absolute top-0 left-0 w-[700px] h-full flex right-0">
             <button
               className={cn(

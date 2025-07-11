@@ -10,6 +10,7 @@ const colors = {
   tabasco: "#A02912",
   unbleached: "#FCFAF5",
   "blue-shimmer": "#b6dce1",
+  brilliance: "#fdfdfd",
 }
 
 const themes = {
