@@ -75,7 +75,7 @@ export default function Home() {
         </div>
       </section>
       <section className="bg-unbleached py-0 lg:py-12 z-20 relative">
-        <div className=" mx-auto py-12 lg:py-28 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
+        <div className="mx-auto py-12 lg:py-28 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
           <div className="flex flex-col items-center gap-4 lg:gap-8">
             <article className="font-montserrat text-bricky-brick text-4xl lg:text-6xl font-semibold leading-tight lg:leading-tight tracking-wide lg:tracking-widest text-center">
               <GsapSplitText splitBy="chars" stagger={0.02} duration={1.5}>
@@ -96,10 +96,14 @@ export default function Home() {
         </div>
       </section>
       <section
-        className={cn("relative py-8 lg:py-20 section-container", gsapGlobalClasses.fadeIn)}
+        className={cn(
+          "relative py-8 lg:py-20 section-container",
+          "before:absolute before:top-0 before:left-0 before:w-full before:h-1/2 before:bg-unbleached"
+        )}
         id={sections.home.section1.id}
       >
         <VideoSection
+          className={gsapGlobalClasses.fadeIn}
           primaryVideoUrl={kolajVideo}
           thumbnail="/img/thumbnail-kolaj-video.jpg"
           title="Yaşam Yeniden Tasarlandı: City’s."
@@ -107,7 +111,7 @@ export default function Home() {
       </section>
       <section className={cn(gsapGlobalClasses.fadeIn)} id={sections.home.section2.id}>
         <AnimatedLine direction="horizontal" />
-        <div className={cn("flex gap-8 h-[45vw] py-8 section-container")}>
+        <div className="flex gap-8 h-[45vw] py-8 section-container">
           <div className="flex flex-col items-center justify-center w-6/12 mb-auto mt-20">
             <h2 className="font-primary font-bold text-bricky-brick text-3xl lg:text-7xl xl:text-6xl 2xl:text-7xl leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight text-left lg:text-center xl:text-left mb-8">
               <GsapSplitText splitBy="lines" stagger={0.005} duration={0.5}>
