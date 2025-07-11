@@ -277,24 +277,33 @@ export function Footer() {
           </div>
         </div>
         {/* Copyright Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-5 pt-5 border-t border-grenadier">
-          <div className="w-full lg:w-3/12 flex justify-center">
-            <span className={styles.textSizes.copyrightCredit}>
-              Made by{" "}
-              <LocalizedLink
-                href="https://justdesignfx.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline"
-              >
-                JUST DESIGN FX
-              </LocalizedLink>
+        <div className="border-t border-grenadier pt-5">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-5 relative">
+            <span
+              className={cn(
+                styles.textSizes.copyrightCredit,
+                "block absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 text-center"
+              )}
+            >
+              {t("copyright")}
             </span>
-          </div>
-          <div className="w-full lg:w-8/12">
-            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-5">
-              <span className={styles.textSizes.copyrightCredit}>{t("copyright")}</span>
-              <ScrollToTop className={styles.textSizes.copyrightCredit} />
+            <div className="w-full lg:w-3/12 flex justify-center">
+              <span className={styles.textSizes.copyrightCredit}>
+                Made by{" "}
+                <LocalizedLink
+                  href="https://justdesignfx.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  JUST DESIGN FX
+                </LocalizedLink>
+              </span>
+            </div>
+            <div className="w-full lg:w-8/12">
+              <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-5">
+                <ScrollToTop className={cn(styles.textSizes.copyrightCredit, "ml-auto")} />
+              </div>
             </div>
           </div>
         </div>
