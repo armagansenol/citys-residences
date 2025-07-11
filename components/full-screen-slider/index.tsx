@@ -21,7 +21,7 @@ export function FullScreenSlider({ title, description, items }: FullScreenSlider
       <h2
         className={cn(
           s.title,
-          "text-bricky-brick lg:text-white text-3xl lg:text-7xl xl:text-7xl font-primary font-medium leading-tight lg:leading-none text-left lg:text-center z-50 section-container whitespace-nowrap"
+          "text-bricky-brick lg:text-white text-3xl lg:text-7xl xl:text-7xl font-primary font-bold leading-tight lg:leading-none text-left lg:text-center z-50 section-container whitespace-nowrap"
         )}
       >
         {title}
