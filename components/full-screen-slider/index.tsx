@@ -29,7 +29,7 @@ export function FullScreenSlider({ title, description, items }: FullScreenSlider
       <p
         className={cn(
           s.description,
-          "font-primary text-black lg:text-white text-base font-normal leading-relaxed",
+          "font-primary text-black lg:text-white text-2xl font-semibold leading-relaxed",
           "w-full lg:w-6/12 xl:w-[27vw] px-6 lg:px-4 lg:py-4 rounded-xl"
         )}
       >

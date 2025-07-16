@@ -139,3 +139,7 @@ body {
   @extend .section-padding;
   @apply pr-0 md:pr-0 xl:pr-0;
 }
+
+.title-shadow {
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}

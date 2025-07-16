@@ -29,17 +29,17 @@
     bottom: tablet-vw(50px);
     left: tablet-vw(40px);
 
-    background: hsla(10, 66%, 43%, 0.6);
-    backdrop-filter: blur(70px);
-    mask-image: hsla(10, 66%, 43%, 0.6);
+    background: hsla(10, 66%, 43%, 0.2);
+    backdrop-filter: blur(10px);
+    mask-image: hsla(10, 66%, 43%, 0.2);
   }
   @include-media ("desktop") {
-    bottom: desktop-vw(100px);
-    left: desktop-vw(80px);
+    bottom: desktop-vw(40px);
+    left: desktop-vw(40px);
     position: absolute;
 
-    background: hsla(10, 66%, 43%, 0.6);
-    backdrop-filter: blur(70px);
-    mask-image: hsla(10, 66%, 43%, 0.6);
+    background: hsla(10, 66%, 43%, 0.2);
+    backdrop-filter: blur(10px);
+    mask-image: hsla(10, 66%, 43%, 0.2);
   }
 }
