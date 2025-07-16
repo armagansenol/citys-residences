@@ -5,9 +5,11 @@ import { LinkToPage } from "@/components/link-to-page"
 import { LogoSection } from "@/components/logo-section"
 import { MembersClubItem } from "@/components/members-club-item"
 import { SectionsMenuInitializer } from "@/components/sections-menu-initializer"
+import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { Wrapper } from "@/components/wrapper"
-import { membersClubVideo, sections } from "@/lib/constants"
+import { gsapGlobalClasses, membersClubVideo, sections } from "@/lib/constants"
+import { cn } from "@/lib/utils"
 
 export default function Page() {
   const items = [
@@ -163,12 +165,15 @@ export default function Page() {
           />
         </ScaleOut>
       </section>
-      <section className="relative z-20 bg-blue-shimmer">
+      <section className="relative z-20 bg-minor-blue">
         <LogoSection foregroundLogo={<IconCitysMembersClubLogo fill="#000000" />} foregroundDuration={0.5} />
-        <div className="section-container pb-24">
-          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-3xl xl:leading-normal 2xl:text-[40px] 2xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
+        <div className="flex flex-col items-center justify-center pb-24">
+          <div className={cn("relative w-[35vw] h-[35vw] mb-12", gsapGlobalClasses.fadeIn)}>
+            <Img src="/img/members-cat.png" alt="City's Members Club" fill className="object-contain" />
+          </div>
+          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-3xl 2xl:text-5xl xl:leading-normal 2xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1}>
-              Yaşam yeniden tasarlandı. <br /> Hayatın tam merkezinde. <br /> Citys&apos;e özel ayrıcalıklarla.
+              Yaşam yeniden tasarlandı: CITY’S
             </GsapSplitText>
           </h2>
         </div>

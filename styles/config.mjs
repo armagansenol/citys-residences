@@ -11,6 +11,7 @@ const colors = {
   unbleached: "#FCFAF5",
   "blue-shimmer": "#b6dce1",
   brilliance: "#fdfdfd",
+  "minor-blue": "#b8e0e7",
 }
 
 const themes = {
