@@ -24,7 +24,7 @@ export function MembersClubItem({ item, align = "ltr", className = "" }: Members
   const ref = useRef<HTMLDivElement>(null)
 
   return (
-    <div className={cn("gsap-global-fade-in py-8", className)} ref={ref}>
+    <div className={cn("gsap-global-fade-in", className)} ref={ref}>
       <div
         className={cn(
           "flex items-stretch gap-8 py-8",
@@ -37,17 +37,17 @@ export function MembersClubItem({ item, align = "ltr", className = "" }: Members
         )}
       >
         <div className="flex flex-col items-start justify-center w-3/12 pr-6">
-          <h3 className="font-primary font-medium text-bricky-brick text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl mb-4">
+          <h3 className="font-primary font-bold text-bricky-brick text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl mb-4">
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1}>
               {item.title}
             </GsapSplitText>
           </h3>
-          <p className="font-primary font-bold text-base lg:text-lg xl:text-lg 2xl:text-xl text-black">
+          <p className="font-primary font-bold text-base lg:text-lg xl:text-lg 2xl:text-2xl text-black">
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1}>
               {item.subtitle}
             </GsapSplitText>
           </p>
-          <p className="font-primary font-normal text-base lg:text-lg xl:text-lg 2xl:text-xl text-black">
+          <p className="font-primary font-normal text-base lg:text-lg xl:text-lg 2xl:text-2xl text-black">
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1}>
               {item.description}
             </GsapSplitText>

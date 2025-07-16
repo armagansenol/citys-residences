@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils"
 import { useTranslations } from "next-intl"
 
 import { ScaleOut } from "@/components/animations/scale-out"
@@ -6,13 +5,12 @@ import { GsapSplitText } from "@/components/gsap-split-text"
 import { IconCitysLifeLogo } from "@/components/icons"
 import { LinkToPage } from "@/components/link-to-page"
 import { LogoSection } from "@/components/logo-section"
-import { MaskedParallaxImage } from "@/components/masked-parallax-image"
 import { MembersClubItem } from "@/components/members-club-item"
+import { SectionsMenuInitializer } from "@/components/sections-menu-initializer"
 import { Video } from "@/components/utility/video"
 import { Wrapper } from "@/components/wrapper"
-import { citysLifeVideo, gsapGlobalClasses, sections } from "@/lib/constants"
-import { breakpoints } from "@/styles/config.mjs"
-import { SectionsMenuInitializer } from "@/components/sections-menu-initializer"
+import { citysLifeVideo, sections } from "@/lib/constants"
+import { AnimatedLine } from "@/components/animated-line"
 
 export default function Page() {
   const t = useTranslations("citys-life")
@@ -77,23 +75,22 @@ export default function Page() {
       </section>
       <section className="relative z-20 bg-white">
         <LogoSection foregroundLogo={<IconCitysLifeLogo fill="#000000" />} foregroundDuration={0.5} />
-        <div className="section-container py-20 flex flex-col items-center gap-20">
-          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-3xl xl:leading-normal 2xl:text-[40px] 2xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
+        <div className="section-container pt-16 pb-40 flex flex-col items-center gap-20">
+          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-5xl 2xl:text-5xl xl:leading-normal  2xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1.5}>
-              City’s Life ayrıcalıklarıyla modern yaşam yeniden şekilleniyor. <br /> Şehrin merkezinde, concierge
-              hizmetlerinden konaklamaya, ortak çalışma alanlarından sosyal imkanlara uzanan benzersiz bir deneyim sizi
-              bekliyor.
+              Yaşam Yeniden Tasarlandı: CITY’S <br /> Artık her şey daha kolay...
             </GsapSplitText>
           </h2>
-          <div className={cn("relative w-full h-[90vh]", gsapGlobalClasses.fadeIn)}>
+          {/* <div className={cn("relative w-full h-[90vh]", gsapGlobalClasses.fadeIn)}>
             <MaskedParallaxImage
               imgSrc={"/img/citys-life/04.jpg"}
               sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
             />
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="relative z-20 bg-white">
+        <AnimatedLine direction="horizontal" />
         {items.map((item, i) => (
           <MembersClubItem
             key={i}
