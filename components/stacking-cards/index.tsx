@@ -57,14 +57,14 @@ export function StackingCards({ items }: StackingCardsProps) {
     }
   )
 
-  const handleImageClick = (itemImages: { url: string }[], index: number) => {
-    const slides = itemImages.map((image) => (
-      <div key={image.url} className="h-[90vh] w-[100vw] relative">
-        <Img src={image.url} fill sizes="100vw" alt="Residence" className="object-contain" />
-      </div>
-    ))
-    openModal(slides, index)
-  }
+  // const handleImageClick = (itemImages: { url: string }[], index: number) => {
+  //   const slides = itemImages.map((image) => (
+  //     <div key={image.url} className="h-[90vh] w-[100vw] relative">
+  //       <Img src={image.url} fill sizes="100vw" alt="Residence" className="object-contain" />
+  //     </div>
+  //   ))
+  //   openModal(slides, index)
+  // }
 
   return (
     <div className="relative w-full h-auto lg:h-[100vw] xl:h-[47vw] 2xl:h-[45vw] 3xl:h-[40vw]" ref={ref}>
