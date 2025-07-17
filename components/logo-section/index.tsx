@@ -14,7 +14,7 @@ interface LogoSectionProps {
 
 export function LogoSection({ foregroundLogo, foregroundDuration = 0.5, className = "" }: LogoSectionProps) {
   return (
-    <div className={cn("relative w-full 2xl:py-12 flex items-center justify-center", className)}>
+    <div className={cn("relative w-full xl:py-12 flex items-center justify-center", className)}>
       {/* <div className="w-full h-[30vh] lg:h-[35vh] xl:h-[50vh] 2xl:h-[60vh]">
           <FadeInOnScroll duration={backgroundDuration}>{backgroundLogo}</FadeInOnScroll>
         </div> */}

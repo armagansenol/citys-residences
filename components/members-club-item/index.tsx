@@ -8,8 +8,10 @@ import { GsapSplitText } from "@/components/gsap-split-text"
 import { MaskedParallaxImage } from "@/components/masked-parallax-image"
 import { EmblaCarousel } from "@/components/utility/embla-carousel"
 import { breakpoints } from "@/styles/config.mjs"
+import { MaskedPanImage } from "../masked-pan-image"
 
 interface MembersClubItemProps {
+  sectionId?: string
   className?: string
   item: {
     title: string
@@ -20,11 +22,11 @@ interface MembersClubItemProps {
   align?: "ltr" | "rtl"
 }
 
-export function MembersClubItem({ item, align = "ltr", className = "" }: MembersClubItemProps) {
+export function MembersClubItem({ item, sectionId, align = "ltr", className = "" }: MembersClubItemProps) {
   const ref = useRef<HTMLDivElement>(null)
 
   return (
-    <div className={cn("gsap-global-fade-in", className)} ref={ref}>
+    <div className={cn("gsap-global-fade-in", className)} ref={ref} id={sectionId}>
       <div
         className={cn(
           "flex items-stretch gap-8 py-8",
@@ -74,7 +76,11 @@ export function MembersClubItem({ item, align = "ltr", className = "" }: Members
             />
           ) : (
             <div className="relative w-full h-[45vw]">
-              <MaskedParallaxImage
+              {/* <MaskedParallaxImage
+                imgSrc={item.url[0]}
+                sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 80vw, 80vw`}
+              /> */}
+              <MaskedPanImage
                 imgSrc={item.url[0]}
                 sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 80vw, 80vw`}
               />
