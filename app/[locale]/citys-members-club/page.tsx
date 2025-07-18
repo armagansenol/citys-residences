@@ -290,7 +290,7 @@ export default function Page() {
 
   return (
     <Wrapper>
-      <SectionsMenuInitializer sections={Object.values(sections.citysMembersClub)} />
+      <SectionsMenuInitializer sections={Object.values([])} />
       <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
         <ScaleOut>
           <Video
