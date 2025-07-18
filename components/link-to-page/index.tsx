@@ -18,10 +18,10 @@ export function LinkToPage(props: LinkToPageProps) {
     <div className="container flex items-center justify-between gap-6 bd:gap-2 py-12 bt:py-20 px-4 bt:px-16">
       {props.previous && (
         <LocalizedLink
-          className="flex items-center gap-2 text-bricky-brick font-primary font-medium text-base xl:text-xl 2xl:text-3xl"
+          className="flex items-center gap-2 text-bricky-brick font-primary font-semibold text-base xl:text-3xl 2xl:text-4xl"
           href={props.previous.href}
         >
-          <ArrowLeftIcon className="w-6 h-6" strokeWidth={3} />
+          <ArrowLeftIcon className="w-6 h-6 2xl:w-8 2xl:h-8" strokeWidth={3} />
           <span>{props.previous.title}</span>
         </LocalizedLink>
       )}
@@ -29,13 +29,13 @@ export function LinkToPage(props: LinkToPageProps) {
         <LocalizedLink
           className={cn(
             "flex items-center gap-2",
-            "text-bricky-brick font-primary font-medium text-base xl:text-xl 2xl:text-3xl",
+            "text-bricky-brick font-primary font-semibold text-base xl:text-3xl 2xl:text-4xl",
             !props.previous && "ml-auto"
           )}
           href={props.next.href}
         >
           <span>{props.next.title}</span>
-          <ArrowRightIcon className="w-6 h-6" strokeWidth={3} />
+          <ArrowRightIcon className="w-6 h-6 2xl:w-8 2xl:h-8" strokeWidth={3} />
         </LocalizedLink>
       )}
     </div>
