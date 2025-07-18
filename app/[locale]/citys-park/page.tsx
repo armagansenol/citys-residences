@@ -83,10 +83,14 @@ export default function Page() {
       <section className="relative z-20 bg-white py-5">
         <LogoSection foregroundLogo={<IconCitysParkLogo fill="#5D7261" />} foregroundDuration={0.5} />
         <div className="section-container py-20 flex flex-col items-center gap-20">
-          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-3xl 2xl:text-5xl xl:leading-normal 2xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
+          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-3xl 2xl:text-6xl xl:leading-normal 2xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1.5}>
-              Şehrin ortasında, sizi yavaşlatan ve <br /> merkeze alan benzersiz bir deneyim. <br /> Yaşam Yeniden
-              Tasarlandı: CITY&apos;S.
+              Şehrin kalbinde, <br /> sizi yavaşlatan, yaşamın en özel hali...
+            </GsapSplitText>
+          </h2>
+          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-3xl 2xl:text-5xl xl:leading-normal 2xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
+            <GsapSplitText stagger={0.002} splitBy="chars" duration={1.5}>
+              Yaşam Yeniden Tasarlandı: CITY&apos;S.
             </GsapSplitText>
           </h2>
           <div className={cn("relative w-full h-[90vh]", gsapGlobalClasses.fadeIn)}>
