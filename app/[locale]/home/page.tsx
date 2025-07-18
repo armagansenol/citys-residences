@@ -83,7 +83,7 @@ export default function Home() {
             className={gsapGlobalClasses.fadeIn}
             primaryVideoUrl={kolajVideo}
             thumbnail="/img/thumbnail-kolaj-video.jpg"
-            title="Yaşam Yeniden Tasarlandı: City’s."
+            title="Yaşam Yeniden Tasarlandı : City’s."
           />
         </div>
       </section>
