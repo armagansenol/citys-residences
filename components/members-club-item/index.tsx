@@ -38,7 +38,7 @@ export function MembersClubItem({ item, sectionId, align = "ltr", className = ""
             : "section-container"
         )}
       >
-        <div className="flex flex-col items-start justify-center w-3/12 pr-6">
+        <div className="flex flex-col items-start justify-center w-4/12 pr-6">
           <h3
             className={cn(
               "font-primary font-bold text-bricky-brick text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl mb-6",
@@ -67,7 +67,7 @@ export function MembersClubItem({ item, sectionId, align = "ltr", className = ""
           />
         </div>
         <AnimatedLine direction="vertical" />
-        <div className="w-9/12 relative">
+        <div className="w-8/12 relative">
           {item.url.length > 1 ? (
             <EmblaCarousel
               autoplay={true}

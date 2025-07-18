@@ -22,7 +22,7 @@ export function MaskedPanImage({ imgSrc, sizes = "100vw" }: MaskedPanImageProps)
 
       const isBelowTablet = width < breakpoints.breakpointTablet
 
-      const distance = isBelowTablet ? 20 : 20
+      const distance = isBelowTablet ? 50 : 50
 
       const tl = gsap.timeline({ paused: true })
 
@@ -44,7 +44,7 @@ export function MaskedPanImage({ imgSrc, sizes = "100vw" }: MaskedPanImageProps)
         }
       )
 
-      tl.play().timeScale(0.2).repeat(-1)
+      tl.play().timeScale(0.1).repeat(-1)
     },
     {
       scope: ref,
@@ -53,7 +53,7 @@ export function MaskedPanImage({ imgSrc, sizes = "100vw" }: MaskedPanImageProps)
   )
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden" ref={ref}>
-      <div className="relative w-full h-full scale-110" ref={imgRef}>
+      <div className="relative h-full w-[73vw] flex-shrink-0" ref={imgRef}>
         <Img src={imgSrc} alt="Parallax Image" className="object-cover z-40" fill sizes={sizes} loading="lazy" />
       </div>
     </div>
