@@ -1,5 +1,3 @@
-import { useTranslations } from "next-intl"
-
 import { AnimatedLine } from "@/components/animated-line"
 import { ScaleOut } from "@/components/animations/scale-out"
 import { GsapSplitText } from "@/components/gsap-split-text"
@@ -13,7 +11,7 @@ import { Wrapper } from "@/components/wrapper"
 import { citysLifeVideo } from "@/lib/constants"
 
 export default function Page() {
-  const t = useTranslations("citys-life")
+  // const t = useTranslations("citys-life")
   const items = [
     {
       title: `Resepsiyon & <br /> Concierge Hizmeti`,
