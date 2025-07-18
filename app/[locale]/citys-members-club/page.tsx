@@ -10,7 +10,7 @@ import { SectionsMenuInitializer } from "@/components/sections-menu-initializer"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { Wrapper } from "@/components/wrapper"
-import { gsapGlobalClasses, membersClubVideo, sections } from "@/lib/constants"
+import { gsapGlobalClasses, membersClubVideo } from "@/lib/constants"
 
 export default function Page() {
   const items = [
