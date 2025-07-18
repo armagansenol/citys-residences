@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils"
-import { useTranslations } from "next-intl"
 
 import { AnimatedLine } from "@/components/animated-line"
 import { ScaleOut } from "@/components/animations/scale-out"
@@ -13,48 +12,62 @@ import { SectionsMenuInitializer } from "@/components/sections-menu-initializer"
 import { Video } from "@/components/utility/video"
 import { VideoSection } from "@/components/video-section"
 import { Wrapper } from "@/components/wrapper"
-import { citysParkVideo, gsapGlobalClasses, sections } from "@/lib/constants"
+import { citysParkVideo, gsapGlobalClasses } from "@/lib/constants"
 import { breakpoints } from "@/styles/config.mjs"
 
 export default function Page() {
-  const t = useTranslations("citys-park")
-
   const items = [
     {
-      title: t("items.i1.title"),
-      description: t("items.i1.text"),
+      title: `City's Lounge`,
+      description: `
+      <p>Günlük buluşmalardan özel davetlere kadar her anınıza uyum sağlayan ayrıcalıklı bir sosyal alandır.</p>
+      <p>İster doğanın içinde bir masa etrafında buluşun ister zarif bir etkinliğe ev sahipliği yapın.</p>
+      `,
       url: ["/img/citys-park/01.jpg"],
     },
     {
-      title: t("items.i6.title"),
-      description: t("items.i6.text"),
+      title: `Açıkhava <br /> Meydanları`,
+      description: `
+      <p>Birlikte olmanın bir plana ihtiyaç duymadığı, hayatın akışında paylaşılan zamanlara ayrılmış birbirinden keyifli mekanlar.</p>
+      `,
       url: ["/img/citys-park/06.jpg"],
     },
     {
-      title: t("items.i2.title"),
-      description: t("items.i2.text"),
+      title: `Açık Havuzlar`,
+      description: `
+      <p>City's Residences yaşam tasarımıyla, günün ritmine uyum sağlayan bir kaçış: <br /> Serinlik, güneş, sohbet ve huzur her an sizinle.</p>
+      `,
       url: ["/img/citys-park/02.jpg"],
     },
     {
-      title: t("items.i3.title"),
-      description: t("items.i3.text"),
+      title: `Çocuk Parkları`,
+      description: `
+      <p>Doğa, oyun ve hayal gücü bir arada; <br /> Çocukların özgürce büyüdüğü, çocukluklarını doya doya yaşadığı alanlar.</p>
+      `,
       url: ["/img/citys-park/03.jpg"],
     },
     {
-      title: t("items.i4.title"),
-      description: t("items.i4.text"),
+      title: `Yürüyüş Parkurları`,
+      description: `
+      <p>Gökyüzü kadar geniş bir hareket alanıyla dilediğinizce yürüyün veya koşun.</p>
+      <p>Günlük adımlarınızı atarken nefesinizi ve ritminizi doğaya bırakın.</p>
+
+      `,
       url: ["/img/citys-park/04.jpg"],
     },
     {
-      title: t("items.i5.title"),
-      description: t("items.i5.text"),
+      title: `Açık Spor Alanları`,
+      description: `
+      <p>Doğa ve bedeni aynı ritimde buluşturan yepyeni bir spor yaşamı tasarımı.</p>
+      <p>Dilerseniz sabah serinliğinde yoga, dilerseniz gün batımında bisiklet...</p>
+      `,
       url: ["/img/citys-park/05.jpg"],
     },
   ]
 
   return (
     <Wrapper>
-      <SectionsMenuInitializer sections={Object.values(sections.home)} />
+      <SectionsMenuInitializer sections={Object.values([])} />
       <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
         <ScaleOut>
           <Video

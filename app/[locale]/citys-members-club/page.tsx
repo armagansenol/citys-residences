@@ -22,7 +22,7 @@ export default function Page() {
         <p>Zihninizi uyandırıp bedeninizi güçlendirirken dört mevsim konforlu ve sağlıklı yaşamın ayrıcalığını doyasıya yaşayın.</p>
       `,
       url: ["/img/citys-members-club/01.jpg"],
-      sectionId: sections.citysMembersClub.indoorSwimmingPool.id,
+      // sectionId: sections.citysMembersClub.indoorSwimmingPool.id,
     },
     {
       title: "Spor & Spa <br /> Resepsiyon",
@@ -31,7 +31,7 @@ export default function Page() {
         <p>Bireysel antrenmanlardan grup derslerine kendi sınırlarını zorladığın yerdesin</p>
       `,
       url: ["/img/citys-members-club/02.jpg"],
-      sectionId: sections.citysMembersClub.macOne.subitems.training.id,
+      // sectionId: sections.citysMembersClub.macOne.subitems.training.id,
     },
     {
       title: "Soyunma Odaları",
@@ -40,7 +40,7 @@ export default function Page() {
         <p>Yüksek ergonomi, kusursuz işlev, yüksek standartlardaki soyunma odalarınız sadece geçiş noktanız değil;<br />Konforun, zerafetin ve tüm kullanıcı ihtiyaçlarınızın yeniden tanımlandığı sıra dışı bir deneyim için tasarlandı.</p>
       `,
       url: ["/img/citys-members-club/03.jpg"],
-      sectionId: sections.citysMembersClub.macOne.subitems.sauna.id,
+      // sectionId: sections.citysMembersClub.macOne.subitems.sauna.id,
     },
     {
       title: "Spor Salonu",
@@ -51,7 +51,7 @@ export default function Page() {
 
       `,
       url: ["/img/citys-members-club/04.jpg"],
-      sectionId: sections.citysMembersClub.macOne.subitems.yoga.id,
+      // sectionId: sections.citysMembersClub.macOne.subitems.yoga.id,
     },
     {
       title: "Stüdyolar",
@@ -62,7 +62,7 @@ export default function Page() {
         <p>City’s Members Club stüdyolarında her zaman kendinizi daha iyi hissedeceksiniz.</p>
       `,
       url: ["/img/citys-members-club/05.jpg"],
-      sectionId: sections.citysMembersClub.macOne.subitems.pilates.id,
+      // sectionId: sections.citysMembersClub.macOne.subitems.pilates.id,
     },
     {
       title: "Yoga Stüdyosu",
@@ -326,7 +326,6 @@ export default function Page() {
             item={item}
             align={i % 2 === 0 ? "ltr" : "rtl"}
             className={i % 2 === 0 ? "bg-white" : "bg-unbleached"}
-            sectionId={item.sectionId}
           />
         ))}
       </section>
