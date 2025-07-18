@@ -260,43 +260,45 @@ export function Footer() {
             {t("copyright")}
           </span>
           <div className="w-full lg:w-3/12 flex flex-col items-center justify-center">
-            <span className={cn(styles.textSizes.copyrightCredit)}>Bizi Takip Edin</span>
-            <div className="flex items-center justify-center gap-6 lg:gap-6 pt-2 mt-1.5 border-t border-white/40">
-              <div
-                className={cn(
-                  styles.iconSizes.social,
-                  styles.interactions.opacityHover,
-                  styles.interactions.socialIcon
-                )}
-              >
-                {socialIcons.instagram}
-              </div>
-              <div
-                className={cn(
-                  styles.iconSizes.social,
-                  styles.interactions.opacityHover,
-                  styles.interactions.socialIcon
-                )}
-              >
-                {socialIcons.facebook}
-              </div>
-              <div
-                className={cn(
-                  styles.iconSizes.social,
-                  styles.interactions.opacityHover,
-                  styles.interactions.socialIcon
-                )}
-              >
-                {socialIcons.tiktok}
-              </div>
-              <div
-                className={cn(
-                  styles.iconSizes.social,
-                  styles.interactions.opacityHover,
-                  styles.interactions.socialIcon
-                )}
-              >
-                {socialIcons.youtube}
+            <div className="flex flex-col items-start justify-center">
+              <span className={cn(styles.textSizes.copyrightCredit, "mr-auto")}>Bizi Takip Edin</span>
+              <div className="flex items-center justify-center gap-6 lg:gap-6 pt-2 mt-1.5 border-t-[3px] border-white/40">
+                <div
+                  className={cn(
+                    styles.iconSizes.social,
+                    styles.interactions.opacityHover,
+                    styles.interactions.socialIcon
+                  )}
+                >
+                  {socialIcons.instagram}
+                </div>
+                <div
+                  className={cn(
+                    styles.iconSizes.social,
+                    styles.interactions.opacityHover,
+                    styles.interactions.socialIcon
+                  )}
+                >
+                  {socialIcons.facebook}
+                </div>
+                <div
+                  className={cn(
+                    styles.iconSizes.social,
+                    styles.interactions.opacityHover,
+                    styles.interactions.socialIcon
+                  )}
+                >
+                  {socialIcons.tiktok}
+                </div>
+                <div
+                  className={cn(
+                    styles.iconSizes.social,
+                    styles.interactions.opacityHover,
+                    styles.interactions.socialIcon
+                  )}
+                >
+                  {socialIcons.youtube}
+                </div>
               </div>
             </div>
           </div>
