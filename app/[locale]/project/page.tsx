@@ -28,21 +28,23 @@ export default function Page() {
           />
         </ScaleOut>
       </section>
-      <section className="bg-white py-0 lg:py-12 z-20 section-container">
-        <div className={cn("w-48 h-48 lg:w-64 lg:h-64 mx-auto mb-10 lg:mb-20", gsapGlobalClasses.fadeIn)}>
-          <Logo fill={colors["bricky-brick"]} />
-        </div>
-        <div className="space-y-8 lg:space-y-16">
-          {Array.from({ length: 5 }, (_, i) => i + 1).map((imageNumber) => (
-            <div key={imageNumber} className={cn("relative w-full h-[55vw]", gsapGlobalClasses.fadeIn)}>
-              <Img
-                alt={`Project ${imageNumber}`}
-                src={`/img/project/${imageNumber.toString().padStart(2, "0")}.jpg`}
-                sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
-                fill
-              />
-            </div>
-          ))}
+      <section className="bg-white py-0 lg:py-12 z-20">
+        <div className="section-container">
+          <div className={cn("w-48 h-48 lg:w-64 lg:h-64 mx-auto mb-10 lg:mb-20", gsapGlobalClasses.fadeIn)}>
+            <Logo fill={colors["bricky-brick"]} />
+          </div>
+          <div className="space-y-8 lg:space-y-16">
+            {Array.from({ length: 5 }, (_, i) => i + 1).map((imageNumber) => (
+              <div key={imageNumber} className={cn("relative w-full h-[55vw]", gsapGlobalClasses.fadeIn)}>
+                <Img
+                  alt={`Project ${imageNumber}`}
+                  src={`/img/project/${imageNumber.toString().padStart(2, "0")}.jpg`}
+                  sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                  fill
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
       <AnimatedLine direction="horizontal" />
