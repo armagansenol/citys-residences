@@ -191,6 +191,10 @@
         }
     },
     "citys-park": {
+        "title1": "In the heart of the city,",
+        "subtitle1": "the most special state of life that slows you down...",
+        "title2": "Life Redesigned: CITY'S.",
+        "videoTitle": "Landscape: A Sanctuary Design",
         "items": {
             "i1": {
                 "title": "CITY'S LOUNGE",
@@ -217,6 +221,10 @@
                 "text": "Birlikte olmanın bir plana ihtiyaç duymadığı, hayatın akışında paylaşılan zamanlara mekanlar."
             }
         }
+    },
+    "citys-life-privileges": {
+        "title": "Life Redesigned: CITY'S",
+        "subtitle": "Everything is easier now..."
     },
     "common": {
         "navigation": {

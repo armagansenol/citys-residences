@@ -1,7 +1,15 @@
 /** @type {import('next').NextConfig} */
 
+import createMDX from "@next/mdx"
 import createNextIntlPlugin from "next-intl/plugin"
+
 const withNextIntl = createNextIntlPlugin()
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+})
 
 const nextConfig = {
   reactStrictMode: true,
@@ -30,4 +38,4 @@ const nextConfig = {
   },
 }
 
-export default withNextIntl(nextConfig)
+export default withNextIntl(withMDX(nextConfig))
