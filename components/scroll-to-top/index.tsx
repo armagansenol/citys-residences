@@ -32,7 +32,7 @@ export function ScrollToTop({ className }: ScrollToTopProps) {
       onClick={handleScrollToTop}
       className={cn(
         "flex items-center gap-2",
-        "font-primary text-white opacity-80 hover:opacity-100 transition-opacity cursor-pointer",
+        "font-primary font-light text-white opacity-100 hover:opacity-80 transition-opacity cursor-pointer",
         className
       )}
       type="button"

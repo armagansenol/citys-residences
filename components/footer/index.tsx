@@ -26,8 +26,8 @@ const styles = {
   },
   // Interactive states
   interactions: {
-    linkHover: "text-white/60 hover:text-white transition-colors",
-    opacityHover: "opacity-50 hover:opacity-100 transition-opacity",
+    linkHover: "text-white hover:text-white/60 transition-colors",
+    opacityHover: "opacity-100 hover:opacity-60 transition-opacity",
     socialIcon: "transition-opacity cursor-pointer",
   },
   // Layout patterns
@@ -98,7 +98,7 @@ export function Footer() {
   }, [observer, setAloTechVisibility, setStickyContactMenuVisibility])
 
   return (
-    <footer className="relative bg-bricky-brick text-white py-12 xl:py-12 xl:pb-12 font-primary" ref={footerRef}>
+    <footer className="relative bg-bricky-brick text-white py-12 xl:py-8 xl:pb-12 font-primary" ref={footerRef}>
       <div className="section-container flex flex-col gap-12 lg:gap-0">
         <div className="flex flex-col-reverse items-stretch lg:flex-row lg:items-center gap-12 lg:gap-0">
           {/* Logo Section */}
@@ -107,8 +107,8 @@ export function Footer() {
               <Logo fill={colors["white"]} />
             </LocalizedLink>
           </div>
-          <div className="w-full lg:w-8/12 flex flex-col items-stretch lg:flex-row pb-7 lg:pb-14 relative">
-            <ScrollToTop className={cn("font-thin text-3xl", "absolute top-0 right-0 z-50")} />
+          <div className="w-full lg:w-8/12 flex flex-col items-stretch lg:flex-row pb-7 lg:pb-0 relative">
+            <ScrollToTop className={cn("text-3xl", "absolute top-0 right-0 z-50")} />
             {/* Contact Section */}
             <div className="w-full lg:w-4/12 py-10 lg:py-0">
               <h5 className={cn(styles.textSizes.headingText, styles.layout.sectionHeader)}>{t("contact")}</h5>
@@ -200,7 +200,7 @@ export function Footer() {
               </Accordion>
             </div>
             {/* Legal Section */}
-            <div className="w-full lg:w-4/12 ml-24">
+            <div className="w-full lg:w-4/12 ml-24 opacity-60">
               {/* desktop */}
               <div className={styles.layout.desktopOnly}>
                 <h5 className={cn(styles.textSizes.headingText, styles.layout.sectionHeader, "opacity-0")}>
@@ -305,7 +305,7 @@ export function Footer() {
           <div className="w-full lg:w-8/12">
             <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-5">
               {/* <ScrollToTop className={cn(styles.textSizes.copyrightCredit, "ml-auto")} /> */}
-              <span className={cn(styles.textSizes.copyrightCredit, "ml-auto opacity-60")}>
+              <span className={cn(styles.textSizes.copyrightCredit, "ml-auto")}>
                 Made by{" "}
                 <LocalizedLink
                   href="https://justdesignfx.com"
