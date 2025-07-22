@@ -147,9 +147,6 @@ export function FilterableContent({ brands }: FilterableContentProps) {
                   {brand.name}
                 </h3>
                 <p className="font-suisse-intl text-xs lg:text-sm text-gray-600">{floorDisplay}</p>
-                {brand.subCategory && (
-                  <p className="font-suisse-intl text-xs text-gray-500 mt-1">{brand.subCategory}</p>
-                )}
               </div>
             </div>
           )

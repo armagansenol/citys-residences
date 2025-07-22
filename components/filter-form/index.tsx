@@ -91,7 +91,7 @@ export function FilterForm({ onFilter }: FilterFormProps) {
                     defaultValue={field.value}
                   >
                     <SelectTrigger className={defaultSelectTriggerClasses}>
-                      <SelectValue placeholder="Tüm Restoran/ar" />
+                      <SelectValue placeholder="Tüm Restoranlar" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="restoran">Restoran</SelectItem>
@@ -122,8 +122,7 @@ export function FilterForm({ onFilter }: FilterFormProps) {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="ground">Zemin Kat</SelectItem>
-                      <SelectItem value="upper">Üst Kat</SelectItem>
-                      <SelectItem value="basement">Alt Kat</SelectItem>
+                      <SelectItem value="upper">Birinci Kat</SelectItem>
                     </SelectContent>
                   </Select>
                 </FormControl>
