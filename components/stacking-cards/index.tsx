@@ -85,7 +85,7 @@ export function StackingCards({ items }: StackingCardsProps) {
               <h2 className="font-primary text-4xl lg:text-4xl xl:text-5xl font-bold text-bricky-brick">
                 {item.title}
               </h2>
-              <small className="font-primary text-sm lg:text-base xl:text-2xl font-bold text-bricky-brick max-w-lg">
+              <small className="font-primary text-sm lg:text-base xl:text-2xl font-bold text-bricky-brick">
                 {item.description}
               </small>
             </div>
