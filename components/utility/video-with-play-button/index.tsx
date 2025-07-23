@@ -75,11 +75,11 @@ export function VideoWithPlayButton({
           <button
             type="button"
             className={cn(
-              "w-48 h-48 xl:w-40 xl:h-40 2xl:w-48 2xl:h-48 border border-white rounded-full flex items-center justify-center transition-transform duration-300 ease-in-out xl:p-12 2xl:p-16",
-              "group-hover:scale-110"
+              "w-48 h-48 xl:w-40 xl:h-40 2xl:w-48 2xl:h-48 border border-white rounded-full flex items-center justify-center xl:p-12 2xl:p-16",
+              "transition-transform duration-700 ease-in-out group-hover:scale-90"
             )}
           >
-            <PlayIcon className="w-full h-full fill-white stroke-white" />
+            <PlayIcon className="w-full h-full fill-white stroke-white transition-transform duration-500 ease-in-out group-hover:scale-150" />
           </button>
         </div>
       </div>

@@ -34,27 +34,61 @@ export default function Page() {
             <Logo fill={colors["bricky-brick"]} />
           </div>
           <div className="space-y-8 lg:space-y-16">
-            {Array.from({ length: 5 }, (_, i) => i + 1).map((imageNumber) => (
-              <div key={imageNumber} className={cn("relative w-full h-[55vw]", gsapGlobalClasses.fadeIn)}>
-                <Img
-                  alt={`Project ${imageNumber}`}
-                  src={`/img/project/${imageNumber.toString().padStart(2, "0")}.jpg`}
-                  sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
-                  fill
-                />
-              </div>
-            ))}
+            <div className={cn("relative w-full h-[55vw]", gsapGlobalClasses.fadeIn)}>
+              <Img
+                alt={`Project Visual`}
+                src={`/img/project/01.jpg`}
+                sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className={cn("relative w-full h-[55vw]", gsapGlobalClasses.fadeIn)}>
+              <Img
+                alt={`Project Visual`}
+                src={`/img/project/02.jpg`}
+                sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className={cn("relative py-8 lg:py-8", gsapGlobalClasses.fadeIn)}>
+              <VideoSection
+                primaryVideoUrl={muratKaderVideo}
+                thumbnail="/img/thumbnail-murat-kader.jpg"
+                title="PROJEYİ MİMARI ANLATIYOR..."
+                className="rounded-sm overflow-hidden"
+              />
+            </div>
+            <div className={cn("relative w-full h-[55vw]", gsapGlobalClasses.fadeIn)}>
+              <Img
+                alt={`Project Visual`}
+                src={`/img/project/03.jpg`}
+                sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className={cn("relative w-full h-[55vw]", gsapGlobalClasses.fadeIn)}>
+              <Img
+                alt={`Project Visual`}
+                src={`/img/project/04.jpg`}
+                sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className={cn("relative w-full h-[55vw]", gsapGlobalClasses.fadeIn)}>
+              <Img
+                alt={`Project Visual`}
+                src={`/img/project/05.jpg`}
+                sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
-      </section>
-      <AnimatedLine direction="horizontal" />
-      <section className={cn("relative py-8 lg:py-16 section-container", gsapGlobalClasses.fadeIn)}>
-        <VideoSection
-          primaryVideoUrl={muratKaderVideo}
-          thumbnail="/img/thumbnail-murat-kader.jpg"
-          title="Mimari: Yaşamın Sanata Döndüğü Bir Proje Yaptık."
-          className="rounded-sm overflow-hidden"
-        />
       </section>
       <AnimatedLine direction="horizontal" />
       <LinkToPage previous={{ title: "Anasayfa", href: "/" }} next={{ title: "Daireler", href: "/residences" }} />
