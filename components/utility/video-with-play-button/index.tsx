@@ -31,16 +31,22 @@ export function VideoWithPlayButton({
   return (
     <div className="group relative w-full h-full flex items-center justify-center">
       <Video
-        className="w-full h-auto bt:h-full"
+        className="w-full h-auto lg:h-full"
         primaryVideoUrl={primaryVideoUrl}
         primaryVideoType={primaryVideoType}
         ref={videoRef}
         controls={isPlaying}
       />
       <div
-        className={cn("absolute top-0 left-0 w-full h-full transition-all duration-500 cursor-pointer", {
-          "opacity-0 pointer-events-none invisible": isPlaying,
-        })}
+        className={cn(
+          "absolute top-0 left-0 w-full h-full transition-all duration-500 cursor-pointer",
+          "before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-t before:from-neutral-900/70 before:to-neutral-900/40 before:z-20",
+          "before:transition-opacity before:duration-500 before:ease-in-out",
+          "group-hover:before:opacity-50",
+          {
+            "opacity-0 pointer-events-none invisible": isPlaying,
+          }
+        )}
         onClick={handlePlay}
       >
         {thumbnail && (
@@ -48,18 +54,17 @@ export function VideoWithPlayButton({
             <Img src={thumbnail} alt="Thumbnail" className="w-full h-full object-cover" fill sizes="100vw" />
           </div>
         )}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-neutral-900/70 to-neutral-900/40 z-20" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center gap-8 z-30">
+        <div className="absolute bottom-1/4 left-1/2 -translate-x-1/2 translate-y-1/3 flex flex-col items-center justify-center gap-10 z-30">
           {title && (
-            <article className="text-white font-primary text-lg bt:text-4xl font-medium lg:whitespace-nowrap min-w-52 text-center flex-shrink-0">
+            <article className="text-white font-primary text-lg lg:text-5xl font-medium lg:whitespace-nowrap min-w-52 text-center flex-shrink-0">
               {title}
             </article>
           )}
           <button
             type="button"
             className={cn(
-              "w-20 h-20 border-2 border-white rounded-full flex items-center justify-center transition-transform duration-300 ease-in-out p-6",
-              "group-hover:scale-125"
+              "w-48 h-48 border border-white rounded-full flex items-center justify-center transition-transform duration-300 ease-in-out p-16",
+              "group-hover:scale-110"
             )}
           >
             <PlayIcon className="w-full h-full fill-white stroke-white" />
