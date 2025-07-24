@@ -43,7 +43,7 @@ export function VideoWithPlayButton({
         className={cn(
           "absolute top-0 left-0 w-full h-full transition-all duration-500 cursor-pointer",
           "before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-t before:from-neutral-900/70 before:to-neutral-900/40 before:z-20",
-          "before:transition-opacity before:duration-500 before:ease-in-out",
+          "before:transition-opacity before:duration-700 before:ease-in-out",
           "group-hover:before:opacity-50",
           {
             "opacity-0 pointer-events-none invisible": isPlaying,
