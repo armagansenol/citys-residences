@@ -14,7 +14,7 @@ import { colors } from "@/styles/config.mjs"
 export default function Page() {
   const items = [
     {
-      title: "1+1 Daire",
+      title: "<span class='text-6xl'>1+1</span> Daire",
       description: "“Hayatına konforlu bir dokunuş.”",
       images: [
         {
@@ -27,7 +27,7 @@ export default function Page() {
       bg: "#fbfbfb",
     },
     {
-      title: "2+1 Daire",
+      title: "<span class='text-6xl'>2+1</span> Daire",
       description: "“Çekirdek aile yaşamına ilham veren bir düzen.”",
       images: [
         {
@@ -40,7 +40,7 @@ export default function Page() {
       bg: "#fffdfd",
     },
     {
-      title: "3+1 Daire",
+      title: "<span class='text-6xl'>3+1</span> Daire",
       description: "“Köklenen yaşamlar için ideal bir dünya.”",
       images: [
         {
@@ -53,7 +53,7 @@ export default function Page() {
       bg: "#ffffff",
     },
     {
-      title: "4+1 Daire",
+      title: "<span class='text-6xl'>4+1</span> Daire",
       description: "“Daha büyük sofralar, daha geniş alanlar.”",
       images: [
         {
@@ -66,7 +66,7 @@ export default function Page() {
       bg: "#ffffff",
     },
     {
-      title: "5+1 Daire",
+      title: "<span class='text-6xl'>5+1</span> Daire",
       description: "“Kalabalık hayatlar yaşamanın en zarif hali.”",
       images: [
         {
@@ -79,7 +79,7 @@ export default function Page() {
       bg: "#ffffff",
     },
     {
-      title: "6+1 Daire",
+      title: "<span class='text-6xl'>6+1</span> Daire",
       description: "“Büyük yaşamların sıcaklığı, konforu ve en keyifli hali.”",
       images: [
         {
@@ -157,7 +157,7 @@ export default function Page() {
           <VideoSection
             primaryVideoUrl={mustafaTonerVideo}
             thumbnail="/img/thumbnail-toners.jpg"
-            title="İÇ MİMARİ: Yaşam Konforu ve Kalitesi"
+            title="İÇ MİMARIN GÖZÜYLE..."
           />
         </div>
       </section>
