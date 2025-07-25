@@ -2,8 +2,8 @@ import { cn } from "@/lib/utils"
 import { useTranslations } from "next-intl"
 
 import { AnimatedLine } from "@/components/animated-line"
+import { HorizontalScroll } from "@/components/animations/horizontal-scroll"
 import { ScaleOut } from "@/components/animations/scale-out"
-import { FullScreenSlider } from "@/components/full-screen-slider"
 import { GsapSplitText } from "@/components/gsap-split-text"
 import { Logo } from "@/components/icons"
 import { LinkToPage } from "@/components/link-to-page"
@@ -18,11 +18,11 @@ import { colors } from "@/styles/config.mjs"
 export default function Home() {
   const t = useTranslations("home")
 
-  const createSlide = (imgSrc: string, index: number) => (
-    <div className="relative w-screen h-[70vw] lg:h-[60vw] xl:h-[105vh]" key={index}>
-      <Img src={imgSrc} alt={`Slide ${index}`} fill className="w-full h-full object-cover" sizes="100vw" />
-    </div>
-  )
+  // const createSlide = (imgSrc: string, index: number) => (
+  //   <div className="relative w-screen h-[70vw] lg:h-[60vw] xl:h-[105vh]" key={index}>
+  //     <Img src={imgSrc} alt={`Slide ${index}`} fill className="w-full h-full object-cover" sizes="100vw" />
+  //   </div>
+  // )
 
   const slideImages = {
     slides1: [1, 2, 3, 4].map((num) => `/img/slides-1/${num}.jpg`),
@@ -30,8 +30,8 @@ export default function Home() {
     slides3: [1, 2, 3, 4].map((num) => `/img/slides-3/0${num}.jpg`),
   }
 
-  const slides2 = slideImages.slides2.map((src, index) => createSlide(src, index + 1))
-  const slides3 = slideImages.slides3.map((src, index) => createSlide(src, index + 1))
+  // const slides2 = slideImages.slides2.map((src, index) => createSlide(src, index + 1))
+  // const slides3 = slideImages.slides3.map((src, index) => createSlide(src, index + 1))
 
   return (
     <Wrapper>
@@ -135,12 +135,26 @@ export default function Home() {
           />
         </div>
       </section>
-      <section className={cn("py-12 lg:py-8", gsapGlobalClasses.fadeIn)}>
+      {/* <section className={cn("py-12 lg:py-8", gsapGlobalClasses.fadeIn)}>
         <FullScreenSlider title={t("live.p2.title")} description={t("live.p2.description")} items={slides2} />
       </section>
       <AnimatedLine direction="horizontal" />
       <section className={cn("py-12 lg:py-8 mt-8", gsapGlobalClasses.fadeIn)}>
         <FullScreenSlider title={t("live.p3.title")} description={t("live.p3.description")} items={slides3} />
+      </section> */}
+      <section className="relative my-12">
+        <HorizontalScroll
+          title={t("live.p2.title")}
+          description={t("live.p2.description")}
+          items={slideImages.slides2}
+        />
+      </section>
+      <section className="relative">
+        <HorizontalScroll
+          title={t("live.p3.title")}
+          description={t("live.p3.description")}
+          items={slideImages.slides3}
+        />
       </section>
       <AnimatedLine direction="horizontal" />
       <LinkToPage next={{ title: "Daireler", href: "/residences" }} />

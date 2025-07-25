@@ -1,12 +1,13 @@
 "use client"
 
-import { ResponsiveLetterSpacing } from "@/components/responsive-letter-spacing"
 import s from "./horizontal-scroll.module.css"
 
-import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
-import cn from "clsx"
-import Image from "next/image"
+import { cn } from "@/lib/utils"
 import { useRef } from "react"
+
+import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
+import { GsapSplitText } from "@/components/gsap-split-text"
+import Image from "next/image"
 
 export function HorizontalScroll({
   title,
@@ -109,39 +110,26 @@ export function HorizontalScroll({
     }
   )
 
+  console.log("items", items)
+
   return (
     <div className="overflow-hidden" ref={ref}>
       <div className={cn(s.container)}>
         <div className={cn(s.frame)}>
-          <div
+          <h2 className="title-shadow absolute top-28 left-1/2 -translate-x-1/2 font-primary font-bold text-white text-3xl lg:text-7xl xl:text-7xl 2xl:text-7xl leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight text-left lg:text-center z-50">
+            <GsapSplitText splitBy="lines" stagger={0.005} duration={0.5}>
+              {title}
+            </GsapSplitText>
+          </h2>
+          <p
             className={cn(
-              s.title,
-              "gsap-title-c",
-              "font-lexend-giga text-white font-bold text-5xl bt:text-8xl bd:text-6xl leading-none text-center overflow-hidden py-2"
+              "absolute bottom-14 left-14",
+              "font-primary font-semibold text-white text-base lg:text-4xl xl:text-2xl leading-relaxed lg:leading-relaxed xl:leading-relaxed lg:max-w-2xl xl:max-w-lg",
+              "blur-bg-bricky-brick z-50 p-4 rounded-md"
             )}
           >
-            <div className="gsap-title hidden bd:block">
-              <ResponsiveLetterSpacing text={title} />
-            </div>
-            <div className="gsap-title block bd:hidden leading-tight">{title}</div>
-          </div>
-          <div className={cn(s.descriptionC, "gsap-description-c")}>
-            <div
-              className={cn(
-                s.description,
-                "gsap-description w-full h-full rounded-lg overflow-hidden p-4 bd:p-8 text-white flex isolate blur-bg-bricky-brick"
-              )}
-            >
-              <p
-                className={cn(
-                  s.infoText,
-                  "font-primary text-base bt:text-2xl bd:text-base text-white font-normal leading-relaxed text-center bd:text-left"
-                )}
-              >
-                {description}
-              </p>
-            </div>
-          </div>
+            {description}
+          </p>
         </div>
         {items.map((src, index) => (
           <section key={index} className={cn(s.panel, "gsap-panel", "flex items-center justify-center flex-shrink-0")}>
