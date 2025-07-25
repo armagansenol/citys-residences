@@ -8,9 +8,7 @@ import { usePathname } from "next/navigation"
 import Script from "next/script"
 import { useEffect } from "react"
 
-import { gsap, ScrollTrigger } from "@/components/gsap"
 import { SmoothScroll } from "@/components/smooth-scroll"
-import { useGSAP } from "@gsap/react"
 
 interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: (typeof themeNames)[number]
@@ -24,29 +22,6 @@ export function Wrapper({ children, theme = "light", lenis = true, className, ..
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme)
   }, [pathname, theme])
-
-  useGSAP(
-    () => {
-      gsap.registerPlugin(ScrollTrigger)
-
-      const gsapGlobalFadeIn: HTMLElement[] = gsap.utils.toArray(".gsap-global-fade-in")
-
-      gsapGlobalFadeIn.forEach((element) => {
-        gsap.from(element, {
-          opacity: 0,
-          duration: 0.4,
-          scrollTrigger: {
-            trigger: element,
-            start: "center-=25% center+=25%",
-          },
-        })
-      })
-    },
-    {
-      dependencies: [pathname, children],
-      revertOnUpdate: true,
-    }
-  )
 
   return (
     <>
