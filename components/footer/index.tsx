@@ -98,17 +98,17 @@ export function Footer() {
   }, [observer, setAloTechVisibility, setStickyContactMenuVisibility])
 
   return (
-    <footer className="relative bg-bricky-brick py-12 xl:py-10 xl:pb-12 xl:pt-0" ref={footerRef}>
+    <footer className="relative bg-bricky-brick py-12 xl:py-10 xl:pt-2" ref={footerRef}>
       <div className="section-container flex flex-col gap-12 lg:gap-0 pt-12">
         <div className="flex flex-col-reverse items-stretch lg:flex-row lg:items-center gap-12 lg:gap-0">
           {/* Logo Section */}
-          <div className="w-full lg:w-3/12 flex flex-col items-center justify-center gap-8 lg:gap-12 mr-auto">
-            <LocalizedLink href="/" className="w-[200px] lg:w-[200px] xl:w-[260px]">
+          <div className="w-full lg:w-3/12 flex flex-col items-center justify-center gap-8 lg:gap-12 mr-auto mb-16">
+            <LocalizedLink href="/" className="w-[200px] lg:w-[200px] xl:w-[280px] 2xl:w-[300px]">
               <Logo fill={colors["white"]} />
             </LocalizedLink>
           </div>
           <div className="w-full lg:w-8/12 flex flex-col items-stretch lg:flex-row pb-7 lg:pb-0 relative">
-            <ScrollToTop className={cn("text-3xl", "absolute top-0 right-0 -translate-y-3/4 z-50")} />
+            <ScrollToTop className={cn("text-3xl 3xl:text-4xl", "absolute top-0 right-0 -translate-y-3/4 z-50")} />
             {/* Contact Section */}
             <div className="w-full lg:w-4/12 py-10 lg:py-0">
               <h5 className={cn(styles.textSizes.headingText, styles.layout.sectionHeader)}>{t("contact")}</h5>
