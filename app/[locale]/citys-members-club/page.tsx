@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: { locale: string } }) {
             className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-3xl 2xl:text-5xl xl:leading-normal 2xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center"
           >
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1}>
-              Yaşam yeniden tasarlandı: CITY&apos;S
+              Yaşam Yeniden Tasarlandı: CITY&apos;S
             </GsapSplitText>
           </h2>
         </div>
