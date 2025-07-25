@@ -72,37 +72,6 @@ export function HorizontalScroll({
           }
         )
       })
-
-      const textTL = gsap.timeline({ paused: true })
-
-      textTL.from(".gsap-title", {
-        yPercent: -150,
-        ease: "expo.out",
-        duration: 1.5,
-      })
-
-      ScrollTrigger.create({
-        animation: textTL,
-        trigger: ".gsap-title-c",
-        start: "center center",
-        toggleActions: "play none none reverse",
-      })
-
-      const cardTL = gsap.timeline({ paused: true })
-
-      cardTL.from(".gsap-description", {
-        yPercent: 30,
-        opacity: 0,
-        ease: "expo.inOut",
-        duration: 1.5,
-      })
-
-      ScrollTrigger.create({
-        animation: cardTL,
-        trigger: ".gsap-description-c",
-        start: "center center",
-        toggleActions: "play none none reverse",
-      })
     },
     {
       dependencies: [items],
@@ -110,15 +79,13 @@ export function HorizontalScroll({
     }
   )
 
-  console.log("items", items)
-
   return (
     <div className="overflow-hidden" ref={ref}>
       <div className={cn(s.container)}>
         <div className={cn(s.frame)}>
-          <h2 className="title-shadow absolute top-28 left-1/2 -translate-x-1/2 font-primary font-bold text-white text-3xl lg:text-7xl xl:text-7xl 2xl:text-7xl leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight text-left lg:text-center z-50 gsap-title-c">
+          <h2 className="title-shadow absolute top-28 left-1/2 -translate-x-1/2 font-primary font-bold text-white text-3xl lg:text-7xl xl:text-7xl 2xl:text-7xl leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight text-left lg:text-center z-50 gsap-title-c whitespace-nowrap">
             <div className="gsap-title">
-              <GsapSplitText splitBy="lines" stagger={0.005} duration={0.5}>
+              <GsapSplitText splitBy="lines" stagger={0.005} duration={1}>
                 {title}
               </GsapSplitText>
             </div>
