@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server"
+
 import { AnimatedLine } from "@/components/animated-line"
 import { ScaleOut } from "@/components/animations/scale-out"
 import { GsapSplitText } from "@/components/gsap-split-text"
@@ -10,12 +12,11 @@ import { Video } from "@/components/utility/video"
 import { Wrapper } from "@/components/wrapper"
 import { citysLifeVideo } from "@/lib/constants"
 import { getCitysLifePrivilegesContent } from "@/lib/content"
-import { getTranslations } from "next-intl/server"
 
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
-  const t = await getTranslations({ locale: locale, namespace: "citys-life-privileges" })
-  const items = await getCitysLifePrivilegesContent(locale)
+  const t = await getTranslations({ locale, namespace: "citys-life-privileges" })
   const tCommon = await getTranslations({ locale, namespace: "common.navigation" })
+  const items = await getCitysLifePrivilegesContent(locale)
 
   return (
     <Wrapper>

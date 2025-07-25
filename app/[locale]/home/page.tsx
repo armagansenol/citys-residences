@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 
 import { AnimatedLine } from "@/components/animated-line"
 import { HorizontalScroll } from "@/components/animations/horizontal-scroll"
@@ -15,8 +15,9 @@ import { Wrapper } from "@/components/wrapper"
 import { gsapGlobalClasses, kolajVideo, locationVideo, mainVideo } from "@/lib/constants"
 import { colors } from "@/styles/config.mjs"
 
-export default function Home() {
-  const t = useTranslations("home")
+export default async function Page({ params: { locale } }: { params: { locale: string } }) {
+  const t = await getTranslations({ locale, namespace: "home" })
+  const tCommon = await getTranslations({ locale, namespace: "common.navigation" })
 
   // const createSlide = (imgSrc: string, index: number) => (
   //   <div className="relative w-screen h-[70vw] lg:h-[60vw] xl:h-[105vh]" key={index}>
@@ -159,7 +160,7 @@ export default function Home() {
         />
       </section>
       <AnimatedLine direction="horizontal" />
-      <LinkToPage next={{ title: "Daireler", href: "/residences" }} />
+      <LinkToPage next={{ title: tCommon("project"), href: "/project" }} />
     </Wrapper>
   )
 }
