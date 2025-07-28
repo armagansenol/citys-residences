@@ -4,13 +4,13 @@ import { Logo } from "@/components/icons"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { VideoSection } from "@/components/video-section"
-import { gsapGlobalClasses, mainVideo, muratKaderVideo, navigationConfig } from "@/lib/constants"
+import { gsapGlobalClasses, mainVideo, muratKaderVideo } from "@/lib/constants"
 import { breakpoints, colors } from "@/styles/config.mjs"
 
 export default function Page() {
   return (
     <>
-      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden" id={navigationConfig["/project"]?.id}>
+      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
         <Video
           primaryVideoUrl={mainVideo}
           autoPlay

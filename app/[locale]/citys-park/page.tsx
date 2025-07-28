@@ -8,7 +8,7 @@ import { MaskedParallaxImage } from "@/components/masked-parallax-image"
 import { MembersClubItem } from "@/components/members-club-item"
 import { Video } from "@/components/utility/video"
 import { VideoSection } from "@/components/video-section"
-import { citysParkVideo, gsapGlobalClasses, navigationConfig } from "@/lib/constants"
+import { citysParkVideo, gsapGlobalClasses } from "@/lib/constants"
 import { getCitysParkContent } from "@/lib/content"
 import { breakpoints } from "@/styles/config.mjs"
 import { getTranslations } from "next-intl/server"
@@ -21,7 +21,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
 
   return (
     <>
-      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden" id={navigationConfig["/citys-park"]?.id}>
+      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
         <Video
           primaryVideoUrl={citysParkVideo}
           autoPlay

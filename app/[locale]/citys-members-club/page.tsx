@@ -6,7 +6,7 @@ import { LogoSection } from "@/components/logo-section"
 import { MembersClubItem } from "@/components/members-club-item"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
-import { gsapGlobalClasses, membersClubVideo, navigationConfig } from "@/lib/constants"
+import { gsapGlobalClasses, membersClubVideo } from "@/lib/constants"
 import { getCitysMembersClubContent } from "@/lib/content"
 
 export default async function Page({ params }: { params: { locale: string } }) {
@@ -15,10 +15,7 @@ export default async function Page({ params }: { params: { locale: string } }) {
 
   return (
     <>
-      <section
-        className="h-svh bg-bricky-brick relative z-10 overflow-hidden"
-        id={navigationConfig["/citys-members-club"]?.id}
-      >
+      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
         <Video
           primaryVideoUrl={membersClubVideo}
           autoPlay

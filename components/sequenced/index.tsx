@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils"
 import { useRef } from "react"
 
 import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
-import { GsapSplitText } from "@/components/gsap-split-text"
 import { Img } from "@/components/utility/img"
 
 const Sequenced = () => {
@@ -55,47 +54,24 @@ const Sequenced = () => {
   )
 
   return (
-    <div className="flex flex-col relative overflow-hidden pointer-events-none">
-      <div className="relative flex flex-col items-center justify-center max-w-4xl mx-auto py-32">
-        <h2 className="font-primary font-bold text-bricky-brick text-4xl lg:text-7xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl 2xl:leading-tight 3xl:leading-tight mb-5 lg:mb-10 text-center xl:text-center">
-          <GsapSplitText splitBy="lines" stagger={0.05} duration={1}>
-            Yaşama Alan Açan Detaylar
-          </GsapSplitText>
-        </h2>
-        <p className="font-primary font-medium text-md lg:text-4xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl xl:leading-normal 3xl:leading-normal mb-4 text-center xl:text-center">
-          <GsapSplitText splitBy="lines" stagger={0.05} duration={1}>
-            Her metrekaresi ince tasarlanmış, <br /> ferah bir hayata açılan çizgiler
-          </GsapSplitText>
-        </p>
-        <p className="font-primary font-normal text-md lg:text-4xl xl:text-2xl 2xl:text-3xl 3xl:text-3xl xl:leading-normal 3xl:leading-normal text-center xl:text-center">
-          <GsapSplitText splitBy="lines" stagger={0.05} duration={1}>
-            Günlük alışkanlıklardan uzun vadeli konfora kadar her detay, yaşamın doğal akışına uyum sağlayacak şekilde
-            tasarlandı.
-          </GsapSplitText>
-        </p>
-      </div>
-      <div>
-        <div className="w-full h-screen flex items-center justify-center overflow-hidden" ref={ref}>
-          <div className="relative w-[70vw] h-[75%]">
-            {Array.from({ length: 31 }).map((_, i) => {
-              return (
-                <div
-                  className={cn("gsap-sequence-item", "absolute top-0 left-0 botom-0 right-0 h-full w-full")}
-                  key={i}
-                >
-                  <Img
-                    className="w-full h-full object-contain"
-                    // src={`/img/residences/3d/${String(i + 1).padStart(2, "0")}.png`}
-                    src={`/img/residences/3d/${i}.png`}
-                    alt="Residence 3D View"
-                    fill
-                    priority={true}
-                    sizes="80vw"
-                  />
-                </div>
-              )
-            })}
-          </div>
+    <div className="relative overflow-hidden pointer-events-none">
+      <div className="w-full h-screen flex items-center justify-center overflow-hidden" ref={ref}>
+        <div className="relative w-[70vw] h-[75%]">
+          {Array.from({ length: 31 }).map((_, i) => {
+            return (
+              <div className={cn("gsap-sequence-item", "absolute top-0 left-0 botom-0 right-0 h-full w-full")} key={i}>
+                <Img
+                  className="w-full h-full object-contain"
+                  // src={`/img/residences/3d/${String(i + 1).padStart(2, "0")}.png`}
+                  src={`/img/residences/3d/${i}.png`}
+                  alt="Residence 3D View"
+                  fill
+                  priority={true}
+                  sizes="80vw"
+                />
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>

@@ -1,7 +1,9 @@
 import { Footer } from "@/components/footer"
-import { Header } from "@/components/header"
-import { Wrapper } from "@/components/wrapper"
 import { GSAPGlobalAnimationInitializer } from "@/components/gsap-global-animation-initializer"
+import { Header } from "@/components/header"
+import { PageTitle } from "@/components/page-title"
+import { Wrapper } from "@/components/wrapper"
+import { navigationConfig } from "@/lib/constants"
 
 import CitysIstanbulAvm from "./citys-istanbul-avm/page"
 import CitysLifePrivileges from "./citys-life-privileges/page"
@@ -12,7 +14,6 @@ import Home from "./home/page"
 import Location from "./location/page"
 import Project from "./project/page"
 import Residences from "./residences/page"
-import { PageTitle } from "@/components/page-title"
 
 export default function Page({ params }: { params: { locale: string } }) {
   return (
@@ -21,21 +22,21 @@ export default function Page({ params }: { params: { locale: string } }) {
       <Wrapper>
         <GSAPGlobalAnimationInitializer />
         <Home params={params} />
-        <PageTitle title="Proje" />
+        <PageTitle title="PROJE" id={navigationConfig["/project"]?.id as string} />
         <Project />
-        <PageTitle title="Konum" />
+        <PageTitle title="KONUM" id={navigationConfig["/location"]?.id as string} />
         <Location />
-        <PageTitle title="Daireler" />
+        <PageTitle title="DAİRELER" id={navigationConfig["/residences"]?.id as string} />
         <Residences params={params} />
-        <PageTitle title="City's Park" />
+        <PageTitle title="CITY'S PARK" id={navigationConfig["/citys-park"]?.id as string} />
         <CitysPark params={params} />
-        <PageTitle title="City's Members Club" />
+        <PageTitle title="CITY'S MEMBERS CLUB" id={navigationConfig["/citys-members-club"]?.id as string} />
         <CitysMembersClub params={params} />
-        <PageTitle title="City's Life Ayrıcalıkları" />
+        <PageTitle title="CITY'S LIFE AYRICALIKLARI" id={navigationConfig["/citys-life-privileges"]?.id as string} />
         <CitysLifePrivileges params={params} />
-        <PageTitle title="City's Istanbul AVM" />
+        <PageTitle title="CITY'S ISTANBUL AVM" id={navigationConfig["/citys-istanbul-avm"]?.id as string} />
         <CitysIstanbulAvm />
-        <PageTitle title="City's Times" />
+        <PageTitle title="CITY'S TIMES" id={navigationConfig["/citys-times"]?.id as string} />
         <CitysTimes />
       </Wrapper>
       <Footer />

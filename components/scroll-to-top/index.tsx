@@ -2,9 +2,10 @@
 
 import { gsap } from "@/components/gsap"
 import { cn } from "@/lib/utils"
+import { colors } from "@/styles/config.mjs"
 import { useLenis } from "lenis/react"
-import { ArrowUpIcon } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { IconArrowLong } from "../icons"
 
 interface ScrollToTopProps {
   className?: string
@@ -38,7 +39,9 @@ export function ScrollToTop({ className }: ScrollToTopProps) {
       type="button"
     >
       {t("scrollToTop")}
-      <ArrowUpIcon className="w-6 h-6 opacity-80" />
+      <div className="w-6 h-6 -ml-2">
+        <IconArrowLong fill={colors.white} />
+      </div>
     </button>
   )
 }

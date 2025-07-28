@@ -2,7 +2,7 @@ import { GsapSplitText } from "@/components/gsap-split-text"
 import { IconCitysIstanbulLogo } from "@/components/icons"
 import { Video } from "@/components/utility/video"
 // import { getBrandsData } from "@/lib/api/queries"
-import { citysIstanbulAvmVideo, navigationConfig } from "@/lib/constants"
+import { citysIstanbulAvmVideo } from "@/lib/constants"
 import { colors } from "@/styles/config.mjs"
 import { BrandsResponse } from "@/types"
 import { FilterableContent } from "./filterable-content"
@@ -113,10 +113,7 @@ export default async function Page() {
 
   return (
     <>
-      <section
-        className="h-svh bg-bricky-brick relative z-10 overflow-hidden"
-        id={navigationConfig["/citys-istanbul-avm"]?.id}
-      >
+      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
         <Video
           primaryVideoUrl={citysIstanbulAvmVideo}
           autoPlay

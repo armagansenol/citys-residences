@@ -9,7 +9,7 @@ import { Logo } from "@/components/icons"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { VideoSection } from "@/components/video-section"
-import { gsapGlobalClasses, kolajVideo, locationVideo, mainVideo } from "@/lib/constants"
+import { gsapGlobalClasses, kolajVideo, locationVideo, mainVideo, navigationConfig } from "@/lib/constants"
 import { colors } from "@/styles/config.mjs"
 
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
@@ -33,7 +33,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
 
   return (
     <>
-      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
+      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden" id={navigationConfig["/"]?.id}>
         <ScaleOut>
           <Video
             primaryVideoUrl={mainVideo}

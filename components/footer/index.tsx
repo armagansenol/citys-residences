@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl"
 import { useEffect, useRef } from "react"
 import { useIntersection } from "react-use"
 
-import { Logo, socialIcons } from "@/components/icons"
+import { Logo } from "@/components/icons"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Link as LocalizedLink } from "@/components/utility/link"
 import { Locale, routing } from "@/i18n/routing"
@@ -102,7 +102,7 @@ export function Footer() {
       <div className="section-container flex flex-col gap-12 lg:gap-0 pt-12">
         <div className="flex flex-col-reverse items-stretch lg:flex-row lg:items-center gap-12 lg:gap-0">
           {/* Logo Section */}
-          <div className="w-full lg:w-3/12 flex flex-col items-center justify-center gap-8 lg:gap-12 mr-auto mb-16">
+          <div className="w-full lg:w-3/12 flex items-center justify-center mr-auto">
             <LocalizedLink href="/" className="w-[200px] lg:w-[200px] xl:w-[260px] 2xl:w-[300px]">
               <Logo fill={colors["white"]} />
             </LocalizedLink>
@@ -114,7 +114,7 @@ export function Footer() {
               <div className="w-full lg:w-4/12 py-10 lg:py-0">
                 <h5 className={cn(styles.textSizes.headingText, styles.layout.sectionHeader)}>{t("contact")}</h5>
                 <div className="flex flex-col items-stretch gap-6 mr-0 xl:mr-10 pr-10">
-                  <div className="space-y-3">
+                  <div className="space-y-4">
                     <span className={cn("block", styles.textSizes.contactText, "text-white whitespace-pre-line")}>
                       {t.rich("contactInfo", {
                         br: () => <br />,
@@ -132,9 +132,9 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <span className="font-bold">City’s İstanbul AVM</span> <br />
-                      <span>İçerenköy, Çayır Cd No: 1,</span>
-                      <span>34752 Ataşehir/Istanbul</span>
+                      <span className="block font-bold whitespace-nowrap">City’s İstanbul AVM</span>
+                      <span className="block whitespace-nowrap">İçerenköy, Çayır Cd No: 1,</span>
+                      <span className="block whitespace-nowrap">34752 Ataşehir/Istanbul</span>
                     </a>
                     <a
                       href="mailto:info@citysresidences.com"
@@ -254,7 +254,7 @@ export function Footer() {
           </div>
         </div>
         {/* Copyright Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-end gap-5 relative">
+        <div className="flex flex-col lg:flex-row justify-between items-end gap-5 relative mt-14">
           <span
             className={cn(
               styles.textSizes.copyrightCredit,
@@ -263,7 +263,7 @@ export function Footer() {
           >
             {t("copyright")}
           </span>
-          <div className="w-full lg:w-3/12 flex flex-col items-center justify-center">
+          {/* <div className="w-full lg:w-3/12 flex flex-col items-center justify-center">
             <div className="flex flex-col items-start justify-center">
               <span className={cn(styles.textSizes.copyrightCredit, "mr-auto")}>Bizi Takip Edin</span>
               <div className="flex items-center justify-center gap-6 lg:gap-6 pt-1 mt-1.5 border-t-[3px] border-white/40">
@@ -306,8 +306,8 @@ export function Footer() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="w-full lg:w-8/12">
+          </div> */}
+          <div className="w-full">
             <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-5">
               {/* <ScrollToTop className={cn(styles.textSizes.copyrightCredit, "ml-auto")} /> */}
               <span className={cn(styles.textSizes.copyrightCredit, "ml-auto")}>
