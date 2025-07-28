@@ -14,6 +14,7 @@ import { colors } from "@/styles/config.mjs"
 import { ScrollToTop } from "../scroll-to-top"
 import { getNavigationItems } from "@/lib/constants"
 import { useLenis } from "lenis/react"
+import { gsap } from "@/components/gsap"
 
 const styles = {
   // Text size patterns
