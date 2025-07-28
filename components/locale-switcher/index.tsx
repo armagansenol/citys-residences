@@ -29,10 +29,13 @@ export function LocaleSwitcher({ theme = "light" }: LocaleSwitcherProps) {
   return (
     <Select value={locale} onValueChange={setLocale}>
       <SelectTrigger
-        className={cn("font-primary font-medium text-sm lg:text-xl 2xl:text-xl pointer-events-none", {
-          "text-black": theme === "light",
-          "text-white": theme === "dark",
-        })}
+        className={cn(
+          "font-primary font-medium text-sm lg:text-xl 2xl:text-xl pointer-events-none [&>svg]:w-6 [&>svg]:h-6",
+          {
+            "text-black [&>svg]:text-black": theme === "light",
+            "text-white": theme === "dark",
+          }
+        )}
       >
         <SelectValue placeholder={locale.toUpperCase()} />
       </SelectTrigger>
