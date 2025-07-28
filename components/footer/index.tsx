@@ -12,6 +12,8 @@ import { Locale, routing } from "@/i18n/routing"
 import { useVisibilityStore } from "@/lib/store/visibility"
 import { colors } from "@/styles/config.mjs"
 import { ScrollToTop } from "../scroll-to-top"
+import { getNavigationItems } from "@/lib/constants"
+import { useLenis } from "lenis/react"
 
 const styles = {
   // Text size patterns
@@ -46,20 +48,11 @@ const styles = {
 export function Footer() {
   const t = useTranslations("common")
   const locale = useLocale()
+  const navigationItems = getNavigationItems(t, locale as Locale)
+  const lenis = useLenis()
   const { setAloTechVisibility, setStickyContactMenuVisibility } = useVisibilityStore()
   const footerItems = {
-    menu: [
-      { title: t("navigation.home"), href: "/" },
-      { title: t("navigation.project"), href: "/project" },
-      { title: t("navigation.location"), href: "/location" },
-      { title: t("navigation.residences"), href: "/residences" },
-      { title: t("navigation.citysPark"), href: "/citys-park" },
-      { title: t("navigation.citysMembersClub"), href: "/citys-members-club" },
-      { title: t("navigation.citysLifePrivileges"), href: "/citys-life-privileges" },
-      { title: t("navigation.citysPsm"), href: "/" },
-      { title: t("navigation.citysIstanbul"), href: "/citys-istanbul-avm" },
-      { title: t("navigation.citysTimes"), href: "/" },
-    ],
+    menu: navigationItems,
     legal: [
       {
         title: t("kvkRelatedInformation"),
@@ -96,6 +89,19 @@ export function Footer() {
       setStickyContactMenuVisibility(true)
     }
   }, [observer, setAloTechVisibility, setStickyContactMenuVisibility])
+
+  const handleScroll = (id: string) => {
+    gsap.to("body", {
+      opacity: 0,
+      onComplete: () => {
+        lenis?.scrollTo(`#${id}`, { immediate: true })
+        gsap.to("body", {
+          opacity: 1,
+          delay: 0.4,
+        })
+      },
+    })
+  }
 
   return (
     <footer className="relative bg-bricky-brick py-12 xl:py-10 xl:pt-2" ref={footerRef}>
@@ -168,13 +174,13 @@ export function Footer() {
                   <h5 className={cn(styles.textSizes.headingText, styles.layout.sectionHeader)}>{t("menu")}</h5>
                   <div className="flex flex-col flex-wrap gap-y-2 gap-x-6 h-48">
                     {footerItems.menu.map((item, i) => (
-                      <LocalizedLink
+                      <span
                         key={i}
-                        href={item.href}
-                        className={cn(styles.textSizes.linkText, styles.interactions.linkHover)}
+                        onClick={() => handleScroll(item.id)}
+                        className={cn(styles.textSizes.linkText, styles.interactions.linkHover, "cursor-pointer")}
                       >
                         {item.title}
-                      </LocalizedLink>
+                      </span>
                     ))}
                   </div>
                 </div>
@@ -187,13 +193,17 @@ export function Footer() {
                     <AccordionContent className="py-4">
                       <div className="flex flex-col gap-y-2 gap-x-6 mr-0 xl:mr-12">
                         {footerItems.menu.map((item, i) => (
-                          <LocalizedLink
+                          <span
                             key={i}
-                            href={item.href}
-                            className={cn(styles.textSizes.mobileAccordionLink, styles.interactions.linkHover)}
+                            onClick={() => handleScroll(item.id)}
+                            className={cn(
+                              styles.textSizes.mobileAccordionLink,
+                              styles.interactions.linkHover,
+                              "cursor-pointer"
+                            )}
                           >
                             {item.title}
-                          </LocalizedLink>
+                          </span>
                         ))}
                       </div>
                     </AccordionContent>
