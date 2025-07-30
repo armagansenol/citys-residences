@@ -107,7 +107,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
         </div>
       </section>
       <section className={cn(gsapGlobalClasses.fadeIn)}>
-        <div className="flex gap-8 h-[60vw] relative">
+        <div className="flex gap-8 h-[50vw] relative">
           <h2 className="title-shadow absolute top-28 left-1/2 -translate-x-1/2 font-primary font-bold text-bricky-brick text-3xl lg:text-7xl xl:text-7xl 2xl:text-7xl leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight text-left lg:text-center z-50">
             <GsapSplitText splitBy="lines" stagger={0.005} duration={0.5}>
               {t("live.p1.title")}
