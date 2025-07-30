@@ -11,7 +11,7 @@ import { useRef, useState } from "react"
 
 interface VideoSectionProps {
   primaryVideoUrl: string
-  primaryVideoType: string
+  primaryVideoType?: string
   thumbnail: string
   title: string
   className?: string
