@@ -145,12 +145,12 @@ export const sections = {
           id: "six-plus-one",
         },
         citysParkResidences: {
-          label: "Citys Park Rezidansları",
+          label: "Citys Park Daireleri",
           id: "citys-park-residences",
         },
-        terraceResidences: {
+        terraceHouses: {
           label: "Teras Evler",
-          id: "terrace-residences",
+          id: "terrace-houses",
         },
         penthouse: {
           label: "Penthouse",
@@ -163,7 +163,33 @@ export const sections = {
       id: "ground-safety",
     },
   },
-  citysMembersClub: {
+  "citys-park": {
+    citysLounge: {
+      label: "City's Lounge",
+      id: "citys-lounge",
+    },
+    openSquares: {
+      label: "Açıkhava Meydanları",
+      id: "open-squares",
+    },
+    openPools: {
+      label: "Açık Havuzlar",
+      id: "open-pools",
+    },
+    childrenParks: {
+      label: "Çocuk Parkları",
+      id: "children-parks",
+    },
+    walkingTracks: {
+      label: "Yürüyüş Parkurları",
+      id: "walking-tracks",
+    },
+    openSportsAreas: {
+      label: "Açık Spor Alanları",
+      id: "open-sports-areas",
+    },
+  },
+  "citys-members-club": {
     indoorSwimmingPool: {
       label: "Kapalı Yüzme Havuzu",
       id: "indoor-swimming-pool",
@@ -274,6 +300,14 @@ export const sections = {
           label: "Meditasyon",
           id: "meditation",
         },
+        cookingWorkshop: {
+          label: "Yemek Atölyesi",
+          id: "cooking-workshop",
+        },
+        artWorkshop: {
+          label: "Sanat Atölyesi",
+          id: "art-workshop",
+        },
       },
     },
     kidsClub: {
@@ -309,30 +343,34 @@ export const sections = {
       },
     },
   },
-  citysPark: {
-    citysLounge: {
-      label: "City's Lounge",
-      id: "citys-lounge",
+  "citys-life-privileges": {
+    receptionConcierge: {
+      label: "Resepsiyon & Concierge",
+      id: "reception-concierge",
     },
-    openSquares: {
-      label: "Açıkhava Meydanları",
-      id: "open-squares",
+    valetParking: {
+      label: "Vale Otopark",
+      id: "valet-parking",
     },
-    openPools: {
-      label: "Açık Havuzlar",
-      id: "open-pools",
+    cargoDelivery: {
+      label: "Kargo Teslimat",
+      id: "cargo-delivery",
     },
-    childrenParks: {
-      label: "Çocuk Parkları",
-      id: "children-parks",
+    petServices: {
+      label: "Evcil Hayvan Hizmetleri",
+      id: "pet-services",
     },
-    walkingTracks: {
-      label: "Yürüyüş Parkurları",
-      id: "walking-tracks",
+    justStay: {
+      label: "Just Stay",
+      id: "just-stay",
     },
-    openSportsAreas: {
-      label: "Açık Spor Alanları",
-      id: "open-sports-areas",
+    justWork: {
+      label: "Just Work",
+      id: "just-work",
+    },
+    justEvent: {
+      label: "Just Event",
+      id: "just-event",
     },
   },
 }
@@ -342,7 +380,6 @@ export const sections = {
 type NavigationMetadata = {
   titleKey: string
   id: string
-  sectionsKey?: keyof typeof sections
   order: number
 }
 
@@ -408,7 +445,6 @@ function getNavigationRoutes() {
       routeKey: routeKey as Pathnames,
       titleKey: config!.titleKey,
       id: config!.id,
-      sectionsKey: config!.sectionsKey,
       order: config!.order,
     }))
     .sort((a, b) => a.order - b.order)
@@ -420,7 +456,7 @@ export const getNavigationItems = (t: (key: any) => string, locale: Locale) =>
     title: t(item.titleKey),
     href: getLocalizedPath(item.routeKey, locale),
     id: item.id,
-    sections: item.sectionsKey ? sections[item.sectionsKey] : undefined,
+    sections: sections[item.id as keyof typeof sections] || undefined,
   }))
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -432,7 +468,7 @@ export const getNavigationItem = (id: string, t: (key: any) => string, locale: L
     title: t(item.titleKey),
     href: getLocalizedPath(item.routeKey, locale),
     id: item.id,
-    sections: item.id ? sections[item.id as keyof typeof sections] : undefined,
+    sections: sections[item.id as keyof typeof sections] || undefined,
   }
 }
 

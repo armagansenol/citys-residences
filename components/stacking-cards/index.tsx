@@ -17,6 +17,7 @@ export interface StackingCardsProps {
       url: string
     }[]
     bg: string
+    sectionId: string
   }[]
 }
 
@@ -75,11 +76,7 @@ export function StackingCards({ items }: StackingCardsProps) {
               "flex flex-col gap-3 py-4 lg:py-8 xl:py-4 flex-1"
             )}
             key={i}
-            // style={
-            //   {
-            //     "--card-margin": `${i * 80}px`,
-            //   } as React.CSSProperties
-            // }
+            id={item.sectionId}
           >
             <div className="flex flex-col gap-5 py-8">
               <h2 className="font-primary text-4xl lg:text-4xl xl:text-5xl font-bold text-bricky-brick">
