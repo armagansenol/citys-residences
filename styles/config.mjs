@@ -14,6 +14,7 @@ const colors = {
   "minor-blue": "#b8e0e7",
   "aqua-belt": "#7DCECC",
   "halite-blue": "#0A2A45",
+  "lusty-salmon": "#efb4a6",
 }
 
 const themes = {

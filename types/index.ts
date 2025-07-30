@@ -97,6 +97,8 @@ export enum SocialMedia {
   instagram = "instagram",
   x = "x",
   youtube = "youtube",
+  linkedin = "linkedin",
+  events = "events",
 }
 
 export interface BannerImage {

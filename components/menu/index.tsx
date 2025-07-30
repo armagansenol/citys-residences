@@ -10,6 +10,7 @@ import { IconPin, socialIcons } from "@/components/icons"
 import { ScrollableBox } from "@/components/utility/scrollable-box"
 import { breakpoints, colors } from "@/styles/config.mjs"
 import { X } from "lucide-react"
+import { IconWrapper } from "@/components/icon-wrapper"
 
 interface MenuItem {
   title: string
@@ -228,19 +229,19 @@ export function Menu({ open, setOpen, items }: MenuProps) {
               <p className="w-full font-primary font-normal text-white text-sm xl:text-base 2xl:text-lg 3xl:text-xl py-2 lg:border-b lg:border-white/30 text-center lg:text-left">
                 Bizi Takip Edin
               </p>
-              <div className="flex items-start gap-4 justify-center xl:justify-start py-3 xl:py-4">
-                <div className="h-10 w-10 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+              <div className="grid grid-cols-4 gap-4 py-3 xl:py-4">
+                <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
                   {socialIcons.instagram}
-                </div>
-                <div className="h-10 w-10 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+                </IconWrapper>
+                <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
                   {socialIcons.facebook}
-                </div>
-                <div className="h-10 w-10 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+                </IconWrapper>
+                <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
                   {socialIcons.tiktok}
-                </div>
-                <div className="h-10 w-14 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+                </IconWrapper>
+                <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
                   {socialIcons.youtube}
-                </div>
+                </IconWrapper>
               </div>
             </li>
             {/* <li className={cn(s.navItem, "block lg:hidden")}>
