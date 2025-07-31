@@ -174,7 +174,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       <div
         className={cn(
           "fixed top-0 left-0 bottom-0 overflow-hidden",
-          "blur-bg-bricky-brick w-screen lg:w-[30vw] xl:w-[25vw] 2xl:w-[20vw] z-[var(--z-menu)]"
+          "blur-bg-bricky-brick w-screen lg:w-[30vw] xl:w-[22vw] 2xl:w-[20vw] z-[var(--z-menu)]"
         )}
         style={{ clipPath: clipPath.current }}
         ref={menuRef}
@@ -208,7 +208,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                 </span>
               </li>
             ))}
-            <li className="xl:my-8 2xl:my-10 3xl:my-14">
+            <li className="xl:my-8 2xl:my-10 3xl:my-10">
               <a
                 href="https://maps.app.goo.gl/2hSJUsgo2U198Kqq9"
                 target="_blank"
@@ -257,8 +257,8 @@ export function Menu({ open, setOpen, items }: MenuProps) {
           "fixed top-0 bottom-0 overflow-hidden",
           "blur-bg-bricky-brick w-screen z-[var(--z-menu)]",
           "border-l border-white/30",
-          "left-0 lg:left-[30vw] xl:left-[25vw] 2xl:left-[20vw]",
-          "lg:w-[30vw] xl:w-[25vw] 2xl:w-[15vw]"
+          "left-0 lg:left-[30vw] xl:left-[22vw] 2xl:left-[20vw]",
+          "lg:w-[30vw] xl:w-[18vw] 2xl:w-[15vw]"
         )}
         style={{ clipPath: clipPath.current }}
         ref={submenuRef}
@@ -266,7 +266,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       >
         <div className="h-full w-full flex" data-lenis-prevent>
           <ScrollableBox>
-            <nav className={cn("h-full w-full px-8", "flex items-start justify-start")}>
+            <nav className={cn("h-full w-full px-6", "flex items-start justify-start")}>
               <ul className="flex flex-col items-center lg:items-start gap-3 lg:gap-2 xl:gap-0 2xl:gap-2 py-0 pt-20 pb-0 lg:py-12 w-full">
                 {/* Show sections of the active item, or all items if no hover */}
                 {active !== null &&
