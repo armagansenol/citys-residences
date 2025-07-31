@@ -1,114 +1,20 @@
 import { GsapSplitText } from "@/components/gsap-split-text"
 import { IconCitysIstanbulLogo } from "@/components/icons"
-// import { getBrandsData } from "@/lib/api/queries"
+import { getBrandsData } from "@/lib/api/server-actions"
 import { Img } from "@/components/utility/img"
 import { colors } from "@/styles/config.mjs"
-import { BrandsResponse } from "@/types"
-import { FilterableContent } from "./filterable-content"
+import { AvmBrandsContainer } from "@/components/avm-brands-container"
 
-// Mock data for brands
-const mockBrandsData: BrandsResponse = {
-  items: [
-    {
-      name: "BURGER KING",
-      category: "yemeIcme",
-      subCategory: "fastfood",
-      logo: "/img/citys-istanbul-avm/yemek/yemek-2.png",
-      floor: "first",
-    },
-    {
-      name: "MCDONALD'S",
-      category: "yemeIcme",
-      subCategory: "fastfood",
-      logo: "/img/citys-istanbul-avm/yemek/yemek-3.png",
-      floor: "ground",
-    },
-    {
-      name: "STARBUCKS",
-      category: "yemeIcme",
-      subCategory: "kafe",
-      logo: "/img/citys-istanbul-avm/yemek/yemek-4.png",
-      floor: "ground",
-    },
-    {
-      name: "BİZİM LOKANTA",
-      category: "yemeIcme",
-      subCategory: "restoran",
-      logo: "/img/citys-istanbul-avm/yemek/yemek-5.png",
-      floor: "first",
-    },
-    {
-      name: "CARL'S JR.",
-      category: "yemeIcme",
-      subCategory: "fastfood",
-      logo: "/img/citys-istanbul-avm/yemek/yemek-6.png",
-      floor: "first",
-    },
-    {
-      name: "CONI & CO",
-      category: "yemeIcme",
-      subCategory: "kafe",
-      logo: "/img/citys-istanbul-avm/yemek/yemek-7.png",
-      floor: "first",
-    },
-    {
-      name: "COOKSHOP",
-      category: "alisveris",
-      subCategory: null,
-      logo: "/img/citys-istanbul-avm/yemek/yemek-8.png",
-      floor: "first",
-    },
-    {
-      name: "BABY GREEN",
-      category: "alisveris",
-      subCategory: null,
-      logo: "/img/citys-istanbul-avm/yemek/yemek-9.png",
-      floor: "first",
-    },
-    {
-      name: "ZARA",
-      category: "alisveris",
-      subCategory: null,
-      logo: "/img/citys-istanbul-avm/alisveris/av-1.png",
-      floor: "ground",
-    },
-    {
-      name: "H&M",
-      category: "alisveris",
-      subCategory: null,
-      logo: "/img/citys-istanbul-avm/alisveris/av-2.png",
-      floor: "ground",
-    },
-    {
-      name: "MANGO",
-      category: "alisveris",
-      subCategory: null,
-      logo: "/img/citys-istanbul-avm/alisveris/av-3.png",
-      floor: "ground",
-    },
-    {
-      name: "OYSHO",
-      category: "alisveris",
-      subCategory: null,
-      logo: "/img/citys-istanbul-avm/alisveris/av-4.png",
-      floor: "first",
-    },
-  ],
-  categories: {
-    yemeIcme: "Yeme İçme",
-    alisveris: "Alışveriş",
-    eglence: "Eğlence",
-  },
-  subCategories: {
-    restoran: "Restoran",
-    kafe: "Kafe",
-    fastfood: "Fast Food",
-  },
-}
+// Fallback data for brands in case API fails - keeping for reference
+// const fallbackBrandsData: BrandsResponse = {
+//   items: [],
+//   categories: {},
+//   subCategories: {},
+// }
 
 export default async function Page() {
-  // const brands = await getBrandsData()
-  const brands = mockBrandsData
+  const brands = await getBrandsData()
+  // const brands = mockBrandsData
 
   return (
     <>
@@ -154,7 +60,7 @@ export default async function Page() {
           </p>
         </div>
         <div className="section-container py-24">
-          <FilterableContent brands={brands.items || []} />
+          <AvmBrandsContainer initialBrands={brands.items || []} />
         </div>
       </section>
       {/* <AnimatedLine direction="horizontal" /> */}

@@ -34,6 +34,11 @@ const nextConfig = {
         hostname: "citys-istanbul.com",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "crm.citysresidences.com",
+        pathname: "**",
+      },
     ],
   },
 }

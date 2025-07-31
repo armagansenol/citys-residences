@@ -4,51 +4,77 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
-import { zodResolver } from "@hookform/resolvers/zod"
 import { Search } from "lucide-react"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
-
-const filterSchema = z.object({
-  category: z.string().optional(),
-  restaurant: z.string().optional(),
-  floor: z.string().optional(),
-  search: z.string().optional(),
-})
-
-type FilterFormValues = z.infer<typeof filterSchema>
+import { UseFormReturn } from "react-hook-form"
+import { useEffect, useCallback, useRef } from "react"
+import { Category, SubCategory, Floor } from "@/types"
+import { FilterData } from "@/lib/utils/filter-utils"
 
 interface FilterFormProps {
-  onFilter?: (data: FilterFormValues) => void
+  form: UseFormReturn<FilterData>
+  onFilter?: (data: FilterData) => void
+  categories?: Category[]
+  subCategories?: SubCategory[]
+  floors?: Floor[]
+  onCategoryChange?: (categoryId: string) => void
+  isLoading?: boolean
 }
 
 const baseSelectTriggerClasses = "px-4 py-3 bg-white text-gray-700 font-primary text-sm lg:text-base min-w-[200px]"
 const defaultSelectTriggerClasses = `${baseSelectTriggerClasses} border border-bricky-brick rounded-md flex-1 w-full [&>svg]:text-bricky-brick`
 
-export function FilterForm({ onFilter }: FilterFormProps) {
-  const form = useForm<FilterFormValues>({
-    resolver: zodResolver(filterSchema),
-    defaultValues: {
-      category: "",
-      restaurant: "",
-      floor: "",
-      search: "",
-    },
-  })
+export function FilterForm({
+  form,
+  onFilter,
+  categories = [],
+  subCategories = [],
+  floors = [],
+  onCategoryChange,
+  isLoading = false,
+}: FilterFormProps) {
+  // Debounced filter function
+  const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
-  const onSubmit = (data: FilterFormValues) => {
-    console.log("Filter data:", data)
-    onFilter?.(data)
-  }
-
-  const handleValueChange = () => {
+  const debouncedHandleValueChange = useCallback(() => {
     const currentValues = form.getValues()
     onFilter?.(currentValues)
+  }, [form, onFilter])
+
+  const handleValueChange = useCallback(() => {
+    // Clear existing timeout
+    if (debounceTimeoutRef.current) {
+      clearTimeout(debounceTimeoutRef.current)
+    }
+
+    // Set new timeout for debounced execution
+    debounceTimeoutRef.current = setTimeout(() => {
+      debouncedHandleValueChange()
+    }, 300) // 300ms debounce delay
+  }, [debouncedHandleValueChange])
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (debounceTimeoutRef.current) {
+        clearTimeout(debounceTimeoutRef.current)
+      }
+    }
+  }, [])
+
+  const handleCategoryChange = (categoryId: string) => {
+    if (categoryId && categoryId !== "all") {
+      onCategoryChange?.(categoryId)
+    } else {
+      // When "all" is selected, automatically set subcategory to "all" as well
+      form.setValue("subCategory", "all")
+      // Trigger a filter update to reset to initial state
+      handleValueChange()
+    }
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col lg:flex-row gap-4 mb-8 lg:mb-12">
+      <form onSubmit={(e) => e.preventDefault()} className="flex flex-col lg:flex-row gap-4 mb-8 lg:mb-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 w-full">
           <FormField
             control={form.control}
@@ -60,17 +86,21 @@ export function FilterForm({ onFilter }: FilterFormProps) {
                     onValueChange={(value) => {
                       field.onChange(value)
                       handleValueChange()
+                      handleCategoryChange(value)
                     }}
-                    defaultValue={field.value}
+                    value={field.value}
+                    disabled={isLoading}
                   >
                     <SelectTrigger className={defaultSelectTriggerClasses}>
                       <SelectValue placeholder="Tüm Kategoriler" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="all">Tüm Kategoriler</SelectItem>
-                      <SelectItem value="alisveris">Alışveriş</SelectItem>
-                      <SelectItem value="yemeIcme">Yeme & İçme</SelectItem>
-                      <SelectItem value="hizmet">Hizmetler</SelectItem>
+                      {categories.map((category) => (
+                        <SelectItem key={category.id} value={category.id}>
+                          {category.title}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </FormControl>
@@ -80,7 +110,7 @@ export function FilterForm({ onFilter }: FilterFormProps) {
 
           <FormField
             control={form.control}
-            name="restaurant"
+            name="subCategory"
             render={({ field }) => (
               <FormItem>
                 <FormControl>
@@ -89,16 +119,25 @@ export function FilterForm({ onFilter }: FilterFormProps) {
                       field.onChange(value)
                       handleValueChange()
                     }}
-                    defaultValue={field.value}
+                    value={field.value}
+                    disabled={!form.getValues("category") || form.getValues("category") === "all" || isLoading}
                   >
                     <SelectTrigger className={defaultSelectTriggerClasses}>
-                      <SelectValue placeholder="Tüm Restoranlar" />
+                      <SelectValue
+                        placeholder={
+                          !form.getValues("category") || form.getValues("category") === "all"
+                            ? "Önce kategori seçin"
+                            : "Alt Kategoriler"
+                        }
+                      />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">Tüm Restoranlar</SelectItem>
-                      <SelectItem value="restoran">Restoran</SelectItem>
-                      <SelectItem value="kafe">Kafe</SelectItem>
-                      <SelectItem value="fastfood">Fast Food</SelectItem>
+                      <SelectItem value="all">Tüm Alt Kategoriler</SelectItem>
+                      {subCategories.map((subCategory) => (
+                        <SelectItem key={subCategory.id} value={subCategory.id}>
+                          {subCategory.title}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </FormControl>
@@ -117,15 +156,19 @@ export function FilterForm({ onFilter }: FilterFormProps) {
                       field.onChange(value)
                       handleValueChange()
                     }}
-                    defaultValue={field.value}
+                    value={field.value || "all"}
+                    disabled={isLoading || floors.length === 0}
                   >
                     <SelectTrigger className={defaultSelectTriggerClasses}>
                       <SelectValue placeholder="Tüm Katlar" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="all">Tüm Katlar</SelectItem>
-                      <SelectItem value="ground">Zemin Kat</SelectItem>
-                      <SelectItem value="first">Birinci Kat</SelectItem>
+                      {floors.map((floor) => (
+                        <SelectItem key={floor.id} value={floor.id}>
+                          {floor.title}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </FormControl>
@@ -134,28 +177,26 @@ export function FilterForm({ onFilter }: FilterFormProps) {
           />
           <FormField
             control={form.control}
-            name="search"
+            name="keyword"
             render={({ field }) => (
               <FormItem>
                 <FormControl>
                   <div className="relative w-full h-12">
-                    <button type="submit" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black">
+                    <button type="button" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black">
                       <Search className="text-black" size={16} strokeWidth={3} />
                     </button>
                     <Input
                       {...field}
-                      placeholder="Ara"
+                      placeholder="Marka ara..."
                       className={cn(
                         defaultSelectTriggerClasses,
                         "pl-10 h-full border-t-0 border-x-0 rounded-none border-b border-bricky-brick text-black placeholder:text-black"
                       )}
                       onChange={(e) => {
                         field.onChange(e)
-                        const timeoutId = setTimeout(() => {
-                          handleValueChange()
-                        }, 300)
-                        return () => clearTimeout(timeoutId)
+                        handleValueChange()
                       }}
+                      disabled={isLoading}
                     />
                   </div>
                 </FormControl>

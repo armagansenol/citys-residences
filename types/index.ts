@@ -270,3 +270,35 @@ export interface BrandsResponse {
   categories: Record<string, string>
   subCategories: Record<string, string>
 }
+
+// New API response types
+export interface Category {
+  id: string
+  title: string
+}
+
+export interface SubCategory {
+  id: string
+  title: string
+  categoryId: string
+}
+
+export interface Floor {
+  id: string
+  title: string
+}
+
+export interface ApiBrand {
+  id: string
+  title: string
+  image: string
+  categoryID: string
+  floor: string
+}
+
+export interface ApiResponse<T> {
+  success: boolean
+  data?: T
+  error?: string
+  message?: string
+}
