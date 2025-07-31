@@ -35,9 +35,9 @@ export function StackingCards({ items }: StackingCardsProps) {
       cards.forEach((card, i) => {
         if (i === 0) return
 
-        gsap.set(card, { yPercent: 150, scale: 1.25 })
+        gsap.set(card, { xPercent: 150, scale: 1.25 })
 
-        tl.to(card, { yPercent: 0, scale: 1 })
+        tl.to(card, { xPercent: 0, scale: 1 })
       })
 
       ScrollTrigger.create({
@@ -65,13 +65,13 @@ export function StackingCards({ items }: StackingCardsProps) {
   // }
 
   return (
-    <div className="relative w-full h-auto lg:h-[100vw] xl:h-[47vw] 2xl:h-[45vw] 3xl:h-[40vw]" ref={ref}>
+    <div className="relative w-full h-auto lg:h-[100vw] xl:h-[42vw] 2xl:h-[45vw] 3xl:h-[40vw]" ref={ref}>
       {items.map((item, i) => {
         return (
           <div
             className={cn(
               "gsap-stacking-card",
-              "relative lg:absolute left-1/2 -translate-x-1/2 w-full h-full overflow-hidden",
+              "relative lg:absolute w-full h-full overflow-hidden",
               "border border-s-neutral-300 bg-white px-4 lg:px-8 rounded-xl",
               "flex flex-col gap-3 py-4 lg:py-8 xl:py-4 flex-1"
             )}
