@@ -61,19 +61,23 @@ export function VideoSection({
           )}
           onClick={handlePlay}
         >
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 xl:h-48 xl:w-48 2xl:h-60 2xl:w-60 z-50">
-            <Logo fill={colors.white} />
-          </div>
           {thumbnail && (
             <div className="absolute top-0 left-0 w-full h-full z-10">
               <Img src={thumbnail} alt="Thumbnail" className="w-full h-full object-cover" fill sizes="100vw" />
             </div>
           )}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 xl:h-48 xl:w-48 2xl:h-60 2xl:w-60 z-50">
+            <Logo fill={colors.white} />
+          </div>
+          <div
+            className={cn("absolute top-1/2 left-1/2 -translate-x-1/2 z-50", {
+              "-translate-y-[40%]": spot,
+            })}
+          >
             {spot && (
               <article
                 className={cn(
-                  "font-primary font-bold text-white  text-lg xl:text-5xl 2xl:text-7xl lg:whitespace-nowrap min-w-52 text-center flex-shrink-0 mb-20 mt-24"
+                  "font-primary font-bold text-white text-lg xl:text-4xl 2xl:text-5xl lg:whitespace-nowrap min-w-52 text-center flex-shrink-0 mb-20 mt-24"
                 )}
               >
                 {spot}
