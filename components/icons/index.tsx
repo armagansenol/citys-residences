@@ -1138,12 +1138,12 @@ export const IconArrowLong = (props: Props) => {
   )
 }
 
-export const socialIcons: Record<SocialMedia, JSX.Element> = {
-  [SocialMedia.tiktok]: <IconTiktok fill={colors.white} />,
-  [SocialMedia.facebook]: <IconFacebook fill={colors.white} />,
-  [SocialMedia.instagram]: <IconInstagram fill={colors.white} />,
-  [SocialMedia.x]: <IconX fill={colors.white} />,
-  [SocialMedia.youtube]: <IconYoutube fill={colors.white} />,
-  [SocialMedia.linkedin]: <IconLinkedin fill={colors.white} />,
-  [SocialMedia.events]: <IconEvents fill={colors.white} />,
-}
+export const socialIcons = (fill: string = colors.white): Record<SocialMedia, JSX.Element> => ({
+  [SocialMedia.tiktok]: <IconTiktok fill={fill} />,
+  [SocialMedia.facebook]: <IconFacebook fill={fill} />,
+  [SocialMedia.instagram]: <IconInstagram fill={fill} />,
+  [SocialMedia.x]: <IconX fill={fill} />,
+  [SocialMedia.youtube]: <IconYoutube fill={fill} />,
+  [SocialMedia.linkedin]: <IconLinkedin fill={fill} />,
+  [SocialMedia.events]: <IconEvents fill={fill} />,
+})

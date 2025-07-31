@@ -12,7 +12,6 @@ export function IconWrapper(props: IconWrapperProps) {
     <div
       className={cn(
         "border-[2px] rounded-lg w-full h-full flex items-center justify-center flex-grow",
-        "opacity-70 hover:opacity-100 transition-opacity cursor-pointer",
         props.className
       )}
     >

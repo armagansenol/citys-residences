@@ -232,16 +232,16 @@ export function Menu({ open, setOpen, items }: MenuProps) {
               </p>
               <div className="grid grid-cols-4 gap-4 py-3 xl:py-4">
                 <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
-                  {socialIcons.instagram}
+                  {socialIcons(colors.white).instagram}
                 </IconWrapper>
                 <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
-                  {socialIcons.facebook}
+                  {socialIcons(colors.white).facebook}
                 </IconWrapper>
                 <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
-                  {socialIcons.tiktok}
+                  {socialIcons(colors.white).tiktok}
                 </IconWrapper>
                 <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
-                  {socialIcons.youtube}
+                  {socialIcons(colors.white).youtube}
                 </IconWrapper>
               </div>
             </li>

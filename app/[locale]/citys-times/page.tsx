@@ -2,8 +2,10 @@ import { Header } from "@/components/header"
 import { IconWrapper } from "@/components/icon-wrapper"
 import { socialIcons } from "@/components/icons"
 import { Img } from "@/components/utility/img"
+import { colors } from "@/styles/config.mjs"
 
 export default async function Page() {
+  const social = socialIcons(colors["bricky-brick"])
   return (
     <>
       <Header />
@@ -17,33 +19,45 @@ export default async function Page() {
         />
       </section>
       <section className="flex">
-        <div className="w-64 font-primary font-medium bg-bricky-brick text-white text-lg p-8 flex flex-col items-start space-y-6 min-h-screen pt-24">
+        <div className="w-72 font-primary font-medium border-r border-black text-bricky-brick text-xl p-8 flex flex-col items-start space-y-6 min-h-screen pt-24 mt-8">
           <div className="flex items-center justify-start space-x-3">
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0">{socialIcons.instagram}</IconWrapper>
+            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+              {social.instagram}
+            </IconWrapper>
             <span>Instagram</span>
           </div>
           <div className="flex items-center justify-start space-x-3">
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0">{socialIcons.tiktok}</IconWrapper>
+            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+              {social.tiktok}
+            </IconWrapper>
             <span>TikTok</span>
           </div>
           <div className="flex items-center justify-start space-x-3">
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0">{socialIcons.youtube}</IconWrapper>
+            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+              {social.youtube}
+            </IconWrapper>
             <span>YouTube</span>
           </div>
           <div className="flex items-center justify-start space-x-3">
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0">{socialIcons.facebook}</IconWrapper>
+            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+              {social.facebook}
+            </IconWrapper>
             <span>Facebook</span>
           </div>
           <div className="flex items-center justify-start space-x-3">
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0">{socialIcons.x}</IconWrapper>
+            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">{social.x}</IconWrapper>
             <span>X</span>
           </div>
           <div className="flex items-center justify-start space-x-3">
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0">{socialIcons.linkedin}</IconWrapper>
+            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+              {social.linkedin}
+            </IconWrapper>
             <span>Linkedin</span>
           </div>
           <div className="flex items-center justify-start space-x-3">
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0">{socialIcons.events}</IconWrapper>
+            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+              {social.events}
+            </IconWrapper>
             <span>Etkinlikler</span>
           </div>
         </div>
