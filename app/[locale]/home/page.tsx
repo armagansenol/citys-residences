@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils"
 import { getTranslations } from "next-intl/server"
 
 import { AnimatedLine } from "@/components/animated-line"
-import { HorizontalScroll } from "@/components/animations/horizontal-scroll"
+import { HorizontalScroll } from "@/components/horizontal-scroll"
 import { ScaleOut } from "@/components/animations/scale-out"
 import { GsapSplitText } from "@/components/gsap-split-text"
 import { Logo } from "@/components/icons"
@@ -117,7 +117,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             className={cn(
               "absolute bottom-14 left-14",
               "font-primary font-semibold text-white text-base lg:text-4xl xl:text-2xl leading-relaxed lg:leading-relaxed xl:leading-relaxed xl:w-[500px]",
-              "description-bg z-50 p-4 rounded-md"
+              "description-bg z-50 py-4 px-8 rounded-md"
             )}
           >
             {t("live.p1.description")}
