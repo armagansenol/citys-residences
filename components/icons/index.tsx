@@ -1131,7 +1131,7 @@ export const IconArrowLong = (props: Props) => {
           d="M12.1867 6.5195L10.8919 7.81426L7.57251 4.49486V24.2414H5.74121V4.49486L2.42182 7.81426L1.12706 6.5195L6.65686 0.989708L12.1867 6.5195Z"
           fill={props.fill}
           stroke="white"
-          stroke-width="0.5"
+          strokeWidth="0.5"
         />
       </svg>
     </span>
