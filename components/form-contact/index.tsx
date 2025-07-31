@@ -277,11 +277,6 @@ export function ContactForm({ translations }: FormContactProps) {
     [form, howDidYouHearAboutUsOptions]
   )
 
-  // useEffect(() => {
-  //   console.log("form errors", form.formState.errors)
-  //   console.log("form values", form.getValues())
-  // }, [form.formState.errors, form])
-
   useEffect(() => {
     form.register("phone", {
       onChange: () => form.trigger("phone"), // Validate phone on change

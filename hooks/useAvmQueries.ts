@@ -45,7 +45,7 @@ export function useBrands(filters?: { category?: string; subCategory?: string; f
   return useQuery({
     queryKey: ["brands", locale, filters],
     queryFn: () => fetchBrands(locale, filters),
-    staleTime: 2 * 60 * 1000, // 2 minutes
+    staleTime: 0, // No caching for search results
     refetchOnWindowFocus: false,
   })
 }

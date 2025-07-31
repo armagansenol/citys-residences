@@ -4,15 +4,13 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { cn } from "@/lib/utils"
+import { FilterData } from "@/lib/utils/filter-utils"
+import { Category, Floor, SubCategory } from "@/types"
 import { Search } from "lucide-react"
 import { UseFormReturn } from "react-hook-form"
-import { useEffect, useCallback, useRef } from "react"
-import { Category, SubCategory, Floor } from "@/types"
-import { FilterData } from "@/lib/utils/filter-utils"
 
 interface FilterFormProps {
   form: UseFormReturn<FilterData>
-  onFilter?: (data: FilterData) => void
   categories?: Category[]
   subCategories?: SubCategory[]
   floors?: Floor[]
@@ -25,42 +23,13 @@ const defaultSelectTriggerClasses = `${baseSelectTriggerClasses} border border-b
 
 export function FilterForm({
   form,
-  onFilter,
   categories = [],
   subCategories = [],
   floors = [],
   onCategoryChange,
   isLoading = false,
 }: FilterFormProps) {
-  // Debounced filter function
-  const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-
-  const debouncedHandleValueChange = useCallback(() => {
-    const currentValues = form.getValues()
-    onFilter?.(currentValues)
-  }, [form, onFilter])
-
-  const handleValueChange = useCallback(() => {
-    // Clear existing timeout
-    if (debounceTimeoutRef.current) {
-      clearTimeout(debounceTimeoutRef.current)
-    }
-
-    // Set new timeout for debounced execution
-    debounceTimeoutRef.current = setTimeout(() => {
-      debouncedHandleValueChange()
-    }, 300) // 300ms debounce delay
-  }, [debouncedHandleValueChange])
-
-  // Cleanup timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (debounceTimeoutRef.current) {
-        clearTimeout(debounceTimeoutRef.current)
-      }
-    }
-  }, [])
-
+  const floorValue = form.watch("floor")
   const handleCategoryChange = (categoryId: string) => {
     // Always reset subcategory when category changes
     form.setValue("subCategory", "")
@@ -71,9 +40,6 @@ export function FilterForm({
       // When "all" is selected, set subcategory to "all" as well
       form.setValue("subCategory", "all")
     }
-
-    // Trigger a filter update to reset to initial state
-    handleValueChange()
   }
 
   return (
@@ -89,14 +55,18 @@ export function FilterForm({
                   <Select
                     onValueChange={(value) => {
                       field.onChange(value)
-                      handleValueChange()
                       handleCategoryChange(value)
                     }}
                     value={field.value}
                     disabled={isLoading}
                   >
                     <SelectTrigger className={defaultSelectTriggerClasses}>
-                      <SelectValue placeholder="Tüm Kategoriler" />
+                      <SelectValue placeholder="Tüm Kategoriler">
+                        {field.value === "all" || !field.value
+                          ? "Tüm Kategoriler"
+                          : categories.find((category) => category.id.toString() === field.value)?.title ||
+                            "Tüm Kategoriler"}
+                      </SelectValue>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="all">Tüm Kategoriler</SelectItem>
@@ -121,7 +91,6 @@ export function FilterForm({
                   <Select
                     onValueChange={(value) => {
                       field.onChange(value)
-                      handleValueChange()
                     }}
                     value={field.value}
                     disabled={!form.getValues("category") || form.getValues("category") === "all" || isLoading}
@@ -133,7 +102,12 @@ export function FilterForm({
                             ? "Önce kategori seçin"
                             : "Alt Kategoriler"
                         }
-                      />
+                      >
+                        {field.value === "all" || !field.value
+                          ? "Alt Kategoriler"
+                          : subCategories.find((subCategory) => subCategory.id.toString() === field.value)?.title ||
+                            "Alt Kategoriler"}
+                      </SelectValue>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="all">Tüm Alt Kategoriler</SelectItem>
@@ -158,13 +132,20 @@ export function FilterForm({
                   <Select
                     onValueChange={(value) => {
                       field.onChange(value)
-                      handleValueChange()
                     }}
-                    value={field.value || "all"}
-                    disabled={isLoading || floors.length === 0}
+                    value={field.value}
+                    disabled={isLoading}
                   >
                     <SelectTrigger className={defaultSelectTriggerClasses}>
-                      <SelectValue placeholder="Tüm Katlar" />
+                      <SelectValue placeholder="Tüm Katlar">
+                        {(() => {
+                          if (floorValue === "all" || !floorValue) {
+                            return "Tüm Katlar"
+                          }
+                          const selectedFloor = floors.find((floor) => floor.id.toString() === floorValue)
+                          return selectedFloor ? selectedFloor.title : "Tüm Katlar"
+                        })()}
+                      </SelectValue>
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="all">Tüm Katlar</SelectItem>
@@ -179,6 +160,7 @@ export function FilterForm({
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="keyword"
@@ -197,8 +179,7 @@ export function FilterForm({
                         "pl-10 h-full border-t-0 border-x-0 rounded-none border-b border-bricky-brick text-black placeholder:text-black"
                       )}
                       onChange={(e) => {
-                        field.onChange(e)
-                        handleValueChange()
+                        field.onChange(e.target.value)
                       }}
                       disabled={isLoading}
                     />
