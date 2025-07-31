@@ -62,14 +62,18 @@ export function FilterForm({
   }, [])
 
   const handleCategoryChange = (categoryId: string) => {
+    // Always reset subcategory when category changes
+    form.setValue("subCategory", "")
+
     if (categoryId && categoryId !== "all") {
       onCategoryChange?.(categoryId)
     } else {
-      // When "all" is selected, automatically set subcategory to "all" as well
+      // When "all" is selected, set subcategory to "all" as well
       form.setValue("subCategory", "all")
-      // Trigger a filter update to reset to initial state
-      handleValueChange()
     }
+
+    // Trigger a filter update to reset to initial state
+    handleValueChange()
   }
 
   return (
