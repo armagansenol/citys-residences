@@ -2,15 +2,14 @@ import { cn } from "@/lib/utils"
 
 import { Logo } from "@/components/icons"
 import { Img } from "@/components/utility/img"
-import { Video } from "@/components/utility/video"
 import { VideoSection } from "@/components/video-section"
-import { gsapGlobalClasses, mainVideo, muratKaderVideo } from "@/lib/constants"
+import { gsapGlobalClasses, muratKaderVideo } from "@/lib/constants"
 import { breakpoints, colors } from "@/styles/config.mjs"
 
 export default function Page() {
   return (
     <>
-      <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
+      {/* <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
         <Video
           primaryVideoUrl={mainVideo}
           autoPlay
@@ -19,7 +18,7 @@ export default function Page() {
           playsInline
           className="w-full h-full object-cover object-bottom"
         />
-      </section>
+      </section> */}
       <section className="bg-white py-0 lg:py-12 z-20">
         <div className="section-container">
           <div className={cn("w-48 h-48 lg:w-64 lg:h-64 mx-auto mb-10 lg:mb-20", gsapGlobalClasses.fadeIn)}>
