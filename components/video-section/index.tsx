@@ -37,7 +37,7 @@ export function VideoSection({
   return (
     <div
       className={cn(
-        "w-full h-[350px] bt:h-auto bt:aspect-video relative z-10 flex items-center justify-center bg-black rounded-sm overflow-hidden",
+        "w-full h-[350px] bt:h-auto relative z-10 flex items-center justify-center bg-black rounded-sm overflow-hidden",
         className
       )}
     >

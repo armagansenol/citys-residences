@@ -50,7 +50,7 @@ export function MembersClubItem({ item, sectionId, align = "ltr", className = ""
           {item.subtitle && (
             <div
               className={cn(
-                "font-primary font-semibold text-base lg:text-lg xl:text-2xl 2xl:text-2xl text-bricky-brick mb-4",
+                "font-primary font-semibold text-base lg:text-lg xl:text-2xl 2xl:text-2xl 3xl:text-2xl text-bricky-brick mb-4",
                 gsapGlobalClasses.fadeIn
               )}
             >
