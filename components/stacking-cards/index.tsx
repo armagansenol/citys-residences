@@ -2,10 +2,9 @@
 
 import { ScrollTrigger, gsap, useGSAP } from "@/components/gsap"
 import { cn } from "@/lib/utils"
-import { useRef, ReactNode } from "react"
+import { ReactNode, useRef } from "react"
 import { useWindowSize } from "react-use"
 
-import { MaskedPanImage } from "@/components/masked-pan-image"
 import { Img } from "@/components/utility/img"
 import { breakpoints } from "@/styles/config.mjs"
 
@@ -102,9 +101,9 @@ export function StackingCards({ items }: StackingCardsProps) {
                   alt="Residence"
                   fill
                   sizes="(max-width: 800px) 100vw, 50vw"
-                  className={cn(i === 0 ? "object-contain" : "object-cover")}
+                  className="object-cover"
                 />
-                <MaskedPanImage imgSrc={item.images[1].url} sizes="100vw" />
+                {/* <MaskedPanImage imgSrc={item.images[1].url} sizes="100vw" /> */}
               </div>
             </div>
           </div>
