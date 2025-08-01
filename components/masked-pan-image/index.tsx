@@ -19,7 +19,7 @@ export function MaskedPanImage({ imgSrc, sizes = "100vw" }: MaskedPanImageProps)
 
   useGSAP(
     () => {
-      const distance = 100
+      const distance = 75
 
       const tl = gsap.timeline({ paused: true })
 
@@ -27,21 +27,25 @@ export function MaskedPanImage({ imgSrc, sizes = "100vw" }: MaskedPanImageProps)
         imgRef.current,
         {
           x: `-${distance * 1.5}px`,
+          ease: "none",
         },
         {
           x: `${distance * 1.5}px`,
+          ease: "none",
         }
       ).fromTo(
         imgRef.current,
         {
           x: `${distance * 1.5}px`,
+          ease: "none",
         },
         {
           x: `-${distance * 1.5}px`,
+          ease: "none",
         }
       )
 
-      tl.timeScale(distance * 0.0005).repeat(-1)
+      tl.timeScale(distance * 0.0025).repeat(-1)
 
       ScrollTrigger.create({
         trigger: ref.current,
