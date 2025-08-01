@@ -1,8 +1,8 @@
 .embla-buttons {
   position: absolute;
   bottom: 0;
-  right: 0;
-  transform: translate(desktop-vw(-70px), calc(100% + desktop-vw(10px)));
+  left: 0;
+  transform: translate(desktop-vw(70px), calc(100% + desktop-vw(10px)));
   display: flex;
   gap: desktop-vw(6px);
   justify-content: space-between;
