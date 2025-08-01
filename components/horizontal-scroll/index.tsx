@@ -58,11 +58,11 @@ export function HorizontalScroll({
         gsap.fromTo(
           image,
           {
-            xPercent: isFirst ? 0 : -30,
+            xPercent: isFirst ? 0 : 0,
             ease: "none",
           },
           {
-            xPercent: isLast ? 0 : 30,
+            xPercent: isLast ? 0 : 0,
             ease: "none",
             scrollTrigger: {
               trigger: imageWrappers[index],
