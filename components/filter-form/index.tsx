@@ -190,7 +190,17 @@ export function FilterForm({
                         "pl-10 h-full border-t-0 border-x-0 rounded-none border-b border-bricky-brick text-black placeholder:text-black"
                       )}
                       onChange={(e) => {
-                        setSearchValue(e.target.value)
+                        const newValue = e.target.value
+                        setSearchValue(newValue)
+
+                        // If something is typed in search, reset all other filters
+                        if (newValue.trim()) {
+                          form.setValue("category", "all")
+                          form.setValue("subCategory", "all")
+                          form.setValue("floor", "all")
+                          // Call onCategoryChange to trigger any necessary updates
+                          onCategoryChange?.("all")
+                        }
                       }}
                       disabled={isLoading}
                     />
