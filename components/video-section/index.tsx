@@ -69,11 +69,7 @@ export function VideoSection({
           <div className="absolute top-0 left-1/2 -translate-x-1/2 xl:h-48 xl:w-48 2xl:h-60 2xl:w-60 z-50">
             <Logo fill={colors.white} />
           </div>
-          <div
-            className={cn("absolute top-1/2 left-1/2 -translate-x-1/2 z-50", {
-              "-translate-y-[40%]": spot,
-            })}
-          >
+          <div className={cn("absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50")}>
             {spot && (
               <article
                 className={cn(
@@ -83,7 +79,7 @@ export function VideoSection({
                 {spot}
               </article>
             )}
-            <div className="flex flex-col items-center justify-center gap-10 z-30">
+            <div className="flex flex-col items-center justify-center gap-5 z-30">
               {title && (
                 <article className="text-white font-primary text-lg xl:text-4xl 2xl:text-5xl font-medium lg:whitespace-nowrap min-w-52 text-center flex-shrink-0">
                   {title}
