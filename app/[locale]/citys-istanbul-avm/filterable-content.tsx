@@ -100,6 +100,7 @@ export function FilterableContent({ brands }: FilterableContentProps) {
                           alt={brand.name}
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
                           fill
+                          sizes="25vw"
                         />
                       </div>
                       <p className="font-suisse-intl text-xs lg:text-sm text-gray-800 text-center">{floorDisplay}</p>
