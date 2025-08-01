@@ -219,10 +219,10 @@ export function Menu({ open, setOpen, items }: MenuProps) {
               </a>
             </li>
             <li className="w-full flex flex-col items-center lg:items-start order-last lg:order-none mt-auto mb-8">
-              <p className="w-full font-primary font-normal text-white text-sm xl:text-base 2xl:text-lg 3xl:text-xl py-2 lg:border-b lg:border-white/30 text-center lg:text-left">
+              <p className="w-full font-primary font-normal text-white text-sm xl:text-xl 2xl:text-xl 3xl:text-2xl py-2 lg:border-b-[3px] lg:border-b-white/30 text-center lg:text-left">
                 Bizi Takip Edin
               </p>
-              <div className="grid grid-cols-4 gap-4 py-3 xl:py-4">
+              <div className="grid grid-cols-4 gap-4 py-3 xl:py-4 pr-4">
                 <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
                   {socialIcons(colors.white).instagram}
                 </IconWrapper>
