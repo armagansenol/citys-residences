@@ -93,6 +93,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <AnimatedLine direction="horizontal" />
     </>
   )
 }

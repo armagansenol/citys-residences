@@ -141,7 +141,7 @@ export const sections = {
           id: "stacking-cards-5",
         },
         citysParkResidences: {
-          label: "Citys Park Daireleri",
+          label: "City's Park Daireleri",
           id: "stacking-cards-6",
         },
         terraceHouses: {
@@ -202,57 +202,31 @@ export const sections = {
           label: "Soyunma Odaları",
           id: "changing-rooms",
         },
+        dryShowers: {
+          label: "Duşlar",
+          id: "dry-showers",
+        },
+        gym: {
+          label: "Gym",
+          id: "gym",
+        },
         studios: {
           label: "Stüdyolar",
           id: "studios",
         },
         yoga: {
-          label: "Yoga",
-          id: "yoga",
+          label: "Yoga Stüdyosu",
+          id: "yoga-studio",
         },
         pilates: {
-          label: "Pilates",
+          label: "Pilates Stüdyosu",
           id: "pilates-studio",
-        },
-        groupClasses: {
-          label: "Grup Dersleri",
-          id: "group-classes",
-        },
-        dryShowers: {
-          label: "Duşlar",
-          id: "dry-showers",
-        },
-        sauna: {
-          label: "Sauna",
-          id: "sauna",
-        },
-      },
-    },
-    nuspa: {
-      label: "Nuspa",
-      id: "nuspa",
-      subitems: {
-        spaWellness: {
-          label: "Spa & Wellness",
-          id: "spa-wellness",
-        },
-        massage: {
-          label: "Masaj",
-          id: "massage",
-        },
-        relaxation: {
-          label: "Dinlenme",
-          id: "relaxation",
-        },
-        turkishBath: {
-          label: "Hamam",
-          id: "turkish-bath",
         },
       },
     },
     dynamicZone: {
       label: "Dynamic Zone",
-      id: "dynamic-zone",
+      id: "padel-tennis",
       subitems: {
         padelTennis: {
           label: "Padel Tenis",
@@ -272,13 +246,39 @@ export const sections = {
         },
       },
     },
+    nuspa: {
+      label: "Nuspa",
+      id: "nuspa",
+      subitems: {
+        spaWellness: {
+          label: "Spa & Wellness Rsepsiyon",
+          id: "spa-wellness-reception",
+        },
+        massage: {
+          label: "Masaj",
+          id: "massage",
+        },
+        turkishBath: {
+          label: "Hamam",
+          id: "turkish-bath",
+        },
+        sauna: {
+          label: "Sauna",
+          id: "sauna",
+        },
+        relaxation: {
+          label: "Dinlenme",
+          id: "relaxation",
+        },
+      },
+    },
     cinema: {
       label: "Sinema",
       id: "cinema",
     },
     eventStudios: {
       label: "Etkinlik Stüdyoları",
-      id: "event-studios",
+      id: "playstation-room",
       subitems: {
         playstation: {
           label: "Playstation Odası",
@@ -296,14 +296,6 @@ export const sections = {
           label: "Meditasyon",
           id: "meditation",
         },
-        cookingWorkshop: {
-          label: "Yemek Atölyesi",
-          id: "cooking-workshop",
-        },
-        artWorkshop: {
-          label: "Sanat Atölyesi",
-          id: "art-workshop",
-        },
       },
     },
     kidsClub: {
@@ -312,11 +304,11 @@ export const sections = {
     },
     sharedOfficeSpaces: {
       label: "Paylaşımlı Ofis Alanları",
-      id: "shared-office-spaces",
+      id: "flexible-work",
       subitems: {
-        receptionArea: {
-          label: "Karşılama Çalışma Alanları",
-          id: "reception-work-areas",
+        flexibleWork: {
+          label: "Esnek Çalışma ",
+          id: "flexible-work",
         },
         meetingRooms: {
           label: "Toplantı Odaları",

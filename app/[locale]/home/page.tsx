@@ -11,6 +11,7 @@ import { Video } from "@/components/utility/video"
 import { VideoSection } from "@/components/video-section"
 import { kolajVideo, locationVideo, mainVideo, navigationConfig } from "@/lib/constants"
 import { colors } from "@/styles/config.mjs"
+import { AnimatedLine } from "@/components/animated-line"
 
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations({ locale, namespace: "home" })
@@ -154,6 +155,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           items={slideImages.slides3}
         />
       </section>
+      <AnimatedLine direction="horizontal" />
     </>
   )
 }

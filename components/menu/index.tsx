@@ -266,7 +266,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       >
         <div className="h-full w-full flex" data-lenis-prevent>
           <ScrollableBox>
-            <nav className={cn("h-full w-full px-6", "flex items-start justify-start")}>
+            <nav className="h-full w-full px-6 flex items-start justify-start">
               <ul className="flex flex-col items-center lg:items-start gap-3 lg:gap-2 xl:gap-0 2xl:gap-2 py-0 pt-20 pb-0 lg:py-12 w-full">
                 {/* Show sections of the active item, or all items if no hover */}
                 {active !== null &&
@@ -289,7 +289,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                       </span>
                       {/* Render subitems if they exist */}
                       {section.subitems && (
-                        <ul className="mt-4 flex flex-col gap-2">
+                        <ul className="my-4 flex flex-col gap-2 ml-2">
                           {Object.values(section.subitems).map((subitem) => (
                             <li key={subitem.id}>
                               <span

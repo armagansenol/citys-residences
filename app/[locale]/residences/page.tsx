@@ -1,3 +1,4 @@
+import { AnimatedLine } from "@/components/animated-line"
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { GsapSplitText } from "@/components/gsap-split-text"
 import { Logo } from "@/components/icons"
@@ -85,6 +86,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           />
         </section>
       </FadeInOnScroll>
+      <AnimatedLine direction="horizontal" />
     </>
   )
 }
