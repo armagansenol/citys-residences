@@ -1,3 +1,4 @@
+import { AnimatedLine } from "@/components/animated-line"
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { Logo } from "@/components/icons"
 import { Img } from "@/components/utility/img"
@@ -8,6 +9,7 @@ import { breakpoints, colors } from "@/styles/config.mjs"
 export default function Page() {
   return (
     <>
+      <AnimatedLine direction="horizontal" />
       <section className="bg-white py-0 lg:py-12 z-20">
         <div className="section-container">
           <FadeInOnScroll>
