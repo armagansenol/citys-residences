@@ -26,7 +26,6 @@ export function FadeInOnScroll({ children, duration = 0.4, delay = 0 }: FadeInOn
     ScrollTrigger.create({
       animation: tl,
       trigger: ref.current,
-      markers: true,
       start: "center-=25% center+=25%",
     })
   })
