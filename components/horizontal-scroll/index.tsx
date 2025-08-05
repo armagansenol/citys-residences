@@ -2,12 +2,11 @@
 
 import s from "./horizontal-scroll.module.css"
 
-import { cn } from "@/lib/utils"
-import { useRef } from "react"
-
 import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
 import { GsapSplitText } from "@/components/gsap-split-text"
+import { cn } from "@/lib/utils"
 import Image from "next/image"
+import { useRef } from "react"
 
 export function HorizontalScroll({
   title,
@@ -83,7 +82,7 @@ export function HorizontalScroll({
     <div className="overflow-hidden" ref={ref}>
       <div className={cn(s.container)}>
         <div className={cn(s.frame)}>
-          <h2 className="title-shadow absolute top-28 left-1/2 -translate-x-1/2 font-primary font-bold text-white text-3xl lg:text-7xl xl:text-7xl 2xl:text-7xl leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight text-left lg:text-center z-50 gsap-title-c whitespace-nowrap">
+          <h2 className="title-shadow absolute top-28 left-1/2 -translate-x-1/2 font-montserrat font-bold text-white text-3xl lg:text-7xl xl:text-7xl 2xl:text-7xl leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight text-left lg:text-center z-50 gsap-title-c whitespace-nowrap">
             <GsapSplitText splitBy="lines" stagger={0.005} duration={1}>
               {title}
             </GsapSplitText>

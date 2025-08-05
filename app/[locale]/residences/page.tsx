@@ -54,7 +54,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
       </section>
       <section className="hidden xl:block bg-white relative z-30 section-container">
         <div className="relative flex flex-col items-center justify-center lg:max-w-4xl 3xl:max-w-5xl mx-auto py-32 pb-0">
-          <h2 className="font-primary font-bold text-bricky-brick text-4xl lg:text-7xl xl:text-6xl 2xl:text-6xl 3xl:text-7xl xl:leading-tight 2xl:leading-snug 3xl:leading-snug mb-6 text-center xl:text-center">
+          <h2 className="font-montserrat font-bold text-bricky-brick text-4xl lg:text-7xl xl:text-6xl 2xl:text-6xl 3xl:text-7xl xl:leading-tight 2xl:leading-snug 3xl:leading-snug mb-6 text-center xl:text-center">
             <GsapSplitText splitBy="lines" stagger={0.05} duration={1}>
               Yaşama Alan Açan Detaylar
             </GsapSplitText>

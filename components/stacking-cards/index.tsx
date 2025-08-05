@@ -109,9 +109,9 @@ export function StackingCards({ items }: StackingCardsProps) {
             id={item.sectionId}
           >
             <div className="flex flex-col gap-5 py-8">
-              <h2 className="font-primary text-4xl lg:text-4xl xl:text-5xl font-bold text-bricky-brick">
+              <h3 className="font-montserrat text-4xl lg:text-4xl xl:text-5xl font-bold text-bricky-brick">
                 {item.title}
-              </h2>
+              </h3>
               <small className="font-primary text-sm lg:text-base xl:text-2xl font-bold text-bricky-brick">
                 {item.description}
               </small>

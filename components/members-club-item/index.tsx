@@ -42,7 +42,7 @@ export function MembersClubItem({ item, sectionId, align = "ltr", className = ""
           <div className="flex flex-col items-start justify-center w-4/12 pr-6 py-24">
             <h3
               className={cn(
-                "font-primary font-bold text-bricky-brick text-2xl lg:text-2xl xl:text-4xl 2xl:text-4xl mb-6"
+                "font-montserrat font-bold text-bricky-brick text-2xl lg:text-2xl xl:text-4xl 2xl:text-4xl mb-6"
               )}
             >
               {item.title}

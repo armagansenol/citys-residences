@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils"
 import { getTranslations } from "next-intl/server"
 
-import { AnimatedLine } from "@/components/animated-line"
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { ScaleOut } from "@/components/animations/scale-out"
 import { GsapSplitText } from "@/components/gsap-split-text"
@@ -141,7 +140,6 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           />
         </section>
       </FadeInOnScroll>
-      <AnimatedLine direction="horizontal" />
       <section className="relative py-12">
         <HorizontalScroll
           title={t("live.p2.title")}
@@ -149,7 +147,6 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           items={slideImages.slides2}
         />
       </section>
-      <AnimatedLine direction="horizontal" />
       <section className="py-12">
         <HorizontalScroll
           title={t("live.p3.title")}

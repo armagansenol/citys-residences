@@ -10,12 +10,12 @@ export interface PageTitleProps {
 export function PageTitle(props: PageTitleProps) {
   return (
     <div
-      className={cn("flex items-center justify-center gap-6 bd:gap-2 py-12 bt:py-20 font-primary", props.className)}
+      className={cn("flex items-center justify-center gap-6 lg:gap-2 py-12 lg:py-20", props.className)}
       id={props.id}
     >
       <FadeInOnScroll>
         <h2
-          className="text-bricky-brick font-semibold text-base xl:text-7xl 2xl:text-7xl xl:leading-tight 2xl:leading-tight"
+          className="font-montserrat text-bricky-brick font-semibold text-base xl:text-7xl 2xl:text-7xl xl:leading-tight 2xl:leading-tight"
           dangerouslySetInnerHTML={{ __html: props.title }}
         />
       </FadeInOnScroll>
