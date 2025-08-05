@@ -1,3 +1,4 @@
+import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { cn } from "@/lib/utils"
 
 export interface PageTitleProps {
@@ -15,10 +16,12 @@ export function PageTitle(props: PageTitleProps) {
       )}
       id={props.id}
     >
-      <h2
-        className="text-bricky-brick font-semibold text-base xl:text-7xl 2xl:text-7xl xl:leading-tight 2xl:leading-tight"
-        dangerouslySetInnerHTML={{ __html: props.title }}
-      />
+      <FadeInOnScroll>
+        <h2
+          className="text-bricky-brick font-semibold text-base xl:text-7xl 2xl:text-7xl xl:leading-tight 2xl:leading-tight"
+          dangerouslySetInnerHTML={{ __html: props.title }}
+        />
+      </FadeInOnScroll>
     </div>
   )
 }
