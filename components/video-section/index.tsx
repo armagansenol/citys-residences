@@ -2,10 +2,8 @@
 
 import { cn } from "@/lib/utils"
 
-import { Logo } from "@/components/icons"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
-import { colors } from "@/styles/config.mjs"
 import { PlayIcon } from "lucide-react"
 import { useRef, useState } from "react"
 
@@ -66,9 +64,9 @@ export function VideoSection({
               <Img src={thumbnail} alt="Thumbnail" className="w-full h-full object-cover" fill sizes="100vw" />
             </div>
           )}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 xl:h-48 xl:w-48 2xl:h-60 2xl:w-60 z-50">
+          {/* <div className="absolute top-0 left-1/2 -translate-x-1/2 xl:h-48 xl:w-48 2xl:h-60 2xl:w-60 z-50">
             <Logo fill={colors.white} />
-          </div>
+          </div> */}
           <div
             className={cn("absolute top-1/2 left-1/2 -translate-x-1/2 z-50", {
               "-translate-y-[40%]": !spot,
