@@ -1,5 +1,4 @@
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
-import { GsapSplitText } from "@/components/gsap-split-text"
 import { IconCitysMembersClubLogo } from "@/components/icons"
 import { LogoSection } from "@/components/logo-section"
 import { MembersClubItem } from "@/components/members-club-item"
@@ -34,11 +33,12 @@ export default async function Page({ params }: { params: { locale: string } }) {
               <Img src="/img/members-cat.png" alt="City's Members Club" fill className="object-contain" />
             </div>
           </FadeInOnScroll>
-          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-3xl 2xl:text-5xl xl:leading-normal 2xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
-            <GsapSplitText stagger={0.009} splitBy="chars" duration={1}>
-              Yaşam Yeniden Tasarlandı: CITY&apos;S
-            </GsapSplitText>
-          </h2>
+          <FadeInOnScroll delay={0.3}>
+            <h2 className="font-primary font-medium text-2xl lg:text-2xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl xl:leading-normal 2xl:leading-tight 3xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center flex items-center justify-center">
+              Yaşam Yeniden Tasarlandı <span className="font-montserrat font-light text-[1.5em] mx-8">X</span>{" "}
+              CITY&apos;S
+            </h2>
+          </FadeInOnScroll>
         </div>
       </section>
       <section className="bg-white z-30">

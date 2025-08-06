@@ -1,3 +1,4 @@
+import { AnimatedLine } from "@/components/animated-line"
 import { AvmBrandsContainer } from "@/components/avm-brands-container"
 import { GsapSplitText } from "@/components/gsap-split-text"
 import { IconCitysIstanbulLogo } from "@/components/icons"
@@ -55,6 +56,7 @@ export default async function Page() {
           <AvmBrandsContainer initialBrands={brands.items || []} />
         </div>
       </section>
+      <AnimatedLine direction="horizontal" />
     </>
   )
 }

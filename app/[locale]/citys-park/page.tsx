@@ -9,6 +9,7 @@ import { Video } from "@/components/utility/video"
 import { VideoSection } from "@/components/video-section"
 import { citysParkVideo } from "@/lib/constants"
 import { getCitysParkContent } from "@/lib/content"
+import { cn } from "@/lib/utils"
 import { breakpoints } from "@/styles/config.mjs"
 import { getTranslations } from "next-intl/server"
 
@@ -32,19 +33,26 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           />
         </section>
       </FadeInOnScroll>
-      <section className="relative z-20 bg-white py-5">
+      <section className="relative z-20 bg-white pt-10">
         <LogoSection foregroundLogo={<IconCitysParkLogo fill="#5D7261" />} />
         <div className="section-container pb-20 pt-10 flex flex-col items-center gap-16">
-          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-5xl 2xl:text-5xl 3xl:text-[54px] xl:leading-normal 2xl:leading-tight 3xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
+          <h2
+            className={cn(
+              "font-primary font-medium text-black text-center xl:max-w-4xl 2xl:max-w-6xl",
+              "text-2xl lg:text-2xl xl:text-5xl 2xl:text-5xl 3xl:text-[54px]",
+              "leading-normal xl:leading-snug 2xl:leading-snug 3xl:leading-tight"
+            )}
+          >
             <GsapSplitText stagger={0.2} splitBy="lines" duration={1.5}>
               {t("title1")} <br /> {t("subtitle1")}
             </GsapSplitText>
           </h2>
-          <h2 className="font-primary font-medium text-black text-2xl lg:text-2xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl xl:leading-normal 2xl:leading-tight 3xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center">
-            <GsapSplitText stagger={0.002} splitBy="chars" duration={1.5}>
-              {t("title2")}
-            </GsapSplitText>
-          </h2>
+          <FadeInOnScroll>
+            <h2 className="font-primary font-medium text-bricky-brick text-2xl lg:text-2xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl xl:leading-normal 2xl:leading-tight 3xl:leading-tight xl:max-w-4xl 2xl:max-w-6xl text-center flex items-center justify-center">
+              Yaşam Yeniden Tasarlandı <span className="font-montserrat font-light text-[1.5em] mx-8">X</span>{" "}
+              CITY&apos;S
+            </h2>
+          </FadeInOnScroll>
           <div className="relative w-full h-[90vh] mt-5">
             <MaskedParallaxImage
               imgSrc={"/img/citys-park-banner.jpg"}

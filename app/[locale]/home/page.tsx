@@ -48,9 +48,9 @@ export default async function Page({ params: { locale } }: { params: { locale: s
       </section>
       {/* YAŞAMA SANATI */}
       <section className="bg-white py-0 lg:py-12 z-20 relative">
-        <div className=" mx-auto py-12 lg:py-28 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
+        <div className="mx-auto py-12 lg:py-28 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
           <FadeInOnScroll>
-            <div className={"w-48 h-48 lg:w-64 lg:h-64 mx-auto mb-10 lg:mb-20"}>
+            <div className="w-48 h-48 lg:w-64 lg:h-64 mx-auto mb-10 lg:mb-20">
               <Logo fill={colors["bricky-brick"]} />
             </div>
           </FadeInOnScroll>
@@ -86,7 +86,12 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             <VideoSection
               primaryVideoUrl={kolajVideo}
               thumbnail="/img/thumbnail-kolaj-video.jpg"
-              title="Yaşam Yeniden Tasarlandı: CITY'S"
+              title={
+                <>
+                  Yaşam Yeniden Tasarlandı <span className="font-montserrat font-light text-[1.5em] mx-8">X</span>{" "}
+                  CITY&apos;S
+                </>
+              }
             />
           </div>
         </FadeInOnScroll>

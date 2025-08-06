@@ -5,13 +5,13 @@ import { cn } from "@/lib/utils"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
 import { PlayIcon } from "lucide-react"
-import { useRef, useState } from "react"
+import { useRef, useState, ReactNode } from "react"
 
 interface VideoSectionProps {
   primaryVideoUrl: string
   primaryVideoType?: string
   thumbnail: string
-  title: string
+  title: ReactNode
   className?: string
   spot?: string
 }
@@ -84,7 +84,7 @@ export function VideoSection({
             )}
             <div className="flex flex-col items-center justify-center gap-5 z-30">
               {title && (
-                <article className="text-white font-primary text-lg xl:text-4xl 2xl:text-5xl font-medium lg:whitespace-nowrap min-w-52 text-center flex-shrink-0">
+                <article className="text-white font-primary text-lg xl:text-4xl 2xl:text-5xl font-medium lg:whitespace-nowrap min-w-52 text-center flex-shrink-0 flex items-center">
                   {title}
                 </article>
               )}

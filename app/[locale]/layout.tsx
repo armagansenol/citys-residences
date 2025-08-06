@@ -19,7 +19,7 @@ import { StickyContactMenu } from "@/components/sticky-contact-menu"
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 })
 
 const halenoir = localFont({
