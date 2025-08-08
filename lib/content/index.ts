@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import { ReactNode } from "react"
 import { compileMDX } from "next-mdx-remote/rsc"
+import { getCitysParkContent as getOutstaticCitysParkContent } from "../outstatic"
 
 export interface ContentItem {
   title: ReactNode
@@ -94,6 +95,29 @@ export async function getContentItems(section: string, locale: string): Promise<
 }
 
 export async function getCitysParkContent(locale: string): Promise<ContentItem[]> {
+  // Try to get content from Outstatic first
+  try {
+    const outstaticContent = await getOutstaticCitysParkContent(locale)
+    if (outstaticContent && outstaticContent.length > 0) {
+      // Transform Outstatic data to match ContentItem interface
+      return outstaticContent.map((item: any) => ({
+        title: item.title,
+        subtitle: item.subtitle,
+        image: item.image || "",
+        images: item.images || [],
+        sectionId: item.sectionId,
+        order: item.order,
+        content: item.content,
+        url: item.images || [item.image],
+        description: item.content,
+        bg: item.bg,
+      }))
+    }
+  } catch (error) {
+    console.warn("Failed to load Outstatic content, falling back to MDX files:", error)
+  }
+
+  // Fallback to existing MDX files
   return getContentItems("citys-park", locale)
 }
 

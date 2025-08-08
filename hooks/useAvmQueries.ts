@@ -6,7 +6,7 @@ import { useParams } from "next/navigation"
 
 export function useCategories() {
   const params = useParams()
-  const locale = (params.locale as string) || "tr"
+  const locale = (params?.locale as string) || "tr"
 
   return useQuery({
     queryKey: ["categories", locale],
@@ -17,7 +17,7 @@ export function useCategories() {
 
 export function useSubCategories(categoryId: string | null) {
   const params = useParams()
-  const locale = (params.locale as string) || "tr"
+  const locale = (params?.locale as string) || "tr"
 
   return useQuery({
     queryKey: ["subCategories", categoryId, locale],
@@ -29,7 +29,7 @@ export function useSubCategories(categoryId: string | null) {
 
 export function useFloors() {
   const params = useParams()
-  const locale = (params.locale as string) || "tr"
+  const locale = (params?.locale as string) || "tr"
 
   return useQuery({
     queryKey: ["floors", locale],
@@ -40,7 +40,7 @@ export function useFloors() {
 
 export function useBrands(filters?: { category?: string; subCategory?: string; floor?: string; keyword?: string }) {
   const params = useParams()
-  const locale = (params.locale as string) || "tr"
+  const locale = (params?.locale as string) || "tr"
 
   return useQuery({
     queryKey: ["brands", locale, filters],

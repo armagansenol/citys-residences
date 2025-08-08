@@ -17,7 +17,7 @@ interface UseAvmDataReturn {
 
 export function useAvmData(): UseAvmDataReturn {
   const params = useParams()
-  const locale = (params.locale as string) || "tr"
+  const locale = (params?.locale as string) || "tr"
 
   const [categories, setCategories] = useState<Category[]>([])
   const [subCategories, setSubCategories] = useState<SubCategory[]>([])
