@@ -1,4 +1,5 @@
 {
     "branch": "outstatic-integration",
-    "contentPath": "content"
+    "contentPath": "outstatic/content",
+    "format": "mdx"
 }

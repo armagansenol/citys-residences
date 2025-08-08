@@ -48,6 +48,12 @@ const config = {
           required: true,
         },
       ],
+      // Enable MDX support
+      format: "mdx",
+      // Specify the content path for MDX files in outstatic directory
+      path: "outstatic/content/citys-park",
+      // Enable frontmatter parsing
+      frontmatter: true,
     },
   },
 }
