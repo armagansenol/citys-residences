@@ -34,7 +34,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
       </FadeInOnScroll>
       <section className="relative z-20 bg-white pt-10">
         <LogoSection foregroundLogo={<IconCitysLifeLogo fill="#000000" />} />
-        <div className="section-container pt-16 pb-32 flex flex-col items-center gap-20">
+        <div className="section-container pt-16 pb-32 flex flex-col items-center gap-14">
           <h2
             className={cn(
               "font-primary font-medium text-black text-center",
