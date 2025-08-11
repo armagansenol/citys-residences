@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "tsc": "tsc",
-    "migrate-outstatic": "node scripts/migrate-to-outstatic.js"
+    "tsc": "tsc"
   },
   "dependencies": {
     "@darkroom.engineering/hamo": "^0.6.46",
