@@ -9,11 +9,13 @@ export interface PageTitleProps {
 
 export function PageTitle(props: PageTitleProps) {
   return (
-    <div className={cn("flex items-center justify-center gap-6 lg:gap-2 py-12 lg:py-20")} id={props.id}>
+    <div className="flex items-center justify-center gap-6 lg:gap-2 py-12 lg:py-20" id={props.id}>
       <FadeInOnScroll>
         <h2
           className={cn(
-            "font-montserrat text-bricky-brick font-semibold text-base xl:text-7xl 2xl:text-7xl xl:leading-tight 2xl:leading-tight",
+            "font-montserrat font-semibold text-bricky-brick",
+            "text-5xl lg:text-5xl xl:text-7xl 2xl:text-7xl",
+            "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight",
             props.textClassName
           )}
         >

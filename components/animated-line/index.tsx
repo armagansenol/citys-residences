@@ -37,7 +37,7 @@ export function AnimatedLine({ direction }: AnimatedLineProps) {
   )
 
   return (
-    <div className={cn("relative z-50", direction === "horizontal" ? "h-px" : "w-px")} ref={ref}>
+    <div className={cn("relative z-50 hidden lg:block", direction === "horizontal" ? "h-px" : "w-px")} ref={ref}>
       <div
         className={cn("bar h-full w-full bg-black opacity-0", direction === "horizontal" ? "scale-x-0" : "scale-y-0")}
         style={{ transformOrigin: direction === "horizontal" ? "left center" : "top center" }}

@@ -35,7 +35,7 @@ export function VideoSection({
   return (
     <div
       className={cn(
-        "w-full h-[350px] bt:h-auto relative z-10 flex items-center justify-center bg-black rounded-sm overflow-hidden",
+        "w-full h-[350px] bt:h-auto relative z-10 flex items-center justify-center bg-black lg:rounded-sm overflow-hidden",
         className
       )}
     >
@@ -76,7 +76,9 @@ export function VideoSection({
             {spot && (
               <article
                 className={cn(
-                  "font-primary font-bold text-white text-lg xl:text-4xl 2xl:text-5xl lg:whitespace-nowrap min-w-52 text-center flex-shrink-0 mb-20 mt-24"
+                  "font-primary font-bold text-white lg:whitespace-nowrap text-center",
+                  "text-lg xl:text-4xl 2xl:text-5xl",
+                  "min-w-52 flex-shrink-0 mb-20 mt-24"
                 )}
               >
                 {spot}
@@ -84,14 +86,23 @@ export function VideoSection({
             )}
             <div className="flex flex-col items-center justify-center gap-5 z-30">
               {title && (
-                <article className="text-white font-primary text-lg xl:text-4xl 2xl:text-5xl font-medium lg:whitespace-nowrap min-w-52 text-center flex-shrink-0 flex items-center">
+                <article
+                  className={cn(
+                    "text-white font-primary font-medium lg:whitespace-nowrap text-center",
+                    "text-3xl xl:text-4xl 2xl:text-5xl",
+                    "w-full min-w-[90vw] lg:min-w-52 flex-shrink-0"
+                  )}
+                >
                   {title}
                 </article>
               )}
               <button
                 type="button"
                 className={cn(
-                  "w-48 h-48 xl:w-40 xl:h-40 2xl:w-48 2xl:h-48 border border-white rounded-full flex items-center justify-center xl:p-12 2xl:p-16",
+                  "w-24 h-24 lg:w-40 lg:h-40 xl:w-40 xl:h-40 2xl:w-48 2xl:h-48",
+                  "border border-white rounded-full",
+                  "flex items-center justify-center",
+                  "p-6 lg:p-12 xl:p-12 2xl:p-16",
                   "transition-transform duration-700 ease-in-out group-hover:scale-90"
                 )}
               >
