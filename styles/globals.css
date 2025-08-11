@@ -29,6 +29,8 @@
   --z-header: z-stack();
   --z-header-content: z-stack();
   --z-menu: z-stack();
+  --z-menu-submenu: z-stack();
+  --z-menu-close-button: z-stack();
   --z-popup: z-stack();
   --z-modal-background: z-stack();
   --z-modal: z-stack();

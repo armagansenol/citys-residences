@@ -48,7 +48,12 @@ export function Menu({ open, setOpen, items }: MenuProps) {
   const { scrollToCard } = useStackingCardsStore()
   const [active, setActive] = useState<number | null>(null)
 
+  const isTouchDevice = () => {
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0
+  }
+
   useClickAway(menuRef, (e) => {
+    if (isTouchDevice()) return
     if ((e.target as HTMLElement).closest("[data-ignore-click-away]")) {
       return
     }
@@ -57,6 +62,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
   })
 
   useClickAway(submenuRef, (e) => {
+    if (isTouchDevice()) return
     if ((e.target as HTMLElement).closest("[data-ignore-click-away]")) {
       return
     }
@@ -94,7 +100,10 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       if (!menuTL.current || !submenuTL.current) return
 
       if (open) {
-        gsap.to(menuTL.current, { time: menuTL.current?.duration(), ease: "expo.out" })
+        gsap.to(menuTL.current, {
+          time: menuTL.current?.duration(),
+          ease: "expo.out",
+        })
         lenis?.stop()
       } else {
         gsap.to(submenuTL.current, {
@@ -120,7 +129,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
     },
     {
       dependencies: [open, lenis],
-    }
+    },
   )
 
   useGSAP(
@@ -130,7 +139,10 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       const shouldShowSubmenu = active !== null && items[active]?.sections
 
       if (shouldShowSubmenu) {
-        gsap.to(submenuTL.current, { time: submenuTL.current?.duration(), ease: "expo.out" })
+        gsap.to(submenuTL.current, {
+          time: submenuTL.current?.duration(),
+          ease: "expo.out",
+        })
       } else if (open) {
         // Only close submenu when main menu is open (e.g., hovering over items without submenus)
         gsap.to(submenuTL.current, {
@@ -143,7 +155,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
     },
     {
       dependencies: [open, active, items],
-    }
+    },
   )
 
   const handleScroll = (id: string) => {
@@ -173,128 +185,149 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       {/* menu */}
       <div
         className={cn(
-          "fixed top-0 left-0 bottom-0 overflow-hidden",
-          "blur-bg-bricky-brick w-screen lg:w-[30vw] xl:w-[22vw] 2xl:w-[20vw] z-[var(--z-menu)]"
+          "fixed bottom-0 left-0 top-0 overflow-hidden",
+          "blur-bg-bricky-brick z-[var(--z-menu)] w-screen lg:w-[30vw] xl:w-[22vw] 2xl:w-[20vw]",
         )}
         style={{ clipPath: clipPath.current }}
         ref={menuRef}
         data-ignore-click-away
       >
-        <button className="absolute top-6 left-8 z-50" onClick={() => setOpen(false)} type="button">
-          <X strokeWidth={1} className="text-white h-12 w-12" />
+        <button
+          className="absolute right-8 top-6 z-[var(--z-menu-close-button)]"
+          onClick={() => {
+            setActive(null)
+            setOpen(false)
+          }}
+          type="button"
+        >
+          <X strokeWidth={1} className="h-12 w-12 text-white" />
         </button>
-        <nav className="w-full h-full lg:px-10 flex items-end justify-center lg:justify-start">
-          <ul className="flex flex-col items-center lg:items-start justify-end gap-3 lg:gap-2 xl:gap-3 2xl:gap-4 3xl:gap-5 w-full">
+        <nav className="flex h-full w-full items-start justify-start px-10 pt-20 lg:justify-center lg:px-10 xl:items-end xl:pt-0">
+          <ul className="flex w-full flex-col items-start justify-start gap-3 lg:items-start lg:gap-2 xl:gap-3 2xl:gap-4 3xl:gap-5">
             {items.map(({ title, id }, i) => (
               <li
                 className={cn(
-                  "text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
-                  "font-primary font-normal text-white text-center lg:text-left",
+                  "text-2xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
+                  "text-center font-primary font-normal text-white lg:text-left",
                   "transition-opacity duration-300 ease-in-out",
                   {
                     "opacity-100": active === null || active === i,
                     "opacity-30": active !== null && active !== i,
-                  }
+                  },
                 )}
                 key={title}
-                onMouseEnter={() => {
-                  if (width > breakpoints.breakpointTablet) {
+                // onMouseEnter={() => {
+                //   if (width > breakpoints.breakpointTablet) {
+                //     setActive(i);
+                //   }
+                // }}
+                onClick={() => {
+                  if (width <= breakpoints.breakpointTablet) {
                     setActive(i)
                   }
                 }}
               >
-                <span className="cursor-pointer block" onClick={() => handleScroll(id)}>
+                <span
+                  className="block cursor-pointer"
+                  onClick={() => {
+                    if (isTouchDevice()) return
+                    handleScroll(id)
+                  }}
+                >
                   {title}
                 </span>
               </li>
             ))}
-            <li className="xl:my-8 2xl:my-10 3xl:my-10">
+            <li className="my-4 xl:my-8 2xl:my-10 3xl:my-10">
               <a
                 href="https://maps.app.goo.gl/2hSJUsgo2U198Kqq9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "font-primary font-normal text-white text-base lg:text-lg xl:text-xl 2xl:text-xl 3xl:text-2xl text-center lg:text-left xl:leading-none",
+                  "text-left font-primary text-2xl font-normal text-white lg:text-lg xl:text-xl xl:leading-none 2xl:text-xl 3xl:text-2xl",
                   "transition-opacity duration-300 ease-in-out",
                   "opacity-100 hover:opacity-70",
-                  "flex items-center gap-2"
+                  "flex items-center gap-2",
                 )}
               >
-                <span className="flex items-end h-5 w-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8">
+                <span className="flex h-5 w-5 items-end xl:h-6 xl:w-6 2xl:h-8 2xl:w-8">
                   <IconPin fill={colors.white} />
                 </span>
                 CR Satış Ofisi Konum
               </a>
             </li>
-            <li className="w-full flex flex-col items-center lg:items-start order-last lg:order-none mt-auto mb-8">
-              <p className="w-full font-primary font-normal text-white text-sm xl:text-xl 2xl:text-xl 3xl:text-2xl py-2 lg:border-b-[3px] lg:border-b-white/30 text-center lg:text-left">
+            <li className="mb-8 mr-auto mt-auto flex w-full flex-col items-start">
+              <p className="py-2 text-center font-primary text-sm font-normal text-white lg:text-left xl:text-xl 2xl:text-xl 3xl:text-2xl">
                 Bizi Takip Edin
               </p>
-              <div className="grid grid-cols-4 gap-4 py-3 xl:py-4 pr-4">
-                <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+              <div className="h-[3px] w-full bg-white/30"></div>
+              <div className="grid grid-cols-4 gap-2 py-2 pr-2 sm:gap-3 sm:py-3 sm:pr-3 md:gap-4 md:py-3 md:pr-4 lg:gap-4 lg:py-3 xl:gap-4 xl:py-4">
+                <IconWrapper className="aspect-square w-8 cursor-pointer opacity-70 transition-opacity hover:opacity-100 sm:w-10 md:w-12 lg:w-12 xl:w-16">
                   {socialIcons(colors.white).instagram}
                 </IconWrapper>
-                <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+                <IconWrapper className="aspect-square w-8 cursor-pointer opacity-70 transition-opacity hover:opacity-100 sm:w-10 md:w-12 lg:w-12 xl:w-16">
                   {socialIcons(colors.white).facebook}
                 </IconWrapper>
-                <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+                <IconWrapper className="aspect-square w-8 cursor-pointer opacity-70 transition-opacity hover:opacity-100 sm:w-10 md:w-12 lg:w-12 xl:w-16">
                   {socialIcons(colors.white).tiktok}
                 </IconWrapper>
-                <IconWrapper className="w-full aspect-square opacity-70 hover:opacity-100 transition-opacity cursor-pointer">
+                <IconWrapper className="aspect-square w-8 cursor-pointer opacity-70 transition-opacity hover:opacity-100 sm:w-10 md:w-12 lg:w-12 xl:w-16">
                   {socialIcons(colors.white).youtube}
                 </IconWrapper>
               </div>
             </li>
-            {/* <li className={cn(s.navItem, "block lg:hidden")}>
-            <LocaleSwitcher />
-          </li> */}
           </ul>
         </nav>
       </div>
       {/* submenu */}
       <div
         className={cn(
-          "fixed top-0 bottom-0 overflow-hidden",
-          "blur-bg-bricky-brick w-screen z-[var(--z-menu)]",
+          "fixed bottom-0 top-0 overflow-hidden",
+          "blur-bg-bricky-brick z-[var(--z-menu-submenu)]",
           "border-l border-white/30",
           "left-0 lg:left-[30vw] xl:left-[22vw] 2xl:left-[20vw]",
-          "lg:w-[30vw] xl:w-[18vw] 2xl:w-[15vw]"
+          "w-full lg:w-[30vw] xl:w-[18vw] 2xl:w-[15vw]",
         )}
         style={{ clipPath: clipPath.current }}
         ref={submenuRef}
         data-ignore-click-away
       >
-        <div className="h-full w-full flex" data-lenis-prevent>
+        <button
+          className="absolute right-8 top-6 z-[var(--z-menu-close-button)]"
+          onClick={() => {
+            setActive(null)
+            setOpen(false)
+          }}
+          type="button"
+        >
+          <X strokeWidth={1} className="h-12 w-12 text-white" />
+        </button>
+        <div className="flex h-full w-full" data-lenis-prevent>
           <ScrollableBox>
-            <nav className="h-full w-full px-6 flex items-start justify-start">
-              <ul className="flex flex-col items-center lg:items-start gap-3 lg:gap-2 xl:gap-0 2xl:gap-2 py-0 pt-20 pb-0 lg:py-12 w-full">
-                {/* Show sections of the active item, or all items if no hover */}
+            <nav className="flex h-full w-full items-start justify-start px-10 lg:px-6">
+              <ul className="flex flex-col items-start gap-3 py-0 pb-0 pt-20 lg:gap-2 lg:py-12 xl:gap-0 2xl:gap-2">
                 {active !== null &&
                   items[active]?.sections &&
-                  // Render sections of the hovered item
                   Object.values(items[active].sections).map((section) => (
                     <li
                       className={cn(
                         "text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
-                        "font-primary font-normal text-white text-center lg:text-left"
+                        "font-primary font-normal text-white lg:text-left",
                       )}
                       key={section.id}
                     >
                       <span
-                        className="cursor-pointer block xl:py-1"
-                        // href={`#${items[active].href}`}
+                        className="block cursor-pointer xl:py-1"
                         onClick={() => handleScroll(section.id)}
                       >
                         {section.label}
                       </span>
-                      {/* Render subitems if they exist */}
                       {section.subitems && (
-                        <ul className="my-4 flex flex-col gap-2 ml-2">
+                        <ul className="my-0 flex flex-col items-start gap-2 lg:my-4 lg:ml-2">
                           {Object.values(section.subitems).map((subitem) => (
                             <li key={subitem.id}>
                               <span
-                                className="text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl cursor-pointer block py-0.5"
-                                // href={`#${subitem.id}`}
+                                className="block cursor-pointer py-0.5 text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl"
                                 onClick={() => handleScroll(subitem.id)}
                               >
                                 {subitem.label}
