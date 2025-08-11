@@ -90,7 +90,7 @@ export function VideoSection({
                   className={cn(
                     "text-white font-primary font-medium lg:whitespace-nowrap text-center",
                     "text-3xl xl:text-4xl 2xl:text-5xl",
-                    "w-full min-w-[90vw] lg:min-w-52 flex-shrink-0"
+                    "w-full min-w-[90vw] lg:min-w-52 flex-shrink-0 flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0"
                   )}
                 >
                   {title}
