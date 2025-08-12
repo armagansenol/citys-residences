@@ -99,9 +99,9 @@ export function Header() {
           }
         )}
       >
-        <div className="flex items-stretch justify-between flex-1 gap-12 z-[var(--z-header-content)]">
+        <div className="flex items-stretch justify-between flex-1 gap-12 z-[var(--z-header-content)] px-4 lg:px-0">
           <button
-            className="cursor-pointer flex items-center gap-2 bt:gap-4"
+            className="cursor-pointer flex items-center gap-2 lg:gap-4"
             onClick={() => setMenuOpen((prev) => !prev)}
             type="button"
             aria-expanded={menuOpen}
@@ -110,6 +110,7 @@ export function Header() {
           >
             <div className="cursor-pointer flex items-center">
               <MenuX
+                className="hidden lg:block"
                 isOpen={false}
                 onClick={() => setMenuOpen(!menuOpen)}
                 strokeWidth="2"
@@ -118,16 +119,16 @@ export function Header() {
                 width="50"
                 height="6"
               />
-              {/* <MenuX
-                className="block bt:hidden"
+              <MenuX
+                className="block lg:hidden"
                 isOpen={menuOpen}
                 onClick={() => setMenuOpen(!menuOpen)}
                 strokeWidth="2"
                 color={scrollState.atTop || menuOpen ? colors.white : colors.black}
                 transition={{ type: "spring", stiffness: 260, damping: 40 }}
-                width="35"
+                width="30"
                 height="6"
-              /> */}
+              />
             </div>
             <div
               className={cn("cursor-pointer overflow-hidden font-primary font-medium text-sm lg:text-base xl:text-lg", {
@@ -139,17 +140,7 @@ export function Header() {
             </div>
           </button>
           {Object.values(sections).length > 0 && !scrollState.atTop && (
-            <div
-              className={cn(
-                "flex items-stretch gap-8"
-                //    {
-                //   "opacity-0": menuOpen,
-                //   "opacity-100": !menuOpen,
-                //   "pointer-events-none": menuOpen,
-                //   "pointer-events-auto": !menuOpen,
-                // }
-              )}
-            >
+            <div className={cn("flex items-stretch gap-8")}>
               {Object.values(sections).map((item, index) => (
                 <div key={item.id} className="group relative flex items-center">
                   <a
@@ -182,7 +173,8 @@ export function Header() {
           <AnimatePresence mode="wait">
             {scrollState.atTop ? (
               <motion.div
-                className="absolute -top-2 left-1/2 -translate-x-1/2 h-20 w-20 xl:h-36 xl:w-36 2xl:h-40 2xl:w-40"
+                className="absolute 
+                -top-2 left-1/2 -translate-x-1/2 h-32 w-32 xl:h-36 xl:w-36 2xl:h-40 2xl:w-40"
                 key="logo-full"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
