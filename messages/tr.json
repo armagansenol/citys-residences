@@ -114,17 +114,17 @@
             "title3": "Zamanı yönetmek yaşamı sanata dönüştürmektir",
             "p1": {
                 "title": "DAHA<br></br> HUZURLU YAŞA",
-                "description": "Farklı ve zamansız mimarinin, doğanın cömertliği ile buluştuğu mekanlarda güven içinde, daha huzurlu yaşa.",
+                "description": "Farklı ve zamansız mimarinin, doğanın cömertliği ile buluştuğu mekanlarda güven içinde, <br></br> daha huzurlu yaşa.",
                 "button": "İNCELE"
             },
             "p2": {
                 "title": "DAHA ÇOK<br></br>YAŞA",
-                "description": "Hayatın tam merkezinde, zamanı kendinize ve sevdiklerinize ayırarak keyifle, yaşamı sanata dönüştürerek daha çok yaşa.",
+                "description": "Hayatın tam merkezinde, zamanı kendinize ve sevdiklerinize ayırarak keyifle, yaşamı sanata dönüştürerek <br></br> daha çok yaşa.",
                 "button": "İNCELE"
             },
             "p3": {
                 "title": "DAHA DOLU<br></br>YAŞA",
-                "description": "Spor, sanat, kültür, alışveriş, eğlence ve çok daha fazlasını bir araya getiren yeni bir yaşam dizaynı ile daha dolu yaşa.",
+                "description": "Spor, sanat, kültür, alışveriş, eğlence ve çok daha fazlasını bir araya getiren yeni bir yaşam dizaynı ile <br></br> daha dolu yaşa.",
                 "button": "İNCELE"
             }
         },
@@ -139,15 +139,15 @@
         "live": {
             "p1": {
                 "title": "DAHA ÇOK YAŞA",
-                "description": "Hayatın tam merkezinde, zamanı kendinize ve sevdiklerinize ayırarak keyifle, yaşamı sanata dönüştürerek daha çok yaşa."
+                "description": "Hayatın tam merkezinde, zamanı kendinize ve sevdiklerinize ayırarak keyifle, yaşamı sanata dönüştürerek <br></br> daha çok yaşa."
             },
             "p2": {
                 "title": "DAHA HUZURLU YAŞA",
-                "description": "Farklı ve zamansız mimarinin, doğanın cömertliği ile buluştuğu mekanlarda güven içinde, daha huzurlu yaşa."
+                "description": "Farklı ve zamansız mimarinin, doğanın cömertliği ile buluştuğu mekanlarda güven içinde, <br></br> daha huzurlu yaşa."
             },
             "p3": {
                 "title": "DAHA DOLU YAŞA",
-                "description": "Spor, sanat, kültür, alışveriş, eğlence ve çok daha fazlasını bir araya getiren yeni bir yaşam dizaynı ile daha dolu yaşa."
+                "description": "Spor, sanat, kültür, alışveriş, eğlence ve çok daha fazlasını bir araya getiren yeni bir yaşam dizaynı ile <br></br> daha dolu yaşa."
             }
         }
     },

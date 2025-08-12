@@ -6,15 +6,17 @@ import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
 import { GsapSplitText } from "@/components/gsap-split-text"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
-import { useRef } from "react"
+import { ReactNode, useRef } from "react"
 
 export function HorizontalScroll({
+  className,
   title,
   description,
   items,
 }: {
+  className?: string
   title: string
-  description: string
+  description: ReactNode
   items: string[]
 }) {
   const ref = useRef(null)
@@ -79,7 +81,7 @@ export function HorizontalScroll({
   )
 
   return (
-    <div className="overflow-hidden" ref={ref}>
+    <div className={cn("overflow-hidden", className)} ref={ref}>
       <div className={cn(s.container)}>
         <div className={cn(s.frame)}>
           <h2 className="title-shadow absolute top-28 left-1/2 -translate-x-1/2 font-montserrat font-bold text-white text-3xl lg:text-7xl xl:text-7xl 2xl:text-7xl leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight text-left lg:text-center z-50 gsap-title-c whitespace-nowrap">
@@ -90,7 +92,10 @@ export function HorizontalScroll({
           <p
             className={cn(
               "absolute bottom-14 left-14",
-              "font-primary font-semibold text-white text-base lg:text-4xl xl:text-2xl leading-relaxed lg:leading-relaxed xl:leading-relaxed lg:max-w-2xl xl:max-w-lg",
+              "font-primary font-semibold text-white",
+              "text-base lg:text-4xl xl:text-2xl",
+              "leading-relaxed lg:leading-relaxed xl:leading-relaxed",
+              "lg:max-w-2xl xl:max-w-lg",
               "description-bg z-50 py-4 px-8 rounded-md"
             )}
           >

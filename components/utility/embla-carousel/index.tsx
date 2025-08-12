@@ -20,6 +20,7 @@ type PropType = {
   slideSpacing?: string
   align?: "center" | "start" | "end"
   parallax?: boolean
+  hasButtons?: boolean
 }
 
 export const EmblaCarousel: React.FC<PropType> = (props) => {
@@ -31,6 +32,7 @@ export const EmblaCarousel: React.FC<PropType> = (props) => {
     slideWidth = "100%",
     slideSpacing = "0px",
     parallax = false,
+    hasButtons = true,
   } = props
 
   /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -140,7 +142,7 @@ export const EmblaCarousel: React.FC<PropType> = (props) => {
           ))}
         </div>
       </div>
-      {slides.length > 1 && (
+      {slides.length > 1 && hasButtons && (
         <div className={s["embla-buttons"]}>
           <PrevButton
             className="blur-bg-white"

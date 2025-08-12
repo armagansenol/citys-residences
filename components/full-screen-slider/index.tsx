@@ -1,40 +1,55 @@
 "use client"
 
-import s from "./full-screen-slider.module.css"
-
 import { cn } from "@/lib/utils"
 
 import { EmblaCarousel } from "@/components/utility/embla-carousel"
+import { Img } from "@/components/utility/img"
+import { ReactNode } from "react"
 
 export interface FullScreenSliderProps {
+  className?: string
   title: string
-  description: string
-  items: React.ReactNode[]
+  description: ReactNode
+  items: string[]
 }
 
-export function FullScreenSlider({ title, description, items }: FullScreenSliderProps) {
+export function FullScreenSlider({ className, title, description, items }: FullScreenSliderProps) {
+  const slides = items.map((item, i) => (
+    <div className="w-screen h-[70vw] relative" key={i}>
+      <Img className="object-cover object-bottom" src={item} alt={title} fill sizes="100vw" />
+    </div>
+  ))
+
   return (
-    <div className="relative flex flex-col bt:flex-row gap-6 z-[100]">
-      <div className="w-screen relative">
-        <EmblaCarousel autoplay={true} autoplayDelay={5000} slides={items} options={{ duration: 35, loop: true }} />
-      </div>
+    <div className={cn("relative flex flex-col lg:flex-row gap-6", className)}>
       <h2
         className={cn(
-          s.title,
-          "text-bricky-brick lg:text-white text-3xl lg:text-7xl xl:text-7xl 2xl:text-7xl font-primary font-bold leading-tight lg:leading-none text-left lg:text-center z-50 section-container whitespace-nowrap"
+          "section-container",
+          "font-primary font-bold text-center z-50 lg:whitespace-nowrap mb-4 lg:mb-0",
+          "text-bricky-brick lg:text-white",
+          "text-4xl lg:text-4xl xl:text-4xl 2xl:text-4xl",
+          "leading-snug lg:leading-snug xl:leading-snug"
         )}
       >
         {title}
       </h2>
       <p
         className={cn(
-          s.description,
-          "font-primary text-black lg:text-white text-2xl font-semibold leading-relaxed",
-          "w-full lg:w-6/12 xl:w-[27vw] px-6 lg:px-4 lg:py-4 rounded-xl"
+          "font-primary text-black lg:text-white font-semibold text-center mb-8 lg:mb-0",
+          "w-full lg:w-6/12 xl:w-[27vw] px-6 lg:px-4 lg:py-4",
+          "text-2xl lg:text-4xl xl:text-4xl 2xl:text-4xl",
+          "leading-relaxed lg:leading-relaxed xl:leading-relaxed"
         )}
       >
         {description}
       </p>
+      <EmblaCarousel
+        autoplay={true}
+        autoplayDelay={5000}
+        slides={slides}
+        options={{ duration: 35, loop: true }}
+        hasButtons={false}
+      />
     </div>
   )
 }
