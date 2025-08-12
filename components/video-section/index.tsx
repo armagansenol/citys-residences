@@ -35,7 +35,9 @@ export function VideoSection({
   return (
     <div
       className={cn(
-        "w-full h-[350px] bt:h-auto relative z-10 flex items-center justify-center bg-black lg:rounded-sm overflow-hidden",
+        "w-full h-[100vw] lg:h-auto relative z-10",
+        "flex items-center justify-center",
+        "bg-black lg:rounded-sm overflow-hidden",
         className
       )}
     >
@@ -68,15 +70,15 @@ export function VideoSection({
             <Logo fill={colors.white} />
           </div> */}
           <div
-            className={cn("absolute top-1/2 left-1/2 -translate-x-1/2 z-50", {
-              "-translate-y-[40%]": !spot,
-              "-translate-y-[50%]": spot,
+            className={cn("absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50", {
+              "lg:-translate-y-[40%]": !spot,
+              "lg:-translate-y-[50%]": spot,
             })}
           >
             {spot && (
               <article
                 className={cn(
-                  "font-primary font-bold text-white lg:whitespace-nowrap text-center",
+                  "text-white font-primary font-bold lg:whitespace-nowrap text-center",
                   "text-lg xl:text-4xl 2xl:text-5xl",
                   "min-w-52 flex-shrink-0 mb-20 mt-24"
                 )}
@@ -90,7 +92,8 @@ export function VideoSection({
                   className={cn(
                     "text-white font-primary font-medium lg:whitespace-nowrap text-center",
                     "text-3xl xl:text-4xl 2xl:text-5xl",
-                    "w-full min-w-[90vw] lg:min-w-52 flex-shrink-0 flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0"
+                    "w-full min-w-[90vw] lg:min-w-52",
+                    "flex-shrink-0 flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0"
                   )}
                 >
                   {title}
