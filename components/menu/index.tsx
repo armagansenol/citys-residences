@@ -3,7 +3,6 @@
 import { gsap, useGSAP } from "@/components/gsap"
 import { cn } from "@/lib/utils"
 import { useLenis } from "lenis/react"
-import { X } from "lucide-react"
 import { useRef, useState } from "react"
 import { useClickAway, useWindowSize } from "react-use"
 
@@ -12,6 +11,7 @@ import { IconPin, socialIcons } from "@/components/icons"
 import { ScrollableBox } from "@/components/utility/scrollable-box"
 import { useStackingCardsStore } from "@/lib/store/stacking-cards"
 import { breakpoints, colors } from "@/styles/config.mjs"
+import { ChevronLeft, X } from "lucide-react"
 
 interface MenuItem {
   title: string
@@ -48,12 +48,10 @@ export function Menu({ open, setOpen, items }: MenuProps) {
   const { scrollToCard } = useStackingCardsStore()
   const [active, setActive] = useState<number | null>(null)
 
-  const isTouchDevice = () => {
-    return "ontouchstart" in window || navigator.maxTouchPoints > 0
-  }
+  // Simple touch device detection
+  const isTouchDevice = typeof window !== "undefined" && ("ontouchstart" in window || navigator.maxTouchPoints > 0)
 
   useClickAway(menuRef, (e) => {
-    if (isTouchDevice()) return
     if ((e.target as HTMLElement).closest("[data-ignore-click-away]")) {
       return
     }
@@ -62,7 +60,6 @@ export function Menu({ open, setOpen, items }: MenuProps) {
   })
 
   useClickAway(submenuRef, (e) => {
-    if (isTouchDevice()) return
     if ((e.target as HTMLElement).closest("[data-ignore-click-away]")) {
       return
     }
@@ -100,10 +97,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       if (!menuTL.current || !submenuTL.current) return
 
       if (open) {
-        gsap.to(menuTL.current, {
-          time: menuTL.current?.duration(),
-          ease: "expo.out",
-        })
+        gsap.to(menuTL.current, { time: menuTL.current?.duration(), ease: "expo.out" })
         lenis?.stop()
       } else {
         gsap.to(submenuTL.current, {
@@ -139,10 +133,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       const shouldShowSubmenu = active !== null && items[active]?.sections
 
       if (shouldShowSubmenu) {
-        gsap.to(submenuTL.current, {
-          time: submenuTL.current?.duration(),
-          ease: "expo.out",
-        })
+        gsap.to(submenuTL.current, { time: submenuTL.current?.duration(), ease: "expo.out" })
       } else if (open) {
         // Only close submenu when main menu is open (e.g., hovering over items without submenus)
         gsap.to(submenuTL.current, {
@@ -180,35 +171,56 @@ export function Menu({ open, setOpen, items }: MenuProps) {
     })
   }
 
+  const handleMenuItemInteraction = (index: number) => {
+    if (width > breakpoints.breakpointTablet) {
+      setActive(index)
+    }
+  }
+
+  const handleMenuItemClick = (index: number, id: string, event: React.MouseEvent) => {
+    if (isTouchDevice) {
+      // On touch devices, first click activates submenu, second click navigates
+      if (active === index) {
+        handleScroll(id)
+      } else {
+        event.preventDefault()
+        setActive(index)
+      }
+    } else {
+      // On desktop, click always navigates
+      handleScroll(id)
+    }
+  }
+
   return (
     <>
       {/* menu */}
       <div
         className={cn(
-          "fixed bottom-0 left-0 top-0 overflow-hidden",
-          "blur-bg-bricky-brick z-[var(--z-menu)] w-screen lg:w-[30vw] xl:w-[22vw] 2xl:w-[20vw]"
+          "fixed top-0 left-0 bottom-0 overflow-hidden",
+          "blur-bg-bricky-brick w-screen lg:w-[30vw] xl:w-[22vw] 2xl:w-[20vw] z-[var(--z-menu)]"
         )}
         style={{ clipPath: clipPath.current }}
         ref={menuRef}
         data-ignore-click-away
       >
         <button
-          className="absolute right-8 top-6 z-[var(--z-menu-close-button)]"
+          className="absolute top-6 right-8 z-[var(--z-menu-close-button)]"
           onClick={() => {
-            setActive(null)
             setOpen(false)
+            setActive(null)
           }}
           type="button"
         >
-          <X strokeWidth={1} className="h-12 w-12 text-white" />
+          <X strokeWidth={1} className="text-white h-12 w-12" />
         </button>
-        <nav className="flex h-full w-full items-start justify-start px-10 pt-20 lg:justify-center lg:px-10 xl:items-end xl:pt-0">
-          <ul className="flex w-full flex-col items-start justify-start gap-3 lg:items-start lg:gap-2 xl:gap-3 2xl:gap-4 3xl:gap-5">
+        <nav className="w-full h-full flex items-end justify-center lg:justify-start px-10 lg:px-10">
+          <ul className="w-full flex flex-col items-start justify-start lg:justify-end gap-3 lg:gap-2 xl:gap-3 2xl:gap-4 3xl:gap-5">
             {items.map(({ title, id }, i) => (
               <li
                 className={cn(
-                  "text-2xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
-                  "text-center font-primary font-normal text-white lg:text-left",
+                  "text-xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
+                  "font-primary font-normal text-white text-center lg:text-left",
                   "transition-opacity duration-300 ease-in-out",
                   {
                     "opacity-100": active === null || active === i,
@@ -216,74 +228,90 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                   }
                 )}
                 key={title}
-                // onMouseEnter={() => {
-                //   if (width > breakpoints.breakpointTablet) {
-                //     setActive(i);
-                //   }
-                // }}
-                onClick={() => {
-                  if (width <= breakpoints.breakpointTablet) {
-                    setActive(i)
-                  }
-                }}
+                onMouseEnter={() => handleMenuItemInteraction(i)}
               >
-                <span
-                  className="block cursor-pointer"
-                  onClick={() => {
-                    if (isTouchDevice()) return
-                    handleScroll(id)
-                  }}
-                >
+                <span className="block cursor-pointer" onClick={(event) => handleMenuItemClick(i, id, event)}>
                   {title}
                 </span>
               </li>
             ))}
-            <li className="my-4 xl:my-8 2xl:my-10 3xl:my-10">
+            <li className="my-4 lg:my-8 xl:my-8 2xl:my-10 3xl:my-10">
               <a
                 href="https://maps.app.goo.gl/2hSJUsgo2U198Kqq9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "text-left font-primary text-2xl font-normal text-white lg:text-lg xl:text-xl xl:leading-none 2xl:text-xl 3xl:text-2xl",
+                  "text-xl lg:text-lg xl:text-xl 2xl:text-xl 3xl:text-2xl",
+                  "leading-none lg:leading-none xl:leading-none 2xl:leading-none 3xl:leading-none",
+                  "font-primary font-normal text-white text-center lg:text-left",
                   "transition-opacity duration-300 ease-in-out",
-                  "opacity-100 hover:opacity-70",
+                  "opacity-100",
+                  "hover:opacity-70",
                   "flex items-center gap-2"
                 )}
               >
-                <span className="flex h-5 w-5 items-end xl:h-6 xl:w-6 2xl:h-8 2xl:w-8">
+                <span className="flex items-end h-5 w-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8">
                   <IconPin fill={colors.white} />
                 </span>
                 CR Satış Ofisi Konum
               </a>
             </li>
-            <li className="mb-8 mr-auto mt-auto flex w-full flex-col items-start">
-              <p className="py-2 text-center font-primary text-sm font-normal text-white lg:text-left xl:text-xl 2xl:text-xl 3xl:text-2xl">
+            <li className="flex flex-col items-center lg:items-start mt-auto mb-8 w-7/12 lg:w-full">
+              <p
+                className={cn(
+                  "w-full font-primary font-normal text-white text-left",
+                  "text-sm xl:text-xl 2xl:text-xl 3xl:text-2xl",
+                  "py-2 border-b-[3px] border-b-white/30"
+                )}
+              >
                 Bizi Takip Edin
               </p>
-              <div className="h-[3px] w-full bg-white/30"></div>
-              <div className="grid grid-cols-4 gap-2 py-2 pr-2 sm:gap-3 sm:py-3 sm:pr-3 md:gap-4 md:py-3 md:pr-4 lg:gap-4 lg:py-3 xl:gap-4 xl:py-4">
-                <IconWrapper className="aspect-square w-8 cursor-pointer opacity-70 transition-opacity hover:opacity-100 sm:w-10 md:w-12 lg:w-12 xl:w-16">
+              <div className="grid grid-cols-4 gap-2 lg:gap-4 py-3 xl:py-4 pr-4">
+                <IconWrapper
+                  className={cn(
+                    "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
+                    "hover:opacity-100"
+                  )}
+                >
                   {socialIcons(colors.white).instagram}
                 </IconWrapper>
-                <IconWrapper className="aspect-square w-8 cursor-pointer opacity-70 transition-opacity hover:opacity-100 sm:w-10 md:w-12 lg:w-12 xl:w-16">
+                <IconWrapper
+                  className={cn(
+                    "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
+                    "hover:opacity-100"
+                  )}
+                >
                   {socialIcons(colors.white).facebook}
                 </IconWrapper>
-                <IconWrapper className="aspect-square w-8 cursor-pointer opacity-70 transition-opacity hover:opacity-100 sm:w-10 md:w-12 lg:w-12 xl:w-16">
+                <IconWrapper
+                  className={cn(
+                    "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
+                    "hover:opacity-100"
+                  )}
+                >
                   {socialIcons(colors.white).tiktok}
                 </IconWrapper>
-                <IconWrapper className="aspect-square w-8 cursor-pointer opacity-70 transition-opacity hover:opacity-100 sm:w-10 md:w-12 lg:w-12 xl:w-16">
+                <IconWrapper
+                  className={cn(
+                    "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
+                    "hover:opacity-100"
+                  )}
+                >
                   {socialIcons(colors.white).youtube}
                 </IconWrapper>
               </div>
             </li>
+            {/* <li className={cn(s.navItem, "block lg:hidden")}>
+            <LocaleSwitcher />
+          </li> */}
           </ul>
         </nav>
       </div>
       {/* submenu */}
       <div
         className={cn(
-          "fixed bottom-0 top-0 overflow-hidden",
-          "blur-bg-bricky-brick z-[var(--z-menu-submenu)]",
+          "fixed top-0 bottom-0 overflow-hidden",
+          "blur-bg-bricky-brick w-screen z-[var(--z-menu-submenu)]",
           "border-l border-white/30",
           "left-0 lg:left-[30vw] xl:left-[22vw] 2xl:left-[20vw]",
           "w-full lg:w-[30vw] xl:w-[18vw] 2xl:w-[15vw]"
@@ -293,38 +321,55 @@ export function Menu({ open, setOpen, items }: MenuProps) {
         data-ignore-click-away
       >
         <button
-          className="absolute right-8 top-6 z-[var(--z-menu-close-button)]"
+          className="absolute top-6 right-8 z-[var(--z-menu-close-button)]"
           onClick={() => {
-            setActive(null)
             setOpen(false)
+            setActive(null)
           }}
           type="button"
         >
-          <X strokeWidth={1} className="h-12 w-12 text-white" />
+          <X strokeWidth={1} className="text-white h-12 w-12" />
         </button>
-        <div className="flex h-full w-full" data-lenis-prevent>
+        <button
+          className="absolute top-6 left-8 z-[var(--z-menu-close-button)]"
+          onClick={() => setActive(null)}
+          type="button"
+        >
+          <ChevronLeft strokeWidth={1} className="text-white h-12 w-12" />
+        </button>
+        <div className="h-full w-full flex" data-lenis-prevent>
           <ScrollableBox>
-            <nav className="flex h-full w-full items-start justify-start px-10 lg:px-6">
-              <ul className="flex flex-col items-start gap-3 py-0 pb-0 pt-20 lg:gap-2 lg:py-12 xl:gap-0 2xl:gap-2">
+            <nav className="h-full w-full px-10 lg:px-6 flex items-start justify-start">
+              <ul
+                className={cn(
+                  "flex flex-col items-start gap-3 lg:gap-2 xl:gap-0 2xl:gap-2",
+                  "py-0 pt-20 lg:pt-20 pb-0 lg:py-12 w-full"
+                )}
+              >
+                <div className="w-full border-b-2 border-white/20">
+                  <div className="text-white text-2xl font-semibold pb-2 lg:hidden">
+                    {active !== null && items[active].title}
+                  </div>
+                </div>
                 {active !== null &&
                   items[active]?.sections &&
                   Object.values(items[active].sections).map((section) => (
                     <li
                       className={cn(
                         "text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
-                        "font-primary font-normal text-white lg:text-left"
+                        "font-primary font-normal text-white text-left"
                       )}
                       key={section.id}
                     >
-                      <span className="block cursor-pointer xl:py-1" onClick={() => handleScroll(section.id)}>
+                      <span className="cursor-pointer block xl:py-1" onClick={() => handleScroll(section.id)}>
                         {section.label}
                       </span>
                       {section.subitems && (
-                        <ul className="my-0 flex flex-col items-start gap-2 lg:my-4 lg:ml-2">
+                        <ul className="flex flex-col gap-2 lg:ml-2 my-2 lg:my-4">
                           {Object.values(section.subitems).map((subitem) => (
                             <li key={subitem.id}>
                               <span
-                                className="block cursor-pointer py-0.5 text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl"
+                                className="text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl cursor-pointer block py-0.5"
                                 onClick={() => handleScroll(subitem.id)}
                               >
                                 {subitem.label}
