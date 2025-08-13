@@ -177,14 +177,14 @@ export function Menu({ open, setOpen, items }: MenuProps) {
     }
   }
 
-  const handleMenuItemClick = (index: number, id: string, event: React.MouseEvent) => {
+  const handleMenuItemClick = (id: string, event: React.MouseEvent, index?: number) => {
     if (isTouchDevice) {
       // On touch devices, first click activates submenu, second click navigates
       if (active === index) {
         handleScroll(id)
       } else {
         event.preventDefault()
-        setActive(index)
+        setActive(index ?? null)
       }
     } else {
       // On desktop, click always navigates
@@ -238,7 +238,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                     key={title}
                     onMouseEnter={() => handleMenuItemInteraction(i)}
                   >
-                    <span className="block cursor-pointer" onClick={(event) => handleMenuItemClick(i, id, event)}>
+                    <span className="block cursor-pointer" onClick={(event) => handleMenuItemClick(id, event, i)}>
                       {title}
                     </span>
                   </li>
@@ -354,7 +354,13 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                 )}
               >
                 <div className="w-full border-b-2 border-white/20 lg:border-none">
-                  <div className="text-white text-2xl font-semibold pb-2 lg:hidden">
+                  <div
+                    className="text-white text-2xl font-semibold pb-2 lg:hidden"
+                    onClick={(event) => {
+                      if (active === null) return
+                      handleMenuItemClick(items[active].id, event)
+                    }}
+                  >
                     {active !== null && items[active].title}
                   </div>
                 </div>
