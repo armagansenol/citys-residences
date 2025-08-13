@@ -38,7 +38,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
       </FadeInOnScroll>
       <section className="bg-white relative z-30 py-12 lg:pt-20 2xl:pt-28">
         <FadeInOnScroll>
-          <div className="w-full h-40 lg:h-64 mx-auto ">
+          <div className="w-full h-40 lg:h-64 mx-auto">
             <Logo fill={colors["bricky-brick"]} />
           </div>
         </FadeInOnScroll>
