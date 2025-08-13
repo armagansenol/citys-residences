@@ -39,7 +39,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           <h2
             className={cn(
               "font-primary font-medium text-black text-center xl:max-w-4xl 2xl:max-w-6xl",
-              "text-3xl lg:text-2xl xl:text-5xl 2xl:text-5xl 3xl:text-[54px]",
+              "text-3xl lg:text-2xl xl:text-5xl 2xl:text-5xl 3xl:text-[58px]",
               "leading-normal xl:leading-snug 2xl:leading-snug 3xl:leading-tight"
             )}
           >
@@ -51,7 +51,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             <h2
               className={cn(
                 "font-primary font-medium text-center text-bricky-brick mb-8",
-                "text-3xl lg:text-2xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl",
+                "text-3xl lg:text-2xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl",
                 "xl:leading-normal 2xl:leading-tight 3xl:leading-tight",
                 "xl:max-w-4xl 2xl:max-w-6xl",
                 "flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0"
