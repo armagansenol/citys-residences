@@ -50,7 +50,7 @@ export default function Page() {
               <div className="relative">
                 <h2
                   className={cn(
-                    "relative lg:absolute lg:top-24 lg:left-1/2 lg:-translate-x-1/2",
+                    "relative lg:absolute lg:top-16 lg:left-1/2 lg:-translate-x-1/2",
                     "font-primary font-bold text-bricky-brick lg:text-white lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
                     "text-4xl lg:text-5xl xl:text-5xl 2xl:text-5xl",
                     "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight"
@@ -139,7 +139,7 @@ export default function Page() {
               <div className="relative">
                 <h2
                   className={cn(
-                    "relative lg:absolute lg:top-4 lg:left-1/2 lg:-translate-x-1/2",
+                    "relative lg:absolute lg:top-6 lg:left-1/2 lg:-translate-x-1/2",
                     "font-primary font-bold text-bricky-brick lg:text-white lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
                     "text-4xl lg:text-5xl xl:text-5xl 2xl:text-5xl",
                     "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight"
