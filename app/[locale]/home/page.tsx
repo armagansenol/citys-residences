@@ -49,10 +49,10 @@ export default async function Page({ params: { locale } }: { params: { locale: s
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
           <div
             className={cn(
-              "font-primary font-bold text-white text-center",
-              "text-4xl lg:text-5xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl",
+              "font-montserrat font-semibold text-white text-center",
+              "text-2xl lg:text-5xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl",
               "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight",
-              "flex items-center justify-center"
+              "flex flex-col lg:flex-row items-center justify-center"
             )}
           >
             <span className="whitespace-nowrap">Yaşam Yeniden Tasarlandı</span>
@@ -116,8 +116,9 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               thumbnail="/img/thumbnail-kolaj-video.jpg"
               title={
                 <>
-                  Yaşam Yeniden Tasarlandı <span className="font-montserrat font-light text-[1.5em] mx-8">X</span>{" "}
-                  CITY&apos;S
+                  <span className="whitespace-nowrap text-2xl lg:text-5xl">Yaşam Yeniden Tasarlandı</span>
+                  <span className="font-montserrat font-light text-[1.5em] mx-8">X</span>
+                  <span className="whitespace-nowrap text-2xl lg:text-5xl">CITY&apos;S</span>
                 </>
               }
             />
