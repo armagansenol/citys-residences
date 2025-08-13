@@ -248,7 +248,7 @@ export const sections = {
     },
     nuspa: {
       label: "Nuspa",
-      id: "nuspa",
+      id: "spa-wellness-reception",
       subitems: {
         spaWellness: {
           label: "Spa & Wellness Rsepsiyon",
