@@ -31,14 +31,25 @@ export const useStackingCardsStore = create<StackingCardsState>((set, get) => ({
 
   scrollToCard: (cardIndex, immediate = false) => {
     const { scrollTrigger, itemsLength, lenis } = get()
-    if (!scrollTrigger || itemsLength === 0) return
+    if (itemsLength === 0) return
 
-    const progress = cardIndex / (itemsLength - 1)
-    const start = scrollTrigger.start
-    const end = scrollTrigger.end
-    const targetScrollTop = start + progress * (end - start)
+    // If ScrollTrigger is available (desktop), use the existing method
+    if (scrollTrigger) {
+      const progress = cardIndex / (itemsLength - 1)
+      const start = scrollTrigger.start
+      const end = scrollTrigger.end
+      const targetScrollTop = start + progress * (end - start)
 
-    lenis?.scrollTo(targetScrollTop, { immediate })
+      lenis?.scrollTo(targetScrollTop, { immediate })
+    } else {
+      // Mobile fallback: scroll directly to the card element
+      const cards = document.querySelectorAll(".gsap-stacking-card")
+      const targetCard = cards[cardIndex] as HTMLElement
+
+      if (targetCard && lenis) {
+        lenis.scrollTo(targetCard, { immediate })
+      }
+    }
   },
 
   updateCurrentCardFromProgress: (progress) => {

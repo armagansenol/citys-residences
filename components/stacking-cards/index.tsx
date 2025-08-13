@@ -36,12 +36,14 @@ export function StackingCards({ items }: StackingCardsProps) {
     }
   }, [lenis, setLenis])
 
+  // Set items length for both desktop and mobile
+  useEffect(() => {
+    setItemsLength(items.length)
+  }, [items.length, setItemsLength])
+
   useGSAP(
     () => {
       if (!width || width < breakpoints.breakpointMobile) return
-
-      // Set items length in store
-      setItemsLength(items.length)
 
       const tl = gsap.timeline()
       const cards: HTMLElement[] = gsap.utils.toArray(".gsap-stacking-card")
@@ -76,26 +78,6 @@ export function StackingCards({ items }: StackingCardsProps) {
 
   return (
     <div className="relative w-full h-auto lg:h-[100vw] xl:h-[42vw] 2xl:h-[45vw] 3xl:h-[40vw]" ref={ref}>
-      {/* <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-50">
-        <div className="flex gap-2 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg border border-s-neutral-200">
-          {items.map((item, index) => (
-            <button
-              key={index}
-              onClick={() => scrollToCard(index, false)}
-              className={cn(
-                "h-10 rounded-full whitespace-nowrap flex items-center justify-center text-sm font-medium transition-all duration-300",
-                "hover:bg-bricky-brick hover:text-white",
-                currentCard === index
-                  ? "bg-bricky-brick text-white"
-                  : "bg-white/50 text-bricky-brick border border-s-neutral-200"
-              )}
-            >
-              {item.title}
-            </button>
-          ))}
-        </div>
-      </div> */}
-
       {items.map((item, i) => {
         return (
           <div
