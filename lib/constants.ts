@@ -350,15 +350,15 @@ export const sections = {
     },
     justStay: {
       label: "Just Stay",
-      id: "just-stay",
+      id: "juststay-accommodation",
     },
     justWork: {
       label: "Just Work",
-      id: "just-work",
+      id: "justwork-office",
     },
     justEvent: {
       label: "Just Event",
-      id: "just-event",
+      id: "justevent",
     },
   },
 }
