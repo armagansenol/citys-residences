@@ -71,6 +71,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             item={item}
             align={i % 2 === 0 ? "ltr" : "rtl"}
             className={i % 2 === 0 ? "bg-white" : "bg-unbleached"}
+            sectionId={item.sectionId}
           />
         ))}
       </section>
