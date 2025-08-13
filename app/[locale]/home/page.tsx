@@ -116,9 +116,11 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               thumbnail="/img/thumbnail-kolaj-video.jpg"
               title={
                 <>
-                  <span className="whitespace-nowrap text-2xl lg:text-5xl">Yaşam Yeniden Tasarlandı</span>
+                  <span className="font-montserrat whitespace-nowrap text-2xl lg:text-5xl">
+                    Yaşam Yeniden Tasarlandı
+                  </span>
                   <span className="font-montserrat font-light text-[1.5em] mx-8">X</span>
-                  <span className="whitespace-nowrap text-2xl lg:text-5xl">CITY&apos;S</span>
+                  <span className="font-montserrat whitespace-nowrap text-2xl lg:text-5xl">CITY&apos;S</span>
                 </>
               }
             />

@@ -78,7 +78,7 @@ export function VideoSection({
             {spot && (
               <article
                 className={cn(
-                  "text-white font-montserrat font-semibold lg:whitespace-nowrap text-center",
+                  "text-white font-primary font-semibold lg:whitespace-nowrap text-center",
                   "text-lg xl:text-4xl 2xl:text-5xl",
                   "min-w-52 flex-shrink-0 mb-20 mt-24"
                 )}
@@ -90,7 +90,7 @@ export function VideoSection({
               {title && (
                 <article
                   className={cn(
-                    "text-white font-montserrat font-semibold lg:whitespace-nowrap text-center",
+                    "text-white font-primary font-semibold lg:whitespace-nowrap text-center",
                     "text-3xl xl:text-4xl 2xl:text-5xl",
                     "w-full min-w-[90vw] lg:min-w-52",
                     "flex-shrink-0 flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0"
