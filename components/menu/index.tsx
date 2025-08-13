@@ -197,8 +197,9 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       {/* menu */}
       <div
         className={cn(
-          "fixed top-0 left-0 bottom-0 overflow-hidden",
-          "blur-bg-bricky-brick w-screen lg:w-[30vw] xl:w-[22vw] 2xl:w-[20vw] z-[var(--z-menu)]"
+          "fixed top-0 left-0 bottom-0 overflow-hidden z-[var(--z-menu)]",
+          "blur-bg-bricky-brick",
+          "w-screen lg:w-[30vw] xl:w-[22vw] 2xl:w-[20vw]"
         )}
         style={{ clipPath: clipPath.current }}
         ref={menuRef}
@@ -214,7 +215,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
         >
           <X strokeWidth={1} className="text-white h-12 w-12" />
         </button>
-        <div className="h-full w-full flex items-start lg:items-end" data-lenis-prevent>
+        <div className="h-full w-full flex lg:items-end" data-lenis-prevent>
           <ScrollableBox>
             <nav className="w-full h-full flex items-end justify-center lg:justify-start px-10 lg:px-10">
               <ul
@@ -316,8 +317,8 @@ export function Menu({ open, setOpen, items }: MenuProps) {
       {/* submenu */}
       <div
         className={cn(
-          "fixed top-0 bottom-0 overflow-hidden",
-          "blur-bg-bricky-brick w-screen z-[var(--z-menu-submenu)]",
+          "fixed top-0 bottom-0 overflow-hidden z-[var(--z-menu-submenu)]",
+          "blur-bg-bricky-brick",
           "border-l border-white/30",
           "left-0 lg:left-[30vw] xl:left-[22vw] 2xl:left-[20vw]",
           "w-full lg:w-[30vw] xl:w-[18vw] 2xl:w-[15vw]"
