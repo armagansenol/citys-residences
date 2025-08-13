@@ -13,8 +13,8 @@ export function PageTitle(props: PageTitleProps) {
       <FadeInOnScroll>
         <h2
           className={cn(
-            "font-montserrat font-semibold text-bricky-brick",
-            "text-5xl lg:text-5xl xl:text-7xl 2xl:text-7xl",
+            "font-montserrat font-semibold text-bricky-brick text-center",
+            "text-4xl lg:text-5xl xl:text-7xl 2xl:text-7xl",
             "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight",
             props.textClassName
           )}
