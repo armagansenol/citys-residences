@@ -107,7 +107,7 @@ export function Footer() {
   return (
     <footer className="relative bg-bricky-brick py-12 xl:py-10 xl:pt-2 text-white" ref={footerRef}>
       <div className="section-container flex flex-col gap-12 lg:gap-0 pt-0 lg:pt-12">
-        <div className="flex flex-col-reverse items-stretch lg:flex-row lg:items-center gap-12 lg:gap-0 px-5 lg:px-0">
+        <div className="flex flex-col-reverse items-stretch lg:flex-row lg:items-center gap-6 lg:gap-0 px-5 lg:px-0">
           {/* Logo Section */}
           <div className="order-1 lg:order-none w-full lg:w-3/12 flex items-center justify-center mr-auto">
             <LocalizedLink
@@ -118,7 +118,7 @@ export function Footer() {
             </LocalizedLink>
           </div>
           <div className="w-full lg:w-8/12 flex flex-col-reverse lg:flex-col items-stretch pb-7 lg:pb-0 relative">
-            <ScrollToTop className={cn("text-3xl 3xl:text-4xl ml-auto lg:w-3/12 mx-auto lg:mx-0 mt-8 lg:mt-0")} />
+            <ScrollToTop className="text-3xl 3xl:text-4xl lg:w-3/12 ml-auto mr-auto lg:mr-0 mt-8 lg:mt-0" />
             <div className="flex flex-col lg:flex-row">
               {/* Contact Section */}
               <div className="w-full lg:w-4/12 py-10 lg:py-0">
