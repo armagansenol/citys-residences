@@ -10,7 +10,7 @@ import CitysMembersClub from "./citys-members-club/page"
 import CitysPark from "./citys-park/page"
 import CitysTimes from "./citys-times/page"
 import Home from "./home/page"
-// import Location from "./location/page"
+import Location from "./location/page"
 import Project from "./project/page"
 import Residences from "./residences/page"
 
@@ -22,8 +22,8 @@ export default function Page({ params }: { params: { locale: string } }) {
         <Home params={params} />
         <PageTitle title="PROJE" id={navigationConfig["/project"]?.id as string} />
         <Project />
-        {/* <PageTitle title="KONUM" id={navigationConfig["/location"]?.id as string} />
-        <Location /> */}
+        <PageTitle title="KONUM" id={navigationConfig["/location"]?.id as string} />
+        <Location />
         <PageTitle title="DAİRELER" id={navigationConfig["/residences"]?.id as string} />
         <Residences params={params} />
         <PageTitle title="CITY'S PARK" id={navigationConfig["/citys-park"]?.id as string} />
