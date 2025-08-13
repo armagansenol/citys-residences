@@ -214,98 +214,104 @@ export function Menu({ open, setOpen, items }: MenuProps) {
         >
           <X strokeWidth={1} className="text-white h-12 w-12" />
         </button>
-        <nav className="w-full h-full flex items-end justify-center lg:justify-start px-10 lg:px-10">
-          <ul className="w-full flex flex-col items-start justify-start lg:justify-end gap-3 lg:gap-2 xl:gap-3 2xl:gap-4 3xl:gap-5">
-            {items.map(({ title, id }, i) => (
-              <li
+        <div className="h-full w-full flex items-start lg:items-end" data-lenis-prevent>
+          <ScrollableBox>
+            <nav className="w-full h-full flex items-end justify-center lg:justify-start px-10 lg:px-10">
+              <ul
                 className={cn(
-                  "text-xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
-                  "font-primary font-normal text-white text-center lg:text-left",
-                  "transition-opacity duration-300 ease-in-out",
-                  {
-                    "opacity-100": active === null || active === i,
-                    "opacity-30": active !== null && active !== i,
-                  }
-                )}
-                key={title}
-                onMouseEnter={() => handleMenuItemInteraction(i)}
-              >
-                <span className="block cursor-pointer" onClick={(event) => handleMenuItemClick(i, id, event)}>
-                  {title}
-                </span>
-              </li>
-            ))}
-            <li className="my-4 lg:my-8 xl:my-8 2xl:my-10 3xl:my-10">
-              <a
-                href="https://maps.app.goo.gl/2hSJUsgo2U198Kqq9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "text-xl lg:text-lg xl:text-xl 2xl:text-xl 3xl:text-2xl",
-                  "leading-none lg:leading-none xl:leading-none 2xl:leading-none 3xl:leading-none",
-                  "font-primary font-normal text-white text-center lg:text-left",
-                  "transition-opacity duration-300 ease-in-out",
-                  "opacity-100",
-                  "hover:opacity-70",
-                  "flex items-center gap-2"
+                  "flex flex-col items-start gap-3 lg:gap-2 xl:gap-2 2xl:gap-3",
+                  "py-0 pt-20 lg:pt-20 pb-0 lg:py-12 w-full"
                 )}
               >
-                <span className="flex items-end h-5 w-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8">
-                  <IconPin fill={colors.white} />
-                </span>
-                CR Satış Ofisi Konum
-              </a>
-            </li>
-            <li className="flex flex-col items-center lg:items-start mt-auto mb-8 w-7/12 lg:w-full">
-              <p
-                className={cn(
-                  "w-full font-primary font-normal text-white text-left",
-                  "text-sm xl:text-xl 2xl:text-xl 3xl:text-2xl",
-                  "py-2 border-b-[3px] border-b-white/30"
-                )}
-              >
-                Bizi Takip Edin
-              </p>
-              <div className="grid grid-cols-4 gap-2 lg:gap-4 py-3 xl:py-4 pr-4">
-                <IconWrapper
-                  className={cn(
-                    "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
-                    "hover:opacity-100"
-                  )}
-                >
-                  {socialIcons(colors.white).instagram}
-                </IconWrapper>
-                <IconWrapper
-                  className={cn(
-                    "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
-                    "hover:opacity-100"
-                  )}
-                >
-                  {socialIcons(colors.white).facebook}
-                </IconWrapper>
-                <IconWrapper
-                  className={cn(
-                    "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
-                    "hover:opacity-100"
-                  )}
-                >
-                  {socialIcons(colors.white).tiktok}
-                </IconWrapper>
-                <IconWrapper
-                  className={cn(
-                    "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
-                    "hover:opacity-100"
-                  )}
-                >
-                  {socialIcons(colors.white).youtube}
-                </IconWrapper>
-              </div>
-            </li>
-            {/* <li className={cn(s.navItem, "block lg:hidden")}>
-            <LocaleSwitcher />
-          </li> */}
-          </ul>
-        </nav>
+                {items.map(({ title, id }, i) => (
+                  <li
+                    className={cn(
+                      "text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-3xl",
+                      "font-primary font-normal text-white text-center lg:text-left",
+                      "transition-opacity duration-300 ease-in-out",
+                      {
+                        "opacity-100": active === null || active === i,
+                        "opacity-30": active !== null && active !== i,
+                      }
+                    )}
+                    key={title}
+                    onMouseEnter={() => handleMenuItemInteraction(i)}
+                  >
+                    <span className="block cursor-pointer" onClick={(event) => handleMenuItemClick(i, id, event)}>
+                      {title}
+                    </span>
+                  </li>
+                ))}
+                <li className="my-4 lg:my-8 xl:my-8 2xl:my-10 3xl:my-10">
+                  <a
+                    href="https://maps.app.goo.gl/2hSJUsgo2U198Kqq9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "text-xl lg:text-lg xl:text-xl 2xl:text-xl 3xl:text-2xl",
+                      "leading-none lg:leading-none xl:leading-none 2xl:leading-none 3xl:leading-none",
+                      "font-primary font-normal text-white text-center lg:text-left",
+                      "transition-opacity duration-300 ease-in-out",
+                      "opacity-100",
+                      "hover:opacity-70",
+                      "flex items-center gap-2"
+                    )}
+                  >
+                    <span className="flex items-end h-5 w-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8">
+                      <IconPin fill={colors.white} />
+                    </span>
+                    CR Satış Ofisi Konum
+                  </a>
+                </li>
+                <li className="flex flex-col items-center lg:items-start mt-auto mb-8 w-7/12 lg:w-full">
+                  <p
+                    className={cn(
+                      "w-full font-primary font-normal text-white text-left",
+                      "text-sm xl:text-xl 2xl:text-xl 3xl:text-2xl",
+                      "py-2 border-b-[3px] border-b-white/30"
+                    )}
+                  >
+                    Bizi Takip Edin
+                  </p>
+                  <div className="grid grid-cols-4 gap-2 lg:gap-2 xl:gap-2 py-3 xl:py-4 pr-4">
+                    <IconWrapper
+                      className={cn(
+                        "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
+                        "hover:opacity-100"
+                      )}
+                    >
+                      {socialIcons(colors.white).instagram}
+                    </IconWrapper>
+                    <IconWrapper
+                      className={cn(
+                        "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
+                        "hover:opacity-100"
+                      )}
+                    >
+                      {socialIcons(colors.white).facebook}
+                    </IconWrapper>
+                    <IconWrapper
+                      className={cn(
+                        "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
+                        "hover:opacity-100"
+                      )}
+                    >
+                      {socialIcons(colors.white).tiktok}
+                    </IconWrapper>
+                    <IconWrapper
+                      className={cn(
+                        "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
+                        "hover:opacity-100"
+                      )}
+                    >
+                      {socialIcons(colors.white).youtube}
+                    </IconWrapper>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+          </ScrollableBox>
+        </div>
       </div>
       {/* submenu */}
       <div
@@ -321,7 +327,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
         data-ignore-click-away
       >
         <button
-          className="absolute top-6 right-8 z-[var(--z-menu-close-button)]"
+          className="absolute top-6 right-8 z-[var(--z-menu-close-button)] lg:hidden"
           onClick={() => {
             setOpen(false)
             setActive(null)
@@ -331,7 +337,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
           <X strokeWidth={1} className="text-white h-12 w-12" />
         </button>
         <button
-          className="absolute top-6 left-8 z-[var(--z-menu-close-button)]"
+          className="absolute top-6 left-8 z-[var(--z-menu-close-button)] lg:hidden"
           onClick={() => setActive(null)}
           type="button"
         >
@@ -346,7 +352,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                   "py-0 pt-20 lg:pt-20 pb-0 lg:py-12 w-full"
                 )}
               >
-                <div className="w-full border-b-2 border-white/20">
+                <div className="w-full border-b-2 border-white/20 lg:border-none">
                   <div className="text-white text-2xl font-semibold pb-2 lg:hidden">
                     {active !== null && items[active].title}
                   </div>
@@ -354,22 +360,27 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                 {active !== null &&
                   items[active]?.sections &&
                   Object.values(items[active].sections).map((section) => (
-                    <li
-                      className={cn(
-                        "text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
-                        "font-primary font-normal text-white text-left"
-                      )}
-                      key={section.id}
-                    >
-                      <span className="cursor-pointer block xl:py-1" onClick={() => handleScroll(section.id)}>
+                    <li key={section.id}>
+                      <span
+                        className={cn(
+                          "font-primary font-normal text-white my-2",
+                          "text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
+                          "cursor-pointer block"
+                        )}
+                        onClick={() => handleScroll(section.id)}
+                      >
                         {section.label}
                       </span>
                       {section.subitems && (
-                        <ul className="flex flex-col gap-2 lg:ml-2 my-2 lg:my-4">
+                        <ul className="flex flex-col gap-2 my-2 lg:my-4">
                           {Object.values(section.subitems).map((subitem) => (
                             <li key={subitem.id}>
                               <span
-                                className="text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl cursor-pointer block py-0.5"
+                                className={cn(
+                                  "font-primary font-light text-white/90",
+                                  "text-lg lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
+                                  "cursor-pointer block"
+                                )}
                                 onClick={() => handleScroll(subitem.id)}
                               >
                                 {subitem.label}
