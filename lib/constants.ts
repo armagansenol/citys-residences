@@ -273,7 +273,7 @@ export const sections = {
       },
     },
     cinema: {
-      label: "Sinema",
+      label: "Sinema Salonu",
       id: "cinema",
     },
     eventStudios: {
