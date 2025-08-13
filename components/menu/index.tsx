@@ -179,12 +179,20 @@ export function Menu({ open, setOpen, items }: MenuProps) {
 
   const handleMenuItemClick = (id: string, event: React.MouseEvent, index?: number) => {
     if (isTouchDevice) {
-      // On touch devices, first click activates submenu, second click navigates
-      if (active === index) {
-        handleScroll(id)
+      const currentItem = index !== undefined ? items[index] : null
+      const hasSubitems = currentItem?.sections && Object.keys(currentItem.sections).length > 0
+
+      if (hasSubitems) {
+        // Item has subitems: first click activates submenu, second click navigates
+        if (active === index) {
+          handleScroll(id)
+        } else {
+          event.preventDefault()
+          setActive(index ?? null)
+        }
       } else {
-        event.preventDefault()
-        setActive(index ?? null)
+        // Item has no subitems: directly navigate (same as desktop)
+        handleScroll(id)
       }
     } else {
       // On desktop, click always navigates
@@ -230,7 +238,6 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                       "text-xl lg:text-xl xl:text-2xl 2xl:text-2xl 3xl:text-3xl",
                       "font-primary font-normal text-white text-center lg:text-left",
                       "transition-opacity duration-300 ease-in-out",
-
                       {
                         "opacity-100": active === null || active === i,
                         "opacity-30": active !== null && active !== i,
