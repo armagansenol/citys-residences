@@ -15,6 +15,7 @@ const colors = {
   "aqua-belt": "#7DCECC",
   "halite-blue": "#0A2A45",
   "lusty-salmon": "#efb4a6",
+  "army-canvas": "#5D7261",
 }
 
 const themes = {

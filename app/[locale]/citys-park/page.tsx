@@ -33,12 +33,12 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           />
         </section>
       </FadeInOnScroll>
-      <section className="relative z-20 bg-white lg:pt-10">
-        <LogoSection foregroundLogo={<IconCitysParkLogo fill="#5D7261" />} />
+      <section className="relative z-20 bg-army-canvas lg:pt-10">
+        <LogoSection foregroundLogo={<IconCitysParkLogo fill="#ffffff" />} />
         <div className="section-container pb-20 pt-10 flex flex-col items-center gap-8 lg:gap-8">
           <h2
             className={cn(
-              "font-primary font-medium text-black text-center xl:max-w-4xl 2xl:max-w-6xl",
+              "font-primary font-medium text-white text-center xl:max-w-4xl 2xl:max-w-6xl",
               "text-3xl lg:text-2xl xl:text-5xl 2xl:text-5xl 3xl:text-[58px]",
               "leading-normal xl:leading-snug 2xl:leading-snug 3xl:leading-tight"
             )}
@@ -50,7 +50,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           <FadeInOnScroll>
             <h2
               className={cn(
-                "font-primary font-medium text-center text-bricky-brick mb-8",
+                "font-primary font-medium text-center text-white mb-8",
                 "text-3xl lg:text-2xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl",
                 "xl:leading-normal 2xl:leading-tight 3xl:leading-tight",
                 "xl:max-w-4xl 2xl:max-w-6xl",
