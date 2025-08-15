@@ -229,8 +229,8 @@ export function Menu({ open, setOpen, items }: MenuProps) {
             <nav className="w-full h-full flex items-end justify-center lg:justify-start px-10 lg:px-8">
               <ul
                 className={cn(
-                  "flex flex-col items-start gap-3 lg:gap-2 xl:gap-3 2xl:gap-3 3xl:gap-4",
-                  "pt-20 lg:pt-0 pb-0 lg:py-12 w-full"
+                  "flex flex-col items-start gap-3 lg:gap-2 xl:gap-3 2xl:gap-4 3xl:gap-4",
+                  "pt-20 lg:pt-0 pb-0 lg:py-8 2xl:py-12 w-full"
                 )}
               >
                 {items.map(({ title, id }, i) => (
