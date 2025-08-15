@@ -1,13 +1,27 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { useRef } from "react"
+import { useRef, useState } from "react"
 
 import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
 import { Img } from "@/components/utility/img"
+import { useIntersectionObserver } from "hamo"
 
 const Sequenced = () => {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement | null>(null)
+  const [shouldLoadImages, setShouldLoadImages] = useState(false)
+
+  // Use hamo's useIntersectionObserver hook
+  const [setElement, entry] = useIntersectionObserver({
+    rootMargin: "100%",
+    threshold: 0,
+    once: true, // Only trigger once when images should load
+  })
+
+  // Update shouldLoadImages when entry changes
+  if (entry?.isIntersecting && !shouldLoadImages) {
+    setShouldLoadImages(true)
+  }
 
   useGSAP(
     () => {
@@ -56,19 +70,28 @@ const Sequenced = () => {
 
   return (
     <div className="relative overflow-hidden pointer-events-none">
-      <div className="w-full h-[80vw] lg:h-screen flex items-center justify-center overflow-hidden" ref={ref}>
+      <div
+        className="w-full h-[80vw] lg:h-screen flex items-center justify-center overflow-hidden"
+        ref={(el) => {
+          ref.current = el
+          setElement(el)
+        }}
+      >
         <div className="relative w-[70vw] h-[75%]">
           {Array.from({ length: 31 }).map((_, i) => {
             return (
               <div className={cn("gsap-sequence-item", "absolute top-0 left-0 botom-0 right-0 h-full w-full")} key={i}>
-                <Img
-                  className="w-full h-full object-contain"
-                  src={`/img/residences/3d/${i}.png`}
-                  alt="Residence 3D View"
-                  fill
-                  priority={true}
-                  sizes="80vw"
-                />
+                {shouldLoadImages && (
+                  <Img
+                    className="w-full h-full object-contain"
+                    src={`/img/residences/3d/${i}.png`}
+                    alt="Residence 3D View"
+                    fill
+                    loading="lazy"
+                    priority={false}
+                    sizes="80vw"
+                  />
+                )}
               </div>
             )
           })}
