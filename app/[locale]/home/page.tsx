@@ -188,7 +188,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             className={cn(
               "relative lg:absolute lg:bottom-14 lg:left-14",
               "description-bg py-0 lg:py-4 px-6 lg:px-8 mb-8 lg:mb-0 lg:rounded-md z-50",
-              "font-primary font-semibold",
+              "font-primary font-normal",
               "text-black lg:text-white text-center lg:text-left",
               "text-2xl lg:text-4xl xl:text-2xl",
               "leading-relaxed lg:leading-relaxed xl:leading-relaxed",

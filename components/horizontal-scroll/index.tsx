@@ -92,7 +92,7 @@ export function HorizontalScroll({
           <p
             className={cn(
               "absolute bottom-14 left-14",
-              "font-primary font-semibold text-white",
+              "font-primary font-normal text-white",
               "text-base lg:text-4xl xl:text-2xl",
               "leading-relaxed lg:leading-relaxed xl:leading-relaxed",
               "lg:max-w-2xl xl:max-w-lg",
