@@ -57,7 +57,7 @@ export function MaskedParallaxImage({ imgSrc, sizes = "100vw" }: MaskedParallaxI
   return (
     <div className="w-full h-full flex items-center justify-center overflow-hidden" ref={ref}>
       <div className="relative w-full h-full scale-110" ref={imgRef}>
-        <Img src={imgSrc} alt="Parallax Image" className="object-cover z-40" fill sizes={sizes} />
+        <Img src={imgSrc} alt="Parallax Image" className="object-cover z-40" fill sizes={sizes} loading="lazy" />
       </div>
     </div>
   )
