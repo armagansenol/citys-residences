@@ -208,7 +208,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
         className={cn(
           "fixed top-0 left-0 bottom-0 overflow-hidden z-[var(--z-menu)]",
           "blur-bg-bricky-brick",
-          "w-screen lg:w-[20vw] xl:w-[18vw] 2xl:w-[18vw] 3xl:w-[16vw]"
+          "w-screen lg:w-[20vw] xl:w-[20vw] 2xl:w-[20vw] 3xl:w-[18vw]"
         )}
         style={{ clipPath: clipPath.current }}
         ref={menuRef}
@@ -259,7 +259,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                     rel="noopener noreferrer"
                     className={cn(
                       "block",
-                      "text-base lg:text-base xl:text-base 2xl:text-lg 3xl:text-lg",
+                      "text-base lg:text-base xl:text-xl 2xl:text-2xl 3xl:text-2xl",
                       "leading-none lg:leading-none xl:leading-none 2xl:leading-none 3xl:leading-none",
                       "font-primary font-normal text-white text-center lg:text-left",
                       "transition-opacity duration-300 ease-in-out",
@@ -277,7 +277,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
                     className={cn(
                       "block",
                       "whitespace-pre-line",
-                      "text-sm lg:text-sm xl:text-sm 2xl:text-lg 3xl:text-lg",
+                      "text-sm lg:text-sm xl:text-sm 2xl:text-base 3xl:text-base",
                       "leading-normal lg:leading-normal xl:leading-normal 2xl:leading-normal 3xl:leading-normal",
                       "font-primary font-normal text-white text-center lg:text-left"
                     )}
@@ -342,7 +342,7 @@ export function Menu({ open, setOpen, items }: MenuProps) {
           "fixed top-0 bottom-0 overflow-hidden z-[var(--z-menu-submenu)]",
           "blur-bg-bricky-brick",
           "border-l border-white/30",
-          "left-0 lg:left-[20vw] xl:left-[18vw] 2xl:left-[18vw] 3xl:left-[16vw]",
+          "left-0 lg:left-[20vw] xl:left-[20vw] 2xl:left-[20vw] 3xl:left-[18vw]",
           "w-full lg:w-[30vw] xl:w-[18vw] 2xl:w-[17vw] 3xl:w-[15vw]"
         )}
         style={{ clipPath: clipPath.current }}
