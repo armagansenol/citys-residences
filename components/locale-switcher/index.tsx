@@ -44,7 +44,8 @@ export function LocaleSwitcher({ theme = "light" }: LocaleSwitcherProps) {
       <SelectContent className="bg-white">
         {routing.locales.map((loc) => (
           <SelectItem className="text-black" key={loc} value={loc}>
-            {loc.toUpperCase()}
+            {/* {loc.toUpperCase()} */}
+            EN
           </SelectItem>
         ))}
       </SelectContent>
