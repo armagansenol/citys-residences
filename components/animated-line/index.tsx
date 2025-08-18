@@ -21,7 +21,7 @@ export function AnimatedLine({ direction, barClassName }: AnimatedLineProps) {
       const isHorizontal = direction === "horizontal"
 
       gsap.to(bar, {
-        opacity: 1,
+        opacity: 0.4,
         duration: () => (isHorizontal ? 2.5 : 3),
         ease: "expo.out",
         ...(isHorizontal ? { scaleX: 1 } : { scaleY: 1 }),
