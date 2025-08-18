@@ -1,7 +1,7 @@
 import { AnimatedLine } from "@/components/animated-line"
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { GsapSplitText } from "@/components/gsap-split-text"
-import { Logo } from "@/components/icons"
+import { IconCollab, Logo } from "@/components/icons"
 import { Sequenced } from "@/components/sequenced"
 import { StackingCards } from "@/components/stacking-cards"
 import { Video } from "@/components/utility/video"
@@ -103,8 +103,11 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             thumbnail="/img/thumbnail-melih-bulgur.jpg"
             title={
               <>
-                Zemin Güvenliği <span className="block lg:inline font-montserrat font-light text-[1.5em] mx-8">X</span>{" "}
-                Huzur Mühendisliği
+                <span className="whitespace-nowrap">Zemin Güvenliği</span>
+                <span className="w-12 h-12 mx-8">
+                  <IconCollab fill={colors.white} />
+                </span>
+                <span className="whitespace-nowrap">Huzur Mühendisliği</span>
               </>
             }
           />
