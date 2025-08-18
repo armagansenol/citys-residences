@@ -1,4 +1,3 @@
-import { AnimatedLine } from "@/components/animated-line"
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { GsapSplitText } from "@/components/gsap-split-text"
 import { IconCitysParkLogo, IconCollab } from "@/components/icons"
@@ -6,7 +5,7 @@ import { LogoSection } from "@/components/logo-section"
 import { MembersClubItem } from "@/components/members-club-item"
 import { Video } from "@/components/utility/video"
 import { VideoSection } from "@/components/video-section"
-import { citysParkVideo, pinarVeCemilAktasVideo } from "@/lib/constants"
+import { citysParkVideo, navigationConfig, pinarVeCemilAktasVideo } from "@/lib/constants"
 import { getCitysParkContent } from "@/lib/content"
 import { cn } from "@/lib/utils"
 import { colors } from "@/styles/config.mjs"
@@ -20,7 +19,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
 
   return (
     <>
-      <section className="relative z-20 bg-army-canvas lg:pt-10">
+      <section className="relative z-20 bg-army-canvas lg:pt-10" id={navigationConfig["/citys-park"]?.id as string}>
         <LogoSection foregroundLogo={<IconCitysParkLogo fill={colors.white} />} />
         <div className="flex flex-col items-center gap-8 lg:gap-14">
           <h2
@@ -53,13 +52,13 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             </h2>
           </FadeInOnScroll>
           <FadeInOnScroll>
-            <section className="relative section-container">
+            <div className="relative section-container">
               <VideoSection
                 primaryVideoUrl={pinarVeCemilAktasVideo}
                 thumbnail="/img/thumbnail-pinar-cemil-aktas.jpg"
                 title={t("videoTitle")}
               />
-            </section>
+            </div>
           </FadeInOnScroll>
           <div className="relative w-full h-[60vw] lg:h-[90vh] mt-5">
             <Video
@@ -88,7 +87,6 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           />
         ))}
       </section>
-      <AnimatedLine direction="horizontal" barClassName="bg-white" />
     </>
   )
 }

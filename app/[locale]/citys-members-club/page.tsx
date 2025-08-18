@@ -4,7 +4,7 @@ import { LogoSection } from "@/components/logo-section"
 import { MembersClubItem } from "@/components/members-club-item"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
-import { membersClubVideo } from "@/lib/constants"
+import { membersClubVideo, navigationConfig } from "@/lib/constants"
 import { getCitysMembersClubContent } from "@/lib/content"
 import { cn } from "@/lib/utils"
 import { colors } from "@/styles/config.mjs"
@@ -15,19 +15,7 @@ export default async function Page({ params }: { params: { locale: string } }) {
 
   return (
     <>
-      <FadeInOnScroll>
-        <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
-          <Video
-            primaryVideoUrl={membersClubVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-          />
-        </section>
-      </FadeInOnScroll>
-      <section className="relative z-20 bg-minor-blue">
+      <section className="relative z-20 bg-minor-blue" id={navigationConfig["/citys-members-club"]?.id as string}>
         <LogoSection foregroundLogo={<IconCitysMembersClubLogo fill="#000000" />} />
         <div className="flex flex-col items-center justify-center pb-12 lg:pb-24">
           <FadeInOnScroll>
@@ -60,13 +48,29 @@ export default async function Page({ params }: { params: { locale: string } }) {
           </FadeInOnScroll>
         </div>
       </section>
-      <section className="bg-white z-30">
+      <FadeInOnScroll>
+        <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
+          <Video
+            primaryVideoUrl={membersClubVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          />
+        </section>
+      </FadeInOnScroll>
+      <section className="bg-minor-blue z-30">
         {items.map((item, i) => (
           <MembersClubItem
             key={i}
             item={item}
             align={i % 2 === 0 ? "ltr" : "rtl"}
-            className={i % 2 === 0 ? "bg-white" : "bg-unbleached"}
+            className="bg-minor-blue"
+            titleClassName="text-black"
+            subtitleClassName="text-black"
+            descriptionClassName="text-black [&_p]:text-black [&_li]:text-black"
+            barClassName="bg-black"
             sectionId={item.sectionId as string}
           />
         ))}
