@@ -48,7 +48,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               )}
             >
               <span>Yaşam Yeniden Tasarlandı </span>
-              <span className="w-12 h-12 mx-8">
+              <span className="w-12 h-12 lg:w-16 lg:h-16 mx-8">
                 <IconCollab fill={colors.white} />
               </span>
               <span>CITY&apos;S</span>
