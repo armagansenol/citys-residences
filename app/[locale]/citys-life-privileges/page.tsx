@@ -5,7 +5,7 @@ import { IconCitysLifeLogo, IconCollab } from "@/components/icons"
 import { LogoSection } from "@/components/logo-section"
 import { MembersClubItem } from "@/components/members-club-item"
 import { Video } from "@/components/utility/video"
-import { citysLifeVideo } from "@/lib/constants"
+import { citysLifeVideo, navigationConfig } from "@/lib/constants"
 import { getCitysLifePrivilegesContent } from "@/lib/content"
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { cn } from "@/lib/utils"
@@ -20,7 +20,10 @@ export default async function Page({ params: { locale } }: { params: { locale: s
 
   return (
     <>
-      <section className="relative z-20 bg-white lg:pt-10">
+      <section
+        className="relative z-20 bg-white lg:pt-10"
+        id={navigationConfig["/citys-life-privileges"]?.id as string}
+      >
         <LogoSection foregroundLogo={<IconCitysLifeLogo fill="#000000" />} />
         <div className="section-container pt-8 lg:pt-12 pb-16 lg:pb-28 flex flex-col items-center gap-8">
           <h2

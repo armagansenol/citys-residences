@@ -2,6 +2,7 @@ import { IconWrapper } from "@/components/icon-wrapper"
 import { socialIcons } from "@/components/icons"
 import { Img } from "@/components/utility/img"
 import { colors } from "@/styles/config.mjs"
+import { navigationConfig } from "@/lib/constants"
 // import { fetchEvents, getEventImageUrl } from "@/lib/api/queries"
 
 export default async function Page() {
@@ -12,7 +13,7 @@ export default async function Page() {
 
   return (
     <>
-      <section className="h-[35vw] relative overflow-hidden">
+      <section className="h-[35vw] relative overflow-hidden" id={navigationConfig["/citys-times"]?.id as string}>
         <Img
           className="object-cover w-full h-full"
           src="/img/citys-times-banner.jpg"
