@@ -23,8 +23,8 @@ export default async function Page({ params: { locale } }: { params: { locale: s
         className="relative z-20 bg-white lg:pt-10"
         id={navigationConfig["/citys-life-privileges"]?.id as string}
       >
-        <div className="flex items-center justify-center w-full pt-36">
-          <div className="h-36">
+        <div className="flex items-center justify-center w-full pt-36 pb-12">
+          <div className="h-44">
             <IconCitysLifeLogo fill={colors.black} />
           </div>
         </div>
