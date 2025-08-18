@@ -94,7 +94,7 @@ export function HorizontalScroll({
               "absolute bottom-14 left-14",
               "font-primary font-normal text-white",
               "text-base lg:text-4xl xl:text-2xl",
-              "leading-relaxed lg:leading-relaxed xl:leading-relaxed",
+              "leading-snug lg:leading-snug xl:leading-snug",
               "lg:max-w-2xl xl:max-w-lg",
               "description-bg z-50 py-4 px-8 rounded-md"
             )}

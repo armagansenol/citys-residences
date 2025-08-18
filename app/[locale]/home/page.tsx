@@ -191,7 +191,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               "font-primary font-normal",
               "text-black lg:text-white text-center lg:text-left",
               "text-2xl lg:text-4xl xl:text-2xl",
-              "leading-relaxed lg:leading-relaxed xl:leading-relaxed",
+              "leading-snug lg:leading-snug xl:leading-snug",
               "xl:w-[500px]"
             )}
           >
