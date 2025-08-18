@@ -56,7 +56,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             )}
           >
             <span className="whitespace-nowrap">Yaşam Yeniden Tasarlandı</span>
-            <span className="w-12 h-12 mx-8">
+            <span className="w-12 h-12 2xl:w-14 2xl:h-14 3xl:w-16 3xl:h-16 mx-8">
               <IconCollab fill={colors.white} />
             </span>
             <span className="whitespace-nowrap">CITY&apos;S</span>
@@ -121,7 +121,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                   <span className="font-montserrat whitespace-nowrap text-2xl lg:text-5xl">
                     Yaşam Yeniden Tasarlandı
                   </span>
-                  <span className="w-12 h-12 mx-8">
+                  <span className="w-12 h-12 2xl:w-14 2xl:h-14 3xl:w-16 3xl:h-16 mx-8">
                     <IconCollab fill={colors.white} />
                   </span>
                   <span className="font-montserrat whitespace-nowrap text-2xl lg:text-5xl">CITY&apos;S</span>
