@@ -14,6 +14,10 @@ import { useMediaQuery } from "hamo"
 interface MembersClubItemProps {
   sectionId?: string
   className?: string
+  titleClassName?: string
+  subtitleClassName?: string
+  descriptionClassName?: string
+  barClassName?: string
   item: {
     title: ReactNode
     subtitle?: ReactNode
@@ -23,12 +27,21 @@ interface MembersClubItemProps {
   align?: "ltr" | "rtl"
 }
 
-export function MembersClubItem({ item, sectionId, align = "ltr", className = "" }: MembersClubItemProps) {
+export function MembersClubItem({
+  item,
+  sectionId,
+  align = "ltr",
+  className = "",
+  titleClassName = "",
+  subtitleClassName = "",
+  descriptionClassName = "",
+  barClassName = "",
+}: MembersClubItemProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.breakpointTablet}px)`)
 
   return (
-    <div className={cn(className, 'pb-10 lg:pb-0')} ref={ref} id={sectionId}>
+    <div className={cn(className, "pb-10 lg:pb-0")} ref={ref} id={sectionId}>
       <FadeInOnScroll>
         <div
           className={cn(
@@ -42,37 +55,40 @@ export function MembersClubItem({ item, sectionId, align = "ltr", className = ""
           )}
         >
           <div className="w-full lg:w-4/12 px-5 lg:px-0">
-          <div className="flex flex-col items-start justify-center pr-0 lg:pr-6 py-0 lg:py-24">
-            <h3
-              className={cn(
-                "font-primary font-bold text-bricky-brick text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl mb-6"
-              )}
-            >
-              {item.title}
-            </h3>
-            {item.subtitle && (
-              <div
+            <div className="flex flex-col items-start justify-center pr-0 lg:pr-6 py-0 lg:py-24">
+              <h3
                 className={cn(
-                  "font-primary font-semibold text-xl lg:text-2xl xl:text-2xl 2xl:text-2xl 3xl:text-2xl text-bricky-brick mb-4"
+                  "font-primary font-bold text-bricky-brick text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl mb-6",
+                  titleClassName
                 )}
               >
-                {item.subtitle}
-              </div>
-            )}
-            <div
-              className={cn(
-                "font-primary font-normal text-black",
-                "prose prose-ul:list-disc prose-ul:pl-6 prose-li:text-black prose-li:mb-2",
-                "[&_p]:mb-4 [&_p]:text-xl xl:[&_p]:text-2xl",
-                "[&_ul]:list-disc [&_ul]:pl-6 [&_li]:text-xl xl:[&_li]:text-2xl [&_li]:text-black [&_li]:mb-2",
-                "[&_ul]:list-none [&_li]:before:content-['•'] [&_li]:before:mr-2 [&_li]:before:black"
+                {item.title}
+              </h3>
+              {item.subtitle && (
+                <div
+                  className={cn(
+                    "font-primary font-semibold text-xl lg:text-2xl xl:text-2xl 2xl:text-2xl 3xl:text-2xl text-bricky-brick mb-4",
+                    subtitleClassName
+                  )}
+                >
+                  {item.subtitle}
+                </div>
               )}
-            >
-              {item.description}
+              <div
+                className={cn(
+                  "font-primary font-normal text-black",
+                  "prose prose-ul:list-disc prose-ul:pl-6 prose-li:text-black prose-li:mb-2",
+                  "[&_p]:mb-4 [&_p]:text-xl xl:[&_p]:text-2xl",
+                  "[&_ul]:list-disc [&_ul]:pl-6 [&_li]:text-xl xl:[&_li]:text-2xl [&_li]:text-black [&_li]:mb-2",
+                  "[&_ul]:list-none [&_li]:before:content-['•'] [&_li]:before:mr-2 [&_li]:before:black",
+                  descriptionClassName
+                )}
+              >
+                {item.description}
+              </div>
             </div>
           </div>
-          </div>
-          <AnimatedLine direction="vertical" />
+          <AnimatedLine direction="vertical" barClassName={barClassName} />
           <div className="relative w-full lg:w-8/12">
             {item.url.length > 1 ? (
               <EmblaCarousel
@@ -102,7 +118,7 @@ export function MembersClubItem({ item, sectionId, align = "ltr", className = ""
           </div>
         </div>
       </FadeInOnScroll>
-      <AnimatedLine direction="horizontal" />
+      <AnimatedLine direction="horizontal" barClassName={barClassName} />
     </div>
   )
 }
