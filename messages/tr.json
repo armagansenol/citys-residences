@@ -186,7 +186,7 @@
             "i7": {
                 "title": "Pet Hotel & Pet Hospital",
                 "spot": "Evcil dostlarınız da bu yaşamın bir parçası",
-                "text": "Pet Hotel ve Pet Hospital hizmetleriyle, onların konforu ve sağlığı da City's Life ayrıcalıkları arasında."
+                "text": "Pet Hotel ve Pet Hospital hizmetleriyle, onların konforu ve sağlığı da City's Living ayrıcalıkları arasında."
             }
         }
     },
@@ -233,7 +233,7 @@
             "location": "Konum",
             "citysPark": "City's Park",
             "citysMembersClub": "City's Members Club",
-            "citysLifePrivileges": "City's Life Ayrıcalıkları",
+            "citysLifePrivileges": "City's Living Ayrıcalıkları",
             "citysIstanbul": "City's İstanbul AVM",
             "citysPsm": "City's PSM",
             "citysTimes": "City's Times",
