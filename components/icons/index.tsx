@@ -846,6 +846,35 @@ export const IconCitysParkLogo = (props: Props) => {
   )
 }
 
+export const IconCitysTimesLogo = (props: Props) => {
+  return (
+    <span className="inherit-dims block" style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 451 61"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+      >
+        <rect width="451" height="61" fill="url(#pattern0_2835_405)" />
+        <defs>
+          <pattern id="pattern0_2835_405" patternContentUnits="objectBoundingBox" width="1" height="1">
+            <use xlinkHref="#image0_2835_405" transform="matrix(0.00107411 0 0 0.0079414 0 -0.000308147)" />
+          </pattern>
+          <image
+            id="image0_2835_405"
+            width="931"
+            height="126"
+            preserveAspectRatio="none"
+            xlinkHref="data:image/png;base64,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"
+          />
+        </defs>
+      </svg>
+    </span>
+  )
+}
+
 export const IconCitysLifeLogo = (props: Props) => {
   return (
     <span className="inherit-dims block" style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
@@ -1111,16 +1140,6 @@ export const IconArrowLong = (props: Props) => {
   )
 }
 
-export const socialIcons = (fill: string = colors.white): Record<SocialMedia, JSX.Element> => ({
-  [SocialMedia.tiktok]: <IconTiktok fill={fill} />,
-  [SocialMedia.facebook]: <IconFacebook fill={fill} />,
-  [SocialMedia.instagram]: <IconInstagram fill={fill} />,
-  [SocialMedia.x]: <IconX fill={fill} />,
-  [SocialMedia.youtube]: <IconYoutube fill={fill} />,
-  [SocialMedia.linkedin]: <IconLinkedin fill={fill} />,
-  [SocialMedia.events]: <IconEvents fill={fill} />,
-})
-
 export const IconCollab = (props: Props) => {
   return (
     <span className="inherit-dims block" style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
@@ -1134,3 +1153,13 @@ export const IconCollab = (props: Props) => {
     </span>
   )
 }
+
+export const socialIcons = (fill: string = colors.white): Record<SocialMedia, JSX.Element> => ({
+  [SocialMedia.tiktok]: <IconTiktok fill={fill} />,
+  [SocialMedia.facebook]: <IconFacebook fill={fill} />,
+  [SocialMedia.instagram]: <IconInstagram fill={fill} />,
+  [SocialMedia.x]: <IconX fill={fill} />,
+  [SocialMedia.youtube]: <IconYoutube fill={fill} />,
+  [SocialMedia.linkedin]: <IconLinkedin fill={fill} />,
+  [SocialMedia.events]: <IconEvents fill={fill} />,
+})

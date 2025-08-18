@@ -1,5 +1,5 @@
 import { IconWrapper } from "@/components/icon-wrapper"
-import { socialIcons } from "@/components/icons"
+import { IconCitysTimesLogo, socialIcons } from "@/components/icons"
 import { Img } from "@/components/utility/img"
 import { colors } from "@/styles/config.mjs"
 import { navigationConfig } from "@/lib/constants"
@@ -66,28 +66,30 @@ export default async function Page() {
             <span>Linkedin</span>
           </div>
         </div>
-        <div className="flex-1 bg-white py-20 flex flex-col items-center">
-          <div className="mb-4 flex flex-col items-center">
-            <h3 className="font-primary font-semibold text-black text-6xl mb-2">CITY&apos;S TIMES</h3>
-            <div className="w-full h-0.5 bg-black mb-4"></div>
+        <div className="flex-1 bg-white py-12 flex flex-col items-center">
+          <div className="mb-4 h-14">
+            <IconCitysTimesLogo />
           </div>
-          <p className="font-primary font-medium text-bricky-brick text-6xl">Bizi Takip Edin...</p>
-          <div className="grid grid-cols-3 gap-6 w-full border-red-500 mt-12 px-24">
-            <div className="w-full xl:h-72 2xl:h-96 aspect-square bg-bricky-brick relative">
-              <Img src="/img/avm-1.jpg" alt="Citys Times" fill sizes="30vw" className="object-cover" loading="lazy" />
-            </div>
-            <div className="w-full xl:h-72 2xl:h-96 aspect-square bg-bricky-brick relative">
-              <Img src="/img/avm-2.jpg" alt="Citys Times" fill sizes="30vw" className="object-cover" loading="lazy" />
-            </div>
-            <div className="w-full xl:h-72 2xl:h-96 aspect-square bg-bricky-brick relative">
-              <Img
-                src="/img/video-bg.jpg"
-                alt="Citys Times"
-                fill
-                sizes="30vw"
-                className="object-cover"
-                loading="lazy"
-              />
+          <p className="font-primary font-semibold text-bricky-brick text-4xl">Bizi Takip Edin...</p>
+          <div className="w-full mt-12 px-24">
+            <h5 className="font-primary font-normal text-bricky-brick text-3xl mb-6">Instagram</h5>
+            <div className="grid grid-cols-3 gap-6">
+              <div className="w-full xl:h-72 2xl:h-96 aspect-square bg-bricky-brick relative">
+                <Img src="/img/avm-1.jpg" alt="Citys Times" fill sizes="30vw" className="object-cover" loading="lazy" />
+              </div>
+              <div className="w-full xl:h-72 2xl:h-96 aspect-square bg-bricky-brick relative">
+                <Img src="/img/avm-2.jpg" alt="Citys Times" fill sizes="30vw" className="object-cover" loading="lazy" />
+              </div>
+              <div className="w-full xl:h-72 2xl:h-96 aspect-square bg-bricky-brick relative">
+                <Img
+                  src="/img/video-bg.jpg"
+                  alt="Citys Times"
+                  fill
+                  sizes="30vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
           {/* {events.length > 0 ? (
