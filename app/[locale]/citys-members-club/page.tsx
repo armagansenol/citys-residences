@@ -1,6 +1,5 @@
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
 import { IconCitysMembersClubLogo, IconCollab } from "@/components/icons"
-import { LogoSection } from "@/components/logo-section"
 import { MembersClubItem } from "@/components/members-club-item"
 import { Img } from "@/components/utility/img"
 import { Video } from "@/components/utility/video"
@@ -16,7 +15,11 @@ export default async function Page({ params }: { params: { locale: string } }) {
   return (
     <>
       <section className="relative z-20 bg-minor-blue" id={navigationConfig["/citys-members-club"]?.id as string}>
-        <LogoSection foregroundLogo={<IconCitysMembersClubLogo fill="#000000" />} />
+        <div className="flex items-center justify-center w-full pt-24 pb-12">
+          <div className="h-48">
+            <IconCitysMembersClubLogo fill="#000000" />
+          </div>
+        </div>
         <div className="flex flex-col items-center justify-center pb-12 lg:pb-24">
           <FadeInOnScroll>
             <div className="relative w-[90vw] h-[80vw] lg:w-[35vw] lg:h-[35vw] mb-12">
