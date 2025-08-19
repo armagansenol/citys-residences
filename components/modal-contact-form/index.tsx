@@ -261,8 +261,7 @@ export function ModalContactForm() {
                         <span>CR Satış Ofisi Konum</span>
                         <span
                           className={cn(
-                            "block",
-                            "whitespace-pre-line",
+                            "block whitespace-pre-line pl-1",
                             "text-sm lg:text-sm xl:text-sm 2xl:text-sm 3xl:text-sm",
                             "leading-normal lg:leading-normal xl:leading-normal 2xl:leading-normal 3xl:leading-normal",
                             "font-primary font-normal text-bricky-brick text-center lg:text-left"

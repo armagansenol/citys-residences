@@ -266,7 +266,7 @@ export function Menu({ items }: MenuProps) {
                       <span>CR Satış Ofisi Konum</span>
                       <span
                         className={cn(
-                          "block whitespace-pre-line",
+                          "block whitespace-pre-line pl-1",
                           "text-sm lg:text-sm xl:text-sm 2xl:text-base 3xl:text-base",
                           "leading-normal lg:leading-normal xl:leading-normal 2xl:leading-normal 3xl:leading-normal",
                           "font-primary font-normal text-white text-center lg:text-left"
