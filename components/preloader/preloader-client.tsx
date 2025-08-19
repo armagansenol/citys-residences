@@ -7,13 +7,17 @@ import { useEffect } from "react"
 export function PreloaderClient() {
   const lenis = useLenis()
   const preloaderId = "#server-preloader"
+  const isProduction = process.env.NODE_ENV === "production"
 
   // Stop Lenis immediately when component mounts
   useEffect(() => {
+    if (!isProduction) return
     lenis?.stop()
-  }, [lenis])
+  }, [lenis, isProduction])
 
   useGSAP(() => {
+    if (!isProduction) return
+
     gsap.to(preloaderId, {
       opacity: 0,
       duration: 0.5,
@@ -25,10 +29,6 @@ export function PreloaderClient() {
       },
     })
   }, [lenis])
-
-  if (process.env.NODE_ENV !== "production") {
-    return null
-  }
 
   return null
 }
