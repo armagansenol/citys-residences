@@ -19,6 +19,12 @@ interface ScrollState {
     activeItem: number | null
   }
 
+  // Hash navigation state
+  hashNavigation: {
+    currentHash: string | null
+    syncEnabled: boolean
+  }
+
   // Actions for Lenis
   setLenis: (lenis: Lenis | null) => void
 
@@ -32,9 +38,16 @@ interface ScrollState {
   setMenuOpen: (isOpen: boolean) => void
   setMenuActiveItem: (activeItem: number | null) => void
 
+  // Hash navigation actions
+  setCurrentHash: (hash: string | null) => void
+  enableHashSync: () => void
+  disableHashSync: () => void
+  navigateToHash: (hash: string, options?: { immediate?: boolean; closeMenu?: boolean }) => void
+  restoreFromHash: () => void
+
   // Unified scroll actions
   scrollToCard: (cardIndex: number, immediate?: boolean) => void
-  scrollToElement: (id: string, options?: { immediate?: boolean; closeMenu?: boolean }) => void
+  scrollToElement: (id: string, options?: { immediate?: boolean; closeMenu?: boolean; updateHash?: boolean }) => void
   smoothScrollWithWrapper: (
     targetAction: () => void,
     options?: {
@@ -57,6 +70,10 @@ export const useScrollStore = create<ScrollState>((set, get) => ({
   menu: {
     isOpen: false,
     activeItem: null,
+  },
+  hashNavigation: {
+    currentHash: null,
+    syncEnabled: true,
   },
 
   // Lenis actions
@@ -105,6 +122,71 @@ export const useScrollStore = create<ScrollState>((set, get) => ({
       menu: { ...state.menu, activeItem },
     })),
 
+  // Hash navigation actions
+  setCurrentHash: (hash) =>
+    set((state) => ({
+      hashNavigation: { ...state.hashNavigation, currentHash: hash },
+    })),
+
+  enableHashSync: () =>
+    set((state) => ({
+      hashNavigation: { ...state.hashNavigation, syncEnabled: true },
+    })),
+
+  disableHashSync: () =>
+    set((state) => ({
+      hashNavigation: { ...state.hashNavigation, syncEnabled: false },
+    })),
+
+  navigateToHash: (hash, options = {}) => {
+    const { immediate = false, closeMenu = true } = options
+    const { hashNavigation } = get()
+
+    if (closeMenu) {
+      set((state) => ({
+        menu: { ...state.menu, isOpen: false, activeItem: null },
+      }))
+    }
+
+    // Update URL hash if sync is enabled
+    if (hashNavigation.syncEnabled && typeof window !== "undefined") {
+      window.location.hash = hash
+    }
+
+    // Update store state
+    set((state) => ({
+      hashNavigation: { ...state.hashNavigation, currentHash: hash },
+    }))
+
+    // Scroll to element
+    get().scrollToElement(hash, { immediate, closeMenu: false, updateHash: false })
+  },
+
+  restoreFromHash: () => {
+    if (typeof window === "undefined") return
+
+    const hash = window.location.hash.slice(1) // Remove # prefix
+    if (hash) {
+      set((state) => ({
+        hashNavigation: { ...state.hashNavigation, currentHash: hash },
+      }))
+
+      // Scroll to the element after a brief delay to ensure DOM is ready
+      setTimeout(() => {
+        if (hash.includes("stacking-cards")) {
+          const cardIndex = parseInt(hash.split("-")[2])
+          if (!isNaN(cardIndex)) {
+            // Use card-based scrolling for stacking cards
+            get().scrollToCard(cardIndex, false)
+          }
+        } else {
+          // Use element-based scrolling for regular sections
+          get().scrollToElement(hash, { immediate: false, updateHash: false })
+        }
+      }, 100)
+    }
+  },
+
   // Unified scroll actions
   scrollToCard: (cardIndex, immediate = false) => {
     const { lenis, stackingCards } = get()
@@ -132,8 +214,26 @@ export const useScrollStore = create<ScrollState>((set, get) => ({
   },
 
   scrollToElement: (id, options = {}) => {
-    const { immediate = false } = options
-    const { lenis } = get()
+    const { immediate = false, closeMenu = true, updateHash = true } = options
+    const { lenis, hashNavigation } = get()
+
+    if (closeMenu) {
+      set((state) => ({
+        menu: { ...state.menu, isOpen: false, activeItem: null },
+      }))
+    }
+
+    // Update URL hash if enabled and requested
+    if (updateHash && hashNavigation.syncEnabled && typeof window !== "undefined") {
+      window.location.hash = id
+    }
+
+    // Update store state if hash tracking is enabled
+    if (updateHash) {
+      set((state) => ({
+        hashNavigation: { ...state.hashNavigation, currentHash: id },
+      }))
+    }
 
     lenis?.scrollTo(`#${id}`, { immediate })
   },
@@ -180,5 +280,20 @@ export const useStackingCardsStore = () => {
     setLenis: store.setLenis,
     scrollToCard: store.scrollToCard,
     updateCurrentCardFromProgress: store.updateCurrentCardFromProgress,
+  }
+}
+
+// Hash navigation exports for easy access
+export const useHashNavigationStore = () => {
+  const store = useScrollStore()
+
+  return {
+    currentHash: store.hashNavigation.currentHash,
+    syncEnabled: store.hashNavigation.syncEnabled,
+    setCurrentHash: store.setCurrentHash,
+    enableHashSync: store.enableHashSync,
+    disableHashSync: store.disableHashSync,
+    navigateToHash: store.navigateToHash,
+    restoreFromHash: store.restoreFromHash,
   }
 }

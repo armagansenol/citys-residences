@@ -11,6 +11,7 @@ import { IconPin, socialIcons } from "@/components/icons"
 import { ScrollableBox } from "@/components/utility/scrollable-box"
 import { citysIstanbulAvmGoogleMaps } from "@/lib/constants"
 import { useScrollStore } from "@/lib/store/scroll"
+import { useHashNavigation, useStackingCardsHashNavigation } from "@/hooks/useHashNavigation"
 import { breakpoints, colors } from "@/styles/config.mjs"
 import { ChevronLeft, X } from "lucide-react"
 
@@ -50,9 +51,12 @@ export function Menu({ items }: MenuProps) {
     menu: { isOpen: open, activeItem: active },
     setMenuOpen: setOpen,
     setMenuActiveItem: setActive,
-    scrollToCard,
     smoothScrollWithWrapper,
   } = useScrollStore()
+
+  // Use hash navigation for section tracking
+  const { navigateToSection, currentHash } = useHashNavigation()
+  const { navigateToCard } = useStackingCardsHashNavigation()
 
   // Simple touch device detection
   const isTouchDevice = typeof window !== "undefined" && ("ontouchstart" in window || navigator.maxTouchPoints > 0)
@@ -157,10 +161,12 @@ export function Menu({ items }: MenuProps) {
 
   const handleScroll = (id: string) => {
     if (id.includes("stacking-cards")) {
+      // Handle stacking cards with hash navigation
       const cardIndex = parseInt(id.split("-")[2])
-      smoothScrollWithWrapper(() => scrollToCard(cardIndex, true))
+      smoothScrollWithWrapper(() => navigateToCard(cardIndex, true))
     } else {
-      smoothScrollWithWrapper(() => lenis?.scrollTo(`#${id}`, { immediate: true }))
+      // Handle regular sections with hash navigation
+      smoothScrollWithWrapper(() => navigateToSection(id, { immediate: true, closeMenu: false }))
     }
   }
 
@@ -225,25 +231,50 @@ export function Menu({ items }: MenuProps) {
                   "pt-20 lg:pt-0 pb-0 lg:py-8 2xl:py-12 w-full"
                 )}
               >
-                {items.map(({ title, id }, i) => (
-                  <li
-                    className={cn(
-                      "text-xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
-                      "font-primary font-normal text-white text-center lg:text-left",
-                      "transition-opacity duration-300 ease-in-out",
-                      {
-                        "opacity-100": active === null || active === i,
-                        "opacity-30": active !== null && active !== i,
-                      }
-                    )}
-                    key={title}
-                    onMouseEnter={() => handleMenuItemInteraction(i)}
-                  >
-                    <span className="block cursor-pointer" onClick={(event) => handleMenuItemClick(id, event, i)}>
-                      {title}
-                    </span>
-                  </li>
-                ))}
+                {items.map(({ title, id }, i) => {
+                  // Check if this menu item or any of its sections match the current hash
+                  const isCurrentSection =
+                    currentHash === id ||
+                    (items[i]?.sections &&
+                      Object.values(items[i].sections).some(
+                        (section) =>
+                          section.id === currentHash ||
+                          (section.subitems &&
+                            Object.values(section.subitems).some((subitem) => subitem.id === currentHash))
+                      ))
+
+                  return (
+                    <li
+                      className={cn(
+                        "text-xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
+                        "font-primary font-normal text-white text-center lg:text-left",
+                        "transition-all duration-300 ease-in-out",
+                        {
+                          "opacity-100": active === null || active === i,
+                          "opacity-30": active !== null && active !== i,
+                        },
+                        // Add visual indicator for current section
+                        isCurrentSection && "relative"
+                      )}
+                      key={title}
+                      onMouseEnter={() => handleMenuItemInteraction(i)}
+                    >
+                      {/* Current section indicator */}
+                      {isCurrentSection && (
+                        <span className="absolute -left-3 top-1/2 transform -translate-y-1/2 w-1 h-6 bg-white rounded-full" />
+                      )}
+                      <span
+                        className={cn(
+                          "block cursor-pointer transition-all duration-300",
+                          isCurrentSection && "text-white font-medium"
+                        )}
+                        onClick={(event) => handleMenuItemClick(id, event, i)}
+                      >
+                        {title}
+                      </span>
+                    </li>
+                  )
+                })}
                 <li className="my-4 lg:my-6 xl:my-4 2xl:my-8 3xl:my-6 flex flex-col gap-2">
                   <a
                     href={citysIstanbulAvmGoogleMaps}
@@ -381,40 +412,57 @@ export function Menu({ items }: MenuProps) {
                 </div>
                 {active !== null &&
                   items[active]?.sections &&
-                  Object.values(items[active].sections).map((section) => (
-                    <li key={section.id}>
-                      <span
-                        className={cn(
-                          "font-primary font-normal text-white my-0 lg:my-[.2em]",
-                          "text-lg lg:text-xl xl:text-base 2xl:text-base 3xl:text-xl",
-                          "cursor-pointer block"
+                  Object.values(items[active].sections).map((section) => {
+                    const isSectionCurrent = currentHash === section.id
+
+                    return (
+                      <li key={section.id} className="relative">
+                        {/* Current section indicator for main sections */}
+                        {isSectionCurrent && <span className="absolute -left-3 top-1 w-1 h-6 bg-white rounded-full" />}
+                        <span
+                          className={cn(
+                            "font-primary font-normal text-white my-0 lg:my-[.2em]",
+                            "text-lg lg:text-xl xl:text-base 2xl:text-base 3xl:text-xl",
+                            "cursor-pointer block transition-all duration-300",
+                            isSectionCurrent && "font-medium opacity-100",
+                            !isSectionCurrent && "opacity-90 hover:opacity-100"
+                          )}
+                          onClick={() => handleScroll(section.id)}
+                        >
+                          {section.label}
+                        </span>
+                        {section.subitems && (
+                          <ul className="flex flex-col gap-2 my-2 lg:my-2">
+                            {Object.values(section.subitems).map((subitem) => {
+                              const isSubitemCurrent = currentHash === subitem.id
+
+                              return (
+                                <li key={subitem.id} className="relative">
+                                  {/* Current section indicator for subitems */}
+                                  {isSubitemCurrent && (
+                                    <span className="absolute -left-3 top-1 w-1 h-5 bg-white/80 rounded-full" />
+                                  )}
+                                  <span
+                                    className={cn(
+                                      "font-primary font-light",
+                                      "text-lg lg:text-xl xl:text-base 2xl:text-base 3xl:text-xl",
+                                      "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight",
+                                      "cursor-pointer block transition-all duration-300",
+                                      isSubitemCurrent && "text-white font-medium opacity-100",
+                                      !isSubitemCurrent && "text-white/80 hover:text-white/90"
+                                    )}
+                                    onClick={() => handleScroll(subitem.id)}
+                                  >
+                                    {subitem.label}
+                                  </span>
+                                </li>
+                              )
+                            })}
+                          </ul>
                         )}
-                        onClick={() => handleScroll(section.id)}
-                      >
-                        {section.label}
-                      </span>
-                      {section.subitems && (
-                        <ul className="flex flex-col gap-2 my-2 lg:my-2">
-                          {Object.values(section.subitems).map((subitem) => (
-                            <li key={subitem.id}>
-                              <span
-                                className={cn(
-                                  "font-primary font-light text-white/80",
-                                  // "text-lg lg:text-xl xl:text-[calc(theme(fontSize.base)_-_.2rem)] 2xl:text-[calc(theme(fontSize.base)_-_.2rem)] 3xl:text-[calc(theme(fontSize.xl)_-_.2rem)]",
-                                  "text-lg lg:text-xl xl:text-base 2xl:text-base 3xl:text-xl",
-                                  "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight",
-                                  "cursor-pointer block"
-                                )}
-                                onClick={() => handleScroll(subitem.id)}
-                              >
-                                {subitem.label}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </li>
-                  ))}
+                      </li>
+                    )
+                  })}
               </ul>
             </nav>
           </ScrollableBox>
