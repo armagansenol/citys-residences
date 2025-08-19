@@ -77,7 +77,7 @@ export function StackingCards({ items }: StackingCardsProps) {
   )
 
   return (
-    <div className="relative w-full h-auto lg:h-[100vw] xl:h-[42vw] 2xl:h-[45vw] 3xl:h-[40vw]" ref={ref}>
+    <div className="relative w-full h-auto lg:h-[100vw] xl:h-[42vw] 2xl:h-[45vw] 3xl:h-[35vw]" ref={ref}>
       {items.map((item, i) => {
         return (
           <div
@@ -90,11 +90,11 @@ export function StackingCards({ items }: StackingCardsProps) {
             key={i}
             id={item.sectionId}
           >
-            <div className="flex flex-col gap-2 lg:gap-5 py-8 px-4 lg:px-0">
-              <h3 className="font-montserrat text-3xl lg:text-4xl xl:text-5xl font-bold text-bricky-brick">
+            <div className="flex flex-col gap-2 lg:gap-2 py-4 px-4 lg:px-0">
+              <h3 className="font-montserrat text-3xl lg:text-4xl xl:text-4xl font-bold text-bricky-brick">
                 {item.title}
               </h3>
-              <small className="font-primary text-lg lg:text-base xl:text-2xl font-bold text-bricky-brick max-w-72 lg:max-w-none">
+              <small className="font-primary text-lg lg:text-base xl:text-xl font-bold text-bricky-brick max-w-72 lg:max-w-none">
                 {item.description}
               </small>
             </div>
@@ -105,11 +105,11 @@ export function StackingCards({ items }: StackingCardsProps) {
                   alt="Residence"
                   fill
                   sizes="(max-width: 800px) 100vw, 50vw"
-                  className="object-contain"
+                  className="object-fill"
                   loading="lazy"
                 />
               </div>
-              <div className="relative lg:rounded-md overflow-hidden w-full h-[60vw] lg:h-auto">
+              <div className="relative lg:rounded-md overflow-hidden w-full h-[60vw] lg:h-[80%] mt-auto">
                 <Img
                   src={item.images[1].url}
                   alt="Residence"
