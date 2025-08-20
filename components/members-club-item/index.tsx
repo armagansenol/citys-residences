@@ -54,11 +54,13 @@ export function MembersClubItem({
               : "section-container"
           )}
         >
-          <div className="w-full lg:w-4/12 px-5 lg:px-0">
-            <div className="flex flex-col items-start justify-center pr-0 lg:pr-6 py-0 lg:py-24">
+          <div className="w-full lg:w-5/12 xl:w-4/12 px-5 lg:px-0">
+            <div className="flex flex-col items-start justify-center pr-0 xl:pr-6 py-0 lg:py-24">
               <h3
                 className={cn(
-                  "font-primary font-bold text-bricky-brick text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl mb-6",
+                  "font-primary font-bold text-bricky-brick",
+                  "text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl",
+                  "mb-6",
                   titleClassName
                 )}
               >
@@ -67,7 +69,9 @@ export function MembersClubItem({
               {item.subtitle && (
                 <div
                   className={cn(
-                    "font-primary font-semibold text-xl lg:text-2xl xl:text-2xl 2xl:text-2xl 3xl:text-2xl text-bricky-brick mb-4",
+                    "font-primary font-semibold text-bricky-brick",
+                    "text-xl lg:text-2xl xl:text-2xl 2xl:text-2xl 3xl:text-2xl",
+                    "mb-4",
                     subtitleClassName
                   )}
                 >
@@ -89,13 +93,13 @@ export function MembersClubItem({
             </div>
           </div>
           <AnimatedLine direction="vertical" barClassName={barClassName} />
-          <div className="relative w-full lg:w-8/12">
+          <div className="relative w-full lg:w-7/12 xl:w-8/12">
             {item.url.length > 1 ? (
               <EmblaCarousel
                 autoplay={true}
                 autoplayDelay={5000}
                 slides={item.url.map((image, imageIndex) => (
-                  <div key={imageIndex} className="relative w-full h-[70vw] lg:h-[45vw]">
+                  <div key={imageIndex} className="relative w-full h-[70vw] lg:h-[100%] xl:h-[45vw]">
                     <MaskedParallaxImage
                       imgSrc={image}
                       sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 80vw, 80vw`}
@@ -108,7 +112,7 @@ export function MembersClubItem({
                 parallax={true}
               />
             ) : (
-              <div className="relative w-full h-[90vw] lg:h-full min-h-[40vw] lg:min-h-[45vw]">
+              <div className="relative w-full h-[90vw] lg:h-full xl:h-[45vw] min-h-[40vw] lg:min-h-[45vw]">
                 <MaskedPanImage
                   imgSrc={item.url[0]}
                   sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 80vw, 80vw`}

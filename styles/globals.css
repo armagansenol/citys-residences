@@ -124,7 +124,7 @@ body {
 }
 
 .section-padding {
-  @apply px-0 md:px-10 xl:px-16;
+  @apply px-0 lg:px-10 xl:px-16;
 }
 
 .section-container {

@@ -19,16 +19,16 @@ export default async function Page({ params: { locale } }: { params: { locale: s
   return (
     <>
       <section className="relative z-20 bg-army-canvas" id={navigationConfig["/citys-park"]?.id as string}>
-        <div className="flex items-center justify-center w-full pt-14 pb-24">
+        <div className="flex items-center justify-center w-full pt-14 pb-12 lg:pb-24">
           <div className="h-32">
             <IconCitysParkLogo fill={colors.white} />
           </div>
         </div>
-        <div className="flex flex-col items-center gap-8 lg:gap-20">
+        <div className="flex flex-col items-center gap-8 lg:gap-16 xl:gap-20">
           <h2
             className={cn(
               "font-primary font-normal text-white text-center",
-              "text-3xl lg:text-2xl xl:text-3xl 2xl:text-3xl 3xl:text-3xl",
+              "text-2xl sm:text-3xl lg:text-3xl xl:text-3xl 2xl:text-3xl 3xl:text-3xl",
               "leading-normal xl:leading-snug 2xl:leading-snug 3xl:leading-tight",
               "xl:max-w-4xl 2xl:max-w-6xl"
             )}
@@ -40,16 +40,16 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           <FadeInOnScroll>
             <h2
               className={cn(
-                "font-primary font-medium text-center text-white",
-                "mb-6 xl:mb-8 2xl:mb-8 3xl:mb-10",
-                "text-3xl lg:text-2xl xl:text-5xl 2xl:text-5xl 3xl:text-5xl",
+                "font-primary font-semibold text-center text-white",
+                "text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-5xl",
                 "xl:leading-normal 2xl:leading-tight 3xl:leading-tight",
                 "xl:max-w-4xl 2xl:max-w-6xl",
-                "flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0"
+                "flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0",
+                "mb-6 xl:mb-8 2xl:mb-8 3xl:mb-10"
               )}
             >
               <span>Yaşam Yeniden Tasarlandı </span>
-              <span className="w-12 h-12 lg:w-16 lg:h-16 mx-8">
+              <span className="w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 mx-8">
                 <IconCollab fill={colors.white} />
               </span>
               <span>CITY&apos;S</span>
@@ -64,7 +64,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               />
             </div>
           </FadeInOnScroll>
-          <div className="relative w-full h-[60vw] lg:h-[90vh] mt-5">
+          <div className="relative w-full h-[60vw] lg:h-[60vw] xl:h-[90vh] mb-10 lg:mb-0">
             <Video
               primaryVideoUrl={citysParkVideo}
               autoPlay
