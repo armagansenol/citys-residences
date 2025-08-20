@@ -1,5 +1,4 @@
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
-import { GsapSplitText } from "@/components/gsap-split-text"
 import { IconCitysParkLogo, IconCollab } from "@/components/icons"
 import { MembersClubItem } from "@/components/members-club-item"
 import { Video } from "@/components/utility/video"
@@ -25,18 +24,18 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           </div>
         </div>
         <div className="flex flex-col items-center gap-8 lg:gap-16 xl:gap-20">
-          <h2
-            className={cn(
-              "font-primary font-normal text-white text-center",
-              "text-2xl sm:text-3xl lg:text-3xl xl:text-3xl 2xl:text-3xl 3xl:text-3xl",
-              "leading-normal xl:leading-snug 2xl:leading-snug 3xl:leading-tight",
-              "xl:max-w-4xl 2xl:max-w-6xl"
-            )}
-          >
-            <GsapSplitText stagger={0.2} splitBy="lines" duration={1.5}>
+          <FadeInOnScroll>
+            <h2
+              className={cn(
+                "font-primary font-normal text-white text-center",
+                "text-2xl sm:text-3xl lg:text-3xl xl:text-3xl 2xl:text-3xl 3xl:text-3xl",
+                "leading-normal xl:leading-snug 2xl:leading-snug 3xl:leading-tight",
+                "xl:max-w-4xl 2xl:max-w-6xl"
+              )}
+            >
               {t("title1")} <br /> {t("subtitle1")}
-            </GsapSplitText>
-          </h2>
+            </h2>
+          </FadeInOnScroll>
           <FadeInOnScroll>
             <h2
               className={cn(
