@@ -23,7 +23,7 @@ export default function Page({ params }: { params: { locale: string } }) {
         <PageTitle title="PROJE" id={navigationConfig["/project"]?.id as string} />
         <Project />
         <PageTitle title="KONUM" id={navigationConfig["/location"]?.id as string} />
-        <div className="w-screen h-screen bg-bricky-brick/30 relative">
+        <div className="w-screen h-[55vw] lg:h-screen bg-bricky-brick/30 relative">
           <Img src="/img/lunas.jpg" alt="Lunas" fill sizes="100vw" />
         </div>
         <PageTitle title="RESIDENCES'LAR" id={navigationConfig["/residences"]?.id as string} />
