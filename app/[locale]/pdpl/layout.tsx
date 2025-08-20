@@ -1,4 +1,3 @@
-import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { Wrapper } from "@/components/wrapper"
 import * as React from "react"
@@ -11,9 +10,8 @@ export default function PdplLayout({
 }>) {
   return (
     <>
-      <Header />
+      <Header nonHome />
       <Wrapper>{children}</Wrapper>
-      <Footer />
     </>
   )
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { Link as LocalizedLink, type Locale } from "@/i18n/routing"
+import { Link, Link as LocalizedLink, type Locale } from "@/i18n/routing"
 import { getNavigationItems, initialScroll } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Lenis from "lenis"
@@ -14,11 +14,12 @@ import { Logo, LogoSlim } from "@/components/icons"
 import { LocaleSwitcher } from "@/components/locale-switcher"
 import { Menu } from "@/components/menu"
 import { MenuX } from "@/components/menu-x"
-import { useSectionsMenuStore } from "@/lib/store/sections-menu"
 import { useScrollStore } from "@/lib/store/scroll"
+import { useSectionsMenuStore } from "@/lib/store/sections-menu"
 import { colors } from "@/styles/config.mjs"
+import { ArrowLeft } from "lucide-react"
 
-export function Header() {
+export function Header({ nonHome = false }: { nonHome?: boolean }) {
   const lenis = useLenis()
   const { sections } = useSectionsMenuStore()
   const {
@@ -112,45 +113,58 @@ export function Header() {
         )}
       >
         <div className="flex items-stretch justify-between flex-1 gap-12 z-[var(--z-header-content)] px-4 lg:px-0">
-          <button
-            className="cursor-pointer flex items-center gap-2 lg:gap-4"
-            onClick={() => setMenuOpen(!menuOpen)}
-            type="button"
-            aria-expanded={menuOpen}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            data-ignore-click-away
-          >
-            <div className="cursor-pointer flex items-center">
-              <MenuX
-                className="hidden lg:block"
-                isOpen={false}
-                onClick={() => setMenuOpen(!menuOpen)}
-                strokeWidth="2"
-                color={scrollState.atTop || menuOpen ? colors.white : colors.black}
-                transition={{ type: "spring", stiffness: 260, damping: 40 }}
-                width="50"
-                height="6"
-              />
-              <MenuX
-                className="block lg:hidden"
-                isOpen={menuOpen}
-                onClick={() => setMenuOpen(!menuOpen)}
-                strokeWidth="2"
-                color={scrollState.atTop || menuOpen ? colors.white : colors.black}
-                transition={{ type: "spring", stiffness: 260, damping: 40 }}
-                width="30"
-                height="6"
-              />
-            </div>
-            <div
-              className={cn("cursor-pointer overflow-hidden font-primary font-medium text-sm lg:text-base xl:text-lg", {
-                "text-black": !scrollState.atTop,
-                "text-white": scrollState.atTop,
-              })}
+          {!nonHome ? (
+            <button
+              className="flex items-center gap-2 lg:gap-4 cursor-pointer"
+              onClick={() => setMenuOpen(!menuOpen)}
+              type="button"
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              data-ignore-click-away
             >
-              <span>{t("open")}</span>
-            </div>
-          </button>
+              <div className="cursor-pointer flex items-center">
+                <MenuX
+                  className="hidden lg:block"
+                  isOpen={false}
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  strokeWidth="2"
+                  color={scrollState.atTop || menuOpen ? colors.white : colors.black}
+                  transition={{ type: "spring", stiffness: 260, damping: 40 }}
+                  width="50"
+                  height="6"
+                />
+                <MenuX
+                  className="block lg:hidden"
+                  isOpen={menuOpen}
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  strokeWidth="2"
+                  color={scrollState.atTop || menuOpen ? colors.white : colors.black}
+                  transition={{ type: "spring", stiffness: 260, damping: 40 }}
+                  width="30"
+                  height="6"
+                />
+              </div>
+              <div
+                className={cn(
+                  "cursor-pointer overflow-hidden font-primary font-medium text-sm lg:text-base xl:text-lg",
+                  {
+                    "text-black": !scrollState.atTop,
+                    "text-white": scrollState.atTop,
+                  }
+                )}
+              >
+                <span>{t("open")}</span>
+              </div>
+            </button>
+          ) : (
+            <Link
+              href="/"
+              className="font-primary text-white text-xl font-medium relative flex items-center gap-2 lg:gap-2 cursor-pointer"
+            >
+              <ArrowLeft className="w-6 h-6" />
+              ANASAYFAYA DÖN
+            </Link>
+          )}
           {Object.values(sections).length > 0 && !scrollState.atTop && (
             <div className={cn("flex items-stretch gap-8")}>
               {Object.values(sections).map((item, index) => (
