@@ -15,14 +15,14 @@ export default async function Page({ params }: { params: { locale: string } }) {
   return (
     <>
       <section className="relative z-20 bg-minor-blue" id={navigationConfig["/citys-members-club"]?.id as string}>
-        <div className="flex items-center justify-center w-full pt-28 pb-12">
+        <div className="flex items-center justify-center w-full pt-12 pb-12">
           <div className="h-48">
             <IconCitysMembersClubLogo fill="#000000" />
           </div>
         </div>
         <div className="flex flex-col items-center justify-center pb-12 lg:pb-24">
           <FadeInOnScroll>
-            <div className="relative w-[90vw] h-[80vw] lg:w-[35vw] lg:h-[18vw] mb-12">
+            <div className="relative w-[90vw] h-[80vw] lg:w-[35vw] lg:h-[22vw] mb-12">
               <Img
                 src="/img/members-cat.png"
                 alt="City's Members Club"
@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: { locale: string } }) {
               )}
             >
               <span>Yaşam Yeniden Tasarlandı </span>
-              <span className="w-12 h-12 mx-8">
+              <span className="w-12 h-12 lg:w-16 lg:h-16 mx-8">
                 <IconCollab fill={colors.black} />
               </span>
               <span>CITY&apos;S</span>

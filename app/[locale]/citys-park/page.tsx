@@ -19,12 +19,12 @@ export default async function Page({ params: { locale } }: { params: { locale: s
   return (
     <>
       <section className="relative z-20 bg-army-canvas" id={navigationConfig["/citys-park"]?.id as string}>
-        <div className="flex items-center justify-center w-full pt-28 pb-8">
-          <div className="h-40">
+        <div className="flex items-center justify-center w-full pt-14 pb-24">
+          <div className="h-32">
             <IconCitysParkLogo fill={colors.white} />
           </div>
         </div>
-        <div className="flex flex-col items-center gap-8 lg:gap-14">
+        <div className="flex flex-col items-center gap-8 lg:gap-20">
           <h2
             className={cn(
               "font-primary font-normal text-white text-center",
@@ -40,7 +40,8 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           <FadeInOnScroll>
             <h2
               className={cn(
-                "font-primary font-medium text-center text-white mb-8",
+                "font-primary font-medium text-center text-white",
+                "mb-6 xl:mb-8 2xl:mb-8 3xl:mb-10",
                 "text-3xl lg:text-2xl xl:text-5xl 2xl:text-5xl 3xl:text-5xl",
                 "xl:leading-normal 2xl:leading-tight 3xl:leading-tight",
                 "xl:max-w-4xl 2xl:max-w-6xl",

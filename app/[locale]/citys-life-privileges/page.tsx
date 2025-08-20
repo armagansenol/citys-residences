@@ -19,20 +19,17 @@ export default async function Page({ params: { locale } }: { params: { locale: s
 
   return (
     <>
-      <section
-        className="relative z-20 bg-white lg:pt-10"
-        id={navigationConfig["/citys-life-privileges"]?.id as string}
-      >
-        <div className="flex items-center justify-center w-full pt-28 pb-12">
-          <div className="h-44">
+      <section className="relative z-20 bg-white" id={navigationConfig["/citys-life-privileges"]?.id as string}>
+        <div className="flex items-center justify-center w-full pt-12 pb-16">
+          <div className="h-36">
             <IconCitysLifeLogo fill={colors.black} />
           </div>
         </div>
-        <div className="section-container pt-8 lg:pt-12 pb-16 lg:pb-28 flex flex-col items-center gap-8">
+        <div className="section-container pt-8 lg:pt-6 pb-16 lg:pb-24 flex flex-col items-center gap-16">
           <h2
             className={cn(
               "font-primary font-medium text-black text-center",
-              "text-3xl lg:text-2xl xl:text-5xl 2xl:text-5xl 3xl:text-[54px]",
+              "text-3xl lg:text-2xl xl:text-5xl 2xl:text-5xl 3xl:text-4xl",
               "leading-snug xl:leading-snug 2xl:leading-snug 3xl:leading-snug"
             )}
           >
@@ -43,7 +40,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           <FadeInOnScroll delay={0.3}>
             <h2
               className={cn(
-                "font-primary font-medium text-center text-bricky-brick",
+                "font-primary font-semibold text-center text-bricky-brick",
                 "text-3xl lg:text-2xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl",
                 "xl:leading-normal 2xl:leading-tight 3xl:leading-tight",
                 "xl:max-w-4xl 2xl:max-w-6xl",
@@ -51,7 +48,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               )}
             >
               <span>Yaşam Yeniden Tasarlandı </span>
-              <span className="w-12 h-12 mx-8">
+              <span className="w-12 h-12 lg:w-16 lg:h-16 mx-8">
                 <IconCollab fill={colors["bricky-brick"]} />
               </span>
               <span>CITY&apos;S</span>
