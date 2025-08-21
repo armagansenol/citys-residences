@@ -65,6 +65,7 @@ const Sequenced = () => {
     },
     {
       scope: ref,
+      revertOnUpdate: true,
     }
   )
 

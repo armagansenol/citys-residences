@@ -73,6 +73,7 @@ export function StackingCards({ items }: StackingCardsProps) {
     {
       scope: ref,
       dependencies: [items, width],
+      revertOnUpdate: true,
     }
   )
 
