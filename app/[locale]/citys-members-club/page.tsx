@@ -16,13 +16,13 @@ export default async function Page({ params }: { params: { locale: string } }) {
     <>
       <section className="relative z-20 bg-minor-blue" id={navigationConfig["/citys-members-club"]?.id as string}>
         <div className="flex items-center justify-center w-full pt-12 pb-12">
-          <div className="h-48">
+          <div className="h-40">
             <IconCitysMembersClubLogo fill="#000000" />
           </div>
         </div>
         <div className="flex flex-col items-center justify-center pb-12 lg:pb-24">
           <FadeInOnScroll>
-            <div className="relative w-[90vw] h-[80vw] lg:w-[35vw] lg:h-[22vw] mb-12">
+            <div className="relative w-[90vw] h-[80vw] lg:w-[35vw] lg:h-[22vw]">
               <Img
                 src="/img/members-cat.png"
                 alt="City's Members Club"
