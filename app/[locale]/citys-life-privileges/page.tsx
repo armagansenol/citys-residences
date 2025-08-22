@@ -59,7 +59,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
         </div>
       </section>
       <FadeInOnScroll>
-        <section className="relative h-[60vw] lg:h-svh bg-bricky-brick z-10 overflow-hidden mb-12 lg:mb-0">
+        <section className="relative h-[60vw] xl:h-svh bg-bricky-brick z-10 overflow-hidden mb-12 lg:mb-0">
           <Video
             primaryVideoUrl={citysLifeVideo}
             autoPlay

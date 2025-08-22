@@ -109,7 +109,7 @@ export function Content() {
   return (
     <div>
       <section className="flex flex-col lg:flex-row mb-8">
-        <div className="hidden lg:flex flex-col items-start w-72 font-primary font-medium border-r-2 border-black text-bricky-brick text-xl p-8 space-y-6 min-h-screen pt-24 mt-8">
+        <div className="hidden lg:flex flex-col items-start w-72 font-primary font-medium border-r-2 border-black text-bricky-brick text-xl p-8 space-y-6 xl:min-h-screen pt-24 mt-8">
           <div
             className={
               "flex items-center justify-start space-x-3 mb-16 cursor-pointer transition-opacity hover:opacity-70"
@@ -188,7 +188,7 @@ export function Content() {
               goToIndex={handleScrollableSelectChange}
             />
           </div>
-          <div className="w-full mt-8 md:mt-12 px-4 sm:px-8 md:px-16 lg:px-24">
+          <div className="w-full mt-8 md:mt-12 px-4 sm:px-8 md:px-16 lg:px-8 xl:px-24">
             <h5 className="font-primary font-normal text-bricky-brick text-2xl sm:text-2xl md:text-3xl mb-4 md:mb-6">
               {currentContent.title}
             </h5>

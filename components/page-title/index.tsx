@@ -11,7 +11,7 @@ export interface PageTitleProps {
 export function PageTitle(props: PageTitleProps) {
   return (
     <div
-      className={cn("flex items-center justify-center gap-6 lg:gap-2 py-12 lg:py-20", props.className)}
+      className={cn("flex items-center justify-center gap-6 lg:gap-2 py-12 lg:py-10 xl:py-20", props.className)}
       id={props.id}
     >
       <FadeInOnScroll>

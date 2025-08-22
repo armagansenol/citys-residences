@@ -1,8 +1,8 @@
 import { AnimatedLine } from "@/components/animated-line"
 import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
+import { DynamicAspectImage } from "@/components/dynamic-aspect-image"
 import { GsapSplitText } from "@/components/gsap-split-text"
 import { Logo } from "@/components/icons"
-import { Img } from "@/components/utility/img"
 import { VideoSection } from "@/components/video-section"
 import { muratKaderVideo } from "@/lib/constants"
 import { cn } from "@/lib/utils"
@@ -19,7 +19,7 @@ export default function Page() {
               <Logo fill={colors["bricky-brick"]} />
             </div>
           </FadeInOnScroll>
-          <div className="space-y-8 lg:space-y-16 3xl:space-y-12 px-0 lg:px-44">
+          <div className="space-y-8 xl:space-y-16 3xl:space-y-12 px-0 xl:px-44">
             <FadeInOnScroll>
               <div className="relative">
                 <h2
@@ -34,16 +34,12 @@ export default function Page() {
                     KARMA YAŞAM PROJESİ
                   </GsapSplitText>
                 </h2>
-                <div className="relative w-full h-[65vw] lg:h-[40vw]">
-                  <Img
-                    alt={`Project Visual`}
-                    src={`/img/project/01.jpg`}
-                    sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
-                    fill
-                    className="object-contain object-center"
-                    loading="lazy"
-                  />
-                </div>
+                <DynamicAspectImage
+                  alt="Project Visual"
+                  src="/img/project/01.jpg"
+                  sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                  loading="lazy"
+                />
               </div>
             </FadeInOnScroll>
             <FadeInOnScroll>
@@ -60,16 +56,12 @@ export default function Page() {
                     KONUM
                   </GsapSplitText>
                 </h2>
-                <div className="relative w-full h-[70vw] lg:h-[40vw]">
-                  <Img
-                    alt={`Project Visual`}
-                    src={`/img/project/02.jpg`}
-                    sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
-                    fill
-                    className="object-contain object-center"
-                    loading="lazy"
-                  />
-                </div>
+                <DynamicAspectImage
+                  alt="Project Visual"
+                  src="/img/project/02.jpg"
+                  sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                  loading="lazy"
+                />
               </div>
             </FadeInOnScroll>
           </div>
@@ -82,7 +74,7 @@ export default function Page() {
               />
             </div>
           </FadeInOnScroll>
-          <div className="space-y-8 lg:space-y-16 3xl:space-y-12 px-0 lg:px-44">
+          <div className="space-y-8 xl:space-y-16 3xl:space-y-12 px-0 xl:px-44">
             <FadeInOnScroll>
               <div className="relative">
                 <h2
@@ -97,16 +89,12 @@ export default function Page() {
                     BLOK GİRİŞLERİ
                   </GsapSplitText>
                 </h2>
-                <div className="relative w-full h-[60vw] lg:h-[40vw]">
-                  <Img
-                    alt={`Project Visual`}
-                    src={`/img/project/03.jpg`}
-                    sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
-                    fill
-                    className="object-contain object-center"
-                    loading="lazy"
-                  />
-                </div>
+                <DynamicAspectImage
+                  alt="Project Visual"
+                  src="/img/project/03.jpg"
+                  sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                  loading="lazy"
+                />
               </div>
             </FadeInOnScroll>
             <FadeInOnScroll>
@@ -123,16 +111,12 @@ export default function Page() {
                     OTOPARK GİRİŞ ÇIKIŞLARI
                   </GsapSplitText>
                 </h2>
-                <div className="relative w-full h-[60vw] lg:h-[40vw]">
-                  <Img
-                    alt={`Project Visual`}
-                    src={`/img/project/04.jpg`}
-                    sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
-                    fill
-                    className="object-contain object-center"
-                    loading="lazy"
-                  />
-                </div>
+                <DynamicAspectImage
+                  alt="Project Visual"
+                  src="/img/project/04.jpg"
+                  sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                  loading="lazy"
+                />
               </div>
             </FadeInOnScroll>
             <FadeInOnScroll>
@@ -149,16 +133,12 @@ export default function Page() {
                     BAHÇE VE TERASLAR
                   </GsapSplitText>
                 </h2>
-                <div className="relative w-full h-[60vw] lg:h-[40vw]">
-                  <Img
-                    alt={`Project Visual`}
-                    src={`/img/project/05.jpg`}
-                    sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
-                    fill
-                    className="object-contain object-center"
-                    loading="lazy"
-                  />
-                </div>
+                <DynamicAspectImage
+                  alt="Project Visual"
+                  src="/img/project/05.jpg"
+                  sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 90vw, 90vw`}
+                  loading="lazy"
+                />
               </div>
             </FadeInOnScroll>
           </div>

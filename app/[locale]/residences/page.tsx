@@ -25,7 +25,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
   return (
     <>
       <FadeInOnScroll>
-        <section className="h-svh bg-bricky-brick relative z-10 overflow-hidden">
+        <section className="h-[65vw] xl:h-svh bg-bricky-brick relative z-10 overflow-hidden">
           <Video
             primaryVideoUrl={residencesVideo}
             autoPlay
@@ -55,11 +55,11 @@ export default async function Page({ params: { locale } }: { params: { locale: s
         </FadeInOnScroll>
       </section>
       <section className="bg-white relative z-30 section-container">
-        <div className="relative flex flex-col items-center justify-center mx-auto py-16 lg:py-32 pb-0 px-4 lg:px-0">
+        <div className="relative flex flex-col items-center justify-center mx-auto py-16 xl:py-32 pb-0 px-4 lg:px-0">
           <h2
             className={cn(
               "font-montserrat font-bold text-bricky-brick text-center mb-5",
-              "text-4xl lg:text-7xl xl:text-6xl 2xl:text-7xl 3xl:text-7xl",
+              "text-4xl lg:text-6xl xl:text-6xl 2xl:text-7xl 3xl:text-7xl",
               "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight "
             )}
           >
@@ -80,8 +80,9 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           </p>
           <p
             className={cn(
-              "font-primary font-normal text-center xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl",
-              "text-lg lg:text-4xl xl:text-2xl 2xl:text-3xl 3xl:text-3xl",
+              "font-primary font-normal text-center",
+              "lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl",
+              "text-lg lg:text-3xl xl:text-2xl 2xl:text-3xl 3xl:text-3xl",
               "leading-normal lg:leading-normal xl:leading-normal 2xl:leading-normal 3xl:leading-normal"
             )}
           >

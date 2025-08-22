@@ -31,8 +31,8 @@ export function LocaleSwitcher({ theme = "light" }: LocaleSwitcherProps) {
       <SelectTrigger
         className={cn(
           "font-primary font-medium pointer-events-none",
-          "text-sm lg:text-xl xl:text-lg 2xl:text-xl",
-          "[&>svg]:w-4 [&>svg]:h-4 lg:[&>svg]:w-6 lg:[&>svg]:h-6",
+          "text-sm lg:text-base xl:text-lg 2xl:text-xl",
+          "[&>svg]:w-4 [&>svg]:h-4 lg:[&>svg]:w-5 lg:[&>svg]:h-5 xl:[&>svg]:w-6 xl:[&>svg]:h-6",
           {
             "text-black [&>svg]:text-black": theme === "light",
             "text-white": theme === "dark",

@@ -105,19 +105,19 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative bg-bricky-brick py-12 xl:py-10 xl:pt-2 text-white" ref={footerRef}>
-      <div className="section-container flex flex-col gap-12 lg:gap-0 pt-0 lg:pt-12">
+    <footer className="relative bg-bricky-brick py-12 lg:py-8 xl:py-10 xl:pt-2 text-white" ref={footerRef}>
+      <div className="section-container flex flex-col gap-12 lg:gap-0 pt-0 xl:pt-12">
         <div className="flex flex-col-reverse items-stretch lg:flex-row lg:items-center gap-6 lg:gap-0 px-5 lg:px-0">
           {/* Logo Section */}
           <div className="order-1 lg:order-none w-full lg:w-3/12 flex items-center justify-center mr-auto">
             <LocalizedLink
               href="/"
-              className="w-[240px] sm:w-[200px] lg:w-[200px] xl:w-[260px] 2xl:w-[300px] max-w-full"
+              className="w-[240px] sm:w-[200px] lg:w-[180px] xl:w-[260px] 2xl:w-[300px] max-w-full"
             >
               <Logo fill={colors["white"]} />
             </LocalizedLink>
           </div>
-          <div className="w-full lg:w-8/12 flex flex-col-reverse lg:flex-col items-stretch pb-7 lg:pb-0 relative">
+          <div className="w-full lg:w-9/12 xl:w-8/12 flex flex-col-reverse lg:flex-col items-stretch pb-7 lg:pb-0 relative">
             <ScrollToTop className="text-3xl 3xl:text-4xl lg:w-3/12 ml-auto mr-auto lg:mr-0 mt-8 lg:mt-0" />
             <div className="flex flex-col lg:flex-row">
               {/* Contact Section */}
@@ -274,7 +274,7 @@ export function Footer() {
           </div>
         </div>
         {/* Copyright Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-5 relative lg:mt-14">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-end gap-5 relative lg:mt-8 xl:mt-14">
           <span
             className={cn(
               styles.textSizes.copyrightCredit,

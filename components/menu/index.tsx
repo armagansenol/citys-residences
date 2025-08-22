@@ -199,7 +199,7 @@ export function Menu({ items }: MenuProps) {
       <div
         className={cn(
           "fixed top-0 left-0 bottom-0 overflow-hidden z-[var(--z-menu)]",
-          "w-screen lg:w-[20vw] xl:w-[19vw] 2xl:w-[19vw] 3xl:w-[17vw]",
+          "w-screen lg:w-[27vw] xl:w-[19vw] 2xl:w-[19vw] 3xl:w-[17vw]",
           "blur-bg-bricky-brick"
         )}
         style={{ clipPath: clipPath.current }}
@@ -221,7 +221,7 @@ export function Menu({ items }: MenuProps) {
             <nav className="w-full h-full flex items-end justify-center lg:justify-start px-10 lg:pl-8 lg:pr-4">
               <ul
                 className={cn(
-                  "flex flex-col items-start gap-3 lg:gap-2 xl:gap-3 2xl:gap-4 3xl:gap-4",
+                  "flex flex-col items-start gap-3 lg:gap-3 xl:gap-3 2xl:gap-4 3xl:gap-4",
                   "pt-20 lg:pt-0 pb-0 lg:py-8 2xl:py-12 w-full"
                 )}
               >
@@ -262,7 +262,7 @@ export function Menu({ items }: MenuProps) {
                     <span className="flex flex-col gap-1">
                       <span
                         className={cn(
-                          "text-xl lg:text-base xl:text-xl 2xl:text-2xl 3xl:text-2xl",
+                          "text-xl lg:text-xl xl:text-xl 2xl:text-2xl 3xl:text-2xl",
                           "leading-none lg:leading-none xl:leading-none 2xl:leading-none 3xl:leading-none",
                           "font-primary font-normal text-white text-center lg:text-left"
                         )}
@@ -294,7 +294,7 @@ export function Menu({ items }: MenuProps) {
                   >
                     Bizi Takip Edin
                   </p>
-                  <div className="grid grid-cols-4 gap-2 lg:gap-2 xl:gap-2 pt-3 xl:pt-2 pr-4 w-7/12 xl:w-9/12">
+                  <div className="grid grid-cols-4 gap-2 lg:gap-2 xl:gap-2 pt-3 xl:pt-2 pr-4 w-7/12 lg:w-9/12">
                     <IconWrapper
                       className={cn(
                         "w-full aspect-square opacity-70 transition-opacity cursor-pointer",
@@ -340,8 +340,8 @@ export function Menu({ items }: MenuProps) {
           "fixed top-0 bottom-0 overflow-hidden z-[var(--z-menu-submenu)]",
           "blur-bg-bricky-brick",
           "border-l border-white/30",
-          "left-0 lg:left-[20vw] xl:left-[19vw] 2xl:left-[19vw] 3xl:left-[17vw]",
-          "w-full lg:w-[30vw] xl:w-[13.5vw] 2xl:w-[11.5vw] 3xl:w-[12vw]"
+          "left-0 lg:left-[27vw] xl:left-[19vw] 2xl:left-[19vw] 3xl:left-[17vw]",
+          "w-full lg:w-[17vw] xl:w-[13.5vw] 2xl:w-[11.5vw] 3xl:w-[12vw]"
         )}
         style={{ clipPath: clipPath.current }}
         ref={submenuRef}
@@ -391,7 +391,7 @@ export function Menu({ items }: MenuProps) {
                       <span
                         className={cn(
                           "font-primary font-normal text-white my-0 lg:my-[.2em]",
-                          "text-lg lg:text-xl xl:text-base 2xl:text-base 3xl:text-xl",
+                          "text-lg lg:text-lg xl:text-base 2xl:text-base 3xl:text-xl",
                           "cursor-pointer block"
                         )}
                         onClick={() => handleScroll(section.id)}
@@ -406,7 +406,7 @@ export function Menu({ items }: MenuProps) {
                                 className={cn(
                                   "font-primary font-light text-white/80",
                                   // "text-lg lg:text-xl xl:text-[calc(theme(fontSize.base)_-_.2rem)] 2xl:text-[calc(theme(fontSize.base)_-_.2rem)] 3xl:text-[calc(theme(fontSize.xl)_-_.2rem)]",
-                                  "text-lg lg:text-xl xl:text-base 2xl:text-base 3xl:text-xl",
+                                  "text-lg lg:text-lg xl:text-base 2xl:text-base 3xl:text-xl",
                                   "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight",
                                   "cursor-pointer block"
                                 )}

@@ -67,7 +67,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
       </section>
       {/* YAŞAMA SANATI */}
       <section className="bg-white py-0 lg:py-12 z-20 relative">
-        <div className="mx-auto py-12 lg:py-28 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
+        <div className="mx-auto py-12 xl:py-28 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
           <FadeInOnScroll>
             <div className="w-48 h-48 lg:w-64 lg:h-64 mx-auto mb-10 lg:mb-20">
               <Logo fill={colors["bricky-brick"]} />
@@ -123,7 +123,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                   <span
                     className={cn(
                       "font-semibold text-white text-center",
-                      "text-4xl lg:text-5xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl",
+                      "text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl",
                       "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
                     )}
                   >
@@ -135,7 +135,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                   <span
                     className={cn(
                       "font-semibold text-white text-center",
-                      "text-4xl lg:text-5xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl",
+                      "text-4xl lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl",
                       "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
                     )}
                   >
@@ -150,7 +150,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
       {/* YAŞAMIN TAM MERKEZİNDE */}
       <section className="bg-unbleached py-6 lg:py-12 z-20 relative">
         <FadeInOnScroll>
-          <div className="mx-auto py-12 lg:py-28 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
+          <div className="mx-auto py-12 xl:pt-16 xl:pb-8 relative flex flex-col items-center px-0 lg:px-10 xl:px-16">
             <div className="flex flex-col items-center gap-4 lg:gap-8">
               <article
                 className={cn(
@@ -187,12 +187,12 @@ export default async function Page({ params: { locale } }: { params: { locale: s
       </section>
       {/* LOCATION VIDEO */}
       <FadeInOnScroll>
-        <section className="flex flex-col h-auto lg:h-[50vw] relative bg-white py-12 lg:py-0">
+        <section className="flex flex-col h-auto lg:h-[65vw] xl:h-[50vw] relative bg-white py-12 lg:py-0">
           <h2
             className={cn(
               "relative lg:absolute lg:top-28 lg:left-1/2 lg:-translate-x-1/2",
               "font-primary font-bold text-bricky-brick lg:title-shadow text-center z-50 mb-4 lg:mb-0",
-              "text-4xl lg:text-7xl xl:text-7xl 2xl:text-7xl",
+              "text-4xl lg:text-6xl xl:text-7xl 2xl:text-7xl",
               "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight"
             )}
           >
@@ -206,9 +206,9 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               "description-bg py-0 lg:py-4 px-6 lg:px-8 mb-8 lg:mb-0 lg:rounded-md z-50",
               "font-primary font-normal",
               "text-black lg:text-white text-center lg:text-left",
-              "text-2xl lg:text-4xl xl:text-2xl",
+              "text-2xl lg:text-2xl xl:text-2xl",
               "leading-snug lg:leading-snug xl:leading-snug",
-              "xl:w-[500px]"
+              "lg:w-[460px] xl:w-[500px]"
             )}
           >
             {t.rich("live.p1.description", {
@@ -243,7 +243,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           items={slideImages.slides2}
         />
       </section>
-      <section className="pb-0 lg:pb-12 pt-0 lg:pt-12">
+      <section className="pb-0 lg:pb-12 pt-0 xl:pt-12">
         <HorizontalScroll
           className="hidden xl:block"
           title={t("live.p3.title")}

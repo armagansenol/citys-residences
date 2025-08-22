@@ -26,18 +26,18 @@ export function FullScreenSlider({ className, title, description, items }: FullS
         className={cn(
           "section-container",
           "font-primary font-bold text-center z-50 lg:whitespace-nowrap mb-4 lg:mb-0",
-          "text-bricky-brick lg:text-white",
-          "text-4xl lg:text-4xl xl:text-4xl 2xl:text-4xl",
-          "leading-snug lg:leading-snug xl:leading-snug"
+          "text-bricky-brick xl:text-white",
+          "text-4xl lg:text-6xl",
+          "leading-snug lg:leading-snug"
         )}
       >
         {title}
       </h2>
       <p
         className={cn(
-          "font-primary text-black lg:text-white font-normal text-center mb-8 lg:mb-0",
-          "w-full lg:w-6/12 xl:w-[27vw] px-6 lg:px-4 lg:py-4",
-          "text-2xl lg:text-4xl xl:text-4xl 2xl:text-4xl",
+          "font-primary text-black xl:text-white font-normal text-center mb-8 mx-auto",
+          "w-full lg:w-9/12 xl:w-[27vw] px-6 lg:px-4 lg:py-4",
+          "text-2xl lg:text-3xl",
           "leading-relaxed lg:leading-relaxed xl:leading-relaxed"
         )}
       >

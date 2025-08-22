@@ -113,8 +113,9 @@ export function FilterableContent({ brands }: FilterableContentProps) {
                         <div
                           className={cn(
                             "relative overflow-hidden bg-gray-100 mb-4",
-                            "h-[65vw] sm:h-48 md:h-56 lg:h-72",
-                            "flex items-center justify-center"
+                            // "h-[65vw] sm:h-48 md:h-56 lg:h-72",
+                            "flex items-center justify-center",
+                            "pb-[100%]"
                           )}
                         >
                           <Img

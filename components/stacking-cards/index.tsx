@@ -43,7 +43,7 @@ export function StackingCards({ items }: StackingCardsProps) {
 
   useGSAP(
     () => {
-      if (!width || width < breakpoints.breakpointMobile) return
+      if (!width || width < breakpoints.breakpointTablet) return
 
       const tl = gsap.timeline()
       const cards: HTMLElement[] = gsap.utils.toArray(".gsap-stacking-card")
@@ -78,14 +78,14 @@ export function StackingCards({ items }: StackingCardsProps) {
   )
 
   return (
-    <div className="relative w-full h-auto lg:h-[100vw] xl:h-[42vw] 2xl:h-[45vw] 3xl:h-[35vw]" ref={ref}>
+    <div className="relative w-full h-auto xl:h-[42vw] 2xl:h-[45vw] 3xl:h-[35vw]" ref={ref}>
       {items.map((item, i) => {
         return (
           <div
             className={cn(
               "gsap-stacking-card",
-              "relative lg:absolute w-full h-full overflow-hidden",
-              "lg:border lg:border-s-neutral-300 bg-white px-0 lg:px-8 lg:rounded-xl",
+              "relative xl:absolute w-full h-full overflow-hidden",
+              "xl:border xl:border-s-neutral-300 bg-white px-0 xl:px-8 xl:rounded-xl",
               "flex flex-col gap-0 lg:gap-3 py-4 lg:py-8 xl:py-4 flex-1"
             )}
             key={i}
@@ -95,12 +95,12 @@ export function StackingCards({ items }: StackingCardsProps) {
               <h3 className="font-montserrat text-3xl lg:text-4xl xl:text-4xl font-bold text-bricky-brick">
                 {item.title}
               </h3>
-              <small className="font-primary text-lg lg:text-base xl:text-xl font-bold text-bricky-brick max-w-72 lg:max-w-none">
+              <small className="font-primary text-lg lg:text-xl xl:text-xl font-bold text-bricky-brick max-w-72 lg:max-w-none">
                 {item.description}
               </small>
             </div>
             <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 mt-auto flex-1">
-              <div className="relative lg:rounded-md overflow-hidden w-full h-[72vw] lg:h-auto">
+              <div className="relative lg:rounded-md overflow-hidden w-full h-[72vw] lg:h-[30vw] xl:h-auto">
                 <Img
                   src={item.images[0].url}
                   alt="Residence"
@@ -110,7 +110,7 @@ export function StackingCards({ items }: StackingCardsProps) {
                   loading="lazy"
                 />
               </div>
-              <div className="relative lg:rounded-md overflow-hidden w-full h-[60vw] lg:h-auto">
+              <div className="relative lg:rounded-md overflow-hidden w-full h-[60vw] lg:h-[30vw] xl:h-auto">
                 <Img
                   src={item.images[1].url}
                   alt="Residence"

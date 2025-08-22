@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: { locale: string } }) {
             <h2
               className={cn(
                 "font-primary font-medium text-center",
-                "text-4xl lg:text-2xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl",
+                "text-4xl lg:text-4xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl",
                 "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight",
                 "xl:max-w-4xl 2xl:max-w-6xl",
                 "flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0"
