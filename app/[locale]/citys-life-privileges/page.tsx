@@ -20,12 +20,12 @@ export default async function Page({ params: { locale } }: { params: { locale: s
   return (
     <>
       <section className="relative z-20 bg-white" id={navigationConfig["/citys-life-privileges"]?.id as string}>
-        <div className="flex items-center justify-center w-full pt-12 pb-16">
+        <div className="flex items-center justify-center w-full pt-24 pb-16">
           <div className="h-24 lg:h-36">
             <IconCitysLifeLogo fill={colors.black} />
           </div>
         </div>
-        <div className="section-container pt-8 lg:pt-6 pb-16 lg:pb-24 flex flex-col items-center gap-16">
+        <div className="section-container pt-8 lg:pt-6 pb-16 lg:pb-48 flex flex-col items-center gap-16">
           <h2
             className={cn(
               "font-primary font-medium text-black text-center",
