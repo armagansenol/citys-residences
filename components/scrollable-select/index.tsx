@@ -45,9 +45,10 @@ export function ScrollableSelect({
       setInternalActiveIndex(newIndex)
     }
   }
+
   return (
     <div className="w-full flex">
-      <ScrollableBox scrollTo={activeIndex ? `#item${activeIndex}Button` : null} orientation="horizontal">
+      <ScrollableBox scrollTo={activeIndex !== undefined ? `#item${activeIndex}Button` : null} orientation="horizontal">
         <div className="flex flex-row pt-4">
           {items.map((item, itemIndex) => (
             <motion.div
