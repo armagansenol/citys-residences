@@ -86,7 +86,7 @@ export function StackingCards({ items }: StackingCardsProps) {
               "gsap-stacking-card",
               "relative xl:absolute w-full h-full overflow-hidden",
               "xl:border xl:border-s-neutral-300 bg-white px-0 xl:px-8 xl:rounded-xl",
-              "flex flex-col gap-0 lg:gap-3 py-4 lg:py-8 xl:py-4 flex-1"
+              "flex flex-col gap-0 lg:gap-3 py-8 lg:py-8 xl:py-4 flex-1"
             )}
             key={i}
             id={item.sectionId}
