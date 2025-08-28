@@ -77,6 +77,7 @@ export default async function Page({ params }: { params: { locale: string } }) {
             descriptionClassName="text-black [&_p]:text-black [&_li]:text-black"
             barClassName="bg-black"
             sectionId={item.sectionId as string}
+            last={i === items.length - 1}
           />
         ))}
       </section>

@@ -25,6 +25,7 @@ interface MembersClubItemProps {
     url: string[]
   }
   align?: "ltr" | "rtl"
+  last?: boolean
 }
 
 export function MembersClubItem({
@@ -36,6 +37,7 @@ export function MembersClubItem({
   subtitleClassName = "",
   descriptionClassName = "",
   barClassName = "",
+  last = false,
 }: MembersClubItemProps) {
   const ref = useRef<HTMLDivElement>(null)
   const isMobile = useMediaQuery(`(max-width: ${breakpoints.breakpointTablet}px)`)
@@ -123,7 +125,7 @@ export function MembersClubItem({
           </div>
         </div>
       </FadeInOnScroll>
-      <AnimatedLine direction="horizontal" barClassName={barClassName} />
+      {!last && <AnimatedLine direction="horizontal" barClassName={barClassName} />}
     </div>
   )
 }
