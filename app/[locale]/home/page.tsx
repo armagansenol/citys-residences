@@ -120,7 +120,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                 <>
                   <span
                     className={cn(
-                      "font-semibold text-white text-center",
+                      "font-semibold text-white text-center whitespace-nowrap",
                       "text-3xl lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl",
                       "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
                     )}
