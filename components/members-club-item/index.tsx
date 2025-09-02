@@ -62,7 +62,7 @@ export function MembersClubItem({
               <h3
                 className={cn(
                   "font-primary font-bold text-bricky-brick",
-                  "text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl",
+                  "text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl",
                   "mb-3 xl:mb-6",
                   titleClassName
                 )}
