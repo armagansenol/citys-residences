@@ -278,7 +278,9 @@ export function Menu({ items }: MenuProps) {
                         )}
                       >
                         <span className="block sm:whitespace-nowrap">İçerenköy, Çayır Cd No: 1,</span>
-                        <span className="block sm:whitespace-nowrap">CITY&apos;S İstanbul AVM</span>
+                        <span className="block sm:whitespace-nowrap">
+                          CITY<span className="font-montagu-slab font-normal">&apos;</span>S İstanbul AVM
+                        </span>
                         <span className="block sm:whitespace-nowrap">34752 Ataşehir/İstanbul</span>
                       </span>
                     </span>

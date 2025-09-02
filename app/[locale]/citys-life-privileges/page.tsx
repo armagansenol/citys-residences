@@ -20,12 +20,12 @@ export default async function Page({ params: { locale } }: { params: { locale: s
   return (
     <>
       <section className="relative z-20 bg-white" id={navigationConfig["/citys-life-privileges"]?.id as string}>
-        <div className="flex items-center justify-center w-full pt-24 lg:pt-36 pb-16">
+        <div className="flex items-center justify-center w-full pt-24 lg:pt-36 pb-16 lg:pb-32">
           <div className="h-24 lg:h-36">
             <IconCitysLifeLogo fill={colors.black} />
           </div>
         </div>
-        <div className="section-container pt-8 lg:pt-6 pb-24 lg:pb-64 flex flex-col items-center gap-16">
+        <div className="section-container pt-8 lg:pt-6 pb-24 lg:pb-48 flex flex-col items-center gap-16 lg:gap-48">
           <h2
             className={cn(
               "font-primary font-medium text-black text-center",
@@ -66,7 +66,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                   "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
                 )}
               >
-                CITY&apos;S
+                CITY<span className="font-montagu-slab font-normal">&apos;</span>S
               </span>
             </h2>
           </FadeInOnScroll>

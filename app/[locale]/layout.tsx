@@ -5,7 +5,7 @@ import { StyleVariables } from "@/lib/style-variables"
 import { colors, themes } from "@/styles/config.mjs"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages, getTranslations } from "next-intl/server"
-import { Montserrat } from "next/font/google"
+import { Montagu_Slab, Montserrat } from "next/font/google"
 import localFont from "next/font/local"
 
 import { GSAP } from "@/components/gsap"
@@ -15,11 +15,19 @@ import { Preloader, PreloaderClient } from "@/components/preloader"
 import { ReactQueryProvider } from "@/components/react-query-provider"
 import { RealViewport } from "@/components/real-viewport"
 import { StickyContactMenu } from "@/components/sticky-contact-menu"
+// import UTMWidgetInit from "@/components/utm-widget-init"
+// import { AlotechWidget } from "@/components/alotech-widget"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+})
+
+const montaguSlab = Montagu_Slab({
+  subsets: ["latin"],
+  variable: "--font-montagu-slab",
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
 })
 
 const halenoir = localFont({
@@ -208,10 +216,11 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <head>
         <StyleVariables colors={colors} themes={themes} />
-        {/* <AlotechWidget /> */}
+        {/* <UTMWidgetInit />
+        <AlotechWidget /> */}
       </head>
       <body
-        className={`${halenoir.variable} ${montserrat.variable} ${suisseIntl.variable} ${aktivGrotesk.variable} ${copperplate.variable} antialiased`}
+        className={`${halenoir.variable} ${montserrat.variable} ${montaguSlab.variable} ${suisseIntl.variable} ${aktivGrotesk.variable} ${copperplate.variable} antialiased`}
       >
         <RealViewport />
         <Preloader />

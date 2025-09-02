@@ -182,6 +182,7 @@ const config: Config = {
         montserrat: "var(--font-montserrat)",
         "suisse-intl": "var(--font-suisse-intl)",
         "aktiv-grotesk": "var(--font-aktiv-grotesk)",
+        "montagu-slab": "var(--font-montagu-slab)",
         primary: "var(--font-suisse-intl)",
         copperplate: "var(--font-copperplate)",
       },

@@ -66,7 +66,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                   "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
                 )}
               >
-                CITY&apos;S
+                CITY<span className="font-montagu-slab font-normal">&apos;</span>S
               </span>
             </h2>
           </FadeInOnScroll>
