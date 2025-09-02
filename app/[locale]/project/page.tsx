@@ -25,7 +25,7 @@ export default function Page() {
                 <h2
                   className={cn(
                     "relative lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 mt-16",
-                    "font-primary font-bold text-bricky-brick lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
+                    "font-primary font-semibold lg:font-bold text-bricky-brick lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
                     "text-2xl lg:text-5xl xl:text-5xl 2xl:text-5xl",
                     "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight"
                   )}
@@ -47,7 +47,7 @@ export default function Page() {
                 <h2
                   className={cn(
                     "relative lg:absolute lg:top-16 3xl:top-24 lg:left-1/2 lg:-translate-x-1/2",
-                    "font-primary font-bold text-bricky-brick lg:text-white lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
+                    "font-primary font-semibold lg:font-bold text-bricky-brick lg:text-white lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
                     "text-2xl lg:text-5xl xl:text-5xl 2xl:text-5xl",
                     "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight"
                   )}
@@ -80,7 +80,7 @@ export default function Page() {
                 <h2
                   className={cn(
                     "relative lg:absolute lg:top-6 3xl:top-12 lg:left-1/2 lg:-translate-x-1/2 ",
-                    "font-primary font-bold text-bricky-brick lg:text-white lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
+                    "font-primary font-semibold lg:font-bold text-bricky-brick lg:text-white lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
                     "text-2xl lg:text-5xl xl:text-5xl 2xl:text-5xl",
                     "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight"
                   )}
@@ -102,7 +102,7 @@ export default function Page() {
                 <h2
                   className={cn(
                     "relative lg:absolute lg:top-44 3xl:top-64 lg:left-1/2 lg:-translate-x-1/2",
-                    "font-primary font-bold text-bricky-brick lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
+                    "font-primary font-semibold lg:font-bold text-bricky-brick lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
                     "text-2xl lg:text-5xl xl:text-5xl 2xl:text-5xl",
                     "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight"
                   )}
@@ -124,7 +124,7 @@ export default function Page() {
                 <h2
                   className={cn(
                     "relative lg:absolute lg:top-6 3xl:top-12 lg:left-1/2 lg:-translate-x-1/2",
-                    "font-primary font-bold text-bricky-brick lg:text-white lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
+                    "font-primary font-semibold lg:font-bold text-bricky-brick lg:text-white lg:title-shadow text-center lg:whitespace-nowrap mb-2 lg:mb-0 z-50",
                     "text-2xl lg:text-5xl xl:text-5xl 2xl:text-5xl",
                     "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight"
                   )}
