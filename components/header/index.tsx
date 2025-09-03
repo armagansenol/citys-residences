@@ -209,7 +209,7 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
           <AnimatePresence mode="wait">
             {scrollState.atTop ? (
               <motion.div
-                className="absolute -top-2 left-1/2 -translate-x-1/2 h-32 w-32 xl:h-36 xl:w-36 2xl:h-40 2xl:w-40"
+                className="absolute top-6 left-1/2 -translate-x-1/2 h-32 w-48 xl:h-36 xl:w-36 2xl:h-40 2xl:w-40"
                 key="logo-full"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

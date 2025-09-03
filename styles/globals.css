@@ -7,7 +7,7 @@
   --foreground: var(--white);
 
   --header-height: mobile-vw(50px);
-  --header-height-slim: mobile-vw(60px);
+  --header-height-slim: mobile-vw(80px);
 
   --svh-calc: calc(var(--svh, 1vh) * 100);
   --lvh-calc: calc(var(--lvh, 1vh) * 100);
