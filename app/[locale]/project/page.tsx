@@ -130,7 +130,7 @@ export default function Page() {
                   )}
                 >
                   <GsapSplitText splitBy="lines" stagger={0.05} duration={0.5}>
-                    BAHÇE VE TERASLAR
+                    PARK & BAHÇELER & TERASLAR
                   </GsapSplitText>
                 </h2>
                 <DynamicAspectImage
