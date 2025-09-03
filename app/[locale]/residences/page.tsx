@@ -58,9 +58,9 @@ export default async function Page({ params: { locale } }: { params: { locale: s
         <div className="relative flex flex-col items-center justify-center mx-auto py-16 xl:py-32 pb-0 px-4 lg:px-0">
           <h2
             className={cn(
-              "font-montserrat font-bold text-bricky-brick text-center mb-24",
+              "font-montserrat font-bold text-bricky-brick text-center mb-6 lg:mb-24",
               "text-3xl lg:text-6xl xl:text-6xl 2xl:text-7xl 3xl:text-7xl",
-              "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight "
+              "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
             )}
           >
             <GsapSplitText splitBy="lines" stagger={0.05} duration={1}>

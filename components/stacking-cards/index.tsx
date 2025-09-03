@@ -73,7 +73,7 @@ export function StackingCards({ items }: StackingCardsProps) {
   )
 
   return (
-    <div className="relative w-[96vw] md:w-full h-[150vw] xl:h-[42vw] 2xl:h-[45vw] 3xl:h-[35vw]" ref={ref}>
+    <div className="relative w-[96vw] md:w-full h-[140vw] xl:h-[42vw] 2xl:h-[42vw] 3xl:h-[35vw]" ref={ref}>
       {items.map((item, i) => {
         return (
           <div
@@ -86,16 +86,16 @@ export function StackingCards({ items }: StackingCardsProps) {
             key={i}
             id={item.sectionId}
           >
-            <div className="flex flex-col gap-2 lg:gap-2 py-4 px-0">
-              <h3 className="font-montserrat text-2xl lg:text-4xl xl:text-4xl font-bold text-bricky-brick">
+            <div className="flex flex-col gap-0 lg:gap-2 pb-2 lg:pt-6 px-0">
+              <h3 className="font-montserrat text-xl lg:text-4xl xl:text-4xl font-bold text-bricky-brick">
                 {item.title}
               </h3>
-              <small className="font-primary text-base lg:text-xl xl:text-xl font-normal lg:font-bold text-bricky-brick max-w-[70%] lg:max-w-none">
+              <small className="font-primary text-sm lg:text-xl xl:text-xl font-normal lg:font-bold text-bricky-brick">
                 {item.description}
               </small>
             </div>
             <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 mt-auto flex-1">
-              <div className="relative lg:rounded-md overflow-hidden w-full h-[72vw] lg:h-[30vw] xl:h-auto">
+              <div className="relative lg:rounded-md overflow-hidden w-full h-[55vw] lg:h-[30vw] xl:h-auto">
                 <Img
                   src={item.images[0].url}
                   alt="Residence"
@@ -105,7 +105,7 @@ export function StackingCards({ items }: StackingCardsProps) {
                   loading="lazy"
                 />
               </div>
-              <div className="relative lg:rounded-md overflow-hidden w-full h-[60vw] lg:h-[30vw] xl:h-auto">
+              <div className="relative lg:rounded-md overflow-hidden w-full h-[55vw] lg:h-[30vw] xl:h-auto">
                 <Img
                   src={item.images[1].url}
                   alt="Residence"
