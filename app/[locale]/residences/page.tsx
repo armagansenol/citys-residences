@@ -64,7 +64,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             )}
           >
             <GsapSplitText splitBy="lines" stagger={0.05} duration={1}>
-              Yaşama Alan Açan Detaylar
+              Hayata Dokunan Detaylar
             </GsapSplitText>
           </h2>
           <p
@@ -75,7 +75,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             )}
           >
             <GsapSplitText splitBy="lines" stagger={0.05} duration={1}>
-              Her metrekaresi ince tasarlanmış, <br /> ferah bir hayata açılan çizgiler
+              Her köşesi özenle düşünülmüş, <br /> tüm çizgileri ferah bir nefese açılan alanlar...
             </GsapSplitText>
           </p>
           <p
@@ -87,8 +87,8 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             )}
           >
             <GsapSplitText splitBy="lines" stagger={0.05} duration={1}>
-              Günlük alışkanlıklardan uzun vadeli konfora kadar her detay, yaşamın doğal akışına uyum sağlayacak şekilde
-              tasarlandı.
+              Günlük yaşamın alışkanlıklarından, yıllara yayılan huzurlu anılara kadar her detay; evinizin size ait bir
+              dünyaya dönüşmesi için tasarlandı.
             </GsapSplitText>
           </p>
         </div>

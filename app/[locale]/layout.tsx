@@ -8,6 +8,7 @@ import { getMessages, getTranslations } from "next-intl/server"
 import { Montagu_Slab, Montserrat } from "next/font/google"
 import localFont from "next/font/local"
 
+import { AlotechWidget } from "@/components/alotech-widget"
 import { GSAP } from "@/components/gsap"
 import { ImageGalleryModal } from "@/components/image-gallery/modal"
 import { ModalContactForm } from "@/components/modal-contact-form"
@@ -15,8 +16,6 @@ import { Preloader, PreloaderClient } from "@/components/preloader"
 import { ReactQueryProvider } from "@/components/react-query-provider"
 import { RealViewport } from "@/components/real-viewport"
 import { StickyContactMenu } from "@/components/sticky-contact-menu"
-// import UTMWidgetInit from "@/components/utm-widget-init"
-// import { AlotechWidget } from "@/components/alotech-widget"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -216,8 +215,8 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <head>
         <StyleVariables colors={colors} themes={themes} />
-        {/* <UTMWidgetInit />
-        <AlotechWidget /> */}
+        {/* <UTMWidgetInit /> */}
+        <AlotechWidget />
       </head>
       <body
         className={`${halenoir.variable} ${montserrat.variable} ${montaguSlab.variable} ${suisseIntl.variable} ${aktivGrotesk.variable} ${copperplate.variable} antialiased`}

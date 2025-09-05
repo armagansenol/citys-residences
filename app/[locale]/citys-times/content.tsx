@@ -177,7 +177,7 @@ export function Content() {
           </div>
         </div>
         <div className="flex flex-col items-center flex-1 bg-white py-12 w-full">
-          <div className="mb-4 h-10 lg:h-14">
+          <div className="mb-4 lg:mb-14 h-10 lg:h-16">
             <IconCitysTimesLogo />
           </div>
           <p className="font-primary font-semibold text-bricky-brick text-3xl lg:text-4xl">Bizi Takip Edin...</p>

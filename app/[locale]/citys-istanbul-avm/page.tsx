@@ -23,12 +23,12 @@ export default async function Page() {
         />
       </section>
       <section className="relative z-30 bg-white flex flex-col items-center">
-        <div className="flex items-center justify-center bg-aqua-belt w-full lg:w-[530px] h-40 lg:h-56 mb-8">
+        <div className="flex items-center justify-center bg-aqua-belt w-full lg:w-[530px] h-40 lg:h-56 mb-8 lg:mb-20">
           <div className="flex items-center justify-center w-9/12 lg:w-10/12">
             <IconCitysIstanbulLogo fill={colors["halite-blue"]} />
           </div>
         </div>
-        <div className="flex flex-col items-center gap-4 px-4 md:px-0 lg:px-0">
+        <div className="flex flex-col items-center gap-4 lg:gap-8 px-4 md:px-0 lg:px-0">
           <h2
             className={cn(
               "font-primary font-bold text-bricky-brick xl:max-w-4xl 2xl:max-w-6xl text-center",
@@ -53,7 +53,7 @@ export default async function Page() {
           </p>
           <p
             className={cn(
-              "font-primary font-normal text-black xl:max-w-5xl 2xl:max-w-6xl text-center",
+              "font-primary font-normal text-black xl:max-w-5xl 2xl:max-w-5xl text-center",
               "text-lg lg:text-2xl xl:text-2xl 2xl:text-2xl",
               "xl:leading-normal 2xl:leading-snug"
             )}
@@ -66,13 +66,13 @@ export default async function Page() {
           </p>
           <p
             className={cn(
-              "font-primary font-normal text-black xl:max-w-5xl 2xl:max-w-6xl text-center",
-              "text-lg lg:text-2xl xl:text-2xl 2xl:text-2xl",
+              "font-primary font-bold text-black xl:max-w-5xl 2xl:max-w-6xl text-center",
+              "text-lg lg:text-2xl xl:text-3xl 2xl:text-3xl",
               "xl:leading-normal 2xl:leading-snug"
             )}
           >
             <GsapSplitText stagger={0.1} splitBy="lines" duration={1}>
-              Daha Çok... Daha Huzurlu... Daha Dolu... Yaşa.
+              Daha çok... Daha huzurlu... Daha dolu... Yaşa.
             </GsapSplitText>
           </p>
         </div>

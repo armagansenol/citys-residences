@@ -21,7 +21,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
     <>
       <section className="relative z-20 bg-white" id={navigationConfig["/citys-life-privileges"]?.id as string}>
         <div className="flex items-center justify-center w-full pt-16 lg:pt-36 pb-16 lg:pb-32">
-          <div className="h-24 lg:h-36">
+          <div className="h-24 lg:h-44">
             <IconCitysLifeLogo fill={colors.black} />
           </div>
         </div>
@@ -29,7 +29,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           <h2
             className={cn(
               "font-primary font-medium text-black text-center",
-              "text-2xl lg:text-2xl xl:text-4xl 2xl:text-4xl 3xl:text-4xl",
+              "text-2xl lg:text-2xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl",
               "leading-snug xl:leading-snug 2xl:leading-snug 3xl:leading-snug"
             )}
           >
