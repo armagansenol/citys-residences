@@ -19,13 +19,13 @@ export default async function Page({ params: { locale } }: { params: { locale: s
 
   return (
     <>
-      <section className="relative z-20 bg-white" id={navigationConfig["/citys-life-privileges"]?.id as string}>
-        <div className="flex items-center justify-center w-full pt-16 lg:pt-36 pb-16 lg:pb-32">
-          <div className="h-24 lg:h-44">
+      <section className='relative z-20 bg-white' id={navigationConfig["/citys-life-privileges"]?.id as string}>
+        <div className='flex items-center justify-center w-full pt-16 lg:pt-36 pb-16 lg:pb-32'>
+          <div className='h-24 lg:h-44'>
             <IconCitysLifeLogo fill={colors.black} />
           </div>
         </div>
-        <div className="section-container pt-8 lg:pt-6 pb-24 lg:pb-48 flex flex-col items-center gap-24 lg:gap-48">
+        <div className='section-container pt-8 lg:pt-6 pb-24 lg:pb-48 flex flex-col items-center gap-24 lg:gap-48'>
           <h2
             className={cn(
               "font-primary font-medium text-black text-center",
@@ -33,7 +33,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               "leading-snug xl:leading-snug 2xl:leading-snug 3xl:leading-snug"
             )}
           >
-            <GsapSplitText stagger={0.01} splitBy="chars" duration={1.5}>
+            <GsapSplitText stagger={0.01} splitBy='chars' duration={1.5}>
               Artık her şey daha kolay...
             </GsapSplitText>
           </h2>
@@ -56,7 +56,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               >
                 Yaşam Yeniden Tasarlandı
               </span>
-              <span className="w-12 h-12 lg:w-16 lg:h-16 mx-8">
+              <span className='w-12 h-12 lg:w-16 lg:h-16 mx-8'>
                 <IconCollab fill={colors["bricky-brick"]} />
               </span>
               <span
@@ -66,26 +66,26 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                   "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
                 )}
               >
-                CITY<span className="font-montagu-slab font-normal">&apos;</span>S
+                CITY<span className='font-montagu-slab font-normal'>&apos;</span>S
               </span>
             </h2>
           </FadeInOnScroll>
         </div>
       </section>
       <FadeInOnScroll>
-        <section className="relative h-svh bg-bricky-brick z-10 overflow-hidden mb-12 lg:mb-0">
+        <section className='relative h-svh bg-bricky-brick z-10 overflow-hidden mb-12 lg:mb-0'>
           <Video
             primaryVideoUrl={citysLifeVideo}
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            className='w-full h-full object-cover'
           />
         </section>
       </FadeInOnScroll>
-      <section className="relative z-20 bg-white">
-        <AnimatedLine direction="horizontal" />
+      <section className='relative z-20 bg-white'>
+        <AnimatedLine direction='horizontal' />
         {items.map((item, i) => (
           <MembersClubItem
             key={i}

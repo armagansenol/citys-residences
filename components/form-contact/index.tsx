@@ -89,7 +89,7 @@ const FormInput = ({ name, control, placeholder, type = "text", className }: For
     name={name}
     render={({ field }) => (
       <FormItem>
-        <FormLabel className="text-neutral-950 font-normal leading-none block text-base lg:text-sm">
+        <FormLabel className='text-neutral-950 font-normal leading-none block text-base lg:text-sm'>
           {placeholder}
         </FormLabel>
         <FormControl>
@@ -141,9 +141,10 @@ const useFormMessage = (timeout = 5000): UseFormMessage => {
 
 interface FormContactProps {
   translations: FormTranslations
+  withAddress?: boolean
 }
 
-export function ContactForm({ translations }: FormContactProps) {
+export function ContactForm({ translations, withAddress = false }: FormContactProps) {
   const { showMessage } = useFormMessage()
   const locale = useLocale()
   const [successDialog, setSuccessDialog] = useState(false)
@@ -292,42 +293,42 @@ export function ContactForm({ translations }: FormContactProps) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit((data) => mutation.mutate(data))}
-          className="font-primary flex flex-col gap-6 py-10 lg:py-0"
+          className='font-primary flex flex-col gap-6 py-10 lg:py-0'
           noValidate
         >
-          <div className="flex flex-col lg:grid grid-flow-col gap-6 lg:gap-4 lg:grid-cols-2">
-            <FormInput control={form.control} name="name" placeholder={`${translations.inputs.name.placeholder}*`} />
+          <div className='flex flex-col lg:grid grid-flow-col gap-6 lg:gap-4 lg:grid-cols-2'>
+            <FormInput control={form.control} name='name' placeholder={`${translations.inputs.name.placeholder}*`} />
             <FormInput
               control={form.control}
-              name="surname"
+              name='surname'
               placeholder={`${translations.inputs.surname.placeholder}*`}
             />
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4">
-            <div className="col-span-1 flex flex-col gap-1">
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-4'>
+            <div className='col-span-1 flex flex-col gap-1'>
               <FormLabel
-                className="text-neutral-950 font-normal leading-none block text-base lg:text-sm"
-                htmlFor="phone"
+                className='text-neutral-950 font-normal leading-none block text-base lg:text-sm'
+                htmlFor='phone'
               >
                 {`${locale === "tr" ? "Telefon Numarası" : "Telephone Number"}*`}
               </FormLabel>
               <InternationalPhoneInputComponent form={form} />
             </div>
-            <div className="col-span-1">
+            <div className='col-span-1'>
               <FormInput
                 control={form.control}
-                name="email"
-                type="email"
+                name='email'
+                type='email'
                 placeholder={`${locale === "tr" ? "E-Posta" : "Email"}*`}
-                className="col-span-1 lg:col-span-1"
+                className='col-span-1 lg:col-span-1'
               />
             </div>
           </div>
-          <div className="flex flex-col lg:grid grid-cols-2 gap-6 lg:gap-4">
-            <div className="space-y-1">
+          <div className='flex flex-col lg:grid grid-cols-2 gap-6 lg:gap-4'>
+            <div className='space-y-1'>
               <FormField
                 control={form.control}
-                name="residenceType"
+                name='residenceType'
                 render={() => (
                   <FormItem>
                     <FormControl>
@@ -346,10 +347,10 @@ export function ContactForm({ translations }: FormContactProps) {
                 )}
               />
             </div>
-            <div className="space-y-1">
+            <div className='space-y-1'>
               <FormField
                 control={form.control}
-                name="howDidYouHearAboutUs"
+                name='howDidYouHearAboutUs'
                 render={() => (
                   <FormItem>
                     <FormControl>
@@ -369,13 +370,13 @@ export function ContactForm({ translations }: FormContactProps) {
               />
             </div>
           </div>
-          <div className="grid grid-flow-col">
+          <div className='grid grid-flow-col'>
             <FormField
               control={form.control}
-              name="message"
+              name='message'
               render={({ field }) => (
-                <FormItem className="space-y-1 pt-2">
-                  <FormLabel className="text-neutral-950 font-normal leading-none block text-base lg:text-sm">
+                <FormItem className='space-y-1 pt-2'>
+                  <FormLabel className='text-neutral-950 font-normal leading-none block text-base lg:text-sm'>
                     {translations.inputs.message.placeholder}
                   </FormLabel>
                   <FormControl>
@@ -390,69 +391,71 @@ export function ContactForm({ translations }: FormContactProps) {
             />
           </div>
           <ConsentCheckboxes form={form} control={form.control} />
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-0 mt-8">
-            <button type="submit" disabled={mutation.isPending} className="flex relative w-40 lg:w-48">
-              <AnimatedButton text={translations.submit.default} theme="secondary" size="sm" />
+          <div className='flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-0 mt-8'>
+            <button type='submit' disabled={mutation.isPending} className='flex relative w-40 lg:w-48'>
+              <AnimatedButton text={translations.submit.default} theme='secondary' size='sm' />
               {mutation.isPending && (
-                <span className="absolute top-1/2 -right-4 -translate-y-1/2 translate-x-full flex items-center justify-center w-6 h-6">
+                <span className='absolute top-1/2 -right-4 -translate-y-1/2 translate-x-full flex items-center justify-center w-6 h-6'>
                   <IconLoading fill={colors["bricky-brick"]} />
                 </span>
               )}
             </button>
-            <div>
-              <a
-                href={citysIstanbulAvmGoogleMaps}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "block",
-                  "text-base lg:text-base xl:text-xl 2xl:text-xl 3xl:text-xl",
-                  "leading-none lg:leading-none xl:leading-none 2xl:leading-none 3xl:leading-none",
-                  "font-primary font-normal text-bricky-brick text-left",
-                  "transition-opacity duration-300 ease-in-out",
-                  "opacity-100 hover:opacity-70",
-                  "flex items-start gap-1"
-                )}
-              >
-                <span className="flex items-end h-5 w-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8">
-                  <IconPin fill={colors["bricky-brick"]} />
-                </span>
-                <span className="flex flex-col gap-1">
-                  <span>CR Satış Ofisi Konum</span>
-                  <span
-                    className={cn(
-                      "block whitespace-pre-line pl-1",
-                      "text-sm lg:text-sm xl:text-sm 2xl:text-sm 3xl:text-sm",
-                      "leading-normal lg:leading-normal xl:leading-normal 2xl:leading-normal 3xl:leading-normal",
-                      "font-primary font-normal text-bricky-brick text-left"
-                    )}
-                  >
-                    <span className="block sm:whitespace-nowrap">İçerenköy, Çayır Cd No: 1,</span>
-                    <span className="block sm:whitespace-nowrap">
-                      CITY<span className="font-montagu-slab font-normal">&apos;</span>S İstanbul AVM
-                    </span>
-                    <span className="block sm:whitespace-nowrap">34752 Ataşehir/İstanbul</span>
+            {withAddress && (
+              <div>
+                <a
+                  href={citysIstanbulAvmGoogleMaps}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className={cn(
+                    "block",
+                    "text-base lg:text-base xl:text-xl 2xl:text-xl 3xl:text-xl",
+                    "leading-none lg:leading-none xl:leading-none 2xl:leading-none 3xl:leading-none",
+                    "font-primary font-normal text-bricky-brick text-left",
+                    "transition-opacity duration-300 ease-in-out",
+                    "opacity-100 hover:opacity-70",
+                    "flex items-start gap-1"
+                  )}
+                >
+                  <span className='flex items-end h-5 w-5 xl:w-6 xl:h-6 2xl:w-8 2xl:h-8'>
+                    <IconPin fill={colors["bricky-brick"]} />
                   </span>
-                </span>
-              </a>
-            </div>
+                  <span className='flex flex-col gap-1'>
+                    <span>CR Satış Ofisi Konum</span>
+                    <span
+                      className={cn(
+                        "block whitespace-pre-line pl-1",
+                        "text-sm lg:text-sm xl:text-sm 2xl:text-sm 3xl:text-sm",
+                        "leading-normal lg:leading-normal xl:leading-normal 2xl:leading-normal 3xl:leading-normal",
+                        "font-primary font-normal text-bricky-brick text-left"
+                      )}
+                    >
+                      <span className='block sm:whitespace-nowrap'>İçerenköy, Çayır Cd No: 1,</span>
+                      <span className='block sm:whitespace-nowrap'>
+                        CITY<span className='font-montagu-slab font-normal'>&apos;</span>S İstanbul AVM
+                      </span>
+                      <span className='block sm:whitespace-nowrap'>34752 Ataşehir/İstanbul</span>
+                    </span>
+                  </span>
+                </a>
+              </div>
+            )}
           </div>
         </form>
       </Form>
       <Dialog open={successDialog} onOpenChange={setSuccessDialog}>
-        <DialogContent className="font-primary flex flex-col items-center justify-center py-8">
+        <DialogContent className='font-primary flex flex-col items-center justify-center py-8'>
           <DialogHeader>
-            <DialogTitle className="text-neutral-950 font-medium leading-none text-base lg:text-2xl flex flex-col items-center gap-2 text-center mb-2">
-              <div className="w-9 h-9 flex items-center justify-center">
+            <DialogTitle className='text-neutral-950 font-medium leading-none text-base lg:text-2xl flex flex-col items-center gap-2 text-center mb-2'>
+              <div className='w-9 h-9 flex items-center justify-center'>
                 <IconCheck />
               </div>
               {translations.messages.successDialog.title}
             </DialogTitle>
-            <DialogDescription className="text-neutral-950 font-normal leading-none block text-sm lg:text-base text-center pb-10">
+            <DialogDescription className='text-neutral-950 font-normal leading-none block text-sm lg:text-base text-center pb-10'>
               {translations.messages.successDialog.description}
             </DialogDescription>
             <DialogClose asChild>
-              <button className="text-neutral-950 underline text-sm lg:text-base" type="button">
+              <button className='text-neutral-950 underline text-sm lg:text-base' type='button'>
                 {translations.messages.successDialog.button}
               </button>
             </DialogClose>
