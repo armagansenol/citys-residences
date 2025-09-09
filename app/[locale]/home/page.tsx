@@ -68,7 +68,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               className={cn(
                 "font-copperplate font-semibold text-white text-center",
                 "text-[44px] lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl",
-                "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
+                "leading-none lg:leading-none xl:leading-none 2xl:leading-none 3xl:leading-none"
               )}
             >
               CITY<span className='font-montagu-slab font-normal'>&apos;</span>S
