@@ -108,15 +108,15 @@ export function Content() {
 
   return (
     <div>
-      <section className="flex flex-col lg:flex-row mb-8">
-        <div className="hidden lg:flex flex-col items-start w-72 font-primary font-medium border-r-2 border-black text-bricky-brick text-xl p-8 space-y-6 xl:min-h-screen pt-24 mt-8">
+      <section className='flex flex-col lg:flex-row mb-8'>
+        <div className='hidden lg:flex flex-col items-start w-72 font-primary font-medium border-r-2 border-black text-bricky-brick text-xl p-8 space-y-6 xl:min-h-screen pt-24 mt-8'>
           <div
             className={
               "flex items-center justify-start space-x-3 mb-16 cursor-pointer transition-opacity hover:opacity-70"
             }
             onClick={() => handlePlatformSelect("events")}
           >
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+            <IconWrapper className='w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick'>
               {items.events.icon}
             </IconWrapper>
             <span>{items.events.title}</span>
@@ -125,7 +125,7 @@ export function Content() {
             className={"flex items-center justify-start space-x-3 cursor-pointer transition-opacity hover:opacity-70"}
             onClick={() => handlePlatformSelect("instagram")}
           >
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+            <IconWrapper className='w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick'>
               {items.instagram.icon}
             </IconWrapper>
             <span>{items.instagram.title}</span>
@@ -134,7 +134,7 @@ export function Content() {
             className={"flex items-center justify-start space-x-3 cursor-pointer transition-opacity hover:opacity-70"}
             onClick={() => handlePlatformSelect("tiktok")}
           >
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+            <IconWrapper className='w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick'>
               {items.tiktok.icon}
             </IconWrapper>
             <span>{items.tiktok.title}</span>
@@ -143,7 +143,7 @@ export function Content() {
             className={"flex items-center justify-start space-x-3 cursor-pointer transition-opacity hover:opacity-70"}
             onClick={() => handlePlatformSelect("youtube")}
           >
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+            <IconWrapper className='w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick'>
               {items.youtube.icon}
             </IconWrapper>
             <span>{items.youtube.title}</span>
@@ -152,7 +152,7 @@ export function Content() {
             className={"flex items-center justify-start space-x-3 cursor-pointer transition-opacity hover:opacity-70"}
             onClick={() => handlePlatformSelect("facebook")}
           >
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+            <IconWrapper className='w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick'>
               {items.facebook.icon}
             </IconWrapper>
             <span>{items.facebook.title}</span>
@@ -161,7 +161,7 @@ export function Content() {
             className={"flex items-center justify-start space-x-3 cursor-pointer transition-opacity hover:opacity-70"}
             onClick={() => handlePlatformSelect("x")}
           >
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+            <IconWrapper className='w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick'>
               {items.x.icon}
             </IconWrapper>
             <span>{items.x.title}</span>
@@ -170,30 +170,30 @@ export function Content() {
             className={"flex items-center justify-start space-x-3 cursor-pointer transition-opacity hover:opacity-70"}
             onClick={() => handlePlatformSelect("linkedin")}
           >
-            <IconWrapper className="w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick">
+            <IconWrapper className='w-14 h-14 flex-shrink-0 flex-grow-0 border-bricky-brick'>
               {items.linkedin.icon}
             </IconWrapper>
             <span>{items.linkedin.title}</span>
           </div>
         </div>
-        <div className="flex flex-col items-center flex-1 bg-white py-12 w-full">
-          <div className="mb-4 lg:mb-14 h-10 lg:h-16">
+        <div className='flex flex-col items-center flex-1 bg-white py-12 w-full'>
+          <div className='mb-8 lg:mb-14 h-10 lg:h-16'>
             <IconCitysTimesLogo />
           </div>
-          <p className="font-primary font-semibold text-bricky-brick text-3xl lg:text-4xl">Bizi Takip Edin...</p>
-          <div className="lg:hidden my-8 w-full">
+          <p className='font-primary font-semibold text-bricky-brick text-3xl lg:text-4xl'>Bizi Takip Edin...</p>
+          <div className='lg:hidden my-8 w-full'>
             <ScrollableSelect
               items={Object.values(items)}
               activeIndex={Object.keys(items).indexOf(selectedPlatform)}
               goToIndex={handleScrollableSelectChange}
             />
           </div>
-          <div className="w-full mt-8 md:mt-12 px-4 sm:px-8 md:px-16 lg:px-8 xl:px-24">
-            <h5 className="font-primary font-normal text-bricky-brick text-2xl sm:text-2xl md:text-3xl mb-4 md:mb-6">
+          <div className='w-full mt-8 md:mt-12 px-4 sm:px-8 md:px-16 lg:px-8 xl:px-24'>
+            <h5 className='font-primary font-normal text-bricky-brick text-2xl sm:text-2xl md:text-3xl mb-4 md:mb-6'>
               {currentContent.title}
             </h5>
             {currentContent.images && currentContent.images.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-4 md:gap-6">
+              <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-4 md:gap-6'>
                 {currentContent.images.map((image, index) => (
                   <div
                     key={index}
@@ -207,9 +207,9 @@ export function Content() {
                       src={image}
                       alt={`${currentContent.title} ${index + 1}`}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover absolute inset-0"
-                      loading="lazy"
+                      sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                      className='object-cover absolute inset-0'
+                      loading='lazy'
                     />
                   </div>
                 ))}
@@ -217,8 +217,8 @@ export function Content() {
             )}
 
             {(!currentContent.images || currentContent.images.length === 0) && (
-              <div className="flex items-center justify-center h-48 bg-gray-100 rounded-lg">
-                <p className="font-primary text-gray-500 text-lg">
+              <div className='flex items-center justify-center h-48 bg-gray-100 rounded-lg'>
+                <p className='font-primary text-gray-500 text-lg'>
                   {currentContent.title} içeriği yakında eklenecek...
                 </p>
               </div>
