@@ -257,7 +257,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           items={slideImages.slides2}
         />
       </section>
-      <section className='section-container mb-8 xl:mb-0 py-12 xl:py-16'>
+      <section className='section-container mb-8 xl:mb-0 py-8 xl:py-16'>
         <div className='grid grid-cols-12 lg:grid-cols-24 px-4 lg:px-0'>
           <div className='col-span-12 lg:col-span-10'>
             <h3
