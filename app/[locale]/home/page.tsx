@@ -14,6 +14,7 @@ import { locationVideo, mainVideo, navigationConfig } from "@/lib/constants"
 import { colors } from "@/styles/config.mjs"
 import { ContactForm } from "@/components/form-contact"
 import { FormTranslations } from "@/types"
+import { MaskedPanImage } from "@/components/masked-pan-image"
 
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations({ locale, namespace: "home" })
@@ -158,8 +159,11 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           </div>
         </FadeInOnScroll>
       </section> */}
-      <div className='w-screen h-svh lg:h-[55vw] xl:h-screen bg-bricky-brick/30 relative'>
+      <div className='w-screen h-svh lg:h-[55vw] xl:h-screen bg-bricky-brick/30 relative hidden xl:block'>
         <Img src='/img/from-sky.jpg' alt='Lunas' fill sizes='100vw' className='object-cover' />
+      </div>
+      <div className='relative w-full h-[90vw] lg:h-full xl:h-[45vw] min-h-[40vw] lg:min-h-[45vw] block xl:hidden'>
+        <MaskedPanImage imgSrc={"/img/from-sky.jpg"} sizes='100vw' />
       </div>
       {/* YAŞAMIN TAM MERKEZİNDE */}
       <section className='bg-unbleached py-16 lg:py-12 z-20 relative'>
@@ -217,10 +221,10 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           <p
             className={cn(
               "relative lg:absolute lg:bottom-14 lg:left-14",
-              "description-bg py-0 lg:py-4 px-6 lg:px-8 mb-8 lg:mb-0 lg:rounded-md z-50",
+              "description-bg py-0 lg:py-4 px-12 lg:px-8 mb-8 lg:mb-0 lg:rounded-md z-50",
               "font-primary font-normal",
               "text-black lg:text-white text-center lg:text-left",
-              "text-xl lg:text-2xl xl:text-2xl",
+              "text-lg lg:text-2xl xl:text-2xl",
               "leading-snug lg:leading-snug xl:leading-snug",
               "lg:w-[460px] xl:w-[500px]"
             )}

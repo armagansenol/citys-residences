@@ -57,13 +57,14 @@ export function MembersClubItem({
               : "section-container"
           )}
         >
-          <div className="w-full lg:w-5/12 xl:w-4/12 px-5 lg:px-0">
-            <div className="flex flex-col items-start justify-center pr-0 xl:pr-6 py-0 lg:py-24">
+          <div className='w-full lg:w-5/12 xl:w-4/12 px-5 lg:px-0'>
+            <div className='flex flex-col items-start justify-center pr-0 xl:pr-6 py-0 lg:py-24'>
               <h3
                 className={cn(
                   "font-primary font-bold text-bricky-brick",
-                  "text-2xl lg:text-3xl xl:text-4xl 2xl:text-4xl",
-                  "mb-3 xl:mb-6",
+                  "text-3xl lg:text-3xl xl:text-4xl 2xl:text-4xl",
+                  "leading-none lg:leading-tight xl:leading-tight 2xl:leading-tight",
+                  "mb-2 xl:mb-6",
                   titleClassName
                 )}
               >
@@ -73,8 +74,9 @@ export function MembersClubItem({
                 <div
                   className={cn(
                     "font-primary font-semibold text-bricky-brick",
-                    "text-base lg:text-2xl xl:text-2xl 2xl:text-2xl 3xl:text-2xl",
-                    "mb-4",
+                    "text-lg lg:text-2xl xl:text-2xl 2xl:text-2xl 3xl:text-2xl",
+                    "mb-6 xl:mb-4",
+                    "max-w-[75%] xl:max-w-full",
                     subtitleClassName
                   )}
                 >
@@ -85,8 +87,8 @@ export function MembersClubItem({
                 className={cn(
                   "font-primary font-normal text-black",
                   "prose prose-ul:list-disc prose-ul:pl-6 prose-li:text-black prose-li:mb-2",
-                  "[&_p]:mb-4 [&_p]:text-sm xl:[&_p]:text-2xl",
-                  "[&_ul]:list-disc [&_ul]:pl-1 xl:[&_ul]:pl-6 [&_li]:text-sm xl:[&_li]:text-2xl [&_li]:text-black [&_li]:mb-2",
+                  "[&_p]:mb-4 [&_p]:text-base xl:[&_p]:text-2xl",
+                  "[&_ul]:list-disc [&_ul]:pl-1 xl:[&_ul]:pl-6 [&_li]:text-base xl:[&_li]:text-2xl [&_li]:text-black [&_li]:mb-2",
                   "[&_ul]:list-none [&_li]:before:content-['•'] [&_li]:before:mr-2 [&_li]:before:black",
                   descriptionClassName
                 )}
@@ -95,14 +97,14 @@ export function MembersClubItem({
               </div>
             </div>
           </div>
-          <AnimatedLine direction="vertical" barClassName={barClassName} />
-          <div className="relative w-full lg:w-7/12 xl:w-8/12">
+          <AnimatedLine direction='vertical' barClassName={barClassName} />
+          <div className='relative w-full lg:w-7/12 xl:w-8/12'>
             {item.url.length > 1 ? (
               <EmblaCarousel
                 autoplay={true}
                 autoplayDelay={5000}
                 slides={item.url.map((image, imageIndex) => (
-                  <div key={imageIndex} className="relative w-full h-[70vw] lg:h-[100%] xl:h-[45vw]">
+                  <div key={imageIndex} className='relative w-full h-[70vw] lg:h-[100%] xl:h-[45vw]'>
                     <MaskedParallaxImage
                       imgSrc={image}
                       sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 80vw, 80vw`}
@@ -115,7 +117,7 @@ export function MembersClubItem({
                 parallax={true}
               />
             ) : (
-              <div className="relative w-full h-[90vw] lg:h-full xl:h-[45vw] min-h-[40vw] lg:min-h-[45vw]">
+              <div className='relative w-full h-[90vw] lg:h-full xl:h-[45vw] min-h-[40vw] lg:min-h-[45vw]'>
                 <MaskedPanImage
                   imgSrc={item.url[0]}
                   sizes={`(max-width: ${breakpoints.breakpointMobile}px) 100vw, (max-width: ${breakpoints.breakpointTablet}px) 80vw, 80vw`}
@@ -125,7 +127,7 @@ export function MembersClubItem({
           </div>
         </div>
       </FadeInOnScroll>
-      {!last && <AnimatedLine direction="horizontal" barClassName={barClassName} />}
+      {!last && <AnimatedLine direction='horizontal' barClassName={barClassName} />}
     </div>
   )
 }

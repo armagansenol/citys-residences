@@ -43,9 +43,9 @@ export function VideoSection({
         className
       )}
     >
-      <div className="group relative w-full h-full flex items-center justify-center">
+      <div className='group relative w-full h-full flex items-center justify-center'>
         <Video
-          className="w-full h-auto lg:h-full object-contain"
+          className='w-full h-auto lg:h-full object-contain'
           primaryVideoUrl={primaryVideoUrl}
           primaryVideoType={primaryVideoType}
           ref={videoRef}
@@ -64,23 +64,23 @@ export function VideoSection({
           onClick={handlePlay}
         >
           {(thumbnail || thumbnailMobile) && (
-            <div className="absolute top-0 left-0 w-full h-full z-10">
+            <div className='absolute top-0 left-0 w-full h-full z-10'>
               <Img
                 src={(thumbnailMobile || thumbnail)!}
-                alt="Thumbnail"
+                alt='Thumbnail'
                 className={cn("w-full h-full object-cover", thumbnailMobile && "block lg:hidden")}
                 fill
-                sizes="100vw"
-                loading="lazy"
+                sizes='100vw'
+                loading='lazy'
               />
               {thumbnail && thumbnailMobile && (
                 <Img
                   src={thumbnail}
-                  alt="Thumbnail"
-                  className="w-full h-full object-cover hidden lg:block"
+                  alt='Thumbnail'
+                  className='w-full h-full object-cover hidden lg:block'
                   fill
-                  sizes="100vw"
-                  loading="lazy"
+                  sizes='100vw'
+                  loading='lazy'
                 />
               )}
             </div>
@@ -105,12 +105,12 @@ export function VideoSection({
                 {spot}
               </article>
             )}
-            <div className="flex flex-col items-center justify-center gap-5 z-30">
+            <div className='flex flex-col items-center justify-center gap-5 z-30'>
               {title && (
                 <article
                   className={cn(
                     "text-white font-primary font-semibold lg:whitespace-nowrap text-center",
-                    "text-3xl xl:text-4xl 2xl:text-5xl",
+                    "text-xl xl:text-4xl 2xl:text-5xl",
                     "w-full min-w-[90vw] lg:min-w-52",
                     "flex-shrink-0 flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0"
                   )}
@@ -119,7 +119,7 @@ export function VideoSection({
                 </article>
               )}
               <button
-                type="button"
+                type='button'
                 className={cn(
                   "w-24 h-24 lg:w-40 lg:h-40 xl:w-40 xl:h-40 2xl:w-48 2xl:h-48",
                   "border border-white rounded-full",
@@ -128,7 +128,7 @@ export function VideoSection({
                   "transition-transform duration-700 ease-in-out group-hover:scale-90"
                 )}
               >
-                <PlayIcon className="w-full h-full fill-white stroke-white transition-transform duration-500 ease-in-out group-hover:scale-150" />
+                <PlayIcon className='w-full h-full fill-white stroke-white transition-transform duration-500 ease-in-out group-hover:scale-150' />
               </button>
             </div>
           </div>

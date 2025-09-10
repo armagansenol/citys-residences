@@ -115,7 +115,7 @@ export const sections = {
       id: "interior-architecture",
     },
     residences: {
-      label: "Residencelar",
+      label: "Residences",
       id: "stacking-cards-0",
       subitems: {
         onePlusOne: {

@@ -176,7 +176,7 @@ export function Content() {
             <span>{items.linkedin.title}</span>
           </div>
         </div>
-        <div className='flex flex-col items-center flex-1 bg-white py-12 w-full'>
+        <div className='flex flex-col items-center flex-1 bg-white py-12 lg:py-20 w-full'>
           <div className='mb-8 lg:mb-14 h-10 lg:h-16'>
             <IconCitysTimesLogo />
           </div>

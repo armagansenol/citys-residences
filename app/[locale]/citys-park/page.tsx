@@ -17,25 +17,25 @@ export default async function Page({ params: { locale } }: { params: { locale: s
 
   return (
     <>
-      <section className="relative z-20 bg-army-canvas" id={navigationConfig["/citys-park"]?.id as string}>
-        <div className="flex items-center justify-center w-full pt-14 pb-12 lg:pb-24">
-          <div className="h-28 lg:h-32">
+      <section className='relative z-20 bg-army-canvas' id={navigationConfig["/citys-park"]?.id as string}>
+        <div className='flex items-center justify-center w-full pt-14 pb-20 lg:pb-24'>
+          <div className='h-20 lg:h-32'>
             <IconCitysParkLogo fill={colors.white} />
           </div>
         </div>
-        <div className="flex flex-col items-center gap-8 lg:gap-16 xl:gap-20">
+        <div className='flex flex-col items-center gap-8 lg:gap-16 xl:gap-20'>
           <FadeInOnScroll>
             <h2
               className={cn(
                 "font-primary font-medium text-white text-center",
-                "text-2xl sm:text-3xl lg:text-3xl xl:text-3xl 2xl:text-3xl 3xl:text-3xl",
+                "text-xl sm:text-3xl lg:text-3xl xl:text-3xl 2xl:text-3xl 3xl:text-3xl",
                 "leading-snug xl:leading-snug 2xl:leading-snug 3xl:leading-tight",
                 "xl:max-w-4xl 2xl:max-w-6xl",
                 "mb-12 lg:mb-0"
               )}
             >
               Şehrin kalbinde,
-              <br className="block lg:hidden" /> sizi yavaşlatan,
+              <br className='block lg:hidden' /> sizi yavaşlatan,
               <br /> yaşamın en özel hali...
             </h2>
           </FadeInOnScroll>
@@ -56,7 +56,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               >
                 Yaşam Yeniden Tasarlandı
               </span>
-              <span className="w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 mx-8">
+              <span className='w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 mx-8'>
                 <IconCollab fill={colors.white} />
               </span>
               <span
@@ -66,42 +66,46 @@ export default async function Page({ params: { locale } }: { params: { locale: s
                   "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
                 )}
               >
-                CITY<span className="font-montagu-slab font-normal">&apos;</span>S
+                CITY<span className='font-montagu-slab font-normal'>&apos;</span>S
               </span>
             </h2>
           </FadeInOnScroll>
           <FadeInOnScroll>
-            <div className="relative section-container">
+            <div className='relative section-container'>
               <VideoSection
                 primaryVideoUrl={pinarVeCemilAktasVideo}
-                thumbnail="/img/thumbnail-pinar-cemil-aktas.jpg"
+                thumbnail='/img/thumbnail-pinar-cemil-aktas.jpg'
                 title={t("videoTitle")}
               />
             </div>
           </FadeInOnScroll>
-          <div className="relative w-full h-svh mb-10 lg:mb-0">
+          <div className='relative w-full h-svh mb-10 lg:mb-0'>
             <Video
               primaryVideoUrl={citysParkVideo}
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover"
+              className='w-full h-full object-cover'
             />
           </div>
         </div>
       </section>
-      <section className="relative z-20 bg-army-canvas">
+      <section className='relative z-20 bg-army-canvas'>
         {items.map((item, i) => (
           <MembersClubItem
             key={i}
             item={item}
             align={i % 2 === 0 ? "ltr" : "rtl"}
-            className="transparent"
-            titleClassName="text-white"
-            subtitleClassName="text-white"
-            descriptionClassName="text-white [&_p]:text-white [&_li]:text-white"
-            barClassName="bg-white"
+            className='transparent'
+            titleClassName='text-white'
+            subtitleClassName='text-white'
+            descriptionClassName={cn(
+              "text-white [&_p]:text-white [&_li]:text-white",
+              "[&_p]:text-base xl:[&_p]:text-xl",
+              "[&_li]:text-base xl:[&_li]:text-xl"
+            )}
+            barClassName='bg-white'
             sectionId={item.sectionId}
           />
         ))}

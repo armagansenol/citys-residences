@@ -1,3 +1,5 @@
+"use client"
+
 import { gsap } from "@/components/gsap"
 import { Img } from "@/components/utility/img"
 import { cn } from "@/lib/utils"
@@ -209,11 +211,11 @@ export function MaskedPanImage({ imgSrc, sizes = "100vw" }: MaskedPanImageProps)
       <div ref={imgRef}>
         <Img
           src={imgSrc}
-          alt="Parallax Image"
+          alt='Parallax Image'
           className={cn("w-full h-full object-contain z-40")}
           fill
           sizes={sizes}
-          loading="lazy"
+          loading='lazy'
         />
       </div>
     </div>

@@ -15,8 +15,8 @@ export interface FullScreenSliderProps {
 
 export function FullScreenSlider({ className, title, description, items }: FullScreenSliderProps) {
   const slides = items.map((item, i) => (
-    <div className="w-screen h-[70vw] relative" key={i}>
-      <Img className="object-cover object-bottom" src={item} alt={title} height={1080} width={1920} />
+    <div className='w-screen h-[70vw] relative' key={i}>
+      <Img className='object-cover object-bottom' src={item} alt={title} height={1080} width={1920} />
     </div>
   ))
 
@@ -36,8 +36,8 @@ export function FullScreenSlider({ className, title, description, items }: FullS
       <p
         className={cn(
           "font-primary text-black xl:text-white font-normal text-center mb-8 mx-auto",
-          "w-full lg:w-9/12 xl:w-[27vw] px-6 lg:px-4 lg:py-4",
-          "text-xl lg:text-3xl",
+          "w-full lg:w-9/12 xl:w-[27vw] px-16 lg:px-4 lg:py-4",
+          "text-lg lg:text-3xl",
           "leading-snug lg:leading-snug xl:leading-snug"
         )}
       >
