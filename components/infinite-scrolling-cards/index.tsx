@@ -1,9 +1,11 @@
 "use client"
 
-import React, { useRef } from "react"
-import { gsap, ScrollTrigger, useGSAP } from "../gsap"
-import { Img } from "../utility/img"
 import s from "./infinite-scrolling-cards.module.css"
+
+import React, { useRef } from "react"
+
+import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
+import { Img } from "@/components/utility/img"
 
 interface InfiniteScrollingCardsProps {
   items?: {
@@ -118,23 +120,6 @@ export const InfiniteScrollingCards: React.FC<InfiniteScrollingCardsProps> = ({ 
     trigger.scroll(trigger.end - 1)
   }
 
-  //   const scrubTo = (totalTime: number) => {
-  //     if (!seamlessLoopRef.current || !triggerRef.current) return
-
-  //     const progress =
-  //       (totalTime - seamlessLoopRef.current.duration() * iterationRef.current) / seamlessLoopRef.current.duration()
-
-  //     if (progress > 1) {
-  //       wrapForward(triggerRef.current)
-  //     } else if (progress < 0) {
-  //       wrapBackward(triggerRef.current)
-  //     } else {
-  //       triggerRef.current.scroll(
-  //         triggerRef.current.start + progress * (triggerRef.current.end - triggerRef.current.start)
-  //       )
-  //     }
-  //   }
-
   useGSAP(
     () => {
       if (!galleryRef.current || !cardsRef.current) return
@@ -187,38 +172,18 @@ export const InfiniteScrollingCards: React.FC<InfiniteScrollingCardsProps> = ({ 
     { scope: galleryRef }
   )
 
-  //   const handleNext = () => {
-  //     if (scrubRef.current) {
-  //       scrubTo(scrubRef.current.vars.totalTime + 0.1)
-  //     }
-  //   }
-
-  //   const handlePrev = () => {
-  //     if (scrubRef.current) {
-  //       scrubTo(scrubRef.current.vars.totalTime - 0.1)
-  //     }
-  //   }
-
   return (
     <div className={`${s.gallery} ${className}`} ref={galleryRef}>
       <ul className={s.cards} ref={cardsRef}>
         {items?.map((item, index) => (
           <li key={index} className="after:content-[''] after:absolute after:inset-0 after:bg-black/20">
-            <Img src={item.src} alt='test' fill className='gsap-img w-full h-full object-cover' />
+            <Img src={item.src} alt='Test' fill className='gsap-img w-full h-full object-cover' sizes='90vw' />
             <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-medium z-50 font-primary whitespace-nowrap'>
               {item.text}
             </div>
           </li>
         ))}
       </ul>
-      {/* <div className={s.actions}>
-        <button className={s.button} onClick={handlePrev}>
-          Prev
-        </button>
-        <button className={s.button} onClick={handleNext}>
-          Next
-        </button>
-      </div> */}
     </div>
   )
 }
