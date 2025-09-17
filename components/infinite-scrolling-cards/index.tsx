@@ -3,19 +3,21 @@
 import s from "./infinite-scrolling-cards.module.css"
 
 import React, { useRef } from "react"
+import { cn } from "@/lib/utils"
 
 import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
+import { LogoSlim } from "@/components/icons"
 import { Img } from "@/components/utility/img"
+import { colors } from "@/styles/config.mjs"
 
 interface InfiniteScrollingCardsProps {
   items?: {
     src: string
     text: string
   }[]
-  className?: string
 }
 
-export const InfiniteScrollingCards: React.FC<InfiniteScrollingCardsProps> = ({ items, className }) => {
+export const InfiniteScrollingCards: React.FC<InfiniteScrollingCardsProps> = ({ items }) => {
   const galleryRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLUListElement>(null)
   const iterationRef = useRef(0)
@@ -173,17 +175,24 @@ export const InfiniteScrollingCards: React.FC<InfiniteScrollingCardsProps> = ({ 
   )
 
   return (
-    <div className={`${s.gallery} ${className}`} ref={galleryRef}>
-      <ul className={s.cards} ref={cardsRef}>
-        {items?.map((item, index) => (
-          <li key={index} className="after:content-[''] after:absolute after:inset-0 after:bg-black/20">
-            <Img src={item.src} alt='Test' fill className='gsap-img w-full h-full object-cover' sizes='90vw' />
-            <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-medium z-50 font-primary whitespace-nowrap'>
-              {item.text}
-            </div>
-          </li>
-        ))}
-      </ul>
+    <div className='relative w-full h-full'>
+      <div className='fixed top-0 left-0 w-full h-20 bg-white z-50 py-4'>
+        <LogoSlim fill={colors["bricky-brick"]} />
+      </div>
+      <div className={cn(s.gallery, "absolute top-20 left-0 w-full h-full overflow-hidden")} ref={galleryRef}>
+        {/* <div className={s.topGradient} />
+        <div className={s.bottomGradient} /> */}
+        <ul className={s.cards} ref={cardsRef}>
+          {items?.map((item, index) => (
+            <li key={index} className="after:content-[''] after:absolute after:inset-0 after:bg-black/20">
+              <Img src={item.src} alt='Test' fill className='gsap-img w-full h-full object-cover' sizes='90vw' />
+              <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-2xl font-medium z-50 font-primary whitespace-nowrap'>
+                {item.text}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
