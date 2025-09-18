@@ -2,11 +2,11 @@
 
 import s from "./infinite-scrolling-cards.module.css"
 
-import React, { useRef } from "react"
 import { cn } from "@/lib/utils"
+import React, { useRef } from "react"
 
 import { gsap, ScrollTrigger, useGSAP } from "@/components/gsap"
-import { LogoSlim } from "@/components/icons"
+import { IconDollar, IconHome, IconTelephone, IconTile, LogoSlim } from "@/components/icons"
 import { Img } from "@/components/utility/img"
 import { colors } from "@/styles/config.mjs"
 
@@ -180,7 +180,32 @@ export const InfiniteScrollingCards: React.FC<InfiniteScrollingCardsProps> = ({ 
       <div className='fixed top-0 left-0 w-full h-20 bg-white z-50 py-4'>
         <LogoSlim fill={colors["bricky-brick"]} />
       </div>
-      <div className='fixed bottom-0 left-0 w-full h-16 bg-white z-40'></div>
+      <div className={cn("font-primary fixed left-0 bottom-0 right-0 blur-bg-bricky-brick grid grid-cols-4 z-40 py-2")}>
+        <div className=' text-white flex flex-col items-center justify-end gap-1 border-r border-black/15'>
+          <div className='w-6 h-6'>
+            <IconTile fill={colors.white} />
+          </div>
+          <div className='text-[0.7rem] font-medium leading-none'>DAİRE PLANI</div>
+        </div>
+        <div className=' text-white flex flex-col items-center justify-end gap-1 border-r border-black/15'>
+          <div className='w-6 h-6'>
+            <IconDollar fill={colors.white} />
+          </div>
+          <div className='text-[0.7rem] font-medium leading-none'>ÖDEME PLANI</div>
+        </div>
+        <div className=' text-white flex flex-col items-center justify-end gap-2 border-r border-black/15'>
+          <div className='w-4 h-4'>
+            <IconHome fill={colors.white} />
+          </div>
+          <div className='text-[0.7rem] font-medium leading-none'>ANASAYFA</div>
+        </div>
+        <div className=' text-white flex flex-col items-center justify-end gap-2 border-r border-black/15'>
+          <div className='w-4 h-4'>
+            <IconTelephone className='text-white' />
+          </div>
+          <div className='text-[0.7rem] font-medium leading-none'>İLETİŞİM</div>
+        </div>
+      </div>
       <div className='fixed top-0 left-0 w-full h-24 bg-white z-40'></div>
       <div className={cn(s.gallery, "absolute top-0 left-0 w-full h-full overflow-hidden z-30")} ref={galleryRef}>
         {/* <div className={s.topGradient} />
