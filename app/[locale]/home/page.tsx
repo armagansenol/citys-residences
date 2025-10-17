@@ -11,6 +11,7 @@ import { WistiaPlayerWrapper } from "@/components/wistia-player"
 import { citysParkVideo, navigationConfig } from "@/lib/constants"
 import { colors } from "@/styles/config.mjs"
 import { FormTranslations } from "@/types"
+import { ScaleOut } from "@/components/animations/scale-out"
 
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations({ locale, namespace: "home" })
@@ -21,16 +22,8 @@ export default async function Page({ params: { locale } }: { params: { locale: s
   return (
     <>
       <section className='h-svh relative z-10 overflow-hidden' id={navigationConfig["/"]?.id}>
-        {/* <ScaleOut> */}
-        {/* <Video
-            primaryVideoUrl={mainVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className='w-full h-full object-cover object-bottom'
-          /> */}
-        {/* <div className='w-full h-screen relative pointer-events-none'>
+        <ScaleOut>
+          <div className='w-screen h-full min-h-svh object-cover relative pointer-events-none'>
             <WistiaPlayerWrapper
               aspect={16 / 9}
               mediaId='e2tew1zhxj'
@@ -47,30 +40,10 @@ export default async function Page({ params: { locale } }: { params: { locale: s
               volumeControl={false}
               settingsControl={false}
               transparentLetterbox={true}
-              poster='/img/hero.jpg'
-            /> */}
-
-        {/* </ScaleOut> */}
-        <div className='w-full h-screen relative pointer-events-none'>
-          <WistiaPlayerWrapper
-            aspect={16 / 9}
-            mediaId='e2tew1zhxj'
-            muted
-            autoplay
-            preload='metadata'
-            qualityMin={1080}
-            swatch={false}
-            bigPlayButton={false}
-            silentAutoplay='allow'
-            endVideoBehavior='loop'
-            controlsVisibleOnLoad={false}
-            playBarControl={false}
-            volumeControl={false}
-            settingsControl={false}
-            transparentLetterbox={true}
-            lazy={false}
-          />
-        </div>
+              lazy={false}
+            />
+          </div>
+        </ScaleOut>
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50'>
           <div className={cn("flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-0")}>
             <span
