@@ -106,7 +106,10 @@ export function Footer() {
   }
 
   return (
-    <footer className='relative bg-bricky-brick py-12 lg:py-8 xl:py-10 xl:pt-2 text-white' ref={footerRef}>
+    <footer
+      className='relative bg-gradient-appointment-reversed py-12 lg:py-8 xl:py-10 xl:pt-2 text-white'
+      ref={footerRef}
+    >
       <div className='section-container flex flex-col gap-12 lg:gap-0 pt-0 xl:pt-12'>
         <div className='flex flex-col-reverse items-stretch lg:flex-row lg:items-center gap-6 lg:gap-0 px-5 lg:px-0'>
           {/* Logo Section */}

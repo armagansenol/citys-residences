@@ -225,6 +225,10 @@ const config: Config = {
         svh: "var(--svh-calc)",
         lvh: "var(--lvh-calc)",
       },
+      backgroundImage: {
+        "gradient-appointment": "linear-gradient(135deg, #E65A2E 0%, #99170F 50.29%, #320201 100.58%)",
+        "gradient-appointment-reversed": "linear-gradient(-45deg, #E65A2E 0%, #99170F 50.29%, #320201 100.58%)",
+      },
     },
   },
   plugins: [aspectRatio, animate, typography],

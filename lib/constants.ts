@@ -117,44 +117,6 @@ export const sections = {
     residences: {
       label: "Residences",
       id: "stacking-cards-0",
-      subitems: {
-        onePlusOne: {
-          label: "1+1",
-          id: "stacking-cards-0",
-        },
-        twoPlusOne: {
-          label: "2+1",
-          id: "stacking-cards-1",
-        },
-        threePlusOne: {
-          label: "3+1",
-          id: "stacking-cards-2",
-        },
-        fourPlusOne: {
-          label: "4+1",
-          id: "stacking-cards-3",
-        },
-        fivePlusOne: {
-          label: "5+1",
-          id: "stacking-cards-4",
-        },
-        sixPlusOne: {
-          label: "6+1",
-          id: "stacking-cards-5",
-        },
-        citysParkResidences: {
-          label: "City's Park Daireleri",
-          id: "stacking-cards-6",
-        },
-        terraceHouses: {
-          label: "Teras Evler",
-          id: "stacking-cards-7",
-        },
-        penthouse: {
-          label: "Penthouse",
-          id: "stacking-cards-8",
-        },
-      },
     },
     groundSafety: {
       label: "Zemin Güvenliği",
@@ -195,84 +157,14 @@ export const sections = {
     macOne: {
       label: "MAC/One",
       id: "sports-spa-reception",
-      subitems: {
-        sportAndSpaReception: {
-          label: "Spor & Spa Resepsiyon",
-          id: "sports-spa-reception",
-        },
-        changingRooms: {
-          label: "Soyunma Odaları",
-          id: "changing-rooms",
-        },
-        dryShowers: {
-          label: "Duşlar",
-          id: "dry-showers",
-        },
-        gym: {
-          label: "Gym",
-          id: "gym",
-        },
-        studios: {
-          label: "Stüdyolar",
-          id: "studios",
-        },
-        yoga: {
-          label: "Yoga Stüdyosu",
-          id: "yoga-studio",
-        },
-        pilates: {
-          label: "Pilates Stüdyosu",
-          id: "pilates-studio",
-        },
-      },
     },
     dynamicZone: {
       label: "Dynamic Zone",
       id: "dynamic-zone",
-      subitems: {
-        padelTennis: {
-          label: "Padel Tenis",
-          id: "padel-tennis",
-        },
-        basketball: {
-          label: "Basketbol",
-          id: "basketball",
-        },
-        tableTennis: {
-          label: "Masa Tenisi",
-          id: "table-tennis",
-        },
-        golfExperience: {
-          label: "Golf Deneyimi",
-          id: "golf-experience",
-        },
-      },
     },
     nuspa: {
       label: "Nuspa",
       id: "spa-wellness-reception",
-      subitems: {
-        spaWellness: {
-          label: "Spa & Wellness Resepsiyon",
-          id: "spa-wellness-reception",
-        },
-        massage: {
-          label: "Masaj",
-          id: "massage",
-        },
-        turkishBath: {
-          label: "Hamam",
-          id: "turkish-bath",
-        },
-        sauna: {
-          label: "Sauna",
-          id: "sauna",
-        },
-        relaxation: {
-          label: "Dinlenme",
-          id: "relaxation",
-        },
-      },
     },
     cinema: {
       label: "Sinema Salonu",
@@ -281,24 +173,6 @@ export const sections = {
     eventStudios: {
       label: "Etkinlik Stüdyoları",
       id: "playstation-room",
-      subitems: {
-        playstation: {
-          label: "Playstation Odası",
-          id: "playstation-room",
-        },
-        musicKaraoke: {
-          label: "Müzik & Karaoke",
-          id: "music-karaoke",
-        },
-        podcast: {
-          label: "Podcast",
-          id: "podcast",
-        },
-        meditation: {
-          label: "Meditasyon",
-          id: "meditation",
-        },
-      },
     },
     kidsClub: {
       label: "Kids Club",
@@ -307,30 +181,10 @@ export const sections = {
     sharedOfficeSpaces: {
       label: "Paylaşımlı Ofis Alanları",
       id: "flexible-work",
-      subitems: {
-        flexibleWork: {
-          label: "Esnek Çalışma ",
-          id: "flexible-work",
-        },
-        meetingRooms: {
-          label: "Toplantı Odaları",
-          id: "meeting-rooms",
-        },
-      },
     },
     workshops: {
       label: "Atölyeler",
       id: "cooking-workshop",
-      subitems: {
-        cookingWorkshop: {
-          label: "Yemek Atölyesi",
-          id: "cooking-workshop",
-        },
-        artWorkshop: {
-          label: "Sanat Atölyesi",
-          id: "art-workshop",
-        },
-      },
     },
   },
   "citys-life-privileges": {
@@ -367,63 +221,89 @@ export const sections = {
 
 // Navigation metadata for routes that should appear in navigation
 // Keys MUST exist in routing.pathnames (type-safe!)
-type NavigationMetadata = {
+export type NavigationMetadata = {
+  title: string
   titleKey: string
+  href: string
   id: string
   order: number
+  mainRoute: boolean
+  sections?: {
+    [key: string]: {
+      label: string
+      id: string
+    }
+  }
 }
 
 // Only define metadata for routes that should appear in navigation
-export const navigationConfig: Partial<Record<Pathnames, NavigationMetadata>> = {
+type NavigationConfigItem = {
+  titleKey: string
+  id: string
+  order: number
+  mainRoute: boolean
+}
+
+export const navigationConfig: Partial<Record<Pathnames, NavigationConfigItem>> = {
   "/": {
     titleKey: "navigation.home",
     id: "home",
     order: 1,
+    mainRoute: true,
   },
   "/project": {
     titleKey: "navigation.project",
     id: "project",
     order: 2,
+    mainRoute: true,
   },
   "/location": {
     titleKey: "navigation.location",
     id: "location",
     order: 3,
+    mainRoute: true,
   },
   "/residences": {
     titleKey: "navigation.residences",
     id: "residences",
     order: 4,
+    mainRoute: true,
   },
   "/citys-park": {
     titleKey: "navigation.citysPark",
     id: "citys-park",
     order: 5,
+    mainRoute: false,
   },
   "/citys-members-club": {
     titleKey: "navigation.citysMembersClub",
     id: "citys-members-club",
     order: 6,
+    mainRoute: false,
   },
   "/citys-life-privileges": {
     titleKey: "navigation.citysLifePrivileges",
     id: "citys-life-privileges",
     order: 7,
+    mainRoute: false,
   },
   "/citys-psm": {
     titleKey: "navigation.citysPsm",
     id: "citys-psm",
     order: 8,
+    mainRoute: false,
   },
   "/citys-istanbul-avm": {
     titleKey: "navigation.citysIstanbul",
     id: "citys-istanbul-avm",
     order: 9,
+    mainRoute: false,
   },
   "/citys-times": {
     titleKey: "navigation.citysTimes",
     id: "citys-times",
     order: 10,
+    mainRoute: false,
   },
 }
 
@@ -436,6 +316,7 @@ function getNavigationRoutes() {
       titleKey: config!.titleKey,
       id: config!.id,
       order: config!.order,
+      mainRoute: config!.mainRoute,
     }))
     .sort((a, b) => a.order - b.order)
 }
@@ -444,8 +325,11 @@ function getNavigationRoutes() {
 export const getNavigationItems = (t: (key: any) => string, locale: Locale) =>
   getNavigationRoutes().map((item) => ({
     title: t(item.titleKey),
+    titleKey: item.titleKey,
     href: getLocalizedPath(item.routeKey, locale),
     id: item.id,
+    order: item.order,
+    mainRoute: item.mainRoute,
     sections: sections[item.id as keyof typeof sections] || undefined,
   }))
 

@@ -93,8 +93,8 @@
                 }
             },
             "submit": {
-                "default": "SUBMIT",
-                "sending": "SUBMITTING..."
+                "default": "BOOK AN APPOINTMENT",
+                "sending": "BOOKING AN APPOINTMENT..."
             },
             "messages": {
                 "error": "Failed to submit form",

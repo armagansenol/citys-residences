@@ -16,6 +16,9 @@ const colors = {
   "halite-blue": "#0A2A45",
   "lusty-salmon": "#efb4a6",
   "army-canvas": "#5D7261",
+  "verve-violet": "#934D7D",
+  "trapped-darkness": "#0F1A2C",
+  "tangerine-flake": "#E57C5C",
 }
 
 const themes = {
