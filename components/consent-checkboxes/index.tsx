@@ -49,41 +49,41 @@ export function ConsentCheckboxes({ control, className, form }: ConsentCheckboxe
     <div className={`space-y-5 ${className}`}>
       <FormField
         control={control}
-        name="consent"
+        name='consent'
         render={({ field }) => (
           <FormItem>
-            <div className="flex flex-row gap-2 space-y-0 group">
+            <div className='flex flex-row gap-2 space-y-0 group'>
               <FormControl>
                 <Checkbox checked={field.value} onCheckedChange={field.onChange} />
               </FormControl>
-              <FormLabel className="text-[0.8rem] text-neutral-950 font-normal leading-snug cursor-pointer max-w-[90%]">
+              <FormLabel className='text-base text-white font-[300] leading-snug cursor-pointer max-w-[90%]'>
                 {t.rich("contact.form.inputs.consent.placeholder", {
                   legal1: (chunks) => (
                     <a
-                      target="_blank"
-                      rel="norefferer noopener"
-                      href="/pdf/citys-residences-kvkk-aydinlatma-metni.pdf"
-                      className="text-neutral-950 underline font-medium"
+                      target='_blank'
+                      rel='norefferer noopener'
+                      href='/pdf/citys-residences-kvkk-aydinlatma-metni.pdf'
+                      className='text-white underline font-medium'
                     >
                       {chunks}
                     </a>
                   ),
                   legal2: (chunks) => (
                     <a
-                      target="_blank"
-                      rel="norefferer noopener"
-                      href="/pdf/citys-residences-acik-riza-metni.pdf"
-                      className="text-neutral-950 underline font-medium"
+                      target='_blank'
+                      rel='norefferer noopener'
+                      href='/pdf/citys-residences-acik-riza-metni.pdf'
+                      className='text-white underline font-medium'
                     >
                       {chunks}
                     </a>
                   ),
                   legal3: (chunks) => (
                     <a
-                      target="_blank"
-                      rel="norefferer noopener"
-                      href="/pdf/citys-residences-ticari-elektronik-ileti-aydinlatma-metni.pdf"
-                      className="text-neutral-950 underline font-medium"
+                      target='_blank'
+                      rel='norefferer noopener'
+                      href='/pdf/citys-residences-ticari-elektronik-ileti-aydinlatma-metni.pdf'
+                      className='text-white underline font-medium'
                     >
                       {chunks}
                     </a>
@@ -95,13 +95,13 @@ export function ConsentCheckboxes({ control, className, form }: ConsentCheckboxe
           </FormItem>
         )}
       />
-      <div className="space-y-3">
+      <div className='space-y-3'>
         <FormField
           control={control}
-          name="consentElectronicMessage"
+          name='consentElectronicMessage'
           render={({ field }) => (
             <FormItem>
-              <div className="flex flex-row gap-2 space-y-0 group">
+              <div className='flex flex-row gap-2 space-y-0 group'>
                 <FormControl>
                   <Checkbox
                     checked={field.value}
@@ -111,14 +111,14 @@ export function ConsentCheckboxes({ control, className, form }: ConsentCheckboxe
                     }}
                   />
                 </FormControl>
-                <FormLabel className="text-[0.8rem] text-neutral-950 font-normal leading-snug cursor-pointer max-w-[90%]">
+                <FormLabel className='text-base text-white font-[300] leading-snug cursor-pointer max-w-[90%]'>
                   {t.rich("contact.form.inputs.consentElectronicMessage.placeholder", {
                     legal4: (chunks) => (
                       <a
-                        target="_blank"
-                        rel="norefferer noopener"
-                        href="/pdf/citys-residences-acik-riza-beyani.pdf"
-                        className="text-neutral-950 underline font-medium"
+                        target='_blank'
+                        rel='norefferer noopener'
+                        href='/pdf/citys-residences-acik-riza-beyani.pdf'
+                        className='text-white underline font-medium'
                       >
                         {chunks}
                       </a>
@@ -130,7 +130,7 @@ export function ConsentCheckboxes({ control, className, form }: ConsentCheckboxe
             </FormItem>
           )}
         />
-        <div className="flex gap-8">
+        <div className='flex gap-8'>
           {["consentSms", "consentEmail", "consentPhone"].map((name) => (
             <FormField
               key={name}
@@ -138,7 +138,7 @@ export function ConsentCheckboxes({ control, className, form }: ConsentCheckboxe
               name={name}
               render={({ field }) => (
                 <FormItem>
-                  <div className="flex flex-row gap-2 space-y-0 group">
+                  <div className='flex flex-row gap-2 space-y-0 group'>
                     <FormControl>
                       <Checkbox
                         checked={field.value}
@@ -151,15 +151,15 @@ export function ConsentCheckboxes({ control, className, form }: ConsentCheckboxe
                         }}
                       />
                     </FormControl>
-                    <FormLabel className="text-[0.8rem] text-neutral-950 font-normal leading-snug cursor-pointer max-w-[90%]">
+                    <FormLabel className='text-base text-white font-[300] leading-snug cursor-pointer max-w-[90%]'>
                       {name === "consentSms" &&
                         t.rich("contact.form.inputs.consentSms.placeholder", {
                           Clarification: (chunks) => (
                             <a
-                              target="_blank"
-                              rel="norefferer noopener"
-                              href="/pdf/kvkk-aydinlatma-metni.pdf"
-                              className="text-neutral-950 underline"
+                              target='_blank'
+                              rel='norefferer noopener'
+                              href='/pdf/kvkk-aydinlatma-metni.pdf'
+                              className='text-white underline'
                             >
                               {chunks}
                             </a>
@@ -169,10 +169,10 @@ export function ConsentCheckboxes({ control, className, form }: ConsentCheckboxe
                         t.rich("contact.form.inputs.consentEmail.placeholder", {
                           Clarification: (chunks) => (
                             <a
-                              target="_blank"
-                              rel="norefferer noopener"
-                              href="/pdf/kvkk-aydinlatma-metni.pdf"
-                              className="text-neutral-950 underline"
+                              target='_blank'
+                              rel='norefferer noopener'
+                              href='/pdf/kvkk-aydinlatma-metni.pdf'
+                              className='text-white underline'
                             >
                               {chunks}
                             </a>
@@ -182,10 +182,10 @@ export function ConsentCheckboxes({ control, className, form }: ConsentCheckboxe
                         t.rich("contact.form.inputs.consentPhone.placeholder", {
                           Clarification: (chunks) => (
                             <a
-                              target="_blank"
-                              rel="norefferer noopener"
-                              href="/pdf/kvkk-aydinlatma-metni.pdf"
-                              className="text-neutral-950 underline"
+                              target='_blank'
+                              rel='norefferer noopener'
+                              href='/pdf/kvkk-aydinlatma-metni.pdf'
+                              className='text-white underline'
                             >
                               {chunks}
                             </a>

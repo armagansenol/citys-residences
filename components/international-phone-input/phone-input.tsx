@@ -35,7 +35,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({ value, onChange, phoneIn
         const country = parseCountry(c)
         return (
           <SelectItem
-            className="focus:bg-neutral-50 focus:text-neutral-950 cursor-pointer px-4 py-2 font-primary text-base bt:text-sm"
+            className='focus:bg-neutral-50 focus:text-neutral-950 cursor-pointer px-4 py-2 font-primary text-base bt:text-sm'
             key={`${index}-${country.iso2}-${country.dialCode}`}
             value={country.iso2}
           >
@@ -48,7 +48,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({ value, onChange, phoneIn
   )
 
   return (
-    <div className="flex items-center gap-2">
+    <div className='flex items-center'>
       <Select
         onValueChange={(value) => {
           const selectedCountry = defaultCountries.find((c) => parseCountry(c).iso2 === value)
@@ -58,22 +58,22 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({ value, onChange, phoneIn
         }}
         value={phoneInput.country.iso2}
       >
-        <SelectTrigger className="w-24 h-10 rounded-md text-bricky-brick font-medium cursor-pointer text-base bt:text-sm border border-bricky-brick">
-          <SelectValue placeholder="Code">+{phoneInput.country.dialCode}</SelectValue>
+        <SelectTrigger className='w-24 h-14 rounded-none text-white font-medium cursor-pointer text-lg border-b border-white'>
+          <SelectValue placeholder='Code'>+{phoneInput.country.dialCode}</SelectValue>
         </SelectTrigger>
-        <SelectContent className="z-[500] bg-white text-neutral-950 border border-bricky-brick rounded-md">
+        <SelectContent className='z-[500] bg-white text-neutral-950 border border-white rounded-md'>
           <SelectGroup>{countryOptions}</SelectGroup>
         </SelectContent>
       </Select>
       <Input
-        className="h-10 border border-bricky-brick rounded-md"
+        className='border-white border-b rounded-none'
         placeholder={phoneInput.country.format?.toString().replace(/\S/g, "X") || "XXXXXXXXXX"}
-        type="tel"
+        type='tel'
         value={phoneInput.inputValue}
         onChange={phoneInput.handlePhoneValueChange}
         ref={phoneInputRef}
-        name="phone"
-        autoComplete="tel"
+        name='phone'
+        autoComplete='tel'
       />
     </div>
   )

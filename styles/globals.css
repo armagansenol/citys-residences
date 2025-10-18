@@ -110,6 +110,12 @@ body {
   mask-image: hsla(0, 0%, 98%, 0.1);
 }
 
+.blur-bg-white-2 {
+  background: hsla(0, 0%, 98%, 0.4);
+  backdrop-filter: blur(16px);
+  mask-image: hsla(0, 0%, 98%, 0.1);
+}
+
 #Click2ConnectPackageFrame {
   z-index: var(--z-alotech) !important;
 }

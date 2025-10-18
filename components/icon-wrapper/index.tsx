@@ -9,12 +9,7 @@ export interface IconWrapperProps {
 
 export function IconWrapper(props: IconWrapperProps) {
   return (
-    <div
-      className={cn(
-        "border-[2px] rounded-md lg:rounded-lg w-full h-full flex items-center justify-center flex-grow",
-        props.className
-      )}
-    >
+    <div className={cn("w-full h-full flex items-center justify-center flex-grow", props.className)}>
       {props.children}
     </div>
   )

@@ -1,16 +1,16 @@
 "use client"
 
 import { Link, Link as LocalizedLink, type Locale } from "@/i18n/routing"
-import { getNavigationItems, initialScroll } from "@/lib/constants"
+import { getNavigationItems, initialScroll, NavigationMetadata } from "@/lib/constants"
 import { cn } from "@/lib/utils"
 import Lenis from "lenis"
 import { useLenis } from "lenis/react"
-import { animate, AnimatePresence, motion, stagger } from "motion/react"
+import { animate, stagger } from "motion/react"
 import { useLocale, useTranslations } from "next-intl"
 import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 
-import { Logo, LogoSlim } from "@/components/icons"
+import { Logo } from "@/components/icons"
 import { LocaleSwitcher } from "@/components/locale-switcher"
 import { Menu } from "@/components/menu"
 import { MenuX } from "@/components/menu-x"
@@ -66,7 +66,7 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
     }
   }, [scrollState.atTop, sections.length])
 
-  const navigationItems = getNavigationItems(t, locale as Locale)
+  const navigationItems: NavigationMetadata[] = getNavigationItems(t, locale as Locale)
 
   useEffect(() => {
     return menuOpen ? lenis?.stop() : lenis?.start()
@@ -103,82 +103,17 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-[var(--z-header)]",
+          "fixed top-0 left-0 right-0 z-[var(--z-header)] mix-blend-difference",
           "flex items-stretch section-padding",
           "transition-all duration-300",
-          {
-            "bg-white h-[var(--header-height)]": !scrollState.atTop,
-            "bg-transparent h-[var(--header-height-slim)]": scrollState.atTop,
-          }
+          "bg-transparent h-[var(--header-height-slim)]"
         )}
       >
-        <div className="flex items-stretch justify-between flex-1 gap-12 z-[var(--z-header-content)] px-4 lg:px-0">
-          {!nonHome ? (
-            <button
-              className="flex items-center gap-2 lg:gap-4 cursor-pointer"
-              onClick={() => setMenuOpen(!menuOpen)}
-              type="button"
-              aria-expanded={menuOpen}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              data-ignore-click-away
-            >
-              <div className="cursor-pointer flex items-center">
-                <MenuX
-                  className="hidden lg:block"
-                  isOpen={false}
-                  onClick={() => setMenuOpen(!menuOpen)}
-                  strokeWidth="2"
-                  color={scrollState.atTop || menuOpen ? colors.white : colors.black}
-                  transition={{ type: "spring", stiffness: 260, damping: 40 }}
-                  width="50"
-                  height="6"
-                />
-                <MenuX
-                  className="block lg:hidden"
-                  isOpen={menuOpen}
-                  onClick={() => setMenuOpen(!menuOpen)}
-                  strokeWidth="2"
-                  color={scrollState.atTop || menuOpen ? colors.white : colors.black}
-                  transition={{ type: "spring", stiffness: 260, damping: 40 }}
-                  width="30"
-                  height="6"
-                />
-              </div>
-              <div
-                className={cn(
-                  "font-primary font-medium text-sm lg:text-base xl:text-lg",
-                  "cursor-pointer overflow-hidden",
-                  "transition-colors duration-300",
-                  {
-                    "text-black": !scrollState.atTop,
-                    "text-white": scrollState.atTop,
-                  }
-                )}
-              >
-                <span>{t("open")}</span>
-              </div>
-            </button>
-          ) : (
-            <Link
-              href="/"
-              className={cn(
-                "font-primary text-white text-xl font-medium",
-                "relative flex items-center gap-2 lg:gap-2 cursor-pointer",
-                "transition-colors duration-300",
-                {
-                  "text-black": !scrollState.atTop,
-                  "text-white": scrollState.atTop,
-                }
-              )}
-            >
-              <ArrowLeft className="w-6 h-6" />
-              ANASAYFAYA DÖN
-            </Link>
-          )}
+        <div className='flex items-stretch justify-between flex-1 gap-12 z-[var(--z-header-content)] px-4 lg:px-0'>
           {Object.values(sections).length > 0 && !scrollState.atTop && (
             <div className={cn("flex items-stretch gap-8")}>
               {Object.values(sections).map((item, index) => (
-                <div key={item.id} className="group relative flex items-center">
+                <div key={item.id} className='group relative flex items-center'>
                   <a
                     ref={(el) => {
                       sectionsRef.current[index] = el
@@ -193,50 +128,66 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
                   >
                     {item.label}
                   </a>
-                  {item.subitems && Object.values(item.subitems).length > 0 && (
-                    <div className="absolute -bottom-px translate-y-full -translate-x-1/2 left-1/2 blur-bg-bricky-brick-light flex flex-col p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none group-hover:pointer-events-auto">
-                      {Object.values(item.subitems).map((subitem) => (
-                        <a href={`#${subitem.id}`} className="text-white italic whitespace-nowrap" key={subitem.id}>
-                          {subitem.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
           )}
-          <AnimatePresence mode="wait">
-            {scrollState.atTop ? (
-              <motion.div
-                className="absolute top-6 left-1/2 -translate-x-1/2 h-32 w-48 xl:h-36 xl:w-36 2xl:h-40 2xl:w-40"
-                key="logo-full"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+          <div className='h-32 w-48 xl:h-36 xl:w-36 2xl:h-40 2xl:w-40'>
+            <LocalizedLink href='/' scroll={initialScroll} aria-label='Home'>
+              <Logo fill={colors.white} />
+            </LocalizedLink>
+          </div>
+          <div className='flex items-center cursor-pointer gap-5 ml-auto'>
+            <LocaleSwitcher theme='dark' />
+            {!nonHome ? (
+              <button
+                className='flex items-center gap-2 lg:gap-4 cursor-pointer'
+                onClick={() => setMenuOpen(!menuOpen)}
+                type='button'
+                aria-expanded={menuOpen}
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                data-ignore-click-away
               >
-                <LocalizedLink href="/" scroll={initialScroll} aria-label="Home">
-                  <Logo fill={colors.white} />
-                </LocalizedLink>
-              </motion.div>
+                <div className='cursor-pointer flex items-center'>
+                  <MenuX
+                    className='hidden lg:block'
+                    isOpen={false}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    strokeWidth='2'
+                    color={colors.white}
+                    transition={{ type: "spring", stiffness: 260, damping: 40 }}
+                    width='40'
+                    height='12'
+                  />
+                  <MenuX
+                    className='block lg:hidden'
+                    isOpen={menuOpen}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    strokeWidth='2'
+                    color={colors.white}
+                    transition={{ type: "spring", stiffness: 260, damping: 40 }}
+                    width='50'
+                    height='6'
+                  />
+                </div>
+              </button>
             ) : (
-              <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[65%]"
-                key="logo-slim"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+              <Link
+                href='/'
+                className={cn(
+                  "font-primary text-white text-xl font-medium",
+                  "relative flex items-center gap-2 lg:gap-2 cursor-pointer",
+                  "transition-colors duration-300",
+                  {
+                    "text-black": !scrollState.atTop,
+                    "text-white": scrollState.atTop,
+                  }
+                )}
               >
-                <LocalizedLink className="block h-full w-full" href="/" scroll={initialScroll} aria-label="Home">
-                  <LogoSlim fill={colors["bricky-brick"]} />
-                </LocalizedLink>
-              </motion.div>
+                <ArrowLeft className='w-6 h-6' />
+                ANASAYFAYA DÖN
+              </Link>
             )}
-          </AnimatePresence>
-          <div className="flex items-center cursor-pointer">
-            <LocaleSwitcher theme={scrollState.atTop ? "dark" : "light"} />
           </div>
         </div>
       </header>

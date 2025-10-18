@@ -18,7 +18,7 @@
         "view": "Videoyu İzleyin"
     },
     "contact": {
-        "description": "City's Residences projesine gösterdiğiniz ilgi için teşekkür ederiz. <br></br> Ekibimizin sizinle iletişime geçebilmesi için lütfen aşağıdaki kayıt formunu doldurunuz.",
+        "description": "Ekibimizin sizinle iletişime geçebilmesi için lütfen aşağıdaki kayıt formunu doldurunuz.",
         "form": {
             "inputs": {
                 "name": {
@@ -49,7 +49,7 @@
                     }
                 },
                 "residenceType": {
-                    "placeholder": "Tercih Edilen Konut Türü",
+                    "placeholder": "İlgilendiğiniz konut türü",
                     "errors": {
                         "required": "Zorunlu alan"
                     }
@@ -93,8 +93,8 @@
                 }
             },
             "submit": {
-                "default": "GÖNDER",
-                "sending": "GÖNDERİLİYOR..."
+                "default": "RANDEVU OLUŞTUR",
+                "sending": "RANDEVU OLUŞTURULUYOR..."
             },
             "messages": {
                 "error": "Form gönderilirken hata oluştu",

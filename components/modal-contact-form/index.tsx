@@ -5,7 +5,7 @@ import s from "./modal-contact-form.module.css"
 import { cn } from "@/lib/utils"
 import { useGSAP } from "@gsap/react"
 import { useLenis } from "lenis/react"
-import { X } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useEffect, useRef, useState } from "react"
 
@@ -124,7 +124,7 @@ export function ModalContactForm() {
           { opacity: 0 },
           {
             opacity: 1,
-            duration: 0.6,
+            duration: 0.4,
             ease: "power2.inOut",
           },
           "s"
@@ -133,8 +133,8 @@ export function ModalContactForm() {
           formRef.current,
           { width: "0" },
           {
-            width: "700px",
-            duration: 1,
+            width: "80vw",
+            duration: 0.8,
             ease: "expo.inOut",
           },
           "s"
@@ -196,13 +196,18 @@ export function ModalContactForm() {
         onClick={() => setOpen(false)}
       ></div>
       <div className={s.form}>
-        <div className='relative box bg-brilliance h-full w-0' onClick={(e) => e.stopPropagation()} ref={formRef}>
-          <div className='absolute top-0 left-0 w-[700px] h-full flex right-0'>
+        <div
+          className='relative box bg-gradient-appointment h-full w-0'
+          onClick={(e) => e.stopPropagation()}
+          ref={formRef}
+        >
+          <div className='absolute top-0 left-0 w-[80vw] h-full flex right-0'>
             <button
               className={cn(
                 s.close,
-                "absolute top-2 lg:top-6 -left-2 lg:-left-6 w-10 h-10 z-10 -translate-x-full bg-white rounded-full p-2 text-bricky-brick",
+                "absolute top-2 lg:top-6 left-0 w-16 h-16 z-16 -translate-x-full bg-white p-2 text-bricky-brick",
                 "opacity-0 transition-opacity duration-700 ease-in-out",
+                "flex items-center justify-center",
                 {
                   "opacity-100": open,
                 }
@@ -210,14 +215,14 @@ export function ModalContactForm() {
               onClick={() => setOpen(false)}
               type='button'
             >
-              <X />
+              <ChevronRight className='w-8 h-8' />
+              <span className='sr-only'>Close</span>
             </button>
             <div
               className={cn(
                 "absolute top-1/2 left-0 bottom-0 -translate-x-full -translate-y-1/2",
-                "h-64 w-12",
-                "font-primary font-normal text-white text-lg xl:text-2xl blur-bg-bricky-brick",
-                "rounded-bl-2xl rounded-tl-2xl",
+                "h-72 w-16",
+                "font-primary font-[500] text-white text-lg xl:text-xl bg-gradient-orange tracking-[0.2em]",
                 "inline-flex items-center justify-center",
                 "cursor-pointer"
               )}
@@ -229,12 +234,19 @@ export function ModalContactForm() {
             <div className='h-full flex flex-col justify-center'>
               <ScrollableBox className='flex flex-grow-0'>
                 <div className='px-4 lg:px-8 py-14 lg:py-8 space-y-8 relative'>
-                  <h2 className='text-neutral-900 text-base lg:text-sm font-normal font-primary text-left lg:text-center xl:text-left leading-normal'>
+                  <p
+                    className={cn(
+                      "font-primary font-[300] text-white max-w-[90%]",
+                      "text-xl lg:text-xl xl:text-xl 2xl:text-xl",
+                      "leading-snug lg:leading-snug xl:leading-snug 2xl:leading-snug",
+                      "max-w-lg"
+                    )}
+                  >
                     {t.rich("description", {
                       br: () => <br className='hidden lg:block' />,
                     })}
-                  </h2>
-                  <ContactForm translations={formTranslations} withAddress />
+                  </p>
+                  <ContactForm translations={formTranslations} />
                 </div>
               </ScrollableBox>
             </div>

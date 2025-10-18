@@ -5,28 +5,22 @@ import { StyleVariables } from "@/lib/style-variables"
 import { colors, themes } from "@/styles/config.mjs"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages, getTranslations } from "next-intl/server"
-import { Montagu_Slab, Montserrat } from "next/font/google"
+import { Montserrat } from "next/font/google"
 import localFont from "next/font/local"
 
 import { GSAP } from "@/components/gsap"
 import { ImageGalleryModal } from "@/components/image-gallery/modal"
 import { ModalContactForm } from "@/components/modal-contact-form"
-import { Preloader, PreloaderClient } from "@/components/preloader"
 import { ReactQueryProvider } from "@/components/react-query-provider"
 import { RealViewport } from "@/components/real-viewport"
 import { StickyContactMenu } from "@/components/sticky-contact-menu"
+import { StickySidebar } from "@/components/sticky-sidebar"
 import { WebChat } from "@/components/web-chat"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-})
-
-const montaguSlab = Montagu_Slab({
-  subsets: ["latin"],
-  variable: "--font-montagu-slab",
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
 })
 
 const halenoir = localFont({
@@ -222,17 +216,18 @@ export default async function LocaleLayout({
         {/* <AlotechWidget /> */}
       </head>
       <body
-        className={`${halenoir.variable} ${montserrat.variable} ${montaguSlab.variable} ${suisseIntl.variable} ${aktivGrotesk.variable} ${copperplate.variable} antialiased`}
+        className={`${halenoir.variable} ${montserrat.variable} ${suisseIntl.variable} ${aktivGrotesk.variable} ${copperplate.variable} antialiased`}
       >
         <RealViewport />
-        <Preloader />
+        {/* <Preloader /> */}
         <NextIntlClientProvider messages={messages}>
           <ReactQueryProvider>
             {children}
             <ImageGalleryModal />
             <ModalContactForm />
             <StickyContactMenu />
-            <PreloaderClient />
+            {/* <PreloaderClient /> */}
+            <StickySidebar />
           </ReactQueryProvider>
         </NextIntlClientProvider>
         <GSAP scrollTrigger={true} />

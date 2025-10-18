@@ -1,119 +1,73 @@
 "use client"
 
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu"
-import cn from "clsx"
-import { Check, ChevronDown } from "lucide-react"
+import { cn } from "@/lib/utils"
 import { forwardRef, useImperativeHandle } from "react"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
-type Checked = DropdownMenuCheckboxItemProps["checked"]
+import { IconHome } from "@/components/icons"
 
-interface CheckboxOption {
+interface ResidenceOption {
   id: string
   label: string
   disabled?: boolean
 }
 
-interface DropdownMenuCheckboxesProps {
-  placeholder: string
-  selectedItems?: string[]
-  options: CheckboxOption[]
-  defaultValues?: Record<string, boolean>
-  onChange?: (id: string, checked: boolean) => void
+interface ResidenceTypeSelectorProps {
+  title: string
+  selectedValue?: string
+  options: ResidenceOption[]
+  onChange?: (id: string) => void
   className?: string
 }
 
-export interface DropdownMenuCheckboxesRef {
+export interface ResidenceTypeSelectorRef {
   reset: () => void
 }
 
-export const DropdownMenuCheckboxesResidences = forwardRef<DropdownMenuCheckboxesRef, DropdownMenuCheckboxesProps>(
-  ({ placeholder, selectedItems, options, defaultValues = {}, onChange, className }, ref) => {
-    const handleCheckedChange = (id: string, checked: Checked) => {
-      onChange?.(id, checked as boolean)
+export const DropdownMenuCheckboxesResidences = forwardRef<ResidenceTypeSelectorRef, ResidenceTypeSelectorProps>(
+  ({ title, selectedValue, options, onChange, className }, ref) => {
+    const handleOptionClick = (id: string) => {
+      if (onChange) {
+        onChange(id)
+      }
     }
 
     useImperativeHandle(ref, () => ({
       reset: () => {
-        Object.keys(defaultValues).forEach((id) => {
-          onChange?.(id, defaultValues[id] ?? false)
-        })
+        // Reset to no selection
+        onChange?.("")
       },
     }))
 
     return (
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <button
-            className="h-10 w-full text-neutral-950 border border-bricky-brick flex items-center justify-between px-2 bt:px-4 rounded-md text-base bt:text-sm outline-none focus:outline-none focus:ring-0"
-            type="button"
-            aria-label={`Select ${placeholder}`}
-          >
-            <>
-              {selectedItems && selectedItems?.length > 0 ? (
-                <span className="w-full relative overflow-hidden gradient-white-to-transparent">
-                  <span className="flex gap-1">
-                    {selectedItems?.map((item, index) => (
-                      <span
-                        key={index}
-                        className="bg-bricky-brick px-2 py-0.5 rounded-sm text-white tracking-widest whitespace-nowrap"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </span>
-                </span>
-              ) : (
-                <span className="truncate">{placeholder}</span>
-              )}
-            </>
-            <ChevronDown className="size-4 flex-shrink-0 text-bricky-brick" />
-          </button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent
-          className={cn(className, "w-[160px] border-bricky-brick-light flex flex-wrap gap-1.5 p-3")}
-          align="end"
-        >
-          {options.map((option) => (
-            <DropdownMenuCheckboxItem
-              className="cursor-pointer"
-              key={option.id}
-              checked={selectedItems?.includes(option.label)}
-              onCheckedChange={(checked) => handleCheckedChange(option.id, checked)}
-              disabled={option.disabled}
-              onSelect={(event) => event.preventDefault()}
-            >
-              <div
-                className={`w-16 flex items-center justify-center gap-2 py-2.5 rounded-sm transition-colors duration-200 cursor-pointer group
-                      ${
-                        selectedItems?.includes(option.label)
-                          ? "border border-bricky-brick text-bricky-brick"
-                          : "border border-neutral-200 text-neutral-950"
-                      } 
-                `}
+      <div className={cn("space-y-8", className)}>
+        <h3 className='font-primary text-white text-lg font-[400]'>{title}</h3>
+        <div className='flex flex-wrap gap-3'>
+          {options.map((option) => {
+            const isSelected = selectedValue === option.id
+            return (
+              <button
+                key={option.id}
+                onClick={() => handleOptionClick(option.id)}
+                disabled={option.disabled}
+                className={cn(
+                  "flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-200 min-w-[80px] cursor-pointer",
+                  {
+                    "bg-white text-bricky-brick": isSelected,
+                    "border border-white/30 hover:border-bricky-brick-light/80 text-white": !isSelected,
+                  }
+                )}
+                aria-label={`Select ${option.label}`}
+                type='button'
               >
-                <div
-                  className={`h-3.5 w-3.5 rounded-sm relative overflow-hidden transition-all duration-200 border border-bricky-brick-light group-hover:bg-bricky-brick
-                     ${
-                       selectedItems?.includes(option.label)
-                         ? "bg-bricky-brick "
-                         : "bg-transparent group-hover:opacity-30"
-                     } 
-                  `}
-                >
-                  <Check className={`w-full h-full absolute top-0 left-0 text-white`} />
+                <div className='w-6 h-6 mb-2 flex items-center justify-center'>
+                  <IconHome fill={isSelected ? "#8B2635" : "#fff"} />
                 </div>
-                <span className="tracking-widest">{option.label}</span>
-              </div>
-            </DropdownMenuCheckboxItem>
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
+                <span className='text-sm font-medium tracking-wide'>{option.label}</span>
+              </button>
+            )
+          })}
+        </div>
+      </div>
     )
   }
 )

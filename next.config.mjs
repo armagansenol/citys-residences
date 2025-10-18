@@ -41,6 +41,36 @@ const nextConfig = {
       },
     ],
   },
+  webpack: (config, { isServer }) => {
+    // Fix for Wistia player vendor chunks
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      }
+    }
+
+    // Handle Wistia player vendor chunks properly
+    config.optimization = {
+      ...config.optimization,
+      splitChunks: {
+        ...config.optimization.splitChunks,
+        cacheGroups: {
+          ...config.optimization.splitChunks.cacheGroups,
+          wistia: {
+            test: /[\\/]node_modules[\\/]@wistia[\\/]/,
+            name: "wistia",
+            chunks: "all",
+            priority: 10,
+          },
+        },
+      },
+    }
+
+    return config
+  },
 }
 
 export default withNextIntl(withMDX(nextConfig))
