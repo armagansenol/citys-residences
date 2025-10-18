@@ -13,7 +13,7 @@ import { colors } from "@/styles/config.mjs"
 import { FormTranslations } from "@/types"
 import { ScaleOut } from "@/components/animations/scale-out"
 
-import heroVideoPoster from "@/public/img/poster-hero.png"
+import heroVideoPoster from "@/public/img/poster-hero.jpg"
 
 export default async function Page({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations({ locale, namespace: "home" })
@@ -25,7 +25,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
     <>
       <section className='h-svh relative z-10 overflow-hidden' id={navigationConfig["/"]?.id}>
         <ScaleOut>
-          <div className='w-screen h-full min-h-svh object-cover relative pointer-events-none'>
+          <div className='w-screen h-full min-h-svh object-cover relative pointer-events-none bg-[url("/img/poster-hero.png")] bg-cover bg-center'>
             <WistiaPlayerWrapper
               aspect={16 / 9}
               mediaId='e2tew1zhxj'
