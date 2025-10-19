@@ -405,13 +405,13 @@ export function ContactForm({ translations }: FormContactProps) {
                   label={translations.inputs.name.label}
                   control={form.control}
                   name='name'
-                  placeholder={`${translations.inputs.name.placeholder}*`}
+                  placeholder={translations.inputs.name.placeholder}
                 />
                 <FormInput
                   label={translations.inputs.surname.label}
                   control={form.control}
                   name='surname'
-                  placeholder={`${translations.inputs.surname.placeholder}*`}
+                  placeholder={translations.inputs.surname.placeholder}
                 />
               </div>
               <div className='grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-6'>
@@ -424,7 +424,7 @@ export function ContactForm({ translations }: FormContactProps) {
                     control={form.control}
                     name='email'
                     type='email'
-                    placeholder={`${locale === 'tr' ? 'E-Posta' : 'Email'}*`}
+                    placeholder={translations.inputs.email.placeholder}
                     className='col-span-1 lg:col-span-1'
                   />
                 </div>

@@ -1,9 +1,12 @@
+'use client'
+
 import React, { useEffect, useRef } from 'react'
 import {
   defaultCountries,
   parseCountry,
   usePhoneInput,
 } from 'react-international-phone'
+import { useMessages } from 'next-intl'
 
 import {
   Select,
@@ -26,6 +29,8 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
   onChange,
   phoneInputRef,
 }) => {
+  const messages = useMessages()
+
   const phoneInput = usePhoneInput({
     defaultCountry: 'tr',
     disableDialCodeAndPrefix: true,
@@ -37,6 +42,23 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
 
   const inputRef = useRef<HTMLInputElement>(null)
 
+  // Helper function to get country name with fallback
+  const getCountryName = (iso2: string, fallbackName: string): string => {
+    try {
+      // Access the countries messages directly
+      const messagesObj = messages as Record<string, unknown>
+      const countriesMessages = messagesObj?.countries as
+        | Record<string, string>
+        | undefined
+      if (countriesMessages && countriesMessages[iso2]) {
+        return countriesMessages[iso2]
+      }
+      return fallbackName
+    } catch {
+      return fallbackName
+    }
+  }
+
   useEffect(() => {
     if (phoneInput.inputRef && inputRef.current) {
       phoneInput.inputRef.current = inputRef.current
@@ -47,14 +69,18 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
     <>
       {defaultCountries.map((c, index) => {
         const country = parseCountry(c)
+        // Get localized country name, fallback to original name if translation not found
+        const localizedCountryName = getCountryName(
+          country.iso2,
+          country.name.toString()
+        )
         return (
           <SelectItem
             className='cursor-pointer px-4 py-2 font-primary text-base focus:bg-neutral-50 focus:text-neutral-950 bt:text-sm'
             key={`${index}-${country.iso2}-${country.dialCode}`}
             value={country.iso2}
           >
-            {`${country.name.toString()} (+${country.dialCode.toString()})`}
-            {/* {parseCountry(c).dialCode.toString()} */}
+            {`${localizedCountryName} (+${country.dialCode.toString()})`}
           </SelectItem>
         )
       })}
@@ -74,7 +100,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
         }}
         value={phoneInput.country.iso2}
       >
-        <SelectTrigger className='h-14 w-24 cursor-pointer rounded-none border-b border-white text-lg font-[300] text-tangerine-flake placeholder:text-tangerine-flake'>
+        <SelectTrigger className='h-14 w-24 cursor-pointer rounded-none border-b border-white text-lg font-[300] text-white/90 placeholder:text-white/90'>
           <SelectValue placeholder='Code'>
             +{phoneInput.country.dialCode}
           </SelectValue>

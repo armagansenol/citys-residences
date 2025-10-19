@@ -83,7 +83,7 @@ export const MultiSelectCheckboxes = forwardRef<
                   'flex h-24 w-24 flex-shrink-0 cursor-pointer flex-col items-center justify-between rounded-lg px-1 py-4 transition-all duration-200',
                   {
                     'bg-white text-bricky-brick': isSelected,
-                    'border border-tangerine-flake text-white hover:border-bricky-brick-light/80':
+                    'border border-tangerine-flake text-white hover:border-tangerine-flake/40':
                       !isSelected,
                   }
                 )}

@@ -239,7 +239,7 @@ export function ModalContactForm() {
           <div className='absolute left-0 right-0 top-0 flex h-full w-[80vw]'>
             <button
               className={cn(
-                'z-16 absolute left-0 top-2 h-16 w-16 -translate-x-full bg-white p-2 text-bricky-brick lg:top-6',
+                'z-16 absolute left-0 top-20 h-16 w-16 -translate-x-full bg-white p-2 text-bricky-brick',
                 'transition-opacity duration-700 ease-in-out',
                 'flex items-center justify-center',
                 {
