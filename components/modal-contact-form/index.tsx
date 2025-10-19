@@ -1,109 +1,131 @@
-"use client"
+'use client'
 
-import s from "./modal-contact-form.module.css"
+import s from './modal-contact-form.module.css'
 
-import { cn } from "@/lib/utils"
-import { useGSAP } from "@gsap/react"
-import { useLenis } from "lenis/react"
-import { ChevronRight } from "lucide-react"
-import { useTranslations } from "next-intl"
-import { useEffect, useRef, useState } from "react"
+import { cn } from '@/lib/utils'
+import { useGSAP } from '@gsap/react'
+import { ChevronRight } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { useRef, useState } from 'react'
 
-import { ContactForm } from "@/components/form-contact"
-import { gsap } from "@/components/gsap"
-import { ScrollableBox } from "@/components/utility/scrollable-box"
-import { useEsc } from "@/hooks/useEsc"
-import { useVisibilityStore } from "@/lib/store/visibility"
-import { FormTranslations } from "@/types"
+import { ContactForm } from '@/components/form-contact'
+import { gsap } from '@/components/gsap'
+import { ScrollableBox } from '@/components/utility/scrollable-box'
+import { useEsc } from '@/hooks/useEsc'
+import { FormTranslations } from '@/types'
+import { useLenis } from 'lenis/react'
 
 export function ModalContactForm() {
-  const stickyBadgeRef = useRef<HTMLDivElement>(null)
-  const [open, setOpen] = useState(false)
-
-  const bgRef = useRef<HTMLDivElement>(null)
+  const stickyBadgeRef = useRef<HTMLButtonElement>(null)
+  const overlayRef = useRef<HTMLButtonElement>(null)
   const formRef = useRef<HTMLDivElement>(null)
-  const t = useTranslations("contact")
-  const commonT = useTranslations("common")
+
+  const t = useTranslations('contact')
+  const commonT = useTranslations('common')
   const lenis = useLenis()
+  const [open, setOpen] = useState(false)
 
   const formTranslations: FormTranslations = {
     inputs: {
       name: {
-        placeholder: t("form.inputs.name.placeholder"),
-        errors: { required: t("form.inputs.name.errors.required") },
+        label: t('form.inputs.name.label'),
+        placeholder: t('form.inputs.name.placeholder'),
+        errors: { required: t('form.inputs.name.errors.required') },
       },
       surname: {
-        placeholder: t("form.inputs.surname.placeholder"),
-        errors: { required: t("form.inputs.surname.errors.required") },
+        label: t('form.inputs.surname.label'),
+        placeholder: t('form.inputs.surname.placeholder'),
+        errors: { required: t('form.inputs.surname.errors.required') },
       },
       phone: {
-        placeholder: t("form.inputs.phone.placeholder"),
+        placeholder: t('form.inputs.phone.placeholder'),
+        label: t('form.inputs.phone.label'),
         errors: {
-          min: t("form.inputs.phone.errors.min"),
-          max: t("form.inputs.phone.errors.max"),
-          required: t("form.inputs.phone.errors.required"),
+          min: t('form.inputs.phone.errors.min'),
+          max: t('form.inputs.phone.errors.max'),
+          required: t('form.inputs.phone.errors.required'),
         },
       },
       email: {
-        placeholder: t("form.inputs.email.placeholder"),
+        label: t('form.inputs.email.label'),
+        placeholder: t('form.inputs.email.placeholder'),
         errors: {
-          required: t("form.inputs.email.errors.required"),
-          email: t("form.inputs.email.errors.email"),
+          required: t('form.inputs.email.errors.required'),
+          email: t('form.inputs.email.errors.email'),
         },
       },
       residenceType: {
-        placeholder: t("form.inputs.residenceType.placeholder"),
+        label: t('form.inputs.residenceType.label'),
+        placeholder: t('form.inputs.residenceType.placeholder'),
         errors: {
-          required: t("form.inputs.residenceType.errors.required"),
+          required: t('form.inputs.residenceType.errors.required'),
         },
       },
       howDidYouHearAboutUs: {
-        placeholder: t("form.inputs.howDidYouHearAboutUs.placeholder"),
+        label: t('form.inputs.howDidYouHearAboutUs.label'),
+        placeholder: t('form.inputs.howDidYouHearAboutUs.placeholder'),
         errors: {
-          required: t("form.inputs.howDidYouHearAboutUs.errors.required"),
+          required: t('form.inputs.howDidYouHearAboutUs.errors.required'),
         },
         options: {
-          reference: t("form.inputs.howDidYouHearAboutUs.options.reference"),
-          projectVisit: t("form.inputs.howDidYouHearAboutUs.options.projectVisit"),
-          internetSocialMedia: t("form.inputs.howDidYouHearAboutUs.options.internetSocialMedia"),
-          billboard: t("form.inputs.howDidYouHearAboutUs.options.billboard"),
-          newspaperMagazine: t("form.inputs.howDidYouHearAboutUs.options.newspaperMagazine"),
+          reference: t('form.inputs.howDidYouHearAboutUs.options.reference'),
+          projectVisit: t(
+            'form.inputs.howDidYouHearAboutUs.options.projectVisit'
+          ),
+          internetSocialMedia: t(
+            'form.inputs.howDidYouHearAboutUs.options.internetSocialMedia'
+          ),
+          billboard: t('form.inputs.howDidYouHearAboutUs.options.billboard'),
+          newspaperMagazine: t(
+            'form.inputs.howDidYouHearAboutUs.options.newspaperMagazine'
+          ),
         },
       },
-      message: { placeholder: t("form.inputs.message.placeholder") },
-      consent: {
-        placeholder: "", // This is handled by ConsentCheckboxes component with t.rich()
+      contactPreference: {
+        placeholder: t('form.inputs.contactPreference.placeholder'),
         errors: {
-          required: t("form.inputs.consent.errors.required"),
+          required: t('form.inputs.contactPreference.errors.required'),
+        },
+      },
+      contactPreferenceOptions: {
+        sms: t('form.inputs.contactPreferenceOptions.sms'),
+        email: t('form.inputs.contactPreferenceOptions.email'),
+        phone: t('form.inputs.contactPreferenceOptions.phone'),
+      },
+      message: { placeholder: t('form.inputs.message.placeholder') },
+      consent: {
+        placeholder: '', // This is handled by ConsentCheckboxes component with t.rich()
+        errors: {
+          required: t('form.inputs.consent.errors.required'),
         },
       },
       consentElectronicMessage: {
-        placeholder: "", // This is handled by ConsentCheckboxes component with t.rich()
+        placeholder: '', // This is handled by ConsentCheckboxes component with t.rich()
         errors: {
-          required: t("form.inputs.consentElectronicMessage.errors.required"),
+          required: t('form.inputs.consentElectronicMessage.errors.required'),
         },
       },
       consentSms: {
-        placeholder: t("form.inputs.consentSms.placeholder"),
+        placeholder: t('form.inputs.consentSms.placeholder'),
       },
       consentEmail: {
-        placeholder: t("form.inputs.consentEmail.placeholder"),
+        placeholder: t('form.inputs.consentEmail.placeholder'),
       },
       consentPhone: {
-        placeholder: t("form.inputs.consentPhone.placeholder"),
+        placeholder: t('form.inputs.consentPhone.placeholder'),
       },
     },
     submit: {
-      default: t("form.submit.default"),
-      sending: t("form.submit.sending"),
+      default: t('form.submit.default'),
+      sending: t('form.submit.sending'),
     },
     messages: {
-      error: t("form.messages.error"),
-      success: t("form.messages.success"),
+      error: t('form.messages.error'),
+      success: t('form.messages.success'),
       successDialog: {
-        title: t("form.messages.successDialog.title"),
-        description: t("form.messages.successDialog.description"),
-        button: t("form.messages.successDialog.button"),
+        title: t('form.messages.successDialog.title'),
+        description: t('form.messages.successDialog.description'),
+        button: t('form.messages.successDialog.button'),
       },
     },
   }
@@ -120,24 +142,24 @@ export function ModalContactForm() {
 
       menuTL.current
         ?.fromTo(
-          bgRef.current,
+          overlayRef.current,
           { opacity: 0 },
           {
             opacity: 1,
             duration: 0.4,
-            ease: "power2.inOut",
+            ease: 'power2.inOut',
           },
-          "s"
+          's'
         )
         .fromTo(
           formRef.current,
-          { width: "0" },
+          { width: '0' },
           {
-            width: "80vw",
+            width: '80vw',
             duration: 0.8,
-            ease: "expo.inOut",
+            ease: 'expo.inOut',
           },
-          "s"
+          's'
         )
     },
     {
@@ -147,25 +169,27 @@ export function ModalContactForm() {
 
   useGSAP(
     () => {
-      const aloTech = document.querySelector("#Click2ConnectPackageFrame") as HTMLIFrameElement
+      // const aloTech = document.querySelector(
+      //   '#Click2ConnectPackageFrame'
+      // ) as HTMLIFrameElement
 
       if (open) {
         menuTL.current?.play()
-        if (aloTech) {
-          gsap.to(aloTech, {
-            opacity: 0,
-            duration: 0.3,
-          })
-        }
+        // if (aloTech) {
+        //   gsap.to(aloTech, {
+        //     opacity: 0,
+        //     duration: 0.3,
+        //   })
+        // }
         lenis?.stop()
       } else {
         menuTL.current?.reverse().then(() => {
-          if (aloTech) {
-            gsap.to(aloTech, {
-              opacity: 1,
-              duration: 0.3,
-            })
-          }
+          // if (aloTech) {
+          //   gsap.to(aloTech, {
+          //     opacity: 1,
+          //     duration: 0.3,
+          //   })
+          // }
         })
         lenis?.start()
       }
@@ -175,74 +199,96 @@ export function ModalContactForm() {
     }
   )
 
-  const { isAloTechVisible } = useVisibilityStore()
+  // const { isAloTechVisible } = useVisibilityStore()
 
-  useEffect(() => {
-    if (!stickyBadgeRef.current) return
+  // useEffect(() => {
+  //   if (!stickyBadgeRef.current) return
 
-    stickyBadgeRef.current.style.transition = "opacity 200ms ease"
+  //   stickyBadgeRef.current.style.transition = 'opacity 200ms ease'
 
-    stickyBadgeRef.current.style.setProperty("opacity", isAloTechVisible ? "1" : "0")
-    stickyBadgeRef.current.style.setProperty("pointer-events", isAloTechVisible ? "auto" : "none")
-  }, [isAloTechVisible])
+  //   stickyBadgeRef.current.style.setProperty(
+  //     'opacity',
+  //     isAloTechVisible ? '1' : '0'
+  //   )
+  //   stickyBadgeRef.current.style.setProperty(
+  //     'pointer-events',
+  //     isAloTechVisible ? 'auto' : 'none'
+  //   )
+  // }, [isAloTechVisible])
 
   return (
     <>
-      <div
-        className={cn(s.bg, "fixed top-0 left-0 w-full h-full blur-bg opacity-0 hidden lg:block", {
-          "pointer-events-none": !open,
-        })}
-        ref={bgRef}
+      <button
+        className={cn(
+          s.bg,
+          'blur-bg fixed left-0 top-0 z-[var(--z-modal-background)] hidden h-full w-full opacity-0 lg:block',
+          {
+            'pointer-events-none': !open,
+          }
+        )}
+        ref={overlayRef}
         onClick={() => setOpen(false)}
-      ></div>
+        type='button'
+      ></button>
       <div className={s.form}>
         <div
-          className='relative box bg-gradient-appointment h-full w-0'
-          onClick={(e) => e.stopPropagation()}
+          className='box relative h-full w-0 bg-gradient-appointment'
+          onClick={e => e.stopPropagation()}
           ref={formRef}
         >
-          <div className='absolute top-0 left-0 w-[80vw] h-full flex right-0'>
+          <div className='absolute left-0 right-0 top-0 flex h-full w-[80vw]'>
             <button
               className={cn(
-                s.close,
-                "absolute top-2 lg:top-6 left-0 w-16 h-16 z-16 -translate-x-full bg-white p-2 text-bricky-brick",
-                "opacity-0 transition-opacity duration-700 ease-in-out",
-                "flex items-center justify-center",
+                'z-16 absolute left-0 top-2 h-16 w-16 -translate-x-full bg-white p-2 text-bricky-brick lg:top-6',
+                'transition-opacity duration-700 ease-in-out',
+                'flex items-center justify-center',
                 {
-                  "opacity-100": open,
+                  'opacity-0': !open,
+                  'opacity-100': open,
                 }
               )}
               onClick={() => setOpen(false)}
               type='button'
             >
-              <ChevronRight className='w-8 h-8' />
+              <ChevronRight className='h-8 w-8' />
               <span className='sr-only'>Close</span>
             </button>
-            <div
+            <button
               className={cn(
-                "absolute top-1/2 left-0 bottom-0 -translate-x-full -translate-y-1/2",
-                "h-72 w-16",
-                "font-primary font-[500] text-white text-lg xl:text-xl bg-gradient-orange tracking-[0.2em]",
-                "inline-flex items-center justify-center",
-                "cursor-pointer"
+                'group',
+                'h-72 w-32',
+                'absolute bottom-0 left-0 top-1/2 -translate-x-full -translate-y-1/2',
+                'font-primary text-lg font-[500] tracking-[0.2em] text-white xl:text-xl',
+                'flex cursor-pointer items-center justify-center',
+                'relative overflow-hidden bg-gradient-button-hover transition-all duration-300',
+                'before:absolute before:inset-0 before:bg-gradient-button before:opacity-0',
+                'before:transition-opacity before:duration-300 hover:before:opacity-100',
+                'transition-opacity duration-700 ease-in-out',
+                {
+                  'opacity-0': open,
+                  'opacity-100': !open,
+                }
               )}
-              onClick={() => setOpen((prev) => !prev)}
+              onClick={() => setOpen(prev => !prev)}
               ref={stickyBadgeRef}
+              type='button'
             >
-              <span className='block xl:-rotate-90 whitespace-nowrap pointer-events-none'>{commonT("inquiry")}</span>
-            </div>
-            <div className='h-full flex flex-col justify-center'>
+              <span className='pointer-events-none relative z-10 block whitespace-nowrap xl:-rotate-90'>
+                {commonT('inquiry')}
+              </span>
+            </button>
+            <div className='flex h-full flex-col justify-center'>
               <ScrollableBox className='flex flex-grow-0'>
-                <div className='px-4 lg:px-8 py-14 lg:py-8 space-y-8 relative'>
+                <div className='relative flex h-full flex-col justify-center gap-12 px-16 py-8'>
                   <p
                     className={cn(
-                      "font-primary font-[300] text-white max-w-[90%]",
-                      "text-xl lg:text-xl xl:text-xl 2xl:text-xl",
-                      "leading-snug lg:leading-snug xl:leading-snug 2xl:leading-snug",
-                      "max-w-lg"
+                      'max-w-[90%] font-primary font-[300] text-white',
+                      'text-xl lg:text-xl xl:text-xl 2xl:text-2xl',
+                      'leading-snug lg:leading-snug xl:leading-snug 2xl:leading-snug',
+                      'max-w-xl'
                     )}
                   >
-                    {t.rich("description", {
+                    {t.rich('description', {
                       br: () => <br className='hidden lg:block' />,
                     })}
                   </p>

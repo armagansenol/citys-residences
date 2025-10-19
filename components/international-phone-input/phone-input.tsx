@@ -1,9 +1,19 @@
-import React, { useEffect, useRef } from "react"
-import { defaultCountries, parseCountry, usePhoneInput } from "react-international-phone"
+import React, { useEffect, useRef } from 'react'
+import {
+  defaultCountries,
+  parseCountry,
+  usePhoneInput,
+} from 'react-international-phone'
 
-import { Select, SelectContent, SelectGroup, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { SelectItem } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { SelectItem } from '@/components/ui/select'
+import { Input } from '@/components/ui/input'
 
 interface PhoneInputProps {
   value: string
@@ -11,9 +21,13 @@ interface PhoneInputProps {
   phoneInputRef?: React.Ref<HTMLInputElement>
 }
 
-export const PhoneInput: React.FC<PhoneInputProps> = ({ value, onChange, phoneInputRef }) => {
+export const PhoneInput: React.FC<PhoneInputProps> = ({
+  value,
+  onChange,
+  phoneInputRef,
+}) => {
   const phoneInput = usePhoneInput({
-    defaultCountry: "tr",
+    defaultCountry: 'tr',
     disableDialCodeAndPrefix: true,
     value,
     onChange: (data: { phone: string }) => {
@@ -35,7 +49,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({ value, onChange, phoneIn
         const country = parseCountry(c)
         return (
           <SelectItem
-            className='focus:bg-neutral-50 focus:text-neutral-950 cursor-pointer px-4 py-2 font-primary text-base bt:text-sm'
+            className='cursor-pointer px-4 py-2 font-primary text-base focus:bg-neutral-50 focus:text-neutral-950 bt:text-sm'
             key={`${index}-${country.iso2}-${country.dialCode}`}
             value={country.iso2}
           >
@@ -50,24 +64,31 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({ value, onChange, phoneIn
   return (
     <div className='flex items-center'>
       <Select
-        onValueChange={(value) => {
-          const selectedCountry = defaultCountries.find((c) => parseCountry(c).iso2 === value)
+        onValueChange={value => {
+          const selectedCountry = defaultCountries.find(
+            c => parseCountry(c).iso2 === value
+          )
           if (selectedCountry) {
             phoneInput.setCountry(selectedCountry[1].toLowerCase())
           }
         }}
         value={phoneInput.country.iso2}
       >
-        <SelectTrigger className='w-24 h-14 rounded-none text-white font-medium cursor-pointer text-lg border-b border-white'>
-          <SelectValue placeholder='Code'>+{phoneInput.country.dialCode}</SelectValue>
+        <SelectTrigger className='h-14 w-24 cursor-pointer rounded-none border-b border-white text-lg font-[300] text-tangerine-flake placeholder:text-tangerine-flake'>
+          <SelectValue placeholder='Code'>
+            +{phoneInput.country.dialCode}
+          </SelectValue>
         </SelectTrigger>
-        <SelectContent className='z-[500] bg-white text-neutral-950 border border-white rounded-md'>
+        <SelectContent className='z-[500] rounded-none border border-white bg-white text-neutral-950'>
           <SelectGroup>{countryOptions}</SelectGroup>
         </SelectContent>
       </Select>
       <Input
-        className='border-white border-b rounded-none'
-        placeholder={phoneInput.country.format?.toString().replace(/\S/g, "X") || "XXXXXXXXXX"}
+        className='h-14 rounded-none border-b border-white text-lg text-white placeholder:text-lg placeholder:text-tangerine-flake'
+        placeholder={
+          phoneInput.country.format?.toString().replace(/\S/g, 'X') ||
+          'XXXXXXXXXX'
+        }
         type='tel'
         value={phoneInput.inputValue}
         onChange={phoneInput.handlePhoneValueChange}
