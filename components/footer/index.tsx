@@ -68,10 +68,10 @@ export function Footer() {
       className={cn('pb-16 pt-32', 'relative bg-gradient-appointment-reversed')}
       ref={footerRef}
     >
-      <div
+      {/* <div
         className="pointer-events-none absolute inset-0 bg-[url('/svg/bg-footer.svg')] bg-cover bg-center"
         style={{ mixBlendMode: 'multiply' }}
-      />
+      /> */}
       <div className='section-container items-between relative z-10 grid h-[50vh] grid-cols-24'>
         <div className='col-span-22 col-start-3'>
           <div className='flex items-center justify-between'>

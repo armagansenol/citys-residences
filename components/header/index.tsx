@@ -1,23 +1,27 @@
-"use client"
+'use client'
 
-import { Link, Link as LocalizedLink, type Locale } from "@/i18n/routing"
-import { getNavigationItems, initialScroll, NavigationMetadata } from "@/lib/constants"
-import { cn } from "@/lib/utils"
-import Lenis from "lenis"
-import { useLenis } from "lenis/react"
-import { animate, stagger } from "motion/react"
-import { useLocale, useTranslations } from "next-intl"
-import { usePathname } from "next/navigation"
-import { useEffect, useRef, useState } from "react"
+import { Link, Link as LocalizedLink, type Locale } from '@/i18n/routing'
+import {
+  getNavigationItems,
+  initialScroll,
+  NavigationMetadata,
+} from '@/lib/constants'
+import { cn } from '@/lib/utils'
+import Lenis from 'lenis'
+import { useLenis } from 'lenis/react'
+import { animate, stagger } from 'motion/react'
+import { useLocale, useTranslations } from 'next-intl'
+import { usePathname } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
 
-import { Logo } from "@/components/icons"
-import { LocaleSwitcher } from "@/components/locale-switcher"
-import { Menu } from "@/components/menu"
-import { MenuX } from "@/components/menu-x"
-import { useScrollStore } from "@/lib/store/scroll"
-import { useSectionsMenuStore } from "@/lib/store/sections-menu"
-import { colors } from "@/styles/config.mjs"
-import { ArrowLeft } from "lucide-react"
+import { Logo } from '@/components/icons'
+import { LocaleSwitcher } from '@/components/locale-switcher'
+// import { Menu } from "@/components/menu"
+import { MenuX } from '@/components/menu-x'
+import { useScrollStore } from '@/lib/store/scroll'
+import { useSectionsMenuStore } from '@/lib/store/sections-menu'
+import { colors } from '@/styles/config.mjs'
+import { ArrowLeft } from 'lucide-react'
 
 export function Header({ nonHome = false }: { nonHome?: boolean }) {
   const lenis = useLenis()
@@ -39,7 +43,7 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
     atTop: true,
   })
   const pathname = usePathname()
-  const t = useTranslations("common")
+  const t = useTranslations('common')
   const locale = useLocale()
   const sectionsRef = useRef<(HTMLAnchorElement | null)[]>([])
 
@@ -52,21 +56,34 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
 
     if (sectionsRef.current.length === 0) return
 
-    const validElements = sectionsRef.current.filter(Boolean) as HTMLAnchorElement[]
+    const validElements = sectionsRef.current.filter(
+      Boolean
+    ) as HTMLAnchorElement[]
 
     // Don't animate if there are no valid elements
     if (validElements.length === 0) return
 
     if (scrollState.atTop) {
       // Animate out
-      animate(validElements, { opacity: 0, y: -4, pointerEvents: "none" }, { duration: 0.1, delay: stagger(0.05) })
+      animate(
+        validElements,
+        { opacity: 0, y: -4, pointerEvents: 'none' },
+        { duration: 0.1, delay: stagger(0.05) }
+      )
     } else {
       // Animate in with stagger
-      animate(validElements, { opacity: 1, y: 0, pointerEvents: "auto" }, { duration: 0.3, delay: stagger(0.05) })
+      animate(
+        validElements,
+        { opacity: 1, y: 0, pointerEvents: 'auto' },
+        { duration: 0.3, delay: stagger(0.05) }
+      )
     }
   }, [scrollState.atTop, sections.length])
 
-  const navigationItems: NavigationMetadata[] = getNavigationItems(t, locale as Locale)
+  const navigationItems: NavigationMetadata[] = getNavigationItems(
+    t,
+    locale as Locale
+  )
 
   useEffect(() => {
     return menuOpen ? lenis?.stop() : lenis?.start()
@@ -82,9 +99,14 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
 
     const handleEvents = (e: Lenis) => {
       const atTop = Boolean(e.className) && e.actualScroll < 10
-      const hidden = lenis?.direction === 1 && e.actualScroll > window.innerHeight / 2
+      const hidden =
+        lenis?.direction === 1 && e.actualScroll > window.innerHeight / 2
 
-      if (prevDirection !== lenis?.direction || prevAtTop !== atTop || e.actualScroll > window.innerHeight / 2) {
+      if (
+        prevDirection !== lenis?.direction ||
+        prevAtTop !== atTop ||
+        e.actualScroll > window.innerHeight / 2
+      ) {
         prevDirection = lenis?.direction || 0
         prevAtTop = atTop
 
@@ -95,36 +117,39 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
       }
     }
 
-    lenis?.on("scroll", handleEvents)
-    return () => lenis?.off("scroll", handleEvents)
+    lenis?.on('scroll', handleEvents)
+    return () => lenis?.off('scroll', handleEvents)
   }, [lenis])
 
   return (
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-[var(--z-header)] mix-blend-difference",
-          "flex items-stretch section-padding",
-          "transition-all duration-300",
-          "bg-transparent h-[var(--header-height-slim)]"
+          'fixed left-0 right-0 top-0 z-[var(--z-header)] mix-blend-difference',
+          'section-padding flex items-stretch',
+          'transition-all duration-300',
+          'h-[var(--header-height-slim)] bg-transparent'
         )}
       >
-        <div className='flex items-stretch justify-between flex-1 gap-12 z-[var(--z-header-content)] px-4 lg:px-0'>
+        <div className='z-[var(--z-header-content)] flex flex-1 items-stretch justify-between gap-12 px-4 lg:px-0'>
           {Object.values(sections).length > 0 && !scrollState.atTop && (
-            <div className={cn("flex items-stretch gap-8")}>
+            <div className={cn('flex items-stretch gap-8')}>
               {Object.values(sections).map((item, index) => (
                 <div key={item.id} className='group relative flex items-center'>
                   <a
-                    ref={(el) => {
+                    ref={el => {
                       sectionsRef.current[index] = el
                     }}
                     href={`#${item.id}`}
-                    className={cn("font-primary text-black text-base font-regular relative block", {
-                      "opacity-0": scrollState.atTop,
-                      "opacity-100": !scrollState.atTop,
-                      "pointer-events-none": scrollState.atTop,
-                      "pointer-events-auto": !scrollState.atTop,
-                    })}
+                    className={cn(
+                      'font-regular relative block font-primary text-base text-black',
+                      {
+                        'opacity-0': scrollState.atTop,
+                        'opacity-100': !scrollState.atTop,
+                        'pointer-events-none': scrollState.atTop,
+                        'pointer-events-auto': !scrollState.atTop,
+                      }
+                    )}
                   >
                     {item.label}
                   </a>
@@ -137,25 +162,25 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
               <Logo fill={colors.white} />
             </LocalizedLink>
           </div>
-          <div className='flex items-center cursor-pointer gap-5 ml-auto'>
+          <div className='ml-auto flex cursor-pointer items-center gap-5'>
             <LocaleSwitcher theme='dark' />
             {!nonHome ? (
               <button
-                className='flex items-center gap-2 lg:gap-4 cursor-pointer pointer-events-none'
+                className='pointer-events-none flex cursor-pointer items-center gap-2 lg:gap-4'
                 onClick={() => setMenuOpen(!menuOpen)}
                 type='button'
                 aria-expanded={menuOpen}
-                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 data-ignore-click-away
               >
-                <div className='cursor-pointer flex items-center'>
+                <div className='flex cursor-pointer items-center'>
                   <MenuX
                     className='hidden lg:block'
                     isOpen={false}
                     onClick={() => setMenuOpen(!menuOpen)}
                     strokeWidth='2'
                     color={colors.white}
-                    transition={{ type: "spring", stiffness: 260, damping: 40 }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 40 }}
                     width='40'
                     height='12'
                   />
@@ -165,7 +190,7 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
                     onClick={() => setMenuOpen(!menuOpen)}
                     strokeWidth='2'
                     color={colors.white}
-                    transition={{ type: "spring", stiffness: 260, damping: 40 }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 40 }}
                     width='50'
                     height='6'
                   />
@@ -175,23 +200,23 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
               <Link
                 href='/'
                 className={cn(
-                  "font-primary text-white text-xl font-medium",
-                  "relative flex items-center gap-2 lg:gap-2 cursor-pointer",
-                  "transition-colors duration-300",
+                  'font-primary text-xl font-medium text-white',
+                  'relative flex cursor-pointer items-center gap-2 lg:gap-2',
+                  'transition-colors duration-300',
                   {
-                    "text-black": !scrollState.atTop,
-                    "text-white": scrollState.atTop,
+                    'text-black': !scrollState.atTop,
+                    'text-white': scrollState.atTop,
                   }
                 )}
               >
-                <ArrowLeft className='w-6 h-6' />
+                <ArrowLeft className='h-6 w-6' />
                 ANASAYFAYA DÖN
               </Link>
             )}
           </div>
         </div>
       </header>
-      <Menu items={navigationItems} />
+      {/* <Menu items={navigationItems} /> */}
     </>
   )
 }
