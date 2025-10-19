@@ -34,7 +34,7 @@ export default async function Page({
         id={navigationConfig['/']?.id}
       >
         <ScaleOut>
-          <div className='pointer-events-none relative h-full min-h-svh w-screen bg-[url("/img/poster-hero.jpg")] bg-cover bg-center object-cover'>
+          <div className='pointer-events-none relative h-[105vh] w-screen bg-[url("/img/poster-hero.jpg")] bg-cover bg-center object-cover'>
             <WistiaPlayerWrapper
               aspect={16 / 9}
               mediaId='e2tew1zhxj'
@@ -54,24 +54,6 @@ export default async function Page({
               customPoster={heroVideoPoster.src}
               posterPriority={true}
             />
-            {/* <div className='absolute left-1/2 top-1/2 h-auto w-full -translate-x-1/2 -translate-y-1/2'>
-              <WistiaPlayer
-                mediaId='e2tew1zhxj'
-                muted
-                autoplay
-                preload='auto'
-                qualityMin={1080}
-                swatch={false}
-                bigPlayButton={false}
-                silentAutoplay='allow'
-                endVideoBehavior='loop'
-                controlsVisibleOnLoad={false}
-                playBarControl={false}
-                volumeControl={false}
-                settingsControl={false}
-                transparentLetterbox={true}
-              />
-            </div> */}
           </div>
         </ScaleOut>
         <div className='absolute left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2'>
