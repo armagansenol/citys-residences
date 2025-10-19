@@ -18,8 +18,8 @@
   }
 
   @include-media ('desktop') {
-    --header-height: desktop-vw(60px);
-    --header-height-slim: desktop-vw(116px);
+    --header-height: desktop-vw(80px);
+    --header-height-slim: desktop-vw(120px);
   }
 
   --z-content: z-stack(10000);
@@ -32,13 +32,13 @@
   --z-menu-submenu: z-stack();
   --z-menu-close-button: z-stack();
   --z-popup: z-stack();
+  --z-sticky-menu: z-stack();
+  --z-alotech: z-stack();
   --z-modal-background: z-stack();
   --z-modal: z-stack();
   --z-radix-popper: z-stack();
   --z-preloader: z-stack();
   --z-gsap-markers: z-stack();
-  --z-sticky-menu: z-stack();
-  --z-alotech: z-stack();
   --z-test-page: z-stack();
 }
 
@@ -111,9 +111,10 @@ body {
 }
 
 .blur-bg-white-2 {
-  background: hsla(0, 0%, 98%, 0.4);
-  backdrop-filter: blur(16px);
-  mask-image: hsla(0, 0%, 98%, 0.1);
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(200px);
 }
 
 #Click2ConnectPackageFrame {
@@ -171,4 +172,25 @@ body {
 
 .cw-container {
   z-index: var(--z-alotech) !important;
+}
+
+.border-gradient-white {
+  border: 1px solid transparent;
+  border-image-source: linear-gradient(
+    132.66deg,
+    #ffffff -46.82%,
+    rgba(255, 255, 255, 0) 47.43%
+  );
+  border-image-slice: 1;
+}
+
+/* SVG color transition utilities */
+.svg-icon-white {
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+.group:hover .svg-icon-white {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(85%) saturate(1916%)
+    hue-rotate(344deg) brightness(96%) contrast(93%);
 }

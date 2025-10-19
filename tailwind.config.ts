@@ -229,6 +229,9 @@ const config: Config = {
         "gradient-appointment": "linear-gradient(135deg, #E65A2E 0%, #99170F 50.29%, #320201 100.58%)",
         "gradient-appointment-reversed": "linear-gradient(-45deg, #E65A2E 0%, #99170F 50.29%, #320201 100.58%)",
         "gradient-orange": "linear-gradient(315deg, #FA8773 0%, #E1533B 100%)",
+        "gradient-button": "linear-gradient(313.15deg, #E65A2E 0%, #99170F 100%)",
+        "gradient-button-hover":
+          "linear-gradient(313.15deg, #F57C67 3.02%, #E0533A 100%), linear-gradient(150.88deg, #E65A2E -48.76%, #99170F 135.57%)",
       },
     },
   },

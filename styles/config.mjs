@@ -19,6 +19,7 @@ const colors = {
   "verve-violet": "#934D7D",
   "trapped-darkness": "#0F1A2C",
   "tangerine-flake": "#E57C5C",
+  "bleeding-crimson": "#99170F",
 }
 
 const themes = {
