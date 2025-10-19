@@ -23,18 +23,21 @@
             "inputs": {
                 "name": {
                     "placeholder": "Name",
+                    "label": "Name",
                     "errors": {
                         "required": "Required field"
                     }
                 },
                 "surname": {
                     "placeholder": "Surname",
+                    "label": "Surname",
                     "errors": {
                         "required": "Required field"
                     }
                 },
                 "phone": {
                     "placeholder": "Telephone Number",
+                    "label": "Telephone Number",
                     "errors": {
                         "required": "Please enter a valid telephone number",
                         "min": "Telephone number must be at least 8 characters long",
@@ -43,6 +46,7 @@
                 },
                 "email": {
                     "placeholder": "Email Address",
+                    "label": "Email Address",
                     "errors": {
                         "required": "Required field",
                         "email": "Please enter a valid email address"
@@ -50,12 +54,14 @@
                 },
                 "residenceType": {
                     "placeholder": "Preferred Residence Type",
+                    "label": "Preferred Residence Type",
                     "errors": {
                         "required": "Required field"
                     }
                 },
                 "howDidYouHearAboutUs": {
                     "placeholder": "How did you hear about us?",
+                    "label": "How did you hear about us?",
                     "errors": {
                         "required": "Required field"
                     },
@@ -66,6 +72,17 @@
                         "billboard": "Billboard",
                         "newspaperMagazine": "Newspaper / Magazine"
                     }
+                },
+                "contactPreference": {
+                    "placeholder": "Contact Preference",
+                    "errors": {
+                        "required": "Required field"
+                    }
+                },
+                "contactPreferenceOptions": {
+                    "sms": "SMS",
+                    "email": "Email",
+                    "phone": "Phone"
                 },
                 "message": {
                     "placeholder": "Message"

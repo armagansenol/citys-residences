@@ -22,19 +22,22 @@
         "form": {
             "inputs": {
                 "name": {
-                    "placeholder": "Adınız",
+                    "label": "Adınız*",
+                    "placeholder": "Adınızı yazınız",
                     "errors": {
                         "required": "Zorunlu alan"
                     }
                 },
                 "surname": {
-                    "placeholder": "Soyadınız",
+                    "label": "Soyadınız*",
+                    "placeholder": "Soyadınızı yazınız",
                     "errors": {
                         "required": "Zorunlu alan"
                     }
                 },
                 "phone": {
-                    "placeholder": "Telefon Numaranız",
+                    "label": "Telefon Numaranız*",
+                    "placeholder": "Telefon Numaranız*",
                     "errors": {
                         "required": "Lütfen geçerli bir telefon numarası giriniz",
                         "min": "Telefon numarası en az 8 karakter olmalıdır",
@@ -42,32 +45,48 @@
                     }
                 },
                 "email": {
-                    "placeholder": "E-Posta Adresiniz",
+                    "label": "E-posta Adresiniz*",
+                    "placeholder": "Mail adresinizi yazınız",
                     "errors": {
                         "required": "Zorunlu alan",
                         "email": "Lütfen geçerli bir e-posta adresi giriniz"
                     }
                 },
                 "residenceType": {
-                    "placeholder": "İlgilendiğiniz konut türü",
+                    "label": "İlgilendiğiniz konut tipi*",
+                    "placeholder": "İlgilendiğiniz konut tipi",
                     "errors": {
                         "required": "Zorunlu alan"
                     }
                 },
                 "howDidYouHearAboutUs": {
+                    "label": "Bizi Nereden Duydunuz?*",
                     "placeholder": "Bizi Nereden Duydunuz?",
                     "errors": {
                         "required": "Zorunlu alan"
                     },
                     "options": {
                         "reference": "Referans",
-                        "projectVisit": "Avm / Proje Alanı Ziyaret",
+                        "projectVisit": "Avm / Proje Alanı",
                         "internetSocialMedia": "İnternet / Sosyal Medya",
                         "billboard": "Billboard",
                         "newspaperMagazine": "Gazete / Dergi"
                     }
                 },
+                "contactPreference": {
+                    "label": "İletişim Tercihiniz*",
+                    "placeholder": "İletişim Tercihiniz",
+                    "errors": {
+                        "required": "Zorunlu alan"
+                    }
+                },
+                "contactPreferenceOptions": {
+                    "sms": "SMS",
+                    "email": "E-posta",
+                    "phone": "Telefon"
+                },
                 "message": {
+                    "label": "Mesajınız*",
                     "placeholder": "Mesajınız"
                 },
                 "consent": {
