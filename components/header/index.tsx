@@ -141,7 +141,7 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
             <LocaleSwitcher theme='dark' />
             {!nonHome ? (
               <button
-                className='flex items-center gap-2 lg:gap-4 cursor-pointer'
+                className='flex items-center gap-2 lg:gap-4 cursor-pointer pointer-events-none'
                 onClick={() => setMenuOpen(!menuOpen)}
                 type='button'
                 aria-expanded={menuOpen}
