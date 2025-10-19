@@ -41,7 +41,10 @@ export function WistiaPlayerWrapper(props: WistiaPlayerWrapperProps) {
 
   return (
     <div
-      className={cn('relative h-full w-full overflow-hidden', className)}
+      className={cn(
+        'relative h-full w-full overflow-hidden bg-black',
+        className
+      )}
       aria-label='Video player'
     >
       {/* Wistia Player */}
