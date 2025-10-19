@@ -45,7 +45,6 @@ export function VideoWithText(props: VideoWithTextProps) {
           volumeControl={false}
           settingsControl={false}
           transparentLetterbox={true}
-          lazy
           customPoster={customPoster}
           containerHeight='100%'
         />
