@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils'
 import Lenis from 'lenis'
 import { useLenis } from 'lenis/react'
 import { animate, stagger } from 'motion/react'
-import { useLocale, useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
@@ -39,8 +38,8 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
     atTop: true,
   })
   const pathname = usePathname()
-  const t = useTranslations('common')
-  const locale = useLocale()
+  // const t = useTranslations('common')
+  // const locale = useLocale()
   const sectionsRef = useRef<(HTMLAnchorElement | null)[]>([])
 
   useEffect(() => {
