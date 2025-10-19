@@ -20,62 +20,16 @@ import { WebChat } from '@/components/web-chat'
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-})
-
-const halenoir = localFont({
-  src: [
-    {
-      path: './fonts/Halenoir/Halenoir-Bold.woff',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Halenoir/Halenoir-Medium.woff',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Halenoir/Halenoir-Regular.woff',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Halenoir/Halenoir-Light.woff',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Halenoir/Halenoir-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Halenoir/Halenoir-Medium.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Halenoir/Halenoir-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './fonts/Halenoir/Halenoir-Light.woff2',
-      weight: '300',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-halenoir',
+  weight: ['500'],
 })
 
 const suisseIntl = localFont({
   src: [
-    {
-      path: './fonts/suisse-intl/SuisseIntl-UltraLight.woff2',
-      weight: '100',
-      style: 'normal',
-    },
+    // {
+    //   path: './fonts/suisse-intl/SuisseIntl-UltraLight.woff2',
+    //   weight: '100',
+    //   style: 'normal',
+    // },
     {
       path: './fonts/suisse-intl/SuisseIntl-Thin.woff2',
       weight: '200',
@@ -86,11 +40,11 @@ const suisseIntl = localFont({
       weight: '300',
       style: 'normal',
     },
-    {
-      path: './fonts/suisse-intl/SuisseIntl-Book.woff2',
-      weight: '350',
-      style: 'normal',
-    },
+    // {
+    //   path: './fonts/suisse-intl/SuisseIntl-Book.woff2',
+    //   weight: '350',
+    //   style: 'normal',
+    // },
     {
       path: './fonts/suisse-intl/SuisseIntl-Regular.woff2',
       weight: '400',
@@ -111,59 +65,13 @@ const suisseIntl = localFont({
       weight: '700',
       style: 'normal',
     },
-    {
-      path: './fonts/suisse-intl/SuisseIntl-Black.woff2',
-      weight: '900',
-      style: 'normal',
-    },
+    // {
+    //   path: './fonts/suisse-intl/SuisseIntl-Black.woff2',
+    //   weight: '900',
+    //   style: 'normal',
+    // },
   ],
   variable: '--font-suisse-intl',
-})
-
-const aktivGrotesk = localFont({
-  src: [
-    {
-      path: './fonts/aktiv-grotesk/AktivGrotesk-Hairline.woff2',
-      weight: '100',
-      style: 'normal',
-    },
-    {
-      path: './fonts/aktiv-grotesk/AktivGrotesk-Thin.woff2',
-      weight: '200',
-      style: 'normal',
-    },
-    {
-      path: './fonts/aktiv-grotesk/AktivGrotesk-Light.woff2',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: './fonts/aktiv-grotesk/AktivGrotesk-Regular.woff2',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './fonts/aktiv-grotesk/AktivGrotesk-Medium.woff2',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: './fonts/aktiv-grotesk/AktivGrotesk-Bold.woff2',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: './fonts/aktiv-grotesk/AktivGrotesk-XBold.woff2',
-      weight: '800',
-      style: 'normal',
-    },
-    {
-      path: './fonts/aktiv-grotesk/AktivGrotesk-Black.woff2',
-      weight: '900',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-aktiv-grotesk',
 })
 
 const copperplate = localFont({
@@ -242,7 +150,7 @@ export default async function LocaleLayout({
         {/* <AlotechWidget /> */}
       </head>
       <body
-        className={`${halenoir.variable} ${montserrat.variable} ${suisseIntl.variable} ${aktivGrotesk.variable} ${copperplate.variable} antialiased`}
+        className={`${montserrat.variable} ${suisseIntl.variable} ${copperplate.variable} antialiased`}
       >
         <RealViewport />
         {/* <Preloader /> */}

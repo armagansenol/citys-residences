@@ -16,6 +16,7 @@ import { FormTranslations } from '@/types'
 import heroVideoPoster from '@/public/img/poster-hero.jpg'
 import liveMorePoster from '@/public/img/thumbnail-live-more.jpg'
 import livePeacefullyPoster from '@/public/img/thumbnail-live-peacefully.jpg'
+import { Image } from '@/components/image'
 
 export default async function Page({
   params: { locale },
@@ -76,7 +77,7 @@ export default async function Page({
             </span>
             <span
               className={cn(
-                'text-center font-copperplate font-semibold text-white',
+                'text-center font-copperplate font-[700] text-white',
                 'text-[44px] lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl',
                 'block translate-y-1 leading-[0]'
               )}
@@ -109,23 +110,24 @@ export default async function Page({
               </article>
               <FadeInOnScroll delay={0.5}>
                 <article className='relative h-16 w-screen lg:h-44 xl:h-32'>
-                  <Img
+                  <Image
                     src='/img/sanati.png'
                     alt='Sanatı'
                     fill
                     className='object-contain'
-                    sizes='100vw'
+                    desktopSize='40vw'
+                    mobileSize='100vw'
                     loading='lazy'
                   />
                   <span className='sr-only'>{t('section1.title2')}</span>
                 </article>
               </FadeInOnScroll>
             </div>
-            <div className='flex w-80 flex-shrink-0'>
+            <div className='flex w-96 flex-shrink-0'>
               <article
                 className={cn(
-                  'text-left font-montserrat font-[300] text-trapped-darkness',
-                  'text-[0.8rem] lg:text-2xl',
+                  'text-left font-primary font-[200] text-trapped-darkness',
+                  'text-[0.8rem] lg:text-3xl',
                   'leading-relaxed'
                 )}
               >
