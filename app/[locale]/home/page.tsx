@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils'
 import { getMessages, getTranslations } from 'next-intl/server'
 
 import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
+import { ScaleOut } from '@/components/animations/scale-out'
 import { ContactForm } from '@/components/form-contact'
 import { GsapSplitText } from '@/components/gsap-split-text'
 import { IconCollab } from '@/components/icons'
@@ -11,12 +12,10 @@ import { WistiaPlayerWrapper } from '@/components/wistia-player'
 import { citysParkVideo, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
-import { ScaleOut } from '@/components/animations/scale-out'
 
-// import heroVideoPoster from '@/public/img/poster-hero.jpg'
+import heroVideoPoster from '@/public/img/poster-hero.jpg'
 import liveMorePoster from '@/public/img/thumbnail-live-more.jpg'
 import livePeacefullyPoster from '@/public/img/thumbnail-live-peacefully.jpg'
-import { WistiaPlayer } from '@wistia/wistia-player-react'
 
 export default async function Page({
   params: { locale },
@@ -36,7 +35,7 @@ export default async function Page({
       >
         <ScaleOut>
           <div className='pointer-events-none relative h-full min-h-svh w-screen bg-[url("/img/poster-hero.jpg")] bg-cover bg-center object-cover'>
-            {/* <WistiaPlayerWrapper
+            <WistiaPlayerWrapper
               aspect={16 / 9}
               mediaId='e2tew1zhxj'
               muted
@@ -52,10 +51,10 @@ export default async function Page({
               volumeControl={false}
               settingsControl={false}
               transparentLetterbox={true}
-              lazy={false}
               customPoster={heroVideoPoster.src}
-            /> */}
-            <div className='absolute left-1/2 top-1/2 h-auto w-full -translate-x-1/2 -translate-y-1/2'>
+              posterPriority={true}
+            />
+            {/* <div className='absolute left-1/2 top-1/2 h-auto w-full -translate-x-1/2 -translate-y-1/2'>
               <WistiaPlayer
                 mediaId='e2tew1zhxj'
                 muted
@@ -72,7 +71,7 @@ export default async function Page({
                 settingsControl={false}
                 transparentLetterbox={true}
               />
-            </div>
+            </div> */}
           </div>
         </ScaleOut>
         <div className='absolute left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2'>
