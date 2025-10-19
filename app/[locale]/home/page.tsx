@@ -6,17 +6,16 @@ import { ScaleOut } from '@/components/animations/scale-out'
 import { ContactForm } from '@/components/form-contact'
 import { GsapSplitText } from '@/components/gsap-split-text'
 import { IconCollab } from '@/components/icons'
-import { Img } from '@/components/utility/img'
 import { VideoWithText } from '@/components/video-with-text'
 import { WistiaPlayerWrapper } from '@/components/wistia-player'
 import { citysParkVideo, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
 
+import { Image } from '@/components/image'
 import heroVideoPoster from '@/public/img/poster-hero.jpg'
 import liveMorePoster from '@/public/img/thumbnail-live-more.jpg'
 import livePeacefullyPoster from '@/public/img/thumbnail-live-peacefully.jpg'
-import { Image } from '@/components/image'
 
 export default async function Page({
   params: { locale },
