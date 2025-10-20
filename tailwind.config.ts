@@ -206,10 +206,21 @@ const config: Config = {
             height: '0',
           },
         },
+        'bounce-translate': {
+          '0%, 100%': {
+            transform: 'translateY(-25%)',
+            animationTimingFunction: 'expo.in',
+          },
+          '50%': {
+            transform: 'translateY(0)',
+            animationTimingFunction: 'expo.out',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'bounce-translate': 'bounce-translate 2s infinite',
       },
       height: {
         svh: 'var(--svh-calc)',
@@ -233,7 +244,6 @@ const config: Config = {
           'linear-gradient(313.15deg, #E65A2E 0%, #99170F 100%)',
         'gradient-button-hover':
           'linear-gradient(313.15deg, #F57C67 3.02%, #E0533A 100%), linear-gradient(150.88deg, #E65A2E -48.76%, #99170F 135.57%)',
-
         'gradient-submit-button':
           'linear-gradient(135deg, #F57C67 0%, #E0533A 100%)',
         'gradient-submit-button-hover':

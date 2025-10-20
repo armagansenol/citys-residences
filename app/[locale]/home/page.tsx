@@ -6,13 +6,13 @@ import { ScaleOut } from '@/components/animations/scale-out'
 import { ContactForm } from '@/components/form-contact'
 import { GsapSplitText } from '@/components/gsap-split-text'
 import { IconCollab } from '@/components/icons'
+import { Image } from '@/components/image'
 import { VideoWithText } from '@/components/video-with-text'
 import { WistiaPlayerWrapper } from '@/components/wistia-player'
 import { citysParkVideo, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
 
-import { Image } from '@/components/image'
 import heroVideoPoster from '@/public/img/poster-hero.jpg'
 import liveMorePoster from '@/public/img/thumbnail-live-more.jpg'
 import livePeacefullyPoster from '@/public/img/thumbnail-live-peacefully.jpg'
@@ -88,6 +88,17 @@ export default async function Page({
               S
             </span>
           </div>
+        </div>
+        <div className='absolute bottom-[10%] left-1/2 z-50 size-20 -translate-x-1/2'>
+          <div className='animate-bounce-translate size-full'>
+            <Image
+              src='/svg/scroll-down.svg'
+              alt='Scroll Down'
+              fill
+              className='object-contain'
+            />
+          </div>
+          <span className='sr-only'>Scroll Down</span>
         </div>
       </section>
       <div className='relative z-20 bg-white'>
