@@ -80,23 +80,7 @@ export const StickySidebar: React.FC = () => {
             onMouseEnter={() => setActiveItem(item.label || null)}
             onMouseLeave={() => setActiveItem(null)}
           >
-            {/* <Letter3DSwap
-              as='span'
-              rotateDirection='bottom'
-              mainClassName='bg-black text-white font-primary text-[0.8rem] font-[600] tracking-[0.4em]'
-              frontFaceClassName={`bg-black text-white`}
-              secondFaceClassName={`bg-black text-white`}
-              staggerDuration={0.03}
-              staggerFrom='first'
-              transition={{
-                type: 'spring',
-                damping: 25,
-                stiffness: 460,
-              }}
-            >
-              {item.label}
-            </Letter3DSwap> */}
-            <span className='font-primary text-[0.8rem] font-[600] tracking-[0.4em] text-white'>
+            <span className='font-primary font-[600] tracking-[0.4em] text-white xl:text-[0.6rem] 2xl:text-[0.8rem]'>
               {item.label}
             </span>
           </div>
