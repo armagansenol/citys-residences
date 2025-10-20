@@ -80,10 +80,10 @@ export const MultiSelectCheckboxes = forwardRef<
                 onClick={() => handleOptionClick(option.id)}
                 disabled={option.disabled}
                 className={cn(
-                  'flex flex-shrink-0 cursor-pointer flex-col items-center justify-between rounded-md px-1 transition-all duration-200 lg:size-8 xl:size-20 xl:py-4 2xl:size-[6rem] 2xl:py-5',
+                  'flex flex-shrink-0 cursor-pointer flex-col items-center justify-between rounded-md px-1 transition-all duration-200 lg:size-8 xl:size-20 xl:py-4 2xl:size-[6rem] 2xl:py-5 3xl:size-[6.5rem]',
                   {
                     'bg-white text-bricky-brick': isSelected,
-                    'border border-tangerine-flake text-white hover:border-tangerine-flake/40':
+                    'border border-tangerine-flake text-white hover:border-tangerine-flake/40 hover:bg-white/10':
                       !isSelected,
                   }
                 )}
