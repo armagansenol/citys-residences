@@ -708,11 +708,14 @@ export function ContactForm({ translations }: FormContactProps) {
                   </span>
                   <span
                     className={cn(
-                      'bg-gradient-submit-button relative flex flex-shrink-0 items-center justify-center overflow-hidden text-white transition-all duration-500 group-hover:text-bleeding-crimson xl:size-16 2xl:size-20 3xl:size-24',
-                      'before:bg-gradient-submit-button-hover before:absolute before:inset-0 before:opacity-0 before:transition-opacity before:duration-300 group-hover:before:opacity-100'
+                      'relative flex flex-shrink-0 items-center justify-center overflow-hidden bg-gradient-submit-button text-white transition-all duration-500 group-hover:text-bleeding-crimson xl:size-16 2xl:size-20 3xl:size-24',
+                      'before:absolute before:inset-0 before:bg-gradient-submit-button-hover before:opacity-0 before:transition-opacity before:duration-300 group-hover:before:opacity-100'
                     )}
                   >
-                    <CalendarPlusIcon className='relative z-10 xl:size-8 2xl:size-10 3xl:size-12' />
+                    <CalendarPlusIcon
+                      weight='thin'
+                      className='relative z-10 xl:size-8 2xl:size-10 3xl:size-12'
+                    />
                   </span>
                   {mutation.isPending && (
                     <span className='absolute -right-4 top-1/2 flex h-6 w-6 -translate-y-1/2 translate-x-full items-center justify-center'>
