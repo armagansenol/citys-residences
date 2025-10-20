@@ -89,7 +89,7 @@ export default async function Page({
             </span>
           </div>
         </div>
-        <div className='absolute bottom-[10%] left-1/2 z-50 size-20 -translate-x-1/2'>
+        <div className='absolute bottom-[8%] left-1/2 z-50 size-12 -translate-x-1/2 xl:size-16 2xl:size-16'>
           <div className='animate-bounce-translate size-full'>
             <Image
               src='/svg/scroll-down.svg'
