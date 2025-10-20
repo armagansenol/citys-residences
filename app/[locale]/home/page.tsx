@@ -34,7 +34,7 @@ export default async function Page({
         id={navigationConfig['/']?.id}
       >
         <ScaleOut>
-          <div className='pointer-events-none relative h-full w-full'>
+          <div className='pointer-events-none relative h-[100vh] w-full'>
             <WistiaPlayerWrapper
               mediaId='e2tew1zhxj'
               muted
@@ -90,7 +90,7 @@ export default async function Page({
           </div>
         </div>
         <div className='absolute bottom-[8%] left-1/2 z-50 size-12 -translate-x-1/2 xl:size-16 2xl:size-16'>
-          <div className='animate-bounce-translate size-full'>
+          <div className='size-full animate-bounce-translate'>
             <Image
               src='/svg/scroll-down.svg'
               alt='Scroll Down'
