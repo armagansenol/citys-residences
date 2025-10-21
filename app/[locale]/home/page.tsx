@@ -166,7 +166,7 @@ export default async function Page({
         />
         <section className='bg-gradient-appointment py-8 xl:py-40'>
           <FadeInOnScroll delay={0.25}>
-            <div className='grid grid-cols-12 px-16 lg:col-start-4 lg:grid-cols-24'>
+            <div className='grid grid-cols-12 px-4 lg:col-start-4 lg:grid-cols-24 lg:px-16'>
               <div className='col-span-12 mb-12 lg:col-span-18 lg:col-start-6 lg:mb-24'>
                 <h3
                   className={cn(

@@ -1,15 +1,13 @@
+import { cn } from '@/lib/utils'
+
 import { ZoomImageDialog } from '@/components/dialogs/zoom-image-dialog'
 import { GsapSplitText } from '@/components/gsap-split-text'
 import { Image } from '@/components/image'
 import { InteractiveMap } from '@/components/interactive-map'
 import { PageTitle } from '@/components/page-title'
-import { BackgroundVideoText } from '@/components/repetitive-sections/background-video-text'
-import { CenterVideoText } from '@/components/repetitive-sections/center-video-text'
-import { FullWidthSingleVideo } from '@/components/repetitive-sections/full-width-single-video'
-import { FullWidthVideoText } from '@/components/repetitive-sections/full-width-video-text'
+import { RepetitiveSectionsWrapper } from '@/components/repetitive-sections/repetitive-sections-wrapper'
 import { WistiaPlayerWrapper } from '@/components/wistia-player'
 import { navigationConfig } from '@/lib/constants'
-import { cn } from '@/lib/utils'
 import { colors } from '@/styles/config.mjs'
 
 export default function Page() {
@@ -184,20 +182,26 @@ export default function Page() {
           <div className='col-span-6 border border-red-500'></div>
         </div>
       </section>
-      <FullWidthSingleVideo mediaId='p4l0a63nut' />
-      <FullWidthVideoText
+      <RepetitiveSectionsWrapper
+        componentType='FullWidthSingleVideo'
+        mediaId='p4l0a63nut'
+      />
+      <RepetitiveSectionsWrapper
+        componentType='FullWidthVideoText'
         title='Dynamic Zone'
         subtitle='Hareket hiç bu kadar eğlenceli olmamıştı.'
         description='Dilediğiniz oyunu seçin, enerjinizi ortaya koyun! Padel, basketbol, masa tenisi ve golf simülatörüyle her gününüzü farklı bir heyecana dönüştürün. Arkadaşlarınızla kıyasıya rekabet, bol kahkahalı anlar ve sınırsız enerji… Dynamic Zone’da spor sadece bir aktivite değil, unutulmaz bir deneyim. Hazır mısınız? Çünkü burada her an bir oyuna dönüşüyor.'
         mediaId='p4l0a63nut'
       />
-      <CenterVideoText
+      <RepetitiveSectionsWrapper
+        componentType='CenterVideoText'
         title='Dynamic Zone'
         subtitle='Hareket hiç bu kadar eğlenceli olmamıştı.'
         description='Dilediğiniz oyunu seçin, enerjinizi ortaya koyun! Padel, basketbol, masa tenisi ve golf simülatörüyle her gününüzü farklı bir heyecana dönüştürün. Arkadaşlarınızla kıyasıya rekabet, bol kahkahalı anlar ve sınırsız enerji… Dynamic Zone’da spor sadece bir aktivite değil, unutulmaz bir deneyim. Hazır mısınız? Çünkü burada her an bir oyuna dönüşüyor.'
         mediaId='p4l0a63nut'
       />
-      <BackgroundVideoText
+      <RepetitiveSectionsWrapper
+        componentType='BackgroundVideoText'
         title='Dynamic Zone'
         subtitle='Hareket hiç bu kadar eğlenceli olmamıştı.'
         description='Dilediğiniz oyunu seçin, enerjinizi ortaya koyun! Padel, basketbol, masa tenisi ve golf simülatörüyle her gününüzü farklı bir heyecana dönüştürün. Arkadaşlarınızla kıyasıya rekabet, bol kahkahalı anlar ve sınırsız enerji… Dynamic Zone’da spor sadece bir aktivite değil, unutulmaz bir deneyim. Hazır mısınız? Çünkü burada her an bir oyuna dönüşüyor.'

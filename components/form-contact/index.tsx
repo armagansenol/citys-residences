@@ -483,8 +483,8 @@ export function ContactForm({ translations }: FormContactProps) {
           className='flex flex-col gap-6 py-10 font-primary lg:py-0'
           noValidate
         >
-          <div className='grid grid-cols-24'>
-            <div className='flex flex-col justify-between gap-16 lg:col-span-14 xl:col-span-15 xl:gap-8 xl:pr-16 2xl:col-span-15 2xl:gap-12 2xl:pr-20 3xl:col-span-14'>
+          <div className='grid grid-cols-12 lg:grid-cols-24'>
+            <div className='col-span-12 flex flex-col justify-between gap-16 lg:col-span-14 xl:col-span-15 xl:gap-8 xl:pr-16 2xl:col-span-15 2xl:gap-12 2xl:pr-20 3xl:col-span-14'>
               <div className='flex grid-flow-col flex-col gap-6 lg:grid lg:grid-cols-2 lg:gap-6'>
                 <FormInput
                   label={translations.inputs.name.label}
@@ -640,7 +640,7 @@ export function ContactForm({ translations }: FormContactProps) {
                 />
               </div>
             </div>
-            <div className='flex flex-col justify-between gap-16 lg:col-span-10 xl:col-span-9 xl:gap-8 2xl:col-span-9 2xl:gap-12 3xl:col-span-9'>
+            <div className='col-span-12 flex flex-col justify-between gap-16 lg:col-span-10 xl:col-span-9 xl:gap-8 2xl:col-span-9 2xl:gap-12 3xl:col-span-9'>
               <FormField
                 control={form.control}
                 name='howDidYouHearAboutUs'
