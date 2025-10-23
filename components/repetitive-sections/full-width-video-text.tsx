@@ -62,6 +62,7 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
         <div className='col-span-24 aspect-[16/9]'>
           <LazyWistiaPlayer
             muted
+            autoplay
             preload='none'
             swatch={false}
             bigPlayButton={false}

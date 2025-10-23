@@ -62,6 +62,7 @@ export function CenterVideoText(props: CenterVideoTextProps) {
         <div className='col-span-16 col-start-6 aspect-[16/9]'>
           <LazyWistiaPlayer
             muted
+            autoplay
             preload='none'
             swatch={false}
             bigPlayButton={false}
