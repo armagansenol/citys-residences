@@ -9,19 +9,20 @@ import {
   fetchCitysParkData,
 } from '@/lib/api/queries'
 import Home from '../home/page'
+import { Wrapper } from '@/components/wrapper'
 
 export default async function Page({ params }: { params: { locale: string } }) {
   const citysLivingData = await fetchCitysLivingData(params.locale)
   const citysMembersClubData = await fetchCitysMembersClubData(params.locale)
   const citysParkData = await fetchCitysParkData(params.locale)
   return (
-    <div>
+    <Wrapper>
       <Header />
       <Home params={params} />
       <CitysPark data={citysParkData.data || []} />
       <CitysMembersClub data={citysMembersClubData.data || []} />
       <CitysLiving data={citysLivingData.data || []} />
       <Footer />
-    </div>
+    </Wrapper>
   )
 }
