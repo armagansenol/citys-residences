@@ -1,49 +1,60 @@
-import { AnimatedLine } from "@/components/animated-line"
-import { FadeInOnScroll } from "@/components/animations/fade-in-on-scroll"
-import { GsapSplitText } from "@/components/gsap-split-text"
-import { IconCollab, Logo } from "@/components/icons"
-import { Sequenced } from "@/components/sequenced"
-import { StackingCards } from "@/components/stacking-cards"
-import { Video } from "@/components/utility/video"
-import { VideoSection } from "@/components/video-section"
-import { melihBulgurVideo, mustafaTonerVideo, residencesVideo, sections } from "@/lib/constants"
-import { getResidencesContent } from "@/lib/content"
-import { cn } from "@/lib/utils"
-import { colors } from "@/styles/config.mjs"
+import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
+import { GsapSplitText } from '@/components/gsap-split-text'
+import { IconCollab, Logo } from '@/components/icons'
+import { Sequenced } from '@/components/sequenced'
+import { StackingCards } from '@/components/stacking-cards'
+import { Video } from '@/components/utility/video'
+import { VideoSection } from '@/components/video-section'
+import {
+  melihBulgurVideo,
+  mustafaTonerVideo,
+  residencesVideo,
+  sections,
+} from '@/lib/constants'
+import { getResidencesContent } from '@/lib/content'
+import { cn } from '@/lib/utils'
+import { colors } from '@/styles/config.mjs'
 
-export default async function Page({ params: { locale } }: { params: { locale: string } }) {
+export default async function Page({
+  params: { locale },
+}: {
+  params: { locale: string }
+}) {
   const residencesContent = await getResidencesContent(locale)
 
-  const items = residencesContent.map((item) => ({
+  const items = residencesContent.map(item => ({
     title: item.title,
     description: item.subtitle,
-    images: item.url.map((url) => ({ url })),
-    bg: item.bg || "#ffffff",
-    sectionId: item.sectionId || "",
+    images: item.url.map(url => ({ url })),
+    bg: item.bg || '#ffffff',
+    sectionId: item.sectionId || '',
   }))
 
   return (
     <>
       <FadeInOnScroll>
-        <section className='h-svh bg-bricky-brick relative z-10 overflow-hidden'>
+        <section className='relative z-10 h-svh overflow-hidden bg-bricky-brick'>
           <Video
             primaryVideoUrl={residencesVideo}
             autoPlay
             loop
             muted
             playsInline
-            className='w-full h-full object-cover'
+            className='h-full w-full object-cover'
           />
         </section>
       </FadeInOnScroll>
-      <section className='bg-white relative z-30 py-12 lg:pt-20 2xl:pt-28'>
+      <section className='relative z-30 bg-white py-12 lg:pt-20 2xl:pt-28'>
         <FadeInOnScroll>
-          <div className='w-full h-40 lg:h-64 mx-auto'>
-            <Logo fill={colors["bricky-brick"]} />
+          <div className='mx-auto h-40 w-full lg:h-64'>
+            <Logo fill={colors['bricky-brick']} />
           </div>
         </FadeInOnScroll>
       </section>
-      <section className='bg-white relative z-30 lg:py-12' id={sections.residences.interiorArchitecture.id}>
+      <section
+        className='relative z-30 bg-white lg:py-12'
+        id={sections.residences.interiorArchitecture.id}
+      >
         <FadeInOnScroll>
           <div className='section-container'>
             <VideoSection
@@ -54,13 +65,13 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           </div>
         </FadeInOnScroll>
       </section>
-      <section className='bg-white relative z-30 section-container'>
-        <div className='relative flex flex-col items-center justify-center mx-auto py-16 xl:py-32 pb-0 px-4 lg:px-0'>
+      <section className='section-container relative z-30 bg-white'>
+        <div className='relative mx-auto flex flex-col items-center justify-center px-4 py-16 pb-0 lg:px-0 xl:py-32'>
           <h2
             className={cn(
-              "font-montserrat font-bold text-bricky-brick text-center mb-6 lg:mb-24",
-              "text-3xl lg:text-6xl xl:text-6xl 2xl:text-7xl 3xl:text-7xl",
-              "leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
+              'mb-6 text-center font-montserrat font-bold text-bricky-brick lg:mb-24',
+              'text-3xl lg:text-6xl xl:text-6xl 2xl:text-7xl 3xl:text-7xl',
+              'leading-tight lg:leading-tight xl:leading-tight 2xl:leading-tight 3xl:leading-tight'
             )}
           >
             <GsapSplitText splitBy='lines' stagger={0.05} duration={1}>
@@ -69,36 +80,41 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           </h2>
           <p
             className={cn(
-              "font-primary font-medium text-md text-center mb-5 lg:mb-24",
-              "text-xl lg:text-4xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl",
-              "leading-tighter lg:leading-tighter xl:leading-tight 2xl:leading-tight 3xl:leading-tight"
+              'text-md mb-5 text-center font-primary font-medium lg:mb-24',
+              'text-xl lg:text-4xl xl:text-4xl 2xl:text-5xl 3xl:text-5xl',
+              'leading-tighter lg:leading-tighter xl:leading-tight 2xl:leading-tight 3xl:leading-tight'
             )}
           >
             <GsapSplitText splitBy='lines' stagger={0.05} duration={1}>
-              Her köşesi özenle düşünülmüş, <br /> tüm çizgileri ferah bir nefese açılan alanlar...
+              Her köşesi özenle düşünülmüş, <br /> tüm çizgileri ferah bir
+              nefese açılan alanlar...
             </GsapSplitText>
           </p>
           <p
             className={cn(
-              "font-primary font-normal text-center",
-              "lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl",
-              "text-lg lg:text-3xl xl:text-2xl 2xl:text-3xl 3xl:text-3xl",
-              "leading-normal lg:leading-normal xl:leading-normal 2xl:leading-normal 3xl:leading-normal"
+              'text-center font-primary font-normal',
+              'lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl',
+              'text-lg lg:text-3xl xl:text-2xl 2xl:text-3xl 3xl:text-3xl',
+              'leading-normal lg:leading-normal xl:leading-normal 2xl:leading-normal 3xl:leading-normal'
             )}
           >
             <GsapSplitText splitBy='lines' stagger={0.05} duration={1}>
-              Günlük yaşamın alışkanlıklarından, yıllara yayılan huzurlu anılara kadar her detay; evinizin size ait bir
-              dünyaya dönüşmesi için tasarlandı.
+              Günlük yaşamın alışkanlıklarından, yıllara yayılan huzurlu anılara
+              kadar her detay; evinizin size ait bir dünyaya dönüşmesi için
+              tasarlandı.
             </GsapSplitText>
           </p>
         </div>
         <Sequenced />
       </section>
-      <section className='bg-white relative z-30 section-container py-6 lg:py-12 w-full overflow-hidden'>
+      <section className='section-container relative z-30 w-full overflow-hidden bg-white py-6 lg:py-12'>
         <StackingCards items={items} />
       </section>
       <FadeInOnScroll>
-        <section className='section-container lg:py-12' id={sections.residences.groundSafety.id}>
+        <section
+          className='section-container lg:py-12'
+          id={sections.residences.groundSafety.id}
+        >
           <VideoSection
             primaryVideoUrl={melihBulgurVideo}
             thumbnail='/img/thumbnail-melih-bulgur.jpg'
@@ -106,7 +122,7 @@ export default async function Page({ params: { locale } }: { params: { locale: s
             title={
               <>
                 <span className='whitespace-nowrap'>Zemin Güvenliği</span>
-                <span className='w-12 h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16 mx-8'>
+                <span className='mx-8 h-12 w-12 lg:h-14 lg:w-14 xl:h-16 xl:w-16'>
                   <IconCollab fill={colors.white} />
                 </span>
                 <span className='whitespace-nowrap'>Huzur Mühendisliği</span>
@@ -115,7 +131,6 @@ export default async function Page({ params: { locale } }: { params: { locale: s
           />
         </section>
       </FadeInOnScroll>
-      <AnimatedLine direction='horizontal' />
     </>
   )
 }
