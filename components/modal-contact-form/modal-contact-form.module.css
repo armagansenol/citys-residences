@@ -5,10 +5,8 @@
   right: 0;
   top: 0;
   z-index: var(--z-modal);
-  display: none;
   @include-media ('tablet') {
     height: auto;
-    display: none;
   }
   @include-media ('desktop') {
     height: 100%;

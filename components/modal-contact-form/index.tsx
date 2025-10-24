@@ -1,7 +1,5 @@
 'use client'
 
-import s from './modal-contact-form.module.css'
-
 import { cn } from '@/lib/utils'
 import { useGSAP } from '@gsap/react'
 import { ChevronRight } from 'lucide-react'
@@ -153,9 +151,9 @@ export function ModalContactForm() {
         )
         .fromTo(
           formRef.current,
-          { width: '0' },
+          { x: '100%' },
           {
-            width: '85vw',
+            x: 0,
             duration: 0.8,
             ease: 'expo.inOut',
           },
@@ -169,28 +167,11 @@ export function ModalContactForm() {
 
   useGSAP(
     () => {
-      // const aloTech = document.querySelector(
-      //   '#Click2ConnectPackageFrame'
-      // ) as HTMLIFrameElement
-
       if (open) {
         menuTL.current?.play()
-        // if (aloTech) {
-        //   gsap.to(aloTech, {
-        //     opacity: 0,
-        //     duration: 0.3,
-        //   })
-        // }
         lenis?.stop()
       } else {
-        menuTL.current?.reverse().then(() => {
-          // if (aloTech) {
-          //   gsap.to(aloTech, {
-          //     opacity: 1,
-          //     duration: 0.3,
-          //   })
-          // }
-        })
+        menuTL.current?.reverse().then(() => {})
         lenis?.start()
       }
     },
@@ -199,29 +180,12 @@ export function ModalContactForm() {
     }
   )
 
-  // const { isAloTechVisible } = useVisibilityStore()
-
-  // useEffect(() => {
-  //   if (!stickyBadgeRef.current) return
-
-  //   stickyBadgeRef.current.style.transition = 'opacity 200ms ease'
-
-  //   stickyBadgeRef.current.style.setProperty(
-  //     'opacity',
-  //     isAloTechVisible ? '1' : '0'
-  //   )
-  //   stickyBadgeRef.current.style.setProperty(
-  //     'pointer-events',
-  //     isAloTechVisible ? 'auto' : 'none'
-  //   )
-  // }, [isAloTechVisible])
-
   return (
     <>
+      {/* Overlay */}
       <button
         className={cn(
-          s.bg,
-          'blur-bg fixed left-0 top-0 z-[var(--z-modal-background)] hidden h-full w-full opacity-0 lg:block',
+          'blur-bg fixed left-0 top-0 z-[var(--z-modal-background)] block h-full w-full opacity-0',
           {
             'pointer-events-none': !open,
           }
@@ -230,73 +194,71 @@ export function ModalContactForm() {
         onClick={() => setOpen(false)}
         type='button'
       ></button>
-      <div className={s.form}>
-        <div
-          className='box relative h-full w-0 bg-gradient-appointment'
-          onClick={e => e.stopPropagation()}
-          ref={formRef}
+      {/* Form */}
+      <div
+        className='fixed bottom-0 right-0 top-0 z-[var(--z-modal)] h-full w-[85vw] translate-x-[100%] bg-gradient-appointment'
+        onClick={e => e.stopPropagation()}
+        ref={formRef}
+      >
+        {/* Close Button */}
+        <button
+          className={cn(
+            'z-16 absolute left-0 top-20 h-16 w-16 -translate-x-full bg-white p-2 text-bricky-brick',
+            'transition-opacity duration-700 ease-in-out',
+            'flex items-center justify-center',
+            {
+              'opacity-0': !open,
+              'opacity-100': open,
+            }
+          )}
+          onClick={() => setOpen(false)}
+          type='button'
         >
-          <div className='absolute left-0 right-0 top-0 flex h-full w-[85vw]'>
-            <button
-              className={cn(
-                'z-16 absolute left-0 top-20 h-16 w-16 -translate-x-full bg-white p-2 text-bricky-brick',
-                'transition-opacity duration-700 ease-in-out',
-                'flex items-center justify-center',
-                {
-                  'opacity-0': !open,
-                  'opacity-100': open,
-                }
-              )}
-              onClick={() => setOpen(false)}
-              type='button'
-            >
-              <ChevronRight className='h-8 w-8' />
-              <span className='sr-only'>Close</span>
-            </button>
-            <button
-              className={cn(
-                'group',
-                'xl:h-60 xl:w-24 2xl:h-72 2xl:w-32',
-                'absolute bottom-0 left-0 top-1/2 -translate-x-full -translate-y-1/2',
-                'font-primary text-lg font-[500] tracking-[0.2em] text-white xl:text-base 2xl:text-xl',
-                'flex cursor-pointer items-center justify-center',
-                'relative overflow-hidden bg-gradient-button-hover transition-all duration-300',
-                'before:absolute before:inset-0 before:bg-gradient-button before:opacity-0',
-                'before:transition-opacity before:duration-300 hover:before:opacity-100',
-                'transition-opacity duration-700 ease-in-out',
-                {
-                  'opacity-0': open,
-                  'opacity-100': !open,
-                }
-              )}
-              onClick={() => setOpen(prev => !prev)}
-              ref={stickyBadgeRef}
-              type='button'
-            >
-              <span className='pointer-events-none relative z-10 block whitespace-nowrap xl:-rotate-90'>
-                {commonT('inquiry')}
-              </span>
-            </button>
-            <div className='flex h-full flex-col justify-center'>
-              <ScrollableBox className='flex flex-grow-0'>
-                <div className='relative flex h-full flex-col justify-center gap-12 px-16 py-8'>
-                  <p
-                    className={cn(
-                      'max-w-[90%] font-primary font-[300] text-white',
-                      'text-xl lg:text-xl xl:text-xl 2xl:text-2xl',
-                      'leading-snug lg:leading-snug xl:leading-snug 2xl:leading-snug',
-                      'max-w-xl lg:max-w-2xl xl:max-w-lg 2xl:max-w-xl 3xl:max-w-2xl'
-                    )}
-                  >
-                    {t.rich('description', {
-                      br: () => <br className='hidden lg:block' />,
-                    })}
-                  </p>
-                  <ContactForm translations={formTranslations} />
-                </div>
-              </ScrollableBox>
+          <ChevronRight className='size-8' />
+          <span className='sr-only'>Close</span>
+        </button>
+        {/* Trigger Button */}
+        <button
+          className={cn(
+            'group',
+            'h-60 w-24 xl:h-60 xl:w-24 2xl:h-72 2xl:w-16',
+            'absolute bottom-0 left-0 top-1/2 -translate-x-full -translate-y-1/2',
+            'font-primary text-lg font-[500] tracking-[0.2em] text-white xl:text-base 2xl:text-xl',
+            'flex cursor-pointer items-center justify-center',
+            'relative overflow-hidden bg-gradient-button-hover transition-all duration-300',
+            'before:absolute before:inset-0 before:bg-gradient-button before:opacity-0',
+            'before:transition-opacity before:duration-300 hover:before:opacity-100',
+            'transition-opacity duration-700 ease-in-out',
+            {
+              'opacity-0': open,
+              'opacity-100': !open,
+            }
+          )}
+          onClick={() => setOpen(prev => !prev)}
+          ref={stickyBadgeRef}
+          type='button'
+        >
+          <span className='pointer-events-none relative z-10 block whitespace-nowrap xl:-rotate-90'>
+            {commonT('inquiry')}
+          </span>
+        </button>
+        <div className='flex h-full flex-col justify-center'>
+          <ScrollableBox className='flex flex-grow-0'>
+            <div className='relative flex h-full flex-col justify-center gap-12 px-16 py-8'>
+              <p
+                className={cn(
+                  'max-w-[90%] font-primary font-[300] text-white',
+                  'text-xl/snug lg:text-xl/snug xl:text-xl/snug 2xl:text-2xl/snug',
+                  'max-w-xl lg:max-w-2xl xl:max-w-lg 2xl:max-w-xl 3xl:max-w-2xl'
+                )}
+              >
+                {t.rich('description', {
+                  br: () => <br className='hidden lg:block' />,
+                })}
+              </p>
+              <ContactForm translations={formTranslations} />
             </div>
-          </div>
+          </ScrollableBox>
         </div>
       </div>
     </>
