@@ -13,13 +13,6 @@ export default function TestPage() {
       <Header />
 
       <PageTitle
-        primaryColor={colors.white}
-        secondaryColor={colors['bricky-brick']}
-        title='DAiRELER'
-        description='Günlük yaşamın alışkanlıklarından, yıllara yayılan huzurlu anılara kadar her detay; evinizin size ait bir dünyaya dönüşmesi için tasarlandı.'
-        id='residences'
-      />
-      <PageTitle
         primaryColor={colors['aqua-belt']}
         secondaryColor={colors.black}
         title={

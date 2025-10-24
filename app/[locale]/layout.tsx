@@ -12,7 +12,6 @@ import { GSAP } from '@/components/gsap'
 import { ModalContactForm } from '@/components/modal-contact-form'
 import { ReactQueryProvider } from '@/components/react-query-provider'
 import { RealViewport } from '@/components/real-viewport'
-import { StickyContactMenu } from '@/components/sticky-contact-menu'
 import { StickySidebar } from '@/components/sticky-sidebar'
 // import { WebChat } from '@/components/web-chat'
 
@@ -145,8 +144,6 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <head>
         <StyleVariables colors={colors} themes={themes} />
-        {/* <UTMWidgetInit /> */}
-        {/* <AlotechWidget /> */}
       </head>
       <body
         className={`${montserrat.variable} ${suisseIntl.variable} ${copperplate.variable} antialiased`}
@@ -157,7 +154,6 @@ export default async function LocaleLayout({
           <ReactQueryProvider>
             {children}
             <ModalContactForm />
-            <StickyContactMenu />
             {/* <PreloaderClient /> */}
             <StickySidebar />
           </ReactQueryProvider>
