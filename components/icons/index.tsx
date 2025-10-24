@@ -1,6 +1,6 @@
-import { colors } from "@/styles/config.mjs"
-import { SocialMedia } from "@/types"
-import { SVGProps } from "react"
+import { colors } from '@/styles/config.mjs'
+import { SocialMedia } from '@/types'
+import { SVGProps } from 'react'
 
 interface Props {
   fill?: string
@@ -13,8 +13,14 @@ interface LogoProps extends Props {
 
 export const Logo = (props: LogoProps) => {
   return (
-    <svg width='100%' height='100%' viewBox='0 0 537 383' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <g display={props.small ? "none" : "block"}>
+    <svg
+      width='100%'
+      height='100%'
+      viewBox='0 0 537 383'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <g display={props.small ? 'none' : 'block'}>
         <path
           d='M160.492 363.566C160.492 362.802 160.985 362.31 161.774 362.31C162.49 362.31 162.982 362.802 162.958 363.566C162.934 364.283 162.466 364.751 161.774 364.751C160.985 364.751 160.492 364.283 160.492 363.566ZM162.561 382.702V366.255H160.911V382.702H162.561Z'
           fill={props.fill}
@@ -43,7 +49,10 @@ export const Logo = (props: LogoProps) => {
           d='M337.62 366.255V376.958C337.62 378.265 338.015 379.301 338.829 380.113C339.64 380.903 340.724 381.298 342.03 381.298C343.336 381.298 344.396 380.903 345.207 380.113C346.021 379.301 346.416 378.262 346.416 376.958V366.255H348.068V377.131C348.068 378.881 347.5 380.31 346.391 381.398C345.283 382.459 343.828 383 342.03 383C340.232 383 338.753 382.459 337.645 381.398C336.536 380.313 335.969 378.884 335.969 377.131V366.255H337.62Z'
           fill={props.fill}
         />
-        <path d='M369.067 381.176H376.51L376.313 382.705H367.417V366.258H369.067V381.178V381.176Z' fill={props.fill} />
+        <path
+          d='M369.067 381.176H376.51L376.313 382.705H367.417V366.258H369.067V381.178V381.176Z'
+          fill={props.fill}
+        />
         <path
           d='M354.473 302.844V329.276L354.441 329.064L328.876 302.844H321.033V341.846H328.876V314.504L350.492 337.077L354.473 341.846H362.313V302.844H354.473Z'
           fill={props.fill}
@@ -68,7 +77,10 @@ export const Logo = (props: LogoProps) => {
           d='M97.7553 302.819H61.3776V341.817H97.7553V334.997H69.7441V324.765H84.265C84.304 324.765 84.3332 324.775 84.3698 324.775H85.5977V318.391H69.7441V309.196H97.7553V302.819Z'
           fill={props.fill}
         />
-        <path d='M183.1 302.819H174.655V341.817H183.1V302.819Z' fill={props.fill} />
+        <path
+          d='M183.1 302.819H174.655V341.817H183.1V302.819Z'
+          fill={props.fill}
+        />
         <path
           d='M226.494 302.819H203.604V341.817H226.494C237.309 341.817 245.754 335.589 245.754 322.319C245.754 309.049 237.309 302.819 226.494 302.819ZM223.532 335.441H212.049V309.193H223.532C232.865 309.193 237.309 312.01 237.309 322.319C237.309 332.629 232.865 335.443 223.532 335.443V335.441Z'
           fill={props.fill}
@@ -306,7 +318,13 @@ export const Logo = (props: LogoProps) => {
 
 export const LogoSlim = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width='100%' height='100%' viewBox='0 0 111 119' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='100%'
+      height='100%'
+      viewBox='0 0 111 119'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M109.383 86.2811C108.108 85.4939 89.4201 76.4771 81.817 72.8158C81.414 72.6218 81.0725 73.1714 81.4269 73.4462C88.0995 78.6093 104.516 91.2906 105.79 92.0794C107.392 93.0703 109.496 92.5757 110.488 90.9737C111.48 89.3734 110.987 87.272 109.383 86.2811Z'
         fill={props.fill}
@@ -409,7 +427,13 @@ export const LogoSlim = (props: SVGProps<SVGSVGElement>) => {
 
 export const LogoHorizontal = () => {
   return (
-    <svg width='100%' height='100%' viewBox='0 0 240 58' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      width='100%'
+      height='100%'
+      viewBox='0 0 240 58'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         d='M51.6879 48.2206L39.3456 38.0511L40.3327 36.8937L52.675 47.0567L51.6879 48.2141V48.2206ZM49.1307 50.7305L38.7759 38.6168L37.5966 39.5857L47.9514 51.6993L49.1307 50.7305ZM44.9834 53.741L36.9275 40.0473L35.5959 40.8016L43.6518 54.4953L44.9834 53.741ZM40.3725 55.9973L34.8605 41.1332L33.4163 41.6469L38.9282 56.511L40.3725 55.9973ZM35.4369 57.4278L32.6411 41.8549L31.124 42.115L33.9198 57.6879L35.4369 57.4278ZM30.3158 42.1865H28.7788V58H30.3158V42.1865ZM27.9706 42.115L26.4534 41.8549L23.6577 57.4278L25.1748 57.6879L27.9706 42.115ZM25.6717 41.6469L24.2275 41.1332L18.7155 55.9973L20.1597 56.511L25.6717 41.6534V41.6469ZM23.4987 40.7951L22.1671 40.0408L14.1111 53.7345L15.4428 54.4888L23.4987 40.7951ZM21.498 39.5857L20.3187 38.6168L9.96393 50.7305L11.1432 51.7058L21.498 39.5922V39.5857ZM19.749 38.0511L18.7619 36.8937L6.41958 47.0567L7.40669 48.2141L19.749 38.0446V38.0511ZM18.2981 36.25L17.5296 34.9431L3.57747 42.8498L4.34597 44.1567L18.2981 36.25ZM17.1851 34.2213L16.6618 32.8038L1.52374 38.2137L2.04711 39.6312L17.1918 34.2213H17.1851ZM16.4498 32.0365L16.1781 30.5475L0.311371 33.2915L0.57637 34.7805L16.4431 32.0365H16.4498ZM16.1119 28.2457H0V29.7543H16.1119V28.2457ZM16.4498 25.9635L0.582998 23.2195L0.317999 24.7085L16.1848 27.4525L16.4564 25.9635H16.4498ZM17.1851 23.7787L2.04049 18.3688L1.51711 19.7863L16.6551 25.1962L17.1785 23.7787H17.1851ZM18.2981 21.75L4.33935 13.8433L3.57085 15.1502L17.523 23.057L18.2915 21.75H18.2981ZM19.749 19.9489L7.40669 9.78588L6.41958 10.9433L18.7619 21.1063L19.749 19.9489ZM21.498 18.4144L11.1365 6.30067L9.9573 7.27601L20.3187 19.3897L21.498 18.4209V18.4144ZM23.4921 17.2049L15.4361 3.51121L14.1045 4.26547L22.1605 17.9592L23.4921 17.2049ZM25.6717 16.3531L20.1597 1.48901L18.7155 2.00269L24.2275 16.8668L25.6717 16.3466V16.3531ZM27.9706 15.885L25.1748 0.312108L23.6577 0.5787L26.4534 16.1516L27.9706 15.8915V15.885ZM30.3158 0H28.7788V15.8135H30.3158V0ZM35.4369 0.572197L33.9198 0.305605L31.1174 15.8785L32.6345 16.1386L35.4303 0.565695L35.4369 0.572197ZM40.3725 2.00919L38.9282 1.49552L33.4163 16.3596L34.8605 16.8798L40.3725 2.0157V2.00919ZM44.9834 4.26547L43.6518 3.51121L35.5959 17.2049L36.9275 17.9592L44.9834 4.26547ZM49.1307 7.26951L47.9514 6.29417L37.5966 18.4078L38.7759 19.3767L49.1307 7.263V7.26951ZM52.675 10.9368L51.6879 9.77937L39.3456 19.9424L40.3327 21.0998L52.675 10.9368ZM55.5171 15.1567L54.7486 13.8498L40.7965 21.7565L41.565 23.0635L55.5237 15.1567H55.5171Z'
         fill='#B73D25'
@@ -442,7 +466,10 @@ export const LogoHorizontal = () => {
         d='M124.037 49.0492H124.567V52.4174C124.567 52.827 124.692 53.1522 124.957 53.4122C125.216 53.6593 125.567 53.7829 125.984 53.7829C126.402 53.7829 126.746 53.6593 127.005 53.4122C127.263 53.1587 127.389 52.827 127.389 52.4174V49.0492H127.919V52.4694C127.919 53.0221 127.74 53.4708 127.382 53.8089C127.024 54.1405 126.561 54.3096 125.984 54.3096C125.408 54.3096 124.931 54.1405 124.58 53.8089C124.222 53.4643 124.043 53.0156 124.043 52.4694V49.0492H124.037Z'
         fill='#B73D25'
       />
-      <path d='M134.656 53.7439H137.041L136.975 54.225H134.126V49.0492H134.656V53.7439Z' fill='#B73D25' />
+      <path
+        d='M134.656 53.7439H137.041L136.975 54.225H134.126V49.0492H134.656V53.7439Z'
+        fill='#B73D25'
+      />
       <path
         d='M181.455 29.1004V37.4167L181.442 37.3517L173.24 29.1004H170.729V41.3701H173.24V32.7676L180.176 39.8681L181.455 41.3701H183.966V29.1004H181.455Z'
         fill='#B73D25'
@@ -467,7 +494,10 @@ export const LogoHorizontal = () => {
         d='M99.1069 29.0939H87.4403V41.3636H99.1069V39.2179H90.1234V35.9992H94.7808C94.7808 35.9992 94.8007 35.9992 94.8139 35.9992H95.2114V33.9901H90.1234V31.0966H99.1069V29.0939Z'
         fill='#B73D25'
       />
-      <path d='M126.481 29.0939H123.772V41.3636H126.481V29.0939Z' fill='#B73D25' />
+      <path
+        d='M126.481 29.0939H123.772V41.3636H126.481V29.0939Z'
+        fill='#B73D25'
+      />
       <path
         d='M140.4 29.0939H133.06V41.3636H140.4C143.872 41.3636 146.581 39.4064 146.581 35.232C146.581 31.0575 143.872 29.1004 140.4 29.1004M139.453 39.3544H135.769V31.0966H139.453C142.447 31.0966 143.872 31.9809 143.872 35.2255C143.872 38.4701 142.447 39.3544 139.453 39.3544Z'
         fill='#B73D25'
@@ -510,8 +540,17 @@ export const LogoHorizontal = () => {
 
 export const IconArrow = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 16 36' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 16 36'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M16 19.4442L-6.29444e-06 36L-5.5061e-06 31.4912L13.472 17.6125L-7.88344e-07 4.5088L0 0L16 15.7104L16 19.4442Z'
           fill={props.fill}
@@ -523,8 +562,17 @@ export const IconArrow = (props: Props) => {
 
 export const IconEvents = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 52 52' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 52 52'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M27.8086 34.7803C27.8083 35.3243 27.3596 35.7705 26.8125 35.7705H25.4531L27.7109 40.6016C28.0234 41.2698 27.7315 42.0651 27.0596 42.376C26.8747 42.4606 26.6824 42.5 26.4932 42.5C25.9871 42.5 25.5029 42.2141 25.2754 41.7285L22.5381 35.873L19.8037 41.7285C19.4911 42.3965 18.6914 42.6851 18.0195 42.376C17.3475 42.0652 17.0556 41.2698 17.3682 40.6016L19.626 35.7705H18.2773C17.7156 35.7704 17.2815 35.3242 17.2812 34.7803V33.1475H27.8086V34.7803ZM18.623 9.5C20.6201 9.5 22.2393 11.1094 22.2393 13.0967C22.2392 14.5742 21.3427 15.8426 20.0615 16.3955H25.0146C23.7353 15.8418 22.8408 14.5738 22.8408 13.0977C22.8411 11.1121 24.4592 9.503 26.4561 9.50293C28.4544 9.50293 30.073 11.112 30.0732 13.0977C30.0732 14.5737 29.178 15.8417 27.8984 16.3955H30.4033C32.1595 16.3955 33.5818 17.8108 33.582 19.5557V20.6406L38.8008 18.9551C39.6401 18.6837 40.5 19.3067 40.5 20.1836V28.5371C40.4998 29.4138 39.6385 30.0369 38.8008 29.7656L33.582 28.0791V29.1641C33.582 30.9106 32.1582 32.3242 30.4033 32.3242H14.6777C12.9216 32.324 11.5 30.909 11.5 29.1641V19.5557C11.5002 17.8095 12.9232 16.3958 14.6777 16.3955H17.1865C15.9036 15.8431 15.0068 14.5731 15.0068 13.0947C15.0071 11.1093 16.6264 9.50024 18.623 9.5ZM20.4746 20.7383C19.8774 20.4421 19.1738 20.8742 19.1738 21.5381V27.1816C19.1741 27.8468 19.8775 28.2781 20.4746 27.9805L26.1494 25.1592V25.1572C26.8112 24.8275 26.8112 23.8893 26.1494 23.5596L20.4746 20.7383Z'
           fill='#B73D25'
@@ -536,8 +584,17 @@ export const IconEvents = (props: Props) => {
 
 export const IconYoutube = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 155 155' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 155 155'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M109.876 45.6685H45.1278C38.7301 45.6685 33.5424 50.8562 33.5424 57.2501V97.7461C33.5424 104.144 38.7301 109.328 45.1278 109.328H109.876C116.27 109.328 121.458 104.144 121.458 97.7461V57.2501C121.458 50.8562 116.27 45.6685 109.876 45.6685ZM87.9 80.2962L69.8942 89.2952C67.8146 90.3351 65.372 88.8264 65.372 86.5048V68.5066C65.372 66.185 67.8184 64.6763 69.8942 65.7123L87.9 74.7114C90.1989 75.8609 90.1989 79.1467 87.9 80.2962Z'
           fill={props.fill}
@@ -549,8 +606,17 @@ export const IconYoutube = (props: Props) => {
 
 export const IconInstagram = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 52 51' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 52 51'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M14 30.6282C14 34.6984 17.3016 38 21.3718 38H31.6282C35.6984 38 39 34.6984 39 30.6282V20.3718C39 16.3016 35.6984 13 31.6282 13H21.3718C17.3016 13 14 16.3016 14 20.3718V30.6282ZM33.2308 17.4872C34.1285 17.4872 34.8333 18.1921 34.8333 19.0897C34.8333 19.9874 34.1285 20.6923 33.2308 20.6923C32.3331 20.6923 31.6282 19.9874 31.6282 19.0897C31.6282 18.1921 32.3331 17.4872 33.2308 17.4872ZM26.5 19.4103C29.8654 19.4103 32.5897 22.1346 32.5897 25.5C32.5897 28.8654 29.8654 31.5897 26.5 31.5897C23.1346 31.5897 20.4103 28.8654 20.4103 25.5C20.4103 22.1346 23.1346 19.4103 26.5 19.4103Z'
           fill={props.fill}
@@ -566,8 +632,17 @@ export const IconInstagram = (props: Props) => {
 
 export const IconLinkedin = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 156 155' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 156 155'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M51.2985 59.7646C56.6769 59.7646 61.0369 55.4325 61.0369 50.0887C61.0369 44.7448 56.6769 40.4128 51.2985 40.4128C45.9202 40.4128 41.5602 44.7448 41.5602 50.0887C41.5602 55.4325 45.9202 59.7646 51.2985 59.7646Z'
           fill={props.fill}
@@ -643,8 +718,17 @@ export const IconTelephone = ({ className }: { className?: string }) => {
 
 export const IconFacebook = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 155 155' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 155 155'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M99.7576 71.6752L98.5061 81.7254C98.2943 83.4042 96.8726 84.6671 95.1862 84.6671H78.9085V126.687C77.1918 126.842 75.4525 126.921 73.6943 126.921C69.7619 126.921 65.9241 126.528 62.2148 125.779V84.6671H49.6954C48.546 84.6671 47.6082 83.7256 47.6082 82.5724V69.9963C47.6082 68.8431 48.546 67.9016 49.6954 67.9016H62.2148V49.0413C62.2148 37.4672 71.558 28.0863 83.0866 28.0863H97.6931C98.8426 28.0863 99.7803 29.0278 99.7803 30.181V42.7571C99.7803 43.9103 98.8426 44.8518 97.6931 44.8518H87.2572C82.648 44.8518 78.9123 48.6027 78.9123 53.2346V67.9054H96.4416C98.4531 67.9054 100.007 69.6749 99.7614 71.6789L99.7576 71.6752Z'
           fill={props.fill}
@@ -656,8 +740,17 @@ export const IconFacebook = (props: Props) => {
 
 export const IconTiktok = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 156 156' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 156 156'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M92.4881 96.9623V59.7005C92.4881 59.7005 96.6897 66.7032 111.876 67.1309C112.686 67.1536 113.356 66.4874 113.356 65.6774V55.1469C113.356 54.3633 112.731 53.7426 111.948 53.6972C100.168 53.031 94.5738 43.9956 94.0249 35.7098C93.9757 34.9414 93.3019 34.3585 92.5335 34.3585H80.523C79.7243 34.3585 79.0733 35.0057 79.0733 35.8082V95.0431C79.0733 101.478 74.1562 107.076 67.7289 107.379C60.3818 107.727 54.4087 101.421 55.3172 93.9682C55.9607 88.7029 60.185 84.3915 65.4389 83.661C66.4836 83.5172 67.5018 83.5058 68.4898 83.6156C69.3642 83.714 70.1326 83.0629 70.1326 82.1848V71.6278C70.1326 70.8783 69.561 70.2273 68.8115 70.1818C67.305 70.0834 65.7606 70.1175 64.1936 70.2954C52.607 71.6088 43.2575 80.9848 41.9743 92.5752C40.2823 107.864 52.2058 120.805 67.1536 120.805C81.1476 120.805 92.4919 109.461 92.4919 95.4671'
           fill={props.fill}
@@ -669,8 +762,17 @@ export const IconTiktok = (props: Props) => {
 
 export const IconX = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 155 155' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 155 155'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M88.3386 70.6013L118.728 38.0987H107.188L83.3362 63.6138L65.0695 38.0987H33.5046L65.4552 82.7312L33.5046 116.909H45.0446L70.4614 89.7225L89.9229 116.909H121.488L88.3386 70.6051V70.6013ZM49.7711 46.455H60.7742L105.225 108.545H94.2221L49.7711 46.455Z'
           fill={props.fill}
@@ -682,8 +784,17 @@ export const IconX = (props: Props) => {
 
 export const IconPin = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 72 96' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 72 96'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M5.74501 55.4908L5.92501 55.7509C6.14501 56.0809 6.37501 56.4009 6.60501 56.7509L32.665 94.1908C33.0399 94.7293 33.5394 95.169 34.121 95.4727C34.7026 95.7764 35.3489 95.9351 36.005 95.9351C36.6611 95.9351 37.3074 95.7764 37.889 95.4727C38.4706 95.169 38.9701 94.7293 39.345 94.1908L65.345 56.7808C65.595 56.4308 65.835 56.0908 66.075 55.7808L66.235 55.5409C69.7483 50.1048 71.731 43.8222 71.9745 37.3543C72.218 30.8864 70.7132 24.4724 67.6186 18.7877C64.524 13.1029 59.9539 8.3576 54.3896 5.0513C48.8253 1.745 42.4725 0 36 0C29.5275 0 23.1747 1.745 17.6104 5.0513C12.0461 8.3576 7.47605 13.1029 4.38141 18.7877C1.28678 24.4724 -0.218 30.8864 0.0254874 37.3543C0.268975 43.8222 2.25172 50.1048 5.76501 55.5409L5.74501 55.4908ZM36.005 21.0208C38.9717 21.0208 41.8718 21.9006 44.3386 23.5488C46.8053 25.197 48.7279 27.5397 49.8632 30.2806C50.9985 33.0215 51.2956 36.0375 50.7168 38.9472C50.138 41.8569 48.7094 44.5297 46.6116 46.6275C44.5138 48.7252 41.8411 50.1538 38.9314 50.7326C36.0216 51.3114 33.0056 51.0144 30.2648 49.879C27.5239 48.7437 25.1812 46.8211 23.533 44.3544C21.8847 41.8877 21.005 38.9876 21.005 36.0209C21.005 32.0426 22.5854 28.2273 25.3984 25.4142C28.2114 22.6012 32.0268 21.0208 36.005 21.0208Z'
           fill={props.fill}
@@ -695,8 +806,17 @@ export const IconPin = (props: Props) => {
 
 export const IconCartArrow = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 44 44' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 44 44'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <rect width='44' height='44' rx='10' fill='#D3E5FF' />
         <path
           d='M33.9521 18.9607L30.0965 29.2452C30.0136 29.4661 29.8621 29.6569 29.6626 29.7919C29.463 29.9268 29.2252 29.9993 28.9814 29.9994H17.118C16.847 30.007 16.5815 29.925 16.3656 29.767C16.1498 29.6089 15.9966 29.3845 15.9317 29.1309L12.6337 16.2867H11.1863C10.8717 16.2867 10.57 16.1663 10.3475 15.952C10.125 15.7377 10 15.447 10 15.1439C10 14.8409 10.125 14.5502 10.3475 14.3359C10.57 14.1216 10.8717 14.0012 11.1863 14.0012H13.559C13.83 13.9936 14.0955 14.0756 14.3114 14.2337C14.5272 14.3917 14.6804 14.6161 14.7453 14.8697L18.0433 27.7139H28.1509L31.7099 18.1836C31.8231 17.9068 32.0439 17.6835 32.3254 17.5611C32.6068 17.4386 32.9268 17.4267 33.2172 17.5279C33.5076 17.6291 33.7456 17.8354 33.8806 18.1029C34.0156 18.3705 34.037 18.6782 33.9402 18.9607H33.9521ZM20.333 19.3835L21.8633 17.8979V23.143C21.8633 23.4461 21.9883 23.7368 22.2108 23.9511C22.4333 24.1654 22.735 24.2858 23.0497 24.2858C23.3643 24.2858 23.6661 24.1654 23.8885 23.9511C24.111 23.7368 24.236 23.4461 24.236 23.143V17.8979L25.7664 19.3835C25.8767 19.4906 26.0079 19.5756 26.1524 19.6336C26.297 19.6916 26.4521 19.7215 26.6087 19.7215C26.7653 19.7215 26.9204 19.6916 27.0649 19.6336C27.2095 19.5756 27.3407 19.4906 27.451 19.3835C27.5622 19.2772 27.6504 19.1508 27.7107 19.0116C27.7709 18.8723 27.8019 18.723 27.8019 18.5721C27.8019 18.4213 27.7709 18.2719 27.7107 18.1327C27.6504 17.9934 27.5622 17.867 27.451 17.7608L23.892 14.3326C23.7792 14.2286 23.6461 14.147 23.5005 14.0926C23.2117 13.9783 22.8877 13.9783 22.5989 14.0926C22.4532 14.147 22.3202 14.2286 22.2074 14.3326L18.6484 17.7608C18.425 17.976 18.2995 18.2678 18.2995 18.5721C18.2995 18.8764 18.425 19.1683 18.6484 19.3835C18.8718 19.5986 19.1748 19.7195 19.4907 19.7195C19.8066 19.7195 20.1096 19.5986 20.333 19.3835Z'
@@ -709,8 +829,17 @@ export const IconCartArrow = (props: Props) => {
 
 export const IconPlay = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 64 48' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 64 48'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M62.5204 10.1629C61.5807 6.07295 57.0222 2.06299 53.0234 1.453C39.0948 -0.484333 24.9651 -0.484333 11.0365 1.453C7.03777 2.06299 2.4392 6.07295 1.4995 10.1629C-0.499832 19.2811 -0.499832 28.7244 1.4995 37.8426C2.47919 41.9326 7.03777 45.9426 11.0365 46.5526C24.9389 48.4825 39.0411 48.4825 52.9434 46.5526C56.9422 45.9426 61.5407 41.9326 62.4804 37.8426C64.493 28.7273 64.5066 19.284 62.5204 10.1629ZM25.0321 37.0027V11.0029L45.0259 24.0028L25.0321 37.0027Z'
           fill={props.fill}
@@ -722,8 +851,17 @@ export const IconPlay = (props: Props) => {
 
 export const IconClose = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 26 26'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M0 26L10.0677 13.3208L0 0H5.22932L13.0489 10.6415L21.0639 0H26L15.9812 13.0943L25.9511 26H20.7218L12.9511 15.6981L4.98496 26H0Z'
           fill={props.fill}
@@ -735,16 +873,26 @@ export const IconClose = (props: Props) => {
 
 export const IconLoading = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
       <svg
         height='100%'
         width='100%'
-        className='animate-spin -ml-1 mr-3 text-white'
+        className='-ml-1 mr-3 animate-spin text-white'
         xmlns='http://www.w3.org/2000/svg'
         fill='none'
         viewBox='0 0 24 24'
       >
-        <circle className='opacity-25' cx='12' cy='12' r='10' stroke='currentColor' strokeWidth='4'></circle>
+        <circle
+          className='opacity-25'
+          cx='12'
+          cy='12'
+          r='10'
+          stroke='currentColor'
+          strokeWidth='4'
+        ></circle>
         <path
           className='opacity-75'
           fill={props.fill}
@@ -757,8 +905,17 @@ export const IconLoading = (props: Props) => {
 
 export const IconCheck = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 30 30'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M15 0C12.0333 0 9.13319 0.879735 6.66645 2.52796C4.19972 4.17618 2.27713 6.51886 1.14181 9.25975C0.00649941 12.0006 -0.290551 15.0166 0.288228 17.9264C0.867006 20.8361 2.29562 23.5088 4.3934 25.6066C6.49119 27.7044 9.16394 29.133 12.0737 29.7118C14.9834 30.2906 17.9994 29.9935 20.7403 28.8582C23.4812 27.7229 25.8238 25.8003 27.4721 23.3336C29.1203 20.8668 30 17.9667 30 15C29.9952 11.0232 28.4133 7.21074 25.6013 4.39874C22.7893 1.58674 18.9768 0.00483751 15 0ZM22.71 10.74L12.72 20.72C12.5771 20.8721 12.3866 20.9709 12.18 21C12.1174 21.0121 12.0538 21.0188 11.99 21.02C11.9359 21.0232 11.8817 21.0164 11.83 21C11.6234 20.9708 11.4329 20.8721 11.29 20.72L7.29001 16.73C7.19729 16.6375 7.12373 16.5276 7.07354 16.4066C7.02336 16.2857 6.99752 16.156 6.99752 16.025C6.99752 15.894 7.02336 15.7643 7.07354 15.6434C7.12373 15.5224 7.19729 15.4125 7.29001 15.32C7.47881 15.1326 7.73402 15.0275 8.00001 15.0275C8.26599 15.0275 8.5212 15.1326 8.71001 15.32L12.01 18.62L21.29 9.33C21.4788 9.14267 21.734 9.03755 22 9.03755C22.266 9.03755 22.5212 9.14267 22.71 9.33C22.8027 9.42251 22.8763 9.5324 22.9264 9.65338C22.9766 9.77435 23.0025 9.90403 23.0025 10.035C23.0025 10.166 22.9766 10.2957 22.9264 10.4166C22.8763 10.5376 22.8027 10.6475 22.71 10.74Z'
           fill='#25B745'
@@ -770,14 +927,26 @@ export const IconCheck = (props: Props) => {
 
 export const IconCitysParkBgLogo = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 1440 408' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 1440 408'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <g opacity='0.07'>
           <path
             d='M166.558 407C27.9956 407 -78 320.832 -78 195.443C-78 70.0541 32.9627 1.00003 156.074 1.00003C164.356 1.00003 181.472 1.5509 187.54 2.10177C222.872 4.85609 247.156 10.9401 283.601 26.401L316.719 109.263C265.935 51.8143 237.222 35.2394 187.54 27.515C179.808 26.4133 164.907 25.8624 154.973 25.8624C73.8243 25.8624 0.395676 77.2398 0.395676 184.401C0.395676 197.659 1.49674 210.366 3.7111 223.623C16.9606 312.557 72.1605 382.162 166.008 382.162C233.356 382.162 272.554 366.701 313.954 341.839L323.888 358.965C283.038 386.581 231.692 407.025 166.558 407.025V407Z'
             fill={props.fill}
           />
-          <path d='M364.187 400.377V7.6349H436.502V400.377H364.187Z' fill={props.fill} />
+          <path
+            d='M364.187 400.377V7.6349H436.502V400.377H364.187Z'
+            fill={props.fill}
+          />
           <path
             d='M667.811 32.485H656.764V400.377H584.448V32.485H573.413C520.966 32.485 491.702 54.5809 472.385 68.3892L502.199 7.62266H739.025L768.84 68.3892C749.522 54.5809 720.258 32.485 667.811 32.485Z'
             fill={props.fill}
@@ -802,13 +971,25 @@ export const IconCitysParkBgLogo = (props: Props) => {
 
 export const IconCitysParkLogo = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 211 110' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 211 110'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M32.61 54.11C14.13 54.11 0 42.62 0 25.91C0 9.2 14.8 0 31.21 0C32.31 0 34.6 0.07 35.41 0.15C40.12 0.52 43.36 1.33 48.22 3.39L52.64 14.43C45.87 6.77 42.04 4.56 35.41 3.53C34.38 3.38 32.39 3.31 31.07 3.31C20.25 3.31 10.46 10.16 10.46 24.44C10.46 26.21 10.61 27.9 10.9 29.67C12.67 41.52 20.03 50.8 32.54 50.8C41.52 50.8 46.75 48.74 52.27 45.43L53.6 47.71C48.15 51.39 41.31 54.12 32.62 54.12L32.61 54.11Z'
           fill={props.fill}
         />
-        <path d='M58.97 53.23V0.88H68.61V53.22H58.97V53.23Z' fill={props.fill} />
+        <path
+          d='M58.97 53.23V0.88H68.61V53.22H58.97V53.23Z'
+          fill={props.fill}
+        />
         <path
           d='M97.99 4.2V53.23H88.35V4.2H86.88C79.89 4.2 75.98 7.14 73.41 8.99L77.39 0.89H108.97L112.95 8.99C110.37 7.15 106.47 4.2 99.48 4.2H97.99Z'
           fill={props.fill}
@@ -848,7 +1029,10 @@ export const IconCitysParkLogo = (props: Props) => {
 
 export const IconCitysTimesLogo = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
       <svg
         width='100%'
         height='100%'
@@ -859,8 +1043,16 @@ export const IconCitysTimesLogo = (props: Props) => {
       >
         <rect width='451' height='61' fill='url(#pattern0_2835_405)' />
         <defs>
-          <pattern id='pattern0_2835_405' patternContentUnits='objectBoundingBox' width='1' height='1'>
-            <use xlinkHref='#image0_2835_405' transform='matrix(0.00107411 0 0 0.0079414 0 -0.000308147)' />
+          <pattern
+            id='pattern0_2835_405'
+            patternContentUnits='objectBoundingBox'
+            width='1'
+            height='1'
+          >
+            <use
+              xlinkHref='#image0_2835_405'
+              transform='matrix(0.00107411 0 0 0.0079414 0 -0.000308147)'
+            />
           </pattern>
           <image
             id='image0_2835_405'
@@ -877,7 +1069,10 @@ export const IconCitysTimesLogo = (props: Props) => {
 
 export const IconCitysLifeLogo = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
       <svg
         height='100%'
         width='100%'
@@ -924,30 +1119,77 @@ export const IconCitysLifeLogo = (props: Props) => {
             <g>
               <g>
                 <g>
-                  <rect className='cls-4' y='81.52' width='86.68' height='88.45' />
-                  <rect className='cls-1' x='86.68' y='81.52' width='86.68' height='88.45' />
+                  <rect
+                    className='cls-4'
+                    y='81.52'
+                    width='86.68'
+                    height='88.45'
+                  />
+                  <rect
+                    className='cls-1'
+                    x='86.68'
+                    y='81.52'
+                    width='86.68'
+                    height='88.45'
+                  />
                 </g>
                 <g>
                   <polygon
                     className='cls-5'
                     points='34.98 104.19 30.16 104.19 30.16 147.3 56.52 147.3 56.52 144.83 34.98 144.83 34.98 104.19'
                   />
-                  <rect className='cls-5' x='127.6' y='104.19' width='4.83' height='43.1' />
+                  <rect
+                    className='cls-5'
+                    x='127.6'
+                    y='104.19'
+                    width='4.83'
+                    height='43.1'
+                  />
                 </g>
               </g>
-              <rect className='cls-7' x='173.35' y='81.52' width='86.68' height='88.45' />
+              <rect
+                className='cls-7'
+                x='173.35'
+                y='81.52'
+                width='86.68'
+                height='88.45'
+              />
               <path
                 className='cls-5'
                 d='M218.31,147.3h-3.84l-16.51-43.1h5.2l13.91,38.88,13.85-38.88h4.49l-17.1,43.1Z'
               />
-              <rect className='cls-3' x='260.03' y='81.52' width='86.68' height='88.45' />
-              <rect className='cls-5' x='300.95' y='104.19' width='4.83' height='43.1' />
-              <rect className='cls-2' x='346.7' y='81.52' width='86.68' height='88.45' />
+              <rect
+                className='cls-3'
+                x='260.03'
+                y='81.52'
+                width='86.68'
+                height='88.45'
+              />
+              <rect
+                className='cls-5'
+                x='300.95'
+                y='104.19'
+                width='4.83'
+                height='43.1'
+              />
+              <rect
+                className='cls-2'
+                x='346.7'
+                y='81.52'
+                width='86.68'
+                height='88.45'
+              />
               <path
                 className='cls-5'
                 d='M373.92,104.19h4.88l24.31,37.32v-37.32h3.06v43.1h-4.81l-24.38-37.58v37.58h-3.06v-43.1Z'
               />
-              <rect className='cls-6' x='433.38' y='81.52' width='86.68' height='88.45' />
+              <rect
+                className='cls-6'
+                x='433.38'
+                y='81.52'
+                width='86.68'
+                height='88.45'
+              />
               <path
                 className='cls-5'
                 d='M459.89,125.75c0-14.77,5.64-21.55,17.87-21.55,11.47,0,16.73,5.13,14.83,13.82h-4.31c1.39-7.42-2.22-11.41-10.52-11.41-9.19,0-13.18,5.83-13.18,19.14s3.8,19.14,12.68,19.14c7.16,0,11.79-4.82,11.79-13.63v-3.8h-11.98v-2.22h16.48v21.49h-2.85l-.76-8.05c-2.03,5.77-7.29,8.62-13.44,8.62-11.47,0-16.61-6.47-16.61-21.55Z'
@@ -970,8 +1212,17 @@ export const IconCitysLifeLogo = (props: Props) => {
 
 export const IconCitysKidsClubLogo = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 376 131' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 376 131'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M127.61 50.7C114.09 50.7 104.09 41.94 104.09 30.63C104.09 18.35 115.47 11.8 127.13 11.8C127.75 11.8 129.47 11.87 130.03 11.94C133.62 12.42 135.55 12.91 138.72 14.22L141.62 21.33C137.48 16.43 134.93 14.91 129.96 13.95C129.27 13.81 127.89 13.81 127.13 13.81C119.2 13.81 111.75 19.12 111.75 29.61C111.75 30.85 111.82 32.09 112.03 33.34C113.41 41.82 118.72 48.79 127.62 48.79C133.97 48.79 138.11 47.06 141.63 44.72L142.53 46.17C138.94 48.59 133.84 50.72 127.63 50.72'
           fill={props.fill}
@@ -1029,8 +1280,17 @@ export const IconCitysKidsClubLogo = (props: Props) => {
 
 export const IconCitysMembersClubLogo = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 573 270' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 573 270'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M218.84 52.72C201.48 52.72 188 41.1 188 25.18C188 9.25999 202.7 -9.76585e-06 217.77 -9.76585e-06C218.77 -9.76585e-06 221 0.0699902 221.79 0.13999C226.6 0.56999 229.46 1.35999 234.06 3.29999L238.15 13.56C231.98 6.45999 228.39 4.22999 221.8 3.15999C220.8 3.01999 218.93 2.93999 217.71 2.93999C207.31 2.93999 197.12 9.60999 197.12 23.74C197.12 25.46 197.26 27.18 197.55 28.91C199.34 40.46 206.87 49.78 218.78 49.78C227.53 49.78 232.91 47.56 238 44.33L239.29 46.48C234.13 49.92 227.31 52.72 218.85 52.72H218.84Z'
           fill={props.fill}
@@ -1103,8 +1363,17 @@ export const IconCitysMembersClubLogo = (props: Props) => {
 
 export const IconCitysIstanbulLogo = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 464 135' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 464 135'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <g clipPath='url(#clip0_1672_41)'>
           <path
             fillRule='evenodd'
@@ -1191,8 +1460,17 @@ export const IconCitysIstanbulLogo = (props: Props) => {
 
 export const IconArrowLong = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 13 25' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 13 25'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M12.1867 6.5195L10.8919 7.81426L7.57251 4.49486V24.2414H5.74121V4.49486L2.42182 7.81426L1.12706 6.5195L6.65686 0.989708L12.1867 6.5195Z'
           fill={props.fill}
@@ -1206,12 +1484,32 @@ export const IconArrowLong = (props: Props) => {
 
 export const IconCollab = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 52 55' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 26 26'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
-          d='M22.4238 29.291L24.626 31.4961L24.9697 31.8408L24.6348 32.1934L4.59863 53.3438L4.25293 53.709L3.88965 53.3613L1.64258 51.207L1.28418 50.8633L1.62598 50.502L21.707 29.2998L22.0605 28.9268L22.4238 29.291ZM30.2754 29.3154L50.3516 50.502L50.6934 50.8633L50.335 51.207L48.0879 53.3613L47.7246 53.709L47.3789 53.3438L27.3516 32.2061L27.0166 31.8525L27.3604 31.5088L29.5586 29.3057L29.9219 28.9424L30.2754 29.3154ZM4.50098 1.65527L24.6826 22.8086L25.0195 23.1611L24.6748 23.5068L22.4727 25.7129L22.1113 26.0752L21.7568 25.7041L1.52734 4.49902L1.18262 4.13867L1.54297 3.79297L2.66602 2.71582H2.66699L3.79297 1.63867L4.15527 1.29297L4.50098 1.65527ZM48.207 1.63867L49.333 2.71582H49.334L50.457 3.79297L50.8174 4.13867L50.4727 4.49902L30.249 25.6895L29.8955 26.0596L29.5332 25.6973L27.335 23.4941L26.9902 23.1494L27.3271 22.7959L47.499 1.65527L47.8447 1.29297L48.207 1.63867Z'
+          d='M12.4976 13.7662L1.11076 25.7037L0 24.639L11.4094 12.6759L12.4976 13.7662Z'
           fill={props.fill}
-          stroke={props.fill}
+        />
+        <path
+          d='M25.7037 24.639L24.5929 25.7037L13.2106 13.7722L14.2973 12.6834L25.7037 24.639Z'
+          fill={props.fill}
+        />
+        <path
+          d='M12.1734 10.4562L11.0851 11.5465L1.08525 1.06472L1.64063 0.532361L2.19751 0L12.1734 10.4562Z'
+          fill={props.fill}
+        />
+        <path
+          d='M24.0631 0.532361L24.6185 1.06472L14.6216 11.539L13.5348 10.4502L23.5062 0L24.0631 0.532361Z'
+          fill={props.fill}
         />
       </svg>
     </span>
@@ -1220,8 +1518,17 @@ export const IconCollab = (props: Props) => {
 
 export const IconTile = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 23 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 23 13'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M9.74608 5.88874L9.747 5.88805L11.745 4.73455L7.50582 2.28674L1.11731 5.97503L5.35714 8.42238L9.74608 5.88874Z'
           fill={props.fill}
@@ -1230,13 +1537,22 @@ export const IconTile = (props: Props) => {
           d='M12.3202 4.93379L10.3224 6.08728L16.0393 9.38831L21.8829 6.01411L16.1659 2.71332L12.3211 4.9331L12.3202 4.93379Z'
           fill={props.fill}
         />
-        <path d='M15.7057 2.44758L11.4661 0L7.966 2.02097L12.2051 4.46855L15.7057 2.44758Z' fill={props.fill} />
-        <path d='M0.887207 6.98583L11.3041 13V12.3874L0.887207 6.37354V6.98583Z' fill={props.fill} />
+        <path
+          d='M15.7057 2.44758L11.4661 0L7.966 2.02097L12.2051 4.46855L15.7057 2.44758Z'
+          fill={props.fill}
+        />
+        <path
+          d='M0.887207 6.98583L11.3041 13V12.3874L0.887207 6.37354V6.98583Z'
+          fill={props.fill}
+        />
         <path
           d='M16.153 9.85358L11.7643 12.3875V13L22.1128 7.02496V6.41266L16.1544 9.85312L16.153 9.85358Z'
           fill={props.fill}
         />
-        <path d='M9.86203 6.35327L5.81732 8.68856L11.5342 11.9889L15.5791 9.65406L9.86203 6.35327Z' fill={props.fill} />
+        <path
+          d='M9.86203 6.35327L5.81732 8.68856L11.5342 11.9889L15.5791 9.65406L9.86203 6.35327Z'
+          fill={props.fill}
+        />
       </svg>
     </span>
   )
@@ -1244,8 +1560,17 @@ export const IconTile = (props: Props) => {
 
 export const IconDollar = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 22 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 22 13'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M1.64581 0V2.6H0.333313V13H18.7083V11.7H20.0208H21.3333V1.3V0H2.95831H1.64581ZM9.52081 10.4C8.0705 10.4 6.89581 9.2365 6.89581 7.8C6.89581 6.3635 8.0705 5.2 9.52081 5.2C10.9711 5.2 12.1458 6.3635 12.1458 7.8C12.1458 9.2365 10.9711 10.4 9.52081 10.4ZM20.0208 10.4H18.7083V2.6H2.95831V1.3H20.0208V10.4Z'
           fill={props.fill}
@@ -1257,8 +1582,17 @@ export const IconDollar = (props: Props) => {
 
 export const IconHome = (props: Props) => {
   return (
-    <span className='inherit-dims block' style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}>
-      <svg width='100%' height='100%' viewBox='0 0 16 13' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <span
+      className='inherit-dims block'
+      style={{ transform: `rotate(${props.rotate ?? 0}deg)` }}
+    >
+      <svg
+        width='100%'
+        height='100%'
+        viewBox='0 0 16 13'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
         <path
           d='M6.66669 13V8.41177H9.66669V13H13.4167V6.88235H15.6667L8.16669 0L0.666687 6.88235H2.91669V13H6.66669Z'
           fill={props.fill}
@@ -1268,7 +1602,9 @@ export const IconHome = (props: Props) => {
   )
 }
 
-export const socialIcons = (fill: string = colors.white): Record<SocialMedia, JSX.Element> => ({
+export const socialIcons = (
+  fill: string = colors.white
+): Record<SocialMedia, JSX.Element> => ({
   [SocialMedia.tiktok]: <IconTiktok fill={fill} />,
   [SocialMedia.facebook]: <IconFacebook fill={fill} />,
   [SocialMedia.instagram]: <IconInstagram fill={fill} />,
