@@ -1,14 +1,27 @@
-"use client"
+'use client'
 
-import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { cn } from "@/lib/utils"
-import { FilterData } from "@/lib/utils/filter-utils"
-import { Category, Floor, SubCategory } from "@/types"
-import { Search } from "lucide-react"
-import { UseFormReturn } from "react-hook-form"
-import { useEffect, useState } from "react"
+import { cn } from '@/lib/utils'
+import { useEffect, useState } from 'react'
+import { UseFormReturn } from 'react-hook-form'
+
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+} from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { FilterData } from '@/lib/utils/filter-utils'
+import { Category, Floor, SubCategory } from '@/types'
+import { MagnifyingGlassIcon } from '@phosphor-icons/react'
 
 interface FilterFormProps {
   form: UseFormReturn<FilterData>
@@ -19,8 +32,8 @@ interface FilterFormProps {
   isLoading?: boolean
 }
 
-const baseSelectTriggerClasses = "px-4 py-3 bg-white text-gray-700 font-primary text-sm lg:text-base min-w-[200px]"
-const defaultSelectTriggerClasses = `${baseSelectTriggerClasses} border border-bricky-brick rounded-md flex-1 w-full [&>svg]:text-bricky-brick`
+const defaultSelectTriggerClasses =
+  'px-4 pt-10 pb-4 bg-white text-gray-700 font-primary text-sm lg:text-lg bg-slate-100 rounded-none flex-1 w-full [&>svg]:text-bricky-brick'
 
 export function FilterForm({
   form,
@@ -30,41 +43,47 @@ export function FilterForm({
   onCategoryChange,
   isLoading = false,
 }: FilterFormProps) {
-  const floorValue = form.watch("floor")
-  const [searchValue, setSearchValue] = useState("")
+  const floorValue = form.watch('floor')
+  const [searchValue, setSearchValue] = useState('')
 
   // Debounce search input
   useEffect(() => {
     const timer = setTimeout(() => {
-      form.setValue("keyword", searchValue)
+      form.setValue('keyword', searchValue)
     }, 500) // 500ms delay
 
     return () => clearTimeout(timer)
   }, [searchValue, form])
   const handleCategoryChange = (categoryId: string) => {
     // Always reset subcategory when category changes
-    form.setValue("subCategory", "")
+    form.setValue('subCategory', '')
 
-    if (categoryId && categoryId !== "all") {
+    if (categoryId && categoryId !== 'all') {
       onCategoryChange?.(categoryId)
     } else {
       // When "all" is selected, set subcategory to "all" as well
-      form.setValue("subCategory", "all")
+      form.setValue('subCategory', 'all')
     }
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={(e) => e.preventDefault()} className="flex flex-col lg:flex-row gap-4 mb-8 lg:mb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-8 w-full">
+      <form
+        onSubmit={e => e.preventDefault()}
+        className='mb-12 flex flex-col gap-8'
+      >
+        <div className='grid grid-cols-24 gap-4'>
           <FormField
             control={form.control}
-            name="category"
+            name='category'
             render={({ field }) => (
-              <FormItem>
+              <FormItem className='relative col-span-8'>
+                <FormLabel className='absolute left-4 top-5 block font-primary text-base font-[400] leading-none text-gray-700'>
+                  Kategori
+                </FormLabel>
                 <FormControl>
                   <Select
-                    onValueChange={(value) => {
+                    onValueChange={value => {
                       field.onChange(value)
                       handleCategoryChange(value)
                     }}
@@ -72,16 +91,17 @@ export function FilterForm({
                     disabled={isLoading}
                   >
                     <SelectTrigger className={defaultSelectTriggerClasses}>
-                      <SelectValue placeholder="Tüm Kategoriler">
-                        {field.value === "all" || !field.value
-                          ? "Tüm Kategoriler"
-                          : categories.find((category) => category.id.toString() === field.value)?.title ||
-                            "Tüm Kategoriler"}
+                      <SelectValue placeholder='Tüm Kategoriler'>
+                        {field.value === 'all' || !field.value
+                          ? 'Tüm Kategoriler'
+                          : categories.find(
+                              category => category.id.toString() === field.value
+                            )?.title || 'Tüm Kategoriler'}
                       </SelectValue>
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">Tüm Kategoriler</SelectItem>
-                      {categories.map((category) => (
+                      <SelectItem value='all'>Tüm Kategoriler</SelectItem>
+                      {categories.map(category => (
                         <SelectItem key={category.id} value={category.id}>
                           {category.title}
                         </SelectItem>
@@ -92,37 +112,46 @@ export function FilterForm({
               </FormItem>
             )}
           />
-
           <FormField
             control={form.control}
-            name="subCategory"
+            name='subCategory'
             render={({ field }) => (
-              <FormItem>
+              <FormItem className='relative col-span-8'>
+                <FormLabel className='absolute left-4 top-5 block font-primary text-base font-[400] leading-none text-gray-700'>
+                  Alt Kategori
+                </FormLabel>
                 <FormControl>
                   <Select
-                    onValueChange={(value) => {
+                    onValueChange={value => {
                       field.onChange(value)
                     }}
                     value={field.value}
-                    disabled={!form.getValues("category") || form.getValues("category") === "all" || isLoading}
+                    disabled={
+                      !form.getValues('category') ||
+                      form.getValues('category') === 'all' ||
+                      isLoading
+                    }
                   >
                     <SelectTrigger className={defaultSelectTriggerClasses}>
                       <SelectValue
                         placeholder={
-                          !form.getValues("category") || form.getValues("category") === "all"
-                            ? "Önce kategori seçin"
-                            : "Alt Kategoriler"
+                          !form.getValues('category') ||
+                          form.getValues('category') === 'all'
+                            ? 'Seçiniz'
+                            : 'Seçiniz'
                         }
                       >
-                        {field.value === "all" || !field.value
-                          ? "Alt Kategoriler"
-                          : subCategories.find((subCategory) => subCategory.id.toString() === field.value)?.title ||
-                            "Alt Kategoriler"}
+                        {field.value === 'all' || !field.value
+                          ? 'Alt Kategoriler'
+                          : subCategories.find(
+                              subCategory =>
+                                subCategory.id.toString() === field.value
+                            )?.title || 'Seçiniz'}
                       </SelectValue>
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">Tüm Alt Kategoriler</SelectItem>
-                      {subCategories.map((subCategory) => (
+                      <SelectItem value='all'>Tüm Alt Kategoriler</SelectItem>
+                      {subCategories.map(subCategory => (
                         <SelectItem key={subCategory.id} value={subCategory.id}>
                           {subCategory.title}
                         </SelectItem>
@@ -133,34 +162,40 @@ export function FilterForm({
               </FormItem>
             )}
           />
-
           <FormField
             control={form.control}
-            name="floor"
+            name='floor'
             render={({ field }) => (
-              <FormItem>
+              <FormItem className='relative col-span-8'>
+                <FormLabel className='absolute left-4 top-5 block font-primary text-base font-[400] leading-none text-gray-700'>
+                  Katlar
+                </FormLabel>
                 <FormControl>
                   <Select
-                    onValueChange={(value) => {
+                    onValueChange={value => {
                       field.onChange(value)
                     }}
                     value={field.value}
                     disabled={isLoading}
                   >
                     <SelectTrigger className={defaultSelectTriggerClasses}>
-                      <SelectValue placeholder="Tüm Katlar">
+                      <SelectValue placeholder='Tüm Katlar'>
                         {(() => {
-                          if (floorValue === "all" || !floorValue) {
-                            return "Tüm Katlar"
+                          if (floorValue === 'all' || !floorValue) {
+                            return 'Tüm Katlar'
                           }
-                          const selectedFloor = floors.find((floor) => floor.id.toString() === floorValue)
-                          return selectedFloor ? selectedFloor.title : "Tüm Katlar"
+                          const selectedFloor = floors.find(
+                            floor => floor.id.toString() === floorValue
+                          )
+                          return selectedFloor
+                            ? selectedFloor.title
+                            : 'Tüm Katlar'
                         })()}
                       </SelectValue>
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="all">Tüm Katlar</SelectItem>
-                      {floors.map((floor) => (
+                      <SelectItem value='all'>Tüm Katlar</SelectItem>
+                      {floors.map(floor => (
                         <SelectItem key={floor.id} value={floor.id}>
                           {floor.title}
                         </SelectItem>
@@ -171,35 +206,35 @@ export function FilterForm({
               </FormItem>
             )}
           />
-
+        </div>
+        <div className='lg:col-span-20 lg:col-start-3'>
           <FormField
             control={form.control}
-            name="keyword"
+            name='keyword'
             render={() => (
               <FormItem>
                 <FormControl>
-                  <div className="relative w-full h-12">
-                    <button type="button" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black">
-                      <Search className="text-black" size={16} strokeWidth={3} />
-                    </button>
+                  <div className='relative h-16 w-full'>
+                    <div className='pointer-events-none absolute bottom-0 right-0 top-0 flex h-full items-center justify-center text-bricky-brick'>
+                      <MagnifyingGlassIcon size={24} />
+                    </div>
                     <Input
                       value={searchValue}
-                      placeholder="Marka ara..."
+                      placeholder='Mağaza arayın'
                       className={cn(
-                        defaultSelectTriggerClasses,
-                        "pl-10 h-full border-t-0 border-x-0 rounded-none border-b border-bricky-brick text-black placeholder:text-black"
+                        'h-full rounded-none border-x-0 border-b border-t-0 border-bricky-brick font-primary font-[300] text-bricky-brick placeholder:text-lg placeholder:text-bricky-brick'
                       )}
-                      onChange={(e) => {
+                      onChange={e => {
                         const newValue = e.target.value
                         setSearchValue(newValue)
 
                         // If something is typed in search, reset all other filters
                         if (newValue.trim()) {
-                          form.setValue("category", "all")
-                          form.setValue("subCategory", "all")
-                          form.setValue("floor", "all")
+                          form.setValue('category', 'all')
+                          form.setValue('subCategory', 'all')
+                          form.setValue('floor', 'all')
                           // Call onCategoryChange to trigger any necessary updates
-                          onCategoryChange?.("all")
+                          onCategoryChange?.('all')
                         }
                       }}
                       disabled={isLoading}
