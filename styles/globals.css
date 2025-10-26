@@ -36,6 +36,7 @@
   --z-alotech: z-stack();
   --z-modal-background: z-stack();
   --z-modal: z-stack();
+  --z-modal-content: z-stack();
   --z-radix-popper: z-stack();
   --z-preloader: z-stack();
   --z-gsap-markers: z-stack();
