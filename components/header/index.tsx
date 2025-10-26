@@ -115,16 +115,16 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
           'fixed left-0 right-0 top-0 z-[var(--z-header)] mix-blend-difference',
           'section-padding flex items-stretch',
           'transition-all duration-300',
-          'h-[var(--header-height-slim)] w-screen bg-transparent'
+          'pointer-events-none h-[var(--header-height-slim)] w-screen bg-transparent'
         )}
       >
         <div className='z-[var(--z-header-content)] flex flex-1 items-stretch justify-between px-6 lg:px-0'>
-          <div className='2xl:size-46 size-28 xl:size-32 3xl:size-40'>
+          <div className='2xl:size-46 pointer-events-auto size-28 xl:size-32 3xl:size-40'>
             <LocalizedLink href='/' scroll={initialScroll} aria-label='Home'>
               <Logo fill={colors.white} />
             </LocalizedLink>
           </div>
-          <div className='ml-auto flex cursor-pointer items-center gap-2 lg:gap-6'>
+          <div className='pointer-events-auto ml-auto flex cursor-pointer items-center gap-2 lg:gap-6'>
             <LocaleSwitcher theme='dark' />
             {!nonHome ? (
               <button

@@ -149,12 +149,12 @@ export const navigationConfig: Partial<
     order: 2,
     mainRoute: true,
   },
-  '/location': {
-    titleKey: 'navigation.location',
-    id: 'location',
-    order: 3,
-    mainRoute: true,
-  },
+  // '/location': {
+  //   titleKey: 'navigation.location',
+  //   id: 'location',
+  //   order: 3,
+  //   mainRoute: true,
+  // },
   '/residences': {
     titleKey: 'navigation.residences',
     id: 'residences',
@@ -173,18 +173,18 @@ export const navigationConfig: Partial<
     order: 6,
     mainRoute: false,
   },
-  '/citys-life-privileges': {
+  '/citys-living': {
     titleKey: 'navigation.citysLifePrivileges',
-    id: 'citys-life-privileges',
+    id: 'citys-living',
     order: 7,
     mainRoute: false,
   },
-  '/citys-psm': {
-    titleKey: 'navigation.citysPsm',
-    id: 'citys-psm',
-    order: 8,
-    mainRoute: false,
-  },
+  // '/citys-psm': {
+  //   titleKey: 'navigation.citysPsm',
+  //   id: 'citys-psm',
+  //   order: 8,
+  //   mainRoute: false,
+  // },
   '/citys-istanbul-avm': {
     titleKey: 'navigation.citysIstanbul',
     id: 'citys-istanbul-avm',

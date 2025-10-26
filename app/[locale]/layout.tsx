@@ -13,6 +13,7 @@ import { ModalContactForm } from '@/components/modal-contact-form'
 import { ReactQueryProvider } from '@/components/react-query-provider'
 import { RealViewport } from '@/components/real-viewport'
 import { StickySidebar } from '@/components/sticky-sidebar'
+import { Scroller } from '@/components/scroller'
 // import { WebChat } from '@/components/web-chat'
 
 const montserrat = Montserrat({
@@ -154,6 +155,7 @@ export default async function LocaleLayout({
           <ReactQueryProvider>
             {children}
             <ModalContactForm />
+            <Scroller />
             {/* <PreloaderClient /> */}
             <StickySidebar />
           </ReactQueryProvider>

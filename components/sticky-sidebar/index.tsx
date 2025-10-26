@@ -1,17 +1,17 @@
 'use client'
 
-import { navigationConfig } from '@/lib/constants'
-import { useSectionStore } from '@/lib/store/sections'
-import { cn } from '@/lib/utils'
 import { useLenis } from 'lenis/react'
-import { useRouter } from 'next/navigation'
+import { cn } from '@/lib/utils'
 import React, { useState } from 'react'
 
-export const StickySidebar: React.FC = () => {
-  const sectionStore = useSectionStore()
-  const lenis = useLenis()
-  const router = useRouter()
+import { Link } from '@/components/utility/link'
+import { navigationConfig } from '@/lib/constants'
+import { useActiveSection } from '@/hooks/useActiveSection'
+import { useNavigation } from '@/hooks/useNavigation'
 
+export const StickySidebar: React.FC = () => {
+  const activeSection = useActiveSection()
+  const { handleNavClick } = useNavigation()
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false)
 
   useLenis(({ scroll, limit }) => {
@@ -19,21 +19,6 @@ export const StickySidebar: React.FC = () => {
     // limit represents the maximum scroll distance (document height - viewport height)
     setIsScrolledToBottom(scroll >= limit - window.innerHeight)
   })
-
-  const handleItemClick = (href: string, id?: string) => {
-    const targetElement = id ? document.getElementById(id) : null
-
-    if (targetElement && lenis) {
-      // If element exists on current page, scroll to it
-      lenis.scrollTo(`#${id}`, {
-        duration: 0.6,
-        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      })
-    } else {
-      // Otherwise navigate to the page
-      router.push(href)
-    }
-  }
 
   const items = [
     {
@@ -63,8 +48,8 @@ export const StickySidebar: React.FC = () => {
     // },
     // {
     //   label: "CITY'S LIVING",
-    //   href: '/citys-life-privileges',
-    //   id: navigationConfig['/citys-life-privileges']?.id,
+    //   href: '/citys-living',
+    //   id: navigationConfig['/citys-living']?.id,
     // },
     {
       label: "CITY'S ISTANBUL AVM",
@@ -93,19 +78,20 @@ export const StickySidebar: React.FC = () => {
               'before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-white before:transition-all before:duration-300 before:ease-in-out before:content-[""]',
               'hover:before:w-1',
               {
-                'before:w-[3px]': sectionStore.currentSection === item.id,
+                'before:w-[3px]': activeSection === item.id,
               }
             )}
             key={item.href}
           >
-            <div
+            <Link
+              href={item.id === 'home' ? '/' : `#${item.id as string}`}
+              onClick={e => handleNavClick(e, item.id as string)}
               className='absolute left-4 top-1/2 flex -translate-y-1/2 cursor-pointer flex-col items-center justify-center'
-              onClick={() => handleItemClick(item.href, item.id)}
             >
               <span className='whitespace-nowrap font-primary text-[0.8rem] font-[700] text-white lg:tracking-[0.4em]'>
                 {item.label}
               </span>
-            </div>
+            </Link>
           </div>
         ))}
       </div>
@@ -126,19 +112,20 @@ export const StickySidebar: React.FC = () => {
               'before:absolute before:bottom-0 before:left-0 before:h-px before:w-full before:bg-white before:transition-all before:duration-300 before:ease-in-out before:content-[""]',
               'hover:before:w-1',
               {
-                'before:w-[3px]': sectionStore.currentSection === item.id,
+                'before:w-[3px]': activeSection === item.id,
               }
             )}
             key={item.href}
           >
-            <div
+            <Link
+              href={item.id === 'home' ? '/' : `#${item.id as string}`}
+              onClick={e => handleNavClick(e, item.id as string)}
               className='absolute left-4 top-1/2 flex -translate-y-1/2 cursor-pointer flex-col items-center justify-center'
-              onClick={() => handleItemClick(item.href, item.id)}
             >
               <span className='whitespace-nowrap font-primary font-[700] text-white xl:text-[0.6rem] 2xl:text-[0.8rem]'>
                 {item.label}
               </span>
-            </div>
+            </Link>
           </div>
         ))}
       </div>

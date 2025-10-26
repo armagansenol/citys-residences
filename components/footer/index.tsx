@@ -7,7 +7,7 @@ import { useRef } from 'react'
 import { Logo } from '@/components/icons'
 import { Link as LocalizedLink } from '@/components/utility/link'
 import { Locale, routing } from '@/i18n/routing'
-import { getNavigationItems } from '@/lib/constants'
+import { getNavigationItems, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 import {
   CalendarPlusIcon,
@@ -19,12 +19,14 @@ import {
   XLogoIcon,
   YoutubeLogoIcon,
 } from '@phosphor-icons/react'
+import { useNavigation } from '@/hooks/useNavigation'
 
 export function Footer() {
   const t = useTranslations('common')
   const footerRef = useRef<HTMLDivElement>(null)
   const locale = useLocale()
   const navigationItems = getNavigationItems(t, locale as Locale)
+  const { handleNavClick } = useNavigation()
 
   const footerItems = {
     menu: navigationItems,
@@ -82,18 +84,39 @@ export function Footer() {
               <div className='flex flex-col gap-4 sm:gap-6 lg:gap-8'>
                 {getNavigationItems(t, locale as Locale)
                   .filter(item => item.mainRoute)
-                  .map(item => (
-                    <LocalizedLink
-                      key={item.id}
-                      href={'#' + item.id}
-                      className={cn(
-                        'block font-primary font-[300] text-white transition-colors duration-300',
-                        item.mainRoute && 'text-xl sm:text-2xl lg:text-3xl'
-                      )}
-                    >
-                      {item.title}
-                    </LocalizedLink>
-                  ))}
+                  .map(item => {
+                    return (
+                      <>
+                        {item.id === navigationConfig['/']?.id ? (
+                          <LocalizedLink
+                            key={item.id}
+                            href='/'
+                            className={cn(
+                              'block font-primary font-[300] text-white transition-colors duration-300',
+                              item.mainRoute &&
+                                'text-xl sm:text-2xl lg:text-3xl'
+                            )}
+                            onClick={e => handleNavClick(e, item.id)}
+                          >
+                            {item.title}
+                          </LocalizedLink>
+                        ) : (
+                          <LocalizedLink
+                            key={item.id}
+                            href={'#' + item.id}
+                            className={cn(
+                              'block font-primary font-[300] text-white transition-colors duration-300',
+                              item.mainRoute &&
+                                'text-xl sm:text-2xl lg:text-3xl'
+                            )}
+                            onClick={e => handleNavClick(e, item.id)}
+                          >
+                            {item.title}
+                          </LocalizedLink>
+                        )}
+                      </>
+                    )
+                  })}
               </div>
               <div className='flex flex-col gap-4 sm:gap-6 lg:gap-8'>
                 {getNavigationItems(t, locale as Locale)
@@ -112,8 +135,6 @@ export function Footer() {
                   ))}
               </div>
             </div>
-
-            {/* Sales Office & Contact Info */}
             <div className='lg:col-start-16 order-3 col-span-24 flex flex-col gap-8 border-t border-white/50 lg:col-span-9 lg:gap-16 lg:border-l lg:border-t-0 lg:pl-16'>
               <div className='flex flex-col'>
                 <div className='flex items-start justify-between gap-4 sm:gap-6'>

@@ -3,6 +3,7 @@ import { WistiaPlayerWrapper } from '@/components/wistia-player'
 import { getBrandsData } from '@/lib/api/server-actions'
 import { colors } from '@/styles/config.mjs'
 import { PageTitle } from '@/components/page-title'
+import { navigationConfig } from '@/lib/constants'
 
 export default async function Page() {
   const brands = await getBrandsData()
@@ -11,15 +12,16 @@ export default async function Page() {
     <>
       <PageTitle
         primaryColor={colors['aqua-belt']}
-        secondaryColor={colors.black}
+        secondaryColor={colors['trapped-darkness']}
+        tertiaryColor={colors['white']}
         title={
           <>
             <span className='block'>CITY&apos;S</span>
             <span className='block'>İSTANBUL AVM</span>
           </>
         }
-        description='Sanat, spor ve sosyal ayrıcalıkların buluştuğu,özel bir yaşam alanı.'
-        id='citys-istanbul-avm'
+        description='Hayatı tüm renkleriyle yaşa.'
+        id={navigationConfig['/citys-istanbul-avm']?.id as string}
       />
       <section className='pointer-events-none h-screen overflow-hidden lg:h-[45vw]'>
         <WistiaPlayerWrapper

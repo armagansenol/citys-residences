@@ -21,7 +21,7 @@ export function CitysLiving({
           </>
         }
         description='Artık her şey daha kolay.'
-        id={navigationConfig['/citys-life-privileges']?.id as string}
+        id={navigationConfig['/citys-living']?.id as string}
       />
       <LazyCitysLiving data={data} />
     </>
