@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import type { ImageProps } from "next/image"
-import NextImage from "next/image"
-import { useState } from "react"
-import cn from "clsx"
+import { cn } from '@/lib/utils'
+import type { ImageProps } from 'next/image'
+import NextImage from 'next/image'
+import { useState } from 'react'
 
 const Img = (props: ImageProps) => {
   const {
@@ -11,7 +11,7 @@ const Img = (props: ImageProps) => {
     className,
     fill,
     height,
-    loading = "eager",
+    loading = 'eager',
     priority = false,
     src,
     quality = 100,
@@ -25,7 +25,11 @@ const Img = (props: ImageProps) => {
   return (
     <NextImage
       alt={alt}
-      className={cn("h-full w-full block transition duration-300", loaded ? "opacity-100" : "opacity-0", className)}
+      className={cn(
+        'block h-full w-full transition duration-300',
+        loaded ? 'opacity-100' : 'opacity-0',
+        className
+      )}
       loading={loading}
       onLoad={() => setLoaded(true)}
       priority={priority}

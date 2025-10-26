@@ -1,13 +1,16 @@
-import { initialScroll } from "@/lib/constants"
-import cn from "clsx"
-import type { LinkProps as NextLinkProps } from "next/link"
-import NextLink from "next/link"
-import React, { forwardRef, useMemo } from "react"
-import type { UrlObject } from "url"
+import { initialScroll } from '@/lib/constants'
+import { cn } from '@/lib/utils'
+import type { LinkProps as NextLinkProps } from 'next/link'
+import NextLink from 'next/link'
+import React, { forwardRef, useMemo } from 'react'
+import type { UrlObject } from 'url'
 
 type Url = string | UrlObject
 
-type LinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof NextLinkProps> &
+type LinkProps = Omit<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  keyof NextLinkProps
+> &
   NextLinkProps & {
     className?: string
     scroll?: boolean
@@ -17,23 +20,38 @@ type LinkProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof NextL
   }
 
 const Link: React.ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (
-  { href, children, className, scroll = initialScroll, ariaLabel = "go to page", ...props },
+  {
+    href,
+    children,
+    className,
+    scroll = initialScroll,
+    ariaLabel = 'go to page',
+    ...props
+  },
   ref
 ) => {
   const isProtocol = useMemo(
-    () => typeof href === "string" && (href.startsWith("mailto:") || href.startsWith("tel:")),
+    () =>
+      typeof href === 'string' &&
+      (href.startsWith('mailto:') || href.startsWith('tel:')),
     [href]
   )
-  const isAnchor = useMemo(() => typeof href === "string" && href.startsWith("#"), [href])
-  const isExternal = useMemo(() => typeof href === "string" && href.startsWith("http"), [href])
+  const isAnchor = useMemo(
+    () => typeof href === 'string' && href.startsWith('#'),
+    [href]
+  )
+  const isExternal = useMemo(
+    () => typeof href === 'string' && href.startsWith('http'),
+    [href]
+  )
 
-  if (typeof href === "object") {
+  if (typeof href === 'object') {
     return (
       <NextLink
         ref={ref}
         href={href}
         aria-label={ariaLabel}
-        className={cn("cursor-pointer", className)}
+        className={cn('cursor-pointer', className)}
         scroll={scroll}
         {...props}
       >
@@ -47,9 +65,9 @@ const Link: React.ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (
       <a
         ref={ref}
         href={href}
-        className={cn("cursor-pointer", className)}
-        target="_blank"
-        rel="noopener noreferrer"
+        className={cn('cursor-pointer', className)}
+        target='_blank'
+        rel='noopener noreferrer'
         {...props}
       >
         {children}
@@ -62,7 +80,7 @@ const Link: React.ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (
       ref={ref}
       href={href}
       aria-label={ariaLabel}
-      className={cn("cursor-pointer", className)}
+      className={cn('cursor-pointer', className)}
       passHref={isAnchor}
       scroll={scroll}
       {...props}
@@ -74,6 +92,6 @@ const Link: React.ForwardRefRenderFunction<HTMLAnchorElement, LinkProps> = (
 
 const ForwardedLink = forwardRef(Link)
 
-ForwardedLink.displayName = "Link"
+ForwardedLink.displayName = 'Link'
 
 export default ForwardedLink

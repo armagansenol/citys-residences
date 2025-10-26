@@ -118,7 +118,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
         }}
         value={phoneInput.country.iso2}
       >
-        <SelectTrigger className='h-14 w-24 cursor-pointer rounded-none border-b border-white font-[300] text-white/90 placeholder:text-white/90 lg:text-sm xl:h-12 2xl:h-14 2xl:text-lg'>
+        <SelectTrigger className='h-14 w-24 cursor-pointer rounded-none border-b border-white text-sm font-[300] text-white/90 placeholder:text-white/90 lg:text-sm xl:h-12 2xl:h-14 2xl:text-lg'>
           <SelectValue placeholder='Code'>
             +{phoneInput.country.dialCode}
           </SelectValue>

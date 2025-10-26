@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
-import { gsap } from "@/components/gsap"
-import s from "./scrollable-box.module.css"
+import s from './scrollable-box.module.css'
 
-import cn from "clsx"
-import Lenis from "lenis"
-import { ReactNode, useEffect, useRef, useState } from "react"
+import { gsap } from '@/components/gsap'
+import { cn } from '@/lib/utils'
+import Lenis from 'lenis'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 
 type Props = {
   children: ReactNode
@@ -13,10 +13,17 @@ type Props = {
   infinite?: boolean
   reset?: boolean
   scrollTo?: string | null
-  orientation?: "vertical" | "horizontal"
+  orientation?: 'vertical' | 'horizontal'
 }
 
-const ScrollableBox = ({ children, className, infinite, reset, scrollTo = null, orientation = "vertical" }: Props) => {
+const ScrollableBox = ({
+  children,
+  className,
+  infinite,
+  reset,
+  scrollTo = null,
+  orientation = 'vertical',
+}: Props) => {
   const [lenis, setLenis] = useState<Lenis | null>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -29,7 +36,7 @@ const ScrollableBox = ({ children, className, infinite, reset, scrollTo = null, 
       wrapper: wrapperRef.current, // element which has overflow
       content: contentRef.current, // usually wrapper's direct child
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+      easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
       orientation: orientation,
       gestureOrientation: orientation,
       smoothWheel: true,
@@ -58,7 +65,9 @@ const ScrollableBox = ({ children, className, infinite, reset, scrollTo = null, 
 
   useEffect(() => {
     if (!scrollTo) return
-    const scopedSelector = wrapperRef.current?.querySelector(scrollTo) as HTMLElement
+    const scopedSelector = wrapperRef.current?.querySelector(
+      scrollTo
+    ) as HTMLElement
     lenis?.scrollTo(scopedSelector)
   }, [lenis, scrollTo])
 
