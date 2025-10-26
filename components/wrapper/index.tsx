@@ -1,13 +1,13 @@
 'use client'
 
-import s from './wrapper.module.css'
-
 import { cn } from '@/lib/utils'
 import type { themeNames } from '@/styles/config.mjs'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
 import { SmoothScroll } from '@/components/smooth-scroll'
+import { Header } from '../header'
+import { Footer } from '../footer'
 
 interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: (typeof themeNames)[number]
@@ -30,16 +30,16 @@ export function Wrapper({
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <main
-        className={cn(s.main, className, 'wrapper')}
+        className={cn(className, 'wrapper', 'z-[var(--z-content)]')}
         {...props}
         style={{ zIndex: 'var(--z-content)' }}
       >
         {children}
         {/* <Script id="theme-script">{`document.documentElement.setAttribute('data-theme', '${theme}');`}</Script> */}
       </main>
-      {/* <Footer /> */}
+      <Footer />
       {lenis && <SmoothScroll root />}
     </>
   )
