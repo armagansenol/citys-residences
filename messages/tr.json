@@ -272,7 +272,11 @@
         "explicitConsent": "Açık Rıza Metni",
         "kvkRelatedInformation": "KVKK İlişkin Aydınlatma Metni",
         "cookiePolicy": "Çerez Politikası",
-        "scrollToTop": "Başa Dön"
+        "scrollToTop": "Başa Dön",
+        "salesOffice": "Satış Ofisi",
+        "createAppointment": "Randevu Oluştur",
+        "speakWithRepresentative": "Temsilciyle Görüş",
+        "getDirections": "Yol Tarifi Al"
     },
     "countries": {
         "AD": "Andorra",

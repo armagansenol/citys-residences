@@ -248,6 +248,8 @@ const config: Config = {
           'linear-gradient(135deg, #F57C67 0%, #E0533A 100%)',
         'gradient-submit-button-hover':
           'linear-gradient(135deg, #E55A2E 0%, #FFFFFF 100%)',
+        'gradient-soft-light':
+          'linear-gradient(146.41deg, rgba(198, 198, 198, 0) 22.01%, #FFFFFF 242.33%)',
       },
     },
   },

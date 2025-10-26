@@ -174,14 +174,14 @@ body {
   z-index: var(--z-alotech) !important;
 }
 
-.border-gradient-white {
+.border-gradient-soft-light {
   border: 1px solid transparent;
+  border-image-slice: 1;
   border-image-source: linear-gradient(
     132.66deg,
     #ffffff -46.82%,
     rgba(255, 255, 255, 0) 47.43%
   );
-  border-image-slice: 1;
 }
 
 /* SVG color transition utilities */
