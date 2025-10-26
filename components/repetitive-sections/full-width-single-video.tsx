@@ -10,8 +10,8 @@ export function FullWidthSingleVideo(props: FullWidthSingleVideoProps) {
   const { mediaId, thumbnail } = props
 
   return (
-    <section className={cn('relative h-[40vw]')}>
-      <div className='absolute inset-0 bottom-0 left-0 right-0 top-0 z-10'>
+    <section className={cn('relative aspect-[16/14] lg:aspect-[16/9]')}>
+      <div className='absolute inset-0'>
         <LazyWistiaPlayer
           muted
           autoplay

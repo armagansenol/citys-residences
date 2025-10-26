@@ -108,11 +108,10 @@ export default async function Page({
       </section>
       <section className='pointer-events-none h-screen overflow-hidden lg:h-[45vw]'>
         <WistiaPlayerWrapper
-          mediaId='p4l0a63nut'
+          mediaId='4g5plgua2p'
           autoplay
           muted
           preload='none'
-          qualityMin={1080}
           swatch={false}
           bigPlayButton={false}
           silentAutoplay='allow'

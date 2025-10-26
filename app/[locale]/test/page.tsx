@@ -11,19 +11,6 @@ export default function TestPage() {
   return (
     <div>
       <Header />
-
-      <PageTitle
-        primaryColor={colors['aqua-belt']}
-        secondaryColor={colors.black}
-        title={
-          <>
-            <span className='block'>CITY&apos;S</span>
-            <span className='block'>İSTANBUL AVM</span>
-          </>
-        }
-        description='Sanat, spor ve sosyal ayrıcalıkların buluştuğu,özel bir yaşam alanı.'
-        id='citys-istanbul-avm'
-      />
       <PageTitle
         primaryColor={colors['trapped-darkness']}
         secondaryColor={colors.white}

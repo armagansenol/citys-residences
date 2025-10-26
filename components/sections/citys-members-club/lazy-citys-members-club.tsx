@@ -4,6 +4,7 @@ import { Suspense, lazy, useEffect, useState } from 'react'
 import { useIntersectionObserver } from 'usehooks-ts'
 import { CitysMembersClubData } from '@/lib/api/queries'
 import { useLenis } from 'lenis/react'
+import { colors } from '@/styles/config.mjs'
 
 const LazyCitysMembersClubContent = lazy(() =>
   import('./lazy-citys-members-club-content').then(module => ({
@@ -48,7 +49,16 @@ export function LazyCitysMembersClub({ data }: LazyCitysMembersClubProps) {
   }, [isVisible, hasLoaded])
 
   return (
-    <div className='min-h-screen' ref={ref.ref}>
+    <div
+      className='min-h-screen'
+      ref={ref.ref}
+      style={
+        {
+          '--bg-color': colors['verve-violet'],
+          '--text-color': colors['white'],
+        } as React.CSSProperties
+      }
+    >
       {isVisible ? (
         <Suspense
           fallback={

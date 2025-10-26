@@ -5,6 +5,7 @@ import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
 import { GsapSplitText } from '@/components/gsap-split-text'
 import { LogoSlim } from '@/components/icons'
 import { SvgBgC } from '@/components/svgs/svg-bg-c'
+import { SectionSetter } from '@/components/section-setter'
 
 export interface PageTitleProps {
   title: React.ReactNode
@@ -33,6 +34,7 @@ export function PageTitle(props: PageTitleProps) {
         } as React.CSSProperties
       }
     >
+      <SectionSetter sectionId={id} />
       <FadeInOnScroll>
         <div
           className={cn(

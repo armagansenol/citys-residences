@@ -1,8 +1,8 @@
-"use client"
+'use client'
 
-import { Brand } from "@/types"
-import { FilterableContent } from "@/app/[locale]/citys-istanbul-avm/filterable-content"
-import { useBrands } from "@/hooks/useAvmQueries"
+import { Brand } from '@/types'
+import { FilterableContent } from '@/components/sections/citys-istanbul-avm/filterable-content'
+import { useBrands } from '@/hooks/useAvmQueries'
 
 interface AvmBrandsContainerProps {
   initialBrands: Brand[]

@@ -3,6 +3,7 @@
 import { Suspense, lazy, useState } from 'react'
 import { useIntersectionObserver } from 'usehooks-ts'
 import { CitysParkData } from '@/lib/api/queries'
+import { colors } from '@/styles/config.mjs'
 
 const LazyCitysParkContent = lazy(() =>
   import('./lazy-citys-park-content').then(module => ({
@@ -29,7 +30,15 @@ export function LazyCitysPark({ data }: LazyCitysParkProps) {
   }
 
   return (
-    <div ref={ref.ref}>
+    <div
+      ref={ref.ref}
+      style={
+        {
+          '--bg-color': colors['army-canvas'],
+          '--text-color': colors['white'],
+        } as React.CSSProperties
+      }
+    >
       {isVisible ? (
         <Suspense
           fallback={

@@ -173,17 +173,30 @@ export default function Page() {
           </p>
         </div>
       </section>
-      <section className='grid grid-cols-24 gap-0 px-8 py-24 lg:gap-4 lg:px-0'>
-        <div className='col-span-24 grid h-96 grid-cols-24 gap-0 lg:col-span-16 lg:col-start-7 lg:gap-8'>
-          <div className='col-span-8 border border-red-500 lg:col-span-12'></div>
-          <div className='col-span-8 border border-red-500 lg:col-span-6'></div>
-          <div className='col-span-8 border border-red-500 lg:col-span-6'></div>
+      <section className='grid grid-cols-24 gap-0 px-8 py-16 lg:gap-4 lg:px-0 lg:py-24'>
+        <div className='relative col-span-24 grid aspect-[16/16] grid-cols-24 gap-0 lg:col-span-16 lg:col-start-7 lg:aspect-[16/9] lg:gap-8'>
+          <Image
+            className='hidden object-contain lg:block'
+            src='/img/architects-grid.png'
+            alt='Project Visual'
+            loading='lazy'
+            fill
+            desktopSize='80vw'
+          />
+          <Image
+            className='block object-contain lg:hidden'
+            src='/img/architects-grid-mobile.png'
+            alt='Project Visual'
+            loading='lazy'
+            fill
+            desktopSize='80vw'
+          />
         </div>
       </section>
       <QuoteWithVideo
         quote='Karma kullanım modeliyle zamanı geri veriyoruz: yaşa, çalış, eğlen—tek ekosistem içinde.'
-        mediaId='p4l0a63nut'
-        thumbnail='/img/avm-1.jpg'
+        mediaId='1qwipsnwiv'
+        thumbnail='/img/thumbnail-murat-kader.jpg'
         portraitImage='/img/murat-kader-portrait.png'
         personName='Murat Kader'
         personTitle='Yüksek Mimar'
@@ -194,8 +207,8 @@ export default function Page() {
       />
       <QuoteWithVideo
         quote='Gösteriş değil yaşam kalitesi: zamansız malzeme ve yalın detaylarla ‘gizli lüks’ kurduk.'
-        mediaId='p4l0a63nut'
-        thumbnail='/img/avm-1.jpg'
+        mediaId='k7c3eyfiwe'
+        thumbnail='/img/thumbnail-toners.jpg'
         portraitImage='/img/toner-portrait.png'
         personName='Mustafa & Emre Toner'
         personTitle='İç Mimar'
@@ -205,8 +218,8 @@ export default function Page() {
       />
       <QuoteWithVideo
         quote='Kuzey Ormanları etkisi ve İstanbul’un endemik türleriyle, yeşilin her tonu projeye taşındı.'
-        mediaId='p4l0a63nut'
-        thumbnail='/img/avm-1.jpg'
+        mediaId='lw6zlx5v5y'
+        thumbnail='/img/thumbnail-aktas.jpg'
         portraitImage='/img/aktas-portrait.png'
         personName='Cemil Aktaş, Pınar Kesim Aktaş'
         personTitle='Peyzaj Mimari'
@@ -217,8 +230,8 @@ export default function Page() {
       />
       <QuoteWithVideo
         quote='Sadece teknik başarı değil; City’s Residences sakinlerine huzurlu bir yuva sunmak için tasarlandı.'
-        mediaId='p4l0a63nut'
-        thumbnail='/img/avm-1.jpg'
+        mediaId='zmn4yqnamk'
+        thumbnail='/img/thumbnail-melih-bulgur.jpg'
         portraitImage='/img/melih-bulgur-portrait.png'
         personName='Melih Bulgur'
         personTitle='Yüksek İnşaat Mühendisi'

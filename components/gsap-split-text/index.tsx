@@ -1,7 +1,6 @@
 'use client'
 
 import { ScrollTrigger, SplitText, gsap, useGSAP } from '@/components/gsap'
-import { useFontsLoaded } from '@/hooks/useFontsLoaded'
 import { useRef } from 'react'
 
 if (typeof window !== 'undefined') {
@@ -25,10 +24,8 @@ export function GsapSplitText(props: GsapSplitTextProps) {
   } = props
   const animationRef = useRef<GSAPTween>()
   const ref = useRef<HTMLDivElement>(null)
-  const fontsLoaded = useFontsLoaded()
-
   useGSAP(() => {
-    if (!ref.current || !fontsLoaded) return
+    if (!ref.current) return
 
     // Set initial opacity
     gsap.set(ref.current, { opacity: 1 })
@@ -89,7 +86,7 @@ export function GsapSplitText(props: GsapSplitTextProps) {
         splitInstance.revert()
       }
     }
-  }, [type, stagger, duration, ease, html, children, rest, fontsLoaded])
+  }, [type, stagger, duration, ease, html, children, rest])
 
   if (html) {
     return (

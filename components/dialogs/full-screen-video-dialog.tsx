@@ -10,7 +10,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { VisuallyHidden } from '@/components/ui/visually-hidden'
-import { WistiaPlayerWrapper } from '@/components/wistia-player'
+import { WistiaPlayer } from '@wistia/wistia-player-react'
 
 interface FullScreenVideoDialogProps {
   dialogTrigger?: React.ReactNode
@@ -38,11 +38,8 @@ export function FullScreenVideoDialog({
           </DialogDescription>
         </VisuallyHidden>
         <div className='relative flex aspect-[16/9] max-h-[90vh] w-[80vw] flex-col'>
-          <WistiaPlayerWrapper
-            className='h-full w-full'
-            mediaId={mediaId}
-            preload='none'
-          />
+          {/* <WistiaPlayerWrapper className='h-full w-full' mediaId={mediaId} /> */}
+          <WistiaPlayer className='h-full w-full' mediaId={mediaId} />
         </div>
       </DialogContent>
     </Dialog>

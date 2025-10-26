@@ -46,11 +46,11 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
             </h4>
           </div>
         </div>
-        <div className='col-span-6 py-36'>
+        <div className='col-span-6 py-12 lg:py-36'>
           <p
             className={cn(
               'text-left font-primary font-[300] text-white',
-              'text-[0.8rem] lg:text-2xl/snug'
+              'text-base/snug lg:text-2xl/snug'
             )}
           >
             <GsapSplitText

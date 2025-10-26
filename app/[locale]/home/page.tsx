@@ -8,14 +8,16 @@ import { IconCollab } from '@/components/icons'
 import { Image } from '@/components/image'
 import { SectionContactForm } from '@/components/section-contact-form'
 import { VideoWithText } from '@/components/video-with-text'
-import { WistiaPlayerWrapper } from '@/components/wistia-player'
+// import { WistiaPlayerWrapper } from '@/components/wistia-player'
 import { citysParkVideo, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
 
-import heroVideoPoster from '@/public/img/poster-hero.jpg'
+// import heroVideoPoster from '@/public/img/poster-hero.jpg'
 import liveMorePoster from '@/public/img/thumbnail-live-more.jpg'
 import livePeacefullyPoster from '@/public/img/thumbnail-live-peacefully.jpg'
+import { SectionSetter } from '@/components/section-setter'
+import { VimeoPlayer } from '@/components/vimeo-player'
 
 export default async function Page({
   params: { locale },
@@ -38,7 +40,7 @@ export default async function Page({
         id={navigationConfig['/']?.id}
       >
         <ScaleOut>
-          <div className='pointer-events-none relative h-svh w-full'>
+          {/* <div className='pointer-events-none relative h-svh w-full'>
             <WistiaPlayerWrapper
               mediaId='e2tew1zhxj'
               muted
@@ -56,6 +58,12 @@ export default async function Page({
               transparentLetterbox={true}
               customPoster={heroVideoPoster.src}
               posterPriority={true}
+            />
+          </div> */}
+          <div className='pointer-events-none relative h-svh w-full'>
+            <VimeoPlayer
+              poster='/img/poster-hero.jpg'
+              src='https://player.vimeo.com/progressive_redirect/playback/1130616578/rendition/1080p/file.mp4?loc=external&log_user=0&signature=4c84b12cfbf4f5ae9ef7087bd4cc4277a815c1235d739ebda936132a2a46214b'
             />
           </div>
         </ScaleOut>
@@ -97,7 +105,7 @@ export default async function Page({
           </div>
         </div>
         <div className='absolute bottom-[8%] left-1/2 z-50 size-12 -translate-x-1/2 xl:size-16 2xl:size-16'>
-          <div className='size-full animate-bounce-translate'>
+          <div className='relative size-full animate-bounce-translate'>
             <Image
               src='/svg/scroll-down.svg'
               alt='Scroll Down'
@@ -108,6 +116,7 @@ export default async function Page({
           <span className='sr-only'>Scroll Down</span>
         </div>
       </section>
+      <SectionSetter sectionId={navigationConfig['/']?.id || ''} />
       <div
         className={cn(
           'relative z-20 bg-white',

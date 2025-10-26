@@ -15,14 +15,19 @@ export interface FullWidthVideoTextProps {
 export function FullWidthVideoText(props: FullWidthVideoTextProps) {
   const { title, subtitle, description, mediaId, thumbnail } = props
   return (
-    <section className={cn('relative min-h-lvh bg-white')}>
+    <section
+      className={cn(
+        'relative min-h-lvh space-y-16 overflow-hidden outline -outline-offset-2 outline-bricky-brick'
+      )}
+      style={{ backgroundColor: 'var(--bg-color)' }}
+    >
       <div className={cn('relative z-30 grid grid-cols-24')}>
-        <div className='col-span-15 flex py-36 pr-36'>
-          <div className='ml-auto flex flex-col gap-4'>
+        <div className='col-span-24 flex px-6 pb-12 pt-20 xl:col-span-10 xl:col-start-5 xl:px-0 xl:py-36 xl:pr-36'>
+          <div className='flex flex-col gap-4 xl:ml-auto'>
             <h3
               className={cn(
-                'text-left font-primary font-[400] text-black',
-                'text-[0.8rem] lg:text-6xl/tight'
+                'font-primary font-[400] text-black',
+                'text-3xl/tight xl:text-6xl/tight'
               )}
             >
               <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
@@ -31,8 +36,8 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
             </h3>
             <h4
               className={cn(
-                'text-left font-primary font-[300] text-black',
-                'text-[0.8rem] lg:text-4xl/tight'
+                'font-primary font-[300] text-black',
+                'text-xl/tight xl:text-4xl/tight'
               )}
             >
               <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
@@ -41,11 +46,11 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
             </h4>
           </div>
         </div>
-        <div className='col-span-6 py-36'>
+        <div className='col-span-24 px-6 py-0 xl:col-span-8 xl:px-0 xl:py-36'>
           <p
             className={cn(
               'text-left font-primary font-[300] text-black',
-              'text-[0.8rem] lg:text-2xl/snug'
+              'text-base/normal xl:text-2xl/snug'
             )}
           >
             <GsapSplitText
@@ -57,8 +62,8 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
           </p>
         </div>
       </div>
-      <div className={cn('relative z-30 grid grid-cols-24 py-24')}>
-        <div className='col-span-24 aspect-[16/9]'>
+      <div className={cn('relative grid grid-cols-24 py-0 xl:py-24')}>
+        <div className='col-span-24 aspect-[16/19] xl:aspect-[16/9]'>
           <LazyWistiaPlayer
             muted
             autoplay

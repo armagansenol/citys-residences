@@ -24,7 +24,7 @@ export function ZoomImageDialog({
     <Dialog open={open} onOpenChange={handleOpenChange}>
       {dialogTrigger && <DialogTrigger asChild>{dialogTrigger}</DialogTrigger>}
       <DialogContent className='z-[var(--z-modal)] flex flex-col items-center justify-center border border-red-500'>
-        <div className='relative aspect-[16/9] max-h-[100vh] w-[80vw]'>
+        <div className='relative aspect-[16/9] max-h-[100vh] w-screen lg:w-[80vw]'>
           <Image
             src={image}
             alt='Zoom Image'

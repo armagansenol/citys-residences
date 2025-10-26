@@ -35,7 +35,6 @@ export function VideoWithText(props: VideoWithTextProps) {
           autoplay
           muted
           preload='none'
-          qualityMin={1080}
           swatch={false}
           bigPlayButton={false}
           silentAutoplay='allow'

@@ -15,7 +15,10 @@ export interface CenterVideoTextProps {
 export function CenterVideoText(props: CenterVideoTextProps) {
   const { title, subtitle, description, mediaId, thumbnail } = props
   return (
-    <section className={cn('relative min-h-lvh bg-white')}>
+    <section
+      className={cn('relative min-h-lvh bg-white')}
+      style={{ backgroundColor: 'var(--bg-color)' }}
+    >
       <div className={cn('relative z-30 grid grid-cols-24')}>
         <div className='col-span-15 flex py-36 pr-36'>
           <div className='ml-auto flex flex-col gap-4'>
