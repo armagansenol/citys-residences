@@ -13,7 +13,7 @@ export default async function Page() {
       <PageTitle
         primaryColor={colors['aqua-belt']}
         secondaryColor={colors['trapped-darkness']}
-        tertiaryColor={colors['white']}
+        tertiaryColor={'transparent'}
         title={
           <>
             <span className='block'>CITY&apos;S</span>

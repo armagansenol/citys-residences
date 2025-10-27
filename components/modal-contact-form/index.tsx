@@ -145,7 +145,7 @@ export function ModalContactForm() {
           {
             opacity: 1,
             duration: 0.4,
-            ease: 'power2.inOut',
+            ease: 'power2.out',
           },
           's'
         )
@@ -154,7 +154,7 @@ export function ModalContactForm() {
           { x: '100%' },
           {
             x: 0,
-            duration: 0.8,
+            duration: 0.6,
             ease: 'expo.inOut',
           },
           's'
@@ -221,7 +221,7 @@ export function ModalContactForm() {
         <button
           className={cn(
             'group',
-            'h-60 w-[3.5rem] lg:w-24 xl:h-60 xl:w-24 2xl:h-72 2xl:w-16',
+            'h-60 w-[3.5rem] lg:w-16 xl:h-60 xl:w-16 2xl:h-72 2xl:w-20',
             'absolute bottom-0 left-0 top-1/2 -translate-x-full -translate-y-[0%] lg:-translate-y-1/2',
             'font-primary text-base font-[500] tracking-[0.2em] text-white xl:text-base 2xl:text-xl',
             'flex cursor-pointer items-center justify-center',

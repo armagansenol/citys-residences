@@ -10,7 +10,7 @@ import {
   LetterCircleHIcon,
   TrainIcon,
 } from '@phosphor-icons/react'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 
 import { GsapSplitText } from '@/components/gsap-split-text'
 import { SvgPinCitys, SvgPinMini } from '@/components/svgs/interactive-map'
@@ -87,7 +87,7 @@ const locations: LocationItem[] = [
 
 const getListIconComponent = (
   iconType: LocationItem['listIcon'],
-  size: number = 40
+  size: number = 64
 ) => {
   switch (iconType) {
     case 'metro':
@@ -167,12 +167,20 @@ const getMapIconComponent = (
   }
 }
 
+const MemoizedTitle = memo(() => (
+  <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
+    Yaşamın tam <br /> merkezinde.
+  </GsapSplitText>
+))
+
+MemoizedTitle.displayName = 'MemoizedTitle'
+
 export function InteractiveMap() {
   const [hoveredLocation, setHoveredLocation] = useState<string | null>(null)
 
   return (
-    <div className='grid grid-cols-1 gap-4 overflow-hidden lg:min-h-[120vh] lg:grid-cols-24 lg:gap-8'>
-      <div className='relative h-[100vw] overflow-hidden bg-[url(/img/map.jpg)] bg-cover bg-center lg:col-span-14 lg:h-full'>
+    <div className='grid grid-cols-1 gap-4 overflow-hidden lg:gap-8 xl:min-h-[110vh] xl:grid-cols-24'>
+      <div className='relative h-[100vw] overflow-hidden bg-[url(/img/map.jpg)] bg-cover bg-center xl:col-span-14 xl:h-full'>
         {/* Location Pins */}
         {locations.map(location => {
           const isHovered = hoveredLocation === location.id
@@ -193,19 +201,16 @@ export function InteractiveMap() {
       </div>
 
       {/* List Section */}
-      <div className='flex flex-col px-8 pb-8 pt-8 sm:px-8 lg:col-span-10 lg:pb-16 lg:pl-20 lg:pr-24 lg:pt-24'>
+      <div className='flex flex-col gap-8 px-8 pb-8 pt-8 sm:px-8 lg:pb-16 lg:pl-20 lg:pr-24 lg:pt-24 xl:col-span-10'>
         <h3
           className={cn(
-            'mr-auto lg:ml-auto',
+            'mr-auto xl:ml-auto xl:mr-0',
             'text-left font-primary font-[400] text-trapped-darkness',
-            'text-4xl/tighter sm:text-3xl/tight md:text-4xl/tight lg:text-6xl/tight'
+            'text-4xl/[1.2] sm:text-3xl/[1.2] md:text-4xl/[1.2] lg:text-6xl/[1.2]'
           )}
         >
-          <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
-            Yaşamın tam <br /> merkezinde.
-          </GsapSplitText>
+          <MemoizedTitle />
         </h3>
-
         <div className='mt-auto'>
           {locations.map(location => {
             if (location.listIcon === null) return null

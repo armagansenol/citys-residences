@@ -138,7 +138,7 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(function Image(
       style={{
         ...style,
       }}
-      className={cn(className, block && 'block h-auto w-auto')}
+      className={cn(block && 'block h-auto w-auto', className)}
       sizes={finalSizes}
       src={src}
       unoptimized={unoptimized || isSvg}

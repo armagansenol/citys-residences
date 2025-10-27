@@ -104,7 +104,7 @@ export default async function Page({
             </span>
           </div>
         </div>
-        <div className='absolute bottom-[8%] left-1/2 z-50 size-12 -translate-x-1/2 xl:size-16 2xl:size-16'>
+        <div className='absolute bottom-[20%] left-1/2 z-50 size-12 -translate-x-1/2 lg:bottom-[8%] xl:size-16 2xl:size-16'>
           <div className='relative size-full animate-bounce-translate'>
             <Image
               src='/svg/scroll-down.svg'
@@ -123,13 +123,13 @@ export default async function Page({
         )}
       >
         <SectionSetter sectionId={navigationConfig['/']?.id || ''} />
-        <section className='relative py-12 lg:py-12'>
-          <div className='relative ml-0 flex flex-col items-center justify-center gap-8 py-12 lg:flex-row xl:ml-32 xl:gap-32 xl:py-28'>
-            <div className='flex w-full flex-shrink-0 flex-col items-center gap-2 lg:gap-2 xl:w-[700px]'>
+        <section className='relative overflow-hidden py-12 lg:py-12'>
+          <div className='relative ml-0 flex flex-col items-center justify-center gap-8 py-12 xl:ml-32 xl:flex-row xl:gap-32 xl:py-28'>
+            <div className='flex w-full flex-shrink-0 flex-col items-center gap-2 lg:w-[300px] lg:gap-2 xl:w-[700px]'>
               <article
                 className={cn(
                   'text-center font-montserrat font-[500] text-black',
-                  'text-xl/tight lg:text-5xl/tight',
+                  'text-xl/tight lg:text-4xl/tight xl:text-5xl/tight',
                   'tracking-wide lg:tracking-wide'
                 )}
               >
@@ -139,7 +139,7 @@ export default async function Page({
                 <span className='sr-only'>{t('section1.title1')}</span>
               </article>
               <FadeInOnScroll delay={0.5}>
-                <article className='relative h-16 w-screen lg:h-44 xl:h-32'>
+                <article className='relative h-16 w-screen lg:h-24 xl:h-32'>
                   <Image
                     src='/img/sanati.png'
                     alt='Sanatı'
@@ -153,19 +153,18 @@ export default async function Page({
                 </article>
               </FadeInOnScroll>
             </div>
-            <div className='flex w-auto flex-shrink-0 xl:w-96'>
-              <article
-                className={cn(
-                  'font-primary font-[200] text-black',
-                  'text-xl/normal lg:text-3xl/normal',
-                  'text-center xl:text-left'
-                )}
-              >
-                <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
-                  {t('section1.title3')}
-                </GsapSplitText>
-              </article>
-            </div>
+            <article
+              className={cn(
+                'flex w-auto flex-shrink-0 xl:w-96',
+                'font-primary font-[200] text-black',
+                'text-xl/normal lg:text-2xl/normal xl:text-3xl/normal',
+                'text-center lg:text-left'
+              )}
+            >
+              <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
+                {t('section1.title3')}
+              </GsapSplitText>
+            </article>
           </div>
         </section>
         <VideoWithText

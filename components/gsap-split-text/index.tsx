@@ -24,69 +24,76 @@ export function GsapSplitText(props: GsapSplitTextProps) {
   } = props
   const animationRef = useRef<GSAPTween>()
   const ref = useRef<HTMLDivElement>(null)
-  useGSAP(() => {
-    if (!ref.current) return
 
-    // Set initial opacity
-    gsap.set(ref.current, { opacity: 1 })
+  useGSAP(
+    () => {
+      if (!ref.current) return
 
-    const splitType = type === 'words,lines' ? 'lines' : type
-    let splitInstance: SplitText | null = null
+      // Set initial opacity
+      gsap.set(ref.current, { opacity: 1 })
 
-    SplitText.create(ref.current, {
-      type,
-      linesClass: 'split-line',
-      wordsClass: 'split-word',
-      charsClass: 'split-char',
-      autoSplit: true,
-      mask: splitType as 'lines' | 'words' | 'chars',
-      ...rest,
-      onSplit: self => {
-        splitInstance = self
+      const splitType = type === 'words,lines' ? 'lines' : type
+      let splitInstance: SplitText | null = null
 
-        const elements = {
-          lines: self.lines,
-          words: self.words,
-          chars: self.chars,
+      SplitText.create(ref.current, {
+        type,
+        linesClass: 'split-line',
+        wordsClass: 'split-word',
+        charsClass: 'split-char',
+        autoSplit: true,
+        mask: splitType as 'lines' | 'words' | 'chars',
+        ...rest,
+        onSplit: self => {
+          splitInstance = self
+
+          const elements = {
+            lines: self.lines,
+            words: self.words,
+            chars: self.chars,
+          }
+
+          const targetElements = elements[splitType as keyof typeof elements]
+
+          if (!targetElements || targetElements.length === 0) return
+
+          const anim = gsap.from(targetElements, {
+            duration,
+            yPercent: 100,
+            opacity: 0,
+            stagger,
+            ease,
+            paused: true,
+          })
+
+          animationRef.current = anim
+
+          const trigger = ScrollTrigger.create({
+            trigger: ref.current,
+            onEnter: () => {
+              anim.play()
+            },
+          })
+
+          return () => {
+            trigger.kill()
+          }
+        },
+      })
+
+      return () => {
+        if (animationRef.current) {
+          animationRef.current.kill()
         }
-
-        const targetElements = elements[splitType as keyof typeof elements]
-
-        if (!targetElements || targetElements.length === 0) return
-
-        const anim = gsap.from(targetElements, {
-          duration,
-          yPercent: 100,
-          opacity: 0,
-          stagger,
-          ease,
-          paused: true,
-        })
-
-        animationRef.current = anim
-
-        const trigger = ScrollTrigger.create({
-          trigger: ref.current,
-          onEnter: () => {
-            anim.play()
-          },
-        })
-
-        return () => {
-          trigger.kill()
+        if (splitInstance) {
+          splitInstance.revert()
         }
-      },
-    })
-
-    return () => {
-      if (animationRef.current) {
-        animationRef.current.kill()
       }
-      if (splitInstance) {
-        splitInstance.revert()
-      }
+    },
+    {
+      dependencies: [type, stagger, duration, ease, html, children, rest],
+      revertOnUpdate: true,
     }
-  }, [type, stagger, duration, ease, html, children, rest])
+  )
 
   if (html) {
     return (

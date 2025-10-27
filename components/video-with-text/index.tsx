@@ -1,5 +1,3 @@
-'use client'
-
 import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
 
@@ -25,7 +23,8 @@ export function VideoWithText(props: VideoWithTextProps) {
   return (
     <div
       className={cn(
-        'relative h-[100vh] overflow-hidden after:absolute after:bottom-0 after:left-0 after:z-10 after:h-1/2 after:w-full after:bg-gradient-to-t after:from-current after:to-transparent xl:h-[60vw]',
+        'relative h-screen overflow-hidden xl:h-[60vw]',
+        'after:absolute after:bottom-0 after:left-0 after:z-10 after:h-1/2 after:w-full after:bg-gradient-to-t after:from-current after:to-transparent',
         className
       )}
     >
@@ -34,7 +33,6 @@ export function VideoWithText(props: VideoWithTextProps) {
           mediaId={mediaId}
           autoplay
           muted
-          preload='none'
           swatch={false}
           bigPlayButton={false}
           silentAutoplay='allow'
@@ -48,34 +46,31 @@ export function VideoWithText(props: VideoWithTextProps) {
         />
       </div>
       <div
-        className={cn('absolute bottom-[15%] left-1/2 z-50 -translate-x-1/2')}
+        className={cn(
+          'absolute bottom-[10%] left-1/2 z-50 -translate-x-1/2 xl:bottom-[15%]'
+        )}
       >
         {title && (
           <article
             className={cn(
-              'text-center font-primary font-semibold text-white',
-              'flex flex-shrink-0 flex-col items-center justify-center gap-4 lg:gap-6'
+              'flex flex-shrink-0 flex-col items-center justify-center gap-4 xl:gap-0'
             )}
           >
             <h3
               className={cn(
                 'whitespace-nowrap text-center font-primary font-[200] text-white',
-                'text-4xl xl:text-6xl 2xl:text-7xl',
-                'w-full min-w-[90vw] lg:min-w-52',
-                'flex flex-shrink-0 flex-col items-center justify-center gap-4 lg:flex-row lg:gap-0'
+                'text-4xl/snug lg:text-6xl/snug xl:text-6xl/snug 2xl:text-7xl/snug'
               )}
             >
-              <GsapSplitText type='chars' stagger={0.02} duration={1}>
+              <GsapSplitText type='chars' stagger={0.01} duration={1}>
                 {title}
               </GsapSplitText>
             </h3>
             <p
               className={cn(
                 'text-center font-primary font-[300] text-white',
-                'text-xl xl:text-2xl 2xl:text-3xl',
-                'leading-relaxed xl:leading-relaxed 2xl:leading-relaxed',
-                'flex flex-shrink-0 flex-col items-center justify-center gap-4 lg:flex-row lg:gap-0',
-                'max-w-4xl'
+                'text-xl/relaxed lg:text-2xl/relaxed xl:text-2xl/relaxed 2xl:text-3xl/relaxed',
+                'w-[90vw] sm:w-[70vw] lg:w-[70vw] xl:w-[50vw]'
               )}
             >
               <GsapSplitText type='lines' stagger={0.02} duration={1}>

@@ -16,6 +16,7 @@ export default function Page() {
       <PageTitle
         primaryColor={colors['white']}
         secondaryColor={colors['bricky-brick']}
+        tertiaryColor={colors['bricky-brick']}
         title='PROJE'
         description={
           <>
@@ -25,7 +26,7 @@ export default function Page() {
         }
         id={navigationConfig['/project']?.id as string}
       />
-      <section className='pointer-events-none h-screen overflow-hidden lg:h-[45vw]'>
+      <section className='pointer-events-none relative h-screen overflow-hidden lg:h-[60vw] xl:h-[45vw]'>
         <WistiaPlayerWrapper
           mediaId='p4l0a63nut'
           autoplay
@@ -44,13 +45,13 @@ export default function Page() {
         />
       </section>
       <InteractiveMap />
-      <section className='grid grid-cols-24 gap-4 px-8 py-8 lg:px-0 lg:py-36'>
-        <div className='col-span-24 flex lg:col-span-8 lg:col-start-7'>
+      <section className='grid grid-cols-24 gap-4 px-8 py-8 lg:px-0 lg:py-24 xl:py-36'>
+        <div className='col-span-24 flex lg:col-span-9 lg:col-start-6 xl:col-span-8 xl:col-start-7'>
           <h3
             className={cn(
               'lg:ml-auto',
               'text-left font-primary font-[400] text-black',
-              'text-3xl/tight lg:text-6xl/tight'
+              'text-3xl/tight lg:text-5xl/tight xl:text-6xl/tight'
             )}
           >
             <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
@@ -59,11 +60,11 @@ export default function Page() {
             </GsapSplitText>
           </h3>
         </div>
-        <div className='col-span-24 lg:col-span-8 lg:pl-0'>
+        <div className='col-span-24 lg:col-span-9 lg:pl-0 xl:col-span-8'>
           <p
             className={cn(
               'text-left font-primary font-[300] text-black',
-              'text-base/snug lg:text-2xl/snug'
+              'text-base/snug lg:text-xl/snug xl:text-2xl/snug'
             )}
           >
             <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
@@ -77,11 +78,11 @@ export default function Page() {
         </div>
       </section>
       <section className='grid grid-cols-24 gap-x-0 gap-y-6 px-8 py-4 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-24'>
-        <div className='col-span-24 lg:col-span-8 lg:col-start-7'>
+        <div className='col-span-24 aspect-[16/9] lg:col-span-8 lg:col-start-7'>
           <ZoomImageDialog
             dialogTrigger={
               <Image
-                className='aspect-[16/9] w-full cursor-pointer'
+                className='h-full w-full cursor-pointer'
                 src='/img/project/project-a-1.jpg'
                 alt='Project Visual'
                 loading='lazy'
@@ -90,11 +91,11 @@ export default function Page() {
             image='/img/project/project-a-1.jpg'
           />
         </div>
-        <div className='col-span-24 lg:col-span-8'>
+        <div className='col-span-24 aspect-[16/9] lg:col-span-8'>
           <ZoomImageDialog
             dialogTrigger={
               <Image
-                className='aspect-[16/9] w-full cursor-pointer'
+                className='h-full w-full cursor-pointer'
                 src='/img/project/project-a-2.jpg'
                 alt='Project Visual'
                 loading='lazy'
@@ -131,11 +132,11 @@ export default function Page() {
         </div>
       </section>
       <section className='grid grid-cols-24 px-8 py-4 lg:px-0 lg:py-24'>
-        <div className='col-span-24 lg:col-span-16 lg:col-start-7'>
+        <div className='col-span-24 aspect-[9/10] lg:col-span-16 lg:col-start-7'>
           <ZoomImageDialog
             dialogTrigger={
               <Image
-                className='aspect-[16/9] w-full cursor-pointer'
+                className='h-full w-full cursor-pointer object-cover object-center'
                 src='/img/project/project-b-1.jpg'
                 alt='Project Visual'
                 loading='lazy'
@@ -173,8 +174,8 @@ export default function Page() {
           </p>
         </div>
       </section>
-      <section className='grid grid-cols-24 gap-0 px-8 py-16 lg:gap-4 lg:px-0 lg:py-24'>
-        <div className='relative col-span-24 grid aspect-[16/16] grid-cols-24 gap-0 lg:col-span-16 lg:col-start-7 lg:aspect-[16/9] lg:gap-8'>
+      <section className='grid grid-cols-24 gap-0 px-8 py-8 lg:gap-4 lg:px-0 lg:py-24'>
+        <div className='relative col-span-24 grid aspect-[16/16.75] grid-cols-24 gap-0 lg:col-span-16 lg:col-start-7 lg:aspect-[16/9] lg:gap-8'>
           <Image
             className='hidden object-contain lg:block'
             src='/img/architects-grid.png'
@@ -193,6 +194,7 @@ export default function Page() {
           />
         </div>
       </section>
+      {/* architecture sections */}
       <QuoteWithVideo
         quote='Karma kullanım modeliyle zamanı geri veriyoruz: yaşa, çalış, eğlen—tek ekosistem içinde.'
         mediaId='1qwipsnwiv'
