@@ -119,6 +119,7 @@ const FormInput = ({
             {...field}
             value={field.value?.toString() ?? ''}
             className={cn(
+              'h-12 lg:h-14 xl:h-14',
               'rounded-none border-b border-white font-[300]',
               'text-white placeholder:text-tangerine-flake',
               'placeholder:text-sm xl:placeholder:text-sm 2xl:placeholder:text-lg',

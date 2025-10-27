@@ -118,7 +118,15 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
         }}
         value={phoneInput.country.iso2}
       >
-        <SelectTrigger className='h-14 w-24 cursor-pointer rounded-none border-b border-white text-sm font-[300] text-white/90 placeholder:text-white/90 lg:text-sm xl:h-12 2xl:h-14 2xl:text-lg'>
+        <SelectTrigger
+          className={cn(
+            'h-12 w-20 lg:h-14 lg:w-24 xl:h-14',
+            'cursor-pointer rounded-none border-b border-white font-[300]',
+            'text-white placeholder:text-white/90',
+            'text-sm lg:text-sm 2xl:text-lg',
+            '[&>svg]:size-5 [&>svg]:text-white'
+          )}
+        >
           <SelectValue placeholder='Code'>
             +{phoneInput.country.dialCode}
           </SelectValue>
@@ -129,9 +137,11 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
       </Select>
       <Input
         className={cn(
-          'rounded-none border-b border-white font-[300] placeholder:text-tangerine-flake',
+          'h-12 lg:h-14 xl:h-14',
+          'rounded-none border-b border-white font-[300]',
+          'text-white placeholder:text-tangerine-flake',
           'placeholder:text-sm xl:placeholder:text-sm 2xl:placeholder:text-lg',
-          'lg:text-sm xl:text-sm 2xl:text-lg'
+          'text-sm lg:text-sm xl:text-sm 2xl:text-lg'
         )}
         placeholder={
           phoneInput.country.format?.toString().replace(/\S/g, 'X') ||

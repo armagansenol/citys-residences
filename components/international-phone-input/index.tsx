@@ -26,7 +26,7 @@ export function InternationalPhoneInputComponent({
       render={({ field }) => (
         <FormItem>
           <FormLabel
-            className='block font-[300] leading-none text-white lg:text-sm 2xl:text-lg'
+            className='block text-sm font-[300] text-white lg:text-sm 2xl:text-lg'
             htmlFor='phone'
           >
             {t('form.inputs.phone.label')}
