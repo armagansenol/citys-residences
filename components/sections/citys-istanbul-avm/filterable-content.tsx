@@ -7,9 +7,9 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import { FilterForm } from '@/components/filter-form'
+import { Image } from '@/components/image'
+import { FilterForm } from '@/components/sections/citys-istanbul-avm/filter-form'
 import { ErrorMessage, LoadingSpinner } from '@/components/ui/loading-states'
-import { Img } from '@/components/utility/img'
 import {
   useAvmData,
   useAvmSubCategories,
@@ -36,7 +36,7 @@ interface FilterableContentProps {
 export function FilterableContent({ brands }: FilterableContentProps) {
   const { categories, floors, loading, error } = useAvmData()
 
-  const DEFAULT_VISIBLE_COUNT = 25
+  const DEFAULT_VISIBLE_COUNT = 30
   const [visibleCount, setVisibleCount] = useState<number>(
     DEFAULT_VISIBLE_COUNT
   )
@@ -79,8 +79,8 @@ export function FilterableContent({ brands }: FilterableContentProps) {
   }
 
   return (
-    <div className='grid min-h-screen grid-cols-24 gap-4 px-6 md:px-0 lg:px-0'>
-      <div className='col-span-24 lg:col-span-19 lg:col-start-5'>
+    <div className='grid min-h-screen grid-cols-24 gap-y-8'>
+      <div className='col-span-24 px-8 lg:col-span-19 lg:col-start-5'>
         <FilterForm
           form={form}
           categories={categories}
@@ -89,7 +89,7 @@ export function FilterableContent({ brands }: FilterableContentProps) {
           isLoading={loading}
         />
       </div>
-      <div className='col-span-24 lg:col-span-19 lg:col-start-5'>
+      <div className='col-span-24 px-8 lg:col-span-19 lg:col-start-5'>
         {loading && <LoadingSpinner message='Yükleniyor...' />}
         <AnimatePresence mode='wait'>
           {!loading && (
@@ -100,7 +100,7 @@ export function FilterableContent({ brands }: FilterableContentProps) {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className='grid grid-cols-2 items-end gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-5 lg:gap-4'>
+              <div className='grid grid-cols-3 items-start gap-4 md:grid-cols-3 md:gap-6 lg:grid-cols-5 lg:gap-4'>
                 <AnimatePresence>
                   {filteredBrands.slice(0, visibleCount).map(brand => {
                     // const floorDisplay = getFloorDisplayName(brand.floor)
@@ -113,41 +113,22 @@ export function FilterableContent({ brands }: FilterableContentProps) {
                         transition={{ duration: 0.3 }}
                         layout
                       >
-                        <div className='group cursor-pointer'>
-                          {/* <h3
-                            className={cn(
-                              'font-primary font-bold',
-                              'text-lg lg:text-xl',
-                              'mb-1 text-center tracking-wide text-black lg:mb-2'
-                            )}
-                          >
-                            {brand.name}
-                          </h3> */}
+                        <div className='cursor-pointer'>
                           <div
                             className={cn(
                               'relative overflow-hidden',
-                              'pb-[100%]',
+                              'aspect-square',
                               'flex items-center justify-center'
                             )}
                           >
-                            <Img
+                            <Image
                               src={brand.logo}
                               alt={brand.name}
-                              className='object-cover transition-transform duration-300 group-hover:scale-105'
+                              className='object-contain'
                               fill
-                              sizes='(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw'
                               loading='lazy'
                             />
                           </div>
-                          {/* <p
-                            className={cn(
-                              'font-primary',
-                              'text-[0.8rem] md:text-sm lg:text-base',
-                              'text-center text-gray-800'
-                            )}
-                          >
-                            {floorDisplay}
-                          </p> */}
                         </div>
                       </motion.div>
                     )

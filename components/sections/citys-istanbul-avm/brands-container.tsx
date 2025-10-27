@@ -4,11 +4,11 @@ import { Brand } from '@/types'
 import { FilterableContent } from '@/components/sections/citys-istanbul-avm/filterable-content'
 import { useBrands } from '@/hooks/useAvmQueries'
 
-interface AvmBrandsContainerProps {
+interface BrandsContainerProps {
   initialBrands: Brand[]
 }
 
-export function AvmBrandsContainer({ initialBrands }: AvmBrandsContainerProps) {
+export function BrandsContainer({ initialBrands }: BrandsContainerProps) {
   // Use React Query to fetch brands (will use initialBrands as fallback)
   const brandsQuery = useBrands()
   const brands = brandsQuery.data?.data?.items || initialBrands

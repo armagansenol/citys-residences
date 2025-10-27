@@ -1,4 +1,4 @@
-import { AvmBrandsContainer } from '@/components/sections/citys-istanbul-avm/brands-container'
+import { BrandsContainer } from '@/components/sections/citys-istanbul-avm/brands-container'
 import { WistiaPlayerWrapper } from '@/components/wistia-player'
 import { getBrandsData } from '@/lib/api/server-actions'
 import { colors } from '@/styles/config.mjs'
@@ -41,8 +41,8 @@ export default async function Page() {
           transparentLetterbox={true}
         />
       </section>
-      <section className='section-container py-16 lg:py-24'>
-        <AvmBrandsContainer initialBrands={brands.items || []} />
+      <section className='section-container px-8 py-8 lg:px-0 lg:py-24'>
+        <BrandsContainer initialBrands={brands.items || []} />
       </section>
     </>
   )

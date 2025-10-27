@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { useEffect, useState } from 'react'
+import { HTMLAttributes, useEffect, useState } from 'react'
 import { UseFormReturn } from 'react-hook-form'
 
 import {
@@ -32,8 +32,11 @@ interface FilterFormProps {
   isLoading?: boolean
 }
 
-const defaultSelectTriggerClasses =
-  'px-4 pt-10 pb-4 bg-white text-gray-700 font-primary text-sm lg:text-lg bg-slate-100 rounded-none flex-1 w-full [&>svg]:text-bricky-brick'
+const defaultSelectTriggerClasses: HTMLAttributes<HTMLDivElement>['className'] =
+  'px-4 pb-3 pt-8 font-primary font-[300] text-lg bg-gray-100 rounded-none w-full [&>svg]:text-black text-gray-400 flex items-end'
+
+const defaultFormLabelClasses: HTMLAttributes<HTMLLabelElement>['className'] =
+  'absolute left-4 top-4 lg:top-4 block font-primary text-sm font-[400] leading-none text-gray-700'
 
 export function FilterForm({
   form,
@@ -68,17 +71,14 @@ export function FilterForm({
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={e => e.preventDefault()}
-        className='mb-12 flex flex-col gap-8'
-      >
-        <div className='grid grid-cols-24 gap-4'>
+      <form onSubmit={e => e.preventDefault()} className='space-y-8'>
+        <div className='grid grid-cols-24 gap-y-4 lg:gap-x-4'>
           <FormField
             control={form.control}
             name='category'
             render={({ field }) => (
-              <FormItem className='relative col-span-8'>
-                <FormLabel className='absolute left-4 top-5 block font-primary text-base font-[400] leading-none text-gray-700'>
+              <FormItem className='relative col-span-24 lg:col-span-8'>
+                <FormLabel className={defaultFormLabelClasses}>
                   Kategori
                 </FormLabel>
                 <FormControl>
@@ -116,8 +116,8 @@ export function FilterForm({
             control={form.control}
             name='subCategory'
             render={({ field }) => (
-              <FormItem className='relative col-span-8'>
-                <FormLabel className='absolute left-4 top-5 block font-primary text-base font-[400] leading-none text-gray-700'>
+              <FormItem className='relative col-span-24 lg:col-span-8'>
+                <FormLabel className={defaultFormLabelClasses}>
                   Alt Kategori
                 </FormLabel>
                 <FormControl>
@@ -137,7 +137,7 @@ export function FilterForm({
                         placeholder={
                           !form.getValues('category') ||
                           form.getValues('category') === 'all'
-                            ? 'Seçiniz'
+                            ? 'Önce Kategori Seçiniz'
                             : 'Seçiniz'
                         }
                       >
@@ -166,8 +166,8 @@ export function FilterForm({
             control={form.control}
             name='floor'
             render={({ field }) => (
-              <FormItem className='relative col-span-8'>
-                <FormLabel className='absolute left-4 top-5 block font-primary text-base font-[400] leading-none text-gray-700'>
+              <FormItem className='relative col-span-24 lg:col-span-8'>
+                <FormLabel className={defaultFormLabelClasses}>
                   Katlar
                 </FormLabel>
                 <FormControl>
@@ -215,10 +215,11 @@ export function FilterForm({
               <FormItem>
                 <FormControl>
                   <div className='relative h-16 w-full'>
-                    <div className='pointer-events-none absolute bottom-0 right-0 top-0 flex h-full items-center justify-center text-bricky-brick'>
+                    <span className='pointer-events-none absolute bottom-0 right-0 top-0 flex h-full w-16 items-center justify-center bg-gradient-appointment-reversed text-white'>
                       <MagnifyingGlassIcon size={24} />
-                    </div>
+                    </span>
                     <Input
+                      name='keyword'
                       value={searchValue}
                       placeholder='Mağaza arayın'
                       className={cn(
