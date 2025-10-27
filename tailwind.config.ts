@@ -178,7 +178,6 @@ const config: Config = {
         ...colors,
       },
       fontFamily: {
-        montserrat: 'var(--font-montserrat)',
         'suisse-intl': 'var(--font-suisse-intl)',
         'montagu-slab': 'var(--font-montagu-slab)',
         primary: 'var(--font-suisse-intl)',

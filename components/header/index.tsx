@@ -1,21 +1,25 @@
 'use client'
 
-import { Link, Link as LocalizedLink } from '@/i18n/routing'
-import { initialScroll } from '@/lib/constants'
+import { Link, Locale, Link as LocalizedLink } from '@/i18n/routing'
+import {
+  getNavigationItems,
+  initialScroll,
+  NavigationMetadata,
+} from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import Lenis from 'lenis'
 import { useLenis } from 'lenis/react'
-import { animate, stagger } from 'motion/react'
 import { usePathname } from 'next/navigation'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { ArrowLeft } from 'lucide-react'
+import { useLocale, useTranslations } from 'next-intl'
 
 import { Logo } from '@/components/icons'
 import { LocaleSwitcher } from '@/components/locale-switcher'
-// import { Menu } from "@/components/menu"
-// import { MenuX } from '@/components/menu-x'
+import { Menu } from '@/components/menu'
+import { MenuX } from '@/components/menu-x'
 import { useScrollStore } from '@/lib/store/scroll'
 import { colors } from '@/styles/config.mjs'
-import { ArrowLeft } from 'lucide-react'
 
 export function Header({ nonHome = false }: { nonHome?: boolean }) {
   const lenis = useLenis()
@@ -36,41 +40,13 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
     atTop: true,
   })
   const pathname = usePathname()
-  // const t = useTranslations('common')
-  // const locale = useLocale()
-  const sectionsRef = useRef<(HTMLAnchorElement | null)[]>([])
+  const t = useTranslations('common')
+  const locale = useLocale()
 
-  useEffect(() => {
-    if (sectionsRef.current.length === 0) return
-
-    const validElements = sectionsRef.current.filter(
-      Boolean
-    ) as HTMLAnchorElement[]
-
-    // Don't animate if there are no valid elements
-    if (validElements.length === 0) return
-
-    if (scrollState.atTop) {
-      // Animate out
-      animate(
-        validElements,
-        { opacity: 0, y: -4, pointerEvents: 'none' },
-        { duration: 0.1, delay: stagger(0.05) }
-      )
-    } else {
-      // Animate in with stagger
-      animate(
-        validElements,
-        { opacity: 1, y: 0, pointerEvents: 'auto' },
-        { duration: 0.3, delay: stagger(0.05) }
-      )
-    }
-  }, [scrollState.atTop])
-
-  // const navigationItems: NavigationMetadata[] = getNavigationItems(
-  //   t,
-  //   locale as Locale
-  // )
+  const navigationItems: NavigationMetadata[] = getNavigationItems(
+    t,
+    locale as Locale
+  )
 
   useEffect(() => {
     return menuOpen ? lenis?.stop() : lenis?.start()
@@ -135,7 +111,7 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 data-ignore-click-away
               >
-                {/* <div className='flex cursor-pointer items-center'>
+                <div className='flex cursor-pointer items-center'>
                   <MenuX
                     className='hidden lg:block'
                     isOpen={false}
@@ -156,7 +132,7 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
                     width='30'
                     height='9'
                   />
-                </div> */}
+                </div>
               </button>
             ) : (
               <Link
@@ -178,7 +154,7 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
           </div>
         </div>
       </header>
-      {/* <Menu items={navigationItems} /> */}
+      <Menu items={navigationItems} />
     </>
   )
 }

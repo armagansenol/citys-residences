@@ -5,21 +5,27 @@ import { StyleVariables } from '@/lib/style-variables'
 import { colors, themes } from '@/styles/config.mjs'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
-import { Montserrat } from 'next/font/google'
+import { Montagu_Slab } from 'next/font/google'
 import localFont from 'next/font/local'
 
 import { GSAP } from '@/components/gsap'
+import { ModalContactForm } from '@/components/modal-contact-form'
 import { ReactQueryProvider } from '@/components/react-query-provider'
 import { RealViewport } from '@/components/real-viewport'
 import { Scroller } from '@/components/scroller'
 import { StickySidebar } from '@/components/sticky-sidebar'
-import { ModalContactForm } from '@/components/modal-contact-form'
 // import { WebChat } from '@/components/web-chat'
 
-const montserrat = Montserrat({
+// const montserrat = Montserrat({
+//   subsets: ['latin'],
+//   variable: '--font-montserrat',
+//   weight: ['500'],
+// })
+
+const montaguSlab = Montagu_Slab({
   subsets: ['latin'],
-  variable: '--font-montserrat',
-  weight: ['500'],
+  variable: '--font-montagu-slab',
+  weight: ['400'],
 })
 
 const suisseIntl = localFont({
@@ -147,7 +153,7 @@ export default async function LocaleLayout({
         <StyleVariables colors={colors} themes={themes} />
       </head>
       <body
-        className={`${montserrat.variable} ${suisseIntl.variable} ${copperplate.variable} antialiased`}
+        className={`${montaguSlab.variable} ${suisseIntl.variable} ${copperplate.variable} antialiased`}
       >
         <RealViewport />
         {/* <Preloader /> */}

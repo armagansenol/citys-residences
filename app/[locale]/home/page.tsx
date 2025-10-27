@@ -14,10 +14,10 @@ import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
 
 // import heroVideoPoster from '@/public/img/poster-hero.jpg'
-import liveMorePoster from '@/public/img/thumbnail-live-more.jpg'
-import livePeacefullyPoster from '@/public/img/thumbnail-live-peacefully.jpg'
 import { SectionSetter } from '@/components/section-setter'
 import { VimeoPlayer } from '@/components/vimeo-player'
+import liveMorePoster from '@/public/img/thumbnail-live-more.jpg'
+import livePeacefullyPoster from '@/public/img/thumbnail-live-peacefully.jpg'
 
 export default async function Page({
   params: { locale },
@@ -79,8 +79,8 @@ export default async function Page({
           >
             <span
               className={cn(
-                'whitespace-nowrap text-center font-montserrat font-[500] text-white',
-                'text-3xl/tight sm:text-4xl/tight lg:text-5xl/tight xl:text-5xl/tight 2xl:text-5xl/tight 3xl:text-6xl/tight',
+                'whitespace-nowrap font-suisse-intl font-[500] text-white',
+                'text-2xl/[1.15] sm:text-4xl/[1.15] lg:text-4xl/[1.15] xl:text-4xl/[1.15] 2xl:text-4xl/[1.15] 3xl:text-5xl/[1.15]',
                 'flex flex-col items-center justify-center gap-4 lg:flex-row lg:gap-0'
               )}
             >
@@ -92,7 +92,7 @@ export default async function Page({
             <span
               className={cn(
                 'text-center font-copperplate font-[700] text-white',
-                'text-[44px] lg:text-4xl xl:text-5xl 2xl:text-5xl 3xl:text-6xl',
+                'text-3xl/[1] sm:text-5xl/[1.15] lg:text-5xl/[1] xl:text-5xl/[1] 2xl:text-5xl/[1] 3xl:text-6xl/[1]',
                 'block translate-y-1 leading-[1]'
               )}
             >
@@ -128,7 +128,7 @@ export default async function Page({
             <div className='flex w-full flex-shrink-0 flex-col items-center gap-2 lg:w-[300px] lg:gap-2 xl:w-[700px]'>
               <article
                 className={cn(
-                  'text-center font-montserrat font-[500] text-black',
+                  'text-center font-primary font-[500] text-black',
                   'text-xl/tight lg:text-4xl/tight xl:text-5xl/tight',
                   'tracking-wide lg:tracking-wide'
                 )}
