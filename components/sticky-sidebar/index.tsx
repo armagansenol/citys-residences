@@ -65,7 +65,7 @@ export const StickySidebar: React.FC = () => {
         className={cn(
           'pointer-events-auto z-[var(--z-sticky-menu)] mix-blend-difference',
           'hidden flex-col lg:flex',
-          'fixed left-16 top-1/2',
+          'fixed left-8 top-1/2 xl:left-16',
           '-translate-y-[40%]',
           'opacity-100 transition-opacity duration-300 ease-in-out',
           isScrolledToBottom && 'pointer-events-none opacity-0'
@@ -74,7 +74,7 @@ export const StickySidebar: React.FC = () => {
         {items.map(item => (
           <div
             className={cn(
-              'relative h-[3.75vw] w-64 flex-shrink-0 transition-all duration-300 ease-in-out',
+              'relative h-[5vw] w-48 flex-shrink-0 transition-all duration-300 ease-in-out',
               'before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-white before:transition-all before:duration-300 before:ease-in-out before:content-[""]',
               'hover:before:w-1',
               {
@@ -88,7 +88,7 @@ export const StickySidebar: React.FC = () => {
               onClick={e => handleNavClick(e, item.id as string)}
               className='absolute left-4 top-1/2 flex -translate-y-1/2 cursor-pointer flex-col items-center justify-center'
             >
-              <span className='whitespace-nowrap font-primary text-[0.8rem] font-[700] text-white lg:tracking-[0.4em]'>
+              <span className='font-primary text-[0.8rem]/[1.2] font-[700] text-white lg:tracking-[0.4em]'>
                 {item.label}
               </span>
             </Link>

@@ -1,20 +1,30 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
-import { Image } from '@/components/image'
+import { ArrowsOutSimpleIcon } from '@phosphor-icons/react'
+import { useLenis } from 'lenis/react'
 
 interface ZoomImageDialogProps {
   dialogTrigger?: React.ReactNode
-  image: string
+  dialogContent?: React.ReactNode
 }
 
 export function ZoomImageDialog({
   dialogTrigger,
-  image,
+  dialogContent,
 }: ZoomImageDialogProps) {
+  const lenis = useLenis()
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (open) {
+      lenis?.stop()
+    } else {
+      lenis?.start()
+    }
+  }, [lenis, open])
 
   const handleOpenChange = (newOpen: boolean) => {
     setOpen(newOpen)
@@ -22,18 +32,20 @@ export function ZoomImageDialog({
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      {dialogTrigger && <DialogTrigger asChild>{dialogTrigger}</DialogTrigger>}
-      <DialogContent className='z-[var(--z-modal)] flex flex-col items-center justify-center border border-red-500'>
-        <div className='relative aspect-[16/9] max-h-[100vh] w-screen lg:w-[80vw]'>
-          <Image
-            src={image}
-            alt='Zoom Image'
-            mobileSize='90vw'
-            desktopSize='90vw'
-            fill
-            className='h-full w-full object-contain'
-          />
-        </div>
+      {dialogTrigger && (
+        <DialogTrigger className='group relative h-full w-full cursor-pointer'>
+          {dialogTrigger}
+
+          <button
+            className='blur-bg-white absolute bottom-4 right-4 flex size-24 items-center justify-center rounded-full bg-bricky-brick p-2 text-white transition-transform duration-300 ease-in-out group-hover:scale-110'
+            type='button'
+          >
+            <ArrowsOutSimpleIcon size={40} weight='thin' />
+          </button>
+        </DialogTrigger>
+      )}
+      <DialogContent className='grid items-center justify-center'>
+        <div className='relative h-[90vh] w-[90vw]'>{dialogContent}</div>
       </DialogContent>
     </Dialog>
   )

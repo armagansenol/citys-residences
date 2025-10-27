@@ -10,6 +10,20 @@ import { WistiaPlayerWrapper } from '@/components/wistia-player'
 import { navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 
+import a1 from '@/public/img/project/a-1.jpg'
+import a2 from '@/public/img/project/a-2.jpg'
+import b1 from '@/public/img/project/b-1.jpg'
+import a1Zoom from '@/public/img/project/a-1-zoom.jpg'
+import a2Zoom from '@/public/img/project/a-2-zoom.jpg'
+
+const images = {
+  a1,
+  a2,
+  b1,
+  a1Zoom,
+  a2Zoom,
+}
+
 export default function Page() {
   return (
     <>
@@ -45,155 +59,196 @@ export default function Page() {
         />
       </section>
       <InteractiveMap />
-      <section className='grid grid-cols-24 gap-4 px-8 py-8 lg:px-0 lg:py-24 xl:py-36'>
-        <div className='col-span-24 flex lg:col-span-9 lg:col-start-6 xl:col-span-8 xl:col-start-7'>
-          <h3
-            className={cn(
-              'lg:ml-auto',
-              'text-left font-primary font-[400] text-black',
-              'text-3xl/tight lg:text-5xl/tight xl:text-6xl/tight'
-            )}
-          >
-            <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
-              Blok ve Otopark <br />
-              Girişleri
-            </GsapSplitText>
-          </h3>
-        </div>
-        <div className='col-span-24 lg:col-span-9 lg:pl-0 xl:col-span-8'>
-          <p
-            className={cn(
-              'text-left font-primary font-[300] text-black',
-              'text-base/snug lg:text-xl/snug xl:text-2xl/snug'
-            )}
-          >
-            <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
-              Her blok için ayrı tasarlanmış lobi ve girişler, güvenli ve
-              prestijli bir karşılama sunuyor.
-              <br />
-              Geniş otopark ve doğrudan blok bağlantılarıyla, zamandan
-              kazandıran kolay erişim.
-            </GsapSplitText>
-          </p>
-        </div>
-      </section>
-      <section className='grid grid-cols-24 gap-x-0 gap-y-6 px-8 py-4 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-24'>
-        <div className='col-span-24 aspect-[16/9] lg:col-span-8 lg:col-start-7'>
-          <ZoomImageDialog
-            dialogTrigger={
-              <Image
-                className='h-full w-full cursor-pointer'
-                src='/img/project/project-a-1.jpg'
-                alt='Project Visual'
-                loading='lazy'
-              />
-            }
-            image='/img/project/project-a-1.jpg'
-          />
-        </div>
-        <div className='col-span-24 aspect-[16/9] lg:col-span-8'>
-          <ZoomImageDialog
-            dialogTrigger={
-              <Image
-                className='h-full w-full cursor-pointer'
-                src='/img/project/project-a-2.jpg'
-                alt='Project Visual'
-                loading='lazy'
-              />
-            }
-            image='/img/project/project-a-2.jpg'
-          />
-        </div>
-      </section>
-      <section className='grid grid-cols-24 gap-x-0 gap-y-6 px-8 py-8 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-36'>
-        <div className='col-span-24 flex justify-start lg:col-span-8 lg:col-start-7 lg:justify-center'>
-          <h3
-            className={cn(
-              'text-left font-primary font-[400] text-black',
-              'text-3xl/tight lg:text-6xl/tight'
-            )}
-          >
-            <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
-              Yeşil Alanlar
-            </GsapSplitText>
-          </h3>
-        </div>
-        <div className='col-span-24 lg:col-span-8 lg:py-36 lg:pl-24'>
-          <p
-            className={cn(
-              'text-left font-primary font-[300] text-black',
-              'text-base/snug lg:text-2xl/snug'
-            )}
-          >
-            <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
-              50.000+ m² peyzaj alanında, doğanın ortasında huzurlu bir yaşam.
-            </GsapSplitText>
-          </p>
-        </div>
-      </section>
-      <section className='grid grid-cols-24 px-8 py-4 lg:px-0 lg:py-24'>
-        <div className='col-span-24 aspect-[9/10] lg:col-span-16 lg:col-start-7'>
-          <ZoomImageDialog
-            dialogTrigger={
-              <Image
-                className='h-full w-full cursor-pointer object-cover object-center'
-                src='/img/project/project-b-1.jpg'
-                alt='Project Visual'
-                loading='lazy'
-              />
-            }
-            image='/img/project/project-b-1.jpg'
-          />
-        </div>
-      </section>
-      <section className='grid grid-cols-24 gap-x-0 gap-y-6 px-8 py-8 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-36'>
-        <div className='col-span-24 flex justify-start lg:col-span-8 lg:col-start-7 lg:justify-center'>
-          <h3
-            className={cn(
-              'text-left font-primary font-[400] text-black',
-              'text-3xl/tight lg:text-6xl/tight'
-            )}
-          >
-            <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
-              Projenin mimarları <br />
-              anlatıyor.
-            </GsapSplitText>
-          </h3>
-        </div>
-        <div className='col-span-24 lg:col-span-8 lg:py-36 lg:pl-24'>
-          <p
-            className={cn(
-              'text-left font-primary font-[300] text-black',
-              'text-base/snug lg:text-2xl/snug'
-            )}
-          >
-            <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
-              City’s Residences, gösterişten çok yaşam kalitesini merkeze alan
-              bir mimarlık diliyle tasarlandı.
-            </GsapSplitText>
-          </p>
-        </div>
-      </section>
-      <section className='grid grid-cols-24 gap-0 px-8 py-8 lg:gap-4 lg:px-0 lg:py-24'>
-        <div className='relative col-span-24 grid aspect-[16/16.75] grid-cols-24 gap-0 lg:col-span-16 lg:col-start-7 lg:aspect-[16/9] lg:gap-8'>
-          <Image
-            className='hidden object-contain lg:block'
-            src='/img/architects-grid.png'
-            alt='Project Visual'
-            loading='lazy'
-            fill
-            desktopSize='80vw'
-          />
-          <Image
-            className='block object-contain lg:hidden'
-            src='/img/architects-grid-mobile.png'
-            alt='Project Visual'
-            loading='lazy'
-            fill
-            desktopSize='80vw'
-          />
-        </div>
-      </section>
+      <div className='space-y-8 py-12'>
+        <section className='grid grid-cols-24 gap-4 px-8 py-8 lg:px-0 lg:py-16 xl:py-36'>
+          <div className='col-span-24 flex lg:col-span-9 lg:col-start-6 xl:col-span-8 xl:col-start-7'>
+            <h3
+              className={cn(
+                'lg:ml-auto',
+                'text-left font-primary font-[400] text-black',
+                'text-3xl/[1.15] lg:text-4xl/[1.15] xl:text-6xl/[1.15]'
+              )}
+            >
+              <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
+                Blok ve Otopark <br />
+                Girişleri
+              </GsapSplitText>
+            </h3>
+          </div>
+          <div className='col-span-24 lg:col-span-9 lg:px-16 xl:col-span-8'>
+            <p
+              className={cn(
+                'text-left font-primary font-[300] text-black',
+                'text-base/snug lg:text-base/snug xl:text-2xl/snug'
+              )}
+            >
+              <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
+                Her blok için ayrı tasarlanmış lobi ve girişler, güvenli ve
+                prestijli bir karşılama sunuyor.
+                <br />
+                Geniş otopark ve doğrudan blok bağlantılarıyla, zamandan
+                kazandıran kolay erişim.
+              </GsapSplitText>
+            </p>
+          </div>
+        </section>
+        <section className='grid grid-cols-24 gap-x-0 gap-y-6 px-8 py-4 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-8'>
+          <div className='col-span-24 aspect-[16/9] lg:col-span-8 lg:col-start-7'>
+            <ZoomImageDialog
+              dialogTrigger={
+                <Image
+                  className='h-full w-full'
+                  src={images.a1.src}
+                  alt='Project Visual'
+                  loading='lazy'
+                  aspectRatio={images.a1.width / images.a1.height}
+                  placeholder='blur'
+                  blurDataURL={images.a1.blurDataURL}
+                />
+              }
+              dialogContent={
+                <Image
+                  className='h-full w-full object-contain'
+                  src={images.a1Zoom.src}
+                  alt='Project Visual'
+                  loading='lazy'
+                  aspectRatio={images.a1Zoom.width / images.a1Zoom.height}
+                  placeholder='blur'
+                  blurDataURL={images.a1Zoom.blurDataURL}
+                />
+              }
+            />
+          </div>
+          <div className='col-span-24 aspect-[16/9] lg:col-span-8'>
+            <ZoomImageDialog
+              dialogTrigger={
+                <Image
+                  className='h-full w-full'
+                  src={images.a2.src}
+                  alt='Project Visual'
+                  loading='lazy'
+                  aspectRatio={images.a2.width / images.a2.height}
+                  placeholder='blur'
+                  blurDataURL={images.a2.blurDataURL}
+                />
+              }
+              dialogContent={
+                <Image
+                  className='h-full w-full object-contain'
+                  src={images.a2Zoom.src}
+                  alt='Project Visual'
+                  loading='lazy'
+                  aspectRatio={images.a2Zoom.width / images.a2Zoom.height}
+                  placeholder='blur'
+                  blurDataURL={images.a2Zoom.blurDataURL}
+                />
+              }
+            />
+          </div>
+        </section>
+        <section className='grid grid-cols-24 gap-x-0 gap-y-6 px-8 py-8 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-8'>
+          <div className='col-span-24 flex justify-start lg:col-span-8 lg:col-start-7 lg:justify-center'>
+            <h3
+              className={cn(
+                'text-left font-primary font-[400] text-black',
+                'text-3xl/tight lg:text-4xl/tight xl:text-6xl/tight'
+              )}
+            >
+              <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
+                Yeşil Alanlar
+              </GsapSplitText>
+            </h3>
+          </div>
+          <div className='col-span-24 lg:col-span-8 lg:pl-24'>
+            <p
+              className={cn(
+                'text-left font-primary font-[300] text-black',
+                'text-base/snug lg:text-base/snug xl:text-2xl/snug'
+              )}
+            >
+              <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
+                50.000+ m² peyzaj alanında, doğanın ortasında huzurlu bir yaşam.
+              </GsapSplitText>
+            </p>
+          </div>
+        </section>
+        <section className='grid grid-cols-24 px-8 py-4 lg:px-0 lg:py-20'>
+          <div className='col-span-24 aspect-[9/10] lg:col-span-18 lg:-col-end-3 lg:aspect-[16/9]'>
+            <ZoomImageDialog
+              dialogTrigger={
+                <Image
+                  className='h-full w-full'
+                  src={images.b1.src}
+                  alt='Project Visual'
+                  loading='lazy'
+                  aspectRatio={images.b1.width / images.b1.height}
+                  placeholder='blur'
+                  blurDataURL={images.b1.blurDataURL}
+                />
+              }
+              dialogContent={
+                <Image
+                  className='h-full w-full object-contain'
+                  src={images.b1.src}
+                  alt='Project Visual'
+                  loading='lazy'
+                  aspectRatio={images.b1.width / images.b1.height}
+                  placeholder='blur'
+                  blurDataURL={images.b1.blurDataURL}
+                />
+              }
+            />
+          </div>
+        </section>
+        <section className='grid grid-cols-24 gap-x-0 gap-y-6 px-8 py-8 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-8'>
+          <div className='col-span-24 flex justify-start lg:col-span-8 lg:col-start-7 lg:justify-center lg:pl-24'>
+            <h3
+              className={cn(
+                'text-left font-primary font-[400] text-black',
+                'text-3xl/[1.15] lg:text-4xl/[1.15] xl:text-6xl/[1.15]'
+              )}
+            >
+              <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
+                Projenin mimarları <br />
+                anlatıyor.
+              </GsapSplitText>
+            </h3>
+          </div>
+          <div className='col-span-24 lg:col-span-8 lg:pl-24'>
+            <p
+              className={cn(
+                'text-left font-primary font-[300] text-black',
+                'text-base/snug lg:text-base/snug xl:text-2xl/snug'
+              )}
+            >
+              <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
+                City’s Residences, gösterişten çok yaşam kalitesini merkeze alan
+                bir mimarlık diliyle tasarlandı.
+              </GsapSplitText>
+            </p>
+          </div>
+        </section>
+        <section className='grid grid-cols-24 gap-0 px-8 py-8 lg:gap-4 lg:px-0 lg:py-16'>
+          <div className='relative col-span-24 grid aspect-[16/16.75] grid-cols-24 gap-0 sm:aspect-[16/7] lg:col-span-16 lg:col-start-7 lg:gap-8'>
+            <Image
+              className='hidden object-contain sm:block'
+              src='/img/architects-grid.png'
+              alt='Project Visual'
+              loading='lazy'
+              fill
+              desktopSize='80vw'
+            />
+            <Image
+              className='block object-contain sm:hidden'
+              src='/img/architects-grid-mobile.png'
+              alt='Project Visual'
+              loading='lazy'
+              fill
+              desktopSize='80vw'
+            />
+          </div>
+        </section>
+      </div>
       {/* architecture sections */}
       <QuoteWithVideo
         quote='Karma kullanım modeliyle zamanı geri veriyoruz: yaşa, çalış, eğlen—tek ekosistem içinde.'
