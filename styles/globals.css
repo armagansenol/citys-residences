@@ -205,3 +205,44 @@ body {
   writing-mode: vertical-rl;
   text-orientation: mixed;
 }
+
+.border-radius-gradient {
+  --border-width: 1px;
+  position: relative;
+  box-sizing: border-box;
+  background: linear-gradient(146.41deg, #99170f 60%, #ffffff 242.33%);
+  background-clip: padding-box;
+  border: solid var(--border-width) transparent;
+  border-radius: 0.25em;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: calc(var(--border-width) * -1);
+    border-radius: inherit;
+    background: linear-gradient(
+      132.66deg,
+      #ffffff -46.82%,
+      rgba(255, 255, 255, 0) 47.43%
+    );
+  }
+}
+
+.border-gradient-to-b {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0));
+  }
+}

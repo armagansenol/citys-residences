@@ -248,7 +248,7 @@
     "common": {
         "navigation": {
             "home": "Anasayfa",
-            "residences": "Daireler",
+            "residences": "Residences",
             "location": "Konum",
             "citysPark": "City's Park",
             "citysMembersClub": "City's Members Club",
@@ -262,7 +262,7 @@
         "close": "KAPAT",
         "open": "MENÜ",
         "inquiry": "RANDEVU\u00A0\u00A0AL",
-        "contact": "Adres",
+        "contact": "İletişim",
         "socialMedia": "Sosyal Medya",
         "menu": "Menü",
         "legal": "KVKK",
@@ -274,9 +274,9 @@
         "cookiePolicy": "Çerez Politikası",
         "scrollToTop": "Başa Dön",
         "salesOffice": "Satış Ofisi",
-        "createAppointment": "Randevu Oluştur",
-        "speakWithRepresentative": "Temsilciyle Görüş",
-        "getDirections": "Yol Tarifi Al"
+        "createAppointment": "Randevu <br></br> Oluştur",
+        "speakWithRepresentative": "Temsilciyle <br></br> Görüş",
+        "getDirections": "Yol <br></br> Tarifi Al"
     },
     "countries": {
         "AD": "Andorra",

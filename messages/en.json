@@ -272,9 +272,9 @@
         "cookiePolicy": "Cookie Policy",
         "scrollToTop": "Scroll to Top",
         "salesOffice": "Sales Office",
-        "createAppointment": "Create Appointment",
-        "speakWithRepresentative": "Speak with Representative",
-        "getDirections": "Get Directions"
+        "createAppointment": "Create <br></br> Appointment",
+        "speakWithRepresentative": "Speak with <br></br> Representative",
+        "getDirections": "Get <br></br> Directions"
     },
     "countries": {
         "AD": "Andorra",
