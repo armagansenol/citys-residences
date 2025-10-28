@@ -2,16 +2,22 @@
 
 import Script from 'next/script'
 
-export function WebChat() {
+interface WebChatProps {
+  locale: string
+}
+
+export function WebChat({ locale }: WebChatProps) {
   return (
     <>
       <Script
-        src='https://cdn.jsdelivr.net/gh/msuatafdeneme-art/crr-wcht@main/web-chat.js'
+        id='webchat-script'
+        src='https://webchat.citysresidences.com/WebChatWidgets/web-chat.js'
         strategy='afterInteractive'
         onLoad={() => {
           if (typeof window !== 'undefined' && window.WebChat) {
             new window.WebChat({
               position: 'bottom-right',
+              lang: locale,
             })
           }
         }}
@@ -22,6 +28,6 @@ export function WebChat() {
 
 declare global {
   interface Window {
-    WebChat: new (config: { position: string }) => void
+    WebChat: new (config: { position: string; lang?: string }) => void
   }
 }
