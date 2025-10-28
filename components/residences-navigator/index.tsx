@@ -12,55 +12,55 @@ export function ResidencesNavigator() {
       id: '1',
       label: '1+1',
       src: '/img/residences/1+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-6' />,
+      icon: <HouseSimpleIcon size={40} weight='thin' />,
     },
     {
       id: '2',
       label: '2+1',
       src: '/img/residences/2+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-6' />,
+      icon: <HouseSimpleIcon size={40} weight='thin' />,
     },
     {
       id: '3',
       label: '3+1',
       src: '/img/residences/3+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-6' />,
+      icon: <HouseSimpleIcon size={40} weight='thin' />,
     },
     {
       id: '4',
       label: '4+1',
       src: '/img/residences/4+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-6' />,
+      icon: <HouseSimpleIcon size={40} weight='thin' />,
     },
     {
       id: '5',
       label: '5+1',
       src: '/img/residences/4+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-6' />,
+      icon: <HouseSimpleIcon size={40} weight='thin' />,
     },
     {
       id: '6',
       label: '6+1',
       src: '/img/residences/4+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-6' />,
+      icon: <HouseSimpleIcon size={40} weight='thin' />,
     },
     {
       id: '7',
       label: 'Citys Park Evleri',
       src: '/img/residences/1+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-6' />,
+      icon: <HouseSimpleIcon size={40} weight='thin' />,
     },
     {
       id: '8',
       label: 'Teras Evler',
       src: '/img/residences/terrace-houses/interior.jpg',
-      icon: <HouseSimpleIcon className='size-6' />,
+      icon: <HouseSimpleIcon size={40} weight='thin' />,
     },
     {
       id: '9',
       label: 'PH Penthouse',
       src: '/img/residences/terrace-houses/interior.jpg',
-      icon: <HouseSimpleIcon className='size-6' />,
+      icon: <HouseSimpleIcon size={40} weight='thin' />,
     },
   ]
 
@@ -71,8 +71,8 @@ export function ResidencesNavigator() {
   }
 
   return (
-    <div className={cn('mt-24 flex flex-col gap-16')}>
-      <div className='flex flex-wrap justify-center xl:gap-2.5 2xl:gap-3.5'>
+    <div className={cn('mt-12 flex flex-col gap-16 lg:mt-24')}>
+      <div className='grid grid-cols-3 flex-wrap items-stretch justify-center gap-x-4 gap-y-4 px-16 lg:flex lg:px-0 xl:gap-2.5 2xl:gap-3.5'>
         {options.map(option => {
           const isSelected = selectedValue === option.id
           return (
@@ -80,7 +80,10 @@ export function ResidencesNavigator() {
               key={option.id}
               onClick={() => handleOptionClick(option.id)}
               className={cn(
-                'flex size-16 flex-shrink-0 cursor-pointer flex-col items-center justify-between rounded-md px-1 transition-all duration-200 lg:size-8 xl:size-20 xl:py-4 2xl:size-[6rem] 2xl:py-5 3xl:size-[6.5rem]',
+                'aspect-[1] cursor-pointer px-1 pt-4',
+                'flex flex-shrink-0 flex-col items-center justify-start rounded-md',
+                'transition-all duration-200',
+                'lg:size-16 xl:size-20 xl:py-4 2xl:size-[6rem] 2xl:py-5 3xl:size-[6.5rem]',
                 {
                   'bg-bricky-brick text-white': isSelected,
                   'border border-bricky-brick bg-bricky-brick text-white hover:bg-white hover:text-bricky-brick':
@@ -95,14 +98,14 @@ export function ResidencesNavigator() {
               <div className='mb-1 flex items-center justify-center'>
                 {option.icon}
               </div>
-              <span className={cn('font-[300 ] text-base/tight')}>
+              <span className={cn('font-[300 ] text-sm/tight')}>
                 {option.label}
               </span>
             </button>
           )
         })}
       </div>
-      <div className='relative h-[40vw]'>
+      <div className='relative aspect-[16/16] lg:aspect-[16/9]'>
         {options.map(option => {
           return (
             <div

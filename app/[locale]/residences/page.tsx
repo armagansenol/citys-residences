@@ -13,7 +13,7 @@ import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
 
 const ImageCard = ({ src }: { src: string }) => (
-  <div className='aspect-[9/12] w-[350px]'>
+  <div className='aspect-[9/12] w-[200px] lg:w-[350px]'>
     <Image
       src={src}
       alt='Citys Residences Interiors'
@@ -46,19 +46,19 @@ export default async function Page({
       <PageTitle
         primaryColor={colors.white}
         secondaryColor={colors['bricky-brick']}
-        title='DAiRELER'
+        title='RESIDENCES'
         description='Günlük yaşamın alışkanlıklarından, yıllara yayılan huzurlu anılara kadar her detay; evinizin size ait bir dünyaya dönüşmesi için tasarlandı.'
         id={navigationConfig['/residences']?.id as string}
       />
       <section
         className={cn(
+          'pb-24 pt-16 lg:pb-48',
           'relative min-h-svh overflow-hidden bg-bricky-brick',
-          'pb-48 pt-16',
-          'before:absolute before:bottom-0 before:left-0 before:top-0 before:z-50 before:h-full before:w-[300px] before:bg-gradient-to-r before:from-bricky-brick before:to-transparent',
-          'after:absolute after:bottom-0 after:right-0 after:top-0 after:z-50 after:h-full after:w-[300px] after:bg-gradient-to-l after:from-bricky-brick after:to-transparent'
+          'before:absolute before:bottom-0 before:left-0 before:top-0 before:z-20 before:h-full before:w-[20vw] before:bg-gradient-to-r before:from-bricky-brick before:to-transparent',
+          'after:absolute after:bottom-0 after:right-0 after:top-0 after:z-20 after:h-full after:w-[20vw] after:bg-gradient-to-l after:from-bricky-brick after:to-transparent'
         )}
       >
-        <div className='relative z-30 flex items-center justify-center py-16 lg:py-32'>
+        <div className='relative z-10 flex items-center justify-center py-16 lg:py-32'>
           <AutoScrollCarousel
             options={{ loop: true, dragFree: true }}
             emblaSlideClassname='items-start'
@@ -83,11 +83,12 @@ export default async function Page({
             ))}
           </AutoScrollCarousel>
         </div>
-        <div className='z-30 flex flex-col items-center justify-center gap-6 lg:gap-6'>
+        <div className='relative z-30 flex flex-col items-center justify-center gap-6 lg:gap-6'>
           <h2
             className={cn(
               'text-center font-primary font-[400] text-white',
-              'text-3xl/tight lg:text-5xl/tight xl:text-6xl/tight 2xl:text-6xl/tight'
+              'text-3xl/tight lg:text-5xl/tight xl:text-6xl/tight 2xl:text-6xl/tight',
+              'w-[80vw] lg:w-auto'
             )}
           >
             <GsapSplitText type='chars' stagger={0.02} duration={1}>
@@ -112,7 +113,7 @@ export default async function Page({
           style={{ mixBlendMode: 'overlay' }}
         />
       </section>
-      <section className='pointer-events-none h-screen overflow-hidden lg:h-[45vw]'>
+      <section className='pointer-events-none aspect-1 overflow-hidden lg:aspect-[9/16]'>
         <WistiaPlayerWrapper
           mediaId='4g5plgua2p'
           autoplay
@@ -129,8 +130,10 @@ export default async function Page({
           transparentLetterbox={true}
         />
       </section>
-      <section className={cn('relative overflow-hidden bg-white', 'pt-36')}>
-        <div className='flex flex-col items-center justify-center gap-6 lg:gap-6'>
+      <section
+        className={cn('relative overflow-hidden bg-white pt-16 lg:pt-36')}
+      >
+        <div className='flex flex-col items-center justify-center gap-6 px-8 lg:gap-6 lg:px-0'>
           <h2
             className={cn(
               'text-center font-primary font-[400] text-black',
@@ -144,8 +147,7 @@ export default async function Page({
           <p
             className={cn(
               'text-center font-primary font-[300] text-black',
-              'lg:text-2xl/text-xl/snug xl:text-2xl/text-xl/snug 2xl:text-2xl/text-xl/snug text-xl/snug',
-              'max-w-sm lg:max-w-2xl'
+              'lg:text-2xl/text-xl/snug xl:text-2xl/text-xl/snug 2xl:text-2xl/text-xl/snug text-xl/snug'
             )}
           >
             <GsapSplitText type='lines' stagger={0.01} duration={1}>
