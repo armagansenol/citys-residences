@@ -31,7 +31,7 @@ export function Header({ nonHome = false }: { nonHome?: boolean }) {
 
   useEffect(() => {
     setIsMenuOpen(false)
-  }, [pathname])
+  }, [pathname, setIsMenuOpen])
 
   useEffect(() => {
     let prevDirection = 0

@@ -1,22 +1,25 @@
-import { CitysLiving } from '@/components/sections/citys-living'
-import { CitysMembersClub } from '@/components/sections/citys-members-club'
-import { CitysPark } from '@/components/sections/citys-park'
 import { Wrapper } from '@/components/wrapper'
-import {
-  fetchCitysLivingData,
-  fetchCitysMembersClubData,
-  fetchCitysParkData,
-} from '@/lib/api/queries'
+
+import HomePage from '@/components/sections/home'
+import CitysIstanbulAvm from '@/components/sections/citys-istanbul-avm'
+import CitysLivingPage from '@/components/sections/citys-living'
+import CitysMembersClubPage from '@/components/sections/citys-members-club'
+import CitysParkPage from '@/components/sections/citys-park'
+import { CitysTimes } from '@/components/sections/citys-times'
+import ProjectPage from '@/components/sections/project'
+import ResidencesPage from '@/components/sections/residences'
 
 export default async function Page({ params }: { params: { locale: string } }) {
-  const citysLivingData = await fetchCitysLivingData(params.locale)
-  const citysMembersClubData = await fetchCitysMembersClubData(params.locale)
-  const citysParkData = await fetchCitysParkData(params.locale)
   return (
     <Wrapper>
-      <CitysPark data={citysParkData.data || []} />
-      <CitysMembersClub data={citysMembersClubData.data || []} />
-      <CitysLiving data={citysLivingData.data || []} />
+      <HomePage params={params} />
+      <ProjectPage />
+      <ResidencesPage params={params} />
+      <CitysParkPage params={params} />
+      <CitysMembersClubPage params={params} />
+      <CitysLivingPage params={params} />
+      <CitysIstanbulAvm />
+      <CitysTimes />
     </Wrapper>
   )
 }
