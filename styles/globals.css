@@ -39,6 +39,7 @@
   --z-preloader: z-stack();
   --z-gsap-markers: z-stack();
   --z-test-page: z-stack();
+  --z-alotech: z-stack();
 }
 
 * {

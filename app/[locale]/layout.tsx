@@ -14,7 +14,7 @@ import { ReactQueryProvider } from '@/components/react-query-provider'
 import { RealViewport } from '@/components/real-viewport'
 import { Scroller } from '@/components/scroller'
 import { StickySidebar } from '@/components/sticky-sidebar'
-// import { WebChat } from '@/components/web-chat'
+import { WebChat } from '@/components/web-chat'
 
 // const montserrat = Montserrat({
 //   subsets: ['latin'],
@@ -175,7 +175,7 @@ export default async function LocaleLayout({
           </ReactQueryProvider>
         </NextIntlClientProvider>
         <GSAP scrollTrigger={true} />
-        {/* <WebChat key={locale} locale={locale} /> */}
+        <WebChat key={locale} locale={locale} />
       </body>
     </html>
   )
