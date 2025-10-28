@@ -1,14 +1,12 @@
 import { PageTitle } from '@/components/page-title'
-import { CitysParkData } from '@/lib/api/queries'
-import { colors } from '@/styles/config.mjs'
-import { LazyCitysPark } from './lazy-citys-park'
+import { RepetitiveSectionsWrapper } from '@/components/repetitive-sections/repetitive-sections-wrapper'
+import { fetchCitysParkData } from '@/lib/api/queries'
 import { navigationConfig } from '@/lib/constants'
+import { colors } from '@/styles/config.mjs'
 
-export function CitysPark({
-  data,
-}: {
-  data: CitysParkData[]
-}): React.ReactNode {
+export default async function Page({ params }: { params: { locale: string } }) {
+  const citysParkData = await fetchCitysParkData(params.locale)
+  const data = citysParkData.data || []
   return (
     <>
       <PageTitle
@@ -18,7 +16,17 @@ export function CitysPark({
         description='Şehrin kalbinde, sizi yavaşlatan, yeşil bir vaha...'
         id={navigationConfig['/citys-park']?.id as string}
       />
-      <LazyCitysPark data={data} />
+      {data.map(item => (
+        <RepetitiveSectionsWrapper
+          key={item.id}
+          componentType={item.componentType}
+          title={item.title}
+          subtitle={item.subtitle}
+          description={item.description}
+          mediaId={item.mediaId}
+          thumbnail={item.thumbnail}
+        />
+      ))}
     </>
   )
 }

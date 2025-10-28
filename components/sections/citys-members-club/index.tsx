@@ -1,14 +1,12 @@
 import { PageTitle } from '@/components/page-title'
-import { CitysMembersClubData } from '@/lib/api/queries'
-import { colors } from '@/styles/config.mjs'
-import { LazyCitysMembersClub } from './lazy-citys-members-club'
+import { RepetitiveSectionsWrapper } from '@/components/repetitive-sections/repetitive-sections-wrapper'
+import { fetchCitysMembersClubData } from '@/lib/api/queries'
 import { navigationConfig } from '@/lib/constants'
+import { colors } from '@/styles/config.mjs'
 
-export function CitysMembersClub({
-  data,
-}: {
-  data: CitysMembersClubData[]
-}): React.ReactNode {
+export default async function Page({ params }: { params: { locale: string } }) {
+  const citysMembersClubData = await fetchCitysMembersClubData(params.locale)
+  const data = citysMembersClubData.data || []
   return (
     <>
       <PageTitle
@@ -23,7 +21,17 @@ export function CitysMembersClub({
         description='Sanat, spor ve sosyal ayrıcalıkların buluştuğu,özel bir yaşam alanı.'
         id={navigationConfig['/citys-members-club']?.id as string}
       />
-      <LazyCitysMembersClub data={data} />
+      {data.map(item => (
+        <RepetitiveSectionsWrapper
+          key={item.id}
+          componentType={item.componentType}
+          title={item.title}
+          subtitle={item.subtitle}
+          description={item.description}
+          mediaId={item.mediaId}
+          thumbnail={item.thumbnail}
+        />
+      ))}
     </>
   )
 }
