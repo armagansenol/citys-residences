@@ -5,16 +5,11 @@ import { cn } from '@/lib/utils'
 import { WistiaPlayerProps } from '@wistia/wistia-player-react'
 import { Image } from '@/components/image'
 
-// Lazy load the WistiaPlayerWrapper component with timeout
+// Lazy load the WistiaPlayerWrapper component
 const WistiaPlayerWrapper = lazy(() =>
-  Promise.race([
-    import('@/components/wistia-player/index').then(module => ({
-      default: module.WistiaPlayerWrapper,
-    })),
-    new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new Error('Wistia player load timeout')), 10000)
-    ),
-  ])
+  import('@/components/wistia-player/index').then(module => ({
+    default: module.WistiaPlayerWrapper,
+  }))
 )
 
 interface LazyWistiaPlayerProps extends WistiaPlayerProps {
@@ -53,6 +48,7 @@ function DefaultLoadingFallback({
           className='absolute inset-0 h-full w-full overflow-hidden object-cover object-center'
           sizes='90vw'
           mobileSize='90vw'
+          quality={75}
           priority={false}
         />
       )}
@@ -67,7 +63,7 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
     posterPriority = false,
     loadingFallback,
     intersectionThreshold = 0,
-    intersectionRootMargin = '400px',
+    intersectionRootMargin = '800px',
     ...wistiaProps
   } = props
 
@@ -75,7 +71,6 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
   const [isInViewport, setIsInViewport] = useState(false)
   const [shouldLoadPlayer, setShouldLoadPlayer] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
-  const observerRef = useRef<IntersectionObserver | null>(null)
 
   useEffect(() => {
     setIsClient(true)
@@ -95,6 +90,8 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
         // Load the player when it enters the viewport
         if (isIntersecting && !shouldLoadPlayer) {
           setShouldLoadPlayer(true)
+          // Disconnect after loading to save resources
+          observer.disconnect()
         }
       },
       {
@@ -103,31 +100,16 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
       }
     )
 
-    observer.observe(containerRef.current)
-    observerRef.current = observer
+    const element = containerRef.current
+    observer.observe(element)
 
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect()
-        observerRef.current = null
-      }
-    }
+    return () => observer.disconnect()
   }, [
     isClient,
     intersectionThreshold,
     intersectionRootMargin,
     shouldLoadPlayer,
   ])
-
-  // Cleanup observer on unmount
-  useEffect(() => {
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect()
-        observerRef.current = null
-      }
-    }
-  }, [])
 
   const fallback = loadingFallback || (
     <DefaultLoadingFallback className={className} customPoster={customPoster} />
@@ -145,7 +127,10 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
   }
 
   return (
-    <div ref={containerRef} className={cn('relative h-full w-full', className)}>
+    <div
+      ref={containerRef}
+      className={cn('pointer-events-none relative h-full w-full', className)}
+    >
       {shouldLoadPlayer ? (
         <Suspense fallback={fallback}>
           <WistiaPlayerWrapper

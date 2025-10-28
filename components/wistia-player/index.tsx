@@ -42,6 +42,7 @@ export function WistiaPlayerWrapper(props: WistiaPlayerWrapperProps) {
       >
         <WistiaPlayer
           className='h-full w-full'
+          preload='metadata'
           onPlay={handlePlay}
           {...wistiaProps}
         />
@@ -57,6 +58,7 @@ export function WistiaPlayerWrapper(props: WistiaPlayerWrapperProps) {
           )}
           sizes='100vw'
           mobileSize='100vw'
+          quality={75}
           priority={posterPriority}
         />
       )}

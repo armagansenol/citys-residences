@@ -5,6 +5,7 @@ import { GsapSplitText } from '@/components/gsap-split-text'
 import { WistiaPlayerWrapper } from '@/components/wistia-player'
 
 interface VideoWithTextProps {
+  className?: string
   mediaId: string
   primaryVideoUrl: string
   primaryVideoType?: string
@@ -12,23 +13,24 @@ interface VideoWithTextProps {
   thumbnailMobile?: string
   title: ReactNode
   description: ReactNode
-  className?: string
   spot?: string
   customPoster?: string
+  aspect?: number
 }
 
 export function VideoWithText(props: VideoWithTextProps) {
-  const { mediaId, title, description, className, customPoster } = props
+  const { mediaId, title, description, className, customPoster, aspect } = props
 
   return (
     <div
       className={cn(
-        'relative h-screen overflow-hidden xl:h-[60vw]',
+        'xl:auto h-screen',
+        'pointer-events-none relative overflow-hidden',
         'after:absolute after:bottom-0 after:left-0 after:z-10 after:h-1/2 after:w-full after:bg-gradient-to-t after:from-current after:to-transparent',
         className
       )}
     >
-      <div className='pointer-events-none absolute inset-0 h-full w-full'>
+      <div className='absolute inset-0 h-full w-full'>
         <WistiaPlayerWrapper
           mediaId={mediaId}
           autoplay
@@ -43,6 +45,7 @@ export function VideoWithText(props: VideoWithTextProps) {
           settingsControl={false}
           transparentLetterbox={true}
           customPoster={customPoster}
+          aspect={aspect || 16 / 9}
         />
       </div>
       <div
