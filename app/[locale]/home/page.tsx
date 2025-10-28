@@ -33,7 +33,7 @@ export default async function Page({
     <>
       <section
         className={cn(
-          'relative z-10 h-[100vh] overflow-hidden',
+          'relative z-10 h-lvh overflow-hidden',
           'before:absolute before:bottom-0 before:left-0 before:z-20 before:h-[300px] before:w-full before:bg-gradient-to-t before:from-black/90 before:to-transparent lg:before:h-[200px]',
           'after:absolute after:left-0 after:top-0 after:z-20 after:h-[200px] after:w-full after:bg-gradient-to-b after:from-black/50 after:to-transparent'
         )}
