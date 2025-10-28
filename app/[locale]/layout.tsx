@@ -157,9 +157,9 @@ export default async function LocaleLayout({
         className={`${montaguSlab.variable} ${suisseIntl.variable} ${copperplate.variable} antialiased`}
       >
         {/* Hidden element for webchat to detect language */}
-        {/* <span id='selectedLanguage' style={{ display: 'none' }}>
+        <span id='selectedLanguage' style={{ display: 'none' }}>
           {locale}
-        </span> */}
+        </span>
         <RealViewport />
         {/* <Preloader /> */}
         <NextIntlClientProvider messages={messages}>
