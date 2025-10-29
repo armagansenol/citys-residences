@@ -114,7 +114,7 @@ export default async function Page({
           style={{ mixBlendMode: 'overlay' }}
         />
       </section>
-      <section className='pointer-events-none aspect-1 overflow-hidden lg:aspect-[9/16]'>
+      <section className='pointer-events-none aspect-1 overflow-hidden lg:aspect-[16/7]'>
         <WistiaPlayerWrapper
           mediaId='4g5plgua2p'
           autoplay

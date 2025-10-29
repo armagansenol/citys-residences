@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
     const lang = searchParams.get('lang') || 'tr'
 
     const response = await fetch(
-      `https://panel.citysresidences.com/api/events.php?lang=${lang}`,
+      `https://panel.citysresidences.com/api/citysTimes.php?lang=${lang}`,
       {
         headers: {
           'Content-Type': 'application/json',
