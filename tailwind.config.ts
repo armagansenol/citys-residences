@@ -249,6 +249,8 @@ const config: Config = {
           'linear-gradient(135deg, #E55A2E 0%, #FFFFFF 100%)',
         'gradient-soft-light':
           'linear-gradient(146.41deg, rgba(198, 198, 198, 0) 22.01%, #FFFFFF 242.33%)',
+        'gradient-sidebar':
+          'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 25%, #FFFFFF 75%, rgba(255, 255, 255, 0) 100%)',
       },
     },
   },
