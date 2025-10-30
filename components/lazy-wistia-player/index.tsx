@@ -129,7 +129,7 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
   return (
     <div
       ref={containerRef}
-      className={cn('pointer-events-none relative h-full w-full', className)}
+      className={cn('!pointer-events-none relative h-full w-full', className)}
     >
       {shouldLoadPlayer ? (
         <Suspense fallback={fallback}>
