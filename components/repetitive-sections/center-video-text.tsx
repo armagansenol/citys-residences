@@ -1,8 +1,9 @@
-import { cn } from '@/lib/utils'
-import DOMPurify from 'isomorphic-dompurify'
+'use client'
 
+import { cn } from '@/lib/utils'
 import { GsapSplitText } from '@/components/gsap-split-text'
 import { LazyWistiaPlayer } from '../lazy-wistia-player'
+import { useState, useEffect } from 'react'
 
 export interface CenterVideoTextProps {
   title: string
@@ -14,6 +15,16 @@ export interface CenterVideoTextProps {
 
 export function CenterVideoText(props: CenterVideoTextProps) {
   const { title, subtitle, description, mediaId, thumbnail } = props
+  const [sanitizedDescription, setSanitizedDescription] = useState(description)
+
+  useEffect(() => {
+    // Dynamically import DOMPurify only on client side
+    import('isomorphic-dompurify').then(module => {
+      const DOMPurify = module.default
+      setSanitizedDescription(DOMPurify.sanitize(description))
+    })
+  }, [description])
+
   return (
     <section
       className='pointer-events-none relative min-h-screen bg-white'
@@ -61,7 +72,7 @@ export function CenterVideoText(props: CenterVideoTextProps) {
               type='lines'
               stagger={0.01}
               duration={1.5}
-              html={DOMPurify.sanitize(description)}
+              html={sanitizedDescription}
             />
           </p>
         </div>

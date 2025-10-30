@@ -1,8 +1,9 @@
-import { cn } from '@/lib/utils'
-import DOMPurify from 'isomorphic-dompurify'
+'use client'
 
+import { cn } from '@/lib/utils'
 import { GsapSplitText } from '@/components/gsap-split-text'
 import { LazyWistiaPlayer } from '@/components/lazy-wistia-player'
+import { useState, useEffect } from 'react'
 
 export interface BackgroundVideoTextProps {
   title: string
@@ -14,6 +15,16 @@ export interface BackgroundVideoTextProps {
 
 export function BackgroundVideoText(props: BackgroundVideoTextProps) {
   const { title, subtitle, description, mediaId, thumbnail } = props
+  const [sanitizedDescription, setSanitizedDescription] = useState(description)
+
+  useEffect(() => {
+    // Dynamically import DOMPurify only on client side
+    import('isomorphic-dompurify').then(module => {
+      const DOMPurify = module.default
+      setSanitizedDescription(DOMPurify.sanitize(description))
+    })
+  }, [description])
+
   return (
     <section
       className={cn(
@@ -65,7 +76,7 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
               type='lines'
               stagger={0.01}
               duration={1.5}
-              html={DOMPurify.sanitize(description)}
+              html={sanitizedDescription}
             />
           </article>
         </div>

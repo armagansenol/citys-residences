@@ -1,8 +1,9 @@
-import { cn } from '@/lib/utils'
-import DOMPurify from 'isomorphic-dompurify'
+'use client'
 
+import { cn } from '@/lib/utils'
 import { GsapSplitText } from '../gsap-split-text'
 import { LazyWistiaPlayer } from '../lazy-wistia-player'
+import { useState, useEffect } from 'react'
 
 export interface FullWidthVideoTextProps {
   title: string
@@ -14,6 +15,16 @@ export interface FullWidthVideoTextProps {
 
 export function FullWidthVideoText(props: FullWidthVideoTextProps) {
   const { title, subtitle, description, mediaId, thumbnail } = props
+  const [sanitizedDescription, setSanitizedDescription] = useState(description)
+
+  useEffect(() => {
+    // Dynamically import DOMPurify only on client side
+    import('isomorphic-dompurify').then(module => {
+      const DOMPurify = module.default
+      setSanitizedDescription(DOMPurify.sanitize(description))
+    })
+  }, [description])
+
   return (
     <section
       className='pointer-events-none relative min-h-screen overflow-hidden'
@@ -61,7 +72,7 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
               type='lines'
               stagger={0.01}
               duration={1.5}
-              html={DOMPurify.sanitize(description)}
+              html={sanitizedDescription}
             />
           </article>
         </div>
