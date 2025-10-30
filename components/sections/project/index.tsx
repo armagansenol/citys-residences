@@ -6,8 +6,8 @@ import { Image } from '@/components/image'
 import { InteractiveMap } from '@/components/interactive-map'
 import { PageTitle } from '@/components/page-title'
 import { QuoteWithVideo } from '@/components/quote-with-video'
-import { WistiaPlayerWrapper } from '@/components/wistia-player'
-import { navigationConfig } from '@/lib/constants'
+import { WistiaPlayerWrapper } from '@/components/wistia-player-wrapper'
+import { navigationConfig, projectBanner } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 
 import a1 from '@/public/img/project/a-1.jpg'
@@ -16,6 +16,7 @@ import b1 from '@/public/img/project/b-1.jpg'
 import a1Zoom from '@/public/img/project/a-1-zoom.jpg'
 import a2Zoom from '@/public/img/project/a-2-zoom.jpg'
 import { SectionSetter } from '@/components/section-setter'
+import { AspectCover } from '@/components/aspect-cover'
 
 const images = {
   a1,
@@ -41,23 +42,13 @@ export default function Page() {
         }
         id={navigationConfig['/project']?.id as string}
       />
-      <section className='pointer-events-none relative h-screen overflow-hidden lg:h-[60vw] xl:h-[45vw]'>
-        <WistiaPlayerWrapper
-          mediaId='p4l0a63nut'
-          autoplay
-          muted
-          preload='none'
-          qualityMin={1080}
-          swatch={false}
-          bigPlayButton={false}
-          silentAutoplay='allow'
-          endVideoBehavior='loop'
-          controlsVisibleOnLoad={false}
-          playBarControl={false}
-          volumeControl={false}
-          settingsControl={false}
-          transparentLetterbox={true}
-        />
+      <section className='relative h-screen overflow-hidden lg:h-[60vw] xl:h-[45vw]'>
+        <AspectCover ratio={projectBanner.aspect()}>
+          <WistiaPlayerWrapper
+            mediaId={projectBanner.mediaId}
+            aspect={projectBanner.aspect()}
+          />
+        </AspectCover>
       </section>
       <InteractiveMap />
       <div className='space-y-8 py-12'>

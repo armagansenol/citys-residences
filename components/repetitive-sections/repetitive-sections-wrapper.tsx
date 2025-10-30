@@ -43,6 +43,7 @@ export interface RepetitiveSectionsWrapperProps {
   description?: string
   mediaId?: string
   thumbnail?: string
+  videoAspectRatio?: number
 }
 
 export function RepetitiveSectionsWrapper({
@@ -52,6 +53,7 @@ export function RepetitiveSectionsWrapper({
   description,
   mediaId,
   thumbnail,
+  videoAspectRatio,
 }: RepetitiveSectionsWrapperProps) {
   if (!componentType || !mediaId) {
     return null
@@ -67,6 +69,7 @@ export function RepetitiveSectionsWrapper({
           description={description}
           mediaId={mediaId}
           thumbnail={thumbnail}
+          videoAspectRatio={videoAspectRatio}
         />
       )
 
@@ -79,6 +82,7 @@ export function RepetitiveSectionsWrapper({
           description={description}
           mediaId={mediaId}
           thumbnail={thumbnail}
+          videoAspectRatio={videoAspectRatio}
         />
       )
 
@@ -91,11 +95,18 @@ export function RepetitiveSectionsWrapper({
           description={description}
           mediaId={mediaId}
           thumbnail={thumbnail}
+          videoAspectRatio={videoAspectRatio}
         />
       )
 
     case 'FullWidthSingleVideo':
-      return <FullWidthSingleVideo mediaId={mediaId} thumbnail={thumbnail} />
+      return (
+        <FullWidthSingleVideo
+          mediaId={mediaId}
+          thumbnail={thumbnail}
+          videoAspectRatio={videoAspectRatio}
+        />
+      )
 
     default:
       return null

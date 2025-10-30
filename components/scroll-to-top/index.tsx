@@ -37,9 +37,8 @@ export function ScrollToTop({ className }: ScrollToTopProps) {
       type='button'
     >
       <ArrowCounterClockwiseIcon
-        size={64}
+        className='size-12 text-white lg:size-16'
         weight='thin'
-        className='text-white'
       />
       <span className='text-4xl'>Yeniden Keşfet</span>
     </button>

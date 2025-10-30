@@ -1,13 +1,13 @@
 'use client'
 
-import { Suspense, lazy, useEffect, useRef, useState } from 'react'
+import { Image } from '@/components/image'
 import { cn } from '@/lib/utils'
 import { WistiaPlayerProps } from '@wistia/wistia-player-react'
-import { Image } from '@/components/image'
+import { Suspense, lazy, useEffect, useRef, useState } from 'react'
 
 // Lazy load the WistiaPlayerWrapper component
 const WistiaPlayerWrapper = lazy(() =>
-  import('@/components/wistia-player/index').then(module => ({
+  import('@/components/wistia-player-wrapper/index').then(module => ({
     default: module.WistiaPlayerWrapper,
   }))
 )
@@ -142,10 +142,7 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
   }
 
   return (
-    <div
-      ref={containerRef}
-      className={cn('!pointer-events-none relative h-full w-full', className)}
-    >
+    <div ref={containerRef} className={cn('relative h-full w-full', className)}>
       {shouldLoadPlayer ? (
         <Suspense fallback={fallback}>
           <WistiaPlayerWrapper

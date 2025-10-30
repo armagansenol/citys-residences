@@ -7,11 +7,12 @@ import { Image } from '@/components/image'
 import { PageTitle } from '@/components/page-title'
 import { ResidencesNavigator } from '@/components/residences-navigator'
 import { SectionContactForm } from '@/components/section-contact-form'
-import { WistiaPlayerWrapper } from '@/components/wistia-player'
-import { navigationConfig } from '@/lib/constants'
+import { WistiaPlayerWrapper } from '@/components/wistia-player-wrapper'
+import { navigationConfig, residencesBanner } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
 import { SectionSetter } from '@/components/section-setter'
+import { AspectCover } from '@/components/aspect-cover'
 
 const ImageCard = ({ src }: { src: string }) => (
   <div className='aspect-[9/12] w-[200px] lg:w-[350px]'>
@@ -114,22 +115,13 @@ export default async function Page({
           style={{ mixBlendMode: 'overlay' }}
         />
       </section>
-      <section className='pointer-events-none aspect-1 overflow-hidden lg:aspect-[16/7]'>
-        <WistiaPlayerWrapper
-          mediaId='4g5plgua2p'
-          autoplay
-          muted
-          preload='none'
-          swatch={false}
-          bigPlayButton={false}
-          silentAutoplay='allow'
-          endVideoBehavior='loop'
-          controlsVisibleOnLoad={false}
-          playBarControl={false}
-          volumeControl={false}
-          settingsControl={false}
-          transparentLetterbox={true}
-        />
+      <section className='aspect-1 overflow-hidden lg:aspect-[16/7]'>
+        <AspectCover ratio={residencesBanner.aspect()}>
+          <WistiaPlayerWrapper
+            mediaId={residencesBanner.mediaId}
+            aspect={residencesBanner.aspect()}
+          />
+        </AspectCover>
       </section>
       <section
         className={cn('relative overflow-hidden bg-white pt-16 lg:pt-36')}

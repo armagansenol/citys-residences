@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils'
 import { GsapSplitText } from '@/components/gsap-split-text'
-import { LazyWistiaPlayer } from '@/components/lazy-wistia-player'
+import { LazyWistiaPlayer } from '@/components/wistia-player-lazy'
 import { useState, useEffect } from 'react'
 
 export interface BackgroundVideoTextProps {
@@ -11,10 +11,12 @@ export interface BackgroundVideoTextProps {
   description: string
   mediaId: string
   thumbnail?: string
+  videoAspectRatio?: number
 }
 
 export function BackgroundVideoText(props: BackgroundVideoTextProps) {
-  const { title, subtitle, description, mediaId, thumbnail } = props
+  const { title, subtitle, description, mediaId, thumbnail, videoAspectRatio } =
+    props
   const [sanitizedDescription, setSanitizedDescription] = useState(description)
 
   useEffect(() => {
@@ -100,6 +102,7 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
           fullscreenControl={false}
           playbackRateControl={false}
           playPauseControl={false}
+          aspect={videoAspectRatio}
         />
       </div>
     </section>

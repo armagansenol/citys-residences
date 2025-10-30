@@ -250,3 +250,64 @@ function getLocalizedPath(routeKey: Pathnames, locale: Locale): string {
 
   return pathConfig[locale] || pathConfig[routing.defaultLocale]
 }
+
+function calculateRatio(width: number, height: number): number {
+  const ratio = Number((width / height).toFixed(2))
+  return ratio
+}
+
+export type WistiaMedia = {
+  name: string
+  aspect: () => number
+  mediaId: string
+}
+
+export const heroVideo: WistiaMedia = {
+  name: 'hero',
+  aspect: () => {
+    return calculateRatio(16, 9)
+  },
+  mediaId: 'e2tew1zhxj',
+}
+export const livePeacefully: WistiaMedia = {
+  name: 'daha huzurlu yaşa',
+  aspect: () => {
+    return calculateRatio(1280, 852)
+  },
+  mediaId: 'dxd0f32sha',
+}
+export const liveMore: WistiaMedia = {
+  name: 'daha dolu yaşa',
+  aspect: () => {
+    return calculateRatio(1920, 1198)
+  },
+  mediaId: 'cpkxfmdyvb',
+}
+export const projectBanner: WistiaMedia = {
+  name: 'proje banner',
+  aspect: () => {
+    return calculateRatio(1920, 896)
+  },
+  mediaId: 'p4l0a63nut',
+}
+export const residencesBanner: WistiaMedia = {
+  name: 'daireler banner',
+  aspect: () => {
+    return calculateRatio(1920, 1088)
+  },
+  mediaId: '4g5plgua2p',
+}
+export const citysIstanbulAvmBanner: WistiaMedia = {
+  name: 'citys istanbul avm banner',
+  aspect: () => {
+    return calculateRatio(1920, 1026)
+  },
+  mediaId: 'a5b5zn9o9x',
+}
+export const citysTimesBanner: WistiaMedia = {
+  name: 'citys times banner',
+  aspect: () => {
+    return calculateRatio(1920, 848)
+  },
+  mediaId: 'luxxfpk3x3',
+}

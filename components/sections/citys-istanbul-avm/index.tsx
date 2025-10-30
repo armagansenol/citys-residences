@@ -1,10 +1,11 @@
 import { BrandsContainer } from '@/components/sections/citys-istanbul-avm/brands-container'
-import { WistiaPlayerWrapper } from '@/components/wistia-player'
+import { WistiaPlayerWrapper } from '@/components/wistia-player-wrapper'
 import { getBrandsData } from '@/lib/api/server-actions'
 import { colors } from '@/styles/config.mjs'
 import { PageTitle } from '@/components/page-title'
-import { navigationConfig } from '@/lib/constants'
+import { citysIstanbulAvmBanner, navigationConfig } from '@/lib/constants'
 import { SectionSetter } from '@/components/section-setter'
+import { AspectCover } from '@/components/aspect-cover'
 
 export default async function Page() {
   const brands = await getBrandsData()
@@ -26,23 +27,13 @@ export default async function Page() {
         description='Hayatı tüm renkleriyle yaşa.'
         id={navigationConfig['/citys-istanbul-avm']?.id as string}
       />
-      <section className='pointer-events-none h-screen overflow-hidden lg:h-[45vw]'>
-        <WistiaPlayerWrapper
-          mediaId='a5b5zn9o9x'
-          autoplay
-          muted
-          preload='none'
-          qualityMin={1080}
-          swatch={false}
-          bigPlayButton={false}
-          silentAutoplay='allow'
-          endVideoBehavior='loop'
-          controlsVisibleOnLoad={false}
-          playBarControl={false}
-          volumeControl={false}
-          settingsControl={false}
-          transparentLetterbox={true}
-        />
+      <section className='h-screen overflow-hidden lg:h-[45vw]'>
+        <AspectCover ratio={citysIstanbulAvmBanner.aspect()}>
+          <WistiaPlayerWrapper
+            mediaId={citysIstanbulAvmBanner.mediaId}
+            aspect={citysIstanbulAvmBanner.aspect()}
+          />
+        </AspectCover>
       </section>
       <section className='section-container px-8 py-8 lg:px-0 lg:py-24'>
         <BrandsContainer initialBrands={brands.items || []} />

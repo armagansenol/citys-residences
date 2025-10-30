@@ -9,7 +9,7 @@ import { Image } from '@/components/image'
 import { SectionContactForm } from '@/components/section-contact-form'
 import { VideoWithText } from '@/components/video-with-text'
 // import { WistiaPlayerWrapper } from '@/components/wistia-player'
-import { citysParkVideo, navigationConfig } from '@/lib/constants'
+import { liveMore, livePeacefully, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
 
@@ -169,10 +169,9 @@ export default async function Page({
         </section>
         <VideoWithText
           className='xl:aspect-[1280/852]'
-          aspect={1280 / 852}
+          aspect={livePeacefully.aspect()}
           customPoster={livePeacefullyPoster.src}
           mediaId='dxd0f32sha'
-          primaryVideoUrl={citysParkVideo}
           title={
             <span>
               Daha <strong>huzurlu</strong> yaşa.
@@ -188,10 +187,9 @@ export default async function Page({
         <SectionContactForm formTranslations={formTranslations} />
         <VideoWithText
           className='xl:aspect-[1920/1198]'
-          aspect={1920 / 1198}
+          aspect={liveMore.aspect()}
           customPoster={liveMorePoster.src}
           mediaId='cpkxfmdyvb'
-          primaryVideoUrl={citysParkVideo}
           title={
             <span>
               Daha <strong>dolu</strong> yaşa.

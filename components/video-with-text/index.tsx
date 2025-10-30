@@ -2,18 +2,14 @@ import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
 
 import { GsapSplitText } from '@/components/gsap-split-text'
-import { WistiaPlayerWrapper } from '@/components/wistia-player'
+import { WistiaPlayerWrapper } from '@/components/wistia-player-wrapper'
 
 interface VideoWithTextProps {
   className?: string
   mediaId: string
-  primaryVideoUrl: string
-  primaryVideoType?: string
   thumbnail?: string
-  thumbnailMobile?: string
   title: ReactNode
   description: ReactNode
-  spot?: string
   customPoster?: string
   aspect?: number
 }
@@ -25,7 +21,7 @@ export function VideoWithText(props: VideoWithTextProps) {
     <div
       className={cn(
         'xl:auto min-h-[120vh] w-full',
-        'pointer-events-none relative overflow-hidden',
+        'relative overflow-hidden',
         'after:absolute after:bottom-0 after:left-0 after:z-10 after:h-1/2 after:w-full after:bg-gradient-to-t after:from-current after:to-transparent',
         className
       )}
