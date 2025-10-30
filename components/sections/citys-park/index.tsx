@@ -28,17 +28,26 @@ export default function CitysPark({ data }: CitysParkProps) {
         description='Şehrin kalbinde, sizi yavaşlatan, yeşil bir vaha...'
         id={navigationConfig['/citys-park']?.id as string}
       />
-      {data.map(item => (
-        <RepetitiveSectionsWrapper
-          key={item.id}
-          componentType={item.componentType}
-          title={item.title}
-          subtitle={item.subtitle}
-          description={item.description}
-          mediaId={item.mediaId}
-          thumbnail={item.thumbnail}
-        />
-      ))}
+      <div
+        style={
+          {
+            '--bg-color': colors['army-canvas'],
+            '--text-color': colors.white,
+          } as React.CSSProperties
+        }
+      >
+        {data.map(item => (
+          <RepetitiveSectionsWrapper
+            key={item.id}
+            componentType={item.componentType}
+            title={item.title}
+            subtitle={item.subtitle}
+            description={item.description}
+            mediaId={item.mediaId}
+            thumbnail={item.thumbnail}
+          />
+        ))}
+      </div>
     </>
   )
 }

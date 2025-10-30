@@ -1,9 +1,9 @@
 'use client'
 
 import { cn } from '@/lib/utils'
+import { useEffect, useState } from 'react'
 import { GsapSplitText } from '../gsap-split-text'
 import { LazyWistiaPlayer } from '../lazy-wistia-player'
-import { useState, useEffect } from 'react'
 
 export interface FullWidthVideoTextProps {
   title: string
@@ -27,18 +27,17 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
 
   return (
     <section
-      className='pointer-events-none relative min-h-screen overflow-hidden'
+      className='relative min-h-screen overflow-hidden'
       style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)' }}
     >
-      <div className='absolute left-0 top-0'>FullWidthVideoText</div>
-      <div className='relative z-30 grid grid-cols-24 py-12 xl:py-32 2xl:py-48 2xl:pb-32'>
-        <div className='col-span-24 flex px-8 py-8 xl:col-span-10 xl:col-start-5 xl:py-0'>
-          <div className='flex flex-col gap-4 xl:ml-auto'>
+      {/* <div className='absolute left-0 top-0'>FullWidthVideoText</div> */}
+      <div className='relative z-30 grid grid-cols-24 gap-y-16 md:gap-y-12'>
+        <div className='col-span-24 flex px-8 pt-20 lg:col-span-7 lg:col-start-6 lg:px-0 lg:pb-16 lg:pt-24 xl:col-span-10 xl:col-start-5 xl:pb-24 xl:pt-44'>
+          <div className='flex flex-col gap-4 xl:mr-auto'>
             <h3
               className={cn(
                 'font-primary font-[400]',
-                'text-3xl/tight xl:text-5xl/tight 2xl:text-6xl/tight',
-                'max-w-[60vw]'
+                'text-3xl/tight xl:text-6xl/tight 2xl:text-6xl/tight'
               )}
             >
               <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
@@ -47,9 +46,9 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
             </h3>
             <h4
               className={cn(
-                'font-primary font-[200]',
-                'text-xl/tight xl:text-4xl/tight',
-                'md:max-w-[60vw]'
+                'font-primary font-[300]',
+                'text-xl/tight xl:text-4xl/tight 2xl:text-4xl/tight',
+                'md:max-w-[50vw]'
               )}
             >
               <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
@@ -58,13 +57,13 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
             </h4>
           </div>
         </div>
-        <div className='col-span-24 px-8 py-4 xl:col-span-8 xl:px-16 xl:py-0'>
+        <div className='col-span-24 px-8 pb-20 lg:col-span-10 lg:px-0 lg:pb-16 lg:pl-24 lg:pt-24 xl:col-span-8 xl:pb-24 xl:pl-16 xl:pr-0 xl:pt-44'>
           <article
             className={cn(
               'text-left font-primary font-[300]',
               'text-base/normal xl:text-lg/normal',
-              'md:max-w-[50vw] xl:max-w-none',
-              'prose'
+              'max-w-[90%] md:max-w-[55vw] xl:max-w-none',
+              'prose-2xl'
             )}
             style={{ color: 'var(--text-color)' }}
           >
@@ -77,25 +76,27 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
           </article>
         </div>
       </div>
-      <div className={cn('relative grid grid-cols-24')}>
-        <div className='col-span-24 aspect-[16/19] overflow-hidden xl:aspect-[16/9]'>
-          <LazyWistiaPlayer
-            muted
-            autoplay
-            preload='none'
-            swatch={false}
-            bigPlayButton={false}
-            silentAutoplay='allow'
-            endVideoBehavior='loop'
-            controlsVisibleOnLoad={false}
-            playBarControl={false}
-            volumeControl={false}
-            settingsControl={false}
-            transparentLetterbox={true}
-            mediaId={mediaId}
-            customPoster={thumbnail}
-          />
-        </div>
+      <div className='!pointer-events-none col-span-24 aspect-[16/19] overflow-hidden xl:aspect-[16/7]'>
+        <LazyWistiaPlayer
+          muted
+          autoplay
+          preload='metadata'
+          swatch={false}
+          bigPlayButton={false}
+          silentAutoplay='allow'
+          endVideoBehavior='loop'
+          controlsVisibleOnLoad={false}
+          playBarControl={false}
+          volumeControl={false}
+          settingsControl={false}
+          transparentLetterbox={true}
+          mediaId={mediaId}
+          customPoster={thumbnail}
+          roundedPlayer={0}
+          fullscreenControl={false}
+          playbackRateControl={false}
+          playPauseControl={false}
+        />
       </div>
     </section>
   )

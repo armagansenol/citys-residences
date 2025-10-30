@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils'
 import { LazyWistiaPlayer } from '../lazy-wistia-player'
 
 export interface FullWidthSingleVideoProps {
@@ -10,17 +9,13 @@ export function FullWidthSingleVideo(props: FullWidthSingleVideoProps) {
   const { mediaId, thumbnail } = props
 
   return (
-    <section
-      className={cn(
-        'pointer-events-none relative aspect-[16/14] overflow-hidden lg:aspect-[16/9]'
-      )}
-    >
+    <section className='relative aspect-[16/14] overflow-hidden lg:aspect-[16/7]'>
       <div className='absolute left-0 top-0'>FullWidthSingleVideo</div>
-      <div className='absolute inset-0'>
+      <div className='!pointer-events-none absolute inset-0'>
         <LazyWistiaPlayer
           muted
           autoplay
-          preload='none'
+          preload='metadata'
           swatch={false}
           bigPlayButton={false}
           silentAutoplay='allow'
@@ -32,6 +27,10 @@ export function FullWidthSingleVideo(props: FullWidthSingleVideoProps) {
           transparentLetterbox={true}
           mediaId={mediaId}
           customPoster={thumbnail}
+          roundedPlayer={0}
+          fullscreenControl={false}
+          playbackRateControl={false}
+          playPauseControl={false}
         />
       </div>
     </section>
