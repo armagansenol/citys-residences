@@ -10,6 +10,9 @@ interface CitysParkProps {
   data: Array<{
     id: string | number
     componentType: ComponentType
+    width?: number
+    height?: number
+    aspectRatio?: number
     title?: string
     subtitle?: string
     description?: string
@@ -44,6 +47,7 @@ export default function CitysPark({ data }: CitysParkProps) {
             subtitle={item.subtitle}
             description={item.description}
             mediaId={item.mediaId}
+            videoAspectRatio={item.aspectRatio}
             thumbnail={item.thumbnail}
           />
         ))}

@@ -6,6 +6,9 @@ export interface CitysParkData {
   mediaId: string
   componentType: ComponentType
   thumbnail: string
+  width?: number
+  height?: number
+  aspectRatio?: number
   title?: string
   subtitle?: string
   description?: string
