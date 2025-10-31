@@ -31,7 +31,7 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
   return (
     <section
       className={cn(
-        'relative h-screen xl:h-auto xl:min-h-[120vh]',
+        'relative h-screen overflow-hidden xl:h-auto xl:min-h-[120vh]',
         'after:absolute after:left-0 after:top-0 after:z-20 after:h-[50%] after:w-full after:bg-gradient-to-b after:from-black/85 after:to-transparent',
         'before:absolute before:bottom-0 before:left-0 before:z-20 before:h-[60%] before:w-full before:bg-gradient-to-t before:from-black/90 before:to-transparent lg:before:hidden'
       )}
