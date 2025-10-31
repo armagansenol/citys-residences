@@ -167,7 +167,7 @@ export default async function Page({
             <ZoomImageDialog
               dialogTrigger={
                 <Image
-                  className='h-full w-full'
+                  className='h-full w-full object-cover lg:object-contain'
                   src={images.b1.src}
                   alt='Project Visual'
                   loading='lazy'

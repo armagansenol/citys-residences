@@ -29,13 +29,13 @@
   --z-header: z-stack();
   --z-header-content: z-stack();
   --z-webchat: z-stack();
+  --z-sticky-menu: z-stack();
   --z-modal-overlay: z-stack();
   --z-modal-contact-form: z-stack();
   --z-modal: z-stack();
   --z-modal-content: z-stack();
   --z-modal-close-button: z-stack();
   --z-popup: z-stack();
-  --z-sticky-menu: z-stack();
   --z-radix-popper: z-stack();
   --z-preloader: z-stack();
   --z-gsap-markers: z-stack();

@@ -36,13 +36,15 @@ export function ZoomImageDialog({
         <DialogTrigger className='group relative h-full w-full cursor-pointer'>
           {dialogTrigger}
 
-          <span className='blur-bg-white absolute bottom-4 right-4 flex size-24 items-center justify-center rounded-full bg-bricky-brick p-2 text-white transition-transform duration-300 ease-in-out group-hover:scale-110'>
-            <ArrowsOutSimpleIcon size={40} weight='thin' />
+          <span className='blur-bg-white absolute bottom-4 right-4 flex size-12 items-center justify-center rounded-full bg-bricky-brick p-3 text-white transition-transform duration-300 ease-in-out group-hover:scale-110 xl:size-16'>
+            <ArrowsOutSimpleIcon className='size-full' weight='thin' />
           </span>
         </DialogTrigger>
       )}
       <DialogContent className='grid items-center justify-center'>
-        <div className='relative h-[90vh] w-[90vw]'>{dialogContent}</div>
+        <div className='relative max-h-[90vh] w-full xl:w-[75vw] 2xl:w-[70vw]'>
+          {dialogContent}
+        </div>
       </DialogContent>
     </Dialog>
   )
