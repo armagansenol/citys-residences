@@ -60,10 +60,16 @@ export default async function Page({
               posterPriority={true}
             />
           </div> */}
-          <div className='pointer-events-none relative h-screen w-full'>
+          <div className='pointer-events-none relative hidden h-screen w-full xl:block'>
             <VimeoPlayer
               poster='/img/poster-hero.jpg'
               src='https://player.vimeo.com/progressive_redirect/playback/1130616578/rendition/1080p/file.mp4?loc=external&log_user=0&signature=4c84b12cfbf4f5ae9ef7087bd4cc4277a815c1235d739ebda936132a2a46214b'
+            />
+          </div>
+          <div className='pointer-events-none relative block h-screen w-full xl:hidden'>
+            <VimeoPlayer
+              poster='/img/mobile-hero-poster.jpg'
+              src='https://player.vimeo.com/progressive_redirect/playback/1132514015/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&log_user=0&signature=ba1b650d11719cb9702714d5b6709e4f0c4d9a72bd6cedab51735cf312430ad8'
             />
           </div>
         </ScaleOut>
