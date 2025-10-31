@@ -19,14 +19,18 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
   const { title, subtitle, description, mediaId, thumbnail, videoAspectRatio } =
     props
   const [sanitizedDescription, setSanitizedDescription] = useState(description)
+  const [sanitizedSubtitle, setSanitizedSubtitle] = useState(subtitle)
+  const [sanitizedTitle, setSanitizedTitle] = useState(title)
 
   useEffect(() => {
     // Dynamically import DOMPurify only on client side
     import('isomorphic-dompurify').then(module => {
       const DOMPurify = module.default
       setSanitizedDescription(DOMPurify.sanitize(description))
+      setSanitizedSubtitle(DOMPurify.sanitize(subtitle))
+      setSanitizedTitle(DOMPurify.sanitize(title))
     })
-  }, [description])
+  }, [description, subtitle, title])
 
   return (
     <section
@@ -47,9 +51,12 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
                 'text-3xl/tight xl:text-6xl/tight 2xl:text-6xl/tight'
               )}
             >
-              <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
-                {title}
-              </GsapSplitText>
+              <GsapSplitText
+                type='lines'
+                stagger={0.01}
+                duration={1.5}
+                html={sanitizedTitle}
+              ></GsapSplitText>
             </h3>
             <h4
               className={cn(
@@ -58,9 +65,12 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
                 'md:max-w-[60vw]'
               )}
             >
-              <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
-                {subtitle}
-              </GsapSplitText>
+              <GsapSplitText
+                type='lines'
+                stagger={0.01}
+                duration={1.5}
+                html={sanitizedSubtitle}
+              ></GsapSplitText>
             </h4>
           </div>
         </div>
@@ -73,13 +83,14 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
               'prose-2xl'
             )}
             style={{ color: 'var(--white)' }}
+            dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
           >
-            <GsapSplitText
+            {/* <GsapSplitText
               type='lines'
               stagger={0.01}
               duration={1.5}
               html={sanitizedDescription}
-            />
+            /> */}
           </article>
         </div>
       </div>
