@@ -106,7 +106,7 @@ export function InteractiveMap() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  className='block object-cover xl:hidden'
+                  className='block scale-150 object-cover xl:hidden'
                   src={`/img/interactive-map/mobile/${location.map}`}
                   alt={t(`locations.${location.name}`)}
                   fill
