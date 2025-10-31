@@ -125,37 +125,82 @@ export default async function Page({
         <SectionSetter sectionId={navigationConfig['/']?.id || ''} />
         <section className='relative overflow-hidden py-12 lg:py-12'>
           <div className='relative ml-0 flex flex-col items-center justify-center gap-8 py-12 xl:ml-32 xl:flex-row xl:gap-32 xl:py-32'>
-            <div className='flex w-full flex-shrink-0 flex-col items-center gap-2 lg:w-[300px] lg:gap-2 xl:w-[700px]'>
-              <article
-                className={cn(
-                  'text-center font-primary font-[400] text-black',
-                  'text-xl/tight lg:text-4xl/tight xl:text-5xl/tight',
-                  'tracking-wide lg:tracking-wide'
-                )}
-              >
-                <GsapSplitText type='chars' stagger={0.02} duration={1.5}>
-                  {t('section1.title1')}
-                </GsapSplitText>
-                <span className='sr-only'>{t('section1.title1')}</span>
-              </article>
-              <FadeInOnScroll delay={0.5}>
-                <article className='relative h-16 w-screen lg:h-24 xl:h-32 2xl:h-36'>
-                  <Image
-                    src='/img/sanati.png'
-                    alt='Sanatı'
-                    fill
-                    className='object-contain'
-                    desktopSize='40vw'
-                    mobileSize='100vw'
-                    loading='lazy'
-                  />
-                  <span className='sr-only'>{t('section1.title2')}</span>
+            {locale === 'tr' && (
+              <div className='flex w-full flex-shrink-0 flex-col items-center gap-2 lg:w-[300px] lg:gap-2 xl:w-[700px]'>
+                <article
+                  className={cn(
+                    'text-center font-primary font-[400] text-black',
+                    'text-xl/tight lg:text-4xl/tight xl:text-5xl/tight',
+                    'tracking-wide lg:tracking-wide'
+                  )}
+                >
+                  <GsapSplitText type='chars' stagger={0.02} duration={1.5}>
+                    YAŞAMA
+                  </GsapSplitText>
+                  <span className='sr-only'>YAŞAMA</span>
                 </article>
-              </FadeInOnScroll>
-            </div>
+                <FadeInOnScroll delay={0.5}>
+                  <article className='relative h-16 w-screen lg:h-24 xl:h-32 2xl:h-36'>
+                    <Image
+                      src='/img/sanati.png'
+                      alt='Sanatı Yazısı'
+                      fill
+                      className='object-contain'
+                      desktopSize='40vw'
+                      mobileSize='100vw'
+                      loading='lazy'
+                    />
+                    <span className='sr-only'>SANATI</span>
+                  </article>
+                </FadeInOnScroll>
+              </div>
+            )}
+            {locale === 'en' && (
+              <div className='flex w-full flex-shrink-0 flex-col items-center gap-2 lg:w-[300px] lg:gap-4 xl:w-[700px]'>
+                <article
+                  className={cn(
+                    'text-center font-primary font-[400] text-black',
+                    'text-xl/tight lg:text-4xl/tight xl:text-4xl/tight',
+                    'tracking-wide lg:tracking-wide'
+                  )}
+                >
+                  <GsapSplitText type='chars' stagger={0.02} duration={1.5}>
+                    THE
+                  </GsapSplitText>
+                  <span className='sr-only'>THE</span>
+                </article>
+                <FadeInOnScroll delay={0.5}>
+                  <article className='relative h-16 w-screen lg:h-24 xl:h-32 2xl:h-36'>
+                    <Image
+                      src='/img/art.png'
+                      alt='Art Text Image'
+                      fill
+                      className='object-contain'
+                      desktopSize='40vw'
+                      mobileSize='100vw'
+                      loading='lazy'
+                    />
+                    <span className='sr-only'>ART</span>
+                  </article>
+                </FadeInOnScroll>
+                <article
+                  className={cn(
+                    'text-center font-primary font-[400] text-black',
+                    'text-xl/tight lg:text-4xl/tight xl:text-4xl/tight',
+                    'tracking-wide lg:tracking-wide'
+                  )}
+                >
+                  <GsapSplitText type='chars' stagger={0.02} duration={1.5}>
+                    OF LIVING
+                  </GsapSplitText>
+                  <span className='sr-only'>OF LIVING</span>
+                </article>
+              </div>
+            )}
+
             <article
               className={cn(
-                'flex w-auto flex-shrink-0 xl:w-96',
+                'flex w-auto flex-shrink-0 xl:w-[400px]',
                 'font-primary font-[200] text-black',
                 'text-xl/normal lg:text-2xl/normal xl:text-3xl/normal',
                 'text-center lg:text-left'
