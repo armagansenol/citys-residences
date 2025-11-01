@@ -21,6 +21,7 @@ import { useNavigation } from '@/hooks/useNavigation'
 import { Locale, routing } from '@/i18n/routing'
 import { getNavigationItems, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
+import { useUiStore } from '@/lib/store/ui'
 
 export function Footer() {
   const t = useTranslations('common')
@@ -28,6 +29,7 @@ export function Footer() {
   const locale = useLocale()
   const navigationItems = getNavigationItems(t, locale as Locale)
   const { handleNavClick } = useNavigation()
+  const { isMenuOpen, setIsMenuOpen, setIsModalContactFormOpen } = useUiStore()
 
   const footerItems = {
     menu: navigationItems,
@@ -53,6 +55,11 @@ export function Footer() {
         href: routing.pathnames['/pdpl/cookie-policy'][locale as Locale],
       },
     ],
+  }
+
+  function handleAppointment() {
+    setIsMenuOpen(false)
+    setIsModalContactFormOpen(true)
   }
 
   return (
@@ -223,7 +230,11 @@ export function Footer() {
               {/* buttons */}
               <div className='order-3 flex flex-col gap-6 lg:order-4'>
                 <div className='grid grid-cols-3 gap-4 sm:gap-3 lg:gap-4'>
-                  <button className='border-radius-gradient flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-4 lg:py-6'>
+                  <button
+                    className='border-radius-gradient flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-4 lg:py-6'
+                    onClick={handleAppointment}
+                    type='button'
+                  >
                     <CalendarPlusIcon
                       weight='thin'
                       className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'

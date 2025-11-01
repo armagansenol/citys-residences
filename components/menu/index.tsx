@@ -25,7 +25,7 @@ import { MenuNavList } from './menu-nav-list'
 
 export function Menu() {
   const t = useTranslations('common')
-  const { isMenuOpen, setIsMenuOpen } = useUiStore()
+  const { isMenuOpen, setIsMenuOpen, setIsModalContactFormOpen } = useUiStore()
   const overlayRef = useRef<HTMLButtonElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const animationTL = useRef<gsap.core.Timeline>()
@@ -88,6 +88,11 @@ export function Menu() {
       dependencies: [isMenuOpen, lenis],
     }
   )
+
+  function handleAppointment() {
+    setIsMenuOpen(false)
+    setIsModalContactFormOpen(true)
+  }
 
   return (
     <>
@@ -157,7 +162,11 @@ export function Menu() {
           {/* buttons */}
           <div className='mr-auto flex flex-col lg:ml-auto lg:mr-0'>
             <div className='grid grid-cols-3 gap-2 sm:gap-3 lg:gap-3'>
-              <button className='border-radius-gradient-gray flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-3 lg:py-5'>
+              <button
+                className='border-radius-gradient-gray flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-3 lg:py-5'
+                type='button'
+                onClick={handleAppointment}
+              >
                 <CalendarPlusIcon
                   weight='thin'
                   className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
