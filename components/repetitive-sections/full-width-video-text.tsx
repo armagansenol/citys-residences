@@ -2,10 +2,11 @@
 
 import { cn } from '@/lib/utils'
 import { useEffect, useState } from 'react'
-import { GsapSplitText } from '../gsap-split-text'
-import { LazyWistiaPlayer } from '../wistia-player-lazy'
-import { AspectCover } from '../aspect-cover'
-import { FadeInOnScroll } from '../animations/fade-in-on-scroll'
+
+import { GsapSplitText } from '@/components/gsap-split-text'
+import { LazyWistiaPlayer } from '@/components/wistia-player-lazy'
+import { AspectCover } from '@/components/aspect-cover'
+import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
 
 export interface FullWidthVideoTextProps {
   title: string

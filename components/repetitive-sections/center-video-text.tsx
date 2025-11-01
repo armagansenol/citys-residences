@@ -1,11 +1,12 @@
 'use client'
 
 import { cn } from '@/lib/utils'
+import { useEffect, useState } from 'react'
+
+import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
+import { AspectCover } from '@/components/aspect-cover'
 import { GsapSplitText } from '@/components/gsap-split-text'
-import { LazyWistiaPlayer } from '../wistia-player-lazy'
-import { useState, useEffect } from 'react'
-import { AspectCover } from '../aspect-cover'
-import { FadeInOnScroll } from '../animations/fade-in-on-scroll'
+import { LazyWistiaPlayer } from '@/components/wistia-player-lazy'
 
 export interface CenterVideoTextProps {
   title: string

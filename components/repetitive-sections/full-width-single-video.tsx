@@ -1,5 +1,5 @@
-import { AspectCover } from '../aspect-cover'
-import { LazyWistiaPlayer } from '../wistia-player-lazy'
+import { AspectCover } from '@/components/aspect-cover'
+import { LazyWistiaPlayer } from '@/components/wistia-player-lazy'
 
 export interface FullWidthSingleVideoProps {
   mediaId: string
