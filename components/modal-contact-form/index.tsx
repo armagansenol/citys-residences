@@ -269,7 +269,7 @@ export function ModalContactForm() {
             <div
               className={cn(
                 'relative flex min-h-screen flex-col justify-center gap-12',
-                'px-8 py-12 pb-16 lg:px-16 lg:py-8 lg:pb-0'
+                'px-8 py-16 pb-16 lg:px-16'
               )}
             >
               <p

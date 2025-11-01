@@ -41,7 +41,7 @@ export function InternationalPhoneInputComponent({
               phoneInputRef={field.ref}
             />
           </FormControl>
-          <FormMessage className='text-white' />
+          <FormMessage className='text-tangerine-flake' />
         </FormItem>
       )}
     />

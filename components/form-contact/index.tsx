@@ -2,8 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation } from '@tanstack/react-query'
-// import { useLocale } from 'next-intl'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { Control, useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -23,7 +22,8 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-// import { submitContactForm } from '@/lib/api/submit-contact-form'
+import { submitContactForm } from '@/lib/api/submit-contact-form'
+import { Link } from '@/components/utility/link'
 import { cn, isPhoneValid } from '@/lib/utils'
 import { FormTranslations } from '@/types'
 import {
@@ -36,6 +36,7 @@ import {
   StorefrontIcon,
   UserIcon,
 } from '@phosphor-icons/react'
+import { FormStatusMessage } from '@/components/form-status-message'
 
 const getFormSchema = (translations: FormTranslations) => {
   // Ensure contactPreference exists with fallback
@@ -141,7 +142,7 @@ const FormInput = ({
             }}
           />
         </FormControl>
-        <FormMessage className='text-white' />
+        <FormMessage className='text-tangerine-flake' />
       </FormItem>
     )}
   />
@@ -178,8 +179,8 @@ interface FormContactProps {
 
 export function ContactForm({ translations }: FormContactProps) {
   const { showMessage } = useFormMessage()
-  // const locale = useLocale() // Uncomment when using real API
   const t = useTranslations()
+  const locale = useLocale()
 
   const residenceTypeDropdownRef = useRef<MultiSelectCheckboxesRef>(null)
   const howDidYouHearAboutUsDropdownRef = useRef<MultiSelectCheckboxesRef>(null)
@@ -235,21 +236,8 @@ export function ContactForm({ translations }: FormContactProps) {
         phone: cleanPhone,
       }
 
-      // Development mode: console log and return early
-      console.log('Form Data to be submitted:', {
-        ...cleanedData,
-        timestamp: new Date().toISOString(),
-      })
-
-      // Early return for development - bypassing actual API call
-      return {
-        success: true,
-        message: 'Development mode - data logged to console',
-      }
-
-      // Uncomment below when ready to use real API
-      // const result = await submitContactForm(cleanedData, locale)
-      // return result
+      const result = await submitContactForm(cleanedData, locale)
+      return result
     },
     onSuccess: result => {
       if (result.success) {
@@ -466,6 +454,7 @@ export function ContactForm({ translations }: FormContactProps) {
     <>
       <Form {...form}>
         <form
+          className='relative'
           onSubmit={form.handleSubmit(data => mutation.mutate(data))}
           noValidate
         >
@@ -527,7 +516,7 @@ export function ContactForm({ translations }: FormContactProps) {
                           textSize='lg'
                         />
                       </FormControl>
-                      <FormMessage className='text-white' />
+                      <FormMessage className='text-tangerine-flake' />
                     </FormItem>
                   )}
                 />
@@ -559,7 +548,7 @@ export function ContactForm({ translations }: FormContactProps) {
                         ref={howDidYouHearAboutUsDropdownRef}
                       />
                     </FormControl>
-                    <FormMessage className='text-white' />
+                    <FormMessage className='text-tangerine-flake' />
                   </FormItem>
                 )}
               />
@@ -587,7 +576,7 @@ export function ContactForm({ translations }: FormContactProps) {
                         ref={contactPreferenceDropdownRef}
                       />
                     </FormControl>
-                    <FormMessage className='text-white' />
+                    <FormMessage className='text-tangerine-flake' />
                   </FormItem>
                 )}
               />
@@ -618,20 +607,18 @@ export function ContactForm({ translations }: FormContactProps) {
                               'contact.form.inputs.consentElectronicMessage.placeholder',
                               {
                                 legal4: chunks => (
-                                  <a
-                                    target='_blank'
-                                    rel='norefferer noopener'
-                                    href='/pdf/citys-residences-acik-riza-beyani.pdf'
+                                  <Link
+                                    href='/pdpl/explicit-consent'
                                     className='font-[400] text-white underline'
                                   >
                                     {chunks}
-                                  </a>
+                                  </Link>
                                 ),
                               }
                             )}
                           </FormLabel>
                         </div>
-                        <FormMessage className='text-white' />
+                        <FormMessage className='text-tangerine-flake' />
                       </FormItem>
                     )}
                   />
@@ -651,39 +638,39 @@ export function ContactForm({ translations }: FormContactProps) {
                         <FormLabel className='cursor-pointer text-sm font-[300] leading-snug text-white xl:max-w-[90%] xl:text-sm 2xl:text-base'>
                           {t.rich('contact.form.inputs.consent.placeholder', {
                             legal1: chunks => (
-                              <a
+                              <Link
                                 target='_blank'
                                 rel='norefferer noopener'
-                                href='/pdf/citys-residences-kvkk-aydinlatma-metni.pdf'
+                                href='/pdpl/pdpl-related-information'
                                 className='font-[400] text-white underline'
                               >
                                 {chunks}
-                              </a>
+                              </Link>
                             ),
                             legal2: chunks => (
-                              <a
+                              <Link
                                 target='_blank'
                                 rel='norefferer noopener'
-                                href='/pdf/citys-residences-acik-riza-metni.pdf'
+                                href='/pdpl/explicit-consent'
                                 className='font-[400] text-white underline'
                               >
                                 {chunks}
-                              </a>
+                              </Link>
                             ),
                             legal3: chunks => (
-                              <a
+                              <Link
                                 target='_blank'
                                 rel='norefferer noopener'
-                                href='/pdf/citys-residences-ticari-elektronik-ileti-aydinlatma-metni.pdf'
+                                href='/pdpl/commercial-electronic-message'
                                 className='font-[400] text-white underline'
                               >
                                 {chunks}
-                              </a>
+                              </Link>
                             ),
                           })}
                         </FormLabel>
                       </div>
-                      <FormMessage className='text-white' />
+                      <FormMessage className='text-tangerine-flake' />
                     </FormItem>
                   )}
                 />
@@ -696,7 +683,7 @@ export function ContactForm({ translations }: FormContactProps) {
                 disabled={mutation.isPending}
                 className='group relative flex w-full items-center justify-between lg:ml-auto lg:w-auto lg:justify-end'
               >
-                <span className='whitespace-nowrap px-4 text-sm tracking-[0.4em] text-white lg:text-lg xl:px-6 xl:text-sm 2xl:px-8 2xl:text-lg'>
+                <span className='whitespace-nowrap pr-4 text-sm tracking-[0.4em] text-white lg:text-lg xl:pr-6 xl:text-sm 2xl:pr-8 2xl:text-lg'>
                   {translations.submit.default}
                 </span>
                 <span
@@ -709,13 +696,28 @@ export function ContactForm({ translations }: FormContactProps) {
                 >
                   <CalendarPlusIcon
                     weight='thin'
-                    className='z-10 h-full w-full'
+                    className='z-10 size-full'
                     pointerEvents='none'
                   />
                 </span>
               </button>
             </div>
           </div>
+          <FormStatusMessage
+            isError={
+              mutation.isError ||
+              (mutation.isSuccess && mutation.data && !mutation.data.success)
+            }
+            isSuccess={mutation.isSuccess && mutation.data?.success}
+            errorMessage={
+              mutation.isSuccess && mutation.data && !mutation.data.success
+                ? mutation.data.message
+                : t('contact.form.messages.error')
+            }
+            successMessage={
+              mutation.data?.message || t('contact.form.messages.success')
+            }
+          />
         </form>
       </Form>
     </>

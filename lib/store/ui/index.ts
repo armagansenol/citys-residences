@@ -18,7 +18,7 @@ export const useStore = create<State>(set => ({
   setResetAnimatedLogo: status => set({ resetAnimatedLogo: status }),
   isModalContactFormOpen: false,
   setIsModalContactFormOpen: status => set({ isModalContactFormOpen: status }),
-  isInquiryVisible: false,
+  isInquiryVisible: true,
   setIsInquiryVisible: status => set({ isInquiryVisible: status }),
 }))
 
