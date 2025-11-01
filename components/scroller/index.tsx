@@ -1,20 +1,12 @@
 'use client'
 
+import { useHash } from '@/hooks/useHash'
 import { useLenis } from 'lenis/react'
 import { useEffect } from 'react'
-import { useHash } from '@/hooks/useHash'
 
 export function Scroller() {
   const lenis = useLenis()
   const hash = useHash()
-
-  useEffect(() => {
-    if (lenis) {
-      lenis.on('scroll', () => {
-        console.log('scroll')
-      })
-    }
-  }, [lenis])
 
   useEffect(() => {
     // Handle hash navigation
