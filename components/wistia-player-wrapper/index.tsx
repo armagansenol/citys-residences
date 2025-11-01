@@ -29,8 +29,6 @@ export function WistiaPlayerWrapper(props: WistiaPlayerWrapperProps) {
   // Handle video play event - fade out poster
   const handlePlay = () => {
     setIsPlaying(true)
-
-    console.log('player', playerRef.current)
   }
 
   return (
