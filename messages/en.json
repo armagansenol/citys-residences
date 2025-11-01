@@ -2,7 +2,7 @@
     "metadata": {
         "default": {
             "title": "City's Residences",
-            "description": "In the heart of life, being able to dedicate time to yourself and your loved ones is transforming life into art."
+            "description": "At the heart of life, being able to dedicate time to yourself and your loved ones is transforming life into art."
         }
     },
     "project": {
@@ -11,7 +11,7 @@
             "description": "A mixed-use living project thoughtfully designed in every detail."
         },
         "map": {
-            "title": "At the heart of life.",
+            "title": "At the <br></br> heart of life.",
             "locations": {
                 "kozyatagi-metro": "Kozyatağı Metro",
                 "yenisahra-metro": "Yenisahra Metro",
