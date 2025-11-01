@@ -97,9 +97,6 @@ export default async function Page({
                   src={images.a1.src}
                   alt='Project Visual'
                   loading='lazy'
-                  aspectRatio={images.a1.width / images.a1.height}
-                  placeholder='blur'
-                  blurDataURL={images.a1.blurDataURL}
                 />
               }
               dialogContent={
@@ -108,9 +105,6 @@ export default async function Page({
                   src={images.a1Zoom.src}
                   alt='Project Visual'
                   loading='lazy'
-                  aspectRatio={images.a1Zoom.width / images.a1Zoom.height}
-                  placeholder='blur'
-                  blurDataURL={images.a1Zoom.blurDataURL}
                 />
               }
             />
@@ -123,9 +117,6 @@ export default async function Page({
                   src={images.a2.src}
                   alt='Project Visual'
                   loading='lazy'
-                  aspectRatio={images.a2.width / images.a2.height}
-                  placeholder='blur'
-                  blurDataURL={images.a2.blurDataURL}
                 />
               }
               dialogContent={
@@ -134,9 +125,6 @@ export default async function Page({
                   src={images.a2Zoom.src}
                   alt='Project Visual'
                   loading='lazy'
-                  aspectRatio={images.a2Zoom.width / images.a2Zoom.height}
-                  placeholder='blur'
-                  blurDataURL={images.a2Zoom.blurDataURL}
                 />
               }
             />
@@ -178,18 +166,12 @@ export default async function Page({
                     src={images.b1.src}
                     alt='Project Visual'
                     loading='lazy'
-                    aspectRatio={images.b1.width / images.b1.height}
-                    placeholder='blur'
-                    blurDataURL={images.b1.blurDataURL}
                   />
                   <Image
                     className='block h-full w-full object-contain sm:hidden'
                     src={images.b1Mobile.src}
                     alt='Project Visual'
                     loading='lazy'
-                    aspectRatio={images.b1Mobile.width / images.b1Mobile.height}
-                    placeholder='blur'
-                    blurDataURL={images.b1Mobile.blurDataURL}
                   />
                 </>
               }
@@ -199,9 +181,6 @@ export default async function Page({
                   src={images.b1.src}
                   alt='Project Visual'
                   loading='lazy'
-                  aspectRatio={images.b1.width / images.b1.height}
-                  placeholder='blur'
-                  blurDataURL={images.b1.blurDataURL}
                 />
               }
             />
