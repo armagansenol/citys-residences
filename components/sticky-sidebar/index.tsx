@@ -124,7 +124,7 @@ export const StickySidebar: React.FC = () => {
                   )}
                   type='button'
                 >
-                  {item.label}
+                  {toAllUppercase(item.label)}
                 </button>
               </div>
             ))}
