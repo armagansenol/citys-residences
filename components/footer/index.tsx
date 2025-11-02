@@ -13,7 +13,7 @@ import {
   YoutubeLogoIcon,
 } from '@phosphor-icons/react'
 import { useLocale, useTranslations } from 'next-intl'
-import { Fragment, useRef } from 'react'
+import { Fragment, useEffect, useRef } from 'react'
 
 import { Logo } from '@/components/icons'
 import { Link } from '@/components/utility/link'
@@ -22,14 +22,26 @@ import { Locale, routing } from '@/i18n/routing'
 import { getNavigationItems, navigationConfig } from '@/lib/constants'
 import { useUiStore } from '@/lib/store/ui'
 import { colors } from '@/styles/config.mjs'
+import { useIntersectionObserver } from 'hamo'
 
 export function Footer() {
   const t = useTranslations('common')
-  const footerRef = useRef<HTMLDivElement>(null)
   const locale = useLocale()
   const navigationItems = getNavigationItems(t, locale as Locale)
   const { handleNavClick } = useNavigation()
-  const { setIsMenuOpen, setIsModalContactFormOpen } = useUiStore()
+  const { setIsMenuOpen, setIsModalContactFormOpen, setIsInquiryVisible } =
+    useUiStore()
+  const [footerRef, entry] = useIntersectionObserver()
+
+  useEffect(() => {
+    if (!entry) return
+
+    if (entry.isIntersecting) {
+      setIsInquiryVisible(false)
+    } else {
+      setIsInquiryVisible(true)
+    }
+  }, [entry])
 
   const footerItems = {
     menu: navigationItems,
@@ -75,7 +87,7 @@ export function Footer() {
         style={{ mixBlendMode: 'multiply' }}
       />
       <div className='relative z-10 grid grid-cols-24 gap-y-8 pb-4'>
-        <div className='order-1 col-span-24 lg:col-span-21 lg:col-start-3 xl:col-span-21 xl:col-start-3'>
+        <div className='order-1 col-span-24 lg:col-span-22 lg:col-start-2 xl:col-span-21 xl:col-start-3'>
           <div className='grid grid-cols-24'>
             <div
               className={cn(
@@ -94,12 +106,12 @@ export function Footer() {
             <div
               className={cn(
                 'col-span-24 md:col-span-12 xl:col-span-8 xl:col-start-7',
-                'flex justify-between gap-8',
+                'flex justify-between',
                 'order-2 mb-16 lg:mb-0',
-                'px-8 lg:px-0 lg:pr-8 xl:pr-16'
+                'px-8 lg:px-0 lg:pr-8 xl:pr-8 2xl:pr-16'
               )}
             >
-              <div className='flex flex-col gap-4 lg:gap-6'>
+              <div className='flex flex-col gap-4 lg:gap-6 xl:gap-8'>
                 {getNavigationItems(t, locale as Locale)
                   .filter(item => item.mainRoute)
                   .map(item => {
@@ -111,7 +123,7 @@ export function Footer() {
                             className={cn(
                               'block font-primary font-[300] text-white transition-colors duration-300',
                               item.mainRoute &&
-                                'text-xl sm:text-2xl lg:text-3xl'
+                                'text-xl sm:text-2xl lg:text-3xl xl:text-2xl'
                             )}
                             onClick={e => handleNavClick(e, item.id)}
                           >
@@ -123,7 +135,7 @@ export function Footer() {
                             className={cn(
                               'block font-primary font-[300] text-white transition-colors duration-300',
                               item.mainRoute &&
-                                'text-xl sm:text-2xl lg:text-3xl'
+                                'text-xl sm:text-2xl lg:text-3xl xl:text-2xl'
                             )}
                             onClick={e => handleNavClick(e, item.id)}
                           >
@@ -134,7 +146,7 @@ export function Footer() {
                     )
                   })}
               </div>
-              <div className='flex flex-col gap-4 lg:gap-6'>
+              <div className='flex flex-col gap-4 lg:gap-6 xl:gap-8'>
                 {getNavigationItems(t, locale as Locale)
                   .filter(item => !item.mainRoute)
                   .map(item => (
@@ -229,9 +241,9 @@ export function Footer() {
               </div>
               {/* buttons */}
               <div className='order-3 flex flex-col gap-6 lg:order-4'>
-                <div className='grid grid-cols-3 gap-4 sm:gap-3 lg:gap-4'>
+                <div className='grid grid-cols-3 gap-2 lg:gap-4'>
                   <button
-                    className='border-radius-gradient flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-4 lg:py-6'
+                    className='border-radius-gradient flex aspect-[14/16] flex-col px-2 py-4 sm:gap-6 lg:px-4 lg:py-6'
                     onClick={handleAppointment}
                     type='button'
                   >
@@ -239,18 +251,18 @@ export function Footer() {
                       weight='thin'
                       className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
                     />
-                    <span className='mt-auto text-left font-primary text-sm font-[400] leading-tight text-white sm:text-sm lg:text-base'>
+                    <span className='mt-auto text-left font-primary text-xs font-[400] leading-tight text-white lg:text-sm 2xl:text-base'>
                       {t.rich('createAppointment', {
                         br: () => <br />,
                       })}
                     </span>
                   </button>
-                  <button className='border-radius-gradient flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-4 lg:py-6'>
+                  <button className='border-radius-gradient flex aspect-[14/16] flex-col px-2 py-4 sm:gap-6 lg:px-4 lg:py-6'>
                     <HeadsetIcon
                       weight='thin'
                       className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
                     />
-                    <span className='mt-auto text-left font-primary text-sm font-[400] leading-tight text-white sm:text-sm lg:text-base'>
+                    <span className='mt-auto text-left font-primary text-xs font-[400] leading-tight text-white lg:text-sm 2xl:text-base'>
                       {t.rich('speakWithRepresentative', {
                         br: () => <br />,
                       })}
@@ -258,13 +270,13 @@ export function Footer() {
                   </button>
                   <Link
                     href='https://goo.gl/maps/X5VuQBQmZF2r9WZ17'
-                    className='border-radius-gradient flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-4 lg:py-6'
+                    className='border-radius-gradient flex aspect-[14/16] flex-col px-2 py-4 sm:gap-6 lg:px-4 lg:py-6'
                   >
                     <MapPinPlusIcon
                       weight='thin'
                       className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
                     />
-                    <span className='mt-auto text-left font-primary text-sm font-[400] leading-tight text-white sm:text-sm lg:text-base'>
+                    <span className='mt-auto text-left font-primary text-xs font-[400] leading-tight text-white lg:text-sm 2xl:text-base'>
                       {t.rich('getDirections', {
                         br: () => <br />,
                       })}
@@ -310,7 +322,7 @@ export function Footer() {
           )}
         >
           <span className='hidden lg:inline'>{t('copyright')}</span>
-          <span className='ml-auto flex flex-col flex-wrap items-center justify-center gap-6 md:gap-6 lg:flex-row lg:items-start lg:gap-6'>
+          <span className='flex flex-col flex-wrap items-center justify-center gap-6 md:gap-6 lg:ml-auto lg:flex-row lg:items-start lg:gap-6'>
             {footerItems.legal.map((item, i) => (
               <Link
                 target='_blank'
