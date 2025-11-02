@@ -2,7 +2,7 @@
 
 import { useUiStore } from '@/lib/store/ui'
 import Script from 'next/script'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 interface WebChatProps {
   locale: string
@@ -10,84 +10,81 @@ interface WebChatProps {
 
 export function WebChat({ locale }: WebChatProps) {
   const { setIsInquiryVisible } = useUiStore()
+
+  const [scriptLoaded, setScriptLoaded] = useState(false)
+
+  const handleScriptLoad = () => {
+    setScriptLoaded(true)
+  }
+
   useEffect(() => {
-    // Wait for the chat window to be added to the DOM
-    const checkForChatWindow = () => {
-      const chatWindow = document.getElementById('cw-window')
-
-      if (chatWindow) {
-        // Add data-lenis-prevent to prevent smooth scroll interference
-        chatWindow.setAttribute('data-lenis-prevent', '')
-        // Check initial state
-        const initiallyOpen = chatWindow.classList.contains('open')
-        console.log('Chat window initial state - open:', initiallyOpen)
-
-        if (initiallyOpen) {
-          setIsInquiryVisible(false)
-        } else {
-          setIsInquiryVisible(true)
-        }
-
-        // Create a MutationObserver to watch for class changes
-        const observer = new MutationObserver(mutations => {
-          mutations.forEach(mutation => {
-            if (
-              mutation.type === 'attributes' &&
-              mutation.attributeName === 'class'
-            ) {
-              const target = mutation.target as HTMLElement
-              const hasOpenClass = target.classList.contains('open')
-
-              if (hasOpenClass) {
-                // Open class was added
-                console.log('Chat window opened')
-                setIsInquiryVisible(false)
-              } else {
-                // Open class was removed
-                console.log('Chat window closed')
-                setIsInquiryVisible(true)
-              }
-            }
-          })
-        })
-
-        // Start observing the chat window for attribute changes
-        observer.observe(chatWindow, {
-          attributes: true,
-          attributeFilter: ['class'],
-        })
-
-        // Cleanup function to disconnect observer
-        return () => observer.disconnect()
-      }
+    if (scriptLoaded && typeof window !== 'undefined' && window.WebChat) {
+      // Initialize WebChat widget
+      new window.WebChat({
+        position: 'bottom-right',
+        lang: locale,
+      })
     }
+  }, [scriptLoaded, locale])
 
-    // Try to find the chat window immediately
-    const cleanup = checkForChatWindow()
-    if (cleanup) return cleanup
+  // Track webchat window open/close state
+  useEffect(() => {
+    if (!scriptLoaded) return
 
-    // If not found, wait a bit for the script to load and create it
-    const timeoutId = setTimeout(() => {
-      checkForChatWindow()
-    }, 1000)
+    // Wait a bit for the webchat DOM to be ready
+    const timeout = setTimeout(() => {
+      const cwWindow = document.querySelector('.cw-window')
 
-    return () => clearTimeout(timeoutId)
-  }, [setIsInquiryVisible])
+      if (!cwWindow) {
+        console.warn('WebChat window element not found')
+        return
+      }
+
+      // Create a MutationObserver to watch for class changes
+      const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+          if (
+            mutation.type === 'attributes' &&
+            mutation.attributeName === 'class'
+          ) {
+            const target = mutation.target as HTMLElement
+            const isOpen = target.classList.contains('open')
+
+            // When webchat opens, close the inquiry modal
+            if (isOpen) {
+              setIsInquiryVisible(false)
+            } else if (!isOpen) {
+              setIsInquiryVisible(true)
+            }
+          }
+        })
+      })
+
+      // Start observing class changes
+      observer.observe(cwWindow, {
+        attributes: true,
+        attributeFilter: ['class'],
+      })
+
+      // Cleanup function
+      return () => {
+        observer.disconnect()
+      }
+    }, 1000) // Wait 1 second for webchat to initialize
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [scriptLoaded, setIsInquiryVisible])
 
   return (
     <>
       <Script
-        id='webchat-script'
+        key={`webchat-script-${locale}`}
+        id={`webchat-script-${locale}`}
         src='https://webchat.citysresidences.com/WebChatWidgets/web-chat.js'
         strategy='afterInteractive'
-        onLoad={() => {
-          if (typeof window !== 'undefined' && window.WebChat) {
-            new window.WebChat({
-              position: 'bottom-right',
-              lang: locale,
-            })
-          }
-        }}
+        onLoad={handleScriptLoad}
       />
     </>
   )

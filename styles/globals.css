@@ -28,8 +28,8 @@
   --z-sticky: z-stack();
   --z-header: z-stack();
   --z-header-content: z-stack();
-  --z-webchat: z-stack();
   --z-sticky-menu: z-stack();
+  --z-webchat: z-stack();
   --z-modal-overlay: z-stack();
   --z-modal-contact-form: z-stack();
   --z-modal: z-stack();
@@ -44,6 +44,11 @@
 
 * {
   scrollbar-width: thin;
+}
+
+html {
+  min-height: 100vh;
+  overscroll-behavior: none;
 }
 
 /* Core styles that shouldn't be reset */
