@@ -270,6 +270,8 @@ function getLocalizedPath(routeKey: Pathnames, locale: Locale): string {
   return pathConfig[locale] || pathConfig[routing.defaultLocale]
 }
 
+// Menu media configuration for navigation items
+
 function calculateRatio(width: number, height: number): number {
   const ratio = Number((width / height).toFixed(2))
   return ratio
@@ -332,3 +334,63 @@ export const citysTimesBanner: WistiaMedia = {
 }
 
 export const scrollDelay = 0.2
+
+export const menuMedia = {
+  home: {
+    src: projectBanner.mediaId,
+    type: 'video',
+  },
+  project: {
+    src: projectBanner.mediaId,
+    type: 'video',
+  },
+  location: {
+    src: '/img/menu/map.jpg',
+    type: 'image',
+  },
+  residences: {
+    src: projectBanner.mediaId,
+    type: 'video',
+  },
+  'citys-park': {
+    src: '/img/menu/citys-park.jpg',
+    type: 'image',
+  },
+  'citys-members-club': {
+    src: '/img/menu/citys-members-club.jpg',
+    type: 'image',
+  },
+  'citys-living': {
+    src: '/img/menu/citys-living.jpg',
+    type: 'image',
+  },
+  'citys-ksm': {
+    src: projectBanner.mediaId,
+    type: 'video',
+  },
+  'citys-istanbul-avm': {
+    src: '/img/menu/citys-istanbul-avm.jpg',
+    type: 'image',
+  },
+  'citys-times': {
+    src: '/img/menu/citys-times.jpg',
+    type: 'image',
+  },
+}
+
+// Get menu text key from item ID
+export const getMenuTextKey = (itemId: string): string => {
+  const keyMap: Record<string, string> = {
+    home: 'home',
+    project: 'project',
+    location: 'location',
+    residences: 'residences',
+    'citys-park': 'citysPark',
+    'citys-members-club': 'citysMembersClub',
+    'citys-living': 'citysLiving',
+    'citys-ksm': 'citysKsm',
+    'citys-istanbul-avm': 'citysIstanbulAvm',
+    'citys-times': 'citysTimes',
+  }
+  return keyMap[itemId] || itemId
+}

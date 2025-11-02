@@ -5,7 +5,12 @@ import { Image } from '@/components/image'
 import { WistiaPlayerWrapper } from '@/components/wistia-player-wrapper'
 import { useNavigation } from '@/hooks/useNavigation'
 import { Locale } from '@/i18n/routing'
-import { getNavigationItems, projectBanner } from '@/lib/constants'
+import {
+  getMenuTextKey,
+  getNavigationItems,
+  menuMedia,
+  projectBanner,
+} from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { AnimatePresence, motion } from 'motion/react'
 import { useLocale, useTranslations } from 'next-intl'
@@ -17,65 +22,6 @@ export function MenuNavList() {
   const tMenu = useTranslations('menu')
   const locale = useLocale()
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
-
-  const menuMedia = {
-    home: {
-      src: projectBanner.mediaId,
-      type: 'video',
-    },
-    project: {
-      src: projectBanner.mediaId,
-      type: 'video',
-    },
-    location: {
-      src: '/img/menu/map.jpg',
-      type: 'image',
-    },
-    residences: {
-      src: projectBanner.mediaId,
-      type: 'video',
-    },
-    'citys-park': {
-      src: '/img/menu/citys-park.jpg',
-      type: 'image',
-    },
-    'citys-members-club': {
-      src: '/img/menu/citys-members-club.jpg',
-      type: 'image',
-    },
-    'citys-living': {
-      src: '/img/menu/citys-living.jpg',
-      type: 'image',
-    },
-    'citys-ksm': {
-      src: projectBanner.mediaId,
-      type: 'video',
-    },
-    'citys-istanbul-avm': {
-      src: '/img/menu/citys-istanbul-avm.jpg',
-      type: 'image',
-    },
-    'citys-times': {
-      src: '/img/menu/citys-times.jpg',
-      type: 'image',
-    },
-  }
-
-  const getMenuTextKey = (itemId: string): string => {
-    const keyMap: Record<string, string> = {
-      home: 'home',
-      project: 'project',
-      location: 'location',
-      residences: 'residences',
-      'citys-park': 'citysPark',
-      'citys-members-club': 'citysMembersClub',
-      'citys-living': 'citysLiving',
-      'citys-ksm': 'citysKsm',
-      'citys-istanbul-avm': 'citysIstanbulAvm',
-      'citys-times': 'citysTimes',
-    }
-    return keyMap[itemId] || itemId
-  }
 
   return (
     <div className='flex justify-between gap-24'>

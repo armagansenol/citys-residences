@@ -73,9 +73,6 @@ export function StickyContactMenu() {
             'form.inputs.howDidYouHearAboutUs.options.internetSocialMedia'
           ),
           billboard: t('form.inputs.howDidYouHearAboutUs.options.billboard'),
-          newspaperMagazine: t(
-            'form.inputs.howDidYouHearAboutUs.options.newspaperMagazine'
-          ),
         },
       },
       contactPreference: {

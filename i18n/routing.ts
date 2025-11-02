@@ -6,18 +6,6 @@ export const routing = defineRouting({
   localePrefix: 'always',
   pathnames: {
     '/': '/',
-    // App section routes used for navigation (same slug across locales)
-    '/project': '/project',
-    '/residences': '/residences',
-    '/citys-park': '/citys-park',
-    '/citys-members-club': '/citys-members-club',
-    '/citys-living': '/citys-living',
-    '/citys-istanbul-avm': '/citys-istanbul-avm',
-    '/citys-times': '/citys-times',
-    '/contact': {
-      tr: '/iletisim',
-      en: '/contact',
-    },
     '/pdpl': {
       tr: '/kvkk',
       en: '/pdpl',
