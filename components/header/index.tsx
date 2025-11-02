@@ -1,21 +1,21 @@
 'use client'
 
 import { Link } from '@/i18n/navigation'
-import { initialScroll, navigationConfig } from '@/lib/constants'
+import { navigationConfig } from '@/lib/constants'
 import { cn } from '@/lib/utils'
+import { ListIcon } from '@phosphor-icons/react'
 import Lenis from 'lenis'
 import { useLenis } from 'lenis/react'
 import { ArrowLeft } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { ListIcon } from '@phosphor-icons/react'
 
 import { Logo } from '@/components/icons'
 import { LocaleSwitcher } from '@/components/locale-switcher'
 import { Menu } from '@/components/menu'
+import { useNavigation } from '@/hooks/useNavigation'
 import { useUiStore } from '@/lib/store/ui'
 import { colors } from '@/styles/config.mjs'
-import { useNavigation } from '@/hooks/useNavigation'
 
 export function Header({ nonHome = false }: { nonHome?: boolean }) {
   const { handleNavClick } = useNavigation()
