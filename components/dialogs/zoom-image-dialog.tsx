@@ -41,11 +41,7 @@ export function ZoomImageDialog({
           </span>
         </DialogTrigger>
       )}
-      <DialogContent className='grid items-center justify-center'>
-        <div className='relative max-h-[90vh] w-full xl:w-[75vw] 2xl:w-[70vw]'>
-          {dialogContent}
-        </div>
-      </DialogContent>
+      <DialogContent>{dialogContent}</DialogContent>
     </Dialog>
   )
 }

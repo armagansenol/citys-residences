@@ -100,12 +100,17 @@ export default async function Page({
                 />
               }
               dialogContent={
-                <Image
-                  className='h-full w-full object-contain'
-                  src={images.a1Zoom.src}
-                  alt='Project Visual'
-                  loading='lazy'
-                />
+                <div className='relative h-screen w-screen'>
+                  <Image
+                    className='h-screen w-screen object-contain'
+                    fill
+                    mobileSize='100vw'
+                    desktopSize='100vw'
+                    src={images.a1Zoom.src}
+                    alt='Project Visual'
+                    loading='lazy'
+                  />
+                </div>
               }
             />
           </div>
@@ -120,12 +125,17 @@ export default async function Page({
                 />
               }
               dialogContent={
-                <Image
-                  className='h-full w-full object-contain'
-                  src={images.a2Zoom.src}
-                  alt='Project Visual'
-                  loading='lazy'
-                />
+                <div className='relative h-screen w-screen'>
+                  <Image
+                    className='h-screen w-screen object-contain'
+                    src={images.a2Zoom.src}
+                    fill
+                    desktopSize='100vw'
+                    mobileSize='100vw'
+                    alt='Project Visual'
+                    loading='lazy'
+                  />
+                </div>
               }
             />
           </div>
@@ -176,12 +186,17 @@ export default async function Page({
                 </>
               }
               dialogContent={
-                <Image
-                  className='h-full w-full object-contain'
-                  src={images.b1.src}
-                  alt='Project Visual'
-                  loading='lazy'
-                />
+                <div className='relative h-screen w-screen'>
+                  <Image
+                    className='h-full w-full object-contain'
+                    fill
+                    desktopSize='100vw'
+                    mobileSize='100vw'
+                    src={images.b1.src}
+                    alt='Project Visual'
+                    loading='lazy'
+                  />
+                </div>
               }
             />
           </div>
