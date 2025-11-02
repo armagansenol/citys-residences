@@ -100,7 +100,7 @@ export function QuoteWithVideo({
       </div>
       {/* video */}
       <div className='col-span-24 px-8 pb-12 pt-8 lg:col-span-16 lg:col-start-6 lg:px-0 lg:pb-28 lg:pt-16 xl:col-start-5'>
-        <div className='group relative aspect-[16/8] cursor-pointer overflow-hidden rounded-md 2xl:rounded-lg'>
+        <div className='group relative aspect-[16/9] cursor-pointer overflow-hidden rounded-md 2xl:rounded-lg'>
           <FullScreenVideoDialog
             dialogTrigger={
               <Image
