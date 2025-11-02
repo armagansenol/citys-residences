@@ -8,8 +8,23 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { UseFormReturn } from 'react-hook-form'
-import { PhoneInput } from './phone-input'
 import { useTranslations } from 'next-intl'
+import dynamic from 'next/dynamic'
+import { Suspense } from 'react'
+
+// Lazy load PhoneInput component to avoid loading libphonenumber.js on initial page load
+const PhoneInput = dynamic(
+  () => import('./phone-input').then(mod => ({ default: mod.PhoneInput })),
+  {
+    ssr: false, // Client-only
+    loading: () => (
+      <div className='flex h-12 items-center border-b border-white lg:h-14 xl:h-14'>
+        <div className='h-12 w-12 animate-pulse border-b border-white bg-white/10 lg:h-14 lg:w-16 xl:h-14' />
+        <div className='ml-1 h-12 flex-1 animate-pulse border-b border-white bg-white/10 lg:h-14 xl:h-14' />
+      </div>
+    ),
+  }
+)
 
 export interface InternationalPhoneInputProps {
   form: UseFormReturn<any> // eslint-disable-line @typescript-eslint/no-explicit-any
@@ -32,14 +47,23 @@ export function InternationalPhoneInputComponent({
             {t('form.inputs.phone.label')}
           </FormLabel>
           <FormControl>
-            <PhoneInput
-              value={field.value}
-              onChange={phone => field.onChange(phone)}
-              onCountryChange={dialCode => {
-                form.setValue('countryCode', dialCode)
-              }}
-              phoneInputRef={field.ref}
-            />
+            <Suspense
+              fallback={
+                <div className='flex h-12 items-center border-b border-white lg:h-14 xl:h-14'>
+                  <div className='h-12 w-12 animate-pulse border-b border-white bg-white/10 lg:h-14 lg:w-16 xl:h-14' />
+                  <div className='ml-1 h-12 flex-1 animate-pulse border-b border-white bg-white/10 lg:h-14 xl:h-14' />
+                </div>
+              }
+            >
+              <PhoneInput
+                value={field.value}
+                onChange={phone => field.onChange(phone)}
+                onCountryChange={dialCode => {
+                  form.setValue('countryCode', dialCode)
+                }}
+                phoneInputRef={field.ref}
+              />
+            </Suspense>
           </FormControl>
           <FormMessage className='text-tangerine-flake' />
         </FormItem>
