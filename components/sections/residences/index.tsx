@@ -72,7 +72,7 @@ export default async function Page({
       />
       <section
         className={cn(
-          'pb-24 pt-16 lg:pb-40',
+          'pb-24 pt-16 lg:pb-40 2xl:pb-32',
           'relative overflow-hidden bg-bricky-brick',
           'before:absolute before:bottom-0 before:left-0 before:top-0 before:z-20 before:h-full before:w-[20vw] before:bg-gradient-to-r before:from-bricky-brick before:to-transparent',
           'after:absolute after:bottom-0 after:right-0 after:top-0 after:z-20 after:h-full after:w-[20vw] after:bg-gradient-to-l after:from-bricky-brick after:to-transparent'
@@ -118,7 +118,14 @@ export default async function Page({
             </GsapSplitText>
           </p>
         </div>
-        <div className="pointer-events-none absolute inset-0 z-0 bg-[url('/svg/bg-footer.svg')] bg-cover bg-left-bottom bg-no-repeat mix-blend-overlay" />
+        <Image
+          className='pointer-events-none absolute inset-0 z-0 object-cover mix-blend-overlay'
+          src='/img/residences-bg.png'
+          alt='Background'
+          fill
+          loading='lazy'
+          priority={false}
+        />
       </section>
       <section className='aspect-1 overflow-hidden lg:aspect-[16/7]'>
         <AspectCover ratio={residencesBanner.aspect()}>

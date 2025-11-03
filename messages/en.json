@@ -126,7 +126,7 @@
                     },
                     "options": {
                         "reference": "Reference",
-                        "projectVisit": "Shopping Mall / Stand Area Visit",
+                        "projectVisit": "Mall / Stand Area Visit",
                         "internetSocialMedia": "Social Media / Digital",
                         "billboard": "Outdoor Advertising"
                     }
@@ -138,7 +138,7 @@
                     }
                 },
                 "contactPreferenceOptions": {
-                    "sms": "SMS / WhatsApp",
+                    "sms": "SMS WhatsApp",
                     "email": "Email",
                     "phone": "Phone"
                 },

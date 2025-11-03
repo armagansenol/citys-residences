@@ -139,7 +139,7 @@
                     }
                 },
                 "contactPreferenceOptions": {
-                    "sms": "SMS / WhatsApp",
+                    "sms": "SMS WhatsApp",
                     "email": "E-posta",
                     "phone": "Telefon"
                 },

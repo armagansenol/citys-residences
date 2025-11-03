@@ -48,7 +48,7 @@ export const StickySidebar: React.FC = () => {
           <div
             className={cn(
               'relative',
-              'h-20 w-48',
+              'h-20 w-52',
               'flex-shrink-0 transition-all duration-300 ease-in-out',
               'before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-white before:transition-all before:duration-300 before:ease-in-out before:content-[""]',
               'hover:before:w-1',
