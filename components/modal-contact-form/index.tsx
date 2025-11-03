@@ -248,9 +248,9 @@ export function ModalContactForm() {
                 !isInquiryVisible || isModalContactFormOpen,
               'pointer-events-auto opacity-100':
                 isInquiryVisible && !isModalContactFormOpen,
-              'h-52 w-12 lg:w-16 xl:h-60 xl:w-16 2xl:h-72 2xl:w-20 3xl:w-16':
+              'h-52 w-12 lg:w-16 xl:h-60 xl:w-16 2xl:h-72 2xl:w-16 3xl:w-16':
                 locale === 'tr',
-              'h-72 w-12 lg:w-16 xl:h-80 xl:w-16 2xl:h-96 2xl:w-20 3xl:w-16':
+              'h-72 w-12 lg:w-16 xl:h-80 xl:w-16 2xl:h-96 2xl:w-16 3xl:w-16':
                 locale === 'en',
             }
           )}

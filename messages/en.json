@@ -138,7 +138,7 @@
                     }
                 },
                 "contactPreferenceOptions": {
-                    "sms": "SMS",
+                    "sms": "SMS / WhatsApp",
                     "email": "Email",
                     "phone": "Phone"
                 },
@@ -238,7 +238,7 @@
         "citysIstanbulAvm": "CITY'S ISTANBUL MALL"
     },
     "citys-members-club": {
-        "description": "Where art, sports, and social privileges converge in an exclusive living space.",
+        "description": "Where art, sports, and social privileges converge <br></br> in an exclusive living space.",
         "card": {
             "title": "Every moment, more special.",
             "subtitle": "City's Members Club"

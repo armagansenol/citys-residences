@@ -141,7 +141,7 @@ export function FilterableContent({ brands }: FilterableContentProps) {
                   type='button'
                   className={cn(
                     'mt-12 w-full rounded-md',
-                    'bg-slate-200 text-slate-950',
+                    'bg-gray-100 text-gray-900',
                     'font-primary font-[300] transition-colors',
                     'py-5 text-center text-base'
                   )}

@@ -12,17 +12,18 @@ import {
   XLogoIcon,
   YoutubeLogoIcon,
 } from '@phosphor-icons/react'
+import { useIntersectionObserver } from 'hamo'
 import { useLocale, useTranslations } from 'next-intl'
 import { useEffect } from 'react'
 
 import { Logo } from '@/components/icons'
+import { Image } from '@/components/image'
 import { Link } from '@/components/utility/link'
 import { useNavigation } from '@/hooks/useNavigation'
 import { Locale, routing } from '@/i18n/routing'
-import { getNavigationItems } from '@/lib/constants'
+import { getNavigationItems, navigationConfig } from '@/lib/constants'
 import { useUiStore } from '@/lib/store/ui'
 import { colors } from '@/styles/config.mjs'
-import { useIntersectionObserver } from 'hamo'
 
 export function Footer() {
   const t = useTranslations('common')
@@ -88,12 +89,15 @@ export function Footer() {
       )}
       ref={footerRef}
     >
-      <div
-        className="pointer-events-none absolute inset-0 hidden bg-[url('/svg/bg-footer.svg')] bg-cover bg-center lg:block"
-        style={{ mixBlendMode: 'multiply' }}
+      <Image
+        src='/svg/bg-footer.svg'
+        alt='Footer Background'
+        fill
+        className='pointer-events-none absolute inset-0 hidden object-cover mix-blend-multiply lg:block'
+        loading='lazy'
       />
       <div className='relative z-10 grid grid-cols-24 gap-y-8 pb-4'>
-        <div className='order-1 col-span-24 lg:col-span-22 lg:col-start-2 xl:col-span-21 xl:col-start-3'>
+        <div className='order-1 col-span-24 lg:col-span-22 lg:col-start-2 xl:col-span-21 xl:col-start-3 2xl:col-span-20 2xl:col-start-4'>
           <div className='grid grid-cols-24'>
             <div
               className={cn(
@@ -102,19 +106,23 @@ export function Footer() {
                 'order-1 mb-16 xl:mb-0'
               )}
             >
-              <Link
-                href='/'
+              <button
                 className='w-[160px] sm:w-[200px] lg:w-[180px] xl:w-[200px] 2xl:w-[240px]'
+                aria-label='Home'
+                onClick={() =>
+                  handleNavClick(navigationConfig['/'].id as string)
+                }
+                type='button'
               >
-                <Logo fill={colors['white']} />
-              </Link>
+                <Logo fill={colors.white} />
+              </button>
             </div>
             <div
               className={cn(
                 'col-span-24 md:col-span-12 xl:col-span-8 xl:col-start-7',
                 'flex justify-between',
                 'order-2 mb-16 lg:mb-0',
-                'px-8 lg:px-0 lg:pr-8 xl:pr-8 2xl:pr-16'
+                'px-8 lg:px-0 lg:pr-8 xl:pr-8 2xl:pr-16 3xl:pr-20'
               )}
             >
               <div className='flex flex-col gap-4 lg:gap-6 xl:gap-8'>
@@ -126,7 +134,7 @@ export function Footer() {
                       className={cn(
                         'cursor-pointer text-left font-primary font-[300] text-white transition-colors duration-300',
                         item.mainRoute &&
-                          'text-xl sm:text-2xl lg:text-3xl xl:text-2xl'
+                          'text-xl sm:text-2xl lg:text-3xl xl:text-2xl 3xl:text-3xl'
                       )}
                       onClick={() => handleNavClick(item.id)}
                       type='button'
@@ -142,8 +150,10 @@ export function Footer() {
                     <button
                       key={item.id}
                       className={cn(
-                        'cursor-pointer text-left font-primary text-sm font-[300] text-white transition-colors duration-300 sm:text-base',
-                        item.mainRoute && 'text-4xl'
+                        'cursor-pointer text-left font-primary font-[300] text-white transition-colors duration-300',
+                        !item.mainRoute &&
+                          'text-sm sm:text-base lg:text-lg xl:text-lg 3xl:text-xl',
+                        item.mainRoute && 'text-4xl 3xl:text-5xl'
                       )}
                       onClick={() => handleNavClick(item.id)}
                       type='button'
@@ -158,7 +168,7 @@ export function Footer() {
                 'xl:col-start-16 order-3 col-span-24 md:col-span-12 xl:col-span-9',
                 'flex flex-col gap-12 lg:gap-16 xl:gap-12',
                 'border-gradient-to-b',
-                'px-8 lg:px-0 lg:pl-8 xl:pl-16'
+                'px-8 lg:px-0 lg:pl-8 xl:pl-16 3xl:pl-16'
               )}
             >
               {/* sales office */}
@@ -290,9 +300,8 @@ export function Footer() {
           className={cn(
             'order-3 lg:order-2',
             'mt-8 lg:mt-auto',
-            'col-span-24 lg:col-span-21 lg:col-start-3 xl:col-span-21 xl:col-start-3',
-            'flex flex-col gap-4 lg:flex-row lg:justify-between',
-            'text-sm text-white/90',
+            'col-span-24 lg:col-span-21 lg:col-start-3 xl:col-span-21 xl:col-start-3 2xl:col-span-20 2xl:col-start-4',
+            'text-sm text-white/90 2xl:text-base',
             'font-primary font-[300]'
           )}
         >
@@ -305,9 +314,9 @@ export function Footer() {
           className={cn(
             'order-2 lg:order-3',
             'mt-8 lg:mt-auto',
-            'col-span-24 lg:col-span-21 lg:col-start-3 xl:col-span-21 xl:col-start-3',
+            'col-span-24 lg:col-span-21 lg:col-start-3 xl:col-span-21 xl:col-start-3 2xl:col-span-19 2xl:col-start-4',
             'flex flex-col gap-4 lg:flex-row xl:justify-between',
-            'text-sm text-white/90',
+            'text-sm text-white/90 2xl:text-base',
             'font-primary font-[300]'
           )}
         >
@@ -319,7 +328,7 @@ export function Footer() {
                 rel='noopener noreferrer'
                 key={i}
                 href={item.href}
-                className='block flex-shrink-0 text-tangerine-flake'
+                className='whitespace-nowrap'
               >
                 {item.title}
               </Link>

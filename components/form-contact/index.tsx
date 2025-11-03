@@ -310,16 +310,6 @@ export function ContactForm({ translations }: FormContactProps) {
   const howDidYouHearAboutUsOptions = useMemo(
     () => [
       {
-        id: 'reference',
-        label: translations.inputs.howDidYouHearAboutUs.options.reference,
-        icon: <UserIcon className={iconSize} />,
-      },
-      {
-        id: 'projectVisit',
-        label: translations.inputs.howDidYouHearAboutUs.options.projectVisit,
-        icon: <StorefrontIcon className={iconSize} />,
-      },
-      {
         id: 'internetSocialMedia',
         label:
           translations.inputs.howDidYouHearAboutUs.options.internetSocialMedia,
@@ -329,6 +319,17 @@ export function ContactForm({ translations }: FormContactProps) {
         id: 'billboard',
         label: translations.inputs.howDidYouHearAboutUs.options.billboard,
         icon: <PresentationIcon className={iconSize} />,
+      },
+
+      {
+        id: 'projectVisit',
+        label: translations.inputs.howDidYouHearAboutUs.options.projectVisit,
+        icon: <StorefrontIcon className={iconSize} />,
+      },
+      {
+        id: 'reference',
+        label: translations.inputs.howDidYouHearAboutUs.options.reference,
+        icon: <UserIcon className={iconSize} />,
       },
     ],
     [translations.inputs.howDidYouHearAboutUs.options]

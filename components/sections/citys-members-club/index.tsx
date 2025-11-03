@@ -39,7 +39,9 @@ export default function CitysMembersClub({ data }: CitysMembersClubProps) {
             <span className='block'>MEMBERS CLUB</span>
           </>
         }
-        description={t('description')}
+        description={t.rich('description', {
+          br: () => <br className='hidden lg:block' />,
+        })}
         id={navigationConfig['/citys-members-club']?.id as string}
         stopColor1={colors['white']}
         stopColor2={colors['blue-shimmer']}

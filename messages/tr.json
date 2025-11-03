@@ -139,7 +139,7 @@
                     }
                 },
                 "contactPreferenceOptions": {
-                    "sms": "SMS",
+                    "sms": "SMS / WhatsApp",
                     "email": "E-posta",
                     "phone": "Telefon"
                 },
@@ -279,7 +279,7 @@
         "citysIstanbulAvm": "CITY'S İSTANBUL AVM"
     },
     "citys-members-club": {
-        "description": "Sanat, spor ve sosyal ayrıcalıkların buluştuğu, özel bir yaşam alanı.",
+        "description": "Sanat, spor ve sosyal ayrıcalıkların buluştuğu, <br></br> özel bir yaşam alanı.",
         "card": {
             "title": "Her an daha özel.",
             "subtitle": "City's Members Club"
