@@ -92,7 +92,12 @@ export async function CitysTimes() {
             loading='lazy'
           />
         </div>
-        <div className='z-20 flex flex-col items-center justify-center gap-6 lg:gap-6'>
+        <div
+          className={cn(
+            'z-20 flex flex-col items-center justify-center gap-6 lg:gap-6'
+            // 'after:bg-gradient-citys-times z-10 after:absolute after:inset-0'
+          )}
+        >
           <div className='relative z-10 flex items-center justify-center py-24 lg:py-24'>
             <AutoScrollCarousel
               options={{ loop: true, dragFree: true }}

@@ -244,6 +244,8 @@ const config: Config = {
           'linear-gradient(146.41deg, rgba(198, 198, 198, 0) 22.01%, #FFFFFF 242.33%)',
         'gradient-sidebar':
           'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 25%, #FFFFFF 75%, rgba(255, 255, 255, 0) 100%)',
+        'gradient-citys-times':
+          'linear-gradient(180deg, rgba(217, 217, 217, 0) 0%, #A6A6A6 50%, rgba(115, 115, 115, 0) 100%)',
       },
     },
   },

@@ -43,7 +43,7 @@ export function QuoteWithVideo({
   return (
     <section
       className={cn(
-        'relative z-10 grid min-h-screen grid-cols-24 overflow-hidden',
+        'relative z-10 grid grid-cols-24 overflow-hidden xl:min-h-screen',
         className
       )}
       style={{ backgroundColor: primaryColor }}
@@ -57,13 +57,13 @@ export function QuoteWithVideo({
         />
       )}
       {/* quote and person name and title */}
-      <div className='col-span-24 flex items-center justify-between px-8 pt-28 lg:col-span-16 lg:col-start-5 lg:px-0 lg:pt-48 2xl:pt-64'>
+      <div className='col-span-24 flex items-center justify-between px-8 pt-28 lg:col-span-16 lg:col-start-6 lg:px-0 lg:pt-48 xl:col-span-16 xl:col-start-5 2xl:pt-64'>
         <p
           className={cn(
             'relative',
             'text-left font-primary font-[400]',
-            'w-[70%] lg:w-[50vw] xl:w-[45%] 2xl:w-[40%]',
-            'text-2xl/snug lg:text-4xl/snug xl:text-4xl/snug 2xl:text-4xl/snug'
+            'w-[70%] lg:w-[50%] xl:w-[45%] 2xl:w-[40%] 3xl:w-[45%]',
+            'text-2xl/snug lg:text-3xl/snug xl:text-4xl/snug 2xl:text-4xl/snug 3xl:text-5xl/snug'
           )}
           style={{ color: secondaryColor }}
         >
@@ -99,7 +99,7 @@ export function QuoteWithVideo({
         </div>
       </div>
       {/* video */}
-      <div className='col-span-24 px-8 pb-12 pt-8 lg:col-span-16 lg:col-start-6 lg:px-0 lg:pb-28 lg:pt-16 xl:col-start-5'>
+      <div className='col-span-24 px-8 pb-12 pt-8 lg:col-span-16 lg:col-start-6 lg:px-0 lg:pb-28 lg:pt-16 xl:col-span-16 xl:col-start-5'>
         <div className='group relative aspect-[16/9] cursor-pointer overflow-hidden rounded-md 2xl:rounded-lg'>
           <FullScreenVideoDialog
             dialogTrigger={
@@ -157,14 +157,14 @@ export function QuoteWithVideo({
         />
       </div>
       {/* blueprint icon and sidebar text */}
-      <div className='absolute right-6 top-10 flex flex-col items-center justify-end gap-2 lg:right-16 lg:top-28 lg:gap-4'>
+      <div className='absolute right-6 top-10 flex flex-col items-center justify-end gap-2 lg:right-16 lg:top-20 lg:gap-4 xl:top-28'>
         <BlueprintIcon
           className='size-7 rotate-90 lg:size-12 2xl:size-16'
           weight='thin'
           style={{ color: secondaryColor }}
         />
         <div
-          className='writing-mode-vertical font-primary text-base font-[400] lg:text-3xl 2xl:text-4xl'
+          className='writing-mode-vertical font-primary text-base font-[400] lg:text-2xl xl:text-3xl 2xl:text-4xl'
           style={{ color: secondaryColor }}
         >
           <span className='rotate-90 transform whitespace-nowrap'>

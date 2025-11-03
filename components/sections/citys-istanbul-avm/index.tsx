@@ -28,7 +28,7 @@ export default async function Page() {
         }
         description={t('description')}
         id={navigationConfig['/citys-istanbul-avm']?.id as string}
-        bgImage='/img/backgrounds/aqua.png'
+        bgImage='/img/backgrounds/aqua-belt.png'
       />
       <section className='h-screen overflow-hidden lg:h-[45vw]'>
         <AspectCover ratio={citysIstanbulAvmBanner.aspect()}>

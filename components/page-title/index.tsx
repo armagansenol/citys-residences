@@ -62,7 +62,7 @@ export function PageTitle(props: PageTitleProps) {
           className={cn(
             'pointer-events-none',
             'absolute left-1/2 top-1/2 z-0 -translate-x-1/2 -translate-y-1/2',
-            'size-[300%] md:size-[200%] xl:size-[250%] 2xl:size-[250%] 3xl:size-[230%]'
+            'size-[300%] md:size-[200%] xl:size-[250%] 2xl:size-[250%] 3xl:size-[215%]'
           )}
         >
           <Image
