@@ -15,7 +15,7 @@ import { SectionSetter } from '@/components/section-setter'
 import { AspectCover } from '@/components/aspect-cover'
 
 const ImageCard = ({ src, alt }: { src: string; alt: string }) => (
-  <div className='aspect-[9/12] w-[200px] lg:w-[350px]'>
+  <div className='relative aspect-[9/12] w-[200px] lg:w-[350px]'>
     <Image
       src={src}
       alt={alt}

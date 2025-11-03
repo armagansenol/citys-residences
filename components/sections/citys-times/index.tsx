@@ -19,7 +19,7 @@ import { citysTimesBanner, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 
 const ImageCard = ({ src }: { src: string }) => (
-  <div className='aspect-[9/12] w-[200px] lg:w-[260px] 2xl:w-[320px]'>
+  <div className='relative aspect-[9/12] w-[200px] lg:w-[260px] 2xl:w-[320px]'>
     <Image
       src={src}
       alt='Citys Times Images'
