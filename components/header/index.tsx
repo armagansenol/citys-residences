@@ -2,18 +2,19 @@
 
 import { cn } from '@/lib/utils'
 import { ListIcon } from '@phosphor-icons/react'
-import { Link } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
 import { Logo } from '@/components/icons'
 import { LocaleSwitcher } from '@/components/locale-switcher'
 import { Menu } from '@/components/menu'
+import { useNavigation } from '@/hooks/useNavigation'
+import { navigationConfig } from '@/lib/constants'
 import { useUiStore } from '@/lib/store/ui'
 import { colors } from '@/styles/config.mjs'
 
 export function Header() {
-  // const { handleNavClick } = useNavigation()
+  const { handleNavClick } = useNavigation()
   const { isMenuOpen, setIsMenuOpen } = useUiStore()
   const pathname = usePathname()
 
@@ -31,13 +32,14 @@ export function Header() {
         )}
       >
         <div className='z-[var(--z-header-content)] flex flex-1 items-center justify-between px-6 lg:px-0'>
-          <Link
-            href='/'
+          <button
             className='2xl:size-46 pointer-events-auto block size-28 xl:size-32 3xl:size-40'
             aria-label='Home'
+            onClick={() => handleNavClick(navigationConfig['/'].id as string)}
+            type='button'
           >
             <Logo fill={colors.white} />
-          </Link>
+          </button>
           <div className='pointer-events-auto ml-auto flex cursor-pointer items-center gap-2 lg:gap-6'>
             <LocaleSwitcher />
             <button
