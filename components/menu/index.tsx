@@ -111,7 +111,7 @@ export function Menu() {
           'fixed bottom-0 right-0 top-0',
           'h-full w-full translate-x-[100%] lg:w-[80vw] xl:w-[60vw]',
           'blur-bg-white-2',
-          'py-8 pl-8 pr-8 lg:py-20 lg:pl-16 lg:pr-20 xl:pl-24 xl:pr-24',
+          'py-8 pl-8 pr-8 lg:py-20 lg:pl-16 lg:pr-16 xl:pl-24 xl:pr-20',
           'flex flex-col',
           'z-[var(--z-modal)]'
         )}
@@ -139,7 +139,7 @@ export function Menu() {
           <span className='sr-only'>Close</span>
         </button>
         <MenuNavList />
-        <div className='mt-12 flex flex-col items-end justify-between gap-16 lg:mt-auto lg:flex-row'>
+        <div className='mt-12 flex flex-1 flex-col items-end justify-between lg:mt-auto lg:flex-row xl:mt-auto xl:gap-36'>
           <div className='mr-auto flex gap-4'>
             <FacebookLogoIcon
               weight='fill'
@@ -159,7 +159,7 @@ export function Menu() {
           <div className='mr-auto flex flex-col lg:ml-auto lg:mr-0'>
             <div className='grid grid-cols-3 gap-2 sm:gap-3 lg:gap-3'>
               <button
-                className='border-radius-gradient-gray flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-3 lg:py-5'
+                className='border-radius-gradient-gray flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-3 lg:py-5 2xl:w-36'
                 type='button'
                 onClick={handleAppointment}
               >
@@ -167,18 +167,18 @@ export function Menu() {
                   weight='thin'
                   className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
                 />
-                <span className='mt-auto text-left font-primary text-sm font-[400] leading-tight text-white sm:text-sm lg:text-base'>
+                <span className='mt-auto text-left font-primary text-sm/[1.15] font-[400] text-white sm:text-sm lg:text-base/[1.2]'>
                   {t.rich('createAppointment', {
                     br: () => <br />,
                   })}
                 </span>
               </button>
-              <button className='border-radius-gradient-gray flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-3 lg:py-5'>
+              <button className='border-radius-gradient-gray flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-3 lg:py-5 2xl:w-36'>
                 <HeadsetIcon
                   weight='thin'
                   className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
                 />
-                <span className='mt-auto text-left font-primary text-sm font-[400] leading-tight text-white sm:text-sm lg:text-base'>
+                <span className='mt-auto text-left font-primary text-sm/[1.15] font-[400] text-white sm:text-sm lg:text-base/[1.2]'>
                   {t.rich('speakWithRepresentative', {
                     br: () => <br />,
                   })}
@@ -186,13 +186,13 @@ export function Menu() {
               </button>
               <Link
                 href={citysIstanbulAvmGoogleMaps}
-                className='border-radius-gradient-gray flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-3 lg:py-5'
+                className='border-radius-gradient-gray flex aspect-[14/16] flex-col px-3 py-4 sm:gap-6 lg:px-3 lg:py-5 2xl:w-36'
               >
                 <MapPinPlusIcon
                   weight='thin'
                   className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
                 />
-                <span className='mt-auto text-left font-primary text-sm font-[400] leading-tight text-white sm:text-sm lg:text-base'>
+                <span className='mt-auto text-left font-primary text-sm/[1.15] font-[400] text-white sm:text-sm lg:text-base/[1.2]'>
                   {t.rich('getDirections', {
                     br: () => <br />,
                   })}

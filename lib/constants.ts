@@ -133,7 +133,8 @@ type NavigationConfigItem = {
   id: string
   order: number
   mainRoute: boolean
-  isOnSidebar: boolean // Controls if section appears in sticky sidebar
+  isOnSidebar: boolean
+  disabled: boolean
 }
 
 export const navigationConfig: Record<string, NavigationConfigItem> = {
@@ -143,6 +144,7 @@ export const navigationConfig: Record<string, NavigationConfigItem> = {
     order: 1,
     mainRoute: true,
     isOnSidebar: true,
+    disabled: false,
   },
   '/project': {
     titleKey: 'navigation.project',
@@ -150,14 +152,15 @@ export const navigationConfig: Record<string, NavigationConfigItem> = {
     order: 2,
     mainRoute: true,
     isOnSidebar: true,
+    disabled: false,
   },
   '/location': {
     titleKey: 'navigation.location',
-    // id: 'location',
-    id: 'home',
+    id: 'location',
     order: 3,
     mainRoute: true,
-    isOnSidebar: false, // Not a separate section, just map in project
+    isOnSidebar: false,
+    disabled: true,
   },
   '/residences': {
     titleKey: 'navigation.residences',
@@ -165,27 +168,31 @@ export const navigationConfig: Record<string, NavigationConfigItem> = {
     order: 4,
     mainRoute: true,
     isOnSidebar: true,
+    disabled: false,
   },
   '/citys-park': {
     titleKey: 'navigation.citysPark',
     id: 'citys-park',
     order: 5,
     mainRoute: false,
-    isOnSidebar: true, // Commented out in main page
+    isOnSidebar: true,
+    disabled: false,
   },
   '/citys-members-club': {
     titleKey: 'navigation.citysMembersClub',
     id: 'citys-members-club',
     order: 6,
     mainRoute: false,
-    isOnSidebar: true, // Commented out in main page
+    isOnSidebar: true,
+    disabled: false,
   },
   '/citys-living': {
     titleKey: 'navigation.citysLiving',
     id: 'citys-living',
     order: 7,
     mainRoute: false,
-    isOnSidebar: true, // Commented out in main page
+    isOnSidebar: true,
+    disabled: false,
   },
   '/citys-psm': {
     titleKey: 'navigation.citysPsm',
@@ -193,6 +200,7 @@ export const navigationConfig: Record<string, NavigationConfigItem> = {
     order: 8,
     mainRoute: false,
     isOnSidebar: false,
+    disabled: true,
   },
   '/citys-times': {
     titleKey: 'navigation.citysTimes',
@@ -200,6 +208,7 @@ export const navigationConfig: Record<string, NavigationConfigItem> = {
     order: 10,
     mainRoute: false,
     isOnSidebar: false,
+    disabled: false,
   },
   '/citys-istanbul-avm': {
     titleKey: 'navigation.citysIstanbulAvm',
@@ -207,6 +216,7 @@ export const navigationConfig: Record<string, NavigationConfigItem> = {
     order: 9,
     mainRoute: false,
     isOnSidebar: true,
+    disabled: false,
   },
 }
 
@@ -221,6 +231,7 @@ function getNavigationRoutes() {
       order: config!.order,
       mainRoute: config!.mainRoute,
       isOnSidebar: config!.isOnSidebar,
+      disabled: config!.disabled,
     }))
     .sort((a, b) => a.order - b.order)
 }
@@ -235,6 +246,7 @@ export const getNavigationItems = (t: (key: any) => string, locale: Locale) =>
     order: item.order,
     mainRoute: item.mainRoute,
     isOnSidebar: item.isOnSidebar,
+    disabled: item.disabled,
   }))
 
 export const getNavigationItem = (
@@ -338,10 +350,16 @@ export const menuMedia = {
   home: {
     src: 'cbtt3ltrww',
     type: 'video',
+    aspect: () => {
+      return calculateRatio(960, 448)
+    },
   },
   project: {
     src: '6we4wer32m',
     type: 'video',
+    aspect: () => {
+      return calculateRatio(640, 366)
+    },
   },
   location: {
     src: '/img/menu/map.jpg',
@@ -350,6 +368,9 @@ export const menuMedia = {
   residences: {
     src: 'gsnj8686dr',
     type: 'video',
+    aspect: () => {
+      return calculateRatio(960, 444)
+    },
   },
   'citys-park': {
     src: '/img/menu/citys-park.jpg',
@@ -366,6 +387,9 @@ export const menuMedia = {
   'citys-psm': {
     src: 'b6gl0633j1',
     type: 'video',
+    aspect: () => {
+      return calculateRatio(640, 400)
+    },
   },
   'citys-istanbul-avm': {
     src: '/img/menu/citys-istanbul-avm.jpg',

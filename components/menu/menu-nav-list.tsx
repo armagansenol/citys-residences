@@ -9,10 +9,9 @@ import {
   getMenuTextKey,
   getNavigationItems,
   menuMedia,
-  projectBanner,
+  navigationConfig,
 } from '@/lib/constants'
 import { cn } from '@/lib/utils'
-import { AnimatePresence, motion } from 'motion/react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
@@ -23,9 +22,17 @@ export function MenuNavList() {
   const locale = useLocale()
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
 
+  const getAspectRatio = (itemId: string): number => {
+    const media = menuMedia[itemId as keyof typeof menuMedia]
+    if (media && 'aspect' in media && typeof media.aspect === 'function') {
+      return media.aspect()
+    }
+    return 16 / 9
+  }
+
   return (
-    <div className='flex justify-between gap-24'>
-      <nav className='flex h-full items-end justify-center lg:justify-start'>
+    <div className='flex w-full items-start justify-between gap-32 3xl:gap-40'>
+      <nav className='flex items-start justify-center lg:justify-start'>
         <div
           className={cn(
             'flex w-full flex-col items-stretch gap-2 lg:gap-12 xl:gap-6 2xl:gap-8 3xl:gap-10'
@@ -47,12 +54,20 @@ export function MenuNavList() {
                     className='text-3xl sm:text-2xl lg:text-5xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl'
                     key={item.id}
                     onMouseEnter={() => setHoveredItem(item.id)}
-                    onMouseLeave={() => setHoveredItem(null)}
+                    // onMouseLeave={() => setHoveredItem(null)}
                   >
                     <button
-                      onClick={() => handleNavClick(item.id as string)}
+                      onClick={() => {
+                        if (item.disabled) {
+                          handleNavClick(navigationConfig['/'].id)
+                          return
+                        }
+                        handleNavClick(item.id as string)
+                      }}
                       className={cn(
-                        'cursor-pointer text-left font-primary font-[300] text-white transition-all duration-300',
+                        'cursor-pointer',
+                        'text-left font-primary font-[300] text-white',
+                        'transition-all duration-300',
                         opacityClass
                       )}
                       type='button'
@@ -63,7 +78,7 @@ export function MenuNavList() {
                 )
               })}
           </ul>
-          <ul className='flex flex-col gap-4 lg:gap-6 xl:gap-3 2xl:gap-4'>
+          <ul className='flex flex-col gap-4 lg:gap-6 xl:gap-3 2xl:gap-3'>
             {getNavigationItems(t, locale as Locale)
               .filter(item => !item.mainRoute)
               .map(item => {
@@ -73,13 +88,19 @@ export function MenuNavList() {
 
                 return (
                   <li
-                    className='text-base sm:text-2xl lg:text-2xl xl:text-lg 2xl:text-xl 3xl:text-2xl'
+                    className='text-base sm:text-2xl lg:text-2xl xl:text-base 2xl:text-xl 3xl:text-xl'
                     key={item.id}
                     onMouseEnter={() => setHoveredItem(item.id)}
                     onMouseLeave={() => setHoveredItem(null)}
                   >
                     <button
-                      onClick={() => handleNavClick(item.id as string)}
+                      onClick={() => {
+                        if (item.disabled) {
+                          handleNavClick(navigationConfig['/'].id)
+                          return
+                        }
+                        handleNavClick(item.id as string)
+                      }}
                       className={cn(
                         'cursor-pointer text-left font-primary font-[300] text-white transition-all duration-300',
                         opacityClass
@@ -94,81 +115,79 @@ export function MenuNavList() {
           </ul>
         </div>
       </nav>
-      <div className='relative hidden w-[50%] flex-col items-stretch gap-6 xl:flex'>
-        <div className='relative aspect-[16/9] h-64 overflow-hidden'>
-          <AnimatePresence mode='wait'>
-            {hoveredItem &&
-              menuMedia[hoveredItem as keyof typeof menuMedia] && (
-                <motion.div
-                  key={hoveredItem}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className='absolute inset-0'
-                >
-                  {menuMedia[hoveredItem as keyof typeof menuMedia]?.type ===
-                    'image' && (
-                    <Image
-                      src={
-                        menuMedia[hoveredItem as keyof typeof menuMedia]?.src
-                      }
-                      alt='Menu Image'
-                      fill
-                      className='h-full w-full object-cover'
+      <div className='relative ml-auto hidden w-full flex-col items-stretch justify-start gap-6 xl:flex'>
+        <div className='relative aspect-[16/9] flex-shrink-0 overflow-hidden'>
+          {Object.entries(menuMedia).map(([itemId, media]) => {
+            const isVisible = hoveredItem === itemId
+            return (
+              <div
+                key={itemId}
+                className={cn(
+                  'absolute inset-0 transition-opacity duration-300',
+                  isVisible
+                    ? 'pointer-events-auto opacity-100'
+                    : 'pointer-events-none opacity-0'
+                )}
+              >
+                {media.type === 'image' && (
+                  <Image
+                    src={media.src}
+                    alt='Menu Image'
+                    fill
+                    className='h-full w-full object-cover'
+                  />
+                )}
+                {media.type === 'video' && (
+                  <AspectCover ratio={getAspectRatio(itemId)}>
+                    <WistiaPlayerWrapper
+                      mediaId={media.src}
+                      aspect={getAspectRatio(itemId)}
+                      autoplay
+                      muted
+                      preload='metadata'
+                      swatch={false}
+                      bigPlayButton={false}
+                      silentAutoplay='allow'
+                      endVideoBehavior='loop'
+                      controlsVisibleOnLoad={false}
+                      playBarControl={false}
+                      volumeControl={false}
+                      settingsControl={false}
+                      transparentLetterbox={true}
+                      roundedPlayer={0}
+                      fullscreenControl={false}
+                      playbackRateControl={false}
+                      playPauseControl={false}
                     />
-                  )}
-
-                  {menuMedia[hoveredItem as keyof typeof menuMedia]?.type ===
-                    'video' && (
-                    <AspectCover ratio={projectBanner.aspect()}>
-                      <WistiaPlayerWrapper
-                        mediaId={
-                          menuMedia[hoveredItem as keyof typeof menuMedia]?.src
-                        }
-                        aspect={projectBanner.aspect()}
-                        autoplay
-                        muted
-                        preload='metadata'
-                        swatch={false}
-                        bigPlayButton={false}
-                        silentAutoplay='allow'
-                        endVideoBehavior='loop'
-                        controlsVisibleOnLoad={false}
-                        playBarControl={false}
-                        volumeControl={false}
-                        settingsControl={false}
-                        transparentLetterbox={true}
-                        roundedPlayer={0}
-                        fullscreenControl={false}
-                        playbackRateControl={false}
-                        playPauseControl={false}
-                      />
-                    </AspectCover>
-                  )}
-                </motion.div>
-              )}
-          </AnimatePresence>
+                  </AspectCover>
+                )}
+              </div>
+            )
+          })}
         </div>
-        <div>
-          <AnimatePresence mode='wait'>
-            {hoveredItem &&
-              menuMedia[hoveredItem as keyof typeof menuMedia] && (
-                <motion.article
-                  key={hoveredItem}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <p className='text-left font-primary text-base font-[300] text-white'>
-                    {tMenu.rich(getMenuTextKey(hoveredItem), {
-                      br: () => <br />,
-                    })}
-                  </p>
-                </motion.article>
-              )}
-          </AnimatePresence>
+        <div className='relative'>
+          {Object.keys(menuMedia).map(itemId => {
+            const isVisible = hoveredItem === itemId
+            return (
+              <article
+                key={itemId}
+                className={cn(
+                  'absolute left-0 top-0',
+                  'flex',
+                  'transition-opacity duration-300',
+                  isVisible
+                    ? 'pointer-events-auto opacity-100'
+                    : 'pointer-events-none opacity-0'
+                )}
+              >
+                <p className='text-left font-primary text-sm font-[300] text-white 3xl:text-base'>
+                  {tMenu.rich(getMenuTextKey(itemId), {
+                    br: () => <br />,
+                  })}
+                </p>
+              </article>
+            )
+          })}
         </div>
       </div>
     </div>

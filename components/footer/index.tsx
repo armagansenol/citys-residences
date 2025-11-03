@@ -136,7 +136,13 @@ export function Footer() {
                         item.mainRoute &&
                           'text-xl sm:text-2xl lg:text-3xl xl:text-2xl 3xl:text-3xl'
                       )}
-                      onClick={() => handleNavClick(item.id)}
+                      onClick={() => {
+                        if (item.disabled) {
+                          handleNavClick(navigationConfig['/'].id)
+                          return
+                        }
+                        handleNavClick(item.id)
+                      }}
                       type='button'
                     >
                       {item.title}
@@ -155,7 +161,13 @@ export function Footer() {
                           'text-sm sm:text-base lg:text-lg xl:text-lg 3xl:text-xl',
                         item.mainRoute && 'text-4xl 3xl:text-5xl'
                       )}
-                      onClick={() => handleNavClick(item.id)}
+                      onClick={() => {
+                        if (item.disabled) {
+                          handleNavClick(navigationConfig['/'].id)
+                          return
+                        }
+                        handleNavClick(item.id)
+                      }}
                       type='button'
                     >
                       {item.title}
