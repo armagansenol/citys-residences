@@ -42,7 +42,7 @@ export function WistiaPlayerWrapper(props: WistiaPlayerWrapperProps) {
         onPlay={handlePlay}
         muted
         autoplay
-        preload='metadata'
+        preload='auto'
         swatch={false}
         bigPlayButton={false}
         silentAutoplay='allow'
