@@ -68,12 +68,8 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
   } = props
 
   const [isClient, setIsClient] = useState(false)
-  const [isInViewport, setIsInViewport] = useState(false)
   const [shouldLoadPlayer, setShouldLoadPlayer] = useState(false)
-  const [playerKey, setPlayerKey] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
-  const hasEnteredViewportRef = useRef(false)
-  const previousIntersectionRef = useRef(false)
 
   useEffect(() => {
     setIsClient(true)
@@ -88,26 +84,10 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
         const [entry] = entries
         const isIntersecting = entry.isIntersecting
 
-        setIsInViewport(isIntersecting)
-
         // Load the player when it enters the viewport for the first time
         if (isIntersecting && !shouldLoadPlayer) {
           setShouldLoadPlayer(true)
-          hasEnteredViewportRef.current = true
         }
-
-        // Re-initialize player if it re-enters viewport after leaving
-        // This helps with fast scrolling scenarios
-        if (
-          isIntersecting &&
-          !previousIntersectionRef.current &&
-          hasEnteredViewportRef.current
-        ) {
-          // Force re-render by updating key
-          setPlayerKey(prev => prev + 1)
-        }
-
-        previousIntersectionRef.current = isIntersecting
       },
       {
         threshold: intersectionThreshold,
@@ -146,11 +126,9 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
       {shouldLoadPlayer ? (
         <Suspense fallback={fallback}>
           <WistiaPlayerWrapper
-            key={playerKey}
             className='h-full w-full'
             customPoster={customPoster}
             posterPriority={posterPriority}
-            autoplay={isInViewport && wistiaProps.autoplay}
             {...wistiaProps}
           />
         </Suspense>
