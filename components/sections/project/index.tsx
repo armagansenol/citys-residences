@@ -44,7 +44,7 @@ export default async function Page({
         tertiaryColor={colors['bricky-brick']}
         title={t('pageTitle.title')}
         description={t.rich('pageTitle.description', {
-          br: () => <br className='hidden lg:block' />,
+          br: () => <span className='hidden lg:block' />,
           strong: chunks => <strong className='font-[500]'>{chunks}</strong>,
         })}
         id={navigationConfig['/project']?.id as string}
@@ -287,7 +287,7 @@ export default async function Page({
         portraitImageMobile='/img/toners-portrait-mobile.png'
         personName={
           <>
-            Mustafa & <br className='block xl:hidden' /> Emre Toner
+            Mustafa & <span className='block xl:hidden' /> Emre Toner
           </>
         }
         personTitle={t('quotes.interior.personTitle')}
@@ -304,7 +304,7 @@ export default async function Page({
         portraitImageMobile='/img/aktas-portrait-mobile.png'
         personName={
           <>
-            Cemil Aktaş <br className='block xl:hidden' /> Pınar Kesim Aktaş
+            Cemil Aktaş <span className='block xl:hidden' /> Pınar Kesim Aktaş
           </>
         }
         personTitle={t('quotes.landscape.personTitle')}

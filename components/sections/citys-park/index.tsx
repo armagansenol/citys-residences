@@ -33,7 +33,7 @@ export default function CitysPark({ data }: CitysParkProps) {
         secondaryColor={colors.white}
         title="CITY'S PARK"
         description={t.rich('description', {
-          br: () => <br className='hidden lg:block' />,
+          br: () => <span className='hidden lg:block' />,
         })}
         id={navigationConfig['/citys-park']?.id as string}
         bgImage='/img/backgrounds/citys-park.png'

@@ -40,7 +40,7 @@ export default function CitysMembersClub({ data }: CitysMembersClubProps) {
           </>
         }
         description={t.rich('description', {
-          br: () => <br className='hidden lg:block' />,
+          br: () => <span className='hidden lg:block' />,
         })}
         id={navigationConfig['/citys-members-club']?.id as string}
         bgImage='/img/backgrounds/blue-shimmer.png'

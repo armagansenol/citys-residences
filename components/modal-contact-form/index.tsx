@@ -280,7 +280,7 @@ export function ModalContactForm() {
                 )}
               >
                 {t.rich('description', {
-                  br: () => <br className='hidden lg:block' />,
+                  br: () => <span className='hidden lg:block' />,
                 })}
               </p>
               <ContactForm translations={formTranslations} />

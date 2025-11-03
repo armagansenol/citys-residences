@@ -80,7 +80,7 @@ export function PageTitle(props: PageTitleProps) {
           <h2
             className={cn(
               'text-center font-primary font-[500]',
-              'text-3xl/tight tracking-[0.4em] lg:text-5xl/tight xl:text-4xl/tight 2xl:text-5xl/tight'
+              'text-2xl/tight tracking-[0.4em] lg:text-5xl/tight xl:text-4xl/tight 2xl:text-5xl/tight'
             )}
             style={{ color: secondaryColor }}
           >
@@ -96,7 +96,7 @@ export function PageTitle(props: PageTitleProps) {
           <p
             className={cn(
               'text-center font-primary font-[300]',
-              'text-xl/snug lg:text-2xl/snug xl:text-2xl/snug 2xl:text-2xl/snug',
+              'text-lg/snug lg:text-2xl/snug xl:text-2xl/snug 2xl:text-2xl/snug',
               'w-[90vw] md:w-[60vw] lg:w-[60vw] xl:w-[40vw] 2xl:w-[40vw] 3xl:w-[35vw]'
             )}
             style={{ color: secondaryColor }}
