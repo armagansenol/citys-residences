@@ -19,7 +19,7 @@ import { citysTimesBanner, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 
 const ImageCard = ({ src }: { src: string }) => (
-  <div className='aspect-[9/12] w-[200px] lg:w-[260px]'>
+  <div className='aspect-[9/12] w-[200px] lg:w-[260px] 2xl:w-[320px]'>
     <Image
       src={src}
       alt='Citys Times Images'
@@ -42,9 +42,6 @@ export async function CitysTimes() {
     },
     {
       src: '/img/residences/slider/3.jpg',
-    },
-    {
-      src: '/img/residences/slider/4.jpg',
     },
     {
       src: '/img/residences/slider/5.jpg',
@@ -98,7 +95,7 @@ export async function CitysTimes() {
             // 'after:bg-gradient-citys-times z-10 after:absolute after:inset-0'
           )}
         >
-          <div className='relative z-10 flex items-center justify-center py-24 lg:py-24'>
+          <div className='relative z-10 flex w-screen items-center justify-center py-24 lg:py-24'>
             <AutoScrollCarousel
               options={{ loop: true, dragFree: true }}
               emblaSlideClassname='items-start'

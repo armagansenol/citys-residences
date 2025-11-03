@@ -43,9 +43,6 @@ export default async function Page({
       src: '/img/residences/slider/3.jpg',
     },
     {
-      src: '/img/residences/slider/4.jpg',
-    },
-    {
       src: '/img/residences/slider/5.jpg',
     },
     {
