@@ -36,7 +36,7 @@ export default function CitysPark({ data }: CitysParkProps) {
           br: () => <span className='hidden lg:block' />,
         })}
         id={navigationConfig['/citys-park']?.id as string}
-        bgImage='/img/backgrounds/citys-park.png'
+        bgImage='/img/backgrounds/green.png'
       />
       <div
         style={
