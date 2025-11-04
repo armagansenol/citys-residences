@@ -58,25 +58,25 @@ export default async function Page({
         >
           <div
             className={cn(
-              'flex flex-col items-center justify-center gap-4 lg:flex-row lg:gap-0'
+              'flex flex-col items-center justify-center gap-6 lg:flex-row lg:gap-0'
             )}
           >
             <span
               className={cn(
                 'whitespace-nowrap font-primary font-[500] text-white',
-                'text-2xl/[1.15] sm:text-4xl/[1.15] lg:text-5xl/[1.15] xl:text-5xl/[1.15] 2xl:text-5xl/[1.15] 3xl:text-5xl/[1.15]',
+                'text-[1.75rem]/[1.15] sm:text-4xl/[1.15] lg:text-5xl/[1.15] xl:text-5xl/[1.15] 2xl:text-5xl/[1.15] 3xl:text-5xl/[1.15]',
                 'flex flex-col items-center justify-center gap-4 lg:flex-row lg:gap-0'
               )}
             >
               {t('hero.title')}
             </span>
-            <span className='mx-8 h-12 w-12 2xl:h-14 2xl:w-14 3xl:h-16 3xl:w-16'>
+            <span className='mx-8 size-8 2xl:h-14 2xl:w-14 3xl:h-16 3xl:w-16'>
               <IconCollab fill={colors.white} />
             </span>
             <span
               className={cn(
                 'whitespace-nowrap text-center font-primary font-[500] text-white',
-                'text-2xl/[1.15] sm:text-4xl/[1.15] lg:text-5xl/[1.15] xl:text-5xl/[1.15] 2xl:text-5xl/[1.15] 3xl:text-5xl/[1.15]'
+                'text-[1.75rem]/[1.15] sm:text-4xl/[1.15] lg:text-5xl/[1.15] xl:text-5xl/[1.15] 2xl:text-5xl/[1.15] 3xl:text-5xl/[1.15]'
               )}
             >
               CITY&apos;S
