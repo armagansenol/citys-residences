@@ -304,7 +304,7 @@ export default async function Page({
         portraitImageMobile='/img/aktas-portrait-mobile.png'
         personName={
           <>
-            Cemil Aktaş <span className='block xl:hidden' /> Pınar Kesim Aktaş
+            Cemil Aktaş, <span className='block xl:hidden' /> Pınar Kesim Aktaş
           </>
         }
         personTitle={t('quotes.landscape.personTitle')}
