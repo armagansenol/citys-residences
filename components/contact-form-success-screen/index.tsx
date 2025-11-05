@@ -1,5 +1,6 @@
 'use client'
 
+import { cn } from '@/lib/utils'
 import {
   FacebookLogoIcon,
   InstagramLogoIcon,
@@ -12,10 +13,12 @@ import { useTranslations } from 'next-intl'
 
 interface ContactFormSuccessScreenProps {
   isVisible: boolean
+  centered?: boolean
 }
 
 export function ContactFormSuccessScreen({
   isVisible,
+  centered = false,
 }: ContactFormSuccessScreenProps) {
   const t = useTranslations()
 
@@ -27,9 +30,24 @@ export function ContactFormSuccessScreen({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className='absolute inset-0 z-50 grid grid-cols-12 bg-gradient-appointment px-8 py-16 lg:col-start-4 lg:grid-cols-24 lg:px-16 xl:py-40'
+          className={cn(
+            'grid grid-cols-24',
+            'absolute inset-0 z-50',
+            'bg-gradient-appointment',
+            'px-8 py-16 lg:px-16',
+            !centered && 'lg:col-start-4 xl:py-40',
+            centered && 'xl:py-20'
+          )}
         >
-          <div className='col-span-12 pb-12 lg:col-span-18 lg:col-start-6 xl:relative xl:pb-0'>
+          <div
+            className={cn(
+              'pb-12 xl:relative xl:pb-0',
+              'col-span-24',
+              centered &&
+                'lg:col-start-1 xl:col-span-18 xl:col-start-4 2xl:col-start-4',
+              !centered && 'lg:col-span-18 lg:col-start-6'
+            )}
+          >
             <div className='sticky top-36 flex flex-col items-center xl:relative xl:top-auto xl:translate-y-0 xl:items-start'>
               <SealCheckIcon
                 weight='light'

@@ -2,17 +2,19 @@
 
 import { cn } from '@/lib/utils'
 import { useGSAP } from '@gsap/react'
+import { CaretRightIcon } from '@phosphor-icons/react'
 import { useLenis } from 'lenis/react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useRef } from 'react'
 
+import { ContactFormSuccessScreen } from '@/components/contact-form-success-screen'
 import { ContactForm } from '@/components/form-contact'
 import { gsap } from '@/components/gsap'
 import { ScrollableBox } from '@/components/utility/scrollable-box'
 import { useEsc } from '@/hooks/useEsc'
+import { useFadeoutWithTimeout } from '@/hooks/useFadeoutWithTimeout'
 import { useUiStore } from '@/lib/store/ui'
 import { FormTranslations } from '@/types'
-import { CaretRightIcon } from '@phosphor-icons/react'
 
 export function ModalContactForm() {
   const stickyBadgeRef = useRef<HTMLButtonElement>(null)
@@ -27,6 +29,7 @@ export function ModalContactForm() {
     setIsModalContactFormOpen,
     isInquiryVisible,
   } = useUiStore()
+  const [isFormSuccess, handleFormSuccess] = useFadeoutWithTimeout(3000)
 
   const formTranslations: FormTranslations = {
     inputs: {
@@ -265,6 +268,7 @@ export function ModalContactForm() {
         </button>
         {/* Content */}
         <div className='absolute inset-0'>
+          <ContactFormSuccessScreen isVisible={isFormSuccess} centered />
           <ScrollableBox className='flex h-full items-start'>
             <div
               className={cn(
@@ -283,7 +287,10 @@ export function ModalContactForm() {
                   br: () => <span className='hidden lg:block' />,
                 })}
               </p>
-              <ContactForm translations={formTranslations} />
+              <ContactForm
+                translations={formTranslations}
+                onSuccess={handleFormSuccess}
+              />
             </div>
           </ScrollableBox>
         </div>

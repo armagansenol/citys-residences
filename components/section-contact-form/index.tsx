@@ -2,11 +2,11 @@
 
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
-import { useEffect, useState } from 'react'
 
 import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
 import { ContactFormSuccessScreen } from '@/components/contact-form-success-screen'
 import { ContactForm } from '@/components/form-contact'
+import { useFadeoutWithTimeout } from '@/hooks/useFadeoutWithTimeout'
 import { FormTranslations } from '@/types'
 
 export function SectionContactForm({
@@ -15,21 +15,7 @@ export function SectionContactForm({
   formTranslations: FormTranslations
 }) {
   const t = useTranslations()
-  const [isFormSuccess, setIsFormSuccess] = useState(false)
-
-  const handleFormSuccess = () => {
-    setIsFormSuccess(true)
-  }
-
-  useEffect(() => {
-    if (isFormSuccess) {
-      const timer = setTimeout(() => {
-        setIsFormSuccess(false)
-      }, 3000)
-
-      return () => clearTimeout(timer)
-    }
-  }, [isFormSuccess])
+  const [isFormSuccess, handleFormSuccess] = useFadeoutWithTimeout(3000)
 
   return (
     <section className='relative bg-gradient-appointment py-16 xl:py-40'>
