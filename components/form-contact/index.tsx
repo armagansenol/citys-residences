@@ -1,12 +1,23 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import {
+  CalendarPlusIcon,
+  ChatCenteredTextIcon,
+  DeviceMobileCameraIcon,
+  EnvelopeOpenIcon,
+  HouseSimpleIcon,
+  PresentationIcon,
+  StorefrontIcon,
+  UserIcon,
+} from '@phosphor-icons/react'
 import { useMutation } from '@tanstack/react-query'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCallback, useMemo, useRef, useState } from 'react'
 import { Control, useForm } from 'react-hook-form'
 import { z } from 'zod'
 
+import { FormStatusMessage } from '@/components/form-status-message'
 import { InternationalPhoneInputComponent } from '@/components/international-phone-input'
 import {
   MultiSelectCheckboxes,
@@ -22,21 +33,10 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { submitContactForm } from '@/lib/api/submit-contact-form'
 import { Link } from '@/components/utility/link'
+import { submitContactForm } from '@/lib/api/submit-contact-form'
 import { cn, isPhoneValid } from '@/lib/utils'
 import { FormTranslations } from '@/types'
-import {
-  CalendarPlusIcon,
-  ChatCenteredTextIcon,
-  DeviceMobileCameraIcon,
-  EnvelopeOpenIcon,
-  HouseSimpleIcon,
-  PresentationIcon,
-  StorefrontIcon,
-  UserIcon,
-} from '@phosphor-icons/react'
-import { FormStatusMessage } from '@/components/form-status-message'
 
 const getFormSchema = (translations: FormTranslations) => {
   // Ensure contactPreference exists with fallback

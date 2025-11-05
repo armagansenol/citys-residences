@@ -15,7 +15,7 @@ export function SectionContactForm({
   formTranslations: FormTranslations
 }) {
   const t = useTranslations()
-  const [isFormSuccess, setIsFormSuccess] = useState(true)
+  const [isFormSuccess, setIsFormSuccess] = useState(false)
 
   const handleFormSuccess = () => {
     setIsFormSuccess(true)
@@ -24,7 +24,6 @@ export function SectionContactForm({
   useEffect(() => {
     if (isFormSuccess) {
       const timer = setTimeout(() => {
-        return
         setIsFormSuccess(false)
       }, 3000)
 
