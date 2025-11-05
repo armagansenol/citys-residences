@@ -48,7 +48,7 @@ export const StickySidebar: React.FC = () => {
           <div
             className={cn(
               'relative',
-              'h-20 w-52',
+              'xl:h-12 xl:w-52 3xl:h-20 3xl:w-52',
               'flex-shrink-0 transition-all duration-300 ease-in-out',
               'before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-white before:transition-all before:duration-300 before:ease-in-out before:content-[""]',
               'hover:before:w-1',
@@ -61,13 +61,15 @@ export const StickySidebar: React.FC = () => {
             <button
               onClick={() => handleNavClick(item.id as string)}
               className={cn(
-                'absolute left-8 top-1/2 flex -translate-y-1/2 cursor-pointer',
+                'absolute left-8 top-1/2 flex -translate-y-1/2 cursor-pointer whitespace-pre-line',
                 'text-left font-primary font-[500] text-white lg:tracking-[0.4em]',
                 'flex-col items-center justify-center',
                 'transition-all duration-300 ease-out',
                 {
-                  'text-[0.8rem]': activeSection === item.id,
-                  'text-[0.7rem]': activeSection !== item.id,
+                  'xl:text-[0.7rem] 3xl:text-[0.8rem]':
+                    activeSection === item.id,
+                  'xl:text-[0.6rem] 3xl:text-[0.7rem]':
+                    activeSection !== item.id,
                 }
               )}
               type='button'
