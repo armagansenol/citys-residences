@@ -128,9 +128,9 @@ export default async function LocaleLayout({
       <head>
         <StyleVariables colors={colors} themes={themes} />
         {/* Wistia CDN Resource Hints for faster video loading */}
-        <link rel='preconnect' href='https://fast.wistia.com' />
+        {/* <link rel='preconnect' href='https://fast.wistia.com' />
         <link rel='preconnect' href='https://embedwistia-a.akamaihd.net' />
-        <link rel='dns-prefetch' href='https://fast.wistia.com' />
+        <link rel='dns-prefetch' href='https://fast.wistia.com' /> */}
       </head>
       <body className={`${suisseIntl.variable} antialiased`}>
         {/* Hidden element for webchat to detect language */}
