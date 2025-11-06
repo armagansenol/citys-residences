@@ -1,4 +1,8 @@
+import { cn } from '@/lib/utils'
+import { useTranslations } from 'next-intl'
+
 import { GsapSplitText } from '@/components/gsap-split-text'
+import { Image } from '@/components/image'
 import { PageTitle } from '@/components/page-title'
 import {
   ComponentType,
@@ -6,9 +10,7 @@ import {
 } from '@/components/repetitive-sections/repetitive-sections-wrapper'
 import { SectionSetter } from '@/components/section-setter'
 import { navigationConfig } from '@/lib/constants'
-import { cn } from '@/lib/utils'
 import { colors } from '@/styles/config.mjs'
-import { useTranslations } from 'next-intl'
 
 interface CitysMembersClubProps {
   data: Array<{
@@ -69,10 +71,27 @@ export default function CitysMembersClub({ data }: CitysMembersClubProps) {
       <section
         className={cn(
           'relative flex items-center justify-center overflow-hidden',
-          'bg-[url("/img/members-club-card-mobile.jpg")] bg-cover bg-center bg-no-repeat lg:bg-[url("/img/members-club-card.jpg")]',
           'h-screen w-full lg:aspect-[16/7] lg:h-auto'
         )}
       >
+        <Image
+          src='/img/members-club-card-mobile.jpg'
+          alt='Members Club Card'
+          fill
+          className='absolute inset-0 z-0 block object-cover object-center lg:hidden'
+          loading='lazy'
+          desktopSize='100vw'
+          mobileSize='100vw'
+        />
+        <Image
+          src='/img/members-club-card.jpg'
+          alt='Members Club Card'
+          fill
+          className='absolute inset-0 z-0 hidden object-cover object-center lg:block'
+          loading='lazy'
+          desktopSize='100vw'
+          mobileSize='100vw'
+        />
         <div className='z-40 mb-40 flex flex-shrink-0 flex-col items-center justify-center gap-2'>
           <h2
             className={cn(
