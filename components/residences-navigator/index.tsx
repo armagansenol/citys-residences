@@ -2,70 +2,94 @@
 
 import { cn } from '@/lib/utils'
 import { HouseSimpleIcon } from '@phosphor-icons/react'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Image } from '@/components/image'
 import { useTranslations } from 'next-intl'
 
 export function ResidencesNavigator() {
   const t = useTranslations('residences.navigator.labels')
-  const options = [
-    {
-      id: '1',
-      label: '1 + 1',
-      src: '/img/residences/1+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-full' weight='regular' />,
-    },
-    {
-      id: '2',
-      label: '2 + 1',
-      src: '/img/residences/2+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-full' weight='regular' />,
-    },
-    {
-      id: '3',
-      label: '3 + 1',
-      src: '/img/residences/3+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-full' weight='regular' />,
-    },
-    {
-      id: '4',
-      label: '4 + 1',
-      src: '/img/residences/4+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-full' weight='regular' />,
-    },
-    {
-      id: '5',
-      label: '5 + 1',
-      src: '/img/residences/4+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-full' weight='regular' />,
-    },
-    {
-      id: '6',
-      label: '6 + 1',
-      src: '/img/residences/4+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-full' weight='regular' />,
-    },
-    {
-      id: '7',
-      label: t('citysParkHouses'),
-      src: '/img/residences/1+1/interior.jpg',
-      icon: <HouseSimpleIcon className='size-full' weight='regular' />,
-    },
-    {
-      id: '8',
-      label: t('terraceHouses'),
-      src: '/img/residences/terrace-houses/interior.jpg',
-      icon: <HouseSimpleIcon className='size-full' weight='regular' />,
-    },
-    {
-      id: '9',
-      label: t('penthouse'),
-      src: '/img/residences/terrace-houses/interior.jpg',
-      icon: <HouseSimpleIcon className='size-full' weight='regular' />,
-    },
-  ]
+  const [selectedValue, setSelectedValue] = useState<string>('2')
 
-  const [selectedValue, setSelectedValue] = useState<string>('1')
+  const options = useMemo(() => {
+    const createIcon = (id: string) => {
+      const isSelected = selectedValue === id
+      return (
+        <span className='relative inline-block size-full'>
+          <HouseSimpleIcon
+            className={cn(
+              'size-full transition-opacity duration-300',
+              isSelected ? 'opacity-0' : 'opacity-100'
+            )}
+            weight='thin'
+          />
+          <HouseSimpleIcon
+            className={cn(
+              'absolute inset-0 size-full transition-opacity duration-300',
+              isSelected ? 'opacity-100' : 'opacity-0'
+            )}
+            weight='fill'
+          />
+        </span>
+      )
+    }
+
+    return [
+      {
+        id: '1',
+        label: '1 + 1',
+        src: '/img/residences/1+1/interior.jpg',
+        icon: createIcon('1'),
+      },
+      {
+        id: '2',
+        label: '2 + 1',
+        src: '/img/residences/2+1/interior.jpg',
+        icon: createIcon('2'),
+      },
+      {
+        id: '3',
+        label: '3 + 1',
+        src: '/img/residences/3+1/interior.jpg',
+        icon: createIcon('3'),
+      },
+      {
+        id: '4',
+        label: '4 + 1',
+        src: '/img/residences/4+1/interior.jpg',
+        icon: createIcon('4'),
+      },
+      {
+        id: '5',
+        label: '5 + 1',
+        src: '/img/residences/4+1/interior.jpg',
+        icon: createIcon('5'),
+      },
+      {
+        id: '6',
+        label: '6 + 1',
+        src: '/img/residences/4+1/interior.jpg',
+        icon: createIcon('6'),
+      },
+      {
+        id: '7',
+        label: t('citysParkHouses'),
+        src: '/img/residences/1+1/interior.jpg',
+        icon: createIcon('7'),
+      },
+      {
+        id: '8',
+        label: t('terraceHouses'),
+        src: '/img/residences/terrace-houses/interior.jpg',
+        icon: createIcon('8'),
+      },
+      {
+        id: '9',
+        label: t('penthouse'),
+        src: '/img/residences/terrace-houses/interior.jpg',
+        icon: createIcon('9'),
+      },
+    ]
+  }, [selectedValue, t])
 
   const handleOptionClick = (id: string) => {
     setSelectedValue(id)
@@ -81,7 +105,7 @@ export function ResidencesNavigator() {
               key={option.id}
               onClick={() => handleOptionClick(option.id)}
               className={cn(
-                'aspect-[1/1] size-24 cursor-pointer px-1 pt-3',
+                'aspect-[1/1] size-24 cursor-pointer px-1 pt-3 3xl:pt-4',
                 'flex flex-shrink-0 flex-col items-center justify-start gap-1 rounded-md',
                 'transition-all duration-200',
                 {
@@ -95,7 +119,7 @@ export function ResidencesNavigator() {
               aria-label={`Select ${option.label}`}
               type='button'
             >
-              <div className='mb-1 flex size-8 items-center justify-center'>
+              <div className='flex size-8 items-center justify-center'>
                 {option.icon}
               </div>
               <span className={cn('text-sm/[1.1] font-[300]')}>
