@@ -77,7 +77,10 @@ export default function MuxPlayerTestPage() {
               placeholder={video.placeholder}
               poster={video.placeholder}
               loading='viewport'
-              // playOnViewport
+              enableScrollOptimization={true}
+              scrollDelay={300} // 0.5 seconds
+              playOnViewport={true}
+              viewportThreshold={0.75} // 75% visible
             />
           </div>
         ))}
