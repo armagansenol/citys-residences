@@ -68,13 +68,17 @@ export default function MuxPlayerTestPage() {
           ...videos,
           ...videos,
         ].map((video, index) => (
-          <div key={index} className='relative h-screen w-full overflow-hidden'>
+          <div
+            key={index}
+            className='relative h-screen w-full flex-shrink-0 overflow-hidden bg-blue-600'
+          >
             <MuxPlayerWrapper
               playbackId={video.playbackId as string}
               style={{ aspectRatio: video.aspect() as number }}
               // placeholder={video.placeholder}
               poster={video.placeholder}
               playOnViewport
+              autoPlay='muted'
             />
           </div>
         ))}

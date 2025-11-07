@@ -132,14 +132,14 @@ export const MuxPlayerWrapper = React.forwardRef<
     }
 
     return (
-      <div ref={containerRef} style={{ width: '100%', height: '100%' }}>
+      <div ref={containerRef} className='relative h-full w-full bg-green-500'>
         <MuxPlayer
           ref={playerRef}
           playbackId={playbackId}
           metadata={metadata}
           poster={poster}
           placeholder={placeholder}
-          className={cn('absolute inset-0 h-full w-full', className)}
+          className={cn('bg-red-600', className)}
           // Autoplay settings - only enable native autoplay when NOT using viewport control
           {...(!playOnViewport && { autoPlay: 'muted' as const })}
           muted
