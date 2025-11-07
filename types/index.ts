@@ -347,3 +347,9 @@ export interface Event {
 export interface EventsResponse {
   events: Event[]
 }
+
+// Citys Times API response (simpler structure)
+export interface CitysTimesItem {
+  id: string
+  image: string
+}

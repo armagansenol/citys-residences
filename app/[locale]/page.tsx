@@ -1,13 +1,20 @@
+import dynamic from 'next/dynamic'
 import { Wrapper } from '@/components/wrapper'
 
-import CitysIstanbulAvm from '@/components/sections/citys-istanbul-avm'
-import CitysLiving from '@/components/sections/citys-living'
-import CitysMembersClub from '@/components/sections/citys-members-club'
-import CitysPark from '@/components/sections/citys-park'
-import { CitysTimes } from '@/components/sections/citys-times'
 import Home from '@/components/sections/home'
 import ProjectSection from '@/components/sections/project'
 import ResidencesSection from '@/components/sections/residences'
+
+// Lazy loaded components (server-rendered with code splitting)
+const CitysPark = dynamic(() => import('@/components/sections/citys-park'))
+const CitysMembersClub = dynamic(
+  () => import('@/components/sections/citys-members-club')
+)
+const CitysLiving = dynamic(() => import('@/components/sections/citys-living'))
+const CitysIstanbulAvm = dynamic(
+  () => import('@/components/sections/citys-istanbul-avm')
+)
+const CitysTimes = dynamic(() => import('@/components/sections/citys-times'))
 
 import {
   fetchCitysLivingData,
@@ -32,7 +39,7 @@ export default async function Page({ params }: { params: { locale: string } }) {
         <CitysMembersClub data={citysMembersClubDataItems} />
         <CitysLiving data={citysLivingDataItems} />
         <CitysIstanbulAvm />
-        <CitysTimes />
+        <CitysTimes locale={params.locale} />
       </Wrapper>
     </>
   )
