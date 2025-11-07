@@ -17,6 +17,7 @@ import { SectionSetter } from '@/components/section-setter'
 import { WistiaPlayerWrapper } from '@/components/wistia-player-wrapper'
 import { citysTimesBanner, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
+import { fetchCitysTimes } from '@/lib/api/queries'
 
 const ImageCard = ({ src }: { src: string }) => (
   <div className='relative aspect-[9/12] w-[200px] lg:w-[260px] 2xl:w-[320px]'>
@@ -31,25 +32,24 @@ const ImageCard = ({ src }: { src: string }) => (
   </div>
 )
 
-export async function CitysTimes() {
+export default async function CitysTimes({ locale }: { locale?: string }) {
   const t = await getTranslations('citys-times')
-  const images = [
-    {
-      src: '/img/residences/slider/1.jpg',
-    },
-    {
-      src: '/img/residences/slider/2.jpg',
-    },
-    {
-      src: '/img/residences/slider/3.jpg',
-    },
-    {
-      src: '/img/residences/slider/5.jpg',
-    },
-    {
-      src: '/img/residences/slider/6.jpg',
-    },
-  ]
+
+  // Fetch Citys Times data
+  const response = await fetchCitysTimes(locale)
+
+  // Extract images from API response
+  const images: { src: string }[] = []
+
+  if (response.success && response.data && response.data.length > 0) {
+    // Map the simple API structure: { id, image } -> { src }
+    response.data.forEach(item => {
+      images.push({
+        src: item.image,
+      })
+    })
+  }
+
   return (
     <SectionSetter sectionId={navigationConfig['/citys-times']?.id as string}>
       <section className='relative h-screen overflow-hidden lg:h-[45vw]'>

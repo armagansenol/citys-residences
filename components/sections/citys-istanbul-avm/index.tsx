@@ -1,6 +1,6 @@
 import { BrandsContainer } from '@/components/sections/citys-istanbul-avm/brands-container'
 import { WistiaPlayerWrapper } from '@/components/wistia-player-wrapper'
-import { getBrandsData } from '@/lib/api/server-actions'
+import { fetchBrands } from '@/lib/api/queries'
 import { colors } from '@/styles/config.mjs'
 import { PageTitle } from '@/components/page-title'
 import { citysIstanbulAvmBanner, navigationConfig } from '@/lib/constants'
@@ -9,7 +9,11 @@ import { AspectCover } from '@/components/aspect-cover'
 import { getTranslations } from 'next-intl/server'
 
 export default async function Page() {
-  const brands = await getBrandsData()
+  const brandsResponse = await fetchBrands()
+  const brands =
+    brandsResponse.success && brandsResponse.data
+      ? brandsResponse.data
+      : { items: [], categories: {}, subCategories: {} }
   const t = await getTranslations('citys-istanbul-avm')
 
   return (

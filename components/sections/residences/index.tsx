@@ -13,6 +13,7 @@ import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
 import { SectionSetter } from '@/components/section-setter'
 import { AspectCover } from '@/components/aspect-cover'
+import { fetchResidencesSlider } from '@/lib/api/queries'
 
 const ImageCard = ({ src, alt }: { src: string; alt: string }) => (
   <div className='relative aspect-[9/12] w-[200px] lg:w-[350px]'>
@@ -32,23 +33,16 @@ export default async function Page({
 }: {
   params: { locale: string }
 }) {
-  const images = [
-    {
-      src: '/img/residences/slider/1.jpg',
-    },
-    {
-      src: '/img/residences/slider/2.jpg',
-    },
-    {
-      src: '/img/residences/slider/3.jpg',
-    },
-    {
-      src: '/img/residences/slider/5.jpg',
-    },
-    {
-      src: '/img/residences/slider/6.jpg',
-    },
-  ]
+  // Fetch slider images from API
+  const sliderResponse = await fetchResidencesSlider()
+
+  // Fallback to hardcoded images if API fails
+  const images =
+    sliderResponse.success &&
+    sliderResponse.data &&
+    sliderResponse.data.length > 0
+      ? sliderResponse.data.map(item => ({ src: item.image }))
+      : []
 
   const messages = await getMessages({ locale })
   const t = await getTranslations({ locale, namespace: 'residences' })

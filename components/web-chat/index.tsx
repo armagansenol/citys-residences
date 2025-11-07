@@ -83,7 +83,7 @@ export function WebChat({ locale }: WebChatProps) {
         key={`webchat-script-${locale}`}
         id={`webchat-script-${locale}`}
         src='https://webchat.citysresidences.com/WebChatWidgets/web-chat.js'
-        strategy='afterInteractive'
+        strategy='lazyOnload'
         onLoad={handleScriptLoad}
       />
     </>
