@@ -292,6 +292,7 @@ export type WistiaMedia = {
   name: string
   aspect: () => number
   mediaId: string
+  muxSrc?: string
 }
 
 export const heroVideo: WistiaMedia = {
@@ -300,6 +301,7 @@ export const heroVideo: WistiaMedia = {
     return calculateRatio(16, 9)
   },
   mediaId: 'e2tew1zhxj',
+  muxSrc: 'xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM',
 }
 export const livePeacefully: WistiaMedia = {
   name: 'daha huzurlu yaşa',
@@ -307,6 +309,7 @@ export const livePeacefully: WistiaMedia = {
     return calculateRatio(1280, 852)
   },
   mediaId: 'dxd0f32sha',
+  muxSrc: 'pxjInQvAxDX1k9yliHBx5dCvMXviNgIp7ZyH6Mq10118',
 }
 export const liveMore: WistiaMedia = {
   name: 'daha dolu yaşa',
@@ -314,6 +317,7 @@ export const liveMore: WistiaMedia = {
     return calculateRatio(1920, 1198)
   },
   mediaId: 'cpkxfmdyvb',
+  muxSrc: 'jrEYRr00yZNMG4gmK6KMuOtiRXODWk9CNW1DX3iBe02ls',
 }
 export const projectBanner: WistiaMedia = {
   name: 'proje banner',
@@ -321,6 +325,7 @@ export const projectBanner: WistiaMedia = {
     return calculateRatio(1920, 896)
   },
   mediaId: 'p4l0a63nut',
+  muxSrc: 'fWSlJj9pskvE7rWRKuNLVIY2vQyAOD02NFSNdPwpDLuE',
 }
 export const residencesBanner: WistiaMedia = {
   name: 'daireler banner',
@@ -328,6 +333,7 @@ export const residencesBanner: WistiaMedia = {
     return calculateRatio(1920, 1088)
   },
   mediaId: '4g5plgua2p',
+  muxSrc: 'cSjhDoPNBkNtVNwRuAvtWKE9BbGko7zA2Db5FR2oRq4',
 }
 export const citysIstanbulAvmBanner: WistiaMedia = {
   name: 'citys istanbul avm banner',
@@ -335,6 +341,7 @@ export const citysIstanbulAvmBanner: WistiaMedia = {
     return calculateRatio(1920, 1026)
   },
   mediaId: 'a5b5zn9o9x',
+  muxSrc: 'PRCpFw01qx5orN0016GzvlcoV2VUHo8QwDib6jsIjmbow',
 }
 export const citysTimesBanner: WistiaMedia = {
   name: 'citys times banner',
@@ -342,6 +349,7 @@ export const citysTimesBanner: WistiaMedia = {
     return calculateRatio(1920, 848)
   },
   mediaId: 'luxxfpk3x3',
+  muxSrc: 'NB02x73haYbyN18zmvgUntrAutAeqhWaZGf8gkUYUkmA',
 }
 
 export const scrollDelay = 0.2
