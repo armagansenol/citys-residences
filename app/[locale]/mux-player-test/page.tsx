@@ -1,8 +1,6 @@
 import { MuxPlayerWrapper } from '@/components/mux-player-wrapper'
 import { Wrapper } from '@/components/wrapper'
 import {
-  citysIstanbulAvmBanner,
-  citysTimesBanner,
   heroVideo,
   liveMore,
   livePeacefully,
@@ -42,18 +40,19 @@ export default function MuxPlayerTestPage() {
       placeholder:
         'https://citys-residences.vercel.app/_next/image?url=https%3A%2F%2Fpanel.citysresidences.com%2Fassets%2Fimages%2Fresidences%2F03112025102126.jpg&w=1920&q=90',
     },
-    {
-      playbackId: citysIstanbulAvmBanner.muxSrc,
-      aspect: citysIstanbulAvmBanner.aspect,
-    },
-    {
-      playbackId: citysTimesBanner.muxSrc,
-      aspect: citysTimesBanner.aspect,
-    },
+    // {
+    //   playbackId: citysIstanbulAvmBanner.muxSrc,
+    //   aspect: citysIstanbulAvmBanner.aspect,
+    // },
+    // {
+    //   playbackId: citysTimesBanner.muxSrc,
+    //   aspect: citysTimesBanner.aspect,
+    // },
   ]
   return (
     <Wrapper>
-      <div className='flex min-h-screen flex-col gap-4'>
+      <div className='flex min-h-screen flex-col gap-96 bg-green-400'>
+        {/* 84 videos */}
         {[
           ...videos,
           ...videos,
@@ -75,10 +74,10 @@ export default function MuxPlayerTestPage() {
             <MuxPlayerWrapper
               playbackId={video.playbackId as string}
               style={{ aspectRatio: video.aspect() as number }}
-              // placeholder={video.placeholder}
+              placeholder={video.placeholder}
               poster={video.placeholder}
-              playOnViewport
-              autoPlay='muted'
+              loading='viewport'
+              // playOnViewport
             />
           </div>
         ))}

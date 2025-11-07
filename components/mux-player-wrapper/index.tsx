@@ -5,13 +5,10 @@ import './styles.css'
 import React, { useRef, useEffect, useState } from 'react'
 // import MuxPlayer from '@mux/mux-player-react'
 import MuxPlayer from '@mux/mux-player-react/lazy'
-import type {
-  MuxPlayerProps,
-  MuxPlayerRefAttributes,
-} from '@mux/mux-player-react'
+import type { MuxPlayerRefAttributes } from '@mux/mux-player-react'
 import { cn } from '@/lib/utils'
 
-interface MuxPlayerWrapperProps extends MuxPlayerProps {
+interface MuxPlayerWrapperProps extends React.ComponentProps<typeof MuxPlayer> {
   playOnViewport?: boolean
   viewportThreshold?: number
 }
@@ -37,7 +34,7 @@ export const MuxPlayerWrapper = React.forwardRef<
       startTime = 0,
       streamType = 'on-demand',
       playOnViewport = false,
-      viewportThreshold = 0.5,
+      viewportThreshold = 0,
       ...muxPlayerProps
     },
     ref
