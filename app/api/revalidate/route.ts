@@ -68,7 +68,13 @@ export async function POST(request: NextRequest) {
     }
 
     if (token !== REVALIDATE_SECRET) {
-      console.error('Invalid revalidation token')
+      console.error('Invalid revalidation token', {
+        receivedToken: token ? `${token.substring(0, 4)}...` : 'null',
+        expectedToken: REVALIDATE_SECRET
+          ? `${REVALIDATE_SECRET.substring(0, 4)}...`
+          : 'null',
+        tokensMatch: token === REVALIDATE_SECRET,
+      })
       return NextResponse.json({ error: 'Invalid token' }, { status: 401 })
     }
 
