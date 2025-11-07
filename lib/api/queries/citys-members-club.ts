@@ -1,5 +1,6 @@
 import { ComponentType } from '@/components/repetitive-sections/repetitive-sections-wrapper'
-import { panelClient, type ApiResponse } from '../client'
+import { type ApiResponse } from '../client'
+import { fetchCitysData } from './helpers'
 
 export interface CitysMembersClubData {
   id: string
@@ -11,10 +12,9 @@ export interface CitysMembersClubData {
   description?: string
 }
 
+// Cached for 1 hour via fetchCitysData helper
 export async function fetchCitysMembersClubData(
   lang: string = 'tr'
 ): Promise<ApiResponse<CitysMembersClubData[]>> {
-  return panelClient.get<CitysMembersClubData[]>(
-    `/membersClub.php?lang=${lang}`
-  )
+  return fetchCitysData<CitysMembersClubData>('membersClub.php', lang)
 }
