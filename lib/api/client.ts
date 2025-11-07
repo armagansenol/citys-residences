@@ -27,19 +27,26 @@ class ApiClient {
 
   async request<T>(
     endpoint: string,
-    options: RequestInit & { cache?: RequestCache } = {}
+    options: RequestInit & {
+      cache?: RequestCache
+      next?: { revalidate?: number | false; tags?: string[] }
+    } = {}
   ): Promise<ApiResponse<T>> {
     try {
       const url = this.baseUrl ? `${this.baseUrl}${endpoint}` : endpoint
 
-      const response = await fetch(url, {
+      const fetchOptions: RequestInit & {
+        next?: { revalidate?: number | false; tags?: string[] }
+      } = {
         headers: {
           ...this.defaultHeaders,
           ...options.headers,
         },
         cache: options.cache || this.defaultCache,
         ...options,
-      })
+      }
+
+      const response = await fetch(url, fetchOptions as RequestInit)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -60,7 +67,10 @@ class ApiClient {
   // Convenience method for GET requests
   async get<T>(
     endpoint: string,
-    options: RequestInit & { cache?: RequestCache } = {}
+    options: RequestInit & {
+      cache?: RequestCache
+      next?: { revalidate?: number | false; tags?: string[] }
+    } = {}
   ): Promise<ApiResponse<T>> {
     return this.request<T>(endpoint, { ...options, method: 'GET' })
   }
@@ -86,7 +96,7 @@ export const crmClient = new ApiClient({
 
 export const panelClient = new ApiClient({
   baseUrl: 'https://panel.citysresidences.com/api',
-  cache: 'no-store', // Default to no cache for panel API
+  // cache: 'no-store', // Default to no cache for panel API
 })
 
 export { ApiClient, type ApiResponse, type ApiClientConfig }
