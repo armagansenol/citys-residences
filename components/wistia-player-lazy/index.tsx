@@ -51,6 +51,7 @@ function DefaultLoadingFallback({
           mobileSize='90vw'
           quality={75}
           priority={false}
+          loading='lazy'
         />
       )}
     </div>
@@ -71,11 +72,8 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
   const [isClient, setIsClient] = useState(false)
   const [shouldLoadPlayer, setShouldLoadPlayer] = useState(false)
   const [isInViewport, setIsInViewport] = useState(false)
-  const [retryKey, setRetryKey] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
   const hasLoadedRef = useRef(false)
-  const retryTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const hasPlayedRef = useRef(false)
 
   useEffect(() => {
     setIsClient(true)
@@ -110,36 +108,8 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
 
     return () => {
       observer.disconnect()
-      if (retryTimeoutRef.current) {
-        clearTimeout(retryTimeoutRef.current)
-      }
     }
   }, [isClient, intersectionThreshold, intersectionRootMargin])
-
-  // Retry mechanism: if player is in viewport but hasn't played after timeout, retry
-  useEffect(() => {
-    // Don't set retry if video has already played successfully
-    if (!shouldLoadPlayer || !isInViewport || hasPlayedRef.current) return
-
-    // Clear any existing timeout
-    if (retryTimeoutRef.current) {
-      clearTimeout(retryTimeoutRef.current)
-    }
-
-    // Set a timeout to retry if video doesn't start
-    retryTimeoutRef.current = setTimeout(() => {
-      // Only retry if video still hasn't played
-      if (!hasPlayedRef.current) {
-        setRetryKey(prev => prev + 1)
-      }
-    }, 5000) // Wait 5 seconds before retry
-
-    return () => {
-      if (retryTimeoutRef.current) {
-        clearTimeout(retryTimeoutRef.current)
-      }
-    }
-  }, [shouldLoadPlayer, isInViewport, retryKey])
 
   const fallback = loadingFallback || (
     <DefaultLoadingFallback className={className} customPoster={customPoster} />
@@ -161,20 +131,10 @@ export function LazyWistiaPlayer(props: LazyWistiaPlayerProps) {
       {shouldLoadPlayer ? (
         <Suspense fallback={fallback}>
           <WistiaPlayerWrapper
-            key={retryKey}
             className='h-full w-full'
             customPoster={customPoster}
             posterPriority={posterPriority}
             isInViewport={isInViewport}
-            onPlayStart={() => {
-              // Mark video as successfully playing
-              hasPlayedRef.current = true
-              // Clear retry timeout when video starts playing
-              if (retryTimeoutRef.current) {
-                clearTimeout(retryTimeoutRef.current)
-                retryTimeoutRef.current = null
-              }
-            }}
             {...wistiaProps}
           />
         </Suspense>
