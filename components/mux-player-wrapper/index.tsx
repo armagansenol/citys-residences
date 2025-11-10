@@ -30,7 +30,7 @@
 
 import './styles.css'
 
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState, useCallback } from 'react'
 // import MuxPlayer from '@mux/mux-player-react'
 import MuxPlayer from '@mux/mux-player-react/lazy'
 import type { MuxPlayerRefAttributes } from '@mux/mux-player-react'
@@ -53,7 +53,7 @@ interface MuxPlayerWrapperProps extends React.ComponentProps<typeof MuxPlayer> {
   debug?: boolean // Enable debug console logging
 }
 
-export const MuxPlayerWrapper = React.forwardRef<
+const MuxPlayerWrapperComponent = React.forwardRef<
   MuxPlayerRefAttributes,
   MuxPlayerWrapperProps
 >(
@@ -95,6 +95,15 @@ export const MuxPlayerWrapper = React.forwardRef<
     const viewportTimerRef = useRef<NodeJS.Timeout | null>(null)
     const scrollTriggerRef = useRef<ScrollTrigger | null>(null)
 
+    // Memoize viewport callbacks to prevent ScrollTrigger recreations
+    const handleViewportEnter = useCallback(() => {
+      setIsInViewport(true)
+    }, [])
+
+    const handleViewportLeave = useCallback(() => {
+      setIsInViewport(false)
+    }, [])
+
     // GSAP ScrollTrigger for viewport detection using useGSAP hook
     useGSAP(
       () => {
@@ -105,18 +114,10 @@ export const MuxPlayerWrapper = React.forwardRef<
           trigger: containerRef.current,
           start: `top ${100 - viewportThreshold * 100}%`,
           end: `bottom ${viewportThreshold * 100}%`,
-          onEnter: () => {
-            setIsInViewport(true)
-          },
-          onLeave: () => {
-            setIsInViewport(false)
-          },
-          onEnterBack: () => {
-            setIsInViewport(true)
-          },
-          onLeaveBack: () => {
-            setIsInViewport(false)
-          },
+          onEnter: handleViewportEnter,
+          onLeave: handleViewportLeave,
+          onEnterBack: handleViewportEnter,
+          onLeaveBack: handleViewportLeave,
           markers: false,
         })
 
@@ -132,6 +133,8 @@ export const MuxPlayerWrapper = React.forwardRef<
           viewportThreshold,
           enableScrollOptimization,
           debug,
+          handleViewportEnter,
+          handleViewportLeave,
         ],
       }
     )
@@ -259,37 +262,43 @@ export const MuxPlayerWrapper = React.forwardRef<
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [playbackId, playOnViewport])
 
-    // Handle when player is ready
-    const handleCanPlay = (e: CustomEvent) => {
-      setIsPlayerReady(true)
-      if (onCanPlay) {
-        onCanPlay(e)
-      }
-    }
+    // Handle when player is ready - memoized to prevent recreating on every render
+    const handleCanPlay = useCallback(
+      (e: CustomEvent) => {
+        setIsPlayerReady(true)
+        if (onCanPlay) {
+          onCanPlay(e)
+        }
+      },
+      [onCanPlay]
+    )
 
     // Handle when video metadata is loaded (iOS-friendly alternative)
-    const handleLoadedMetadata = () => {
+    const handleLoadedMetadata = useCallback(() => {
       // On iOS, metadata loaded is often more reliable than canplay
       setIsPlayerReady(true)
-    }
+    }, [])
 
     // Handle when video data is loaded
-    const handleLoadedData = () => {
+    const handleLoadedData = useCallback(() => {
       setIsPlayerReady(true)
-    }
+    }, [])
 
     // Handle when video starts playing - this triggers placeholder fadeout
-    const handlePlay = (e: CustomEvent) => {
-      setHasPlayedOnce(true) // Mark that video has played at least once
-      if (onPlay) {
-        onPlay(e)
-      }
-    }
+    const handlePlay = useCallback(
+      (e: CustomEvent) => {
+        setHasPlayedOnce(true) // Mark that video has played at least once
+        if (onPlay) {
+          onPlay(e)
+        }
+      },
+      [onPlay]
+    )
 
-    // Handle when video is paused
-    const handlePause = () => {
+    // Handle when video is paused - memoized to prevent recreating
+    const handlePause = useCallback(() => {
       // Silent
-    }
+    }, [])
 
     return (
       <>
@@ -359,6 +368,9 @@ export const MuxPlayerWrapper = React.forwardRef<
   }
 )
 
-MuxPlayerWrapper.displayName = 'MuxPlayerWrapper'
+MuxPlayerWrapperComponent.displayName = 'MuxPlayerWrapper'
+
+// Memoize the component to prevent unnecessary re-renders when props haven't changed
+export const MuxPlayerWrapper = React.memo(MuxPlayerWrapperComponent)
 
 export default MuxPlayerWrapper
