@@ -94,8 +94,16 @@ export const MuxPlayerWrapper = React.forwardRef<
     const [hasPlayedOnce, setHasPlayedOnce] = useState(false) // Track if video has played at least once
     const [shouldAttemptPlay, setShouldAttemptPlay] = useState(false)
     const [isPlayerReady, setIsPlayerReady] = useState(false)
+    const [debugLogs, setDebugLogs] = useState<string[]>([])
     const viewportTimerRef = useRef<NodeJS.Timeout | null>(null)
     const scrollTriggerRef = useRef<ScrollTrigger | null>(null)
+
+    // Add log to on-screen debug display
+    const addDebugLog = (message: string) => {
+      if (!debug) return
+      console.log(message)
+      setDebugLogs(prev => [...prev.slice(-4), message]) // Keep last 5 logs
+    }
 
     // GSAP ScrollTrigger for viewport detection using useGSAP hook
     useGSAP(
@@ -108,27 +116,19 @@ export const MuxPlayerWrapper = React.forwardRef<
           start: `top ${100 - viewportThreshold * 100}%`,
           end: `bottom ${viewportThreshold * 100}%`,
           onEnter: () => {
-            if (debug)
-              console.log(`[${order}] 👁️ ScrollTrigger: Entering viewport`)
+            addDebugLog(`[${order}] 👁️ Entering viewport`)
             setIsInViewport(true)
           },
           onLeave: () => {
-            if (debug)
-              console.log(
-                `[${order}] 👁️ ScrollTrigger: Leaving viewport (bottom)`
-              )
+            addDebugLog(`[${order}] ⬇️ Leaving (bottom)`)
             setIsInViewport(false)
           },
           onEnterBack: () => {
-            if (debug)
-              console.log(
-                `[${order}] 👁️ ScrollTrigger: Entering viewport (scrolling back)`
-              )
+            addDebugLog(`[${order}] ⬆️ Entering (back)`)
             setIsInViewport(true)
           },
           onLeaveBack: () => {
-            if (debug)
-              console.log(`[${order}] 👁️ ScrollTrigger: Leaving viewport (top)`)
+            addDebugLog(`[${order}] ⬆️ Leaving (top)`)
             setIsInViewport(false)
           },
           markers: debug,
@@ -136,10 +136,7 @@ export const MuxPlayerWrapper = React.forwardRef<
 
         // Check immediately if element is in viewport (check specific instance, not global refresh)
         if (scrollTriggerRef.current.isActive) {
-          if (debug)
-            console.log(
-              `[${order}] 👁️ ScrollTrigger: Already in viewport on mount`
-            )
+          addDebugLog(`[${order}] 👁️ Already in viewport`)
           setIsInViewport(true)
         }
       },
@@ -175,10 +172,7 @@ export const MuxPlayerWrapper = React.forwardRef<
 
       // If video has already played once, play immediately when entering viewport (no scroll delay)
       if (isInViewport && hasPlayedOnce) {
-        if (debug)
-          console.log(
-            `[${order}] ✅ Video played before - playing immediately on viewport entry`
-          )
+        addDebugLog(`[${order}] ✅ Played before - immediate`)
         setShouldAttemptPlay(true)
         return
       }
@@ -186,8 +180,7 @@ export const MuxPlayerWrapper = React.forwardRef<
       // If not in viewport, reset play state if needed
       if (!isInViewport) {
         if (shouldAttemptPlay) {
-          if (debug)
-            console.log(`[${order}] ❌ Video left viewport - canceling play`)
+          addDebugLog(`[${order}] ❌ Left viewport`)
           setShouldAttemptPlay(false)
         }
         return
@@ -195,17 +188,10 @@ export const MuxPlayerWrapper = React.forwardRef<
 
       // If video hasn't played yet and is in viewport, start simple timer
       if (!hasPlayedOnce) {
-        if (debug) {
-          console.log(
-            `[${order}] ⏱️ Video in viewport - will play after ${scrollDelay}ms`
-          )
-        }
+        addDebugLog(`[${order}] ⏱️ Timer ${scrollDelay}ms`)
 
         viewportTimerRef.current = setTimeout(() => {
-          if (debug)
-            console.log(
-              `[${order}] ✅ Timer complete - attempting to play video`
-            )
+          addDebugLog(`[${order}] ✅ Timer done`)
           setShouldAttemptPlay(true)
         }, scrollDelay)
       }
@@ -240,15 +226,28 @@ export const MuxPlayerWrapper = React.forwardRef<
       const player = playerRef.current
 
       if (!player) {
-        if (debug) console.log(`[${order}] ⚠️ Player ref not available`)
+        addDebugLog(`[${order}] ⚠️ No player ref`)
         return
       }
 
-      // Attempt to play the video
-      if (debug) console.log(`[${order}] 🎬 Attempting to play video`)
-      player.play().catch(error => {
-        if (debug) console.warn(`[${order}] ❌ Play was prevented:`, error)
-      })
+      // Attempt to play the video with iOS-specific handling
+      addDebugLog(`[${order}] 🎬 Playing...`)
+
+      const attemptPlay = () => {
+        player.play().catch(error => {
+          addDebugLog(`[${order}] ❌ Play blocked`)
+          if (debug) console.warn(`[${order}] Error:`, error)
+          // iOS sometimes needs a slight delay or retry
+          setTimeout(() => {
+            player.play().catch(retryError => {
+              addDebugLog(`[${order}] ❌ Retry failed`)
+              if (debug) console.warn(`[${order}] Retry error:`, retryError)
+            })
+          }, 100)
+        })
+      }
+
+      attemptPlay()
       // playerRef is a ref object and is stable across renders
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [shouldAttemptPlay, isInViewport, isPlayerReady, playOnViewport])
@@ -289,19 +288,29 @@ export const MuxPlayerWrapper = React.forwardRef<
 
     // Handle when player is ready
     const handleCanPlay = (e: CustomEvent) => {
-      if (debug) console.log(`[${order}] ✅ Player ready (canplay event)`)
+      addDebugLog(`[${order}] ✅ canplay`)
       setIsPlayerReady(true)
       if (onCanPlay) {
         onCanPlay(e)
       }
     }
 
+    // Handle when video metadata is loaded (iOS-friendly alternative)
+    const handleLoadedMetadata = () => {
+      addDebugLog(`[${order}] 📊 metadata`)
+      // On iOS, metadata loaded is often more reliable than canplay
+      setIsPlayerReady(true)
+    }
+
+    // Handle when video data is loaded
+    const handleLoadedData = () => {
+      addDebugLog(`[${order}] 📦 data`)
+      setIsPlayerReady(true)
+    }
+
     // Handle when video starts playing - this triggers placeholder fadeout
     const handlePlay = (e: CustomEvent) => {
-      if (debug)
-        console.log(
-          `[${order}] ▶️ Video started playing - fading out placeholder`
-        )
+      addDebugLog(`[${order}] ▶️ PLAYING!`)
       setHasPlayedOnce(true) // Mark that video has played at least once
       if (onPlay) {
         onPlay(e)
@@ -310,7 +319,7 @@ export const MuxPlayerWrapper = React.forwardRef<
 
     // Handle when video is paused
     const handlePause = () => {
-      if (debug) console.log(`[${order}] ⏸️ Video paused`)
+      addDebugLog(`[${order}] ⏸️ Paused`)
     }
 
     return (
@@ -329,8 +338,10 @@ export const MuxPlayerWrapper = React.forwardRef<
             muted
             loop
             playsInline // Required for iOS autoplay
+            // iOS-specific attributes
+            webkit-playsinline='true'
             // Performance and loading settings
-            preload={playOnViewport ? 'metadata' : preload} // Use metadata for manual control
+            preload={playOnViewport ? 'auto' : preload} // iOS needs 'auto' for reliable playback
             streamType={streamType}
             startTime={startTime}
             // Resolution settings
@@ -342,18 +353,14 @@ export const MuxPlayerWrapper = React.forwardRef<
             disableTracking={false}
             // Event handlers
             onCanPlay={handleCanPlay}
+            onLoadedMetadata={handleLoadedMetadata}
+            onLoadedData={handleLoadedData}
             onPlay={handlePlay}
             onPause={handlePause}
             onEnded={onEnded}
             onError={onError}
             onLoadStart={() =>
               debug && console.log(`[${order}] 📹 Video load started`)
-            }
-            onLoadedMetadata={() =>
-              debug && console.log(`[${order}] 📊 Video metadata loaded`)
-            }
-            onLoadedData={() =>
-              debug && console.log(`[${order}] 📦 Video data loaded`)
             }
             {...muxPlayerProps}
           />
@@ -381,6 +388,49 @@ export const MuxPlayerWrapper = React.forwardRef<
             )}
           </AnimatePresence>
         </div>
+
+        {/* On-screen debug display for mobile */}
+        {debug && debugLogs.length > 0 && (
+          <div
+            style={{
+              position: 'fixed',
+              bottom: '20px',
+              right: '20px',
+              backgroundColor: 'rgba(0, 0, 0, 0.95)',
+              color: '#00ff00',
+              padding: '12px 16px',
+              borderRadius: '8px',
+              fontSize: '12px',
+              fontFamily: 'monospace',
+              zIndex: 99999,
+              maxWidth: '90vw',
+              border: '2px solid #00ff00',
+              boxShadow: '0 4px 12px rgba(0, 255, 0, 0.3)',
+            }}
+          >
+            <div
+              style={{ fontWeight: 'bold', marginBottom: '8px', color: '#fff' }}
+            >
+              📱 Debug Log
+            </div>
+            {debugLogs.map((log, i) => (
+              <div
+                key={i}
+                style={{
+                  padding: '4px 0',
+                  borderBottom:
+                    i < debugLogs.length - 1
+                      ? '1px solid rgba(0, 255, 0, 0.2)'
+                      : 'none',
+                  fontSize: '11px',
+                  lineHeight: '1.4',
+                }}
+              >
+                {log}
+              </div>
+            ))}
+          </div>
+        )}
       </>
     )
   }
