@@ -13,32 +13,28 @@ export default function MuxPlayerTestPage() {
     {
       playbackId: heroVideo.muxSrc,
       aspect: heroVideo.aspect,
-      placeholder:
-        'https://citys-residences.vercel.app/_next/image?url=%2Fimg%2Fdesktop-hero-poster.jpg&w=1920&q=90',
+      placeholder: '/img/desktop-hero-poster.jpg',
     },
     {
       playbackId: livePeacefully.muxSrc,
       aspect: livePeacefully.aspect,
-      placeholder:
-        'https://citys-residences.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fthumbnail-live-peacefully.f167ac8d.jpg&w=1920&q=75',
+      placeholder: '/img/thumbnail-live-peacefully.jpg',
     },
     {
       playbackId: liveMore.muxSrc,
       aspect: liveMore.aspect,
-      placeholder:
-        'https://citys-residences.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fthumbnail-live-more.5b55945c.jpg&w=1920&q=75',
+      placeholder: '/img/thumbnail-live-more.jpg',
     },
     {
       playbackId: projectBanner.muxSrc,
       aspect: projectBanner.aspect,
-      placeholder:
-        'https://citys-residences.vercel.app/_next/image?url=%2Fimg%2Fthumbnail-murat-kader.jpg&w=1920&q=90',
+      placeholder: '/img/thumbnail-murat-kader.jpg',
     },
     {
       playbackId: residencesBanner.muxSrc,
       aspect: residencesBanner.aspect,
       placeholder:
-        'https://citys-residences.vercel.app/_next/image?url=https%3A%2F%2Fpanel.citysresidences.com%2Fassets%2Fimages%2Fresidences%2F03112025102126.jpg&w=1920&q=90',
+        'https://panel.citysresidences.com/assets/images/residences/03112025102126.jpg',
     },
     // {
     //   playbackId: citysIstanbulAvmBanner.muxSrc,
@@ -60,15 +56,15 @@ export default function MuxPlayerTestPage() {
           ...videos,
           ...videos,
           ...videos,
-          ...videos,
-          ...videos,
-          ...videos,
-          ...videos,
-          ...videos,
-          ...videos,
-          ...videos,
-          ...videos,
-          ...videos,
+          // ...videos,
+          // ...videos,
+          // ...videos,
+          // ...videos,
+          // ...videos,
+          // ...videos,
+          // ...videos,
+          // ...videos,
+          // ...videos,
         ].map((video, index) => (
           <div
             key={index}
@@ -80,10 +76,8 @@ export default function MuxPlayerTestPage() {
               placeholder={video.placeholder}
               poster={video.placeholder}
               loading='viewport'
-              enableScrollOptimization={true}
-              scrollDelay={0} // 300 ms
-              playOnViewport={true}
-              viewportThreshold={0} // 75% visible
+              scrollDelay={200}
+              viewportThreshold={0}
             />
           </div>
         ))}
