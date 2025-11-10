@@ -54,7 +54,6 @@ export async function fetchCategories(
   const response = await panelClient.get<Category[]>(
     `/categories.php?${buildQueryString(lang)}`,
     {
-      cache: 'force-cache',
       next: {
         revalidate: 3600, // Revalidate every hour (categories rarely change)
         tags: ['categories', `categories-${lang}`],
@@ -77,7 +76,6 @@ export async function fetchSubCategories(
   const response = await panelClient.get<SubCategory[]>(
     `/subCategories.php?${buildQueryString(lang, { categoryId })}`,
     {
-      cache: 'force-cache',
       next: {
         revalidate: 3600, // Revalidate every hour
         tags: [
@@ -103,7 +101,6 @@ export async function fetchFloors(
   const response = await panelClient.get<Floor[]>(
     `/floors.php?${buildQueryString(lang)}`,
     {
-      cache: 'force-cache',
       next: {
         revalidate: 7200, // Revalidate every 2 hours (floors are very static)
         tags: ['floors', `floors-${lang}`],
@@ -158,7 +155,6 @@ export async function fetchBrands(
     const response = await panelClient.get<ApiBrand[]>(
       `/brands.php?${buildQueryString(lang, params)}`,
       {
-        cache: 'force-cache',
         next: {
           revalidate: 1800, // Revalidate every 30 minutes (brands change occasionally)
           tags,
@@ -232,7 +228,6 @@ export async function fetchCitysTimes(
   const response = await panelClient.get<CitysTimesItem[]>(
     `/citysTimes.php?${buildQueryString(lang)}`,
     {
-      cache: 'force-cache',
       next: {
         revalidate: 300, // Revalidate every 5 minutes (events are more dynamic)
         tags: ['citys-times', `citys-times-${lang}`],

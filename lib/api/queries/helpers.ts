@@ -56,7 +56,6 @@ export async function fetchCitysData<T>(
   lang: string = 'tr'
 ): Promise<ApiResponse<T[]>> {
   return panelClient.get<T[]>(`/${endpoint}?${buildQueryString(lang)}`, {
-    cache: 'force-cache', // Use Next.js Data Cache for optimal performance
     next: {
       revalidate: 3600, // Revalidate every hour (citys data is relatively static)
       tags: [`citys-${endpoint.replace('.php', '')}`], // Dynamic tag for granular revalidation

@@ -19,7 +19,6 @@ export async function fetchResidencesSlider(): Promise<
   const response = await panelClient.get<ResidencesSliderItem[]>(
     '/residencesSlider.php',
     {
-      cache: 'force-cache',
       next: {
         revalidate: 3600, // Revalidate every hour (slider images are relatively static)
         tags: ['residences-slider', 'citys-residencesSlider'],
