@@ -31,6 +31,7 @@ import { motion, AnimatePresence } from 'motion/react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useLenis } from 'lenis/react'
 
 // Register GSAP plugins (required even when using useGSAP)
 if (typeof window !== 'undefined') {
@@ -140,45 +141,32 @@ export const MuxPlayerWrapper = React.forwardRef<
       }
     )
 
-    // Scroll detection using ScrollTrigger update callback with useGSAP
-    useGSAP(
-      () => {
-        if (!enableScrollOptimization) return
+    // Scroll detection using Lenis
+    useLenis(() => {
+      if (!enableScrollOptimization) return
 
-        const handleScroll = () => {
-          setIsScrolling(true)
+      setIsScrolling(true)
 
-          // Clear existing scroll timeout
-          if (scrollTimeoutRef.current) {
-            clearTimeout(scrollTimeoutRef.current)
-          }
+      // Clear existing scroll timeout
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current)
+      }
 
-          // Set new timeout to detect when scrolling stops
-          scrollTimeoutRef.current = setTimeout(() => {
-            if (debug) console.log('⏸️ Scrolling stopped')
-            setIsScrolling(false)
-          }, 200) // Detect scroll stop after 200ms
+      // Set new timeout to detect when scrolling stops
+      scrollTimeoutRef.current = setTimeout(() => {
+        if (debug) console.log('⏸️ Scrolling stopped')
+        setIsScrolling(false)
+      }, 200) // Detect scroll stop after 200ms
+    }, [enableScrollOptimization, debug])
+
+    // Cleanup scroll timeout on unmount
+    useEffect(() => {
+      return () => {
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current)
         }
-
-        // Create a global ScrollTrigger to detect any scroll
-        // Note: useGSAP automatically cleans up ScrollTriggers on unmount
-        ScrollTrigger.create({
-          trigger: 'body',
-          start: 'top top',
-          end: 'bottom bottom',
-          onUpdate: () => {
-            handleScroll()
-          },
-        })
-
-        return () => {
-          if (scrollTimeoutRef.current) {
-            clearTimeout(scrollTimeoutRef.current)
-          }
-        }
-      },
-      { dependencies: [enableScrollOptimization, debug] }
-    )
+      }
+    }, [])
 
     // Handle delayed video play when in viewport and not scrolling
     useEffect(() => {
