@@ -1,15 +1,14 @@
 'use client'
 
-import { cn, toAllUppercase } from '@/lib/utils'
-import { useLocale, useTranslations } from 'next-intl'
-import React, { useEffect, useMemo } from 'react'
-
 import { useActiveSection } from '@/hooks/useActiveSection'
 import { useNavigation } from '@/hooks/useNavigation'
 import { useSmooothy } from '@/hooks/useSmooothy'
 import { Locale } from '@/i18n/routing'
 import { getNavigationItems } from '@/lib/constants'
 import { useUiStore } from '@/lib/store/ui'
+import { cn, toAllUppercase } from '@/lib/utils'
+import { useLocale, useTranslations } from 'next-intl'
+import React, { useEffect, useMemo } from 'react'
 
 export const StickySidebar: React.FC = () => {
   const activeSection = useActiveSection()

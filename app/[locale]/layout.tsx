@@ -11,8 +11,6 @@ import { GSAP } from '@/components/gsap'
 import { ModalContactForm } from '@/components/modal-contact-form'
 import { ReactQueryProvider } from '@/components/react-query-provider'
 import { RealViewport } from '@/components/real-viewport'
-import { Scroller } from '@/components/scroller'
-import { StickySidebar } from '@/components/sticky-sidebar'
 
 const suisseIntl = localFont({
   src: [
@@ -142,9 +140,7 @@ export default async function LocaleLayout({
           <ReactQueryProvider>
             {children}
             <ModalContactForm />
-            <Scroller />
             {/* <PreloaderClient /> */}
-            <StickySidebar />
           </ReactQueryProvider>
         </NextIntlClientProvider>
         <GSAP scrollTrigger={true} />

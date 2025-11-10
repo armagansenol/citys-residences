@@ -7,6 +7,7 @@ import { useEffect } from 'react'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { SmoothScroll } from '@/components/smooth-scroll'
+import { StickySidebar } from '@/components/sticky-sidebar'
 
 interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: (typeof themeNames)[number]
@@ -37,7 +38,7 @@ export function Wrapper({
         </main>
         <Footer />
       </div>
-
+      <StickySidebar />
       {lenis && <SmoothScroll root />}
     </>
   )
