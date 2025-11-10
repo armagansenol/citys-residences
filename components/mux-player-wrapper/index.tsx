@@ -204,11 +204,24 @@ export const MuxPlayerWrapper = React.forwardRef<
         clearTimeout(loadDelayTimeoutRef.current)
       }
 
-      // If video is in viewport and not scrolling, start delay timer
-      if (isInViewport && !isScrolling && !shouldAttemptPlay) {
+      // If video has already played once, play immediately when entering viewport (no scroll delay)
+      if (isInViewport && !shouldAttemptPlay && hasPlayedOnce) {
+        if (debug)
+          console.log(
+            '✅ Video played before - playing immediately on viewport entry'
+          )
+        setShouldAttemptPlay(true)
+      }
+      // If video hasn't played yet and is in viewport and not scrolling, start delay timer
+      else if (
+        isInViewport &&
+        !isScrolling &&
+        !shouldAttemptPlay &&
+        !hasPlayedOnce
+      ) {
         if (debug) {
           console.log(
-            `⏱️ User stopped on video - starting ${scrollDelay}ms delay before playing`
+            `⏱️ User stopped on video (first time) - starting ${scrollDelay}ms delay before playing`
           )
         }
         loadDelayTimeoutRef.current = setTimeout(() => {
