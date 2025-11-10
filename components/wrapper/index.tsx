@@ -13,6 +13,7 @@ interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: (typeof themeNames)[number]
   lenis?: boolean
   webgl?: boolean | object
+  stickySidebar?: boolean
 }
 
 export function Wrapper({
@@ -20,6 +21,7 @@ export function Wrapper({
   theme = 'light',
   lenis = true,
   className,
+  stickySidebar = true,
   ...props
 }: WrapperProps) {
   const pathname = usePathname()
@@ -38,7 +40,7 @@ export function Wrapper({
         </main>
         <Footer />
       </div>
-      <StickySidebar />
+      {stickySidebar && <StickySidebar />}
       {lenis && <SmoothScroll root />}
     </>
   )
