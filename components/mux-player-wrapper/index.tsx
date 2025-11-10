@@ -96,6 +96,13 @@ export const MuxPlayerWrapper = React.forwardRef<
     const scrollTriggerRef = useRef<ScrollTrigger | null>(null)
     const lenisRef = useRef<{ velocity: number } | null>(null)
 
+    // Debug refs (no re-renders)
+    const debugVelocityRef = useRef<HTMLDivElement>(null)
+    const debugStatusRef = useRef<HTMLDivElement>(null)
+
+    // Velocity threshold to consider as "active scrolling"
+    const velocityThreshold = 1.5
+
     // GSAP ScrollTrigger for viewport detection using useGSAP hook
     useGSAP(
       () => {
@@ -152,8 +159,22 @@ export const MuxPlayerWrapper = React.forwardRef<
       lenis => {
         if (!enableScrollOptimization) return
         lenisRef.current = lenis
+
+        // Update debug display directly without re-rendering
+        if (debug && debugVelocityRef.current && debugStatusRef.current) {
+          const velocity = Math.abs(lenis.velocity || 0)
+          debugVelocityRef.current.textContent = velocity.toFixed(3)
+
+          const isActiveScrolling = velocity > velocityThreshold
+          debugStatusRef.current.textContent = isActiveScrolling
+            ? '🔄 Active Scrolling'
+            : '✅ Low/Stopped'
+          debugStatusRef.current.style.color = isActiveScrolling
+            ? '#ff4444'
+            : '#44ff44'
+        }
       },
-      [enableScrollOptimization]
+      [enableScrollOptimization, debug, velocityThreshold]
     )
 
     // Handle delayed video play when in viewport
@@ -190,7 +211,6 @@ export const MuxPlayerWrapper = React.forwardRef<
 
         // Check scroll velocity periodically to cancel if actively scrolling
         const startTime = Date.now()
-        const velocityThreshold = 0.5 // Velocity threshold to consider as "active scrolling"
 
         const checkAndPlay = () => {
           const elapsed = Date.now() - startTime
@@ -320,68 +340,117 @@ export const MuxPlayerWrapper = React.forwardRef<
     }
 
     return (
-      <div ref={containerRef} className='relative h-full w-full'>
-        {/* Video player - always rendered (has lazy loading built-in) */}
-        <MuxPlayer
-          ref={playerRef}
-          playbackId={playbackId}
-          metadata={metadata}
-          poster={poster}
-          placeholder={placeholder}
-          className={cn(className)}
-          // Autoplay settings - only enable native autoplay when NOT using viewport control
-          {...(!playOnViewport && { autoPlay: 'muted' as const })}
-          muted
-          loop
-          playsInline // Required for iOS autoplay
-          // Performance and loading settings
-          preload={playOnViewport ? 'metadata' : preload} // Use metadata for manual control
-          streamType={streamType}
-          startTime={startTime}
-          // Resolution settings
-          maxResolution={maxResolution}
-          minResolution={minResolution}
-          // Disable user interactions for background video
-          nohotkeys
-          // Mobile-specific attributes
-          disableTracking={false}
-          // Event handlers
-          onCanPlay={handleCanPlay}
-          onPlay={handlePlay}
-          onPause={handlePause}
-          onEnded={onEnded}
-          onError={onError}
-          onLoadStart={() => debug && console.log('📹 Video load started')}
-          onLoadedMetadata={() =>
-            debug && console.log('📊 Video metadata loaded')
-          }
-          onLoadedData={() => debug && console.log('📦 Video data loaded')}
-          {...muxPlayerProps}
-        />
+      <>
+        <div ref={containerRef} className='relative h-full w-full'>
+          {/* Video player - always rendered (has lazy loading built-in) */}
+          <MuxPlayer
+            ref={playerRef}
+            playbackId={playbackId}
+            metadata={metadata}
+            poster={poster}
+            placeholder={placeholder}
+            className={cn(className)}
+            // Autoplay settings - only enable native autoplay when NOT using viewport control
+            {...(!playOnViewport && { autoPlay: 'muted' as const })}
+            muted
+            loop
+            playsInline // Required for iOS autoplay
+            // Performance and loading settings
+            preload={playOnViewport ? 'metadata' : preload} // Use metadata for manual control
+            streamType={streamType}
+            startTime={startTime}
+            // Resolution settings
+            maxResolution={maxResolution}
+            minResolution={minResolution}
+            // Disable user interactions for background video
+            nohotkeys
+            // Mobile-specific attributes
+            disableTracking={false}
+            // Event handlers
+            onCanPlay={handleCanPlay}
+            onPlay={handlePlay}
+            onPause={handlePause}
+            onEnded={onEnded}
+            onError={onError}
+            onLoadStart={() => debug && console.log('📹 Video load started')}
+            onLoadedMetadata={() =>
+              debug && console.log('📊 Video metadata loaded')
+            }
+            onLoadedData={() => debug && console.log('📦 Video data loaded')}
+            {...muxPlayerProps}
+          />
 
-        {/* Placeholder overlays video and fades out when video starts playing for the first time */}
-        <AnimatePresence>
-          {enableScrollOptimization && !hasPlayedOnce && (
-            <motion.div
-              key='placeholder'
-              initial={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className='absolute inset-0 z-10 bg-black'
+          {/* Placeholder overlays video and fades out when video starts playing for the first time */}
+          <AnimatePresence>
+            {enableScrollOptimization && !hasPlayedOnce && (
+              <motion.div
+                key='placeholder'
+                initial={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                className='absolute inset-0 z-10 bg-black'
+                style={{
+                  backgroundImage: poster
+                    ? `url(${poster})`
+                    : placeholder
+                      ? `url(${placeholder})`
+                      : undefined,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  pointerEvents: 'none', // Allow clicks to pass through to video
+                }}
+              />
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Debug velocity display - fixed bottom left */}
+        {debug && enableScrollOptimization && (
+          <div
+            style={
+              {
+                position: 'fixed',
+                bottom: '0%',
+                left: '0%',
+                backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                color: 'white',
+                padding: '20px 30px',
+                fontSize: '24px',
+                fontWeight: 'bold',
+                fontFamily: 'monospace',
+                zIndex: 99999,
+                pointerEvents: 'none',
+                border: '3px solid #00ff00',
+              } as React.CSSProperties
+            }
+          >
+            <div
+              style={{ marginBottom: '8px', fontSize: '14px', opacity: 0.8 }}
+            >
+              Scroll Velocity
+            </div>
+            <div
+              ref={debugVelocityRef}
+              style={{ fontSize: '32px', color: '#00ff00' }}
+            >
+              0.000
+            </div>
+            <div style={{ marginTop: '8px', fontSize: '14px', opacity: 0.8 }}>
+              Threshold: {velocityThreshold.toFixed(3)}
+            </div>
+            <div
+              ref={debugStatusRef}
               style={{
-                backgroundImage: poster
-                  ? `url(${poster})`
-                  : placeholder
-                    ? `url(${placeholder})`
-                    : undefined,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                pointerEvents: 'none', // Allow clicks to pass through to video
+                marginTop: '8px',
+                fontSize: '14px',
+                color: '#44ff44',
               }}
-            />
-          )}
-        </AnimatePresence>
-      </div>
+            >
+              ✅ Low/Stopped
+            </div>
+          </div>
+        )}
+      </>
     )
   }
 )
