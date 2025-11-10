@@ -51,10 +51,10 @@ export default function MuxPlayerTestPage() {
   ]
   return (
     <Wrapper stickySidebar={false}>
-      <div className='flex h-screen w-full items-center justify-center bg-blue-800'>
+      <div className='flex h-[120vh] w-full items-center justify-center bg-blue-800'>
         <h1 className='text-4xl font-bold text-white'>HERO</h1>
       </div>
-      <div className='flex min-h-screen flex-col gap-96 bg-green-400'>
+      <div className='flex min-h-[100vh] flex-col gap-96 bg-green-400'>
         {/* 84 videos */}
         {[
           ...videos,
@@ -72,7 +72,7 @@ export default function MuxPlayerTestPage() {
         ].map((video, index) => (
           <div
             key={index}
-            className='relative h-screen w-full flex-shrink-0 overflow-hidden bg-blue-600'
+            className='relative h-[120vh] w-full flex-shrink-0 overflow-hidden bg-blue-600'
           >
             <MuxPlayerWrapper
               playbackId={video.playbackId as string}
@@ -85,6 +85,7 @@ export default function MuxPlayerTestPage() {
               playOnViewport={true}
               viewportThreshold={0} // 75% visible
               debug // Only enable debug for first video
+              order={`video-${index + 1}`}
             />
           </div>
         ))}

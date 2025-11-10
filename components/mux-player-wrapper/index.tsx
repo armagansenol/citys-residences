@@ -5,18 +5,18 @@
  *
  * Features:
  * - Viewport-based play/pause control using GSAP ScrollTrigger
- * - Velocity-aware scroll optimization using Lenis
- * - Plays video after being in viewport for scrollDelay duration (no waiting for scroll stop)
- * - Mobile-optimized: works with scroll inertia, no excessive delays
+ * - Simple time-based scroll optimization
+ * - Plays video after being in viewport for scrollDelay duration
+ * - Mobile-optimized: works perfectly with scroll inertia
  * - Animated placeholder transition (shown only on initial load before first play)
  * - Video resumes from last position when returning to viewport (no placeholder re-display)
  *
  * Scroll Optimization:
  * - Timer starts immediately when video enters viewport
- * - Checks Lenis velocity to detect active scrolling (threshold: 0.5)
- * - Timer resets only if user is actively scrolling (high velocity)
- * - Plays video after scrollDelay if velocity stays low/zero
- * - No waiting for complete scroll stop (fixes mobile inertia delays)
+ * - Plays video after scrollDelay milliseconds if still in viewport
+ * - Timer cancels if video leaves viewport before delay completes
+ * - No velocity checking - just simple time-based logic
+ * - Works reliably on all devices
  *
  * Technical Notes:
  * - Uses @gsap/react's useGSAP hook for proper React integration
@@ -39,7 +39,6 @@ import { motion, AnimatePresence } from 'motion/react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useLenis } from 'lenis/react'
 
 // Register GSAP plugins (required even when using useGSAP)
 if (typeof window !== 'undefined') {
@@ -49,9 +48,10 @@ if (typeof window !== 'undefined') {
 interface MuxPlayerWrapperProps extends React.ComponentProps<typeof MuxPlayer> {
   playOnViewport?: boolean
   viewportThreshold?: number
-  scrollDelay?: number // Delay in milliseconds video must be in viewport before playing (checks velocity, not scroll stop)
-  enableScrollOptimization?: boolean // Enable velocity-aware scroll optimization
+  scrollDelay?: number // Time in milliseconds video must be in viewport before playing
+  enableScrollOptimization?: boolean // Enable time-based scroll optimization
   debug?: boolean // Enable debug console logging
+  order?: string // Debug identifier for tracking specific video instances
 }
 
 export const MuxPlayerWrapper = React.forwardRef<
@@ -76,9 +76,10 @@ export const MuxPlayerWrapper = React.forwardRef<
       streamType = 'on-demand',
       playOnViewport = false,
       viewportThreshold = 0,
-      scrollDelay = 500, // Default 1.5 seconds
+      scrollDelay = 500, // Default 500ms
       enableScrollOptimization = false,
       debug = false,
+      order,
       ...muxPlayerProps
     },
     ref
@@ -92,18 +93,9 @@ export const MuxPlayerWrapper = React.forwardRef<
     const [isInViewport, setIsInViewport] = useState(false)
     const [hasPlayedOnce, setHasPlayedOnce] = useState(false) // Track if video has played at least once
     const [shouldAttemptPlay, setShouldAttemptPlay] = useState(false)
+    const [isPlayerReady, setIsPlayerReady] = useState(false)
     const viewportTimerRef = useRef<NodeJS.Timeout | null>(null)
     const scrollTriggerRef = useRef<ScrollTrigger | null>(null)
-    const lenisRef = useRef<{ velocity: number } | null>(null)
-
-    // Debug refs (no re-renders)
-    const debugVelocityRef = useRef<HTMLDivElement>(null)
-    const debugStatusRef = useRef<HTMLDivElement>(null)
-    const debugUpdateScheduled = useRef(false)
-    const currentVelocityRef = useRef(0)
-
-    // Velocity threshold to consider as "active scrolling"
-    const velocityThreshold = 1.5
 
     // GSAP ScrollTrigger for viewport detection using useGSAP hook
     useGSAP(
@@ -116,32 +108,38 @@ export const MuxPlayerWrapper = React.forwardRef<
           start: `top ${100 - viewportThreshold * 100}%`,
           end: `bottom ${viewportThreshold * 100}%`,
           onEnter: () => {
-            if (debug) console.log('👁️ ScrollTrigger: Entering viewport')
+            if (debug)
+              console.log(`[${order}] 👁️ ScrollTrigger: Entering viewport`)
             setIsInViewport(true)
           },
           onLeave: () => {
             if (debug)
-              console.log('👁️ ScrollTrigger: Leaving viewport (bottom)')
+              console.log(
+                `[${order}] 👁️ ScrollTrigger: Leaving viewport (bottom)`
+              )
             setIsInViewport(false)
           },
           onEnterBack: () => {
             if (debug)
               console.log(
-                '👁️ ScrollTrigger: Entering viewport (scrolling back)'
+                `[${order}] 👁️ ScrollTrigger: Entering viewport (scrolling back)`
               )
             setIsInViewport(true)
           },
           onLeaveBack: () => {
-            if (debug) console.log('👁️ ScrollTrigger: Leaving viewport (top)')
+            if (debug)
+              console.log(`[${order}] 👁️ ScrollTrigger: Leaving viewport (top)`)
             setIsInViewport(false)
           },
-          markers: true,
+          markers: debug,
         })
 
         // Check immediately if element is in viewport (check specific instance, not global refresh)
         if (scrollTriggerRef.current.isActive) {
           if (debug)
-            console.log('👁️ ScrollTrigger: Already in viewport on mount')
+            console.log(
+              `[${order}] 👁️ ScrollTrigger: Already in viewport on mount`
+            )
           setIsInViewport(true)
         }
       },
@@ -156,42 +154,13 @@ export const MuxPlayerWrapper = React.forwardRef<
       }
     )
 
-    // Track Lenis scroll velocity for detecting active scrolling
-    useLenis(
-      lenis => {
-        if (!enableScrollOptimization) return
-        lenisRef.current = lenis
-
-        // Update velocity ref and schedule a batched DOM update using RAF
-        if (debug) {
-          currentVelocityRef.current = Math.abs(lenis.velocity || 0)
-
-          // Schedule update only if not already scheduled (throttle to animation frame)
-          if (!debugUpdateScheduled.current) {
-            debugUpdateScheduled.current = true
-            requestAnimationFrame(() => {
-              if (debugVelocityRef.current && debugStatusRef.current) {
-                const velocity = currentVelocityRef.current
-                debugVelocityRef.current.textContent = velocity.toFixed(3)
-
-                const isActiveScrolling = velocity > velocityThreshold
-                debugStatusRef.current.textContent = isActiveScrolling
-                  ? '🔄 Active Scrolling'
-                  : '✅ Low/Stopped'
-                debugStatusRef.current.style.color = isActiveScrolling
-                  ? '#ff4444'
-                  : '#44ff44'
-              }
-              debugUpdateScheduled.current = false
-            })
-          }
-        }
-      },
-      [enableScrollOptimization, debug, velocityThreshold]
-    )
-
     // Handle delayed video play when in viewport
     useEffect(() => {
+      // Only run if playOnViewport is enabled
+      if (!playOnViewport) {
+        return
+      }
+
       if (!enableScrollOptimization) {
         // If optimization disabled, attempt play immediately when in viewport
         setShouldAttemptPlay(isInViewport)
@@ -208,64 +177,37 @@ export const MuxPlayerWrapper = React.forwardRef<
       if (isInViewport && hasPlayedOnce) {
         if (debug)
           console.log(
-            '✅ Video played before - playing immediately on viewport entry'
+            `[${order}] ✅ Video played before - playing immediately on viewport entry`
           )
         setShouldAttemptPlay(true)
         return
       }
 
-      // If video hasn't played yet and just entered viewport, start timer
-      if (isInViewport && !hasPlayedOnce) {
+      // If not in viewport, reset play state if needed
+      if (!isInViewport) {
+        if (shouldAttemptPlay) {
+          if (debug)
+            console.log(`[${order}] ❌ Video left viewport - canceling play`)
+          setShouldAttemptPlay(false)
+        }
+        return
+      }
+
+      // If video hasn't played yet and is in viewport, start simple timer
+      if (!hasPlayedOnce) {
         if (debug) {
           console.log(
-            `⏱️ Video entered viewport - will play after ${scrollDelay}ms if still visible`
+            `[${order}] ⏱️ Video in viewport - will play after ${scrollDelay}ms`
           )
         }
 
-        // Check scroll velocity periodically to cancel if actively scrolling
-        const startTime = Date.now()
-
-        const checkAndPlay = () => {
-          const elapsed = Date.now() - startTime
-
-          // Check if we're actively scrolling (high velocity)
-          const currentVelocity = Math.abs(lenisRef.current?.velocity || 0)
-          const isActivelyScrolling = currentVelocity > velocityThreshold
-
-          if (debug) {
-            console.log('📊 Scroll check:', {
-              elapsed,
-              velocity: currentVelocity,
-              isActivelyScrolling,
-              threshold: velocityThreshold,
-            })
-          }
-
-          // If actively scrolling, restart the timer
-          if (isActivelyScrolling) {
-            if (debug)
-              console.log('🔄 Active scrolling detected - resetting timer')
-            viewportTimerRef.current = setTimeout(checkAndPlay, 100)
-            return
-          }
-
-          // If delay time has elapsed and not actively scrolling, play the video
-          if (elapsed >= scrollDelay) {
-            if (debug)
-              console.log('✅ Timer complete - attempting to play video')
-            setShouldAttemptPlay(true)
-          } else {
-            // Keep checking until delay is complete
-            viewportTimerRef.current = setTimeout(checkAndPlay, 100)
-          }
-        }
-
-        viewportTimerRef.current = setTimeout(checkAndPlay, 100)
-      } else if (!isInViewport) {
-        // Video left viewport, reset play state
-        if (debug)
-          console.log('❌ Video left viewport - canceling play attempt')
-        setShouldAttemptPlay(false)
+        viewportTimerRef.current = setTimeout(() => {
+          if (debug)
+            console.log(
+              `[${order}] ✅ Timer complete - attempting to play video`
+            )
+          setShouldAttemptPlay(true)
+        }, scrollDelay)
       }
 
       return () => {
@@ -274,11 +216,14 @@ export const MuxPlayerWrapper = React.forwardRef<
           viewportTimerRef.current = null
         }
       }
+      // shouldAttemptPlay is intentionally excluded to avoid infinite loops
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
       isInViewport,
       hasPlayedOnce,
       scrollDelay,
       enableScrollOptimization,
+      playOnViewport,
       debug,
     ])
 
@@ -288,28 +233,41 @@ export const MuxPlayerWrapper = React.forwardRef<
         return
       }
 
-      const player = playerRef.current
-
-      if (!player) {
-        if (debug) console.log('⚠️ Player ref not available yet')
+      if (!shouldAttemptPlay || !isInViewport || !isPlayerReady) {
         return
       }
 
-      if (shouldAttemptPlay && isInViewport) {
-        // Attempt to play the video
-        if (debug) console.log('🎬 Attempting to play video')
-        player.play().catch(error => {
-          if (debug) console.warn('Play was prevented:', error)
-        })
-      } else if (!isInViewport) {
-        // Video left viewport, pause it
-        if (debug) console.log('⏸️ Video leaving viewport - pausing')
+      const player = playerRef.current
+
+      if (!player) {
+        if (debug) console.log(`[${order}] ⚠️ Player ref not available`)
+        return
+      }
+
+      // Attempt to play the video
+      if (debug) console.log(`[${order}] 🎬 Attempting to play video`)
+      player.play().catch(error => {
+        if (debug) console.warn(`[${order}] ❌ Play was prevented:`, error)
+      })
+      // playerRef is a ref object and is stable across renders
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [shouldAttemptPlay, isInViewport, isPlayerReady, playOnViewport])
+
+    // Handle pause when leaving viewport
+    useEffect(() => {
+      if (!playOnViewport || isInViewport) {
+        return
+      }
+
+      const player = playerRef.current
+      if (player && player.paused === false) {
+        if (debug) console.log(`[${order}] ⏸️ Video leaving viewport - pausing`)
         player.pause()
-        setShouldAttemptPlay(false) // Reset play attempt
+        setShouldAttemptPlay(false)
       }
       // playerRef is a ref object and is stable across renders
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [shouldAttemptPlay, isInViewport, playOnViewport])
+    }, [isInViewport, playOnViewport])
 
     // Initial autoplay for non-viewport mode
     useEffect(() => {
@@ -322,7 +280,7 @@ export const MuxPlayerWrapper = React.forwardRef<
       if (player) {
         // Try to play the video
         player.play().catch(error => {
-          if (debug) console.warn('Autoplay was prevented:', error)
+          if (debug) console.warn(`[${order}] Autoplay was prevented:`, error)
         })
       }
       // playerRef is a ref object and is stable across renders
@@ -331,7 +289,8 @@ export const MuxPlayerWrapper = React.forwardRef<
 
     // Handle when player is ready
     const handleCanPlay = (e: CustomEvent) => {
-      if (debug) console.log('✅ Player ready (canplay event)')
+      if (debug) console.log(`[${order}] ✅ Player ready (canplay event)`)
+      setIsPlayerReady(true)
       if (onCanPlay) {
         onCanPlay(e)
       }
@@ -340,7 +299,9 @@ export const MuxPlayerWrapper = React.forwardRef<
     // Handle when video starts playing - this triggers placeholder fadeout
     const handlePlay = (e: CustomEvent) => {
       if (debug)
-        console.log('▶️ Video started playing - fading out placeholder')
+        console.log(
+          `[${order}] ▶️ Video started playing - fading out placeholder`
+        )
       setHasPlayedOnce(true) // Mark that video has played at least once
       if (onPlay) {
         onPlay(e)
@@ -349,7 +310,7 @@ export const MuxPlayerWrapper = React.forwardRef<
 
     // Handle when video is paused
     const handlePause = () => {
-      if (debug) console.log('⏸️ Video paused')
+      if (debug) console.log(`[${order}] ⏸️ Video paused`)
     }
 
     return (
@@ -385,11 +346,15 @@ export const MuxPlayerWrapper = React.forwardRef<
             onPause={handlePause}
             onEnded={onEnded}
             onError={onError}
-            onLoadStart={() => debug && console.log('📹 Video load started')}
-            onLoadedMetadata={() =>
-              debug && console.log('📊 Video metadata loaded')
+            onLoadStart={() =>
+              debug && console.log(`[${order}] 📹 Video load started`)
             }
-            onLoadedData={() => debug && console.log('📦 Video data loaded')}
+            onLoadedMetadata={() =>
+              debug && console.log(`[${order}] 📊 Video metadata loaded`)
+            }
+            onLoadedData={() =>
+              debug && console.log(`[${order}] 📦 Video data loaded`)
+            }
             {...muxPlayerProps}
           />
 
@@ -416,60 +381,6 @@ export const MuxPlayerWrapper = React.forwardRef<
             )}
           </AnimatePresence>
         </div>
-
-        {/* Debug velocity display - fixed bottom left */}
-        {debug && enableScrollOptimization && (
-          <div
-            style={
-              {
-                position: 'fixed',
-                bottom: '0%',
-                left: '0%',
-                backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                color: 'white',
-                padding: '20px 30px',
-                fontSize: '24px',
-                fontWeight: 'bold',
-                fontFamily: 'monospace',
-                zIndex: 99999,
-                pointerEvents: 'none',
-                border: '3px solid #00ff00',
-                willChange: 'contents',
-                contain: 'layout style paint',
-              } as React.CSSProperties
-            }
-          >
-            <div
-              style={{ marginBottom: '8px', fontSize: '14px', opacity: 0.8 }}
-            >
-              Scroll Velocity
-            </div>
-            <div
-              ref={debugVelocityRef}
-              style={{
-                fontSize: '32px',
-                color: '#00ff00',
-                willChange: 'contents',
-              }}
-            >
-              0.000
-            </div>
-            <div style={{ marginTop: '8px', fontSize: '14px', opacity: 0.8 }}>
-              Threshold: {velocityThreshold.toFixed(3)}
-            </div>
-            <div
-              ref={debugStatusRef}
-              style={{
-                marginTop: '8px',
-                fontSize: '14px',
-                color: '#44ff44',
-                willChange: 'contents',
-              }}
-            >
-              ✅ Low/Stopped
-            </div>
-          </div>
-        )}
       </>
     )
   }
