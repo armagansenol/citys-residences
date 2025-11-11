@@ -48,8 +48,6 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { AnimatePresence, motion } from 'motion/react'
 
-import { Image } from '@/components/image'
-
 // Register GSAP plugins (required even when using useGSAP)
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(useGSAP, ScrollTrigger)
@@ -291,18 +289,18 @@ const MuxPlayerWrapperComponent = ({
           {!hasPlayedOnce && placeholder && (
             <motion.div
               key='placeholder'
-              initial={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5, ease: 'easeInOut' }}
               className='absolute inset-0 z-10 outline-dashed -outline-offset-8 outline-red-500'
             >
-              <Image
+              {/* <Image
                 src={placeholder as string}
                 alt='Video placeholder'
                 fill
                 className='object-cover object-center'
                 loading='lazy'
-              />
+              /> */}
             </motion.div>
           )}
         </AnimatePresence>
