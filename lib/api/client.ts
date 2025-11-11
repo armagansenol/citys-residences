@@ -35,15 +35,23 @@ class ApiClient {
     try {
       const url = this.baseUrl ? `${this.baseUrl}${endpoint}` : endpoint
 
+      const { headers, cache, next, ...restOptions } = options
+      const shouldOmitCache = typeof next?.revalidate !== 'undefined'
+
       const fetchOptions: RequestInit & {
         next?: { revalidate?: number | false; tags?: string[] }
       } = {
+        ...restOptions,
         headers: {
           ...this.defaultHeaders,
-          ...options.headers,
+          ...headers,
         },
-        cache: options.cache || this.defaultCache,
-        ...options,
+        ...(shouldOmitCache
+          ? {}
+          : {
+              cache: cache ?? this.defaultCache,
+            }),
+        ...(next ? { next } : {}),
       }
 
       const response = await fetch(url, fetchOptions as RequestInit)
