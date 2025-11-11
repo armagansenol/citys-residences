@@ -46,7 +46,7 @@ const suisseIntl = localFont({
       style: 'normal',
     },
     {
-      path: './fonts/suisse-intl/SuisseIntl-SemiBold.woff2',
+      path: './fonts/suisse-intl/SuisseIntl-Semibold.woff2',
       weight: '600',
       style: 'normal',
     },
