@@ -27,22 +27,21 @@ export function VideoWithText(props: VideoWithTextProps) {
         className
       )}
     >
-      <div className='absolute inset-0 h-full w-full'>
-        <AutoplayVideo
-          playbackId={mediaId}
-          style={
-            {
-              aspectRatio: aspect,
-              '--media-object-fit': 'cover',
-              '--media-object-position': 'center',
-              '--controls': 'none',
-            } as React.CSSProperties
-          }
-          minResolution='720p'
-          placeholder={thumbnail}
-          startTime={0}
-        />
-      </div>
+      <AutoplayVideo
+        className='absolute inset-0 h-full w-full'
+        playbackId={mediaId}
+        style={
+          {
+            aspectRatio: aspect,
+            '--media-object-fit': 'cover',
+            '--media-object-position': 'center',
+            '--controls': 'none',
+          } as React.CSSProperties
+        }
+        minResolution='720p'
+        placeholder={thumbnail}
+        startTime={0}
+      />
       <div
         className={cn(
           'absolute bottom-[10%] left-1/2 z-50 -translate-x-1/2 xl:bottom-[15%]'
