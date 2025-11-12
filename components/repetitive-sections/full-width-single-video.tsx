@@ -46,6 +46,7 @@ export function FullWidthSingleVideo(props: FullWidthSingleVideoProps) {
           } as React.CSSProperties
         }
         placeholder={thumbnail}
+        startTime={0}
         // poster={thumbnail}
         scrollDelay={200}
         viewportThreshold={0}
