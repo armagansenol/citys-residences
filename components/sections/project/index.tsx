@@ -286,7 +286,7 @@ export default async function Page({
       {/* architecture sections */}
       <QuoteWithVideo
         quote={t('quotes.architecture.quote')}
-        mediaId='1qwipsnwiv'
+        mediaId='tDjMbuCzuO9iJCH901CkmX1KxMf00pr8ugfUKCNr018Zmw'
         thumbnail='/img/thumbnail-murat-kader.jpg'
         portraitImage='/img/murat-kader-portrait.png'
         portraitImageMobile='/img/murat-kader-portrait.png'
@@ -299,7 +299,7 @@ export default async function Page({
       />
       <QuoteWithVideo
         quote={t('quotes.interior.quote')}
-        mediaId='k7c3eyfiwe'
+        mediaId='mLJCKzl700KKCbhHSdsjKoe02wBdIqCtu3IqmjNPDp6og'
         thumbnail='/img/thumbnail-toners.jpg'
         portraitImage='/img/toners-portrait.png'
         portraitImageMobile='/img/toners-portrait-mobile.png'
@@ -316,7 +316,7 @@ export default async function Page({
       />
       <QuoteWithVideo
         quote={t('quotes.landscape.quote')}
-        mediaId='lw6zlx5v5y'
+        mediaId='iiovQu22t3dx6FSfG5m2zhMOrrONjfXhQeDS01NqzMtI'
         thumbnail='/img/thumbnail-aktas.jpg'
         portraitImage='/img/aktas-portrait.png'
         portraitImageMobile='/img/aktas-portrait-mobile.png'
@@ -334,7 +334,7 @@ export default async function Page({
       />
       <QuoteWithVideo
         quote={t('quotes.structural.quote')}
-        mediaId='zmn4yqnamk'
+        mediaId='CFIFTz5N8wsl6VdwWBpKfeVg2TAgykGz9Xtjf700Dx2w'
         thumbnail='/img/thumbnail-melih-bulgur.jpg'
         portraitImage='/img/melih-bulgur-portrait.png'
         portraitImageMobile='/img/melih-bulgur-portrait-mobile.png'

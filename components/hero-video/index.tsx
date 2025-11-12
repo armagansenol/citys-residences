@@ -1,8 +1,5 @@
-'use client'
-
-import { breakpoints } from '@/styles/config.mjs'
-import MuxPlayer, { MuxPlayerRefAttributes } from '@mux/mux-player-react'
-import React, { useEffect, useRef, useState } from 'react'
+import MuxPlayer from '@mux/mux-player-react'
+import React from 'react'
 
 type HeroVideoProps = {
   desktopVideoId: string
@@ -21,22 +18,9 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
   desktopPoster,
   mobilePoster,
 }) => {
-  const playerRef = useRef<MuxPlayerRefAttributes>(null)
-  const [isMobile, setIsMobile] = useState(false)
+  console.log('hero-video', desktopPoster, mobilePoster)
 
-  useEffect(() => {
-    const checkViewport = () =>
-      setIsMobile(window.innerWidth <= breakpoints.breakpointMobile)
-    checkViewport()
-    window.addEventListener('resize', checkViewport)
-    return () => window.removeEventListener('resize', checkViewport)
-  }, [])
-
-  const poster = isMobile ? mobilePoster : desktopPoster
-  const videoId = isMobile ? mobileVideoId : desktopVideoId
-  const minResolution = isMobile ? '720p' : '1080p'
-
-  console.log(poster, videoId)
+  const minResolution = '720p'
 
   return (
     <>
@@ -55,9 +39,9 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
           sources.map((s, i) => <source key={i} src={s.src} type={s.type} />)}
       </video> */}
       <MuxPlayer
-        className='relative h-screen w-full'
-        ref={playerRef}
-        playbackId={videoId}
+        className='relative hidden h-screen w-full lg:block'
+        playbackId={desktopVideoId}
+        preload='auto'
         autoPlay
         playsInline
         loop
@@ -68,6 +52,25 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
         style={
           {
             aspectRatio: 16 / 9,
+            '--media-object-fit': 'cover',
+            '--media-object-position': 'center bottom',
+            '--controls': 'none',
+          } as React.CSSProperties
+        }
+      />
+      <MuxPlayer
+        className='relative block h-screen w-full lg:hidden'
+        playbackId={mobileVideoId}
+        autoPlay
+        playsInline
+        loop
+        muted
+        streamType='on-demand'
+        thumbnailTime={0}
+        minResolution={minResolution}
+        style={
+          {
+            aspectRatio: 9 / 16,
             '--media-object-fit': 'cover',
             '--media-object-position': 'center bottom',
             '--controls': 'none',

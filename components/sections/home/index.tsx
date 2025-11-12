@@ -1,14 +1,11 @@
 import { cn } from '@/lib/utils'
 import { getMessages, getTranslations } from 'next-intl/server'
-import dynamic from 'next/dynamic'
 
 import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
 import { ScaleOut } from '@/components/animations/scale-out'
 import { GsapSplitText } from '@/components/gsap-split-text'
-const HeroVideo = dynamic(
-  () => import('@/components/hero-video').then(mod => mod.HeroVideo),
-  { ssr: false }
-)
+
+import { HeroVideo } from '@/components/hero-video'
 import { IconCollab } from '@/components/icons'
 import { Image } from '@/components/image'
 import { SectionContactForm } from '@/components/section-contact-form'

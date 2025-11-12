@@ -10,7 +10,8 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { VisuallyHidden } from '@/components/ui/visually-hidden'
-import { WistiaPlayer } from '@wistia/wistia-player-react'
+import MuxPlayer from '@mux/mux-player-react/lazy'
+import { colors } from '@/styles/config.mjs'
 
 interface FullScreenVideoDialogProps {
   dialogTrigger?: React.ReactNode
@@ -39,7 +40,26 @@ export function FullScreenVideoDialog({
         </VisuallyHidden>
         <div className='relative flex aspect-[16/9] max-h-[100vh] w-screen flex-col xl:w-[80vw]'>
           {/* <WistiaPlayerWrapper className='h-full w-full' mediaId={mediaId} /> */}
-          <WistiaPlayer className='h-full w-full' mediaId={mediaId} />
+          {/* <WistiaPlayer className='h-full w-full' mediaId={mediaId} /> */}
+          <MuxPlayer
+            className='h-full w-full object-cover'
+            playbackId={mediaId}
+            autoPlay
+            playsInline
+            streamType='on-demand'
+            style={
+              {
+                aspectRatio: 16 / 9,
+                '--media-object-fit': 'contain',
+                '--pip-button': 'none',
+              } as React.CSSProperties
+            }
+            thumbnailTime={3}
+            loading='viewport'
+            accentColor={colors['tangerine-flake']}
+            primaryColor={colors['white']}
+            secondaryColor={colors['transparent']}
+          />
         </div>
       </DialogContent>
     </Dialog>
