@@ -82,8 +82,8 @@ export default function CitysLiving() {
         }
       >
         {isFetching && (
-          <div className='py-16 text-center font-primary text-base text-white opacity-80'>
-            Loading...
+          <div className='h-[50vh] text-center font-primary text-base text-white opacity-80'>
+            ...
           </div>
         )}
         {!isFetching && errorMessage && (

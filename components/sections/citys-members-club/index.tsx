@@ -94,10 +94,10 @@ export default function CitysMembersClub() {
       >
         {isFetching && (
           <div
-            className='py-16 text-center font-primary text-base opacity-80'
+            className='h-[50vh] text-center font-primary text-base opacity-80'
             style={messageStyle}
           >
-            Loading...
+            ...
           </div>
         )}
         {!isFetching && errorMessage && (
