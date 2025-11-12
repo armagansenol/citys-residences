@@ -1,15 +1,14 @@
 'use client'
 
+import { breakpoints } from '@/styles/config.mjs'
+import MuxPlayer, { MuxPlayerRefAttributes } from '@mux/mux-player-react'
 import React, { useEffect, useRef, useState } from 'react'
-import { Image } from '../image'
-import { cn } from '@/lib/utils'
 
 type HeroVideoProps = {
-  desktopSources: { src: string; type: string }[]
-  mobileSources: { src: string; type: string }[]
+  desktopVideoId: string
+  mobileVideoId: string
   desktopPoster: string
   mobilePoster: string
-  className?: string
   autoPlay?: boolean
   loop?: boolean
   muted?: boolean
@@ -17,64 +16,31 @@ type HeroVideoProps = {
 }
 
 const HeroVideo: React.FC<HeroVideoProps> = ({
-  desktopSources,
-  mobileSources,
+  desktopVideoId,
+  mobileVideoId,
   desktopPoster,
   mobilePoster,
-  className = '',
-  autoPlay = true,
-  loop = true,
-  muted = true,
-  preloadDistance = 400,
 }) => {
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const playerRef = useRef<MuxPlayerRefAttributes>(null)
   const [isMobile, setIsMobile] = useState(false)
-  const [shouldLoad, setShouldLoad] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false)
 
   useEffect(() => {
-    const checkViewport = () => setIsMobile(window.innerWidth <= 768)
+    const checkViewport = () =>
+      setIsMobile(window.innerWidth <= breakpoints.breakpointMobile)
     checkViewport()
     window.addEventListener('resize', checkViewport)
     return () => window.removeEventListener('resize', checkViewport)
   }, [])
 
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting || entry.intersectionRatio > 0) {
-            setShouldLoad(true)
-          }
-
-          if (entry.isIntersecting) {
-            if (autoPlay) {
-              video.play().catch(() => null)
-            }
-          } else {
-            video.pause()
-          }
-        })
-      },
-      {
-        rootMargin: `${preloadDistance}px 0px ${preloadDistance}px 0px`,
-        threshold: 0.1,
-      }
-    )
-
-    observer.observe(video)
-    return () => observer.disconnect()
-  }, [autoPlay, preloadDistance])
-
   const poster = isMobile ? mobilePoster : desktopPoster
-  const sources = isMobile ? mobileSources : desktopSources
+  const videoId = isMobile ? mobileVideoId : desktopVideoId
+  const minResolution = isMobile ? '720p' : '1080p'
+
+  console.log(poster, videoId)
 
   return (
     <>
-      <video
+      {/* <video
         ref={videoRef}
         className={cn(className, 'z-10 h-full w-full object-cover')}
         poster={poster}
@@ -87,8 +53,28 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
       >
         {shouldLoad &&
           sources.map((s, i) => <source key={i} src={s.src} type={s.type} />)}
-      </video>
-      <Image
+      </video> */}
+      <MuxPlayer
+        className='relative h-screen w-full'
+        ref={playerRef}
+        playbackId={videoId}
+        autoPlay
+        playsInline
+        loop
+        muted
+        streamType='on-demand'
+        thumbnailTime={0}
+        minResolution={minResolution}
+        style={
+          {
+            aspectRatio: 16 / 9,
+            '--media-object-fit': 'cover',
+            '--media-object-position': 'center bottom',
+            '--controls': 'none',
+          } as React.CSSProperties
+        }
+      />
+      {/* <Image
         src={desktopPoster}
         alt='Hero Video Poster'
         fill
@@ -121,7 +107,7 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
           }
         )}
         priority
-      />
+      /> */}
     </>
   )
 }

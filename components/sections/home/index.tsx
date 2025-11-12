@@ -1,10 +1,14 @@
 import { cn } from '@/lib/utils'
 import { getMessages, getTranslations } from 'next-intl/server'
+import dynamic from 'next/dynamic'
 
 import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
 import { ScaleOut } from '@/components/animations/scale-out'
 import { GsapSplitText } from '@/components/gsap-split-text'
-import { HeroVideo } from '@/components/hero-video'
+const HeroVideo = dynamic(
+  () => import('@/components/hero-video').then(mod => mod.HeroVideo),
+  { ssr: false }
+)
 import { IconCollab } from '@/components/icons'
 import { Image } from '@/components/image'
 import { SectionContactForm } from '@/components/section-contact-form'
@@ -39,21 +43,10 @@ export default async function Page({
       >
         <ScaleOut>
           <HeroVideo
-            desktopSources={[
-              {
-                src: 'https://player.vimeo.com/progressive_redirect/playback/1130616578/rendition/1080p/file.mp4?loc=external&log_user=0&signature=4c84b12cfbf4f5ae9ef7087bd4cc4277a815c1235d739ebda936132a2a46214b',
-                type: 'video/mp4',
-              },
-            ]}
-            mobileSources={[
-              {
-                src: 'https://player.vimeo.com/progressive_redirect/playback/1132514015/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&log_user=0&signature=ba1b650d11719cb9702714d5b6709e4f0c4d9a72bd6cedab51735cf312430ad8',
-                type: 'video/mp4',
-              },
-            ]}
+            desktopVideoId='xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM'
+            mobileVideoId='Hg9dD402dgbmsAX3VwXFX3EW49jlP02cYMUZGOkL69aAY'
             desktopPoster='/img/desktop-hero-poster.jpg'
             mobilePoster='/img/mobile-hero-poster.jpg'
-            className='pointer-events-none relative h-screen w-screen'
           />
         </ScaleOut>
         <div
