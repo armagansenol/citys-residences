@@ -42,13 +42,7 @@ export default async function Page() {
           />
         </AspectCover> */}
         <AutoplayVideo
-          className='h-full w-full object-cover'
           playbackId={citysIstanbulAvmBanner.muxSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          streamType='on-demand'
           style={
             {
               aspectRatio: citysIstanbulAvmBanner.aspect(),
@@ -57,7 +51,6 @@ export default async function Page() {
             } as React.CSSProperties
           }
           thumbnailTime={0}
-          loading='viewport'
         />
       </section>
       <section className='section-container px-8 py-8 lg:px-0 lg:py-24'>

@@ -50,13 +50,7 @@ export function VideoWithText(props: VideoWithTextProps) {
             playPauseControl={false}
           /> */}
         <AutoplayVideo
-          className='h-full w-full object-cover'
           playbackId={mediaId}
-          autoPlay
-          muted
-          loop
-          playsInline
-          streamType='on-demand'
           style={
             {
               aspectRatio: aspect,
@@ -66,7 +60,6 @@ export function VideoWithText(props: VideoWithTextProps) {
           }
           thumbnailTime={0}
           minResolution='720p'
-          loading='viewport'
         />
       </div>
       <div

@@ -58,5 +58,15 @@ export function AutoplayVideo({
     }
   }, [intersectionThreshold, viewportOptimization])
 
-  return <MuxPlayer ref={playerRef} {...props} />
+  return (
+    <MuxPlayer
+      ref={playerRef}
+      autoPlay
+      muted
+      loop
+      playsInline
+      streamType='on-demand'
+      {...props}
+    />
+  )
 }

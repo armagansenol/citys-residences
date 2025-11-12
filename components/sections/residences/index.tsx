@@ -123,13 +123,7 @@ export default async function Page({
           />
         </AspectCover> */}
         <AutoplayVideo
-          className='h-full w-full object-cover'
           playbackId={residencesBanner.muxSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          streamType='on-demand'
           style={
             {
               aspectRatio: residencesBanner.aspect(),
@@ -138,7 +132,6 @@ export default async function Page({
             } as React.CSSProperties
           }
           thumbnailTime={0}
-          loading='viewport'
         />
       </section>
       <section className='relative overflow-hidden bg-white'>

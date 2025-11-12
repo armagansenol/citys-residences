@@ -59,13 +59,7 @@ export default async function CitysTimes({ locale }: { locale?: string }) {
           />
         </AspectCover> */}
         <AutoplayVideo
-          className='h-full w-full object-cover'
           playbackId={citysTimesBanner.muxSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          streamType='on-demand'
           style={
             {
               aspectRatio: citysTimesBanner.aspect(),
@@ -74,7 +68,6 @@ export default async function CitysTimes({ locale }: { locale?: string }) {
             } as React.CSSProperties
           }
           thumbnailTime={0}
-          loading='viewport'
         />
       </section>
       <section

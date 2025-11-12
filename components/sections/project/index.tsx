@@ -57,13 +57,7 @@ export default async function Page({
           />
         </AspectCover> */}
         <AutoplayVideo
-          className='h-full w-full object-cover'
           playbackId={projectBanner.muxSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          streamType='on-demand'
           style={
             {
               aspectRatio: projectBanner.aspect(),
@@ -72,7 +66,6 @@ export default async function Page({
             } as React.CSSProperties
           }
           thumbnailTime={0}
-          loading='viewport'
         />
       </section>
       <InteractiveMap />
