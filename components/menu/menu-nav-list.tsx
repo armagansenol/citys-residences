@@ -13,7 +13,6 @@ import { cn } from '@/lib/utils'
 import MuxPlayer from '@mux/mux-player-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
-import { AspectCover } from '../aspect-cover'
 
 export function MenuNavList() {
   const { handleNavClick } = useNavigation()
@@ -135,28 +134,28 @@ export function MenuNavList() {
                     alt='Menu Image'
                     fill
                     className='h-full w-full object-cover'
+                    desktopSize='20vw'
                   />
                 )}
                 {media.type === 'video' && (
-                  <AspectCover ratio={getAspectRatio(itemId)}>
-                    <MuxPlayer
-                      className='h-full w-full object-cover'
-                      playbackId={media.src}
-                      preload='auto'
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      streamType='on-demand'
-                      thumbnailTime={0}
-                      style={
-                        {
-                          aspectRatio: getAspectRatio(itemId),
-                          '--media-object-fit': 'cover',
-                        } as React.CSSProperties
-                      }
-                    />
-                  </AspectCover>
+                  <MuxPlayer
+                    className='h-full w-full object-cover'
+                    playbackId={media.src}
+                    preload='auto'
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    streamType='on-demand'
+                    thumbnailTime={0}
+                    style={
+                      {
+                        aspectRatio: getAspectRatio(itemId),
+                        '--media-object-fit': 'cover',
+                        '--controls': 'none',
+                      } as React.CSSProperties
+                    }
+                  />
                 )}
               </div>
             )
