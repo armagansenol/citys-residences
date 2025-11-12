@@ -9,8 +9,6 @@ export interface FullWidthSingleVideoProps {
 export function FullWidthSingleVideo(props: FullWidthSingleVideoProps) {
   const { mediaId, thumbnail, videoAspectRatio } = props
 
-  console.log('FullWidthSingleVideo', videoAspectRatio, mediaId, thumbnail)
-
   return (
     <section className='relative aspect-[16/14] overflow-hidden lg:aspect-[16/7]'>
       {/* <div className='absolute left-0 top-0'>FullWidthSingleVideo</div> */}
@@ -47,7 +45,7 @@ export function FullWidthSingleVideo(props: FullWidthSingleVideoProps) {
             '--controls': 'none',
           } as React.CSSProperties
         }
-        // placeholder={thumbnail}
+        placeholder={thumbnail}
         // poster={thumbnail}
         scrollDelay={200}
         viewportThreshold={0}

@@ -23,8 +23,6 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
   const [sanitizedSubtitle, setSanitizedSubtitle] = useState(subtitle)
   const [sanitizedTitle, setSanitizedTitle] = useState(title)
 
-  console.log('FullWidthVideoText', videoAspectRatio, mediaId, thumbnail)
-
   useEffect(() => {
     // Dynamically import DOMPurify only on client side
     import('isomorphic-dompurify').then(module => {
@@ -147,7 +145,7 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
               '--controls': 'none',
             } as React.CSSProperties
           }
-          // placeholder={thumbnail}
+          placeholder={thumbnail}
           // poster={thumbnail}
           scrollDelay={200}
           viewportThreshold={0}

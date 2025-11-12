@@ -38,13 +38,15 @@
 
 import './styles.css'
 
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 // import MuxPlayer from '@mux/mux-player-react'
 import { useGSAP } from '@gsap/react'
 import type { MuxPlayerRefAttributes } from '@mux/mux-player-react'
 import MuxPlayer from '@mux/mux-player-react/lazy'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { AnimatePresence, motion } from 'motion/react'
+import { Image } from '../image'
 
 // Register GSAP plugins (required even when using useGSAP)
 if (typeof window !== 'undefined') {
@@ -54,6 +56,7 @@ if (typeof window !== 'undefined') {
 interface MuxPlayerWrapperProps extends React.ComponentProps<typeof MuxPlayer> {
   viewportThreshold?: number
   scrollDelay?: number // Time in milliseconds video must be in viewport before playing
+  placeholder?: string
 }
 
 const MuxPlayerWrapperComponent = ({
@@ -64,7 +67,8 @@ const MuxPlayerWrapperComponent = ({
   onError,
   streamType = 'on-demand',
   viewportThreshold = 0,
-  scrollDelay = 500, // Default 500ms
+  scrollDelay = 500,
+  placeholder,
   ...muxPlayerProps
 }: MuxPlayerWrapperProps) => {
   const playerRef = useRef<MuxPlayerRefAttributes | null>(null)
@@ -78,7 +82,7 @@ const MuxPlayerWrapperComponent = ({
   )
 
   // Scroll optimization state
-  // const [hasPlayedOnce, setHasPlayedOnce] = useState(false) // Track if video has played at least once
+  const [hasPlayedOnce, setHasPlayedOnce] = useState(false) // Track if video has played at least once
   const isInViewportRef = useRef(false)
   const isPlayerReadyRef = useRef(false)
   const hasPendingPlayRef = useRef(false)
@@ -239,7 +243,7 @@ const MuxPlayerWrapperComponent = ({
   const handlePlay = useCallback(
     (e: CustomEvent) => {
       hasPlayedOnceRef.current = true
-      // setHasPlayedOnce(true) // Mark that video has played at least once
+      setHasPlayedOnce(true) // Mark that video has played at least once
       clearViewportTimer()
       if (onPlay) {
         onPlay(e)
@@ -273,13 +277,13 @@ const MuxPlayerWrapperComponent = ({
           onPause={handlePause}
           onEnded={onEnded}
           onError={onError}
-          minResolution='720p'
+          minResolution='540p'
           loading='viewport'
           {...muxPlayerProps}
         />
 
         {/* Placeholder overlays video and fades out when video starts playing for the first time */}
-        {/* <AnimatePresence>
+        <AnimatePresence>
           {!hasPlayedOnce && placeholder && (
             <motion.div
               key='placeholder'
@@ -297,7 +301,7 @@ const MuxPlayerWrapperComponent = ({
               />
             </motion.div>
           )}
-        </AnimatePresence> */}
+        </AnimatePresence>
       </div>
     </>
   )

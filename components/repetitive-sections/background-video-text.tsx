@@ -33,8 +33,6 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
     })
   }, [description, subtitle, title])
 
-  console.log('BackgroundVideoText', videoAspectRatio, mediaId, thumbnail)
-
   return (
     <section
       className={cn(
@@ -133,7 +131,7 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
               '--controls': 'none',
             } as React.CSSProperties
           }
-          // placeholder={thumbnail}
+          placeholder={thumbnail}
           // poster={thumbnail}
           scrollDelay={200}
           viewportThreshold={0}
