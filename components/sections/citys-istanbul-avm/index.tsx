@@ -35,22 +35,19 @@ export default async function Page() {
         bgImage='/img/backgrounds/aqua-belt.png'
       />
       <section className='h-screen overflow-hidden lg:h-[45vw]'>
-        {/* <AspectCover ratio={citysIstanbulAvmBanner.aspect()}>
-          <WistiaPlayerWrapper
-            mediaId={citysIstanbulAvmBanner.mediaId}
-            aspect={citysIstanbulAvmBanner.aspect()}
-          />
-        </AspectCover> */}
         <AutoplayVideo
+          className='absolute inset-0 h-full w-full'
           playbackId={citysIstanbulAvmBanner.muxSrc}
           style={
             {
               aspectRatio: citysIstanbulAvmBanner.aspect(),
               '--media-object-fit': 'cover',
+              '--media-object-position': 'center',
               '--controls': 'none',
             } as React.CSSProperties
           }
-          thumbnailTime={0}
+          placeholder={citysIstanbulAvmBanner.thumbnail}
+          startTime={0}
         />
       </section>
       <section className='section-container px-8 py-8 lg:px-0 lg:py-24'>
