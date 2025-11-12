@@ -42,32 +42,31 @@ export default async function MuxPlayerTestPage() {
     {
       playbackId: heroVideo.muxSrc,
       aspect: heroVideo.aspect,
-      placeholder: '/img/desktop-hero-poster.jpg',
+      placeholder: heroVideo.thumbnail,
       blurDataURL: heroPlaceholder.blurDataURL,
     },
     {
       playbackId: livePeacefully.muxSrc,
       aspect: livePeacefully.aspect,
-      placeholder: '/img/thumbnail-live-peacefully.jpg',
+      placeholder: livePeacefully.thumbnail,
       blurDataURL: livePeacefullyPlaceholder.blurDataURL,
     },
     {
       playbackId: liveMore.muxSrc,
       aspect: liveMore.aspect,
-      placeholder: '/img/thumbnail-live-more.jpg',
+      placeholder: liveMore.thumbnail,
       blurDataURL: liveMorePlaceholder.blurDataURL,
     },
     {
       playbackId: projectBanner.muxSrc,
       aspect: projectBanner.aspect,
-      placeholder: '/img/thumbnail-murat-kader.jpg',
+      placeholder: projectBanner.thumbnail,
       blurDataURL: projectBannerPlaceholder.blurDataURL,
     },
     {
       playbackId: residencesBanner.muxSrc,
       aspect: residencesBanner.aspect,
-      placeholder:
-        'https://panel.citysresidences.com/assets/images/residences/03112025102126.jpg',
+      placeholder: residencesBanner.thumbnail,
       blurDataURL: residencesPlaceholder.blurDataURL,
     },
     // {
@@ -90,16 +89,16 @@ export default async function MuxPlayerTestPage() {
         {[
           ...videos,
           ...videos,
-          // ...videos,
-          // ...videos,
-          // ...videos,
-          // ...videos,
-          // ...videos,
-          // ...videos,
-          // ...videos,
-          // ...videos,
-          // ...videos,
-          // ...videos,
+          ...videos,
+          ...videos,
+          ...videos,
+          ...videos,
+          ...videos,
+          ...videos,
+          ...videos,
+          ...videos,
+          ...videos,
+          ...videos,
         ].map((video, index) => (
           <div
             key={index}
@@ -108,8 +107,7 @@ export default async function MuxPlayerTestPage() {
             <MuxPlayerWrapper
               playbackId={video.playbackId as string}
               style={{ aspectRatio: video.aspect() as number }}
-              placeholder={video.blurDataURL}
-              poster={video.placeholder}
+              placeholder={video.placeholder}
               loading='viewport'
               scrollDelay={200}
               viewportThreshold={0}

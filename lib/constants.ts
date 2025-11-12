@@ -267,6 +267,8 @@ export const heroVideo: Media = {
   },
   mediaId: 'e2tew1zhxj',
   muxSrc: 'xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM',
+  thumbnail:
+    'https://image.mux.com/xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM/thumbnail.webp?width=1920&time=0',
 }
 
 export const livePeacefully: Media = {
@@ -277,7 +279,7 @@ export const livePeacefully: Media = {
   mediaId: 'dxd0f32sha',
   muxSrc: 'y1KN58bThKtP2SOOn8wNl27K3nx01RbSvIcWB3lFycug',
   thumbnail:
-    'https://image.mux.com/y1KN58bThKtP2SOOn8wNl27K3nx01RbSvIcWB3lFycug/thumbnail.png?width=1920&time=0',
+    'https://image.mux.com/y1KN58bThKtP2SOOn8wNl27K3nx01RbSvIcWB3lFycug/thumbnail.webp?width=1920&time=0',
 }
 
 export const liveMore: Media = {
@@ -288,7 +290,7 @@ export const liveMore: Media = {
   mediaId: 'cpkxfmdyvb',
   muxSrc: 'Qj00KNCUeq1hO00Ad2Xk402XRGm8ekmqNfsGOamzsVVcQ00',
   thumbnail:
-    'https://image.mux.com/Qj00KNCUeq1hO00Ad2Xk402XRGm8ekmqNfsGOamzsVVcQ00/thumbnail.png?width=1920&time=0',
+    'https://image.mux.com/Qj00KNCUeq1hO00Ad2Xk402XRGm8ekmqNfsGOamzsVVcQ00/thumbnail.webp?width=1920&time=0',
 }
 
 export const projectBanner: Media = {
@@ -299,7 +301,7 @@ export const projectBanner: Media = {
   mediaId: 'p4l0a63nut',
   muxSrc: 'fWSlJj9pskvE7rWRKuNLVIY2vQyAOD02NFSNdPwpDLuE',
   thumbnail:
-    'https://image.mux.com/fWSlJj9pskvE7rWRKuNLVIY2vQyAOD02NFSNdPwpDLuE/thumbnail.png?width=1920&time=0',
+    'https://image.mux.com/fWSlJj9pskvE7rWRKuNLVIY2vQyAOD02NFSNdPwpDLuE/thumbnail.webp?width=1920&time=0',
 }
 
 export const residencesBanner: Media = {
@@ -310,7 +312,7 @@ export const residencesBanner: Media = {
   mediaId: '4g5plgua2p',
   muxSrc: 'cSjhDoPNBkNtVNwRuAvtWKE9BbGko7zA2Db5FR2oRq4',
   thumbnail:
-    'https://image.mux.com/cSjhDoPNBkNtVNwRuAvtWKE9BbGko7zA2Db5FR2oRq4/thumbnail.png?width=1920&time=0',
+    'https://image.mux.com/cSjhDoPNBkNtVNwRuAvtWKE9BbGko7zA2Db5FR2oRq4/thumbnail.webp?width=1920&time=0',
 }
 export const citysIstanbulAvmBanner: Media = {
   name: 'citys istanbul avm banner',
@@ -320,7 +322,7 @@ export const citysIstanbulAvmBanner: Media = {
   mediaId: 'a5b5zn9o9x',
   muxSrc: 'shU3xvk8cSjG1S3PJaTeSs9LOogQ301jz8JYJ6F5600to',
   thumbnail:
-    'https://image.mux.com/shU3xvk8cSjG1S3PJaTeSs9LOogQ301jz8JYJ6F5600to/thumbnail.png?width=1920&time=0',
+    'https://image.mux.com/shU3xvk8cSjG1S3PJaTeSs9LOogQ301jz8JYJ6F5600to/thumbnail.webp?width=1920&time=0',
 }
 export const citysTimesBanner: Media = {
   name: 'citys times banner',
@@ -330,7 +332,7 @@ export const citysTimesBanner: Media = {
   mediaId: 'luxxfpk3x3',
   muxSrc: 'NB02x73haYbyN18zmvgUntrAutAeqhWaZGf8gkUYUkmA',
   thumbnail:
-    'https://image.mux.com/NB02x73haYbyN18zmvgUntrAutAeqhWaZGf8gkUYUkmA/thumbnail.png?width=1920&time=0',
+    'https://image.mux.com/NB02x73haYbyN18zmvgUntrAutAeqhWaZGf8gkUYUkmA/thumbnail.webp?width=1920&time=0',
 }
 
 export const scrollDelay = 0.2

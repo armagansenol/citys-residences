@@ -56,7 +56,7 @@ if (typeof window !== 'undefined') {
 interface MuxPlayerWrapperProps extends React.ComponentProps<typeof MuxPlayer> {
   viewportThreshold?: number
   scrollDelay?: number // Time in milliseconds video must be in viewport before playing
-  placeholder?: string
+  customPlaceholder?: string
 }
 
 const MuxPlayerWrapperComponent = ({
@@ -68,7 +68,7 @@ const MuxPlayerWrapperComponent = ({
   streamType = 'on-demand',
   viewportThreshold = 0,
   scrollDelay = 500,
-  placeholder,
+  customPlaceholder,
   ...muxPlayerProps
 }: MuxPlayerWrapperProps) => {
   const playerRef = useRef<MuxPlayerRefAttributes | null>(null)
@@ -89,6 +89,8 @@ const MuxPlayerWrapperComponent = ({
   const hasPlayedOnceRef = useRef(false)
   const viewportTimerRef = useRef<NodeJS.Timeout | null>(null)
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null)
+
+  console.log('hasPlayedOnce', hasPlayedOnce)
 
   // Memoize viewport callbacks to prevent ScrollTrigger recreations
   const handleViewportEnter = useCallback(() => {
@@ -283,25 +285,27 @@ const MuxPlayerWrapperComponent = ({
         />
 
         {/* Placeholder overlays video and fades out when video starts playing for the first time */}
-        <AnimatePresence>
-          {!hasPlayedOnce && placeholder && (
-            <motion.div
-              key='placeholder'
-              initial={{ opacity: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className='absolute inset-0 z-10 outline-dashed -outline-offset-8 outline-red-500'
-            >
-              <Image
-                src={placeholder as string}
-                alt='Video placeholder'
-                fill
-                className='object-cover object-center'
-                loading='lazy'
-              />
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {customPlaceholder && (
+          <AnimatePresence>
+            {!hasPlayedOnce && customPlaceholder && (
+              <motion.div
+                key='placeholder'
+                initial={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
+                className='absolute inset-0 z-10 outline-dashed -outline-offset-8 outline-red-500'
+              >
+                <Image
+                  src={customPlaceholder as string}
+                  alt='Video placeholder'
+                  fill
+                  className='object-cover object-center'
+                  loading='lazy'
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        )}
       </div>
     </>
   )
