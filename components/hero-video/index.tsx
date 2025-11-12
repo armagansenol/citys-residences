@@ -1,4 +1,8 @@
+'use client'
+
+import { breakpoints } from '@/styles/config.mjs'
 import MuxPlayer from '@mux/mux-player-react'
+import { useWindowSize } from 'hamo'
 import React from 'react'
 
 type HeroVideoProps = {
@@ -20,7 +24,9 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
 }) => {
   console.log('hero-video', desktopPoster, mobilePoster)
 
-  const minResolution = '720p'
+  const { width: windowWidth } = useWindowSize(100)
+
+  const isMobile = windowWidth && windowWidth < breakpoints.breakpointMobile
 
   return (
     <>
@@ -38,45 +44,50 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
         {shouldLoad &&
           sources.map((s, i) => <source key={i} src={s.src} type={s.type} />)}
       </video> */}
-      <MuxPlayer
-        className='relative hidden h-screen w-full lg:block'
-        playbackId={desktopVideoId}
-        preload='auto'
-        autoPlay
-        playsInline
-        loop
-        muted
-        streamType='on-demand'
-        thumbnailTime={0}
-        minResolution={minResolution}
-        style={
-          {
-            aspectRatio: 16 / 9,
-            '--media-object-fit': 'cover',
-            '--media-object-position': 'center bottom',
-            '--controls': 'none',
-          } as React.CSSProperties
-        }
-      />
-      <MuxPlayer
-        className='relative block h-screen w-full lg:hidden'
-        playbackId={mobileVideoId}
-        autoPlay
-        playsInline
-        loop
-        muted
-        streamType='on-demand'
-        thumbnailTime={0}
-        minResolution={minResolution}
-        style={
-          {
-            aspectRatio: 9 / 16,
-            '--media-object-fit': 'cover',
-            '--media-object-position': 'center bottom',
-            '--controls': 'none',
-          } as React.CSSProperties
-        }
-      />
+      {isMobile && (
+        <MuxPlayer
+          className='relative block h-screen w-full lg:hidden'
+          playbackId={mobileVideoId}
+          preload='auto'
+          autoPlay
+          playsInline
+          loop
+          muted
+          streamType='on-demand'
+          thumbnailTime={0}
+          minResolution='480p'
+          style={
+            {
+              aspectRatio: 9 / 16,
+              '--media-object-fit': 'cover',
+              '--media-object-position': 'center bottom',
+              '--controls': 'none',
+            } as React.CSSProperties
+          }
+        />
+      )}
+      {!isMobile && (
+        <MuxPlayer
+          className='relative hidden h-screen w-full lg:block'
+          playbackId={desktopVideoId}
+          preload='auto'
+          autoPlay
+          playsInline
+          loop
+          muted
+          streamType='on-demand'
+          thumbnailTime={0}
+          minResolution='720p'
+          style={
+            {
+              aspectRatio: 16 / 9,
+              '--media-object-fit': 'cover',
+              '--media-object-position': 'center bottom',
+              '--controls': 'none',
+            } as React.CSSProperties
+          }
+        />
+      )}
       {/* <Image
         src={desktopPoster}
         alt='Hero Video Poster'
