@@ -74,9 +74,7 @@ export default async function CitysTimes({ locale }: { locale?: string }) {
             } as React.CSSProperties
           }
           thumbnailTime={0}
-          minResolution='1080p'
-          loading='page'
-          nohotkeys
+          loading='viewport'
         />
       </section>
       <section

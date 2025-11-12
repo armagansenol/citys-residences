@@ -57,8 +57,7 @@ export default async function Page() {
             } as React.CSSProperties
           }
           thumbnailTime={0}
-          minResolution='1080p'
-          loading='page'
+          loading='viewport'
         />
       </section>
       <section className='section-container px-8 py-8 lg:px-0 lg:py-24'>

@@ -147,9 +147,8 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
               '--controls': 'none',
             } as React.CSSProperties
           }
-          placeholder={thumbnail}
-          poster={thumbnail}
-          loading='viewport'
+          // placeholder={thumbnail}
+          // poster={thumbnail}
           scrollDelay={200}
           viewportThreshold={0}
         />

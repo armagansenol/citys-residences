@@ -65,8 +65,8 @@ export function VideoWithText(props: VideoWithTextProps) {
             } as React.CSSProperties
           }
           thumbnailTime={0}
-          minResolution='1080p'
-          loading='page'
+          minResolution='720p'
+          loading='viewport'
         />
       </div>
       <div

@@ -40,7 +40,6 @@ import './styles.css'
 
 import React, { useCallback, useRef } from 'react'
 // import MuxPlayer from '@mux/mux-player-react'
-import { cn } from '@/lib/utils'
 import { useGSAP } from '@gsap/react'
 import type { MuxPlayerRefAttributes } from '@mux/mux-player-react'
 import MuxPlayer from '@mux/mux-player-react/lazy'
@@ -59,9 +58,6 @@ interface MuxPlayerWrapperProps extends React.ComponentProps<typeof MuxPlayer> {
 
 const MuxPlayerWrapperComponent = ({
   playbackId,
-  metadata,
-  placeholder,
-  className,
   onCanPlay,
   onPlay,
   onEnded,
@@ -264,9 +260,6 @@ const MuxPlayerWrapperComponent = ({
         <MuxPlayer
           ref={handlePlayerRef}
           playbackId={playbackId}
-          metadata={metadata}
-          placeholder={placeholder}
-          className={cn(className)}
           // No native autoplay - we control playback via viewport detection
           muted
           loop
@@ -281,6 +274,7 @@ const MuxPlayerWrapperComponent = ({
           onEnded={onEnded}
           onError={onError}
           minResolution='720p'
+          loading='viewport'
           {...muxPlayerProps}
         />
 

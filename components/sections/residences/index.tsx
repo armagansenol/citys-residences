@@ -138,9 +138,7 @@ export default async function Page({
             } as React.CSSProperties
           }
           thumbnailTime={0}
-          minResolution='1080p'
-          loading='page'
-          nohotkeys
+          loading='viewport'
         />
       </section>
       <section className='relative overflow-hidden bg-white'>
