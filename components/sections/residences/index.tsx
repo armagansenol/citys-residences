@@ -129,6 +129,7 @@ export default async function Page({
           }
           placeholder={residencesBanner.thumbnail}
           startTime={0}
+          minResolution='720p'
         />
       </section>
       <section className='relative overflow-hidden bg-white'>

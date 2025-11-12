@@ -62,6 +62,7 @@ export default async function Page({
           }
           placeholder={projectBanner.thumbnail}
           startTime={0}
+          minResolution='720p'
         />
       </section>
       <InteractiveMap />

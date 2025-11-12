@@ -64,6 +64,7 @@ export default async function CitysTimes({ locale }: { locale?: string }) {
             } as React.CSSProperties
           }
           thumbnailTime={0}
+          minResolution='720p'
         />
       </section>
       <section
