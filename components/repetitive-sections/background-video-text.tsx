@@ -103,7 +103,6 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
           }
           // placeholder={thumbnail}
           customPlaceholder={thumbnail}
-          startTime={0}
         />
       </div>
     </section>

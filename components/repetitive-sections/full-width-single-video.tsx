@@ -24,7 +24,6 @@ export function FullWidthSingleVideo(props: FullWidthSingleVideoProps) {
         }
         // placeholder={thumbnail}
         customPlaceholder={thumbnail}
-        startTime={0}
       />
     </section>
   )

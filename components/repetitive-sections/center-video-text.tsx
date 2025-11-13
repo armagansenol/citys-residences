@@ -99,7 +99,6 @@ export function CenterVideoText(props: CenterVideoTextProps) {
             }
             // placeholder={thumbnail}
             customPlaceholder={thumbnail}
-            startTime={0}
           />
         </div>
       </div>

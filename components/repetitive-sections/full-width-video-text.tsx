@@ -99,7 +99,6 @@ export function FullWidthVideoText(props: FullWidthVideoTextProps) {
           }
           // placeholder={thumbnail}
           customPlaceholder={thumbnail}
-          startTime={0}
         />
       </div>
     </section>
