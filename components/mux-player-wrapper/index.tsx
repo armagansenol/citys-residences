@@ -3,55 +3,74 @@
 import './styles.css'
 
 import React, { useCallback, useRef, useState } from 'react'
-// import MuxPlayer from '@mux/mux-player-react'
 import { Image } from '@/components/image'
 import { useGSAP } from '@gsap/react'
-import type { MuxPlayerRefAttributes } from '@mux/mux-player-react'
-import MuxPlayer from '@mux/mux-player-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { AnimatePresence, motion } from 'motion/react'
-import { useWindowSize } from 'hamo'
-import { breakpoints } from '@/styles/config.mjs'
+// Removed unused imports
 
 // Register GSAP plugins (required even when using useGSAP)
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(useGSAP, ScrollTrigger)
 }
 
-interface MuxPlayerWrapperProps extends React.ComponentProps<typeof MuxPlayer> {
+interface MuxPlayerWrapperProps
+  extends Omit<
+    React.ComponentProps<'video'>,
+    'src' | 'poster' | 'style' | 'onCanPlay' | 'onPlay'
+  > {
+  playbackId?: string
+  src?: string
   viewportThreshold?: number
   scrollDelay?: number // Time in milliseconds video must be in viewport before playing
   customPlaceholder?: string
+  style?: React.CSSProperties & {
+    '--media-object-fit'?: string
+    '--media-object-position'?: string
+    '--controls'?: string
+  }
+  // Event handlers that accept CustomEvent for backward compatibility
+  onCanPlay?: (e: CustomEvent) => void
+  onPlay?: (e: CustomEvent) => void
+  // MuxPlayer-specific props that we ignore
+  minResolution?: string
+  maxResolution?: string
+  streamType?: string
 }
 
 const MuxPlayerWrapperComponent = ({
   playbackId,
+  src,
   onCanPlay,
   onPlay,
   onEnded,
   onError,
-  streamType = 'on-demand',
   viewportThreshold = 0,
   scrollDelay = 2000,
   customPlaceholder,
-  ...muxPlayerProps
+  style,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  minResolution: _minResolution,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  maxResolution: _maxResolution,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  streamType: _streamType,
+  ...videoProps
 }: MuxPlayerWrapperProps) => {
-  const { width: windowWidth } = useWindowSize(100)
-  const isMobile = windowWidth && windowWidth < breakpoints.breakpointMobile
+  // Convert playbackId to highest.mp4 URL if provided
+  const videoSrc =
+    src ||
+    (playbackId
+      ? `https://stream.mux.com/${playbackId}/highest.mp4`
+      : undefined)
 
-  const minResolution = isMobile ? '480p' : '720p'
-  const maxResolution = isMobile ? '720p' : '1080p'
-
-  const playerRef = useRef<MuxPlayerRefAttributes | null>(null)
+  const playerRef = useRef<HTMLVideoElement | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  const handlePlayerRef = useCallback(
-    (instance: MuxPlayerRefAttributes | null) => {
-      playerRef.current = instance
-    },
-    []
-  )
+  const handlePlayerRef = useCallback((instance: HTMLVideoElement | null) => {
+    playerRef.current = instance
+  }, [])
 
   // Scroll optimization state
   const isInViewportRef = useRef(false)
@@ -188,7 +207,7 @@ const MuxPlayerWrapperComponent = ({
 
   // Handle when player is ready - memoized to prevent recreating on every render
   const handleCanPlay = useCallback(
-    (e: CustomEvent) => {
+    (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
       isPlayerReadyRef.current = true
       // Mark player as ready for display, which will trigger placeholder fade out
       setIsPlayerReadyForDisplay(true)
@@ -196,7 +215,9 @@ const MuxPlayerWrapperComponent = ({
         attemptPlay()
       }
       if (onCanPlay) {
-        onCanPlay(e)
+        // Convert React event to CustomEvent-like object for backward compatibility
+        const customEvent = new CustomEvent('canplay', { detail: e })
+        onCanPlay(customEvent)
       }
     },
     [attemptPlay, onCanPlay]
@@ -229,11 +250,13 @@ const MuxPlayerWrapperComponent = ({
 
   // Handle when video starts playing
   const handlePlay = useCallback(
-    (e: CustomEvent) => {
+    (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
       hasPlayedOnceRef.current = true
       clearViewportTimer()
       if (onPlay) {
-        onPlay(e)
+        // Convert React event to CustomEvent-like object for backward compatibility
+        const customEvent = new CustomEvent('play', { detail: e })
+        onPlay(customEvent)
       }
     },
     [clearViewportTimer, onPlay]
@@ -248,6 +271,25 @@ const MuxPlayerWrapperComponent = ({
   const shouldShowPlaceholder =
     customPlaceholder && (!showPlayer || !isPlayerReadyForDisplay)
 
+  // Convert CSS custom properties to standard CSS
+  const customObjectFit = style?.['--media-object-fit'] as
+    | React.CSSProperties['objectFit']
+    | undefined
+  const customObjectPosition = style?.['--media-object-position'] as
+    | React.CSSProperties['objectPosition']
+    | undefined
+
+  const videoStyle: React.CSSProperties = {
+    objectFit: customObjectFit || 'cover',
+    objectPosition: customObjectPosition || 'center',
+    ...style,
+  }
+  // Remove custom properties from style
+  const styleObj = videoStyle as Record<string, unknown>
+  delete styleObj['--media-object-fit']
+  delete styleObj['--media-object-position']
+  delete styleObj['--controls']
+
   return (
     <>
       <div ref={containerRef} className='relative h-full w-full'>
@@ -260,14 +302,13 @@ const MuxPlayerWrapperComponent = ({
             transition={{ duration: 0.5, ease: 'easeInOut' }}
             className='absolute inset-0 z-0'
           >
-            <MuxPlayer
+            <video
               ref={handlePlayerRef}
-              playbackId={playbackId}
+              src={videoSrc}
               // No native autoplay - we control playback via viewport detection
               muted
               loop
               playsInline // Required for iOS autoplay
-              streamType={streamType}
               // Event handlers
               onCanPlay={handleCanPlay}
               onLoadedMetadata={handleLoadedMetadata}
@@ -276,10 +317,9 @@ const MuxPlayerWrapperComponent = ({
               onPause={handlePause}
               onEnded={onEnded}
               onError={onError}
-              minResolution={minResolution}
-              maxResolution={maxResolution}
-              {...muxPlayerProps}
-              poster=''
+              style={videoStyle}
+              className='h-full w-full'
+              {...videoProps}
             />
           </motion.div>
         )}

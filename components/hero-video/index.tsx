@@ -1,108 +1,106 @@
 'use client'
 
 import { breakpoints } from '@/styles/config.mjs'
-import MuxPlayer from '@mux/mux-player-react'
-import type { MuxPlayerRefAttributes } from '@mux/mux-player-react'
 import { useIntersectionObserver, useWindowSize } from 'hamo'
 import React, { useCallback, useEffect, useRef } from 'react'
 
 type HeroVideoProps = {
-  desktopVideoId: string
-  mobileVideoId: string
+  desktopVideoId?: string
+  mobileVideoId?: string
   desktopPoster: string
   mobilePoster: string
 }
 
 const HeroVideo: React.FC<HeroVideoProps> = ({
-  desktopVideoId,
-  mobileVideoId,
   desktopPoster,
   mobilePoster,
 }) => {
   const { width: windowWidth } = useWindowSize(100)
   const isMobile = windowWidth && windowWidth < breakpoints.breakpointMobile
-  const playerRef = useRef<MuxPlayerRefAttributes | null>(null)
+  const mobileVideoRef = useRef<HTMLVideoElement | null>(null)
+  const desktopVideoRef = useRef<HTMLVideoElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
   const [setIntersectionRef, entry] = useIntersectionObserver({
     root: null,
     rootMargin: '200px 0px 200px 0px',
     threshold: 0,
   })
 
-  const setPlayerRef = useCallback(
-    (node: MuxPlayerRefAttributes | null) => {
-      playerRef.current = node
+  const setContainerRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      containerRef.current = node
       setIntersectionRef(node ?? undefined)
     },
     [setIntersectionRef]
   )
 
   useEffect(() => {
-    const player = playerRef.current
-    if (!player) {
+    // Get the currently active video based on screen size
+    const activeVideo = isMobile
+      ? mobileVideoRef.current
+      : desktopVideoRef.current
+
+    if (!activeVideo) {
       return
     }
 
-    if (entry?.isIntersecting) {
-      // Only call play() if video is paused or not playing
-      // This prevents resetting the video if it's already playing
-      if (player.paused) {
-        player.play().catch(() => undefined)
-      }
+    // Only pause if we explicitly know the element is NOT intersecting
+    // Don't pause if entry is null/undefined (initial state)
+    if (entry && !entry.isIntersecting) {
+      activeVideo.pause()
       return
     }
 
-    player.pause()
-  }, [entry])
+    // Play if intersecting (or if entry is null initially, let autoplay handle it)
+    if (entry?.isIntersecting && activeVideo.paused) {
+      activeVideo.play().catch(() => undefined)
+    }
+  }, [entry, isMobile])
 
-  const commonMuxProps = {
-    ref: setPlayerRef,
+  useEffect(() => {
+    if (isMobile) {
+      mobileVideoRef.current?.play().catch(() => undefined)
+    } else {
+      desktopVideoRef.current?.play().catch(() => undefined)
+    }
+  }, [isMobile])
+
+  const commonVideoProps = {
     preload: 'auto' as const,
     autoPlay: true,
     playsInline: true,
     loop: true,
     muted: true,
-    streamType: 'on-demand' as const,
-    startTime: 0,
-    disableCookies: true,
-    disableTracking: true,
-    preferPlayback: 'native' as const,
     style: {
-      '--media-object-fit': 'cover',
-      '--media-object-position': 'center bottom',
-      '--controls': 'none',
+      objectFit: 'cover',
+      objectPosition: 'center bottom',
     } as React.CSSProperties,
   }
 
   return (
-    <>
-      {isMobile && (
-        <MuxPlayer
-          {...commonMuxProps}
-          className='relative block h-screen w-full lg:hidden'
-          playbackId={mobileVideoId}
-          minResolution='480p'
-          maxResolution='1080p'
-          placeholder={mobilePoster}
-          style={{
-            ...commonMuxProps.style,
-            aspectRatio: 1920 / 1080,
-          }}
-        />
-      )}
-      {!isMobile && (
-        <MuxPlayer
-          {...commonMuxProps}
-          className='relative hidden h-screen w-full lg:block'
-          playbackId={desktopVideoId}
-          minResolution='720p'
-          maxResolution='1080p'
-          placeholder={desktopPoster}
-          style={{
-            ...commonMuxProps.style,
-            aspectRatio: 560 / 966,
-          }}
-        />
-      )}
+    <div ref={setContainerRef} className='relative h-screen w-full'>
+      <video
+        ref={mobileVideoRef}
+        {...commonVideoProps}
+        src='https://stream.mux.com/xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM/highest.mp4'
+        className='relative block h-screen w-full lg:hidden'
+        poster={mobilePoster}
+        style={{
+          ...commonVideoProps.style,
+          aspectRatio: 1920 / 1080,
+        }}
+      />
+      <video
+        ref={desktopVideoRef}
+        {...commonVideoProps}
+        src='https://stream.mux.com/xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM/highest.mp4'
+        className='relative hidden h-screen w-full lg:block'
+        poster={desktopPoster}
+        style={{
+          ...commonVideoProps.style,
+          aspectRatio: 560 / 966,
+        }}
+      />
       {/* <Image
         src={desktopPoster}
         alt='Hero Video Poster'
@@ -137,7 +135,7 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
         )}
         priority
       /> */}
-    </>
+    </div>
   )
 }
 

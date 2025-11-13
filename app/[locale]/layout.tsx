@@ -12,7 +12,7 @@ import { ModalContactForm } from '@/components/modal-contact-form'
 import { ReactQueryProvider } from '@/components/react-query-provider'
 import { RealViewport } from '@/components/real-viewport'
 import { Preloader, PreloaderClient } from '@/components/preloader'
-import { WebChat } from '@/components/web-chat'
+// import { WebChat } from '@/components/web-chat'
 
 const suisseIntl = localFont({
   src: [
@@ -142,7 +142,7 @@ export default async function LocaleLayout({
           </ReactQueryProvider>
         </NextIntlClientProvider>
         <GSAP scrollTrigger={true} />
-        <WebChat key={locale} locale={locale} />
+        {/* <WebChat key={locale} locale={locale} /> */}
       </body>
     </html>
   )

@@ -1,5 +1,6 @@
 'use client'
 
+import { AutoplayVideo } from '@/components/autoplay-video'
 import { Image } from '@/components/image'
 import { useNavigation } from '@/hooks/useNavigation'
 import { Locale } from '@/i18n/routing'
@@ -11,7 +12,6 @@ import {
 } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 import { breakpoints } from '@/styles/config.mjs'
-import MuxPlayer from '@mux/mux-player-react'
 import { useWindowSize } from 'hamo'
 import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
@@ -143,16 +143,9 @@ export function MenuNavList() {
                     />
                   )}
                   {media.type === 'video' && (
-                    <MuxPlayer
+                    <AutoplayVideo
                       className='h-full w-full object-cover'
                       playbackId={media.src}
-                      preload='auto'
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      streamType='on-demand'
-                      thumbnailTime={0}
                       style={
                         {
                           aspectRatio: getAspectRatio(itemId),
