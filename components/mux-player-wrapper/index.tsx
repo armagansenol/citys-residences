@@ -228,7 +228,6 @@ const MuxPlayerWrapperComponent = ({
       <div ref={containerRef} className='relative h-full w-full'>
         {/* Video player - always rendered (has lazy loading built-in) */}
         <MuxPlayer
-          className='hidden lg:block'
           ref={handlePlayerRef}
           playbackId={playbackId}
           // No native autoplay - we control playback via viewport detection
