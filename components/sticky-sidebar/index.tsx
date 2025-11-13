@@ -64,7 +64,7 @@ export const StickySidebar: React.FC = () => {
           <div
             className={cn(
               'relative',
-              'xl:h-12 xl:w-52 3xl:h-20 3xl:w-52',
+              'lg:h-24 lg:w-64 xl:h-12 xl:w-52 2xl:h-16 2xl:w-52 3xl:h-20 3xl:w-52',
               'flex-shrink-0 transition-all duration-300 ease-in-out',
               'before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-white before:transition-all before:duration-300 before:ease-in-out before:content-[""]',
               'hover:before:w-1',
@@ -82,9 +82,9 @@ export const StickySidebar: React.FC = () => {
                 'flex-col items-center justify-center',
                 'transition-all duration-300 ease-out',
                 {
-                  'xl:text-[0.7rem] 3xl:text-[0.8rem]':
+                  'lg:text-[0.7rem] 3xl:text-[0.8rem]':
                     activeSection === item.id,
-                  'xl:text-[0.6rem] 3xl:text-[0.7rem]':
+                  'lg:text-[0.6rem] 3xl:text-[0.7rem]':
                     activeSection !== item.id,
                 }
               )}
