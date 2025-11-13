@@ -32,7 +32,6 @@ export function SectionSetter({
       trigger: ref.current,
       start: 'top+=200px center',
       end: 'bottom center',
-      markers: true,
       onEnter: () => {
         sectionStore.setCurrentSection(sectionId)
         onEnter?.(sectionId)
