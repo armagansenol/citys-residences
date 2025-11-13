@@ -34,7 +34,7 @@ export default async function Page() {
         id={navigationConfig['/citys-istanbul-avm']?.id as string}
         bgImage='/img/backgrounds/aqua-belt.png'
       />
-      <section className='h-screen overflow-hidden lg:h-[45vw]'>
+      <section className='relative h-screen overflow-hidden lg:h-[45vw]'>
         <AutoplayVideo
           className='absolute inset-0 h-full w-full'
           playbackId={citysIstanbulAvmBanner.muxSrc}
