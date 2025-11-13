@@ -86,41 +86,11 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
               )}
               style={{ color: 'var(--white)' }}
               dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
-            >
-              {/* <GsapSplitText
-              type='lines'
-              stagger={0.01}
-              duration={1.5}
-              html={sanitizedDescription}
-            /> */}
-            </article>
+            ></article>
           </FadeInOnScroll>
         </div>
       </div>
       <div className='absolute inset-0 bottom-0 left-0 right-0 top-0 z-10'>
-        {/* <AspectCover ratio={videoAspectRatio || 16 / 9}>
-          <LazyWistiaPlayer
-            muted
-            autoplay
-            preload='metadata'
-            swatch={false}
-            bigPlayButton={false}
-            silentAutoplay='allow'
-            endVideoBehavior='loop'
-            controlsVisibleOnLoad={false}
-            playBarControl={false}
-            volumeControl={false}
-            settingsControl={false}
-            transparentLetterbox={true}
-            mediaId={mediaId}
-            customPoster={thumbnail}
-            roundedPlayer={0}
-            fullscreenControl={false}
-            playbackRateControl={false}
-            playPauseControl={false}
-            aspect={videoAspectRatio}
-          />
-        </AspectCover> */}
         <MuxPlayerWrapper
           playbackId={mediaId}
           style={
@@ -137,24 +107,6 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
           scrollDelay={200}
           viewportThreshold={0}
         />
-        {/* <MuxPlayer
-          className='h-full w-full object-cover'
-          playbackId={mediaId}
-          preload='auto'
-          autoPlay
-          muted
-          loop
-          playsInline
-          streamType='on-demand'
-          thumbnailTime={0}
-          style={
-            {
-              aspectRatio: videoAspectRatio as number,
-              '--media-object-fit': 'cover',
-              '--controls': 'none',
-            } as React.CSSProperties
-          }
-        /> */}
       </div>
     </section>
   )

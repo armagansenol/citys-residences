@@ -58,6 +58,7 @@ export function RepetitiveSectionsWrapper({
   if (!componentType || !mediaId) {
     return null
   }
+  console.log(thumbnail)
 
   switch (componentType) {
     case 'BackgroundVideoText':
@@ -68,7 +69,7 @@ export function RepetitiveSectionsWrapper({
           subtitle={subtitle}
           description={description}
           mediaId={mediaId}
-          thumbnail={thumbnail}
+          thumbnail={`https://image.mux.com/${mediaId}/thumbnail.webp?width=1920&time=0`}
           videoAspectRatio={videoAspectRatio}
         />
       )
@@ -81,7 +82,7 @@ export function RepetitiveSectionsWrapper({
           subtitle={subtitle}
           description={description}
           mediaId={mediaId}
-          thumbnail={thumbnail}
+          thumbnail={`https://image.mux.com/${mediaId}/thumbnail.webp?width=1920&time=0`}
           videoAspectRatio={videoAspectRatio}
         />
       )
@@ -94,7 +95,7 @@ export function RepetitiveSectionsWrapper({
           subtitle={subtitle}
           description={description}
           mediaId={mediaId}
-          thumbnail={thumbnail}
+          thumbnail={`https://image.mux.com/${mediaId}/thumbnail.webp?width=1920&time=0`}
           videoAspectRatio={videoAspectRatio}
         />
       )
@@ -103,7 +104,7 @@ export function RepetitiveSectionsWrapper({
       return (
         <FullWidthSingleVideo
           mediaId={mediaId}
-          thumbnail={thumbnail}
+          thumbnail={`https://image.mux.com/${mediaId}/thumbnail.webp?width=1920&time=0`}
           videoAspectRatio={videoAspectRatio}
         />
       )
