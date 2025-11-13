@@ -1,6 +1,6 @@
 export function LoadingSpinner() {
   return (
-    <div className='h-10 w-10 animate-spin rounded-full border-b-2 border-t-2 border-gray-900'>
+    <div className='h-10 w-10 flex-shrink-0 animate-spin rounded-full border-b-2 border-t-2 border-gray-900'>
       <svg
         className='-ml-1 mr-3 size-5 animate-spin text-white'
         xmlns='http://www.w3.org/2000/svg'
