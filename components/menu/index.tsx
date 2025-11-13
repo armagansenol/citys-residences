@@ -141,7 +141,7 @@ export function Menu() {
           <CaretRightIcon className='size-full' weight='thin' />
           <span className='sr-only'>Close</span>
         </button>
-        {windowWidth && windowWidth < breakpoints.breakpointTablet && (
+        {windowWidth && windowWidth >= breakpoints.breakpointTablet && (
           <MenuNavList />
         )}
         <div className='mt-12 flex flex-1 flex-col items-end justify-between lg:mt-auto lg:flex-row xl:mt-auto xl:gap-36'>
