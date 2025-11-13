@@ -10,11 +10,15 @@ import {
   navigationConfig,
 } from '@/lib/constants'
 import { cn } from '@/lib/utils'
+import { breakpoints } from '@/styles/config.mjs'
 import MuxPlayer from '@mux/mux-player-react'
+import { useWindowSize } from 'hamo'
 import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 export function MenuNavList() {
+  const { width: windowWidth } = useWindowSize(100)
+  const isMobile = windowWidth && windowWidth < breakpoints.breakpointTablet
   const { handleNavClick } = useNavigation()
   const t = useTranslations('common')
   const tMenu = useTranslations('menu')
@@ -114,78 +118,80 @@ export function MenuNavList() {
           </ul>
         </div>
       </nav>
-      <div className='relative ml-auto hidden w-full flex-col items-stretch justify-start gap-6 xl:flex'>
-        <div className='relative aspect-[16/9] flex-shrink-0 overflow-hidden'>
-          {Object.entries(menuMedia).map(([itemId, media]) => {
-            const isVisible = hoveredItem === itemId
-            return (
-              <div
-                key={itemId}
-                className={cn(
-                  'absolute inset-0 transition-opacity duration-300',
-                  isVisible
-                    ? 'pointer-events-auto opacity-100'
-                    : 'pointer-events-none opacity-0'
-                )}
-              >
-                {media.type === 'image' && (
-                  <Image
-                    src={media.src}
-                    alt='Menu Image'
-                    fill
-                    className='h-full w-full object-cover'
-                    desktopSize='20vw'
-                  />
-                )}
-                {media.type === 'video' && (
-                  <MuxPlayer
-                    className='h-full w-full object-cover'
-                    playbackId={media.src}
-                    preload='auto'
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    streamType='on-demand'
-                    thumbnailTime={0}
-                    style={
-                      {
-                        aspectRatio: getAspectRatio(itemId),
-                        '--media-object-fit': 'cover',
-                        '--controls': 'none',
-                      } as React.CSSProperties
-                    }
-                  />
-                )}
-              </div>
-            )
-          })}
+      {!isMobile && (
+        <div className='relative ml-auto hidden w-full flex-col items-stretch justify-start gap-6 xl:flex'>
+          <div className='relative aspect-[16/9] flex-shrink-0 overflow-hidden'>
+            {Object.entries(menuMedia).map(([itemId, media]) => {
+              const isVisible = hoveredItem === itemId
+              return (
+                <div
+                  key={itemId}
+                  className={cn(
+                    'absolute inset-0 transition-opacity duration-300',
+                    isVisible
+                      ? 'pointer-events-auto opacity-100'
+                      : 'pointer-events-none opacity-0'
+                  )}
+                >
+                  {media.type === 'image' && (
+                    <Image
+                      src={media.src}
+                      alt='Menu Image'
+                      fill
+                      className='h-full w-full object-cover'
+                      desktopSize='20vw'
+                    />
+                  )}
+                  {media.type === 'video' && (
+                    <MuxPlayer
+                      className='h-full w-full object-cover'
+                      playbackId={media.src}
+                      preload='auto'
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      streamType='on-demand'
+                      thumbnailTime={0}
+                      style={
+                        {
+                          aspectRatio: getAspectRatio(itemId),
+                          '--media-object-fit': 'cover',
+                          '--controls': 'none',
+                        } as React.CSSProperties
+                      }
+                    />
+                  )}
+                </div>
+              )
+            })}
+          </div>
+          <div className='relative'>
+            {Object.keys(menuMedia).map(itemId => {
+              const isVisible = hoveredItem === itemId
+              return (
+                <article
+                  key={itemId}
+                  className={cn(
+                    'absolute left-0 top-0',
+                    'flex',
+                    'transition-opacity duration-300',
+                    isVisible
+                      ? 'pointer-events-auto opacity-100'
+                      : 'pointer-events-none opacity-0'
+                  )}
+                >
+                  <p className='text-left font-primary text-sm font-[300] text-white xl:text-base 3xl:text-xl'>
+                    {tMenu.rich(getMenuTextKey(itemId), {
+                      br: () => <br />,
+                    })}
+                  </p>
+                </article>
+              )
+            })}
+          </div>
         </div>
-        <div className='relative'>
-          {Object.keys(menuMedia).map(itemId => {
-            const isVisible = hoveredItem === itemId
-            return (
-              <article
-                key={itemId}
-                className={cn(
-                  'absolute left-0 top-0',
-                  'flex',
-                  'transition-opacity duration-300',
-                  isVisible
-                    ? 'pointer-events-auto opacity-100'
-                    : 'pointer-events-none opacity-0'
-                )}
-              >
-                <p className='text-left font-primary text-sm font-[300] text-white xl:text-base 3xl:text-xl'>
-                  {tMenu.rich(getMenuTextKey(itemId), {
-                    br: () => <br />,
-                  })}
-                </p>
-              </article>
-            )
-          })}
-        </div>
-      </div>
+      )}
     </div>
   )
 }
