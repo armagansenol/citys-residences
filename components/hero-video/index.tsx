@@ -54,54 +54,53 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
     player.pause()
   }, [entry])
 
+  const commonMuxProps = {
+    ref: setPlayerRef,
+    preload: 'auto' as const,
+    autoPlay: true,
+    playsInline: true,
+    loop: true,
+    muted: true,
+    streamType: 'on-demand' as const,
+    startTime: 0,
+    disableCookies: true,
+    disableTracking: true,
+    preferPlayback: 'native' as const,
+    style: {
+      '--media-object-fit': 'cover',
+      '--media-object-position': 'center bottom',
+      '--controls': 'none',
+    } as React.CSSProperties,
+  }
+
   return (
     <>
       {isMobile && (
         <MuxPlayer
-          ref={setPlayerRef}
+          {...commonMuxProps}
           className='relative block h-screen w-full lg:hidden'
           playbackId={mobileVideoId}
-          preload='auto'
-          autoPlay
-          playsInline
-          loop
-          muted
-          streamType='on-demand'
           minResolution='480p'
-          startTime={0}
+          maxResolution='1080p'
           placeholder={mobilePoster}
-          style={
-            {
-              aspectRatio: 1920 / 1080,
-              '--media-object-fit': 'cover',
-              '--media-object-position': 'center bottom',
-              '--controls': 'none',
-            } as React.CSSProperties
-          }
+          style={{
+            ...commonMuxProps.style,
+            aspectRatio: 1920 / 1080,
+          }}
         />
       )}
       {!isMobile && (
         <MuxPlayer
-          ref={setPlayerRef}
+          {...commonMuxProps}
           className='relative hidden h-screen w-full lg:block'
           playbackId={desktopVideoId}
-          preload='auto'
-          autoPlay
-          playsInline
-          loop
-          muted
-          streamType='on-demand'
           minResolution='720p'
-          startTime={0}
+          maxResolution='1080p'
           placeholder={desktopPoster}
-          style={
-            {
-              aspectRatio: 560 / 966,
-              '--media-object-fit': 'cover',
-              '--media-object-position': 'center bottom',
-              '--controls': 'none',
-            } as React.CSSProperties
-          }
+          style={{
+            ...commonMuxProps.style,
+            aspectRatio: 560 / 966,
+          }}
         />
       )}
       {/* <Image
