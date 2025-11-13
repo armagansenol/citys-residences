@@ -7,25 +7,16 @@ import ResidencesSection from '@/components/sections/residences'
 import CitysTimes from '@/components/sections/citys-times'
 
 // Lazy loaded components
-const CitysPark = dynamic(() => import('@/components/sections/citys-park'), {
-  ssr: false,
-})
+const CitysPark = dynamic(() => import('@/components/sections/citys-park'))
 
 const CitysMembersClub = dynamic(
-  () => import('@/components/sections/citys-members-club'),
-  { ssr: false }
+  () => import('@/components/sections/citys-members-club')
 )
 
-const CitysLiving = dynamic(
-  () => import('@/components/sections/citys-living'),
-  {
-    ssr: false,
-  }
-)
+const CitysLiving = dynamic(() => import('@/components/sections/citys-living'))
 
 const CitysIstanbulAvm = dynamic(
-  () => import('@/components/sections/citys-istanbul-avm'),
-  { ssr: false }
+  () => import('@/components/sections/citys-istanbul-avm')
 )
 
 export default async function Page({ params }: { params: { locale: string } }) {
