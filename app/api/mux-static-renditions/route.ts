@@ -76,38 +76,62 @@ async function hasStaticRenditions(assetId: string) {
   )
 }
 
-async function createStaticRenditions(assetId: string) {
-  const res = await fetch(`${BASE_URL}/assets/${assetId}/static-renditions`, {
-    method: 'POST',
-    headers: {
-      Authorization: authHeader,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      resolution: 'highest', // generates low, medium, high
-    }),
-  })
-
-  const data = await res.json()
-
-  // If Mux returns an error saying static renditions already exist, handle it gracefully
-  if (!res.ok && data?.error) {
-    // Check if error is about static renditions already existing
-    const errorMessage = data.error?.message || JSON.stringify(data.error)
-    if (
-      errorMessage.includes('already') ||
-      errorMessage.includes('exists') ||
-      errorMessage.includes('duplicate')
-    ) {
-      console.log(
-        `Asset ${assetId} already has static renditions (Mux API error)`
-      )
-      return { alreadyExists: true, data }
+type ResolutionResult =
+  | {
+      resolution: string
+      alreadyExists: true
+      data: unknown
     }
-    throw new Error(`Mux API error: ${errorMessage}`)
+  | {
+      resolution: string
+      data: unknown
+    }
+
+async function createStaticRenditions(
+  assetId: string
+): Promise<ResolutionResult[]> {
+  const resolutions = ['highest', '480p', '1080p']
+  const results: ResolutionResult[] = []
+
+  for (const resolution of resolutions) {
+    const res = await fetch(`${BASE_URL}/assets/${assetId}/static-renditions`, {
+      method: 'POST',
+      headers: {
+        Authorization: authHeader,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        resolution,
+      }),
+    })
+
+    const data = await res.json()
+
+    // If Mux returns an error saying static renditions already exist, handle it gracefully
+    if (!res.ok && data?.error) {
+      // Check if error is about static renditions already existing
+      const errorMessage = data.error?.message || JSON.stringify(data.error)
+      if (
+        errorMessage.includes('already') ||
+        errorMessage.includes('exists') ||
+        errorMessage.includes('duplicate')
+      ) {
+        console.log(
+          `Asset ${assetId} already has static renditions for ${resolution} (Mux API error)`
+        )
+        results.push({ resolution, alreadyExists: true, data })
+        continue
+      }
+      throw new Error(`Mux API error for ${resolution}: ${errorMessage}`)
+    }
+
+    results.push({ resolution, data })
+
+    // Small delay between requests to avoid rate limits
+    await new Promise(res => setTimeout(res, 200))
   }
 
-  return data
+  return results
 }
 
 type ReportItem =
@@ -171,10 +195,17 @@ export async function GET(request: Request) {
 
       // Trigger the generation
       try {
-        const result = await createStaticRenditions(assetId)
+        const results = await createStaticRenditions(assetId)
 
-        // Check if Mux API indicated it already exists
-        if (result?.alreadyExists) {
+        // Check if all resolutions already exist
+        const allAlreadyExist =
+          Array.isArray(results) &&
+          results.every(
+            (r: ResolutionResult) =>
+              'alreadyExists' in r && r.alreadyExists === true
+          )
+
+        if (allAlreadyExist) {
           report.push({
             assetId,
             status: 'already-exists',
@@ -183,7 +214,7 @@ export async function GET(request: Request) {
           report.push({
             assetId,
             status: 'triggered',
-            mux: result,
+            mux: results,
           })
         }
       } catch (error) {
