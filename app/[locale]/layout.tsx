@@ -7,20 +7,10 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import localFont from 'next/font/local'
 
-// Extend Window interface to include custom video observer
-declare global {
-  interface Window {
-    __videoObserver?: IntersectionObserver
-  }
-}
-
 import { GSAP } from '@/components/gsap'
-import { ModalContactForm } from '@/components/modal-contact-form'
-import { Preloader, PreloaderClient } from '@/components/preloader'
 import { ReactQueryProvider } from '@/components/react-query-provider'
 import { RealViewport } from '@/components/real-viewport'
 import { VideoObserverInitializer } from '@/components/video-observer'
-// import { WebChat } from '@/components/web-chat'
 
 const suisseIntl = localFont({
   src: [
@@ -83,6 +73,7 @@ export async function generateMetadata({
   return {
     title: t('title'),
     description: t('description'),
+    themeColor: '#ffffff',
     verification: {
       google: 'google918f2bcab83a8f97',
     },
@@ -136,22 +127,16 @@ export default async function LocaleLayout({
         <StyleVariables colors={colors} themes={themes} />
       </head>
       <body className={`${suisseIntl.variable} antialiased`}>
-        {/* Hidden element for webchat to detect language */}
-        <span id='selectedLanguage' className='hidden'>
-          {locale}
-        </span>
         <RealViewport />
         <VideoObserverInitializer />
-        <Preloader />
+        {/* <Preloader /> */}
         <NextIntlClientProvider messages={messages}>
           <ReactQueryProvider>
             {children}
-            <ModalContactForm />
-            <PreloaderClient />
+            {/* <PreloaderClient /> */}
           </ReactQueryProvider>
         </NextIntlClientProvider>
         <GSAP scrollTrigger={true} />
-        {/* <WebChat key={locale} locale={locale} /> */}
       </body>
     </html>
   )

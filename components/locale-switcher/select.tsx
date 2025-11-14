@@ -7,6 +7,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { usePathname, useRouter } from '@/i18n/navigation'
+import { cn } from '@/lib/utils'
 import { Locale, useLocale } from 'next-intl'
 import { useParams } from 'next/navigation'
 import { ReactNode, useTransition } from 'react'
@@ -15,9 +16,10 @@ type Props = {
   children: ReactNode
   defaultValue: string
   label: string
+  className?: string
 }
 
-export function LocaleSwitcherSelect({ children, label }: Props) {
+export function LocaleSwitcherSelect({ children, label, className }: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const params = useParams()
@@ -57,7 +59,12 @@ export function LocaleSwitcherSelect({ children, label }: Props) {
     <div className='relative'>
       <span className='sr-only'>{label}</span>
       <Select value={locale} onValueChange={onValueChange} disabled={isPending}>
-        <SelectTrigger className='bg-transparent font-primary text-base font-[400] text-white [&>svg]:size-5'>
+        <SelectTrigger
+          className={cn(
+            'bg-transparent font-primary text-base font-[400] text-white [&>svg]:size-5',
+            className
+          )}
+        >
           <SelectValue placeholder={label} />
         </SelectTrigger>
         <SelectContent>{children}</SelectContent>

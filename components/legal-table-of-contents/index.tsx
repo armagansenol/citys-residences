@@ -1,46 +1,48 @@
 'use client'
 
 import { Link } from '@/components/utility/link'
+import { usePathname } from '@/i18n/navigation'
 import { type Pathnames } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
-import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 
 export function LegalTableOfContents() {
   const pathname = usePathname()
+  const t = useTranslations('legalTableOfContents')
 
-  const legalRoutes: { title: string; href: Pathnames }[] = [
+  const legalRoutes: { titleKey: string; href: Pathnames }[] = [
     {
-      title: 'KVKK İlişkin Aydınlatma Metni',
+      titleKey: 'pdplRelatedInformation',
       href: '/pdpl/pdpl-related-information' as Pathnames,
     },
     {
-      title: 'Ticari Elektronik İleti Aydınlatma Metni',
+      titleKey: 'commercialElectronicMessage',
       href: '/pdpl/commercial-electronic-message' as Pathnames,
     },
     {
-      title: 'Açık Rıza Metni',
+      titleKey: 'explicitConsent',
       href: '/pdpl/explicit-consent' as Pathnames,
     },
     {
-      title: 'Çerez Politikası',
+      titleKey: 'cookiePolicy',
       href: '/pdpl/cookie-policy' as Pathnames,
     },
   ]
 
   return (
-    <div className='sticky top-20 flex flex-col space-y-2'>
+    <div className='flex flex-col items-start gap-y-2'>
       {legalRoutes.map(route => {
-        const isActive = pathname.includes(route.href)
+        const isActive = pathname === route.href
         return (
           <Link
             key={route.href}
             href={route.href}
             className={cn(
-              'cursor-pointer px-2 py-1 font-primary text-lg transition-colors duration-200',
-              isActive && 'font-medium text-primary'
+              'inline-flex cursor-pointer py-1 font-primary text-sm font-[400] hover:underline xl:text-lg',
+              isActive && 'font-[700]'
             )}
           >
-            {route.title}
+            {t(route.titleKey)}
           </Link>
         )
       })}
