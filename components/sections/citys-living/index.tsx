@@ -1,63 +1,21 @@
-'use client'
+import { getTranslations } from 'next-intl/server'
+import { type CSSProperties } from 'react'
 
-import { type CSSProperties, useEffect } from 'react'
-
-import { ScrollTrigger } from '@/components/gsap'
 import { PageTitle } from '@/components/page-title'
 import { RepetitiveSectionsWrapper } from '@/components/repetitive-sections/repetitive-sections-wrapper'
 import { SectionSetter } from '@/components/section-setter'
-import { fetchCitysLivingData, type CitysLivingData } from '@/lib/api/queries'
+import { type CitysLivingData } from '@/lib/api/queries'
 import { navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
-import { useQuery } from '@tanstack/react-query'
-import { useLocale, useTranslations } from 'next-intl'
-import { LoadingSpinner } from '@/components/loading-spinner'
 
-type CitysLivingItem = CitysLivingData & { aspectRatio?: number }
+interface CitysLivingProps {
+  items: CitysLivingData[]
+  locale: string
+}
 
-type CitysLivingQueryResult = CitysLivingItem[]
-
-export default function CitysLiving() {
-  const t = useTranslations('citys-living')
-  const locale = useLocale()
+export default async function CitysLiving({ items, locale }: CitysLivingProps) {
+  const t = await getTranslations({ locale, namespace: 'citys-living' })
   const sectionId = navigationConfig['/citys-living']?.id as string
-
-  const {
-    data: items = [],
-    isFetching,
-    isError,
-    error,
-  } = useQuery<CitysLivingQueryResult, Error>({
-    queryKey: ['citys-living', locale],
-    queryFn: async () => {
-      const response = await fetchCitysLivingData(locale)
-
-      if (!response.success || !response.data) {
-        throw new Error(
-          response.error ?? "Failed to load City's Living content."
-        )
-      }
-
-      return response.data as CitysLivingQueryResult
-    },
-    staleTime: 60 * 60 * 1000, // align with ISR cache duration
-  })
-
-  const errorMessage = isError
-    ? (error?.message ?? "Failed to load City's Living content.")
-    : null
-
-  useEffect(() => {
-    if (isFetching || errorMessage) {
-      return
-    }
-
-    const frame = requestAnimationFrame(() => {
-      ScrollTrigger.refresh()
-    })
-
-    return () => cancelAnimationFrame(frame)
-  }, [isFetching, errorMessage, items.length])
 
   return (
     <SectionSetter sectionId={sectionId}>
@@ -82,30 +40,18 @@ export default function CitysLiving() {
           } as CSSProperties
         }
       >
-        {isFetching && (
-          <div className='flex h-[50vh] items-center justify-center bg-white text-black'>
-            <LoadingSpinner />
-          </div>
-        )}
-        {!isFetching && errorMessage && (
-          <div className='py-16 text-center font-primary text-base text-white opacity-80'>
-            {errorMessage}
-          </div>
-        )}
-        {!isFetching &&
-          !errorMessage &&
-          items.map(item => (
-            <RepetitiveSectionsWrapper
-              key={item.id}
-              componentType={item.componentType}
-              title={item.title}
-              subtitle={item.subtitle}
-              description={item.description}
-              mediaId={item.mediaId}
-              thumbnail={item.thumbnail}
-              videoAspectRatio={item.aspectRatio}
-            />
-          ))}
+        {items.map(item => (
+          <RepetitiveSectionsWrapper
+            key={item.id}
+            componentType={item.componentType}
+            title={item.title}
+            subtitle={item.subtitle}
+            description={item.description}
+            mediaId={item.mediaId}
+            thumbnail={item.thumbnail}
+            videoAspectRatio={item.aspectRatio}
+          />
+        ))}
       </div>
     </SectionSetter>
   )

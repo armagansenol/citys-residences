@@ -1,4 +1,9 @@
-import { MuxPlayerWrapper } from '@/components/mux-player-wrapper'
+import dynamic from 'next/dynamic'
+
+const OptimizedVideo = dynamic(
+  () => import('@/components/optimized-video').then(mod => mod.OptimizedVideo),
+  { ssr: false }
+)
 
 export interface FullWidthSingleVideoProps {
   mediaId: string
@@ -12,19 +17,11 @@ export function FullWidthSingleVideo(props: FullWidthSingleVideoProps) {
   return (
     <section className='relative aspect-[16/14] overflow-hidden lg:aspect-[16/7]'>
       {/* <div className='absolute left-0 top-0'>FullWidthSingleVideo</div> */}
-      <MuxPlayerWrapper
+      <OptimizedVideo
         playbackId={mediaId}
-        style={
-          {
-            aspectRatio: videoAspectRatio as number,
-            '--media-object-fit': 'cover',
-            '--media-object-position': 'center',
-            '--controls': 'none',
-          } as React.CSSProperties
-        }
-        // placeholder={thumbnail}
-        customPlaceholder={thumbnail}
-        startTime={0}
+        scrollDelay={1500}
+        placeholder={thumbnail}
+        aspectRatio={videoAspectRatio}
       />
     </section>
   )

@@ -2,10 +2,15 @@
 
 import { cn } from '@/lib/utils'
 import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 
 import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
 import { GsapSplitText } from '@/components/gsap-split-text'
-import { MuxPlayerWrapper } from '@/components/mux-player-wrapper'
+
+const OptimizedVideo = dynamic(
+  () => import('@/components/optimized-video').then(mod => mod.OptimizedVideo),
+  { ssr: false }
+)
 
 export interface CenterVideoTextProps {
   title: string
@@ -87,19 +92,11 @@ export function CenterVideoText(props: CenterVideoTextProps) {
       </div>
       <div className='relative z-30 grid grid-cols-24'>
         <div className='col-span-24 aspect-[16/19] overflow-hidden lg:col-span-16 lg:col-start-6 lg:aspect-[16/9] xl:col-start-5'>
-          <MuxPlayerWrapper
+          <OptimizedVideo
             playbackId={mediaId}
-            style={
-              {
-                aspectRatio: videoAspectRatio as number,
-                '--media-object-fit': 'cover',
-                '--media-object-position': 'center',
-                '--controls': 'none',
-              } as React.CSSProperties
-            }
-            // placeholder={thumbnail}
-            customPlaceholder={thumbnail}
-            startTime={0}
+            scrollDelay={1500}
+            placeholder={thumbnail}
+            aspectRatio={videoAspectRatio}
           />
         </div>
       </div>

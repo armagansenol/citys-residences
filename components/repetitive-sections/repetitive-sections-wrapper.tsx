@@ -1,46 +1,14 @@
 'use client'
 
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type CSSProperties,
-} from 'react'
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from 'react'
 
 import { breakpoints } from '@/styles/config.mjs'
-import { useIntersectionObserver, useWindowSize } from 'hamo'
-import dynamic from 'next/dynamic'
+import { useWindowSize } from 'hamo'
 
-const BackgroundVideoText = dynamic(
-  () =>
-    import('./background-video-text').then(mod => ({
-      default: mod.BackgroundVideoText,
-    })),
-  { ssr: false }
-)
-const CenterVideoText = dynamic(
-  () =>
-    import('./center-video-text').then(mod => ({
-      default: mod.CenterVideoText,
-    })),
-  { ssr: false }
-)
-const FullWidthSingleVideo = dynamic(
-  () =>
-    import('./full-width-single-video').then(mod => ({
-      default: mod.FullWidthSingleVideo,
-    })),
-  { ssr: false }
-)
-const FullWidthVideoText = dynamic(
-  () =>
-    import('./full-width-video-text').then(mod => ({
-      default: mod.FullWidthVideoText,
-    })),
-  { ssr: false }
-)
+import { BackgroundVideoText } from './background-video-text'
+import { CenterVideoText } from './center-video-text'
+import { FullWidthSingleVideo } from './full-width-single-video'
+import { FullWidthVideoText } from './full-width-video-text'
 
 export enum ComponentType {
   BackgroundVideoText = 'BackgroundVideoText',
@@ -64,6 +32,12 @@ const BACKGROUND_SECTION_MIN_HEIGHT = '110vh'
 const FULL_WIDTH_SECTION_MIN_HEIGHT = '110vh'
 const FALLBACK_ASPECT_RATIO = 16 / 9
 
+// FullWidthSingleVideo uses these aspect ratios:
+// Mobile: aspect-[16/14] = 1.142857...
+// Desktop (lg): aspect-[16/7] = 2.285714...
+const FULL_WIDTH_SINGLE_VIDEO_MOBILE_ASPECT = 16 / 14
+const FULL_WIDTH_SINGLE_VIDEO_DESKTOP_ASPECT = 16 / 7
+
 const getNormalizedAspectRatio = (ratio?: number) => {
   const parsed = Number(ratio)
 
@@ -74,10 +48,7 @@ const getNormalizedAspectRatio = (ratio?: number) => {
   return parsed
 }
 
-const getFallbackMinHeight = (
-  componentType?: ComponentType,
-  aspectRatio?: number
-) => {
+const getFallbackMinHeight = (componentType?: ComponentType) => {
   switch (componentType) {
     case ComponentType.BackgroundVideoText:
       return BACKGROUND_SECTION_MIN_HEIGHT
@@ -85,30 +56,19 @@ const getFallbackMinHeight = (
       return FULL_WIDTH_SECTION_MIN_HEIGHT
     case ComponentType.CenterVideoText:
       return DEFAULT_MIN_HEIGHT
-    case ComponentType.FullWidthSingleVideo: {
-      const normalizedRatio = getNormalizedAspectRatio(aspectRatio)
-      return `calc(100vw / ${normalizedRatio})`
-    }
+    case ComponentType.FullWidthSingleVideo:
+      // Use CSS aspect-ratio for better browser optimization
+      // The aspect ratio calculation is handled in the component logic
+      // to account for responsive breakpoints and window width
+      return undefined
     default:
       return DEFAULT_MIN_HEIGHT
   }
 }
 
-const getStorageKey = (
-  componentType?: ComponentType,
-  mediaId?: string,
-  viewport?: 'mobile' | 'desktop'
-) => {
-  if (!componentType || !mediaId) {
-    return null
-  }
-
-  return [
-    'repetitive-section-height',
-    componentType,
-    mediaId,
-    viewport ?? 'desktop',
-  ].join(':')
+const getThumbnailUrl = (mediaId: string, isMobile: boolean): string => {
+  const width = isMobile ? 768 : 1920
+  return `https://image.mux.com/${mediaId}/thumbnail.webp?width=${width}&time=0`
 }
 
 export function RepetitiveSectionsWrapper({
@@ -119,51 +79,18 @@ export function RepetitiveSectionsWrapper({
   mediaId,
   videoAspectRatio,
 }: RepetitiveSectionsWrapperProps) {
-  const [shouldRender, setShouldRender] = useState(false)
   const [placeholderHeight, setPlaceholderHeight] = useState<number | null>(
     null
   )
   const contentRef = useRef<HTMLDivElement | null>(null)
-  const [setIntersectionRef, entry] = useIntersectionObserver({
-    rootMargin: '500px 0px',
-    threshold: 0,
-  })
-
-  useEffect(() => {
-    if (entry?.isIntersecting) {
-      setShouldRender(true)
-    }
-  }, [entry])
 
   const { width: windowWidth } = useWindowSize(100)
   const isMobile =
     typeof windowWidth === 'number' &&
     windowWidth < breakpoints.breakpointMobile
-  const viewportKey = isMobile ? 'mobile' : 'desktop'
-
-  const storageKey = useMemo(
-    () => getStorageKey(componentType, mediaId, viewportKey),
-    [componentType, mediaId, viewportKey]
-  )
 
   useEffect(() => {
-    if (!storageKey || typeof window === 'undefined') {
-      return
-    }
-
-    const storedHeight = window.sessionStorage.getItem(storageKey)
-
-    if (storedHeight) {
-      const parsed = Number(storedHeight)
-
-      if (!Number.isNaN(parsed) && parsed > 0) {
-        setPlaceholderHeight(parsed)
-      }
-    }
-  }, [storageKey])
-
-  useEffect(() => {
-    if (!shouldRender || !contentRef.current) {
+    if (!contentRef.current) {
       return
     }
 
@@ -185,10 +112,6 @@ export function RepetitiveSectionsWrapper({
       }
 
       setPlaceholderHeight(prev => (prev === nextHeight ? prev : nextHeight))
-
-      if (storageKey && typeof window !== 'undefined') {
-        window.sessionStorage.setItem(storageKey, String(nextHeight))
-      }
     })
 
     observer.observe(contentRef.current)
@@ -196,111 +119,119 @@ export function RepetitiveSectionsWrapper({
     return () => {
       observer.disconnect()
     }
-  }, [shouldRender, storageKey])
+  }, [])
 
   const fallbackMinHeight = useMemo(
-    () => getFallbackMinHeight(componentType, videoAspectRatio),
-    [componentType, videoAspectRatio]
+    () => getFallbackMinHeight(componentType),
+    [componentType]
   )
+
+  // For FullWidthSingleVideo, calculate responsive aspect ratio
+  const placeholderAspectRatio = useMemo(() => {
+    if (componentType !== ComponentType.FullWidthSingleVideo) {
+      return undefined
+    }
+
+    // If we have a measured height, don't use aspect ratio
+    if (placeholderHeight) {
+      return undefined
+    }
+
+    const normalizedRatio = getNormalizedAspectRatio(videoAspectRatio)
+    const componentAspectRatio = isMobile
+      ? FULL_WIDTH_SINGLE_VIDEO_MOBILE_ASPECT
+      : FULL_WIDTH_SINGLE_VIDEO_DESKTOP_ASPECT
+
+    // Use the provided ratio if it's close to the component's default,
+    // otherwise fall back to component's aspect ratio
+    const ratioDifference = Math.abs(normalizedRatio - componentAspectRatio)
+    return ratioDifference < 0.1 ? normalizedRatio : componentAspectRatio
+  }, [componentType, videoAspectRatio, placeholderHeight, isMobile])
 
   const resolvedPlaceholderMinHeight = placeholderHeight
     ? `${Math.max(1, placeholderHeight)}px`
-    : fallbackMinHeight
-
-  const placeholderAspectRatio =
-    componentType === ComponentType.FullWidthSingleVideo && !placeholderHeight
-      ? getNormalizedAspectRatio(videoAspectRatio)
-      : undefined
-
-  const mergedContainerRef = useCallback(
-    (node: HTMLDivElement | null) => {
-      setIntersectionRef(node)
-    },
-    [setIntersectionRef]
-  )
+    : (fallbackMinHeight ?? DEFAULT_MIN_HEIGHT)
 
   const containerStyle = useMemo<CSSProperties>(() => {
     const style: CSSProperties = {
       width: '100%',
-      minHeight: resolvedPlaceholderMinHeight,
     }
 
-    if (!shouldRender) {
-      style.pointerEvents = 'none'
-    }
-
-    if (placeholderAspectRatio) {
-      style.aspectRatio = placeholderAspectRatio
+    // For FullWidthSingleVideo, prefer aspect-ratio over minHeight for better accuracy
+    if (
+      componentType === ComponentType.FullWidthSingleVideo &&
+      placeholderAspectRatio
+    ) {
+      style.aspectRatio = String(placeholderAspectRatio)
+      // Still set minHeight as fallback for older browsers
+      style.minHeight = resolvedPlaceholderMinHeight
+    } else {
+      style.minHeight = resolvedPlaceholderMinHeight
     }
 
     return style
-  }, [resolvedPlaceholderMinHeight, placeholderAspectRatio, shouldRender])
+  }, [resolvedPlaceholderMinHeight, placeholderAspectRatio, componentType])
 
   if (!componentType || !mediaId) {
     return null
   }
 
-  const thumbnail = isMobile
-    ? `https://image.mux.com/${mediaId}/thumbnail.webp?width=560&time=0`
-    : `https://image.mux.com/${mediaId}/thumbnail.webp?width=1920&time=0`
+  const thumbnail = getThumbnailUrl(mediaId, isMobile)
+  const commonProps = {
+    mediaId,
+    thumbnail,
+    videoAspectRatio,
+  }
+
+  // Components that require title, subtitle, and description
+  const requiresTextContent =
+    componentType === ComponentType.BackgroundVideoText ||
+    componentType === ComponentType.CenterVideoText ||
+    componentType === ComponentType.FullWidthVideoText
+
+  if (requiresTextContent && (!title || !subtitle || !description)) {
+    return null
+  }
 
   let renderedSection: JSX.Element | null = null
 
   switch (componentType) {
     case ComponentType.BackgroundVideoText:
-      if (!title || !subtitle || !description) return null
       renderedSection = (
         <BackgroundVideoText
-          title={title}
-          subtitle={subtitle}
-          description={description}
-          mediaId={mediaId}
-          thumbnail={thumbnail}
-          videoAspectRatio={videoAspectRatio}
+          {...commonProps}
+          title={title!}
+          subtitle={subtitle!}
+          description={description!}
         />
       )
       break
 
     case ComponentType.CenterVideoText:
-      if (!title || !subtitle || !description) return null
       renderedSection = (
         <CenterVideoText
-          title={title}
-          subtitle={subtitle}
-          description={description}
-          mediaId={mediaId}
-          thumbnail={thumbnail}
-          videoAspectRatio={videoAspectRatio}
+          {...commonProps}
+          title={title!}
+          subtitle={subtitle!}
+          description={description!}
         />
       )
       break
 
     case ComponentType.FullWidthVideoText:
-      if (!title || !subtitle || !description) return null
       renderedSection = (
         <FullWidthVideoText
-          title={title}
-          subtitle={subtitle}
-          description={description}
-          mediaId={mediaId}
-          thumbnail={thumbnail}
-          videoAspectRatio={videoAspectRatio}
+          {...commonProps}
+          title={title!}
+          subtitle={subtitle!}
+          description={description!}
         />
       )
       break
 
     case ComponentType.FullWidthSingleVideo:
-      renderedSection = (
-        <FullWidthSingleVideo
-          mediaId={mediaId}
-          thumbnail={thumbnail}
-          videoAspectRatio={videoAspectRatio}
-        />
-      )
+      renderedSection = <FullWidthSingleVideo {...commonProps} />
       break
-
-    default:
-      renderedSection = null
   }
 
   if (!renderedSection) {
@@ -308,13 +239,8 @@ export function RepetitiveSectionsWrapper({
   }
 
   return (
-    <div
-      ref={mergedContainerRef}
-      style={containerStyle}
-      aria-hidden={!shouldRender}
-      data-lazy-placeholder={!shouldRender ? 'repetitive-sections' : undefined}
-    >
-      {shouldRender ? <div ref={contentRef}>{renderedSection}</div> : null}
+    <div style={containerStyle}>
+      <div ref={contentRef}>{renderedSection}</div>
     </div>
   )
 }

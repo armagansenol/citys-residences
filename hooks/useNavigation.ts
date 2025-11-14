@@ -1,10 +1,9 @@
 'use client'
 
-import { useUiStore } from '@/lib/store/ui'
-import { useLenis } from 'lenis/react'
-import gsap from 'gsap'
 import { scrollDelay } from '@/lib/constants'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useUiStore } from '@/lib/store/ui'
+import gsap from 'gsap'
+import { useLenis } from 'lenis/react'
 
 export function useNavigation() {
   const { setIsMenuOpen } = useUiStore()
@@ -29,7 +28,6 @@ export function useNavigation() {
         const targetElement = document.getElementById(itemId)
         if (targetElement && lenis) {
           lenis.scrollTo(targetElement, { immediate: true })
-          ScrollTrigger.refresh()
           gsap.to(element, {
             opacity: 0,
             duration: 0.4,

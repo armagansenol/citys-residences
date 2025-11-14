@@ -2,10 +2,15 @@
 
 import { cn } from '@/lib/utils'
 import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
 
 import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
 import { GsapSplitText } from '@/components/gsap-split-text'
-import { MuxPlayerWrapper } from '@/components/mux-player-wrapper'
+
+const OptimizedVideo = dynamic(
+  () => import('@/components/optimized-video').then(mod => mod.OptimizedVideo),
+  { ssr: false }
+)
 
 export interface BackgroundVideoTextProps {
   title: string
@@ -91,19 +96,11 @@ export function BackgroundVideoText(props: BackgroundVideoTextProps) {
         </div>
       </div>
       <div className='absolute inset-0 bottom-0 left-0 right-0 top-0 z-10'>
-        <MuxPlayerWrapper
+        <OptimizedVideo
           playbackId={mediaId}
-          style={
-            {
-              aspectRatio: videoAspectRatio as number,
-              '--media-object-fit': 'cover',
-              '--media-object-position': 'center',
-              '--controls': 'none',
-            } as React.CSSProperties
-          }
-          // placeholder={thumbnail}
-          customPlaceholder={thumbnail}
-          startTime={0}
+          scrollDelay={1500}
+          placeholder={thumbnail}
+          aspectRatio={videoAspectRatio}
         />
       </div>
     </section>

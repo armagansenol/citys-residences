@@ -1,64 +1,21 @@
-'use client'
+import { getTranslations } from 'next-intl/server'
+import { type CSSProperties } from 'react'
 
-import { type CSSProperties, useEffect } from 'react'
-
-import { useQuery } from '@tanstack/react-query'
-import { useLocale, useTranslations } from 'next-intl'
-
-import { ScrollTrigger } from '@/components/gsap'
 import { PageTitle } from '@/components/page-title'
 import { RepetitiveSectionsWrapper } from '@/components/repetitive-sections/repetitive-sections-wrapper'
 import { SectionSetter } from '@/components/section-setter'
-import { fetchCitysParkData, type CitysParkData } from '@/lib/api/queries'
+import { type CitysParkData } from '@/lib/api/queries'
 import { navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
-import { LoadingSpinner } from '@/components/loading-spinner'
 
-type CitysParkQueryResult = CitysParkData[]
+interface CitysParkProps {
+  items: CitysParkData[]
+  locale: string
+}
 
-export default function CitysPark() {
-  const t = useTranslations('citys-park')
-  const locale = useLocale()
+export default async function CitysPark({ items, locale }: CitysParkProps) {
+  const t = await getTranslations({ locale, namespace: 'citys-park' })
   const sectionId = navigationConfig['/citys-park']?.id as string
-
-  const {
-    data: items = [],
-    isFetching,
-    isError,
-    error,
-  } = useQuery<CitysParkQueryResult, Error>({
-    queryKey: ['citys-park', locale],
-    queryFn: async () => {
-      const response = await fetchCitysParkData(locale)
-
-      if (!response.success || !response.data) {
-        throw new Error(response.error ?? "Failed to load City's Park content.")
-      }
-
-      return response.data
-    },
-    staleTime: 60 * 60 * 1000, // mirror ISR duration (1 hour)
-  })
-
-  const errorMessage = isError
-    ? (error?.message ?? "Failed to load City's Park content.")
-    : null
-
-  useEffect(() => {
-    if (isFetching || errorMessage) {
-      return
-    }
-
-    const frame = requestAnimationFrame(() => {
-      ScrollTrigger.refresh()
-    })
-
-    return () => cancelAnimationFrame(frame)
-  }, [isFetching, errorMessage, items.length])
-
-  const hasItems = items.length > 0
-  const showLoadingPlaceholder = isFetching && !hasItems
-  const showErrorWithoutData = !hasItems && !!errorMessage && !isFetching
 
   return (
     <SectionSetter sectionId={sectionId}>
@@ -80,37 +37,18 @@ export default function CitysPark() {
           } as CSSProperties
         }
       >
-        {showLoadingPlaceholder && (
-          <div className='flex h-[50vh] items-center justify-center bg-white text-black'>
-            <LoadingSpinner />
-          </div>
-        )}
-        {showErrorWithoutData && (
-          <div className='py-16 text-center font-primary text-base text-white opacity-80'>
-            {errorMessage}
-          </div>
-        )}
-        {hasItems && errorMessage && (
-          <div
-            role='alert'
-            className='pb-10 text-center font-primary text-sm text-white/80'
-          >
-            {errorMessage}
-          </div>
-        )}
-        {hasItems &&
-          items.map(item => (
-            <RepetitiveSectionsWrapper
-              key={item.id}
-              componentType={item.componentType}
-              title={item.title}
-              subtitle={item.subtitle}
-              description={item.description}
-              mediaId={item.mediaId}
-              videoAspectRatio={item.aspectRatio}
-              thumbnail={item.thumbnail}
-            />
-          ))}
+        {items.map(item => (
+          <RepetitiveSectionsWrapper
+            key={item.id}
+            componentType={item.componentType}
+            title={item.title}
+            subtitle={item.subtitle}
+            description={item.description}
+            mediaId={item.mediaId}
+            videoAspectRatio={item.aspectRatio}
+            thumbnail={item.thumbnail}
+          />
+        ))}
       </div>
     </SectionSetter>
   )
