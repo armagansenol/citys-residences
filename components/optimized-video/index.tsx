@@ -72,6 +72,7 @@ export function OptimizedVideo({ playbackId, aspectRatio }: Props) {
       )}
       <video
         ref={ref}
+        poster={thumbnail}
         muted
         loop
         playsInline
