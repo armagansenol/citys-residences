@@ -47,8 +47,10 @@ export function OptimizedVideo({
       {!ready && placeholder && (
         <Image
           src={placeholder}
-          alt=''
+          alt='Video Thumbnail'
           fill
+          mobileSize='100vw'
+          desktopSize='100vw'
           className='object-cover opacity-100 transition-opacity duration-500'
         />
       )}

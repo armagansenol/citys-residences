@@ -241,7 +241,7 @@ export function RepetitiveSectionsWrapper({
   }
 
   const thumbnail = isMobile
-    ? `https://image.mux.com/${mediaId}/thumbnail.webp?width=560&time=0`
+    ? `https://image.mux.com/${mediaId}/thumbnail.webp?width=768&time=0`
     : `https://image.mux.com/${mediaId}/thumbnail.webp?width=1920&time=0`
 
   let renderedSection: JSX.Element | null = null

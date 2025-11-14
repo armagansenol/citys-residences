@@ -1,5 +1,5 @@
-import { type CSSProperties } from 'react'
 import { getTranslations } from 'next-intl/server'
+import { type CSSProperties } from 'react'
 
 import { PageTitle } from '@/components/page-title'
 import { RepetitiveSectionsWrapper } from '@/components/repetitive-sections/repetitive-sections-wrapper'
@@ -7,7 +7,6 @@ import { SectionSetter } from '@/components/section-setter'
 import { type CitysLivingData } from '@/lib/api/queries'
 import { navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
-import { ScrollTriggerRefresh } from './scroll-trigger-refresh'
 
 interface CitysLivingProps {
   items: CitysLivingData[]
@@ -53,7 +52,6 @@ export default async function CitysLiving({ items, locale }: CitysLivingProps) {
             videoAspectRatio={item.aspectRatio}
           />
         ))}
-        <ScrollTriggerRefresh itemsCount={items.length} />
       </div>
     </SectionSetter>
   )

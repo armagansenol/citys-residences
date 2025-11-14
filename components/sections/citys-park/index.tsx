@@ -1,5 +1,5 @@
-import { type CSSProperties } from 'react'
 import { getTranslations } from 'next-intl/server'
+import { type CSSProperties } from 'react'
 
 import { PageTitle } from '@/components/page-title'
 import { RepetitiveSectionsWrapper } from '@/components/repetitive-sections/repetitive-sections-wrapper'
@@ -7,7 +7,6 @@ import { SectionSetter } from '@/components/section-setter'
 import { type CitysParkData } from '@/lib/api/queries'
 import { navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
-import { ScrollTriggerRefresh } from './scroll-trigger-refresh'
 
 interface CitysParkProps {
   items: CitysParkData[]
@@ -50,7 +49,6 @@ export default async function CitysPark({ items, locale }: CitysParkProps) {
             thumbnail={item.thumbnail}
           />
         ))}
-        <ScrollTriggerRefresh itemsCount={items.length} />
       </div>
     </SectionSetter>
   )
