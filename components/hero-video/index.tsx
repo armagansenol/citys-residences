@@ -14,6 +14,8 @@ type HeroVideoProps = {
 const HeroVideo: React.FC<HeroVideoProps> = ({
   desktopPoster,
   mobilePoster,
+  desktopVideoId,
+  mobileVideoId,
 }) => {
   const { width: windowWidth } = useWindowSize(100)
   const isMobile = windowWidth && windowWidth < breakpoints.breakpointMobile
@@ -82,23 +84,23 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
       <video
         ref={mobileVideoRef}
         {...commonVideoProps}
-        src='https://stream.mux.com/xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM/highest.mp4'
+        src={`https://stream.mux.com/${mobileVideoId}/highest.mp4`}
         className='relative block h-screen w-full lg:hidden'
         poster={mobilePoster}
         style={{
           ...commonVideoProps.style,
-          aspectRatio: 1920 / 1080,
+          aspectRatio: 560 / 966,
         }}
       />
       <video
         ref={desktopVideoRef}
         {...commonVideoProps}
-        src='https://stream.mux.com/xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM/highest.mp4'
+        src={`https://stream.mux.com/${desktopVideoId}/highest.mp4`}
         className='relative hidden h-screen w-full lg:block'
         poster={desktopPoster}
         style={{
           ...commonVideoProps.style,
-          aspectRatio: 560 / 966,
+          aspectRatio: 1920 / 1080,
         }}
       />
       {/* <Image
