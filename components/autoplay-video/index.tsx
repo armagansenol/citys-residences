@@ -1,57 +1,26 @@
 'use client'
 
-import { useIntersectionObserver } from 'hamo'
-import {
-  useCallback,
-  useEffect,
-  useRef,
-  type ComponentPropsWithoutRef,
-} from 'react'
+import s from './styles.module.css'
 
-interface AutoplayVideoProps
-  extends Omit<ComponentPropsWithoutRef<'video'>, 'src' | 'poster' | 'style'> {
-  intersectionThreshold?: number
-  className?: string
+import { cn } from '@/lib/utils'
+import { breakpoints } from '@/styles/config.mjs'
+import { useIntersectionObserver } from 'hamo'
+import { useCallback, useEffect, useRef } from 'react'
+
+interface AutoplayVideoProps {
   playbackId?: string
-  src?: string
-  poster?: string
-  placeholder?: string // Alias for poster (MuxPlayer compatibility)
-  style?: React.CSSProperties & {
-    '--media-object-fit'?: string
-    '--media-object-position'?: string
-    '--controls'?: string
-  }
-  // MuxPlayer-specific props that we ignore
-  minResolution?: string
-  maxResolution?: string
-  startTime?: number
-  streamType?: string
+  aspectRatio?: number
 }
 
-export function AutoplayVideo({
-  intersectionThreshold = 0,
-  className,
-  playbackId,
-  src,
-  poster,
-  placeholder,
-  style,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  minResolution: _,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  maxResolution: __,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  startTime: ___,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  streamType: ____,
-  ...props
-}: AutoplayVideoProps) {
+export function AutoplayVideo({ playbackId, aspectRatio }: AutoplayVideoProps) {
   const playerRef = useRef<HTMLVideoElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
+  const hasLoadedRef = useRef(false)
+
   const [setIntersectionRef, entry] = useIntersectionObserver({
     root: null,
-    rootMargin: '200px 0px 200px 0px',
-    threshold: intersectionThreshold,
+    rootMargin: '1500px 0px 1500px 0px', // <-- smoother preloading
+    threshold: 0,
   })
 
   const setContainerRef = useCallback(
@@ -62,68 +31,56 @@ export function AutoplayVideo({
     [setIntersectionRef]
   )
 
-  // Convert playbackId to highest.mp4 URL if provided
-  const videoSrc =
-    src ||
-    (playbackId
-      ? `https://stream.mux.com/${playbackId}/highest.mp4`
-      : undefined)
+  // safer + no resize reflows
+  const isMobile =
+    typeof window !== 'undefined' &&
+    window.matchMedia(`(max-width:${breakpoints.breakpointMobile}px)`).matches
 
-  // Use placeholder as fallback for poster (MuxPlayer compatibility)
-  const videoPoster = poster || placeholder
+  const poster = `https://image.mux.com/${playbackId}/thumbnail.webp?width=${
+    isMobile ? 768 : 1920
+  }&time=0`
+
+  const videoUrl =
+    playbackId && `https://stream.mux.com/${playbackId}/highest.mp4`
 
   useEffect(() => {
-    const playerEl = playerRef.current
-    if (!playerEl) {
-      return
+    const el = playerRef.current
+    if (!el || !videoUrl) return
+
+    // Lazy assign <video>.src ONLY once
+    if (entry?.isIntersecting && !hasLoadedRef.current) {
+      hasLoadedRef.current = true
+      el.src = videoUrl
     }
 
-    // Only pause if we explicitly know the element is NOT intersecting
-    // Don't pause if entry is null/undefined (initial state)
+    // auto play / pause behavior
     if (entry && !entry.isIntersecting) {
-      playerEl.pause()
-      return
+      el.pause()
+    } else if (entry?.isIntersecting && el.paused) {
+      el.play().catch(() => {})
     }
-
-    // Play if intersecting (or if entry is null initially, let autoplay handle it)
-    if (entry?.isIntersecting && playerEl.paused) {
-      playerEl.play().catch(() => undefined)
-    }
-  }, [entry])
-
-  // Convert CSS custom properties to standard CSS
-  const customObjectFit = style?.['--media-object-fit'] as
-    | React.CSSProperties['objectFit']
-    | undefined
-  const customObjectPosition = style?.['--media-object-position'] as
-    | React.CSSProperties['objectPosition']
-    | undefined
-
-  const videoStyle: React.CSSProperties = {
-    objectFit: customObjectFit || 'cover',
-    objectPosition: customObjectPosition || 'center',
-    ...style,
-  }
-  // Remove custom properties from style
-  const styleObj = videoStyle as Record<string, unknown>
-  delete styleObj['--media-object-fit']
-  delete styleObj['--media-object-position']
-  delete styleObj['--controls']
+  }, [entry, videoUrl])
 
   return (
-    <div ref={setContainerRef} className={className}>
+    <div className='relative h-full w-full' ref={setContainerRef}>
       <video
         ref={playerRef}
-        src={videoSrc}
-        poster={videoPoster}
-        className='h-full w-full'
+        poster={poster}
+        className={cn(
+          s.video,
+          'absolute inset-0 h-full w-full object-cover object-center'
+        )}
+        style={
+          {
+            '--aspect-ratio': aspectRatio,
+          } as React.CSSProperties
+        }
         muted
         loop
         playsInline
-        autoPlay
-        preload='auto'
-        style={videoStyle}
-        {...props}
+        preload='none'
+        disablePictureInPicture
+        controlsList='nodownload noplaybackrate'
       />
     </div>
   )

@@ -117,19 +117,8 @@ export default async function Page({
       </section>
       <section className='relative aspect-1 overflow-hidden lg:aspect-[16/7]'>
         <AutoplayVideo
-          className='absolute inset-0 h-full w-full'
           playbackId={residencesBanner.muxSrc}
-          style={
-            {
-              aspectRatio: residencesBanner.aspect(),
-              '--media-object-fit': 'cover',
-              '--media-object-position': 'center',
-              '--controls': 'none',
-            } as React.CSSProperties
-          }
-          placeholder={residencesBanner.thumbnail}
-          startTime={0}
-          minResolution='720p'
+          aspectRatio={residencesBanner.aspect()}
         />
       </section>
       <section className='relative overflow-hidden bg-white'>

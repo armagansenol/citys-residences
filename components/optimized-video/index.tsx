@@ -1,5 +1,7 @@
 'use client'
 
+import s from './styles.module.css'
+
 import { Image } from '@/components/image'
 import { cn } from '@/lib/utils'
 import { breakpoints } from '@/styles/config.mjs'
@@ -51,7 +53,7 @@ export function OptimizedVideo({ playbackId, aspectRatio }: Props) {
 
   return (
     <div
-      className='relative h-full w-full'
+      className='relative h-full w-full bg-gray-200'
       style={aspectRatio ? { aspectRatio: String(aspectRatio) } : undefined}
     >
       {thumbnail && (
@@ -61,18 +63,21 @@ export function OptimizedVideo({ playbackId, aspectRatio }: Props) {
           fill
           mobileSize='100vw'
           desktopSize='100vw'
-          className={cn('object-cover transition-opacity duration-500', {
-            'opacity-100': !ready,
-            'opacity-0': ready,
-          })}
+          className={cn(
+            'object-cover opacity-0 transition-opacity duration-500',
+            {
+              'opacity-0': ready,
+            }
+          )}
           style={{
             filter: 'grayscale(20%)',
           }}
+          loading='lazy'
         />
       )}
       <video
         ref={ref}
-        poster={thumbnail}
+        poster={undefined}
         muted
         loop
         playsInline
@@ -80,7 +85,12 @@ export function OptimizedVideo({ playbackId, aspectRatio }: Props) {
         onLoadedData={() => {
           setReady(true)
         }}
-        className={cn('h-full w-full object-cover')}
+        className={s.video}
+        style={
+          {
+            '--aspect-ratio': aspectRatio,
+          } as React.CSSProperties
+        }
       >
         <source
           src={`https://stream.mux.com/${playbackId}/highest.mp4`}

@@ -53,19 +53,8 @@ export default async function CitysTimes({ locale }: { locale?: string }) {
     <SectionSetter sectionId={navigationConfig['/citys-times']?.id as string}>
       <section className='relative h-screen overflow-hidden lg:h-[45vw]'>
         <AutoplayVideo
-          className='absolute inset-0 h-full w-full'
           playbackId={citysTimesBanner.muxSrc}
-          style={
-            {
-              aspectRatio: citysTimesBanner.aspect(),
-              '--media-object-fit': 'cover',
-              '--media-object-position': 'center',
-              '--controls': 'none',
-            } as React.CSSProperties
-          }
-          placeholder={citysTimesBanner.thumbnail}
-          startTime={0}
-          minResolution='720p'
+          aspectRatio={citysTimesBanner.aspect()}
         />
       </section>
       <section

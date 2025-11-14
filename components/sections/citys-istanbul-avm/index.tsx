@@ -36,19 +36,8 @@ export default async function Page() {
       />
       <section className='relative h-screen overflow-hidden lg:h-[45vw]'>
         <AutoplayVideo
-          className='absolute inset-0 h-full w-full'
           playbackId={citysIstanbulAvmBanner.muxSrc}
-          style={
-            {
-              aspectRatio: citysIstanbulAvmBanner.aspect(),
-              '--media-object-fit': 'cover',
-              '--media-object-position': 'center',
-              '--controls': 'none',
-            } as React.CSSProperties
-          }
-          placeholder={citysIstanbulAvmBanner.thumbnail}
-          startTime={0}
-          minResolution='720p'
+          aspectRatio={citysIstanbulAvmBanner.aspect()}
         />
       </section>
       <section className='section-container px-8 py-8 lg:px-0 lg:py-24'>

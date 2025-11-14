@@ -16,7 +16,7 @@ interface VideoWithTextProps {
 }
 
 export function VideoWithText(props: VideoWithTextProps) {
-  const { mediaId, title, description, className, aspect, thumbnail } = props
+  const { mediaId, title, description, className, aspect } = props
 
   return (
     <div
@@ -27,21 +27,7 @@ export function VideoWithText(props: VideoWithTextProps) {
         className
       )}
     >
-      <AutoplayVideo
-        className='absolute inset-0 h-full w-full'
-        playbackId={mediaId}
-        style={
-          {
-            aspectRatio: aspect,
-            '--media-object-fit': 'cover',
-            '--media-object-position': 'center',
-            '--controls': 'none',
-          } as React.CSSProperties
-        }
-        minResolution='720p'
-        placeholder={thumbnail}
-        startTime={0}
-      />
+      <AutoplayVideo playbackId={mediaId} aspectRatio={aspect} />
       <div
         className={cn(
           'absolute bottom-[10%] left-1/2 z-50 -translate-x-1/2 xl:bottom-[15%]'

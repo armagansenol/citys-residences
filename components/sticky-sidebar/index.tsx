@@ -19,6 +19,9 @@ export const StickySidebar: React.FC = () => {
   const { ref, slider } = useSmooothy({
     infinite: false,
     snap: true,
+    dragSensitivity: 0.005,
+    speedDecay: 0.85,
+    lerpFactor: 0.3,
     setOffset: ({ wrapperWidth }) => {
       return wrapperWidth / 2 // Center the active slide
     },
@@ -115,11 +118,11 @@ export const StickySidebar: React.FC = () => {
           <div
             key={item.id}
             className={cn(
-              'relative h-8 w-[40vw]',
-              'flex shrink-0 items-center justify-center',
-              'before:absolute before:bottom-0 before:left-0 before:h-0 before:w-full before:bg-white before:backdrop-blur-[54px] before:transition-all before:duration-300 before:ease-in-out before:content-[""]',
+              'relative w-[40vw]',
+              'flex shrink-0 items-stretch justify-stretch',
+              'before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:h-0 before:w-full before:bg-white before:backdrop-blur-[54px] before:transition-all before:duration-300 before:ease-in-out before:content-[""]',
               {
-                'before:h-[3px]': activeSection === item.id,
+                'before:h-[2px]': activeSection === item.id,
               }
             )}
           >
@@ -127,17 +130,19 @@ export const StickySidebar: React.FC = () => {
               onClick={() => handleNavClick(item.id as string)}
               className={cn(
                 'whitespace-nowrap font-primary font-[700] tracking-[0.2em] text-white',
-                'flex-col items-center justify-center',
+                'flex h-full w-full items-center justify-center',
                 'transition-all duration-300 ease-out',
-                'cursor-pointer px-8',
+                'cursor-pointer py-2',
                 {
-                  'text-[0.7rem]': activeSection === item.id,
-                  'text-[0.6rem]': activeSection !== item.id,
+                  'text-[0.7rem] opacity-100': activeSection === item.id,
+                  'text-[0.6rem] opacity-70': activeSection !== item.id,
                 }
               )}
               type='button'
             >
-              {toAllUppercase(item.label)}
+              <span className='whitespace-nowrap'>
+                {toAllUppercase(item.label)}
+              </span>
             </button>
           </div>
         ))}

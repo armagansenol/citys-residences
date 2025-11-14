@@ -144,15 +144,8 @@ export function MenuNavList() {
                   )}
                   {media.type === 'video' && (
                     <AutoplayVideo
-                      className='h-full w-full object-cover'
                       playbackId={media.src}
-                      style={
-                        {
-                          aspectRatio: getAspectRatio(itemId),
-                          '--media-object-fit': 'cover',
-                          '--controls': 'none',
-                        } as React.CSSProperties
-                      }
+                      aspectRatio={getAspectRatio(itemId)}
                     />
                   )}
                 </div>
