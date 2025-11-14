@@ -22,7 +22,7 @@ export function OptimizedVideo({ playbackId, aspectRatio }: Props) {
     typeof windowWidth === 'number' &&
     windowWidth < breakpoints.breakpointMobile
 
-  const thumbnail = `https://image.mux.com/${playbackId}/thumbnail.webp?width=${isMobile ? 768 : 1920}&time=0`
+  const thumbnail = `https://image.mux.com/${playbackId}/thumbnail.webp?width=${isMobile ? 560 : 1440}&time=0`
 
   const [ready, setReady] = useState(false)
 
@@ -52,36 +52,31 @@ export function OptimizedVideo({ playbackId, aspectRatio }: Props) {
   }, [])
 
   return (
-    <div
-      className='relative h-full w-full bg-gray-200'
-      style={aspectRatio ? { aspectRatio: String(aspectRatio) } : undefined}
-    >
-      {thumbnail && (
-        <Image
-          src={thumbnail}
-          alt='Video Thumbnail'
-          fill
-          mobileSize='100vw'
-          desktopSize='100vw'
-          className={cn(
-            'object-cover opacity-0 transition-opacity duration-500',
-            {
-              'opacity-0': ready,
-            }
-          )}
-          style={{
-            filter: 'grayscale(20%)',
-          }}
-          loading='lazy'
-        />
-      )}
+    <div className='relative h-full w-full bg-gray-200'>
+      <Image
+        src={thumbnail}
+        alt='Video Thumbnail'
+        fill
+        mobileSize='100vw'
+        desktopSize='100vw'
+        className={cn(
+          'object-cover opacity-100 transition-opacity duration-500',
+          {
+            'opacity-0': ready,
+          }
+        )}
+        style={{
+          filter: 'grayscale(20%)',
+        }}
+        loading='lazy'
+      />
       <video
         ref={ref}
         poster={undefined}
         muted
         loop
         playsInline
-        preload='none'
+        preload='metadata'
         onLoadedData={() => {
           setReady(true)
         }}

@@ -54,7 +54,6 @@ export default async function CitysMembersClub({
             subtitle={item.subtitle}
             description={item.description}
             mediaId={item.mediaId}
-            thumbnail={item.thumbnail}
             videoAspectRatio={item.aspectRatio}
           />
         ))}

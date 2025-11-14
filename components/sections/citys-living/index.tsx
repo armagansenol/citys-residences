@@ -48,7 +48,6 @@ export default async function CitysLiving({ items, locale }: CitysLivingProps) {
             subtitle={item.subtitle}
             description={item.description}
             mediaId={item.mediaId}
-            thumbnail={item.thumbnail}
             videoAspectRatio={item.aspectRatio}
           />
         ))}
