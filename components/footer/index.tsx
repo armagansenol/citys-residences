@@ -261,9 +261,9 @@ export function Footer() {
                   >
                     <CalendarPlusIcon
                       weight='thin'
-                      className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
+                      className='z-10 size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
                     />
-                    <span className='mt-auto text-left font-primary text-xs font-[400] leading-tight text-white lg:text-sm 2xl:text-base'>
+                    <span className='z-10 mt-auto text-left font-primary text-xs font-[400] leading-tight text-white lg:text-sm 2xl:text-base'>
                       {t.rich('createAppointment', {
                         br: () => <br />,
                       })}
@@ -272,9 +272,9 @@ export function Footer() {
                   <button className='border-radius-gradient flex aspect-[14/16] flex-col px-2 py-4 sm:gap-6 lg:px-4 lg:py-6'>
                     <HeadsetIcon
                       weight='thin'
-                      className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
+                      className='z-10 size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
                     />
-                    <span className='mt-auto text-left font-primary text-xs font-[400] leading-tight text-white lg:text-sm 2xl:text-base'>
+                    <span className='z-10 mt-auto text-left font-primary text-xs font-[400] leading-tight text-white lg:text-sm 2xl:text-base'>
                       {t.rich('speakWithRepresentative', {
                         br: () => <br />,
                       })}
@@ -286,9 +286,9 @@ export function Footer() {
                   >
                     <MapPinPlusIcon
                       weight='thin'
-                      className='size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
+                      className='z-10 size-8 text-white sm:h-8 sm:w-8 lg:h-9 lg:w-9'
                     />
-                    <span className='mt-auto text-left font-primary text-xs font-[400] leading-tight text-white lg:text-sm 2xl:text-base'>
+                    <span className='z-10 mt-auto text-left font-primary text-xs font-[400] leading-tight text-white lg:text-sm 2xl:text-base'>
                       {t.rich('getDirections', {
                         br: () => <br />,
                       })}
