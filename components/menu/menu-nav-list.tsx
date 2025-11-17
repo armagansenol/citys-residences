@@ -32,8 +32,6 @@ export function MenuNavList() {
   //   return 16 / 9
   // }
 
-  console.log('menu', Object.entries(menuMedia))
-
   return (
     <div className='flex w-full items-start justify-between gap-32 3xl:gap-40'>
       <nav className='flex items-start justify-center lg:justify-start'>
