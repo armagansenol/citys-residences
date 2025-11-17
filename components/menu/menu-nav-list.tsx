@@ -32,6 +32,8 @@ export function MenuNavList() {
   //   return 16 / 9
   // }
 
+  console.log('menu', Object.entries(menuMedia))
+
   return (
     <div className='flex w-full items-start justify-between gap-32 3xl:gap-40'>
       <nav className='flex items-start justify-center lg:justify-start'>
@@ -147,7 +149,8 @@ export function MenuNavList() {
                     //   aspectRatio={getAspectRatio(itemId)}
                     // />
                     <video
-                      poster={media.src}
+                      poster={`https://image.mux.com/${media.src}/thumbnail.webp?width=5600&time=0`}
+                      src={`https://stream.mux.com/${media.src}/highest.mp4`}
                       className={cn(
                         'absolute inset-0 h-full w-full object-cover object-center'
                       )}
@@ -156,8 +159,6 @@ export function MenuNavList() {
                       loop
                       playsInline
                       preload='none'
-                      disablePictureInPicture
-                      controlsList='nodownload noplaybackrate'
                     />
                   )}
                 </div>
