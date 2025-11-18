@@ -351,10 +351,11 @@
         "residences": "Her köşesi özenle düşünülmüş, tüm çizgileri ferah bir nefese açılan alanlar...",
         "citysPark": "Sabah yürüyüşünü gökyüzüyle paylaş, akşam enerjini toprağa bırak. <br></br> 50.000 m² yeşilin içinde, şehirden uzaklaşmadan doğayla buluş.",
         "citysMembersClub": "Sabah bir kahve, öğlen küçük bir toplantı, akşamüstü spontane bir kutlama... Doğanın içinde arkadaşlarınla bir masaya kurul, ya da ışıkların altında unutulmaz bir etkinlik düzenle. Resmiyet yok, sadece senin ritmin, senin alanın...",
-        "citysLiving": "Artık her şey daha kolay...",
+        "citysLiving": "Artık yaşam daha kolay...",
         "citysPsm": "Artık her şey daha yakın...",
         "citysIstanbulAvm": "Dünyaca tanınan seçkin markalara bir kaç adımda ulaşır, taze bir kahve kokusuyla tanışır, gurme lezzet duraklarında soluklanır; sanat, kültür, eğlenceyle buluşur, günün koşturmacasını sakince geride bırakırsın...",
-        "citysTimes": "Daha Çok Yaşa... <br></br> Daha Huzurlu Yaşa... <br></br> Daha Dolu Yaşa..."
+        "citysTimes": "Daha Çok Yaşa... <br></br> Daha Huzurlu Yaşa... <br></br> Daha Dolu Yaşa...",
+        "citysDna": "Geleceğin Şehri Bugüne Geldi.<br></br>Yaşam Yeniden Tasarlandı:<br></br>CITY’S RESIDENCES x CITY’S LIVING"
     },
     "common": {
         "navigation": {
@@ -367,7 +368,8 @@
             "citysIstanbulAvm": "City's\nİstanbul AVM",
             "citysPsm": "City's PSM",
             "citysTimes": "City's Times",
-            "project": "Proje"
+            "project": "Proje",
+            "citysDna": "City's DNA"
         },
         "contactInfo": "Satış Ofisi",
         "close": "KAPAT",

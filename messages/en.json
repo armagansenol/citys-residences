@@ -310,10 +310,11 @@
         "residences": "Every corner carefully designed, with all lines opening to a refreshing breath...",
         "citysPark": "Share your morning walk with the sky, leave your evening energy to the ground. <br></br> In 50,000 m² of green, meet nature without leaving the city.",
         "citysMembersClub": "A morning coffee, a small lunchtime meeting, an impromptu evening celebration... Gather around a table with friends in nature, or host an unforgettable event under the lights. No formality, just your rhythm, your space...",
-        "citysLiving": "Everything is easier now...",
+        "citysLiving": "Life is easier now...",
         "citysPsm": "Everything is closer now...",
         "citysIstanbulAvm": "Experience world-renowned prestigious brands within a few steps, meet the fresh coffee aroma, take a break at gourmet flavor stops; meet art, culture, entertainment, and leave the day's hustle peacefully behind...",
-        "citysTimes": "Live More... <br></br> Live More Peacefully... <br></br> Live More Fully..."
+        "citysTimes": "Live More... <br></br> Live More Peacefully... <br></br> Live More Fully...",
+        "citysDna": "The City of the Future Has Arrived.<br></br>Life Reimagined:<br></br>CITY’S RESIDENCES x CITY’S LIVING"
     },
     "common": {
         "navigation": {
@@ -326,12 +327,13 @@
             "citysIstanbulAvm": "City's\nIstanbul Mall",
             "citysPsm": "City's PSM",
             "citysTimes": "City's Times",
-            "project": "Project"
+            "project": "Project",
+            "citysDna": "City's DNA"
         },
         "contactInfo": "Sales Office",
         "close": "CLOSE",
         "open": "MENU",
-        "inquiry": "BOOK AN APPOINTMENT",
+        "inquiry": "APPOINTMENT",
         "contact": "Contact",
         "socialMedia": "Social Media",
         "menu": "Menu",
