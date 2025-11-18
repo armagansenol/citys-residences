@@ -237,7 +237,7 @@ export function ModalContactForm() {
         <button
           className={cn(
             'group',
-            'absolute bottom-0 left-0 top-[55%] -translate-x-full',
+            'absolute bottom-0 left-0 top-[55%] -translate-x-full -translate-y-1/2',
             'font-primary font-[500] tracking-[0.2em] text-white',
             'text-sm xl:text-base 2xl:text-xl',
             'flex items-center justify-center',
