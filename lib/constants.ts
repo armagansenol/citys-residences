@@ -371,8 +371,8 @@ export const citysIstanbulAvmBanner: Media = {
     return calculateRatio(1920, 1026)
   },
   mediaId: 'a5b5zn9o9x',
-  muxSrc: 'hLCddwmtOdUZ3vvZFqxAXvwusE9f8M3qg5KDXqVBGHY',
-  muxSrcMobile: 'dMs3k8j02Rre5EE02b4VjR8ygDa01t7ZeISDdMFDSoemYE',
+  muxSrc: 'Zq5jSeSQegjDYMVonJbtidTBV01IusZ00yePcyQT3rUgc',
+  muxSrcMobile: 'hv005rBTmnBlc3Tmy2s00i02u2Gmu8eBP8Ysn02KICA48GU',
   thumbnail:
     'https://image.mux.com/hLCddwmtOdUZ3vvZFqxAXvwusE9f8M3qg5KDXqVBGHY/thumbnail.webp?width=1920&time=0',
   thumbnailMobile:
