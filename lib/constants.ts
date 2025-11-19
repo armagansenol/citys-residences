@@ -389,7 +389,7 @@ export const citysTimesBanner: Media = {
     'https://image.mux.com/NB02x73haYbyN18zmvgUntrAutAeqhWaZGf8gkUYUkmA/thumbnail.webp?width=1920&time=0',
 }
 
-export const scrollDelay = 0.2
+export const scrollDelay = 0.4
 
 export const menuMedia = {
   home: {
