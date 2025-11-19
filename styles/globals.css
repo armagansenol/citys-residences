@@ -215,11 +215,6 @@ body {
   --border-width: 1px;
   position: relative;
   box-sizing: border-box;
-  background: linear-gradient(
-    146.41deg,
-    var(--bricky-brick) 60%,
-    #ffffff 242.33%
-  );
   background-clip: padding-box;
   border: solid var(--border-width) transparent;
   border-radius: 0.25em;
@@ -231,37 +226,33 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    z-index: -2;
     margin: calc(var(--border-width) * -1);
     border-radius: inherit;
-    background: linear-gradient(
-      132.66deg,
-      #ffffff -46.82%,
-      rgba(255, 255, 255, 0) 47.43%
-    );
+    background: linear-gradient(-45deg, var(--bricky-brick) 30%, #ffffff 100%);
   }
 
   &::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
+    z-index: -1;
     margin: calc(var(--border-width) * -1);
     border-radius: inherit;
     background: linear-gradient(
-      132.66deg,
-      #ffffff -46.82%,
-      var(--bricky-brick) 47.43%
+      -45deg,
+      var(--tangerine-flake) 0%,
+      var(--bricky-brick) 30%,
+      var(--bricky-brick) 100%
     );
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 500ms ease;
   }
 
   &:hover::after {
-    opacity: 1;
+    opacity: 0.5;
   }
 }
 
@@ -284,33 +275,33 @@ body {
     margin: calc(var(--border-width) * -1);
     border-radius: inherit;
     background: linear-gradient(
-      132.66deg,
-      #ffffff -46.82%,
-      rgba(255, 255, 255, 0) 47.43%
+      -45deg,
+      rgba(255, 255, 255, 0) 70%,
+      rgba(255, 255, 255, 1) 100%
     );
   }
 
   &::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    left: 1px;
     z-index: -1;
     margin: calc(var(--border-width) * -1);
     border-radius: inherit;
     background: linear-gradient(
-      132.66deg,
-      var(--bricky-brick) 26.82%,
-      rgba(255, 255, 255, 0.2) 87.43%
+      -45deg,
+      rgb(208, 208, 208) 0%,
+      rgba(236, 236, 236, 0.5) 20%,
+      rgba(110, 102, 97, 0.8) 100%
     );
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 500ms ease;
   }
 
   &:hover::after {
-    opacity: 1;
+    opacity: 0.5;
   }
 }
 

@@ -319,8 +319,18 @@ export function ContactForm({ translations, onSuccess }: FormContactProps) {
         icon: createIcon('3+1'),
       },
       {
+        id: '3.5+1',
+        label: '3.5+1',
+        icon: createIcon('3+1'),
+      },
+      {
         id: '4+1',
         label: '4+1',
+        icon: createIcon('4+1'),
+      },
+      {
+        id: '4.5+1',
+        label: '4.5+1',
         icon: createIcon('4+1'),
       },
       {
@@ -329,9 +339,9 @@ export function ContactForm({ translations, onSuccess }: FormContactProps) {
         icon: createIcon('5+1'),
       },
       {
-        id: '6+1',
-        label: '6+1',
-        icon: createIcon('6+1'),
+        id: '5.5+1',
+        label: '5.5+1',
+        icon: createIcon('5+1'),
       },
     ]
   }, [residenceTypeValue])

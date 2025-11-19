@@ -17,6 +17,9 @@ interface WrapperProps extends React.HTMLAttributes<HTMLDivElement> {
   lenis?: boolean
   webgl?: boolean | object
   stickySidebar?: boolean
+  headerWithNavigation?: boolean
+  contactForm?: boolean
+  footer?: boolean
 }
 
 export function Wrapper({
@@ -25,6 +28,9 @@ export function Wrapper({
   lenis = true,
   className,
   stickySidebar = true,
+  headerWithNavigation = true,
+  footer = true,
+  contactForm = true,
   ...props
 }: WrapperProps) {
   const pathname = usePathname()
@@ -36,16 +42,16 @@ export function Wrapper({
 
   return (
     <>
-      <Header />
+      <Header withNavigation={headerWithNavigation} />
       <div className='z-[var(--z-content)]'>
-        <div className='transition-wrapper pointer-events-none fixed inset-0 z-50 bg-white opacity-0'></div>
+        <div className='transition-wrapper pointer-events-none fixed left-1/2 top-1/2 z-50 h-[300vh] w-screen -translate-x-1/2 -translate-y-1/2 bg-white opacity-0'></div>
         <main className={className} {...props}>
           {children}
           {/* <Script id="theme-script">{`document.documentElement.setAttribute('data-theme', '${theme}');`}</Script> */}
         </main>
-        <Footer />
+        {footer && <Footer />}
       </div>
-      <ModalContactForm />
+      {contactForm && <ModalContactForm />}
       {stickySidebar && <StickySidebar />}
       {lenis && <SmoothScroll root />}
       {/* Hidden element for webchat to detect language */}

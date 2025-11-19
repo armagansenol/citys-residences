@@ -1,13 +1,12 @@
 'use client'
 
+import { Image } from '@/components/image'
 import { cn } from '@/lib/utils'
 import { HouseSimpleIcon } from '@phosphor-icons/react'
-import { useState, useMemo } from 'react'
-import { Image } from '@/components/image'
-import { useTranslations } from 'next-intl'
+import { useMemo, useState } from 'react'
 
 export function ResidencesNavigator() {
-  const t = useTranslations('residences.navigator.labels')
+  // const t = useTranslations('residences.navigator.labels')
   const [selectedValue, setSelectedValue] = useState<string>('2')
 
   const options = useMemo(() => {
@@ -49,47 +48,59 @@ export function ResidencesNavigator() {
       {
         id: '3',
         label: '3 + 1',
-        src: '/img/residences/3+1/interior.jpg',
+        src: '/img/residences/2+1/interior.jpg',
         icon: createIcon('3'),
       },
       {
         id: '4',
-        label: '4 + 1',
-        src: '/img/residences/4+1/interior.jpg',
+        label: '3.5 + 1',
+        src: '/img/residences/2+1/interior.jpg',
         icon: createIcon('4'),
       },
       {
         id: '5',
-        label: '5 + 1',
-        src: '/img/residences/4+1/interior.jpg',
+        label: '4 + 1',
+        src: '/img/residences/3+1/interior.jpg',
         icon: createIcon('5'),
       },
       {
         id: '6',
-        label: '6 + 1',
-        src: '/img/residences/4+1/interior.jpg',
+        label: '4.5 + 1',
+        src: '/img/residences/3+1/interior.jpg',
         icon: createIcon('6'),
       },
       {
         id: '7',
-        label: t('citysParkHouses'),
-        src: '/img/residences/1+1/interior.jpg',
+        label: '5 + 1',
+        src: '/img/residences/3+1/interior.jpg',
         icon: createIcon('7'),
       },
       {
         id: '8',
-        label: t('terraceHouses'),
-        src: '/img/residences/terrace-houses/interior.jpg',
+        label: '5.5 + 1',
+        src: '/img/residences/4+1/interior.jpg',
         icon: createIcon('8'),
       },
-      {
-        id: '9',
-        label: t('penthouse'),
-        src: '/img/residences/terrace-houses/interior.jpg',
-        icon: createIcon('9'),
-      },
+      // {
+      //   id: '7',
+      //   label: t('citysParkHouses'),
+      //   src: '/img/residences/1+1/interior.jpg',
+      //   icon: createIcon('7'),
+      // },
+      // {
+      //   id: '8',
+      //   label: t('terraceHouses'),
+      //   src: '/img/residences/terrace-houses/interior.jpg',
+      //   icon: createIcon('8'),
+      // },
+      // {
+      //   id: '9',
+      //   label: t('penthouse'),
+      //   src: '/img/residences/terrace-houses/interior.jpg',
+      //   icon: createIcon('9'),
+      // },
     ]
-  }, [selectedValue, t])
+  }, [selectedValue])
 
   const handleOptionClick = (id: string) => {
     setSelectedValue(id)

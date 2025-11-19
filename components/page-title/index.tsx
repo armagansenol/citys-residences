@@ -42,8 +42,8 @@ export function PageTitle(props: PageTitleProps) {
       <div
         className={cn(
           'relative z-30 flex min-h-screen items-center justify-center overflow-hidden xl:min-h-[110vh]',
-          'before:absolute before:left-0 before:top-0 before:z-10 before:h-2/6 before:w-full before:bg-gradient-to-b before:from-[var(--color-primary)] before:to-transparent',
-          'after:absolute after:bottom-0 after:left-0 after:z-10 after:h-2/6 after:w-full after:bg-gradient-to-t after:from-[var(--color-primary)] after:to-transparent',
+          'before:absolute before:left-0 before:top-0 before:z-10 before:h-[15%] before:w-full before:bg-gradient-to-b before:from-[var(--color-primary)] before:to-transparent xl:before:h-[15%]',
+          'after:absolute after:bottom-0 after:left-0 after:z-10 after:h-[15%] after:w-full after:bg-gradient-to-t after:from-[var(--color-primary)] after:to-transparent xl:after:h-[15%]',
           className
         )}
         id={id}

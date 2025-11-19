@@ -4,7 +4,6 @@ import { getMessages, getTranslations } from 'next-intl/server'
 import { FadeInOnScroll } from '@/components/animations/fade-in-on-scroll'
 import { ScaleOut } from '@/components/animations/scale-out'
 import { GsapSplitText } from '@/components/gsap-split-text'
-
 import { HeroVideo } from '@/components/hero-video'
 import { IconCollab } from '@/components/icons'
 import { Image } from '@/components/image'
@@ -85,6 +84,7 @@ export default async function Page({
               alt='Scroll Down'
               fill
               className='object-contain'
+              priority
             />
           </div>
           <span className='sr-only'>Scroll Down</span>

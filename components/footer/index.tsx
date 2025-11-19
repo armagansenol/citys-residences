@@ -15,12 +15,13 @@ import {
 import { useIntersectionObserver } from 'hamo'
 import { useLocale, useTranslations } from 'next-intl'
 import { useEffect } from 'react'
+import { Link as LocalizedLink } from '@/i18n/navigation'
 
 import { Logo } from '@/components/icons'
 import { Image } from '@/components/image'
 import { Link } from '@/components/utility/link'
 import { useNavigation } from '@/hooks/useNavigation'
-import { Locale, routing } from '@/i18n/routing'
+import { Locale, Pathnames, routing } from '@/i18n/routing'
 import { getNavigationItems, navigationConfig } from '@/lib/constants'
 import { useUiStore } from '@/lib/store/ui'
 import { colors } from '@/styles/config.mjs'
@@ -129,49 +130,81 @@ export function Footer() {
                 {getNavigationItems(t, locale as Locale)
                   .filter(item => item.mainRoute)
                   .map(item => (
-                    <button
-                      key={item.id}
-                      className={cn(
-                        'cursor-pointer text-left font-primary font-[300] text-white transition-colors duration-300',
-                        item.mainRoute &&
-                          'text-xl sm:text-2xl lg:text-3xl xl:text-2xl 3xl:text-3xl'
+                    <>
+                      {item.hasOwnRoute && (
+                        <LocalizedLink
+                          className={cn(
+                            'cursor-pointer text-left font-primary font-[300] text-white transition-colors duration-300',
+                            item.mainRoute &&
+                              'text-xl sm:text-2xl lg:text-3xl xl:text-2xl 3xl:text-3xl'
+                          )}
+                          href={item.href as Pathnames}
+                          locale={locale as Locale}
+                        >
+                          {item.title}
+                        </LocalizedLink>
                       )}
-                      onClick={() => {
-                        if (item.disabled) {
-                          handleNavClick(navigationConfig['/'].id)
-                          return
-                        }
-                        handleNavClick(item.id)
-                      }}
-                      type='button'
-                    >
-                      {item.title}
-                    </button>
+                      {!item.hasOwnRoute && (
+                        <button
+                          key={item.id}
+                          className={cn(
+                            'cursor-pointer text-left font-primary font-[300] text-white transition-colors duration-300',
+                            item.mainRoute &&
+                              'text-xl sm:text-2xl lg:text-3xl xl:text-2xl 3xl:text-3xl'
+                          )}
+                          onClick={() => {
+                            if (item.disabled) {
+                              handleNavClick(navigationConfig['/'].id)
+                              return
+                            }
+                            handleNavClick(item.id)
+                          }}
+                          type='button'
+                        >
+                          {item.title}
+                        </button>
+                      )}
+                    </>
                   ))}
               </div>
               <div className='flex flex-col gap-4 lg:gap-6 xl:gap-8'>
                 {getNavigationItems(t, locale as Locale)
                   .filter(item => !item.mainRoute)
                   .map(item => (
-                    <button
-                      key={item.id}
-                      className={cn(
-                        'cursor-pointer text-left font-primary font-[300] text-white transition-colors duration-300',
-                        !item.mainRoute &&
-                          'text-sm sm:text-base lg:text-lg xl:text-lg 3xl:text-xl',
-                        item.mainRoute && 'text-4xl 3xl:text-5xl'
+                    <>
+                      {item.hasOwnRoute && (
+                        <LocalizedLink
+                          className={cn(
+                            'cursor-pointer',
+                            'text-left font-primary font-[300] text-white',
+                            'transition-all duration-300'
+                          )}
+                          href={item.href as Pathnames}
+                          locale={locale as Locale}
+                        >
+                          {item.title}
+                        </LocalizedLink>
                       )}
-                      onClick={() => {
-                        if (item.disabled) {
-                          handleNavClick(navigationConfig['/'].id)
-                          return
-                        }
-                        handleNavClick(item.id)
-                      }}
-                      type='button'
-                    >
-                      {item.title}
-                    </button>
+                      {!item.hasOwnRoute && (
+                        <button
+                          key={item.id}
+                          className={cn(
+                            'cursor-pointer text-left font-primary font-[300] text-white transition-colors duration-300',
+                            'text-sm sm:text-base lg:text-lg xl:text-lg 3xl:text-xl'
+                          )}
+                          onClick={() => {
+                            if (item.disabled) {
+                              handleNavClick(navigationConfig['/'].id)
+                              return
+                            }
+                            handleNavClick(item.id)
+                          }}
+                          type='button'
+                        >
+                          {item.title}
+                        </button>
+                      )}
+                    </>
                   ))}
               </div>
             </div>

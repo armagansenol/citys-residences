@@ -230,14 +230,14 @@ export function ModalContactForm() {
           type='button'
           disabled={!isModalContactFormOpen}
         >
-          <CaretRightIcon className='size-full' weight='thin' />
+          <CaretRightIcon className='size-full' weight='regular' />
           <span className='sr-only'>Close</span>
         </button>
         {/* Trigger Button */}
         <button
           className={cn(
             'group',
-            'absolute bottom-0 left-0 top-[55%] -translate-x-full -translate-y-1/2',
+            'absolute bottom-0 left-0 top-[60%] -translate-x-full -translate-y-1/2 xl:top-[50%]',
             'font-primary font-[500] tracking-[0.2em] text-white',
             'text-sm xl:text-base 2xl:text-xl',
             'flex items-center justify-center',
@@ -245,7 +245,8 @@ export function ModalContactForm() {
             'before:absolute before:inset-0 before:bg-gradient-button before:opacity-0',
             'before:transition-opacity before:duration-300 hover:before:opacity-100',
             'transition-all duration-300 ease-in-out',
-            'h-52 w-12 lg:w-16 xl:h-60 xl:w-16 2xl:h-72 2xl:w-16 3xl:w-16',
+            'h-44 w-10 lg:w-16 xl:h-60 xl:w-14 2xl:h-72 2xl:w-16 3xl:w-16',
+            'rounded-bl-lg rounded-tl-lg',
             {
               'pointer-events-none opacity-0':
                 !isInquiryVisible || isModalContactFormOpen,

@@ -71,11 +71,23 @@ export function LocaleSwitcherSelect({ children, label, className }: Props) {
 
   return (
     <div className='relative'>
+      <div
+        className={cn(
+          'absolute left-0 top-1/2 -translate-x-full -translate-y-1/2',
+          'transition-opacity duration-300 ease-in-out',
+          {
+            'pointer-events-none opacity-0': !isPending,
+            'pointer-events-auto opacity-100': isPending,
+          }
+        )}
+      >
+        <div className='h-2 w-2 animate-pulse rounded-full bg-white'></div>
+      </div>
       <span className='sr-only'>{label}</span>
       <Select value={locale} onValueChange={onValueChange} disabled={isPending}>
         <SelectTrigger
           className={cn(
-            'bg-transparent font-primary text-base font-[400] text-white [&>svg]:size-4',
+            'bg-transparent font-primary text-base font-[400] leading-none text-white [&>svg]:mb-[1px] [&>svg]:size-4',
             className
           )}
         >

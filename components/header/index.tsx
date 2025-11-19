@@ -1,22 +1,28 @@
 'use client'
 
+import { Link as LocalizedLink } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { ListIcon } from '@phosphor-icons/react'
+import { useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
 import { Logo } from '@/components/icons'
 import { LocaleSwitcher } from '@/components/locale-switcher'
 import { Menu } from '@/components/menu'
-import { useNavigation } from '@/hooks/useNavigation'
+import { Locale, Pathnames } from '@/i18n/routing'
 import { navigationConfig } from '@/lib/constants'
 import { useUiStore } from '@/lib/store/ui'
 import { colors } from '@/styles/config.mjs'
 
-export function Header() {
-  const { handleNavClick } = useNavigation()
+export interface HeaderProps {
+  withNavigation?: boolean
+}
+
+export function Header({ withNavigation = true }: HeaderProps) {
   const { isMenuOpen, setIsMenuOpen } = useUiStore()
   const pathname = usePathname()
+  const locale = useLocale()
 
   useEffect(() => {
     setIsMenuOpen(false)
@@ -32,25 +38,27 @@ export function Header() {
         )}
       >
         <div className='z-[var(--z-header-content)] flex flex-1 items-center justify-between px-6 lg:px-0'>
-          <button
+          <LocalizedLink
+            href={navigationConfig['/'].href as Pathnames}
             className='2xl:size-46 pointer-events-auto block size-28 xl:size-32 3xl:size-40'
             aria-label='Home'
-            onClick={() => handleNavClick(navigationConfig['/'].id as string)}
-            type='button'
+            locale={locale as Locale}
           >
             <Logo fill={colors.white} />
-          </button>
+          </LocalizedLink>
           <div className='pointer-events-auto ml-auto flex cursor-pointer items-center gap-2 lg:gap-6'>
             <LocaleSwitcher />
-            <button
-              className='pointer-events-auto cursor-pointer'
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              type='button'
-              aria-expanded={isMenuOpen}
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-            >
-              <ListIcon weight='thin' className='size-12 text-white' />
-            </button>
+            {withNavigation && (
+              <button
+                className='pointer-events-auto cursor-pointer'
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                type='button'
+                aria-expanded={isMenuOpen}
+                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              >
+                <ListIcon weight='thin' className='size-12 text-white' />
+              </button>
+            )}
           </div>
         </div>
       </header>

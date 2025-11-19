@@ -112,8 +112,8 @@
                     }
                 },
                 "residenceType": {
-                    "label": "Preferred Residence Type*",
-                    "placeholder": "Enter your preferred residence type",
+                    "label": "Preferred Type*",
+                    "placeholder": "Enter your preferred type",
                     "errors": {
                         "required": "Required field"
                     }
