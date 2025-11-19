@@ -100,11 +100,11 @@ export default async function Page({
         <section className='relative overflow-hidden py-12 lg:py-12'>
           <div className='relative ml-0 flex flex-col items-center justify-center gap-8 py-12 xl:ml-32 xl:flex-row xl:gap-32 xl:py-32'>
             {locale === 'tr' && (
-              <div className='flex w-full flex-shrink-0 flex-col items-center gap-2 lg:w-[300px] lg:gap-2 xl:w-[700px]'>
+              <div className='flex w-full flex-shrink-0 flex-col items-center gap-4 lg:w-[300px] lg:gap-2 xl:w-[700px]'>
                 <article
                   className={cn(
                     'text-center font-primary font-[400] text-black',
-                    'text-xl/tight lg:text-4xl/tight xl:text-5xl/tight',
+                    'text-3xl/tight lg:text-4xl/tight xl:text-5xl/tight',
                     'tracking-wide lg:tracking-wide'
                   )}
                 >
