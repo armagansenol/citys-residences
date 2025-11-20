@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   Dialog,
@@ -12,21 +12,37 @@ import {
 import { VisuallyHidden } from '@/components/ui/visually-hidden'
 import MuxPlayer from '@mux/mux-player-react/lazy'
 import { colors } from '@/styles/config.mjs'
+import { useLenis } from 'lenis/react'
+import { cn } from '@/lib/utils'
 
 interface FullScreenVideoDialogProps {
   dialogTrigger?: React.ReactNode
   mediaId: string
+  aspectRatio?: number // Optional aspect ratio (width/height). If not provided, video will maintain natural aspect ratio
+  onOpenChange?: (open: boolean) => void
 }
 
 export function FullScreenVideoDialog({
   dialogTrigger,
   mediaId,
+  aspectRatio,
+  onOpenChange,
 }: FullScreenVideoDialogProps) {
+  const lenis = useLenis()
   const [open, setOpen] = useState(false)
 
   const handleOpenChange = (newOpen: boolean) => {
     setOpen(newOpen)
+    onOpenChange?.(newOpen)
   }
+
+  useEffect(() => {
+    if (open) {
+      lenis?.stop()
+    } else {
+      lenis?.start()
+    }
+  }, [open, lenis])
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
@@ -38,18 +54,32 @@ export function FullScreenVideoDialog({
             Full-screen video player for viewing media content
           </DialogDescription>
         </VisuallyHidden>
-        <div className='relative flex aspect-[16/9] max-h-[100vh] w-screen flex-col xl:w-[80vw]'>
+        <div
+          className={cn(
+            'relative',
+            'flex flex-col items-center justify-center',
+            'max-h-[95vh] max-w-[100vw] xl:max-w-[90vw]',
+            'h-full w-[100vw]'
+          )}
+          style={
+            {
+              aspectRatio: aspectRatio,
+            } as React.CSSProperties
+          }
+        >
           <MuxPlayer
-            className='h-full w-full object-cover'
+            className='h-full w-full'
             playbackId={mediaId}
             autoPlay
             playsInline
             streamType='on-demand'
             style={
               {
-                aspectRatio: 16 / 9,
+                aspectRatio: aspectRatio,
                 '--media-object-fit': 'contain',
                 '--pip-button': 'none',
+                width: '100%',
+                height: '100%',
               } as React.CSSProperties
             }
             thumbnailTime={3}

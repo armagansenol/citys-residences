@@ -8,6 +8,7 @@ import {
   QuotesIcon,
 } from '@phosphor-icons/react/dist/ssr'
 import dynamic from 'next/dynamic'
+import { useLocale } from 'next-intl'
 
 const FullScreenVideoDialog = dynamic(() =>
   import('@/components/dialogs/full-screen-video-dialog').then(
@@ -17,7 +18,8 @@ const FullScreenVideoDialog = dynamic(() =>
 
 export interface QuoteWithVideoProps {
   quote: string
-  mediaId: string
+  mediaIdEnglish?: string
+  mediaIdTurkish?: string
   portraitImage?: string
   portraitImageMobile?: string
   portraitClassName?: string
@@ -29,11 +31,13 @@ export interface QuoteWithVideoProps {
   thumbnail?: string
   className?: string
   hasBg?: boolean
+  videoAspectRatio?: number
 }
 
 export function QuoteWithVideo({
   quote,
-  mediaId,
+  mediaIdEnglish,
+  mediaIdTurkish,
   portraitImage,
   portraitImageMobile,
   portraitClassName,
@@ -45,7 +49,10 @@ export function QuoteWithVideo({
   thumbnail,
   className,
   hasBg = false,
+  videoAspectRatio = 16 / 9,
 }: QuoteWithVideoProps) {
+  const locale = useLocale()
+  const mediaId = locale === 'en' ? mediaIdEnglish : mediaIdTurkish
   return (
     <section
       className={cn(
@@ -108,6 +115,7 @@ export function QuoteWithVideo({
       <div className='col-span-24 px-8 pb-12 pt-8 lg:col-span-16 lg:col-start-6 lg:px-0 lg:pb-28 lg:pt-16 xl:col-span-16 xl:col-start-5'>
         <div className='group relative aspect-[16/9] cursor-pointer overflow-hidden rounded-md 2xl:rounded-lg'>
           <FullScreenVideoDialog
+            aspectRatio={videoAspectRatio}
             dialogTrigger={
               <Image
                 src={thumbnail ?? ''}
@@ -116,9 +124,10 @@ export function QuoteWithVideo({
                 className='object-cover object-center'
                 desktopSize='80vw'
                 mobileSize='90vw'
+                quality={100}
               />
             }
-            mediaId={mediaId}
+            mediaId={mediaId ?? ''}
           />
           <span className='pointer-events-none absolute left-1/2 top-1/2 z-50 size-16 -translate-x-1/2 -translate-y-1/2 text-white transition-transform duration-300 ease-in-out group-hover:scale-125 xl:size-24'>
             <PlayCircleIcon className='size-full' weight='fill' />

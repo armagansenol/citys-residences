@@ -108,21 +108,22 @@ export default async function Page({
                   src={images.a1.src}
                   alt='Project Visual'
                   loading='lazy'
+                  quality={100}
                 />
               }
               dialogContent={
-                <div className='relative h-screen w-screen'>
-                  <Image
-                    className='h-screen w-screen object-contain'
-                    fill
-                    mobileSize='100vw'
-                    desktopSize='100vw'
-                    src={images.a1Zoom.src}
-                    alt='Project Visual'
-                    loading='lazy'
-                  />
-                </div>
+                <Image
+                  className='h-screen w-screen object-contain'
+                  fill
+                  mobileSize='100vw'
+                  desktopSize='100vw'
+                  src={images.a1Zoom.src}
+                  alt='Project Visual'
+                  loading='lazy'
+                  quality={100}
+                />
               }
+              aspectRatio={images.a1Zoom.width / images.a1Zoom.height}
             />
           </div>
           <div className='col-span-24 aspect-[16/9] lg:col-span-8'>
@@ -133,21 +134,22 @@ export default async function Page({
                   src={images.a2.src}
                   alt='Project Visual'
                   loading='lazy'
+                  quality={100}
                 />
               }
               dialogContent={
-                <div className='relative h-screen w-screen'>
-                  <Image
-                    className='h-screen w-screen object-contain'
-                    src={images.a2Zoom.src}
-                    fill
-                    desktopSize='100vw'
-                    mobileSize='100vw'
-                    alt='Project Visual'
-                    loading='lazy'
-                  />
-                </div>
+                <Image
+                  className='h-screen w-screen object-contain'
+                  src={images.a2Zoom.src}
+                  fill
+                  desktopSize='100vw'
+                  mobileSize='100vw'
+                  alt='Project Visual'
+                  loading='lazy'
+                  quality={100}
+                />
               }
+              aspectRatio={images.a2Zoom.width / images.a2Zoom.height}
             />
           </div>
         </section>
@@ -189,37 +191,78 @@ export default async function Page({
         <section
           className={cn('grid grid-cols-24', 'px-8 py-12 lg:px-0 lg:py-20')}
         >
-          <div className='col-span-24 aspect-[9/10] lg:col-span-18 lg:-col-end-3 lg:aspect-[16/9]'>
+          <div
+            className='col-span-24 block sm:hidden lg:col-span-18 lg:-col-end-3'
+            style={
+              {
+                aspectRatio: images.b1Mobile.width / images.b1Mobile.height,
+              } as React.CSSProperties
+            }
+          >
             <ZoomImageDialog
               dialogTrigger={
                 <>
                   <Image
-                    className='hidden h-full w-full object-cover sm:block lg:object-contain'
-                    src={images.b1.src}
-                    alt='Project Visual'
-                    loading='lazy'
-                  />
-                  <Image
-                    className='block h-full w-full object-contain sm:hidden'
+                    className='h-full w-full object-contain'
                     src={images.b1Mobile.src}
                     alt='Project Visual'
                     loading='lazy'
+                    quality={100}
+                    aspectRatio={images.b1Mobile.width / images.b1Mobile.height}
                   />
                 </>
               }
               dialogContent={
-                <div className='relative h-screen w-screen'>
+                <Image
+                  className='h-full w-full object-contain'
+                  fill
+                  desktopSize='100vw'
+                  mobileSize='100vw'
+                  src={images.b1.src}
+                  alt='Project Visual'
+                  loading='lazy'
+                  quality={100}
+                  aspectRatio={images.b1.width / images.b1.height}
+                />
+              }
+              aspectRatio={images.b1Mobile.width / images.b1Mobile.height}
+            />
+          </div>
+          <div
+            className='col-span-24 hidden sm:block lg:col-span-18 lg:-col-end-3'
+            style={
+              {
+                aspectRatio: images.b1.width / images.b1.height,
+              } as React.CSSProperties
+            }
+          >
+            <ZoomImageDialog
+              dialogTrigger={
+                <>
                   <Image
                     className='h-full w-full object-contain'
-                    fill
-                    desktopSize='100vw'
-                    mobileSize='100vw'
                     src={images.b1.src}
                     alt='Project Visual'
                     loading='lazy'
+                    quality={100}
+                    aspectRatio={images.b1.width / images.b1.height}
                   />
-                </div>
+                </>
               }
+              dialogContent={
+                <Image
+                  className='h-full w-full object-contain'
+                  fill
+                  desktopSize='100vw'
+                  mobileSize='100vw'
+                  src={images.b1.src}
+                  alt='Project Visual'
+                  loading='lazy'
+                  quality={100}
+                  aspectRatio={images.b1.width / images.b1.height}
+                />
+              }
+              aspectRatio={images.b1.width / images.b1.height}
             />
           </div>
         </section>
@@ -260,6 +303,7 @@ export default async function Page({
               loading='lazy'
               fill
               desktopSize='80vw'
+              quality={100}
             />
             <Image
               className='block object-contain sm:hidden'
@@ -268,72 +312,102 @@ export default async function Page({
               loading='lazy'
               fill
               desktopSize='80vw'
+              quality={100}
             />
           </div>
         </section>
       </div>
       {/* architecture sections */}
-      <QuoteWithVideo
-        quote={t('quotes.architecture.quote')}
-        mediaId='tDjMbuCzuO9iJCH901CkmX1KxMf00pr8ugfUKCNr018Zmw'
-        thumbnail='/img/thumbnail-murat-kader.jpg'
-        portraitImage='/img/murat-kader-portrait.png'
-        portraitImageMobile='/img/murat-kader-portrait.png'
-        personName='Murat Kader'
-        personTitle={t('quotes.architecture.personTitle')}
-        sidebarText={t('quotes.architecture.sidebarText')}
-        primaryColor={colors['bricky-brick']}
-        secondaryColor={colors['white']}
-        hasBg
-      />
-      <QuoteWithVideo
-        quote={t('quotes.interior.quote')}
-        mediaId='mLJCKzl700KKCbhHSdsjKoe02wBdIqCtu3IqmjNPDp6og'
-        thumbnail='/img/thumbnail-toners.jpg'
-        portraitImage='/img/toners-portrait.png'
-        portraitImageMobile='/img/toners-portrait-mobile.png'
-        personName={
-          <>
-            Mustafa & <span className='block xl:hidden' /> Emre Toner
-          </>
-        }
-        personTitle={t('quotes.interior.personTitle')}
-        sidebarText={t('quotes.interior.sidebarText')}
-        primaryColor={colors['white']}
-        secondaryColor={colors['bricky-brick']}
-        hasBg={false}
-      />
-      <QuoteWithVideo
-        quote={t('quotes.landscape.quote')}
-        mediaId='iiovQu22t3dx6FSfG5m2zhMOrrONjfXhQeDS01NqzMtI'
-        thumbnail='/img/thumbnail-aktas.jpg'
-        portraitImage='/img/aktas-portrait.png'
-        portraitImageMobile='/img/aktas-portrait-mobile.png'
-        personName={
-          <>
-            Cemil Aktaş, <span className='block xl:hidden' /> Pınar Kesim Aktaş
-          </>
-        }
-        personTitle={t('quotes.landscape.personTitle')}
-        sidebarText={t('quotes.landscape.sidebarText')}
-        primaryColor={colors['army-canvas']}
-        secondaryColor={colors['white']}
-        hasBg={false}
-        portraitClassName='w-[65%]'
-      />
-      <QuoteWithVideo
-        quote={t('quotes.structural.quote')}
-        mediaId='CFIFTz5N8wsl6VdwWBpKfeVg2TAgykGz9Xtjf700Dx2w'
-        thumbnail='/img/thumbnail-melih-bulgur.jpg'
-        portraitImage='/img/melih-bulgur-portrait.png'
-        portraitImageMobile='/img/melih-bulgur-portrait-mobile.png'
-        personName='Melih Bulgur'
-        personTitle={t('quotes.structural.personTitle')}
-        sidebarText={t('quotes.structural.sidebarText')}
-        primaryColor={colors['birch-strain']}
-        secondaryColor={colors['white']}
-        hasBg={false}
-      />
+      {[
+        {
+          quote: t('quotes.architecture.quote'),
+          mediaIdEnglish: 'N9eXnPt4OOZmLsn6bWJ7pxZlIBSC018m4vMUcLzQVZqE',
+          mediaIdTurkish: 'tDjMbuCzuO9iJCH901CkmX1KxMf00pr8ugfUKCNr018Zmw',
+          thumbnail: '/img/thumbnail-murat-kader.jpg',
+          portraitImage: '/img/murat-kader-portrait.png',
+          portraitImageMobile: '/img/murat-kader-portrait.png',
+          personName: 'Murat Kader' as React.ReactNode,
+          personTitle: t('quotes.architecture.personTitle'),
+          sidebarText: t('quotes.architecture.sidebarText'),
+          primaryColor: colors['bricky-brick'],
+          secondaryColor: colors['white'],
+          hasBg: true,
+          videoAspectRatio: 16 / 9,
+        },
+        {
+          quote: t('quotes.interior.quote'),
+          mediaIdEnglish: 'UPzJmVAv6HRQf3hdeV1Wk8vlo8aqP6RaDYScTU5gYCQ',
+          mediaIdTurkish: 'mLJCKzl700KKCbhHSdsjKoe02wBdIqCtu3IqmjNPDp6og',
+          thumbnail: '/img/thumbnail-toners.jpg',
+          portraitImage: '/img/toners-portrait.png',
+          portraitImageMobile: '/img/toners-portrait-mobile.png',
+          personName: (
+            <>
+              Mustafa & <span className='block xl:hidden' /> Emre Toner
+            </>
+          ) as React.ReactNode,
+          personTitle: t('quotes.interior.personTitle'),
+          sidebarText: t('quotes.interior.sidebarText'),
+          primaryColor: colors['white'],
+          secondaryColor: colors['bricky-brick'],
+          hasBg: false,
+          videoAspectRatio: 16 / 9,
+        },
+        {
+          quote: t('quotes.landscape.quote'),
+          mediaIdEnglish: 'hLh4GfAaEr1s7vbeA15K9r4LSLTJ1aclt4qDKX9WcXA',
+          mediaIdTurkish: 'iiovQu22t3dx6FSfG5m2zhMOrrONjfXhQeDS01NqzMtI',
+          thumbnail: '/img/thumbnail-aktas.jpg',
+          portraitImage: '/img/aktas-portrait.png',
+          portraitImageMobile: '/img/aktas-portrait-mobile.png',
+          personName: (
+            <>
+              Cemil Aktaş, <span className='block xl:hidden' /> Pınar Kesim
+              Aktaş
+            </>
+          ) as React.ReactNode,
+          personTitle: t('quotes.landscape.personTitle'),
+          sidebarText: t('quotes.landscape.sidebarText'),
+          primaryColor: colors['army-canvas'],
+          secondaryColor: colors['white'],
+          hasBg: false,
+          portraitClassName: 'w-[65%]',
+          videoAspectRatio: 16 / 9,
+        },
+        {
+          quote: t('quotes.structural.quote'),
+          mediaIdEnglish: 'nyvu3BXeoXcwEMNYlz2FrgPIwEckN3cvfMKSnneO9Og',
+          mediaIdTurkish: 'CFIFTz5N8wsl6VdwWBpKfeVg2TAgykGz9Xtjf700Dx2w',
+          thumbnail: '/img/thumbnail-melih-bulgur.jpg',
+          portraitImage: '/img/melih-bulgur-portrait.png',
+          portraitImageMobile: '/img/melih-bulgur-portrait-mobile.png',
+          personName: 'Melih Bulgur' as React.ReactNode,
+          personTitle: t('quotes.structural.personTitle'),
+          sidebarText: t('quotes.structural.sidebarText'),
+          primaryColor: colors['birch-strain'],
+          secondaryColor: colors['white'],
+          hasBg: false,
+          videoAspectRatio: 16 / 9,
+        },
+      ].map(quoteData => (
+        <QuoteWithVideo
+          key={quoteData.mediaIdEnglish}
+          quote={quoteData.quote}
+          mediaIdEnglish={quoteData.mediaIdEnglish}
+          mediaIdTurkish={quoteData.mediaIdTurkish}
+          thumbnail={quoteData.thumbnail}
+          portraitImage={quoteData.portraitImage}
+          portraitImageMobile={quoteData.portraitImageMobile}
+          personName={quoteData.personName}
+          personTitle={quoteData.personTitle}
+          sidebarText={quoteData.sidebarText}
+          primaryColor={quoteData.primaryColor}
+          secondaryColor={quoteData.secondaryColor}
+          hasBg={quoteData.hasBg}
+          portraitClassName={quoteData.portraitClassName}
+          videoAspectRatio={quoteData.videoAspectRatio}
+        />
+      ))}
     </SectionSetter>
   )
 }

@@ -2,6 +2,7 @@ import { routing, type Locale, type Pathnames } from '@/i18n/routing'
 
 export const baseUrl = 'citysresidences.com'
 export const initialScroll = true
+export const scrollDelay = 0.4
 
 export const countryPhoneCodes = {
   en: [
@@ -300,7 +301,6 @@ function calculateRatio(width: number, height: number): number {
   const ratio = Number((width / height).toFixed(2))
   return ratio
 }
-
 export type Media = {
   name: string
   aspect: () => number
@@ -309,8 +309,8 @@ export type Media = {
   thumbnail?: string
   muxSrcMobile?: string
   thumbnailMobile?: string
+  aspectMobile?: () => number
 }
-
 export const heroVideo: Media = {
   name: 'hero',
   aspect: () => {
@@ -321,7 +321,6 @@ export const heroVideo: Media = {
   thumbnail:
     'https://image.mux.com/xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM/thumbnail.webp?width=1920&time=0',
 }
-
 export const livePeacefully: Media = {
   name: 'daha huzurlu yaşa',
   aspect: () => {
@@ -332,7 +331,6 @@ export const livePeacefully: Media = {
   thumbnail:
     'https://image.mux.com/y1KN58bThKtP2SOOn8wNl27K3nx01RbSvIcWB3lFycug/thumbnail.webp?width=1920&time=0',
 }
-
 export const liveMore: Media = {
   name: 'daha dolu yaşa',
   aspect: () => {
@@ -343,7 +341,6 @@ export const liveMore: Media = {
   thumbnail:
     'https://image.mux.com/Qj00KNCUeq1hO00Ad2Xk402XRGm8ekmqNfsGOamzsVVcQ00/thumbnail.webp?width=1920&time=0',
 }
-
 export const projectBanner: Media = {
   name: 'proje banner',
   aspect: () => {
@@ -354,7 +351,6 @@ export const projectBanner: Media = {
   thumbnail:
     'https://image.mux.com/fWSlJj9pskvE7rWRKuNLVIY2vQyAOD02NFSNdPwpDLuE/thumbnail.webp?width=1920&time=0',
 }
-
 export const residencesBanner: Media = {
   name: 'daireler banner',
   aspect: () => {
@@ -368,11 +364,14 @@ export const residencesBanner: Media = {
 export const citysIstanbulAvmBanner: Media = {
   name: 'citys istanbul avm banner',
   aspect: () => {
-    return calculateRatio(1920, 1026)
+    return calculateRatio(16, 9)
+  },
+  aspectMobile: () => {
+    return calculateRatio(2160, 3840)
   },
   mediaId: 'a5b5zn9o9x',
   muxSrc: 'Zq5jSeSQegjDYMVonJbtidTBV01IusZ00yePcyQT3rUgc',
-  muxSrcMobile: 'hv005rBTmnBlc3Tmy2s00i02u2Gmu8eBP8Ysn02KICA48GU',
+  muxSrcMobile: 'm3Uji9xDCxVh7AUZ7M9opTY02yOH25FPqisHx3MbW7NQ',
   thumbnail:
     'https://image.mux.com/hLCddwmtOdUZ3vvZFqxAXvwusE9f8M3qg5KDXqVBGHY/thumbnail.webp?width=1920&time=0',
   thumbnailMobile:
@@ -388,8 +387,6 @@ export const citysTimesBanner: Media = {
   thumbnail:
     'https://image.mux.com/NB02x73haYbyN18zmvgUntrAutAeqhWaZGf8gkUYUkmA/thumbnail.webp?width=1920&time=0',
 }
-
-export const scrollDelay = 0.4
 
 export const menuMedia = {
   home: {

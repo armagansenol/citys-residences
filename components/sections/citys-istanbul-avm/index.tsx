@@ -39,6 +39,7 @@ export default async function Page() {
           playbackId={citysIstanbulAvmBanner.muxSrc}
           mobilePlaybackId={citysIstanbulAvmBanner.muxSrcMobile}
           aspectRatio={citysIstanbulAvmBanner.aspect()}
+          enableFullscreen
         />
       </section>
       <section className='section-container px-8 py-8 lg:px-0 lg:py-24'>
