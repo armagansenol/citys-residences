@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
-import dynamic from 'next/dynamic'
 import { getTranslations } from 'next-intl/server'
+import dynamic from 'next/dynamic'
 
 const ZoomImageDialog = dynamic(
   () =>
@@ -12,21 +12,19 @@ const ZoomImageDialog = dynamic(
   }
 )
 
+import { AutoplayVideo } from '@/components/autoplay-video'
 import { GsapSplitText } from '@/components/gsap-split-text'
 import { Image } from '@/components/image'
 import { InteractiveMap } from '@/components/interactive-map'
 import { PageTitle } from '@/components/page-title'
 import { QuoteWithVideo } from '@/components/quote-with-video'
+import { SectionSetter } from '@/components/section-setter'
 import { navigationConfig, projectBanner } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 
 import a1 from '@/public/img/project/a-1.jpg'
 import a2 from '@/public/img/project/a-2.jpg'
-import b1Mobile from '@/public/img/project/b-1-mobile.jpg'
 import b1 from '@/public/img/project/b-1.jpg'
-
-import { AutoplayVideo } from '@/components/autoplay-video'
-import { SectionSetter } from '@/components/section-setter'
 import a1Zoom from '@/public/img/project/a-1-zoom.jpg'
 import a2Zoom from '@/public/img/project/a-2-zoom.jpg'
 
@@ -34,7 +32,6 @@ const images = {
   a1,
   a2,
   b1,
-  b1Mobile,
   a1Zoom,
   a2Zoom,
 }
@@ -195,7 +192,7 @@ export default async function Page({
             className='col-span-24 block sm:hidden lg:col-span-18 lg:-col-end-3'
             style={
               {
-                aspectRatio: images.b1Mobile.width / images.b1Mobile.height,
+                aspectRatio: images.b1.width / images.b1.height,
               } as React.CSSProperties
             }
           >
@@ -204,11 +201,11 @@ export default async function Page({
                 <>
                   <Image
                     className='h-full w-full object-contain'
-                    src={images.b1Mobile.src}
+                    src={images.b1.src}
                     alt='Project Visual'
                     loading='lazy'
                     quality={100}
-                    aspectRatio={images.b1Mobile.width / images.b1Mobile.height}
+                    aspectRatio={images.b1.width / images.b1.height}
                   />
                 </>
               }
@@ -225,7 +222,7 @@ export default async function Page({
                   aspectRatio={images.b1.width / images.b1.height}
                 />
               }
-              aspectRatio={images.b1Mobile.width / images.b1Mobile.height}
+              aspectRatio={images.b1.width / images.b1.height}
             />
           </div>
           <div

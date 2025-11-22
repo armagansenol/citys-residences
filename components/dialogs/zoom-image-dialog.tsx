@@ -39,7 +39,7 @@ export function ZoomImageDialog({
         <DialogTrigger className='group relative h-full w-full cursor-pointer'>
           {dialogTrigger}
 
-          <span className='blur-bg-white absolute right-4 top-4 flex size-12 items-center justify-center rounded-full bg-bricky-brick p-3 text-white transition-transform duration-300 ease-in-out group-hover:scale-110 xl:size-16'>
+          <span className='blur-bg-white absolute bottom-4 left-4 flex size-12 items-center justify-center rounded-full bg-bricky-brick p-3 text-white transition-transform duration-300 ease-in-out group-hover:scale-110 xl:size-16'>
             <ArrowsOutSimpleIcon className='size-full' weight='thin' />
           </span>
         </DialogTrigger>
