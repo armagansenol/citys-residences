@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useRef } from 'react'
 import { Image } from '@/components/image'
 import { useVideoAutoplay } from '@/hooks/useVideoAutoplay'
 import { cn } from '@/lib/utils'
+import React, { useRef } from 'react'
 
 type HeroVideoProps = {
   desktopVideoId?: string
@@ -13,11 +13,16 @@ type HeroVideoProps = {
 }
 
 const HeroVideo: React.FC<HeroVideoProps> = ({
-  desktopPoster,
-  mobilePoster,
   desktopVideoId,
   mobileVideoId,
+  desktopPoster,
+  mobilePoster,
 }) => {
+  // const desktopPoster =
+  //   'https://image.mux.com/xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM/thumbnail.webp?width=1920&time=0'
+  // const mobilePoster =
+  //   'https://image.mux.com/Hg9dD402dgbmsAX3VwXFX3EW49jlP02cYMUZGOkL69aAY/thumbnail.webp?width=560&time=0'
+
   const videoRef = useRef<HTMLVideoElement | null>(null)
   const { hasPlayed } = useVideoAutoplay({
     videoRef,
@@ -33,27 +38,31 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
         loop
         playsInline
         preload='auto'
-        className='relative h-screen w-full object-cover object-bottom'
+        className={cn(
+          'relative z-30 h-screen w-full object-cover object-bottom opacity-0',
+          'transition-opacity duration-300 ease-in-out',
+          hasPlayed && 'opacity-100'
+        )}
       >
         {mobileVideoId && (
           <source
             src={`https://stream.mux.com/${mobileVideoId}/highest.mp4`}
-            media='(max-width: 799px)'
+            media='(max-width: 1279px)'
             type='video/mp4'
           />
         )}
         {desktopVideoId && (
           <source
             src={`https://stream.mux.com/${desktopVideoId}/highest.mp4`}
-            media='(min-width: 800px)'
+            media='(min-width: 1280px)'
             type='video/mp4'
           />
         )}
       </video>
       <Image
         className={cn(
-          'absolute inset-0 z-20 h-full w-full object-cover object-bottom transition-opacity duration-300 ease-in-out xl:hidden',
-          hasPlayed && 'pointer-events-none opacity-0'
+          'absolute inset-0 z-20 h-full w-full object-cover object-bottom',
+          'block xl:hidden'
         )}
         src={mobilePoster}
         alt='Hero Video Poster'
@@ -65,8 +74,8 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
       />
       <Image
         className={cn(
-          'absolute inset-0 z-20 hidden h-full w-full object-cover object-bottom transition-opacity duration-300 ease-in-out xl:block',
-          hasPlayed && 'pointer-events-none opacity-0'
+          'absolute inset-0 z-20 h-full w-full object-cover object-bottom',
+          'hidden xl:block'
         )}
         src={desktopPoster}
         alt='Hero Video Poster'

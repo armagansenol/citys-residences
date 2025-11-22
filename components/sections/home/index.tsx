@@ -14,6 +14,9 @@ import { liveMore, livePeacefully, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
 
+import desktopPoster from '@/public/img/hero-thumbnail-desktop.webp'
+import mobilePoster from '@/public/img/hero-thumbnail-mobile.webp'
+
 // import liveMorePoster from '@/public/img/thumbnail-live-more.jpg'
 // import livePeacefullyPoster from '@/public/img/thumbnail-live-peacefully.jpg'
 
@@ -41,8 +44,8 @@ export default async function Page({
           <HeroVideo
             desktopVideoId='xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM'
             mobileVideoId='Hg9dD402dgbmsAX3VwXFX3EW49jlP02cYMUZGOkL69aAY'
-            desktopPoster='https://image.mux.com/xFW02Bl3KwJGCzmUUbAwE5NC5WJW01hIqmm7heGEYx2NM/thumbnail.webp?width=1920&time=0'
-            mobilePoster='https://image.mux.com/Hg9dD402dgbmsAX3VwXFX3EW49jlP02cYMUZGOkL69aAY/thumbnail.webp?width=560&time=0'
+            desktopPoster={desktopPoster.src}
+            mobilePoster={mobilePoster.src}
           />
         </ScaleOut>
         <div
