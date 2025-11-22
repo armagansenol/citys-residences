@@ -72,7 +72,7 @@ export const countryPhoneCodes = {
 }
 
 export const citysIstanbulAvmGoogleMaps =
-  'https://maps.app.goo.gl/2hSJUsgo2U198Kqq9'
+  'https://maps.app.goo.gl/R2mE9iNws7GrVDZg8'
 
 // Navigation metadata for routes that should appear in navigation
 // Keys MUST exist in routing.pathnames (type-safe!)

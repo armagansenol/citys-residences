@@ -1,5 +1,6 @@
 'use client'
 
+import { Link as LocalizedLink } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import {
   CalendarPlusIcon,
@@ -15,14 +16,17 @@ import {
 import { useIntersectionObserver } from 'hamo'
 import { useLocale, useTranslations } from 'next-intl'
 import { useEffect } from 'react'
-import { Link as LocalizedLink } from '@/i18n/navigation'
 
 import { Logo } from '@/components/icons'
 import { Image } from '@/components/image'
 import { Link } from '@/components/utility/link'
 import { useNavigation } from '@/hooks/useNavigation'
 import { Locale, Pathnames, routing } from '@/i18n/routing'
-import { getNavigationItems, navigationConfig } from '@/lib/constants'
+import {
+  citysIstanbulAvmGoogleMaps,
+  getNavigationItems,
+  navigationConfig,
+} from '@/lib/constants'
 import { useUiStore } from '@/lib/store/ui'
 import { colors } from '@/styles/config.mjs'
 
@@ -317,7 +321,7 @@ export function Footer() {
                     </span>
                   </Link>
                   <Link
-                    href='https://goo.gl/maps/X5VuQBQmZF2r9WZ17'
+                    href={citysIstanbulAvmGoogleMaps}
                     className='border-radius-gradient flex aspect-[14/16] flex-col px-2 py-4 sm:gap-6 lg:px-4 lg:py-6'
                   >
                     <MapPinPlusIcon
