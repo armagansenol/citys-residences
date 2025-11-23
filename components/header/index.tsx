@@ -3,7 +3,7 @@
 import { Link as LocalizedLink } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { ArrowCircleLeftIcon, ListIcon } from '@phosphor-icons/react'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
@@ -25,6 +25,7 @@ export function Header({ withNavigation = true }: HeaderProps) {
   const { isMenuOpen, setIsMenuOpen } = useUiStore()
   const pathname = usePathname()
   const locale = useLocale()
+  const t = useTranslations('common')
 
   useEffect(() => {
     setIsMenuOpen(false)
@@ -72,11 +73,11 @@ export function Header({ withNavigation = true }: HeaderProps) {
                 locale={locale as Locale}
               >
                 <ArrowCircleLeftIcon
-                  className='group-hover:animate-bounce-x size-5 text-white'
+                  className='size-5 text-white group-hover:animate-bounce-x'
                   weight='regular'
                 />
-                <span className='base font-primary font-[400] leading-none text-white'>
-                  ANASAYFA
+                <span className='base font-primary font-[400] uppercase leading-none text-white'>
+                  {t('navigation.home')}
                 </span>
               </LocalizedLink>
             )}

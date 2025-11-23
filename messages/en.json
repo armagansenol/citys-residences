@@ -300,6 +300,88 @@
         "title": "CITY’S TIMES",
         "followUs": "Follow us."
     },
+    "citysDna": {
+        "hero": {
+            "title": "City's DNA",
+            "subtitle": "The City of the Future Has Arrived. <br></br> Life Reimagined:",
+            "subsubtitle": "CITY'S RESIDENCES x CITY'S LIVING"
+        },
+        "futureCity": {
+            "title": "The City of the Future <br></br> Has Arrived.",
+            "description": "Imagine a place that makes every moment you live more meaningful, more enjoyable, and more peaceful. <br></br> <b>A lifestyle model where life fits into a five-minute walk…</b> <br></br> <b>This is City's Residences.</b>",
+            "p2": "City's Residences is not just about buildings; it is a vision. <br></br> A signature placed on future urban living today; a valuable legacy to be left for future generations."
+        },
+        "microCity": {
+            "title": "A Micro-City Within the City...",
+            "description": "On the rising life axis of Istanbul, Kozyatağı and Istanbul Financial Center line, <br></br> At the intersection of E-5 and TEM, with direct connection to the metro, <b>City's Residences is a micro-city that keeps all the city's opportunities at its own center.</b>",
+            "p2": "One of Europe's few mixed-use projects, City's Residences is a very easy lifestyle model that brings together residence, office, mall, culture, art, social life, park, garden, and specially landscaped green areas…"
+        },
+        "citysLiving": {
+            "title": "Lifestyle Model: City's Living",
+            "description": "City’s Living is a lifestyle that combines technology, aesthetics, and comfort. <br></br> It makes life easier, making every moment meaningful, accessible, and special. <br></br> <b>Being a part of City’s Living means living the future today.</b>"
+        },
+        "lifeIn5Minutes": {
+            "title": "\"Life in 5 Minutes\"",
+            "description": "City's Residences offers a lifestyle model where all of life is within a 5-minute walking distance for the first time in Turkey: <br></br> Home – Office: 2 min, Sports & Spa: 2 min, Shopping: 3 min, Performing Arts Center: 3 min, Social life: 3 min, Metro: 4 min, School & Hospital: 5 min... <br></br> <br></br> <b>A life where everything is at your fingertips without needing your vehicle.</b> <br></br> <b>City's Living designed this life for you.</b>"
+        },
+        "worldClassLife": {
+            "title": "A World-Class Life",
+            "p1": "City's Residences is a world-class mixed-use project offering residence, office, shopping, culture, art, entertainment, and well-being opportunities together…",
+            "p2": "One of Europe's most attractive living spaces, City's Residences brings you together with a human-focused and high-standard life.",
+            "p3": "City's Residences and City's Living built a functional, aesthetic, ergonomic, and timeless architecture by bringing together the best in the field. This understanding transformed life into art.",
+            "strong": "Names in the \"Art of Living\" vision:",
+            "list": {
+                "item1": "Murat Kader signature in architecture,",
+                "item2": "Mustafa Toner and Emre Toner design in interior architecture,",
+                "item3": "Peace engineering with Melih Bulgur, the expert name in static and earthquake safety,",
+                "item4": "A unique oasis in the city with the signature of Pınar & Cemil Aktaş at City's Park."
+            }
+        },
+        "citysPark": {
+            "title": "City's Park: An Oasis in the City",
+            "strong": "City's Park, with a size of 50,000 m², removes the boundary between city life and nature. <br></br> Here, green is not just a view; it is a fundamental part of your daily life.",
+            "p1": "Gardens, parks, walking areas, pools, children's playgrounds and outdoor sports areas, amphitheaters, bicycle tracks, and recreation areas located in City’s Park are right at the center of your daily life."
+        },
+        "smartBuildings": {
+            "title": "Smart Buildings, Integrated and Sustainable Living",
+            "titleBalancer": "Smart Buildings, Integrated and Sustainable Living",
+            "list": {
+                "item1": "IoT-supported infrastructure and AI-controlled building management",
+                "item2": "Energy-positive structures, efficient facade systems",
+                "item3": "Rainwater harvesting and waste recycling",
+                "item4": "Goal of zeroing carbon footprint",
+                "item5": "Disaster simulations and building maintenance planning with Digital Twins",
+                "item6": "Invisible comfort, palpable quality"
+            }
+        },
+        "privileges": {
+            "title": "Privileges That Make Life Easier",
+            "p1": "City's Residences brings life together at a single address:",
+            "list": {
+                "item1": "City's Park (50,000 m²)",
+                "item2": "City's Members Club (6,500 m² – sports, spa, hobby, and social areas)",
+                "item3": "City's Performing Arts Center",
+                "item4": "City's Istanbul Mall",
+                "item5": "JustWork Office Campus, JustAcademy, JustStay Hotel, JustEvent"
+            },
+            "strong": "One address, all life: CITY'S RESIDENCES x CITY'S LIVING"
+        },
+        "globalVision": {
+            "title": "A Global Management Vision",
+            "p1": "City's Residences is one of the newest and most prestigious projects in the WAM Asset Management portfolio.",
+            "p2": "WAM Asset Management portfolio includes international projects such as City's Nişantaşı Mall, City's Istanbul Mall, Meydan Istanbul Mall, JustWork Office Campus, Gebze Logistics Center, Elegance Hotel International, New York IGT Shopping Mall.",
+            "p3": "WAM Asset Management transforms City's Residences into a properly managed investment with global value in every sense, with its corporate power, brand trust, sustainable rental income, and international network advantage."
+        },
+        "conclusion": {
+            "title": "Final Word",
+            "p1": "Life at City's Residences doesn't just get easier; it is redefined. <br></br> Elegance in every step, peace in every moment, art of living in every detail.",
+            "liveMore": "Live more...",
+            "livePeacefully": "Live more peacefully...",
+            "liveFully": "Live more fully...",
+            "welcome": "Welcome to the best version of your life.",
+            "footer": "CITY'S RESIDENCES x CITY'S LIVING"
+        }
+    },
     "residences": {
         "pageTitle": {
             "title": "RESIDENCES",

@@ -6,8 +6,9 @@ import { GsapSplitText } from '@/components/gsap-split-text'
 import { Image } from '@/components/image'
 import { Wrapper } from '@/components/wrapper'
 import { dnaMedia } from '@/lib/constants'
-import Balancer from 'react-wrap-balancer'
 import { ScaleOut } from '@/components/animations/scale-out'
+import { getTranslations } from 'next-intl/server'
+import Balancer from 'react-wrap-balancer'
 
 // Reusable class constants
 const sectionGrid = 'grid grid-cols-24'
@@ -26,8 +27,12 @@ const articleStyles = cn(
 const imageContainerStyles =
   'relative col-span-24 aspect-[16/12] lg:aspect-[16/9] xl:aspect-[16/7]'
 
-export default async function Page() {
-  // { params }: { params: { locale: string } }
+export default async function Page({ params }: { params: { locale: string } }) {
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: 'citysDna',
+  })
+
   return (
     <Wrapper
       stickySidebar={false}
@@ -58,7 +63,7 @@ export default async function Page() {
                 'tracking-wide lg:tracking-wide'
               )}
             >
-              City&apos;s DNA
+              {t('hero.title')}
             </article>
             <article
               className={cn(
@@ -67,8 +72,9 @@ export default async function Page() {
                 'tracking-wide lg:tracking-wide'
               )}
             >
-              Geleceğin Şehri Bugüne Geldi. <br />
-              Yaşam Yeniden Tasarlandı:
+              {t.rich('hero.subtitle', {
+                br: () => <br />,
+              })}
             </article>
             <article
               className={cn(
@@ -77,7 +83,7 @@ export default async function Page() {
                 'tracking-wide lg:tracking-wide'
               )}
             >
-              CITY&apos;S RESIDENCES x CITY&apos;S LIVING
+              {t('hero.subsubtitle')}
             </article>
           </div>
           <div className='absolute bottom-[20%] left-1/2 z-50 size-12 -translate-x-1/2 lg:bottom-[8%] xl:size-16 2xl:size-16'>
@@ -101,26 +107,24 @@ export default async function Page() {
           <div className={contentContainer}>
             <h2 className={headingStyles}>
               <GsapSplitText type='chars' stagger={0.005} duration={1.25}>
-                Geleceğin Şehri <br className='hidden lg:block' /> Bugüne Geldi.
+                {t.rich('futureCity.title', {
+                  br: () => <br className='hidden lg:block' />,
+                })}
               </GsapSplitText>
             </h2>
             <article className={articleStyles}>
               <FadeInOnScroll delay={0.35}>
                 <div>
                   <p>
-                    Yaşadığınız her anı daha anlamlı, daha keyifli ve daha
-                    huzurlu kılan bir yer hayal edin.
-                    <br />
-                    <strong>
-                      Hayatın yürüyerek beş dakikaya sığdığı bir yaşam modeli…
-                    </strong>
-                    <br />
-                    <strong>Burası City&apos;s Residences.</strong>
+                    {t.rich('futureCity.description', {
+                      br: () => <br />,
+                      b: chunks => <strong>{chunks}</strong>,
+                    })}
                   </p>
                   <p>
-                    City&apos;s Residences yalnızca yapılardan ibaret değil; bu
-                    bir vizyon. <br /> Geleceğin şehir yaşamına bugünden atılmış
-                    bir imza; gelecek nesillere bırakılacak değerli bir miras.
+                    {t.rich('futureCity.p2', {
+                      br: () => <br />,
+                    })}
                   </p>
                 </div>
               </FadeInOnScroll>
@@ -140,28 +144,19 @@ export default async function Page() {
           <div className={contentContainer}>
             <h2 className={headingStyles}>
               <GsapSplitText type='chars' stagger={0.005} duration={1.25}>
-                Şehir İçinde Bir Mikro Şehir...
+                {t('microCity.title')}
               </GsapSplitText>
             </h2>
             <FadeInOnScroll delay={0.35}>
               <article className={articleStyles}>
                 <>
                   <p>
-                    İstanbul&apos;un yükselen yaşam ekseni Kozyatağı ve İstanbul
-                    Finans Merkezi hattında,
-                    <br /> E-5 ve TEM&apos;in kesişme noktasında, metroya
-                    doğrudan bağlantılı konumuyla{' '}
-                    <strong>
-                      City&apos;s Residences şehrin tüm imkanlarını kendi
-                      merkezinde yaşatan bir mikro-şehir.
-                    </strong>
+                    {t.rich('microCity.description', {
+                      br: () => <br />,
+                      b: chunks => <strong>{chunks}</strong>,
+                    })}
                   </p>
-                  <p>
-                    Avrupa&apos;nın sayılı karma yaşam projelerinden biri olan
-                    City&apos;s Residences; konut, ofis, AVM, kültür, sanat,
-                    sosyal yaşam, park, bahçe ve özel peyzajlı yeşil alanları
-                    bir araya getiren çok kolay bir yaşam modeli…
-                  </p>
+                  <p>{t('microCity.p2')}</p>
                 </>
               </article>
             </FadeInOnScroll>
@@ -180,19 +175,16 @@ export default async function Page() {
           <div className={contentContainer}>
             <h2 className={headingStyles}>
               <GsapSplitText type='chars' stagger={0.005} duration={1.25}>
-                Yaşam Modeli: City&apos;s Living
+                {t('citysLiving.title')}
               </GsapSplitText>
             </h2>
             <FadeInOnScroll delay={0.35}>
               <article className={articleStyles}>
                 <p>
-                  City’s Living; teknolojiyi, estetiği ve konforu birleştiren
-                  bir yaşam biçimidir. <br /> Hayatı kolaylaştırır, her anı
-                  anlamlı, erişilebilir ve özel kılar. <br />{' '}
-                  <strong>
-                    City’s Living’in bir parçası olmak, geleceği bugünden
-                    yaşamak demektir.
-                  </strong>
+                  {t.rich('citysLiving.description', {
+                    br: () => <br />,
+                    b: chunks => <strong>{chunks}</strong>,
+                  })}
                 </p>
               </article>
             </FadeInOnScroll>
@@ -211,28 +203,17 @@ export default async function Page() {
           <div className={contentContainer}>
             <h2 className={headingStyles}>
               <GsapSplitText type='chars' stagger={0.005} duration={1.25}>
-                &quot;5 Dakikada Yaşam&quot;
+                {t('lifeIn5Minutes.title')}
               </GsapSplitText>
             </h2>
             <FadeInOnScroll delay={0.35}>
               <article className={articleStyles}>
                 <div>
                   <p>
-                    City&apos;s Residences, Türkiye&apos;de ilk kez, tüm hayatın
-                    birbirine 5 dakika yürüyüş mesafesinde olduğu bir yaşam
-                    modeli sunuyor: <br /> Ev – Ofis: 2 dk, Spor & Spa: 2 dk,
-                    Alışveriş: 3 dk, Performans Sanatları Merkezi: 3 dk, Sosyal
-                    yaşam: 3 dk, Metro: 4 dk, Okul & Hastane: 5 dk...
-                  </p>
-                  <p>
-                    <strong>
-                      Aracınıza ihtiyaç duymadan, her şeyin elinizin altında
-                      olduğu bir hayat.
-                    </strong>{' '}
-                    <br />{' '}
-                    <strong>
-                      City&apos;s Living bu yaşamı sizin için tasarladı.
-                    </strong>
+                    {t.rich('lifeIn5Minutes.description', {
+                      br: () => <br />,
+                      b: chunks => <strong>{chunks}</strong>,
+                    })}
                   </p>
                 </div>
               </article>
@@ -252,44 +233,23 @@ export default async function Page() {
           <div className={contentContainer}>
             <h2 className={headingStyles}>
               <GsapSplitText type='chars' stagger={0.005} duration={1.25}>
-                Dünya Standartlarında Bir Yaşam
+                {t('worldClassLife.title')}
               </GsapSplitText>
             </h2>
             <FadeInOnScroll delay={0.35}>
               <article className={articleStyles}>
                 <div>
+                  <p>{t('worldClassLife.p1')}</p>
+                  <p>{t('worldClassLife.p2')}</p>
+                  <p>{t('worldClassLife.p3')}</p>
                   <p>
-                    City&apos;s Residences, konut, ofis, alışveriş, kültür,
-                    sanat, eğlence ve iyi yaşam imkanlarını bir arada sunan,
-                    dünya standartlarında bir karma yaşam projesi…
-                  </p>
-                  <p>
-                    Avrupa&apos;nın en cazip yaşam alanlarından biri olan
-                    City&apos;s Residences, sizi insan odaklı ve yüksek
-                    standartlarda bir yaşam ile buluşturuyor.
-                  </p>
-                  <p>
-                    City&apos;s Residences ve City&apos;s Living alanının en
-                    iyilerini bir araya getirerek, fonksiyonel, estetik,
-                    ergonomik ve zamansız bir mimari inşa etti. Bu anlayış,
-                    yaşamı sanata dönüştürdü.
-                  </p>
-                  <p>
-                    <strong>
-                      &quot;Yaşama Sanatı&quot; vizyonunda yer alan isimler:
-                    </strong>
+                    <strong>{t('worldClassLife.strong')}</strong>
                     <br />
                     <ul>
-                      <li>Mimaride Murat Kader imzası,</li>
-                      <li>İç mimaride Mustafa Toner ve Emre Toner tasarımı,</li>
-                      <li>
-                        Statik ve deprem güvenliğinin uzman ismi Melih Bulgur
-                        ile huzur mühendisliği,
-                      </li>
-                      <li>
-                        City&apos;s Park&apos;da Pınar & Cemil Aktaş imzasıyla,
-                        şehir içinde eşsiz bir vaha.
-                      </li>
+                      <li>{t('worldClassLife.list.item1')}</li>
+                      <li>{t('worldClassLife.list.item2')}</li>
+                      <li>{t('worldClassLife.list.item3')}</li>
+                      <li>{t('worldClassLife.list.item4')}</li>
                     </ul>
                   </p>
                 </div>
@@ -310,7 +270,7 @@ export default async function Page() {
           <div className={contentContainer}>
             <h2 className={headingStyles}>
               <GsapSplitText type='chars' stagger={0.005} duration={1.25}>
-                City&apos;s Park: Şehrin İçinde Bir Vaha
+                {t('citysPark.title')}
               </GsapSplitText>
             </h2>
             <FadeInOnScroll delay={0.35}>
@@ -318,18 +278,12 @@ export default async function Page() {
                 <div>
                   <p>
                     <strong>
-                      50.000 m² büyüklüğündeki City&apos;s Park, şehir hayatıyla
-                      doğa arasındaki sınırı kaldırıyor. <br />
-                      Burada yeşil, sadece bir manzara değil; günlük hayatınızın
-                      temel bir parçası.
+                      {t.rich('citysPark.strong', {
+                        br: () => <br />,
+                      })}
                     </strong>
                   </p>
-                  <p>
-                    City’s Park’ta yer alan bahçeler, parklar, yürüyüş alanları,
-                    havuzlar, çocuk oyun ve açıkhava spor alanları, amfiler,
-                    bisiklet parkuru ve rekreasyon alanları günlük yaşamınızın
-                    tam merkezinde.
-                  </p>
+                  <p>{t('citysPark.p1')}</p>
                 </div>
               </article>
             </FadeInOnScroll>
@@ -348,26 +302,18 @@ export default async function Page() {
           <div className={contentContainer}>
             <h2 className={headingStyles}>
               <GsapSplitText type='chars' stagger={0.005} duration={1.25}>
-                <Balancer>
-                  Akıllı Binalar, Entegre ve Sürdürülebilir Yaşam
-                </Balancer>
+                <Balancer>{t('smartBuildings.title')}</Balancer>
               </GsapSplitText>
             </h2>
             <FadeInOnScroll delay={0.35}>
               <article className={articleStyles}>
                 <ul>
-                  <li>
-                    Nesnelerin interneti destekli altyapı ve yapay zeka
-                    kontrollü bina yönetimi
-                  </li>
-                  <li>Enerji pozitif yapılar, verimli cephe sistemleri</li>
-                  <li>Yağmur suyu geri kazanımı ve atık dönüşümü</li>
-                  <li>Karbon ayak izini sıfırlama hedefi</li>
-                  <li>
-                    Digital Twins ile afet simülasyonları ve yapı bakım
-                    planlaması
-                  </li>
-                  <li>Görünmez konfor, hissedilir kalite</li>
+                  <li>{t('smartBuildings.list.item1')}</li>
+                  <li>{t('smartBuildings.list.item2')}</li>
+                  <li>{t('smartBuildings.list.item3')}</li>
+                  <li>{t('smartBuildings.list.item4')}</li>
+                  <li>{t('smartBuildings.list.item5')}</li>
+                  <li>{t('smartBuildings.list.item6')}</li>
                 </ul>
               </article>
             </FadeInOnScroll>
@@ -386,33 +332,22 @@ export default async function Page() {
           <div className={contentContainer}>
             <h2 className={headingStyles}>
               <GsapSplitText type='chars' stagger={0.005} duration={1.25}>
-                Yaşamı Kolaylaştıran Ayrıcalıklar
+                {t('privileges.title')}
               </GsapSplitText>
             </h2>
             <FadeInOnScroll delay={0.35}>
               <article className={articleStyles}>
                 <>
-                  <p>
-                    City&apos;s Residences, yaşamı tek bir adreste buluşturur:
-                  </p>
+                  <p>{t('privileges.p1')}</p>
                   <ul>
-                    <li>City&apos;s Park (50.000 m²)</li>
-                    <li>
-                      City&apos;s Members Club (6.500 m² – spor, spa, hobi ve
-                      sosyal alanlar)
-                    </li>
-                    <li>City&apos;s Performans Sanatları Merkezi</li>
-                    <li>City&apos;s İstanbul AVM</li>
-                    <li>
-                      JustWork Ofis Kampüsü, JustAcademy, JustStay Hotel,
-                      JustEvent
-                    </li>
+                    <li>{t('privileges.list.item1')}</li>
+                    <li>{t('privileges.list.item2')}</li>
+                    <li>{t('privileges.list.item3')}</li>
+                    <li>{t('privileges.list.item4')}</li>
+                    <li>{t('privileges.list.item5')}</li>
                   </ul>
                   <p>
-                    <strong>
-                      Tek adres, tüm yaşam: CITY&apos;S RESIDENCES x CITY&apos;S
-                      LIVING
-                    </strong>
+                    <strong>{t('privileges.strong')}</strong>
                   </p>
                 </>
               </article>
@@ -432,27 +367,15 @@ export default async function Page() {
           <div className={contentContainer}>
             <h2 className={headingStyles}>
               <GsapSplitText type='chars' stagger={0.005} duration={1.25}>
-                Global Bir Yönetim Vizyonu
+                {t('globalVision.title')}
               </GsapSplitText>
             </h2>
             <FadeInOnScroll delay={0.35}>
               <article className={articleStyles}>
+                <p>{t('globalVision.p1')}</p>
+                <p>{t('globalVision.p2')}</p>
                 <p>
-                  City&apos;s Residences, WAM Asset Management portföyündeki en
-                  yeni ve en prestijli projelerden biri.
-                </p>
-                <p>
-                  WAM Asset Management portföyünde City&apos;s Nişantaşı AVM,
-                  City&apos;s İstanbul AVM, Meydan İstanbul AVM, JustWork Office
-                  Campus, Gebze Lojistik Merkezi, Elegance Hotel International,
-                  New York IGT Shopping Mall gibi uluslararası projeler yer
-                  alıyor.
-                </p>
-                <p>
-                  WAM Asset Management, kurumsal gücü, marka güveni,
-                  sürdürülebilir kira getirisi ve uluslararası network avantajı
-                  ile City&apos;s Residences&apos;ı her anlamda doğru yönetilen,
-                  global değere sahip bir yatırıma dönüştürüyor.{' '}
+                  {t('globalVision.p3')}{' '}
                   <a
                     href='https://wamturkey.com'
                     target='_blank'
@@ -471,37 +394,33 @@ export default async function Page() {
           <div className={cn(contentContainer, 'pt-0')}>
             <h2 className={headingStyles}>
               <GsapSplitText type='chars' stagger={0.005} duration={1.25}>
-                Son Söz
+                {t('conclusion.title')}
               </GsapSplitText>
             </h2>
             <FadeInOnScroll delay={0.35}>
               <article className={articleStyles}>
                 <>
                   <p>
-                    City&apos;s Residences&apos;ta yaşam yalnızca kolaylaşmaz;
-                    yeniden tanımlanır.
-                    <br />
-                    Her adımda zarafet, her anda huzur, her detayda yaşama
-                    sanatı.
+                    {t.rich('conclusion.p1', {
+                      br: () => <br />,
+                    })}
                   </p>
                   <p className='my-16 block'>
                     <span className='block border-b border-gray-900 py-4 text-3xl font-[200] xl:text-4xl'>
-                      Daha çok yaşa...
+                      {t('conclusion.liveMore')}
                     </span>
                     <span className='block border-b border-gray-900 py-4 text-3xl font-[300] xl:text-4xl'>
-                      Daha huzurlu yaşa...
+                      {t('conclusion.livePeacefully')}
                     </span>
                     <span className='block border-b border-gray-900 py-4 text-3xl font-[400] xl:text-4xl'>
-                      Daha huzurlu yaşa...
+                      {t('conclusion.liveFully')}
                     </span>
                   </p>
                   <p>
-                    <strong>
-                      Yaşamınızın en iyi versiyonuna hoş geldiniz.
-                    </strong>
+                    <strong>{t('conclusion.welcome')}</strong>
                   </p>
                   <p>
-                    <strong>CITY&apos;S RESIDENCES x CITY&apos;S LIVING</strong>
+                    <strong>{t('conclusion.footer')}</strong>
                   </p>
                 </>
               </article>

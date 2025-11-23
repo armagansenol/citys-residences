@@ -341,6 +341,88 @@
         "title": "CITY’S TIMES",
         "followUs": "Bizi takip edin."
     },
+    "citysDna": {
+        "hero": {
+            "title": "City's DNA",
+            "subtitle": "Geleceğin Şehri Bugüne Geldi. <br></br> Yaşam Yeniden Tasarlandı:",
+            "subsubtitle": "CITY'S RESIDENCES x CITY'S LIVING"
+        },
+        "futureCity": {
+            "title": "Geleceğin Şehri <br></br> Bugüne Geldi.",
+            "description": "Yaşadığınız her anı daha anlamlı, daha keyifli ve daha huzurlu kılan bir yer hayal edin. <br></br> <b>Hayatın yürüyerek beş dakikaya sığdığı bir yaşam modeli…</b> <br></br> <b>Burası City's Residences.</b>",
+            "p2": "City's Residences yalnızca yapılardan ibaret değil; bu bir vizyon. <br></br> Geleceğin şehir yaşamına bugünden atılmış bir imza; gelecek nesillere bırakılacak değerli bir miras."
+        },
+        "microCity": {
+            "title": "Şehir İçinde Bir Mikro Şehir...",
+            "description": "İstanbul'un yükselen yaşam ekseni Kozyatağı ve İstanbul Finans Merkezi hattında, <br></br> E-5 ve TEM'in kesişme noktasında, metroya doğrudan bağlantılı konumuyla <b>City's Residences şehrin tüm imkanlarını kendi merkezinde yaşatan bir mikro-şehir.</b>",
+            "p2": "Avrupa'nın sayılı karma yaşam projelerinden biri olan City's Residences; konut, ofis, AVM, kültür, sanat, sosyal yaşam, park, bahçe ve özel peyzajlı yeşil alanları bir araya getiren çok kolay bir yaşam modeli…"
+        },
+        "citysLiving": {
+            "title": "Yaşam Modeli: City's Living",
+            "description": "City’s Living; teknolojiyi, estetiği ve konforu birleştiren bir yaşam biçimidir. <br></br> Hayatı kolaylaştırır, her anı anlamlı, erişilebilir ve özel kılar. <br></br> <b>City’s Living’in bir parçası olmak, geleceği bugünden yaşamak demektir.</b>"
+        },
+        "lifeIn5Minutes": {
+            "title": "\"5 Dakikada Yaşam\"",
+            "description": "City's Residences, Türkiye'de ilk kez, tüm hayatın birbirine 5 dakika yürüyüş mesafesinde olduğu bir yaşam modeli sunuyor: <br></br> Ev – Ofis: 2 dk, Spor & Spa: 2 dk, Alışveriş: 3 dk, Performans Sanatları Merkezi: 3 dk, Sosyal yaşam: 3 dk, Metro: 4 dk, Okul & Hastane: 5 dk... <br></br> <br></br> <b>Aracınıza ihtiyaç duymadan, her şeyin elinizin altında olduğu bir hayat.</b> <br></br> <b>City's Living bu yaşamı sizin için tasarladı.</b>"
+        },
+        "worldClassLife": {
+            "title": "Dünya Standartlarında Bir Yaşam",
+            "p1": "City's Residences, konut, ofis, alışveriş, kültür, sanat, eğlence ve iyi yaşam imkanlarını bir arada sunan, dünya standartlarında bir karma yaşam projesi…",
+            "p2": "Avrupa'nın en cazip yaşam alanlarından biri olan City's Residences, sizi insan odaklı ve yüksek standartlarda bir yaşam ile buluşturuyor.",
+            "p3": "City's Residences ve City's Living alanının en iyilerini bir araya getirerek, fonksiyonel, estetik, ergonomik ve zamansız bir mimari inşa etti. Bu anlayış, yaşamı sanata dönüştürdü.",
+            "strong": "\"Yaşama Sanatı\" vizyonunda yer alan isimler:",
+            "list": {
+                "item1": "Mimaride Murat Kader imzası,",
+                "item2": "İç mimaride Mustafa Toner ve Emre Toner tasarımı,",
+                "item3": "Statik ve deprem güvenliğinin uzman ismi Melih Bulgur ile huzur mühendisliği,",
+                "item4": "City's Park'da Pınar & Cemil Aktaş imzasıyla, şehir içinde eşsiz bir vaha."
+            }
+        },
+        "citysPark": {
+            "title": "City's Park: Şehrin İçinde Bir Vaha",
+            "strong": "50.000 m² büyüklüğündeki City's Park, şehir hayatıyla doğa arasındaki sınırı kaldırıyor. <br></br> Burada yeşil, sadece bir manzara değil; günlük hayatınızın temel bir parçası.",
+            "p1": "City’s Park’ta yer alan bahçeler, parklar, yürüyüş alanları, havuzlar, çocuk oyun ve açıkhava spor alanları, amfiler, bisiklet parkuru ve rekreasyon alanları günlük yaşamınızın tam merkezinde."
+        },
+        "smartBuildings": {
+            "title": "Akıllı Binalar, Entegre ve Sürdürülebilir Yaşam",
+            "titleBalancer": "Akıllı Binalar, Entegre ve Sürdürülebilir Yaşam",
+            "list": {
+                "item1": "Nesnelerin interneti destekli altyapı ve yapay zeka kontrollü bina yönetimi",
+                "item2": "Enerji pozitif yapılar, verimli cephe sistemleri",
+                "item3": "Yağmur suyu geri kazanımı ve atık dönüşümü",
+                "item4": "Karbon ayak izini sıfırlama hedefi",
+                "item5": "Digital Twins ile afet simülasyonları ve yapı bakım planlaması",
+                "item6": "Görünmez konfor, hissedilir kalite"
+            }
+        },
+        "privileges": {
+            "title": "Yaşamı Kolaylaştıran Ayrıcalıklar",
+            "p1": "City's Residences, yaşamı tek bir adreste buluşturur:",
+            "list": {
+                "item1": "City's Park (50.000 m²)",
+                "item2": "City's Members Club (6.500 m² – spor, spa, hobi ve sosyal alanlar)",
+                "item3": "City's Performans Sanatları Merkezi",
+                "item4": "City's İstanbul AVM",
+                "item5": "JustWork Ofis Kampüsü, JustAcademy, JustStay Hotel, JustEvent"
+            },
+            "strong": "Tek adres, tüm yaşam: CITY'S RESIDENCES x CITY'S LIVING"
+        },
+        "globalVision": {
+            "title": "Global Bir Yönetim Vizyonu",
+            "p1": "City's Residences, WAM Asset Management portföyündeki en yeni ve en prestijli projelerden biri.",
+            "p2": "WAM Asset Management portföyünde City's Nişantaşı AVM, City's İstanbul AVM, Meydan İstanbul AVM, JustWork Office Campus, Gebze Lojistik Merkezi, Elegance Hotel International, New York IGT Shopping Mall gibi uluslararası projeler yer alıyor.",
+            "p3": "WAM Asset Management, kurumsal gücü, marka güveni, sürdürülebilir kira getirisi ve uluslararası network avantajı ile City's Residences'ı her anlamda doğru yönetilen, global değere sahip bir yatırıma dönüştürüyor."
+        },
+        "conclusion": {
+            "title": "Son Söz",
+            "p1": "City's Residences'ta yaşam yalnızca kolaylaşmaz; yeniden tanımlanır. <br></br> Her adımda zarafet, her anda huzur, her detayda yaşama sanatı.",
+            "liveMore": "Daha çok yaşa...",
+            "livePeacefully": "Daha huzurlu yaşa...",
+            "liveFully": "Daha dolu yaşa...",
+            "welcome": "Yaşamınızın en iyi versiyonuna hoş geldiniz.",
+            "footer": "CITY'S RESIDENCES x CITY'S LIVING"
+        }
+    },
     "residences": {
         "pageTitle": {
             "title": "RESIDENCES",
