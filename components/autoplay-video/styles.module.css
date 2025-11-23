@@ -6,3 +6,12 @@
     object-position: 50% var(--vertical-position);
   }
 }
+
+.thumbnail {
+  aspect-ratio: var(--aspect-ratio);
+  object-position: var(--horizontal-position) var(--vertical-position);
+
+  @include-media ('tablet') {
+    object-position: 50% var(--vertical-position);
+  }
+}

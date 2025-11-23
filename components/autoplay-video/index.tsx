@@ -7,7 +7,9 @@ import { breakpoints } from '@/styles/config.mjs'
 import { PlayCircleIcon } from '@phosphor-icons/react'
 import { useIntersectionObserver, useWindowSize } from 'hamo'
 import dynamic from 'next/dynamic'
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+
+import { Image } from '@/components/image'
 
 const FullScreenVideoDialog = dynamic(() =>
   import('@/components/dialogs/full-screen-video-dialog').then(
@@ -45,6 +47,7 @@ export function AutoplayVideo({
   const containerRef = useRef<HTMLDivElement | null>(null)
   const hasLoadedRef = useRef(false)
   const wasPlayingBeforeDialogRef = useRef(false)
+  const [ready, setReady] = useState(false)
 
   const [setIntersectionRef, entry] = useIntersectionObserver({
     root: null,
@@ -80,43 +83,66 @@ export function AutoplayVideo({
   }, [entry, playbackId, mobilePlaybackId])
 
   const videoContent = (
-    <video
-      ref={playerRef}
-      poster={poster}
-      className={cn(
-        s.video,
-        'absolute inset-0 h-full w-full object-cover object-center',
-        enableFullscreen && 'cursor-pointer'
-      )}
-      style={
-        {
-          '--aspect-ratio': aspectRatio,
-          '--horizontal-position': `${horizontalPosition ?? 50}%`,
-          '--vertical-position': `${verticalPosition ?? 50}%`,
-        } as React.CSSProperties
-      }
-      muted
-      loop
-      playsInline
-      preload='none'
-      disablePictureInPicture
-      controlsList='nodownload noplaybackrate'
-    >
-      {(mobilePlaybackId || playbackId) && (
-        <source
-          src={`https://stream.mux.com/${mobilePlaybackId || playbackId}/highest.mp4`}
-          media='(max-width: 799px)'
-          type='video/mp4'
-        />
-      )}
-      {playbackId && (
-        <source
-          src={`https://stream.mux.com/${playbackId}/highest.mp4`}
-          media='(min-width: 800px)'
-          type='video/mp4'
-        />
-      )}
-    </video>
+    <>
+      <Image
+        src={poster}
+        alt='Video Thumbnail'
+        fill
+        mobileSize='100vw'
+        desktopSize='100vw'
+        className={cn(s.thumbnail, 'z-10 object-cover')}
+        style={
+          {
+            '--aspect-ratio': aspectRatio,
+            '--horizontal-position': `${horizontalPosition ?? 50}%`,
+            '--vertical-position': `${verticalPosition ?? 50}%`,
+          } as React.CSSProperties
+        }
+      />
+      <video
+        ref={playerRef}
+        poster={undefined}
+        onLoadedData={() => setReady(true)}
+        className={cn(
+          s.video,
+          'absolute inset-0 h-full w-full object-cover object-center',
+          'z-20 transition-opacity duration-500',
+          {
+            'opacity-0': !ready,
+            'opacity-100': ready,
+          },
+          enableFullscreen && 'cursor-pointer'
+        )}
+        style={
+          {
+            '--aspect-ratio': aspectRatio,
+            '--horizontal-position': `${horizontalPosition ?? 50}%`,
+            '--vertical-position': `${verticalPosition ?? 50}%`,
+          } as React.CSSProperties
+        }
+        muted
+        loop
+        playsInline
+        preload='none'
+        disablePictureInPicture
+        controlsList='nodownload noplaybackrate'
+      >
+        {(mobilePlaybackId || playbackId) && (
+          <source
+            src={`https://stream.mux.com/${mobilePlaybackId || playbackId}/highest.mp4`}
+            media='(max-width: 799px)'
+            type='video/mp4'
+          />
+        )}
+        {playbackId && (
+          <source
+            src={`https://stream.mux.com/${playbackId}/highest.mp4`}
+            media='(min-width: 800px)'
+            type='video/mp4'
+          />
+        )}
+      </video>
+    </>
   )
 
   const handleDialogOpenChange = useCallback(
