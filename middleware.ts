@@ -37,37 +37,11 @@ export default function middleware(req: NextRequest) {
   }
 
   // 2) No locale in URL → detect locale preference
-  // Priority: Accept-Language header > Geo > Cookie (if matches) > Default
+  // Priority: Cookie > Geo > Default
 
-  // Check Accept-Language header (most reliable with VPNs)
-  const acceptLanguage = req.headers.get('accept-language')
-  let detectedLocale: string | null = null
-
-  if (acceptLanguage) {
-    // Parse Accept-Language header (e.g., "en-US,en;q=0.9,tr;q=0.8")
-    const languages = acceptLanguage
-      .split(',')
-      .map((lang) => {
-        const [locale, q = 'q=1'] = lang.trim().split(';')
-        const quality = parseFloat(q.replace('q=', ''))
-        return { locale: locale.toLowerCase().split('-')[0], quality }
-      })
-      .sort((a, b) => b.quality - a.quality)
-
-    // Find first supported locale
-    for (const { locale } of languages) {
-      if (SUPPORTED_LOCALES.includes(locale as (typeof SUPPORTED_LOCALES)[number])) {
-        detectedLocale = locale
-        break
-      }
-    }
-  }
-
-  // Fall back to geo detection if Accept-Language didn't match
-  if (!detectedLocale) {
-    const country = geo?.country?.toUpperCase()
-    detectedLocale = country === 'TR' ? 'tr' : 'en'
-  }
+  // Geo detection
+  const country = geo?.country?.toUpperCase()
+  const detectedLocale = country === 'TR' ? 'tr' : 'en'
 
   // Check if cookie exists
   const userPref = req.cookies.get(LOCALE_COOKIE)?.value
@@ -75,11 +49,8 @@ export default function middleware(req: NextRequest) {
     userPref as (typeof SUPPORTED_LOCALES)[number]
   )
 
-  // Use detected locale (from Accept-Language or geo) instead of cookie
-  // This ensures VPN users get the correct locale based on their browser settings
-  // Only use cookie if it matches the detected preference (user preference confirmed)
-  const finalLocale =
-    userHasPreference && userPref === detectedLocale ? userPref : detectedLocale
+  // Use cookie if it exists, otherwise fall back to geo detection
+  const finalLocale = userHasPreference ? userPref : detectedLocale
 
   return NextResponse.redirect(
     new URL(`/${finalLocale}${path}${nextUrl.search}`, req.url)
