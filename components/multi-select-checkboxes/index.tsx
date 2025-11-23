@@ -17,6 +17,7 @@ interface MultiSelectCheckboxesProps {
   onChange?: (ids: string[]) => void
   className?: string
   textSize?: 'sm' | 'md' | 'lg'
+  textClassName?: string
   icon?: React.ReactNode
 }
 
@@ -36,6 +37,7 @@ export const MultiSelectCheckboxes = forwardRef<
       onChange,
       className,
       textSize = 'md',
+      textClassName,
     },
     ref
   ) => {
@@ -102,6 +104,7 @@ export const MultiSelectCheckboxes = forwardRef<
                   <span
                     className={cn(
                       'font-[300]',
+                      textClassName,
                       textSize === 'sm' &&
                         'text-[0.6rem]/[1.1] lg:text-[1.1rem]/[1.1] xl:text-sm/tight 2xl:text-sm/tight 3xl:text-sm/tight',
                       textSize === 'md' &&

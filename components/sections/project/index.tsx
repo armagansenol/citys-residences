@@ -22,18 +22,29 @@ import { SectionSetter } from '@/components/section-setter'
 import { navigationConfig, projectBanner } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 
+import a1Zoom from '@/public/img/project/a-1-zoom.jpg'
 import a1 from '@/public/img/project/a-1.jpg'
+import a2Zoom from '@/public/img/project/a-2-zoom.jpg'
 import a2 from '@/public/img/project/a-2.jpg'
 import b1 from '@/public/img/project/b-1.jpg'
-import a1Zoom from '@/public/img/project/a-1-zoom.jpg'
-import a2Zoom from '@/public/img/project/a-2-zoom.jpg'
+import b2 from '@/public/img/project/b-2.jpg'
+import b2Zoom from '@/public/img/project/b-2-zoom.jpg'
+import {
+  BarbellIcon,
+  HandbagIcon,
+  HouseIcon,
+  LaptopIcon,
+  TreeIcon,
+} from '@phosphor-icons/react/dist/ssr'
 
 const images = {
   a1,
   a2,
   b1,
+  b2,
   a1Zoom,
   a2Zoom,
+  b2Zoom,
 }
 
 export default async function Page({
@@ -42,6 +53,49 @@ export default async function Page({
   params: { locale: string }
 }) {
   const t = await getTranslations({ locale, namespace: 'project' })
+
+  const lifeIn5Minutes = [
+    {
+      title: 'home',
+      d1: t('lifeIn5Minutes.items.home'),
+      d2: t('lifeIn5Minutes.items.homeDuration'),
+      icon: <HouseIcon className='size-full' weight='thin' />,
+      mobileBorder: false,
+      desktopBorder: true,
+    },
+    {
+      title: 'office',
+      d1: t('lifeIn5Minutes.items.office'),
+      d2: t('lifeIn5Minutes.items.officeDuration'),
+      icon: <LaptopIcon className='size-full' weight='thin' />,
+      mobileBorder: true,
+      desktopBorder: true,
+    },
+    {
+      title: 'mall',
+      d1: t('lifeIn5Minutes.items.mall'),
+      d2: t('lifeIn5Minutes.items.mallDuration'),
+      icon: <HandbagIcon className='size-full' weight='thin' />,
+      mobileBorder: true,
+      desktopBorder: true,
+    },
+    {
+      title: 'nature',
+      d1: t('lifeIn5Minutes.items.nature'),
+      d2: t('lifeIn5Minutes.items.natureDuration'),
+      icon: <TreeIcon className='size-full' weight='thin' />,
+      mobileBorder: false,
+      desktopBorder: true,
+    },
+    {
+      title: 'sports',
+      d1: t('lifeIn5Minutes.items.sports'),
+      d2: t('lifeIn5Minutes.items.sportsDuration'),
+      icon: <BarbellIcon className='size-full' weight='thin' />,
+      mobileBorder: true,
+      desktopBorder: true,
+    },
+  ]
   return (
     <SectionSetter sectionId={navigationConfig['/project']?.id as string}>
       <PageTitle
@@ -61,11 +115,59 @@ export default async function Page({
           playbackId={projectBanner.muxSrc}
           aspectRatio={projectBanner.aspect()}
         />
+        <div
+          className={cn(
+            'absolute inset-0 z-50 h-full w-full',
+            'before:pointer-events-none before:absolute before:bottom-0 before:left-0 before:z-20 before:h-[50%] before:w-full before:bg-gradient-to-t before:from-black/90 before:to-transparent',
+            'flex items-end justify-center lg:justify-end',
+            'font-primary text-white'
+          )}
+        >
+          <div className='relative z-30 flex flex-col items-center justify-end gap-4 px-8 py-12 md:px-48 lg:flex-row lg:gap-0 lg:px-24 xl:items-stretch'>
+            <div className='flex flex-1 items-center justify-center gap-1 px-6 xl:px-12'>
+              <div className='font-primary text-6xl/none font-[300] xl:text-8xl/none'>
+                {t('lifeIn5Minutes.mainTitle.number')}
+              </div>
+              <div className='flex flex-col items-start justify-center'>
+                <div className='font-primary text-xl/none font-[400] xl:text-3xl/none'>
+                  {t('lifeIn5Minutes.mainTitle.line1')}
+                </div>
+                <div className='font-primary text-xl/none font-[300] xl:text-3xl/none'>
+                  {t('lifeIn5Minutes.mainTitle.line2')}
+                </div>
+              </div>
+            </div>
+            <div className='flex flex-wrap items-end justify-center xl:flex-nowrap xl:justify-start'>
+              {lifeIn5Minutes.map(item => (
+                <div
+                  className={cn(
+                    'flex items-center justify-center gap-x-2 px-4 py-5 lg:gap-x-4 xl:px-8 xl:py-8 3xl:px-12 3xl:py-10',
+                    item.desktopBorder && 'lg:border-l lg:border-white/80',
+                    item.mobileBorder && 'border-l border-white/80'
+                  )}
+                  key={item.title}
+                >
+                  <div className='size-6 xl:size-8 3xl:size-12'>
+                    {item.icon}
+                  </div>
+                  <div className='flex flex-col items-start justify-center'>
+                    <div className='whitespace-nowrap font-primary text-[10px]/tight font-[400] xl:text-base/tight 3xl:text-xl/tight'>
+                      {item.d1}
+                    </div>
+                    <div className='whitespace-nowrap font-primary text-[10px]/tight font-[300] xl:text-base/tight 3xl:text-xl/tight'>
+                      {item.d2}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
       <InteractiveMap />
       <div className='gap-y-8 py-12'>
         {/* block and parking entrances text*/}
-        <section className='grid grid-cols-24 gap-y-4 px-8 py-8 lg:px-0 lg:py-16 xl:py-36'>
+        <section className='grid grid-cols-24 gap-y-4 py-8 pl-8 pr-12 lg:px-0 lg:py-16 xl:py-36'>
           <div className='col-span-24 flex lg:col-span-9 lg:col-start-6 xl:col-span-8 xl:col-start-7'>
             <h3
               className={cn(
@@ -96,7 +198,7 @@ export default async function Page({
           </div>
         </section>
         {/* blok ve otopark girişleri images*/}
-        <section className='grid grid-cols-24 gap-x-0 gap-y-6 px-8 py-4 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-8'>
+        <section className='grid grid-cols-24 gap-x-0 gap-y-6 py-4 pl-8 pr-12 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-8'>
           <div className='col-span-24 aspect-[16/9] lg:col-span-8 lg:col-start-7'>
             <ZoomImageDialog
               dialogTrigger={
@@ -154,7 +256,7 @@ export default async function Page({
         <section
           className={cn(
             'grid grid-cols-24 gap-x-0 gap-y-6 lg:gap-x-4 lg:gap-y-0',
-            'px-8 py-8 pb-24 pt-12 lg:px-0 xl:pb-0 xl:pt-44'
+            'py-8 pb-24 pl-8 pr-12 pt-12 lg:px-0 xl:pb-0 xl:pt-44'
           )}
         >
           <div className='col-span-24 flex justify-start lg:col-span-8 lg:col-start-7 lg:justify-center'>
@@ -186,7 +288,10 @@ export default async function Page({
         </section>
         {/* green spaces images*/}
         <section
-          className={cn('grid grid-cols-24', 'px-8 py-12 lg:px-0 lg:py-20')}
+          className={cn(
+            'grid grid-cols-24',
+            'py-12 pl-8 pr-12 lg:px-0 lg:py-20'
+          )}
         >
           <div
             className='col-span-24 block sm:hidden lg:col-span-18 lg:-col-end-3'
@@ -223,6 +328,43 @@ export default async function Page({
                 />
               }
               aspectRatio={images.b1.width / images.b1.height}
+            />
+          </div>
+          <div
+            className='col-span-24 mt-2 block sm:hidden lg:col-span-18 lg:-col-end-3'
+            style={
+              {
+                aspectRatio: images.b2.width / images.b2.height,
+              } as React.CSSProperties
+            }
+          >
+            <ZoomImageDialog
+              dialogTrigger={
+                <>
+                  <Image
+                    className='h-full w-full object-contain'
+                    src={images.b2.src}
+                    alt='Project Visual'
+                    loading='lazy'
+                    quality={100}
+                    aspectRatio={images.b2.width / images.b2.height}
+                  />
+                </>
+              }
+              dialogContent={
+                <Image
+                  className='h-full w-full object-contain'
+                  fill
+                  desktopSize='100vw'
+                  mobileSize='100vw'
+                  src={images.b2.src}
+                  alt='Project Visual'
+                  loading='lazy'
+                  quality={100}
+                  aspectRatio={images.b1.width / images.b1.height}
+                />
+              }
+              aspectRatio={images.b2.width / images.b2.height}
             />
           </div>
           <div
@@ -264,7 +406,7 @@ export default async function Page({
           </div>
         </section>
         {/* architects say text*/}
-        <section className='grid grid-cols-24 gap-x-0 gap-y-6 px-8 py-8 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-8 xl:pb-0 xl:pt-32'>
+        <section className='grid grid-cols-24 gap-x-0 gap-y-6 py-8 pl-8 pr-12 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-8 xl:pb-0 xl:pt-32'>
           <div className='col-span-24 flex justify-start lg:col-span-8 lg:col-start-7 lg:justify-center lg:pl-24 xl:pl-44'>
             <h3
               className={cn(
@@ -291,7 +433,7 @@ export default async function Page({
             </p>
           </div>
         </section>
-        <section className='grid grid-cols-24 gap-0 px-8 py-8 lg:gap-4 lg:px-0 lg:py-16'>
+        <section className='grid grid-cols-24 gap-0 py-8 pl-8 pr-12 lg:gap-4 lg:px-0 lg:py-16'>
           <div className='relative col-span-24 grid aspect-[16/16.75] grid-cols-24 gap-0 sm:aspect-[16/7] lg:col-span-16 lg:col-start-7 lg:gap-8'>
             <Image
               className='hidden object-contain sm:block'

@@ -23,7 +23,7 @@ export function SectionContactForm({
       <FadeInOnScroll delay={0.25}>
         <div
           className={cn(
-            'grid grid-cols-24 px-8 lg:col-start-4 lg:px-16',
+            'grid grid-cols-24 pl-8 pr-12 lg:col-start-4 lg:px-16',
             isFormSuccess && 'pointer-events-none opacity-0'
           )}
         >

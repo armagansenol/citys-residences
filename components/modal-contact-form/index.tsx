@@ -275,9 +275,9 @@ export function ModalContactForm() {
             >
               <p
                 className={cn(
-                  'max-w-[90%] font-primary font-[300] text-white',
+                  'font-primary font-[300] text-white',
                   'text-xl/snug lg:text-xl/snug xl:text-xl/snug 2xl:text-2xl/snug',
-                  'max-w-xl lg:max-w-2xl xl:max-w-lg 2xl:max-w-xl 3xl:max-w-2xl'
+                  'max-w-[90%] lg:max-w-2xl xl:max-w-lg 2xl:max-w-xl 3xl:max-w-2xl'
                 )}
               >
                 {t.rich('description', {

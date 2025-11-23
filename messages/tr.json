@@ -61,6 +61,25 @@
                 "personTitle": "Yüksek İnşaat Mühendisi",
                 "sidebarText": "Statik"
             }
+        },
+        "lifeIn5Minutes": {
+            "mainTitle": {
+                "number": "5",
+                "line1": "dakikada",
+                "line2": "yaşam"
+            },
+            "items": {
+                "home": "Ev",
+                "homeDuration": "1 dakika",
+                "office": "Ofis",
+                "officeDuration": "2 dakika",
+                "mall": "AVM",
+                "mallDuration": "3 dakika",
+                "nature": "Doğa",
+                "natureDuration": "4 dakika",
+                "sports": "Spor",
+                "sportsDuration": "5 dakika"
+            }
         }
     },
     "localeSwitcher": {

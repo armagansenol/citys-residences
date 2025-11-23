@@ -70,7 +70,7 @@ export function QuoteWithVideo({
         />
       )}
       {/* quote and person name and title */}
-      <div className='col-span-24 flex items-center justify-between px-8 pt-28 lg:col-span-16 lg:col-start-6 lg:px-0 lg:pt-48 xl:col-span-16 xl:col-start-5 2xl:pt-64'>
+      <div className='col-span-24 flex items-center justify-between pl-8 pr-12 pt-28 lg:col-span-16 lg:col-start-6 lg:px-0 lg:pt-48 xl:col-span-16 xl:col-start-5 2xl:pt-64'>
         <p
           className={cn(
             'relative',
@@ -112,7 +112,7 @@ export function QuoteWithVideo({
         </div>
       </div>
       {/* video */}
-      <div className='col-span-24 px-8 pb-12 pt-8 lg:col-span-16 lg:col-start-6 lg:px-0 lg:pb-28 lg:pt-16 xl:col-span-16 xl:col-start-5'>
+      <div className='col-span-24 pb-12 pl-8 pr-12 pt-8 lg:col-span-16 lg:col-start-6 lg:px-0 lg:pb-28 lg:pt-16 xl:col-span-16 xl:col-start-5'>
         <div className='group relative aspect-[16/9] cursor-pointer overflow-hidden rounded-md 2xl:rounded-lg'>
           <FullScreenVideoDialog
             aspectRatio={videoAspectRatio}
@@ -178,7 +178,7 @@ export function QuoteWithVideo({
         />
       </div>
       {/* blueprint icon and sidebar text */}
-      <div className='absolute right-6 top-10 flex flex-col items-center justify-end gap-2 lg:right-16 lg:top-20 lg:gap-4 xl:top-28'>
+      <div className='absolute right-11 top-10 flex flex-col items-center justify-end gap-2 lg:right-16 lg:top-20 lg:gap-4 xl:top-28'>
         <BlueprintIcon
           className='size-7 rotate-90 lg:size-12 2xl:size-16'
           weight='thin'

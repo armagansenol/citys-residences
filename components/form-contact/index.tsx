@@ -319,7 +319,7 @@ export function ContactForm({ translations, onSuccess }: FormContactProps) {
         icon: createIcon('3+1'),
       },
       {
-        id: '3.5+1',
+        id: '3,5+1',
         label: '3.5+1',
         icon: createIcon('3+1'),
       },
@@ -329,7 +329,7 @@ export function ContactForm({ translations, onSuccess }: FormContactProps) {
         icon: createIcon('4+1'),
       },
       {
-        id: '4.5+1',
+        id: '4,5+1',
         label: '4.5+1',
         icon: createIcon('4+1'),
       },
@@ -339,7 +339,7 @@ export function ContactForm({ translations, onSuccess }: FormContactProps) {
         icon: createIcon('5+1'),
       },
       {
-        id: '5.5+1',
+        id: '5,5+1',
         label: '5.5+1',
         icon: createIcon('5+1'),
       },
@@ -530,7 +530,7 @@ export function ContactForm({ translations, onSuccess }: FormContactProps) {
                   />
                 </div>
               </div>
-              <div className='grid grid-cols-1 gap-6 lg:gap-4'>
+              <div className='grid grid-cols-1 gap-6 pr-0 md:pr-72 lg:gap-4 xl:pr-40'>
                 <FormField
                   control={form.control}
                   name='residenceType'
@@ -554,6 +554,7 @@ export function ContactForm({ translations, onSuccess }: FormContactProps) {
                           onChange={handleResidenceType}
                           ref={residenceTypeDropdownRef}
                           textSize='lg'
+                          textClassName='tracking-[0.25em]'
                         />
                       </FormControl>
                       <FormMessage className='text-tangerine-flake' />

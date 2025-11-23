@@ -61,6 +61,25 @@
                 "personTitle": "Senior Civil Engineer",
                 "sidebarText": "Structural Engineering"
             }
+        },
+        "lifeIn5Minutes": {
+            "mainTitle": {
+                "number": "5",
+                "line1": "minutes",
+                "line2": "life"
+            },
+            "items": {
+                "home": "Home",
+                "homeDuration": "1 minute",
+                "office": "Office",
+                "officeDuration": "2 minutes",
+                "mall": "Mall",
+                "mallDuration": "3 minutes",
+                "nature": "Nature",
+                "natureDuration": "4 minutes",
+                "sports": "Sports",
+                "sportsDuration": "5 minutes"
+            }
         }
     },
     "localeSwitcher": {

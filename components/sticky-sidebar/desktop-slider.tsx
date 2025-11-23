@@ -32,7 +32,7 @@ export const DesktopSlider: React.FC<DesktopSliderProps> = ({
         <div
           className={cn(
             'relative',
-            'lg:h-24 lg:w-64 xl:h-12 xl:w-52 2xl:h-16 2xl:w-52 3xl:h-20 3xl:w-52',
+            'lg:h-24 lg:w-64 xl:h-16 xl:w-52 2xl:h-16 2xl:w-52 3xl:h-20 3xl:w-52',
             'flex-shrink-0 transition-all duration-300 ease-in-out',
             'before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-white before:transition-all before:duration-300 before:ease-in-out before:content-[""]',
             'hover:before:w-1',

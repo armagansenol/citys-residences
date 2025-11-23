@@ -51,7 +51,7 @@ export function ContactFormSuccessScreen({
             <div className='sticky top-36 flex flex-col items-center xl:relative xl:top-auto xl:translate-y-0 xl:items-start'>
               <SealCheckIcon
                 weight='light'
-                className='mb-6 size-20 text-white lg:mb-4 xl:size-24 2xl:size-32'
+                className='mb-6 size-20 text-white opacity-0 lg:mb-4 xl:size-24 2xl:size-32'
               />
               {/* Main Heading */}
               <h2 className='mb-6 text-center font-primary text-4xl font-[400] leading-tight text-white lg:mb-6 lg:text-5xl xl:text-left xl:text-6xl'>

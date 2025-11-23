@@ -135,7 +135,7 @@ export const navigationConfig: Record<string, NavigationConfigItem> = {
     order: 3,
     mainRoute: true,
     isOnSidebar: false,
-    disabled: true,
+    disabled: false,
     hasOwnRoute: false,
     isExternal: false,
   },

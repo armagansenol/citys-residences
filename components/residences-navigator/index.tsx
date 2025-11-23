@@ -35,49 +35,49 @@ export function ResidencesNavigator() {
     return [
       {
         id: '1',
-        label: '1 + 1',
+        label: '1+1',
         src: '/img/residences/1+1/interior.jpg',
         icon: createIcon('1'),
       },
       {
         id: '2',
-        label: '2 + 1',
+        label: '2+1',
         src: '/img/residences/2+1/interior.jpg',
         icon: createIcon('2'),
       },
       {
         id: '3',
-        label: '3 + 1',
+        label: '3+1',
         src: '/img/residences/2+1/interior.jpg',
         icon: createIcon('3'),
       },
       {
         id: '4',
-        label: '3.5 + 1',
+        label: '3,5+1',
         src: '/img/residences/2+1/interior.jpg',
         icon: createIcon('4'),
       },
       {
         id: '5',
-        label: '4 + 1',
+        label: '4+1',
         src: '/img/residences/3+1/interior.jpg',
         icon: createIcon('5'),
       },
       {
         id: '6',
-        label: '4.5 + 1',
+        label: '4,5+1',
         src: '/img/residences/3+1/interior.jpg',
         icon: createIcon('6'),
       },
       {
         id: '7',
-        label: '5 + 1',
+        label: '5+1',
         src: '/img/residences/3+1/interior.jpg',
         icon: createIcon('7'),
       },
       {
         id: '8',
-        label: '5.5 + 1',
+        label: '5,5+1',
         src: '/img/residences/4+1/interior.jpg',
         icon: createIcon('8'),
       },
@@ -108,7 +108,7 @@ export function ResidencesNavigator() {
 
   return (
     <div className='flex flex-col gap-16 lg:gap-24'>
-      <div className='flex flex-wrap items-center justify-center gap-x-3 gap-y-3 px-8 md:px-16 lg:flex lg:px-40 xl:gap-2.5 xl:px-0 2xl:gap-3.5'>
+      <div className='flex flex-wrap items-center justify-center gap-x-3.5 gap-y-3.5 px-8 md:px-16 lg:flex lg:px-40 xl:gap-2.5 xl:px-0 2xl:gap-3.5'>
         {options.map(option => {
           const isSelected = selectedValue === option.id
           return (
@@ -117,7 +117,7 @@ export function ResidencesNavigator() {
               onClick={() => handleOptionClick(option.id)}
               className={cn(
                 'aspect-[1/1] size-24 cursor-pointer px-1 pt-3 3xl:pt-4',
-                'flex flex-shrink-0 flex-col items-center justify-start gap-1 rounded-md',
+                'flex flex-shrink-0 flex-col items-center justify-start gap-2 rounded-md',
                 'transition-all duration-200',
                 {
                   'bg-bricky-brick text-white': isSelected,
@@ -133,7 +133,9 @@ export function ResidencesNavigator() {
               <div className='flex size-8 items-center justify-center'>
                 {option.icon}
               </div>
-              <span className={cn('text-sm/[1.1] font-[300]')}>
+              <span
+                className={cn('text-base/[1.1] font-[300] tracking-[0.3em]')}
+              >
                 {option.label}
               </span>
             </button>

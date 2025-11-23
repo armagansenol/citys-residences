@@ -59,7 +59,7 @@ export function VideoWithText(props: VideoWithTextProps) {
               className={cn(
                 'text-center font-primary font-[300] text-white',
                 'text-xl/relaxed lg:text-2xl/relaxed xl:text-2xl/relaxed 2xl:text-3xl/relaxed',
-                'w-[90vw] sm:w-[70vw] lg:w-[70vw] xl:w-[50vw]'
+                'w-[70vw] sm:w-[70vw] lg:w-[70vw] xl:w-[50vw]'
               )}
             >
               <GsapSplitText type='lines' stagger={0.02} duration={1}>

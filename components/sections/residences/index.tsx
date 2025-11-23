@@ -60,7 +60,7 @@ export default async function Page({
       />
       <section
         className={cn(
-          'pb-24 pt-16 lg:pb-40 2xl:pb-32',
+          'pb-40 pt-16 2xl:pb-32',
           'relative overflow-hidden bg-bricky-brick',
           'before:absolute before:bottom-0 before:left-0 before:top-0 before:z-20 before:h-full before:w-[20vw] before:bg-gradient-to-r before:from-bricky-brick before:to-transparent',
           'after:absolute after:bottom-0 after:right-0 after:top-0 after:z-20 after:h-full after:w-[20vw] after:bg-gradient-to-l after:from-bricky-brick after:to-transparent'
@@ -98,7 +98,7 @@ export default async function Page({
             className={cn(
               'text-center font-primary font-[300] text-white',
               'text-xl/snug lg:text-2xl/snug xl:text-2xl/snug 2xl:text-3xl/snug',
-              'w-[90vw] md:w-[60vw] lg:w-[60vw] xl:w-[40vw] 2xl:w-[40vw] 3xl:w-[35vw]'
+              'w-[70vw] md:w-[60vw] lg:w-[60vw] xl:w-[40vw] 2xl:w-[40vw] 3xl:w-[35vw]'
             )}
           >
             <GsapSplitText type='lines' stagger={0.01} duration={1}>
@@ -107,12 +107,32 @@ export default async function Page({
           </p>
         </div>
         <Image
-          className='pointer-events-none absolute inset-0 z-0 object-cover mix-blend-overlay'
+          className={cn(
+            'pointer-events-none z-0 object-cover object-bottom mix-blend-overlay',
+            'absolute inset-0',
+            'hidden lg:block'
+          )}
           src='/img/residences-bg.png'
           alt='Background'
           fill
           loading='lazy'
-          priority={false}
+          quality={100}
+          desktopSize='100vw'
+          mobileSize='100vw'
+        />
+        <Image
+          className={cn(
+            'pointer-events-none z-0 object-cover object-bottom mix-blend-overlay',
+            'absolute inset-0',
+            'block lg:hidden'
+          )}
+          src='/img/residences-bg-mobile.png'
+          alt='Background'
+          fill
+          loading='lazy'
+          quality={100}
+          desktopSize='100vw'
+          mobileSize='100vw'
         />
       </section>
       <section className='relative aspect-1 overflow-hidden lg:aspect-[16/7]'>
