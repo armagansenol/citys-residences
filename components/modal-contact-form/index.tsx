@@ -239,13 +239,13 @@ export function ModalContactForm() {
             'group',
             'absolute bottom-0 left-0 top-[70%] -translate-x-full -translate-y-1/2 xl:top-[50%]',
             'font-primary font-[500] tracking-[0.2em] text-white',
-            'text-[11px] xl:text-base 2xl:text-xl',
+            'text-[11px] lg:text-base 2xl:text-xl',
             'flex items-center justify-center',
             'relative cursor-pointer overflow-hidden bg-gradient-button-hover',
             'before:absolute before:inset-0 before:bg-gradient-button before:opacity-0',
             'before:transition-opacity before:duration-300 hover:before:opacity-100',
             'transition-all duration-300 ease-in-out',
-            'h-44 w-10 lg:w-16 xl:h-60 xl:w-14 2xl:h-72 2xl:w-16 3xl:w-16',
+            'h-44 w-10 lg:h-52 lg:w-16 xl:h-60 xl:w-14 2xl:h-72 2xl:w-16 3xl:w-16',
             'rounded-bl-lg rounded-tl-lg',
             {
               'pointer-events-none opacity-0':
@@ -277,7 +277,7 @@ export function ModalContactForm() {
                 className={cn(
                   'font-primary font-[300] text-white',
                   'text-xl/snug lg:text-xl/snug xl:text-xl/snug 2xl:text-2xl/snug',
-                  'max-w-[90%] lg:max-w-2xl xl:max-w-lg 2xl:max-w-xl 3xl:max-w-2xl'
+                  'max-w-[90%] lg:max-w-lg xl:max-w-lg 2xl:max-w-xl 3xl:max-w-2xl'
                 )}
               >
                 {t.rich('description', {
