@@ -12,6 +12,8 @@ interface FullScreenVideoDialogProps {
   mediaId: string
   aspectRatio?: number // Optional aspect ratio (width/height). If not provided, video will maintain natural aspect ratio
   onOpenChange?: (open: boolean) => void
+  preload?: 'none' | 'metadata' | 'auto'
+  loading?: 'page' | 'viewport'
 }
 
 interface SafariVideoElement extends HTMLVideoElement {
@@ -23,6 +25,8 @@ export function FullScreenVideoDialog({
   mediaId,
   aspectRatio,
   onOpenChange,
+  preload = 'metadata',
+  loading = 'viewport',
 }: FullScreenVideoDialogProps) {
   const lenis = useLenis()
   const playerRef = useRef<MuxPlayerElement>(null)
@@ -116,11 +120,11 @@ export function FullScreenVideoDialog({
             } as React.CSSProperties
           }
           thumbnailTime={3}
-          loading='viewport'
+          loading={loading}
           accentColor={colors['tangerine-flake']}
           primaryColor={colors['white']}
           secondaryColor={colors['transparent']}
-          preload='none'
+          preload={preload}
         />
       </div>
     </>

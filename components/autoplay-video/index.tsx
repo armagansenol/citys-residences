@@ -50,6 +50,7 @@ export function AutoplayVideo({
   const hasLoadedRef = useRef(false)
   const wasPlayingBeforeDialogRef = useRef(false)
   const [ready, setReady] = useState(false)
+  const [shouldLoadDialog, setShouldLoadDialog] = useState(false)
 
   const [setIntersectionRef, entry] = useIntersectionObserver({
     root: null,
@@ -70,10 +71,16 @@ export function AutoplayVideo({
     if (!el || (!playbackId && !mobilePlaybackId)) return
 
     // Lazy load video sources when intersecting
-    if (entry?.isIntersecting && !hasLoadedRef.current) {
-      hasLoadedRef.current = true
-      // The browser will automatically select the appropriate source based on media queries
-      el.load()
+    if (entry?.isIntersecting) {
+      if (!hasLoadedRef.current) {
+        hasLoadedRef.current = true
+        // The browser will automatically select the appropriate source based on media queries
+        el.load()
+      }
+
+      if (enableFullscreen && !shouldLoadDialog) {
+        setShouldLoadDialog(true)
+      }
     }
 
     // auto play / pause behavior
@@ -82,7 +89,7 @@ export function AutoplayVideo({
     } else if (entry?.isIntersecting && el.paused) {
       el.play().catch(() => {})
     }
-  }, [entry, playbackId, mobilePlaybackId])
+  }, [entry, playbackId, mobilePlaybackId, enableFullscreen, shouldLoadDialog])
 
   const videoContent = (
     <>
@@ -176,6 +183,17 @@ export function AutoplayVideo({
       ref={setContainerRef}
     >
       {videoContent}
+      {enableFullscreen && activePlaybackId && shouldLoadDialog && (
+        <div className='absolute inset-0 z-30'>
+          <FullScreenVideoDialog
+            dialogTrigger={null}
+            mediaId={playbackId ?? ''}
+            aspectRatio={aspectRatio}
+            onOpenChange={handleDialogOpenChange}
+            loading='page'
+          />
+        </div>
+      )}
       {enableFullscreen && (
         <span
           className={cn(
@@ -190,17 +208,6 @@ export function AutoplayVideo({
       )}
     </div>
   )
-
-  if (enableFullscreen && activePlaybackId) {
-    return (
-      <FullScreenVideoDialog
-        dialogTrigger={container}
-        mediaId={playbackId ?? ''}
-        aspectRatio={aspectRatio}
-        onOpenChange={handleDialogOpenChange}
-      />
-    )
-  }
 
   return container
 }
