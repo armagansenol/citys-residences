@@ -156,7 +156,7 @@ export async function fetchBrands(
       `/brands.php?${buildQueryString(lang, params)}`,
       {
         next: {
-          revalidate: 1800, // Revalidate every 30 minutes (brands change occasionally)
+          revalidate: 3600, // Revalidate every 1 hour
           tags,
         },
       }

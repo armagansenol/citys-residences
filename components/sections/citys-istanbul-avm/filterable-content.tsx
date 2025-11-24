@@ -69,17 +69,9 @@ export function FilterableContent({ brands }: FilterableContentProps) {
   }, [filters.category, filters.subCategory, filters.floor, filters.keyword])
 
   // Use React Query for brands with filters
-  const brandsQuery = useBrands(filters)
+  const brandsQuery = useBrands(filters, brands)
 
-  const hasFilters =
-    !!filters.category ||
-    !!filters.subCategory ||
-    !!filters.floor ||
-    !!filters.keyword
-
-  const filteredBrands = brandsQuery.isLoading
-    ? []
-    : brandsQuery.data?.data?.items || (hasFilters ? [] : brands)
+  const filteredBrands = brandsQuery.data?.data?.items || []
 
   const noResultsMessage = brandsQuery.data?.message
 
