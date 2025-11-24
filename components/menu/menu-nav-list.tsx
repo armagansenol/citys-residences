@@ -270,7 +270,7 @@ export function MenuNavList() {
                       //   aspectRatio={getAspectRatio(itemId)}
                       // />
                       <video
-                        poster={`https://image.mux.com/${media.src}/thumbnail.webp?width=5600&time=0`}
+                        poster={`https://image.mux.com/${media.src}/thumbnail.webp?width=560&time=0`}
                         src={`https://stream.mux.com/${media.src}/highest.mp4`}
                         className={cn(
                           'absolute inset-0 h-full w-full object-cover object-center'
