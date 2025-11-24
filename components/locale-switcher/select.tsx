@@ -8,9 +8,11 @@ import {
 } from '@/components/ui/select'
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
-import { Locale, useLocale } from 'next-intl'
+import { Locale } from 'next-intl'
 import { useParams } from 'next/navigation'
 import { ReactNode, useTransition } from 'react'
+
+import { LoadingSpinner } from '@/components/loading-spinner'
 
 const LOCALE_COOKIE = 'LOCALE'
 
@@ -25,15 +27,21 @@ function setLocaleCookie(locale: string) {
 type Props = {
   children: ReactNode
   defaultValue: string
+  currentLocaleText: string
   label: string
   className?: string
 }
 
-export function LocaleSwitcherSelect({ children, label, className }: Props) {
+export function LocaleSwitcherSelect({
+  children,
+  defaultValue,
+  currentLocaleText,
+  label,
+  className,
+}: Props) {
   const router = useRouter()
   const pathname = usePathname()
   const params = useParams()
-  const locale = useLocale()
   const [isPending, startTransition] = useTransition()
 
   function onValueChange(value: string) {
@@ -81,17 +89,23 @@ export function LocaleSwitcherSelect({ children, label, className }: Props) {
           }
         )}
       >
-        <div className='h-2 w-2 animate-pulse rounded-full bg-white'></div>
+        <div className='size-3 text-white'>
+          <LoadingSpinner />
+        </div>
       </div>
       <span className='sr-only'>{label}</span>
-      <Select value={locale} onValueChange={onValueChange} disabled={isPending}>
+      <Select
+        value={defaultValue}
+        onValueChange={onValueChange}
+        disabled={isPending}
+      >
         <SelectTrigger
           className={cn(
             'bg-transparent font-primary text-base font-[400] leading-none text-white [&>svg]:mb-[1px] [&>svg]:size-4',
             className
           )}
         >
-          <SelectValue placeholder={label} />
+          <SelectValue placeholder={label}>{currentLocaleText}</SelectValue>
         </SelectTrigger>
         <SelectContent>{children}</SelectContent>
       </Select>

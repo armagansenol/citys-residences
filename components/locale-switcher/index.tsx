@@ -7,9 +7,12 @@ export function LocaleSwitcher({ className }: { className?: string }) {
   const t = useTranslations('LocaleSwitcher')
   const locale = useLocale()
 
+  const currentLocaleText = t('locale', { locale })
+
   return (
     <LocaleSwitcherSelect
       defaultValue={locale}
+      currentLocaleText={currentLocaleText}
       label={t('label')}
       className={className}
     >
