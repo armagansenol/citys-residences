@@ -4,9 +4,6 @@ import { NextResponse } from 'next/server'
 const MUX_TOKEN_ID = process.env.MUX_TOKEN_ID!
 const MUX_TOKEN_SECRET = process.env.MUX_TOKEN_SECRET!
 
-console.log('MUX_TOKEN_ID', MUX_TOKEN_ID)
-console.log('MUX_TOKEN_SECRET', MUX_TOKEN_SECRET)
-
 const BASE_URL = 'https://api.mux.com/video/v1'
 
 // Basic auth header
