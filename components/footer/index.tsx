@@ -15,7 +15,7 @@ import {
 } from '@phosphor-icons/react'
 import { useIntersectionObserver } from 'hamo'
 import { useLocale, useTranslations } from 'next-intl'
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 
 import { Logo } from '@/components/icons'
 import { Image } from '@/components/image'
@@ -134,7 +134,7 @@ export function Footer() {
                 {getNavigationItems(t, locale as Locale)
                   .filter(item => item.mainRoute)
                   .map(item => (
-                    <>
+                    <Fragment key={item.id}>
                       {item.hasOwnRoute && (
                         <LocalizedLink
                           className={cn(
@@ -150,7 +150,6 @@ export function Footer() {
                       )}
                       {!item.hasOwnRoute && (
                         <button
-                          key={item.id}
                           className={cn(
                             'cursor-pointer text-left font-primary font-[300] text-white transition-colors duration-300',
                             item.mainRoute &&
@@ -168,14 +167,14 @@ export function Footer() {
                           {item.title}
                         </button>
                       )}
-                    </>
+                    </Fragment>
                   ))}
               </div>
               <div className='flex flex-col gap-4 lg:gap-6 xl:gap-8'>
                 {getNavigationItems(t, locale as Locale)
                   .filter(item => !item.mainRoute)
                   .map(item => (
-                    <>
+                    <Fragment key={item.id}>
                       {item.hasOwnRoute && (
                         <LocalizedLink
                           className={cn(
@@ -191,7 +190,6 @@ export function Footer() {
                       )}
                       {!item.hasOwnRoute && (
                         <button
-                          key={item.id}
                           className={cn(
                             'cursor-pointer text-left font-primary font-[300] text-white transition-colors duration-300',
                             'text-sm sm:text-base lg:text-lg xl:text-lg 3xl:text-xl'
@@ -208,7 +206,7 @@ export function Footer() {
                           {item.title}
                         </button>
                       )}
-                    </>
+                    </Fragment>
                   ))}
               </div>
             </div>
