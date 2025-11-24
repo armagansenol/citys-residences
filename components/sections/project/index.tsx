@@ -36,6 +36,7 @@ import {
   LaptopIcon,
   TreeIcon,
 } from '@phosphor-icons/react/dist/ssr'
+import { SvgFiveMins } from '@/components/svgs/five-mins'
 
 const images = {
   a1,
@@ -125,8 +126,11 @@ export default async function Page({
         >
           <div className='relative z-30 flex flex-col items-center justify-end gap-4 px-8 py-12 md:px-48 lg:flex-row lg:gap-0 lg:px-24 xl:items-stretch'>
             <div className='flex flex-1 items-center justify-center gap-1 px-6 xl:px-12'>
-              <div className='font-primary text-6xl/none font-[300] xl:text-8xl/none'>
+              <div className='relative font-primary text-6xl/none font-[300] xl:text-8xl/none'>
                 {t('lifeIn5Minutes.mainTitle.number')}
+                <div className='absolute left-1/2 top-1/2 size-[150px] -translate-x-[52%] -translate-y-[54%] opacity-90 xl:size-[220px]'>
+                  <SvgFiveMins />
+                </div>
               </div>
               <div className='flex flex-col items-start justify-center'>
                 <div className='font-primary text-xl/none font-[400] xl:text-3xl/none'>
