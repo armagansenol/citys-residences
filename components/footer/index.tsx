@@ -280,13 +280,22 @@ export function Footer() {
               </div>
               {/* social icons desktop */}
               <div className='order-4 mx-auto hidden gap-4 lg:order-3 lg:ml-0 lg:flex'>
-                <FacebookLogoIcon weight='fill' className='size-9 text-white' />
+                <FacebookLogoIcon
+                  weight='fill'
+                  className='size-9 cursor-pointer text-white transition-opacity duration-300 hover:opacity-50'
+                />
                 <InstagramLogoIcon
                   weight='fill'
-                  className='size-9 text-white'
+                  className='size-9 cursor-pointer text-white transition-opacity duration-300 hover:opacity-50'
                 />
-                <XLogoIcon weight='fill' className='size-9 text-white' />
-                <YoutubeLogoIcon weight='fill' className='size-9 text-white' />
+                <XLogoIcon
+                  weight='fill'
+                  className='size-9 cursor-pointer text-white transition-opacity duration-300 hover:opacity-50'
+                />
+                <YoutubeLogoIcon
+                  weight='fill'
+                  className='size-9 cursor-pointer text-white transition-opacity duration-300 hover:opacity-50'
+                />
               </div>
               {/* buttons */}
               <div className='order-3 flex flex-col gap-6 lg:order-4'>
@@ -353,7 +362,7 @@ export function Footer() {
             'order-3 lg:order-2',
             'mt-8 lg:mt-auto',
             'col-span-24 lg:col-span-22 lg:col-start-2 xl:col-span-21 xl:col-start-3 2xl:col-span-20 2xl:col-start-4',
-            'text-tangerine-cream text-sm 2xl:text-base',
+            'text-sm text-tangerine-cream 2xl:text-base',
             'font-primary font-[300]'
           )}
         >
@@ -374,7 +383,7 @@ export function Footer() {
           <span
             className={cn(
               'hidden lg:block',
-              'text-tangerine-cream text-left text-[8px]/[1.3]',
+              'text-left text-[8px]/[1.3] text-tangerine-cream',
               'font-primary font-[300]',
               'lg:max-w-48 xl:max-w-96'
             )}
@@ -384,7 +393,7 @@ export function Footer() {
           <span
             className={cn(
               'flex flex-col flex-wrap items-center justify-center gap-6 md:gap-6 lg:ml-auto lg:flex-row lg:items-start lg:gap-6',
-              'text-tangerine-cream text-left text-sm 2xl:text-base',
+              'text-left text-sm text-tangerine-cream 2xl:text-base',
               'font-primary font-[300]'
             )}
           >
@@ -407,7 +416,7 @@ export function Footer() {
             'block lg:hidden',
             'order-4 lg:order-3',
             'col-span-24 px-12 sm:px-48',
-            'text-tangerine-cream text-center text-[8px]/[1.3]',
+            'text-center text-[8px]/[1.3] text-tangerine-cream',
             'font-primary font-[300]'
           )}
         >
