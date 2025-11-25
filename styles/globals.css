@@ -42,9 +42,32 @@
   --z-test-page: z-stack();
 }
 
-* {
-  scrollbar-width: thin;
+/* Hide scrollbars everywhere */
+
+/* Chrome, Edge, Safari */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
+
+/* Firefox */
+html,
+body {
+  scrollbar-width: none; /* hides scrollbar */
+}
+
+/* iOS Safari safe fix */
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent losing scroll functionality */
+html,
+body {
+  overflow: auto;
+}
+
+/* Hide scrollbars everywhere */
 
 html {
   min-height: 100vh;
