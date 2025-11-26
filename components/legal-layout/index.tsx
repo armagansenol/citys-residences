@@ -66,7 +66,7 @@ export function LegalLayout({ children }: LegalLayoutProps) {
               'col-span-24 xl:col-span-17',
               'px-8 xl:px-16',
               'flex min-h-0 flex-1 flex-col',
-              'prose-sm font-primary leading-[1.5] xl:prose-base xl:pt-0 [&_h1]:my-0 [&_h1]:py-0 [&_ul]:list-disc'
+              'font-primary text-base font-[300] leading-[1.5] xl:text-lg [&_h1]:m-0 [&_h1]:p-0 [&_h1]:text-3xl [&_h1]:font-[400] xl:[&_h1]:text-6xl [&_h2]:m-0 [&_h2]:p-0 [&_h2]:font-[400] [&_h3]:m-0 [&_h3]:p-0 [&_h3]:font-[400] [&_h4]:m-0 [&_h4]:p-0 [&_h4]:font-[400] [&_h5]:m-0 [&_h5]:p-0 [&_h5]:font-[400] [&_h6]:m-0 [&_h6]:p-0 [&_h6]:font-[400] [&_ul]:list-disc [&_ul]:pl-6 [&_ul_li]:font-[300] [&_ul_li_strong]:font-[300]'
             )}
           >
             {children}

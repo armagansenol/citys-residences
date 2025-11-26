@@ -38,8 +38,8 @@ export function LegalTableOfContents() {
             key={route.href}
             href={route.href}
             className={cn(
-              'inline-flex cursor-pointer py-1 font-primary text-sm font-[400] hover:underline xl:text-lg',
-              isActive && 'font-[700]'
+              'inline-flex cursor-pointer py-1 font-primary text-sm font-[300] hover:underline xl:text-lg',
+              isActive && 'font-[500]'
             )}
           >
             {t(route.titleKey)}

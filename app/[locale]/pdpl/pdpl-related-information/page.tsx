@@ -85,10 +85,10 @@ export default function Page() {
       </Balancer>
       <div className='hidden xl:flex xl:min-h-0 xl:flex-1 xl:overflow-hidden'>
         <ScrollableBox className='relative overflow-hidden xl:flex xl:flex-grow'>
-          <div className='relative pb-24'>{textContent}</div>
+          <div className='relative pb-24 pt-12'>{textContent}</div>
         </ScrollableBox>
       </div>
-      <div className='relative block pb-24 xl:hidden'>{textContent}</div>
+      <div className='relative block pb-24 pt-4 xl:hidden'>{textContent}</div>
     </LegalLayout>
   )
 }
