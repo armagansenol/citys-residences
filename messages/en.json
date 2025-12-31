@@ -116,6 +116,7 @@
                 "phone": {
                     "label": "Telephone Number*",
                     "placeholder": "Enter your telephone number",
+                    "code": "Code",
                     "errors": {
                         "required": "Please enter a valid telephone number",
                         "min": "Telephone number must be at least 8 characters long",

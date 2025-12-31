@@ -6,7 +6,7 @@ import {
   parseCountry,
   usePhoneInput,
 } from 'react-international-phone'
-import { useMessages } from 'next-intl'
+import { useLocale, useMessages, useTranslations } from 'next-intl'
 
 import {
   Select,
@@ -34,6 +34,8 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
   phoneInputRef,
 }) => {
   const messages = useMessages()
+  const t = useTranslations('contact.form.inputs.phone')
+  const locale = useLocale()
 
   const phoneInput = usePhoneInput({
     defaultCountry: 'tr',
@@ -50,21 +52,26 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
   const inputRef = useRef<HTMLInputElement>(null)
 
   // Helper function to get country name with fallback
-  const getCountryName = (iso2: string, fallbackName: string): string => {
-    try {
-      // Access the countries messages directly
-      const messagesObj = messages as Record<string, unknown>
-      const countriesMessages = messagesObj?.countries as
-        | Record<string, string>
-        | undefined
-      if (countriesMessages && countriesMessages[iso2]) {
-        return countriesMessages[iso2]
+  const getCountryName = React.useCallback(
+    (iso2: string, fallbackName: string): string => {
+      try {
+        // Access the countries messages directly
+        const messagesObj = messages as Record<string, unknown>
+        const countriesMessages = messagesObj?.countries as
+          | Record<string, string>
+          | undefined
+
+        const lookupKey = iso2.toUpperCase()
+        if (countriesMessages && countriesMessages[lookupKey]) {
+          return countriesMessages[lookupKey]
+        }
+        return fallbackName
+      } catch {
+        return fallbackName
       }
-      return fallbackName
-    } catch {
-      return fallbackName
-    }
-  }
+    },
+    [messages]
+  )
 
   useEffect(() => {
     if (phoneInput.inputRef && inputRef.current) {
@@ -80,24 +87,25 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const sortedCountries = React.useMemo(() => {
-    return [...defaultCountries].sort((a, b) => {
-      const countryA = parseCountry(a)
-      const countryB = parseCountry(b)
-      if (countryA.iso2 === 'tr') return -1
-      if (countryB.iso2 === 'tr') return 1
-      return 0
+    const list = [...defaultCountries].map(c => {
+      const country = parseCountry(c)
+      return {
+        ...country,
+        localizedName: getCountryName(country.iso2, country.name.toString()),
+        raw: c,
+      }
     })
-  }, [])
+
+    return list.sort((a, b) => {
+      if (a.iso2 === 'tr') return -1
+      if (b.iso2 === 'tr') return 1
+      return a.localizedName.localeCompare(b.localizedName, locale)
+    })
+  }, [getCountryName, locale])
 
   const countryOptions = (
     <>
-      {sortedCountries.map((c, index) => {
-        const country = parseCountry(c)
-        // Get localized country name, fallback to original name if translation not found
-        const localizedCountryName = getCountryName(
-          country.iso2,
-          country.name.toString()
-        )
+      {sortedCountries.map((country, index) => {
         const isTurkey = country.iso2 === 'tr'
 
         return (
@@ -106,7 +114,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
               className='cursor-pointer px-4 py-2 font-primary text-base focus:bg-neutral-50 focus:text-neutral-950 bt:text-sm'
               value={country.iso2}
             >
-              {`${localizedCountryName} (+${country.dialCode.toString()})`}
+              {`${country.localizedName} (+${country.dialCode.toString()})`}
             </SelectItem>
             {isTurkey && <SelectSeparator className='bg-neutral-200' />}
           </React.Fragment>
@@ -143,7 +151,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
             'p-0'
           )}
         >
-          <SelectValue placeholder='Code'>
+          <SelectValue placeholder={t('code')}>
             +{phoneInput.country.dialCode}
           </SelectValue>
         </SelectTrigger>
@@ -162,7 +170,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
         )}
         placeholder={
           phoneInput.country.format?.toString().replace(/\S/g, 'X') ||
-          'XXXXXXXXXX'
+          t('placeholder')
         }
         type='tel'
         value={phoneInput.inputValue}

@@ -116,6 +116,7 @@
                 "phone": {
                     "label": "Telefon*",
                     "placeholder": "Telefon Numaranız*",
+                    "code": "Kod",
                     "errors": {
                         "required": "Lütfen geçerli bir telefon numarası giriniz",
                         "min": "Telefon numarası en az 8 karakter olmalıdır",
