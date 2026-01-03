@@ -12,6 +12,17 @@ export default function middleware(req: NextRequest) {
 
   // Current requested path
   const path = nextUrl.pathname
+
+  // Redirect /iletisim to citysresidences.com
+  const normalizedPath = path.endsWith('/') ? path.slice(0, -1) : path
+  if (
+    normalizedPath === '/iletisim' ||
+    normalizedPath === '/tr/iletisim' ||
+    normalizedPath === '/en/iletisim'
+  ) {
+    return NextResponse.redirect('https://citysresidences.com', 301)
+  }
+
   const localeInPath = path.split('/')[1]
 
   // If URL already contains a locale
