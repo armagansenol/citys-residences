@@ -12,6 +12,8 @@ import {
 import { AnimatePresence, motion } from 'motion/react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 interface ContactFormSuccessScreenProps {
   isVisible: boolean
@@ -23,8 +25,15 @@ export function ContactFormSuccessScreen({
   centered = false,
 }: ContactFormSuccessScreenProps) {
   const t = useTranslations()
+  const [mounted, setMounted] = useState(false)
 
-  return (
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+
+  return createPortal(
     <AnimatePresence>
       {isVisible && (
         <motion.div
@@ -33,9 +42,10 @@ export function ContactFormSuccessScreen({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
           className={cn(
+            'fixed inset-0 z-[var(--z-contact-form-success-screen)]',
             'grid grid-cols-24',
-            'absolute inset-0 z-50',
             'bg-gradient-appointment',
+            'overflow-y-auto',
             'px-8 py-16 lg:px-16',
             !centered && 'lg:col-start-4 xl:py-40',
             centered && 'xl:py-20'
@@ -43,14 +53,15 @@ export function ContactFormSuccessScreen({
         >
           <div
             className={cn(
-              'pb-12 xl:relative xl:pb-0',
+              'pb-12 xl:pb-0',
               'col-span-24',
+              'flex items-center justify-center',
               centered &&
                 'lg:col-start-1 xl:col-span-18 xl:col-start-4 2xl:col-start-4',
               !centered && 'lg:col-span-18 lg:col-start-6'
             )}
           >
-            <div className='sticky top-36 flex flex-col items-center xl:relative xl:top-auto xl:translate-y-0 xl:items-start'>
+            <div className='flex flex-col items-center xl:items-start'>
               <CheckIcon
                 weight='light'
                 className='mb-6 size-20 text-white lg:mb-4 xl:size-24 2xl:size-32'
@@ -124,6 +135,7 @@ export function ContactFormSuccessScreen({
           </div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   )
 }

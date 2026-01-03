@@ -63,7 +63,7 @@ export function Combobox({
   }, [options, priorityOptions, value])
 
   return (
-    <DropdownMenu open={open} onOpenChange={setOpen}>
+    <DropdownMenu open={open} onOpenChange={setOpen} modal={false}>
       <DropdownMenuTrigger asChild disabled={disabled}>
         <button
           type='button'

@@ -210,6 +210,11 @@ export function ContactForm({
   // Track selected country code for fetching cities
   const [selectedCountryCode, setSelectedCountryCode] = useState<string>('')
 
+  // Track if user has made their first interaction with residenceType
+  // This is used to clear the default "2+1" on first user selection
+  const [residenceTypeInitialized, setResidenceTypeInitialized] =
+    useState<boolean>(false)
+
   // Fetch cities/states when country changes
   const { data: citiesData, isLoading: isCitiesLoading } = useQuery({
     queryKey: ['cities', selectedCountryCode],
@@ -253,6 +258,7 @@ export function ContactForm({
     howDidYouHearAboutUsDropdownRef.current?.reset()
     contactPreferenceDropdownRef.current?.reset()
     setSelectedCountryCode('')
+    setResidenceTypeInitialized(false)
   }
 
   const form = useForm<FormValues>({
@@ -496,8 +502,30 @@ export function ContactForm({
 
   const handleResidenceType = useCallback(
     (ids: string[]) => {
+      let finalIds = ids
+
+      // On first user interaction, clear the default "2+1" selection
+      // and only use what the user actually clicked
+      if (!residenceTypeInitialized) {
+        setResidenceTypeInitialized(true)
+        // Find what the user clicked (the difference between new ids and default)
+        // The default is "2+1", so we need to remove it from the selection
+        // unless that's what the user explicitly clicked
+        const defaultId = '2+1'
+        const hadDefault = ids.includes(defaultId)
+        const userClickedDefault = ids.length === 1 && ids[0] === defaultId
+
+        if (hadDefault && !userClickedDefault) {
+          // User clicked something other than the default, remove the default
+          finalIds = ids.filter(id => id !== defaultId)
+        } else if (!hadDefault) {
+          // User clicked the default to toggle it off, keep it off
+          finalIds = ids
+        }
+      }
+
       const selectedOptions = residenceTypeOptions.filter(opt =>
-        ids.includes(opt.id)
+        finalIds.includes(opt.id)
       )
       const selectedLabels = selectedOptions.map(opt => opt.label).join(',')
 
@@ -507,7 +535,7 @@ export function ContactForm({
 
       form.trigger('residenceType')
     },
-    [form, residenceTypeOptions]
+    [form, residenceTypeOptions, residenceTypeInitialized]
   )
 
   const handleHowDidYouHearAboutUs = useCallback(
