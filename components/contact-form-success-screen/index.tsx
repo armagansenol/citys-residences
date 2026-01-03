@@ -74,11 +74,12 @@ export function ContactFormSuccessScreen({
                 {t('contact.form.messages.thankYou.followUs')}
               </p>
               {/* Social Media Icons */}
-              <div className='mx-auto flex gap-2 lg:gap-5 xl:ml-0 xl:mr-auto'>
+              <div className='mx-auto flex gap-4 lg:gap-5 xl:ml-0 xl:mr-auto'>
                 <Link
                   href={socialMedia.facebook}
                   target='_blank'
                   rel='noopener noreferrer'
+                  className='size-8'
                 >
                   <FacebookLogoIcon
                     weight='fill'
@@ -89,6 +90,7 @@ export function ContactFormSuccessScreen({
                   href={socialMedia.instagram}
                   target='_blank'
                   rel='noopener noreferrer'
+                  className='size-8'
                 >
                   <InstagramLogoIcon
                     weight='fill'
@@ -99,6 +101,7 @@ export function ContactFormSuccessScreen({
                   href={socialMedia.x}
                   target='_blank'
                   rel='noopener noreferrer'
+                  className='size-8'
                 >
                   <XLogoIcon
                     weight='fill'
@@ -109,6 +112,7 @@ export function ContactFormSuccessScreen({
                   href={socialMedia.tiktok}
                   target='_blank'
                   rel='noopener noreferrer'
+                  className='size-8'
                 >
                   <TiktokLogoIcon
                     weight='fill'

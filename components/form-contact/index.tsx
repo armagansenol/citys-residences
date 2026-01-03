@@ -386,7 +386,7 @@ export function ContactForm({
       {
         id: '3,5+1',
         label: '3.5+1',
-        icon: createIcon('3+1'),
+        icon: createIcon('3.5+1'),
       },
       {
         id: '4+1',
@@ -396,7 +396,7 @@ export function ContactForm({
       {
         id: '4,5+1',
         label: '4.5+1',
-        icon: createIcon('4+1'),
+        icon: createIcon('4.5+1'),
       },
       {
         id: '5+1',
@@ -406,7 +406,7 @@ export function ContactForm({
       {
         id: '5,5+1',
         label: '5.5+1',
-        icon: createIcon('5+1'),
+        icon: createIcon('5.5+1'),
       },
     ]
   }, [residenceTypeValue])
