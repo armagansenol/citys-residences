@@ -463,6 +463,7 @@
         "copyrightText": "City's Residences Istanbul All rights reserved.",
         "kvkk": "Personal Data Protection (KVKK)",
         "commercialElectronicMessage": "Commercial Electronic Message Information Text",
+        "commercialElectronicMessageConsent": "Commercial Electronic Message Explicit Consent Text",
         "explicitConsent": "Explicit Consent Text",
         "kvkRelatedInformation": "PDPL",
         "cookiePolicy": "Cookie Policy",
@@ -723,6 +724,7 @@
     "legalTableOfContents": {
         "pdplRelatedInformation": "PDPL Related Information Text",
         "commercialElectronicMessage": "Commercial Electronic Message Information Text",
+        "commercialElectronicMessageConsent": "Commercial Electronic Message Explicit Consent Text",
         "explicitConsent": "Explicit Consent Text",
         "cookiePolicy": "Cookie Policy"
     },
@@ -810,6 +812,12 @@
             "paragraph5": "You have the rights listed in Article 11 of the PDPL in accordance with the Communiqué on the Procedures and Principles of Application to the Data Controller, and you can access the application methods regarding your rights and requests regarding your processed personal data from the \"",
             "linkText": "Citys Real Estate Development Inc. Disclosure Text on the Processing and Protection of Personal Data",
             "paragraph5Suffix": "\"."
+        },
+        "commercialElectronicMessageConsent": {
+            "title": "Explicit Consent Text Regarding the Sending of Commercial Electronic Messages",
+            "paragraph1": "Citys Gayrimenkul Geliştirme A.Ş. (“Company”) processes your personal data as a data controller within the scope of the Personal Data Protection Law No. 6698 (“PDPL”). With this explicit consent text, your explicit consent is requested to process your personal data within the scope of sending commercial electronic messages to you. If you give explicit consent, your identity (name, surname) and contact (cell phone number, landline number, e-mail address, address) data are processed so that we can inform you about advertisements, promotions, events, campaigns, opportunities, and satisfaction surveys via communication channels (e-mail, SMS, and call). Your personal data are collected through automatic and semi-automatic methods such as electronically filled forms, SMS, and e-mail correspondence. Your personal data are shared with İleti Yönetim Sistemi A.Ş. (“İYS”) in accordance with the PDPL and the Commercial Electronic Message Disclosure Text, for the specified purpose, in order to fulfill our notification obligation under the Regulation on Commercial Communication and Commercial Electronic Messages and with suppliers from whom services are received.",
+            "paragraph2": "You can withdraw the consent you gave for commercial electronic message sending at any time, without showing any reason, by applying to the Company.",
+            "paragraph3": "In this framework, I give my explicit consent and approval for the sending of commercial electronic messages to me for the purpose of providing all kinds of communication with me and for various promotions, advertisements, campaigns, discounts, promotions, events, sales, and marketing, wishes, celebrations related to all kinds of goods and/or services."
         },
         "explicitConsent": {
             "title": "Explicit Consent Text for Transfer of Personal Data",

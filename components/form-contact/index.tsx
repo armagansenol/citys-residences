@@ -883,7 +883,7 @@ export function ContactForm({
                               {
                                 legal4: chunks => (
                                   <Link
-                                    href='/pdpl/explicit-consent'
+                                    href='/pdpl/commercial-electronic-message-consent'
                                     className='font-[400] text-white underline'
                                   >
                                     {chunks}

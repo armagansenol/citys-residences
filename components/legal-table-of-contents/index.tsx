@@ -24,6 +24,10 @@ export function LegalTableOfContents() {
       href: '/pdpl/explicit-consent' as Pathnames,
     },
     {
+      titleKey: 'commercialElectronicMessageConsent',
+      href: '/pdpl/commercial-electronic-message-consent' as Pathnames,
+    },
+    {
       titleKey: 'cookiePolicy',
       href: '/pdpl/cookie-policy' as Pathnames,
     },

@@ -73,6 +73,12 @@ export function Footer() {
         ],
       },
       {
+        title: t('commercialElectronicMessageConsent'),
+        href: routing.pathnames['/pdpl/commercial-electronic-message-consent'][
+          locale as Locale
+        ],
+      },
+      {
         title: t('explicitConsent'),
         href: routing.pathnames['/pdpl/explicit-consent'][locale as Locale],
       },

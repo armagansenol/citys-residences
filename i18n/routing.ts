@@ -22,6 +22,10 @@ export const routing = defineRouting({
       tr: '/kvkk/ticari-elektronik-ileti-aydinlatma-metni',
       en: '/pdpl/commercial-electronic-message',
     },
+    '/pdpl/commercial-electronic-message-consent': {
+      tr: '/kvkk/ticari-elektronik-ileti-gonderilmesi-hakkinda-acik-riza-metni',
+      en: '/pdpl/commercial-electronic-message-consent',
+    },
     '/pdpl/pdpl-related-information': {
       tr: '/kvkk/kvkk-iliskin-aydinlatma-metni',
       en: '/pdpl/pdpl-related-information',

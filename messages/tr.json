@@ -184,7 +184,7 @@
                     "phone": "Telefon"
                 },
                 "consent": {
-                    "placeholder": "citysresidences.com uygulaması kapsamında paylaşacağım kişisel verilere ilişkin <legal1>Kişisel Verilerin Korunmasına İlişkin Aydınlatma Metni</legal1>’ni, <legal2>Açık Rıza Metni</legal2>’ni, <legal3>Ticari Elektronik İleti Aydınlatma Metni</legal3>’ni okudum, kabul ediyorum.",
+                    "placeholder": "citysresidences.com uygulaması kapsamında paylaşacağım kişisel verilere ilişkin <legal1>Kişisel Verilerin Korunmasına İlişkin Aydınlatma Metni</legal1>’ni, <legal2>KVKK Açık Rıza Metni</legal2>’ni, <legal3>Ticari Elektronik İleti Aydınlatma Metni</legal3>’ni okudum, kabul ediyorum.",
                     "errors": {
                         "required": "Zorunlu alan"
                     }
@@ -503,7 +503,8 @@
         "copyrightText": "City's Residences İstanbul",
         "kvkk": "KVKK",
         "commercialElectronicMessage": "Ticari Elektronik İleti Aydınlatma Metni",
-        "explicitConsent": "Açık Rıza Metni",
+        "commercialElectronicMessageConsent": "Ticari Elektronik İleti Açık Rıza Metni",
+        "explicitConsent": "KVKK Açık Rıza Metni",
         "kvkRelatedInformation": "KVKK İlişkin Aydınlatma Metni",
         "cookiePolicy": "Çerez Politikası",
         "scrollToTop": "Yeniden Keşfet",
@@ -762,7 +763,8 @@
     "legalTableOfContents": {
         "pdplRelatedInformation": "KVKK İlişkin Aydınlatma Metni",
         "commercialElectronicMessage": "Ticari Elektronik İleti Aydınlatma Metni",
-        "explicitConsent": "Açık Rıza Metni",
+        "commercialElectronicMessageConsent": "Ticari Elektronik İleti Açık Rıza Metni",
+        "explicitConsent": "KVKK Açık Rıza Metni",
         "cookiePolicy": "Çerez Politikası"
     },
     "legal": {
@@ -849,6 +851,12 @@
             "paragraph5": "Veri Sorumlusuna Başvuru Usul ve Esasları Hakkında Tebliğ'e göre KVKK'nın 11. Maddesinde sayılan haklarınız mevcut olup, işlenen kişisel verilerinize ilişkin hak ve talepleriniz ile ilgili başvuru yöntemlerine, \"",
             "linkText": "Citys Gayrimenkul Geliştirme A.Ş. Kişisel Verilerin İşlenmesi ve Korunması Hakkında Aydınlatma Metni",
             "paragraph5Suffix": "\"nden ulaşabilirsiniz."
+        },
+        "commercialElectronicMessageConsent": {
+            "title": "Ticari Elektronik İleti Gönderilmesi Hakkinda Açık Rıza Metni",
+            "paragraph1": "Citys Gayrimenkul Geliştirme A.Ş. (“Şirket”), 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) kapsamında kişisel verilerinizi veri sorumlusu olarak işlemektedir. İşbu açık rıza metni ile tarafınıza ticari elektronik ileti gönderimleri yapılması kapsamında kişisel verilerinizi işlemek için açık rızanız sorulmaktadır. Açık rıza vermeniz halinde, kimlik (ad, soyadı) ve iletişim (cep telefon numarası, sabit telefon numarası, e-posta adresi, adres) verileriniz, iletişim kanalları (e-posta, SMS ve çağrı) vasıtasıyla sizi reklam, tanıtım, etkinlik, kampanya, fırsatlar ve memnuniyet anketleri hakkında haberdar edebilmemiz amacıyla işlenmektedir. Kişisel verileriniz, elektronik ortamda doldurulan formlar, SMS ve e-mail yazışmaları suretiyle otomatik ve yarı otomatik yöntemlerle toplanmaktadır. Kişisel verileriniz, KVKK’ya ve Ticari Elektronik İleti Aydınlatma Metni’ne uygun olarak, belirtilen amaç kapsamında hizmet alınan tedarikçiler ve Ticari İletişim ve Ticari Elektronik İletiler Hakkında Yönetmelik kapsamında bildirim yükümlülüğümüzü yerine getirebilmek amacıyla İleti Yönetim Sistemi A.Ş. (“İYS”) ile paylaşılmaktadır.",
+            "paragraph2": "Ticari elektronik ileti gönderimleri için verdiğiniz rızayı, dilediğiniz zaman, herhangi bir sebep göstermeksizin, Şirket’e başvurarak geri alabilirsiniz.",
+            "paragraph3": "Bu çerçevede, her türlü mal ve/veya hizmetlere ilişkin çeşitli tanıtım, reklam, kampanya, indirim, promosyon, etkinlik, satış ve pazarlama, temenni, kutlama ve tarafımla her türlü iletişimi sağlanması amacıyla tarafıma ticari elektronik ileti gönderilmesine açık rızam vardır, onay veriyorum."
         },
         "explicitConsent": {
             "title": "Kişisel Verilerin Aktarılmasına İlişkin Açık Rıza Metni",
