@@ -44,6 +44,9 @@ export default function middleware(req: NextRequest) {
       })
     }
 
+    // Add pathname header for canonical URL generation
+    res.headers.set('x-pathname', path)
+
     return res
   }
 
@@ -63,9 +66,13 @@ export default function middleware(req: NextRequest) {
   // Use cookie if it exists, otherwise fall back to geo detection
   const finalLocale = userHasPreference ? userPref : detectedLocale
 
-  return NextResponse.redirect(
-    new URL(`/${finalLocale}${path}${nextUrl.search}`, req.url)
-  )
+  const redirectUrl = new URL(`/${finalLocale}${path}${nextUrl.search}`, req.url)
+  const redirectResponse = NextResponse.redirect(redirectUrl)
+  
+  // Add pathname header for canonical URL generation (after redirect)
+  redirectResponse.headers.set('x-pathname', `/${finalLocale}${path}`)
+
+  return redirectResponse
 }
 
 export const config = {

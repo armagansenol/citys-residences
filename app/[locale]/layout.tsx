@@ -7,10 +7,12 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import localFont from 'next/font/local'
 import Script from 'next/script'
+import { headers } from 'next/headers'
 
 import { GSAP } from '@/components/gsap'
 import { ReactQueryProvider } from '@/components/react-query-provider'
 import { RealViewport } from '@/components/real-viewport'
+import { generateCanonicalUrl } from '@/lib/utils'
 
 const suisseIntl = localFont({
   src: [
@@ -74,9 +76,30 @@ export async function generateMetadata({
 }) {
   const t = await getTranslations({ locale, namespace: 'metadata.default' })
 
+  // Get the current pathname from headers to build canonical URL
+  const headersList = await headers()
+  const pathname = headersList.get('x-pathname') || `/${locale}`
+
+  // Generate canonical URL using utility function
+  const canonicalUrl = generateCanonicalUrl(pathname)
+
+  // Get current path without locale to build alternate links
+  // e.g., if pathname is "/tr/citys-dna", pathWithoutLocale becomes "/citys-dna"
+  const pathWithoutLocale =
+    pathname.replace(new RegExp(`^/${locale}`), '') || ''
+  const baseUrl = 'https://www.citysresidences.com'
+
   return {
     title: t('title'),
     description: t('description'),
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        tr: `${baseUrl}/tr${pathWithoutLocale}`,
+        en: `${baseUrl}/en${pathWithoutLocale}`,
+        'x-default': `${baseUrl}/tr${pathWithoutLocale}`,
+      },
+    },
     verification: {
       google: 'google918f2bcab83a8f97',
     },

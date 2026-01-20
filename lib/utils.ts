@@ -43,3 +43,20 @@ export function toTitleCase(str: string): string {
 export function toAllUppercase(str: string): string {
   return str.toUpperCase()
 }
+
+/**
+ * Generates a canonical URL for a given pathname
+ * @param pathname - The pathname (e.g., '/tr', '/en/citys-dna')
+ * @param baseUrl - The base URL (default: 'https://www.citysresidences.com')
+ * @returns The full canonical URL
+ */
+export function generateCanonicalUrl(
+  pathname: string,
+  baseUrl: string = 'https://www.citysresidences.com'
+): string {
+  // Remove trailing slash except for root paths
+  const normalizedPath = pathname.endsWith('/') && pathname !== '/' 
+    ? pathname.slice(0, -1) 
+    : pathname
+  return `${baseUrl}${normalizedPath}`
+}
