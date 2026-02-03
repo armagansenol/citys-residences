@@ -5,6 +5,8 @@ interface State {
   setResetAnimatedLogo: (status: boolean) => void
   isMenuOpen: boolean
   setIsMenuOpen: (status: boolean) => void
+  isNavTransitionVisible: boolean
+  setIsNavTransitionVisible: (status: boolean) => void
   isModalContactFormOpen: boolean
   setIsModalContactFormOpen: (status: boolean) => void
   isInquiryVisible: boolean
@@ -16,6 +18,8 @@ interface State {
 export const useStore = create<State>(set => ({
   isMenuOpen: false,
   setIsMenuOpen: status => set({ isMenuOpen: status }),
+  isNavTransitionVisible: false,
+  setIsNavTransitionVisible: status => set({ isNavTransitionVisible: status }),
   resetAnimatedLogo: false,
   setResetAnimatedLogo: status => set({ resetAnimatedLogo: status }),
   isModalContactFormOpen: false,

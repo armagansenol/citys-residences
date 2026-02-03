@@ -3,6 +3,7 @@
 import type { themeNames } from '@/styles/config.mjs'
 import { useLocale } from 'next-intl'
 import { usePathname } from 'next/navigation'
+import { AnimatePresence, motion } from 'motion/react'
 import { useEffect } from 'react'
 
 import { Footer } from '@/components/footer'
@@ -11,6 +12,7 @@ import { ModalContactForm } from '@/components/modal-contact-form'
 import { SmoothScroll } from '@/components/smooth-scroll'
 import { StickySidebar } from '@/components/sticky-sidebar'
 import { WebChat } from '@/components/web-chat'
+import { useUiStore } from '@/lib/store/ui'
 
 interface CountryData {
   isoCode: string
@@ -42,6 +44,7 @@ export function Wrapper({
 }: WrapperProps) {
   const pathname = usePathname()
   const locale = useLocale()
+  const { isNavTransitionVisible } = useUiStore()
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
@@ -51,7 +54,18 @@ export function Wrapper({
     <>
       <Header withNavigation={headerWithNavigation} />
       <div className='z-[var(--z-content)]'>
-        <div className='transition-wrapper pointer-events-none fixed left-1/2 top-1/2 z-50 h-[300vh] w-screen -translate-x-1/2 -translate-y-1/2 bg-white opacity-0'></div>
+        <AnimatePresence>
+          {isNavTransitionVisible && (
+            <motion.div
+              aria-hidden='true'
+              className='transition-wrapper pointer-events-none fixed inset-0 z-50 bg-white'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            />
+          )}
+        </AnimatePresence>
         <main className={className} {...props}>
           {children}
           {/* <Script id="theme-script">{`document.documentElement.setAttribute('data-theme', '${theme}');`}</Script> */}

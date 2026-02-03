@@ -2,41 +2,44 @@
 
 import { scrollDelay } from '@/lib/constants'
 import { useUiStore } from '@/lib/store/ui'
-import gsap from 'gsap'
 import { useLenis } from 'lenis/react'
+import { useEffect, useRef } from 'react'
 
 export function useNavigation() {
-  const { setIsMenuOpen } = useUiStore()
+  const { setIsMenuOpen, setIsNavTransitionVisible } = useUiStore()
   const lenis = useLenis()
+  const timeoutsRef = useRef<number[]>([])
+
+  const clearTimeouts = () => {
+    timeoutsRef.current.forEach(timeoutId => window.clearTimeout(timeoutId))
+    timeoutsRef.current = []
+  }
 
   const handleNavClick = (itemId: string) => {
-    const element = document.querySelector('.transition-wrapper')
-
-    if (!element) {
-      console.error('Transition wrapper element not found')
-      return
-    }
-
+    clearTimeouts()
     // Close menu if it's open
     setIsMenuOpen(false)
+    setIsNavTransitionVisible(true)
 
-    gsap.to(element, {
-      opacity: 1,
-      duration: 0.4,
-      onComplete: () => {
-        // Scroll to the target section with Lenis smooth scroll
-        const targetElement = document.getElementById(itemId)
-        if (targetElement && lenis) {
-          lenis.scrollTo(targetElement, { immediate: true })
-          gsap.to(element, {
-            opacity: 0,
-            duration: 0.4,
-            delay: scrollDelay,
-          })
-        }
-      },
-    })
+    const fadeDurationMs = 400
+    const delayMs = scrollDelay * 1000
+
+    const scrollTimeout = window.setTimeout(() => {
+      const targetElement = document.getElementById(itemId)
+      if (targetElement && lenis) {
+        lenis.scrollTo(targetElement, { immediate: true })
+      }
+
+      const hideTimeout = window.setTimeout(() => {
+        setIsNavTransitionVisible(false)
+      }, delayMs)
+      timeoutsRef.current.push(hideTimeout)
+    }, fadeDurationMs)
+
+    timeoutsRef.current.push(scrollTimeout)
   }
+
+  useEffect(() => clearTimeouts, [])
 
   return { handleNavClick }
 }
