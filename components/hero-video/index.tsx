@@ -39,7 +39,7 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
         playsInline
         preload='auto'
         className={cn(
-          'relative z-30 h-screen w-full object-cover object-bottom opacity-0',
+          'pointer-events-none relative z-30 h-screen w-full object-cover object-bottom opacity-0',
           'transition-opacity duration-300 ease-in-out',
           hasPlayed && 'opacity-100'
         )}
@@ -61,7 +61,7 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
       </video>
       <Image
         className={cn(
-          'absolute inset-0 z-20 h-full w-full object-cover object-bottom',
+          'pointer-events-none absolute inset-0 z-20 h-full w-full object-cover object-bottom',
           'block xl:hidden'
         )}
         src={mobilePoster}
@@ -74,7 +74,7 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
       />
       <Image
         className={cn(
-          'absolute inset-0 z-20 h-full w-full object-cover object-bottom',
+          'pointer-events-none absolute inset-0 z-20 h-full w-full object-cover object-bottom',
           'hidden xl:block'
         )}
         src={desktopPoster}
