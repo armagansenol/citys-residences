@@ -9,6 +9,8 @@ import localFont from 'next/font/local'
 import Script from 'next/script'
 import { headers } from 'next/headers'
 
+import { JsonLd } from '@/components/json-ld'
+
 import { GSAP } from '@/components/gsap'
 import { ReactQueryProvider } from '@/components/react-query-provider'
 import { RealViewport } from '@/components/real-viewport'
@@ -151,6 +153,7 @@ export default async function LocaleLayout({
     <html lang={locale}>
       <head>
         <StyleVariables colors={colors} themes={themes} />
+        <JsonLd locale={locale} />
       </head>
       <body className={`${suisseIntl.variable} antialiased`}>
         {/* Google Tag Manager */}
