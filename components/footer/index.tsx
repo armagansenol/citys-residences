@@ -229,9 +229,9 @@ export function Footer() {
               {/* sales office */}
               <div className='order-1 flex flex-col lg:order-1'>
                 <div className='flex items-start justify-between gap-6 lg:gap-4'>
-                  <h3 className='font-primary text-xl font-[400] text-white xl:text-2xl'>
+                  <article className='font-primary text-xl font-[400] text-white xl:text-2xl'>
                     {t('salesOffice')}
-                  </h3>
+                  </article>
                   <Link
                     href={citysIstanbulAvmGoogleMaps}
                     target='_blank'
@@ -264,9 +264,9 @@ export function Footer() {
               {/* contact */}
               <div className='order-2 flex flex-col lg:order-2'>
                 <div className='flex items-start justify-between gap-6 lg:gap-4'>
-                  <h3 className='font-primary text-xl font-[400] text-white xl:text-2xl'>
+                  <article className='font-primary text-xl font-[400] text-white xl:text-2xl'>
                     {t('contact')}
-                  </h3>
+                  </article>
                   <Link
                     href='tel:+902162666600'
                     className='flex size-14 shrink-0 cursor-pointer items-center justify-center bg-bricky-brick text-white transition-colors duration-300 hover:bg-bricky-brick/80 sm:size-16 lg:size-20'

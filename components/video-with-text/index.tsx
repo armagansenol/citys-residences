@@ -40,12 +40,12 @@ export function VideoWithText(props: VideoWithTextProps) {
         )}
       >
         {title && (
-          <article
+          <div
             className={cn(
               'flex flex-shrink-0 flex-col items-center justify-center gap-4 xl:gap-0'
             )}
           >
-            <h3
+            <article
               className={cn(
                 'whitespace-nowrap text-center font-primary font-[200] text-white',
                 'text-4xl/snug lg:text-6xl/snug xl:text-6xl/snug 2xl:text-7xl/snug'
@@ -54,8 +54,8 @@ export function VideoWithText(props: VideoWithTextProps) {
               <GsapSplitText type='chars' stagger={0.01} duration={1}>
                 {title}
               </GsapSplitText>
-            </h3>
-            <p
+            </article>
+            <article
               className={cn(
                 'text-center font-primary font-[300] text-white',
                 'text-xl/relaxed lg:text-2xl/relaxed xl:text-2xl/relaxed 2xl:text-3xl/relaxed',
@@ -65,8 +65,8 @@ export function VideoWithText(props: VideoWithTextProps) {
               <GsapSplitText type='lines' stagger={0.02} duration={1}>
                 {description}
               </GsapSplitText>
-            </p>
-          </article>
+            </article>
+          </div>
         )}
       </div>
     </div>

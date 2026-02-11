@@ -55,7 +55,7 @@ export function CenterVideoText(props: CenterVideoTextProps) {
       <div className='relative z-30 grid grid-cols-24 gap-y-8 md:gap-y-12'>
         <div className='col-span-24 flex px-8 pt-20 lg:col-span-7 lg:col-start-6 lg:px-0 lg:pb-16 lg:pt-24 xl:col-span-10 xl:col-start-5 xl:pb-24 xl:pt-44'>
           <div className='flex flex-col gap-4 xl:mr-auto'>
-            <h3
+            <article
               className={cn(
                 'font-primary font-[400]',
                 'text-4xl/[1.1] xl:text-6xl/[1.1] 2xl:text-6xl/[1.1]',
@@ -68,8 +68,8 @@ export function CenterVideoText(props: CenterVideoTextProps) {
                 duration={1.5}
                 html={sanitizedTitle}
               />
-            </h3>
-            <h4
+            </article>
+            <article
               className={cn(
                 'font-primary font-[300] xl:font-[200]',
                 'text-xl/[1.3] xl:text-4xl/[1.3] 2xl:text-4xl/[1.3]',
@@ -82,7 +82,7 @@ export function CenterVideoText(props: CenterVideoTextProps) {
                 duration={1.5}
                 html={sanitizedSubtitle}
               />
-            </h4>
+            </article>
           </div>
         </div>
         <div className='col-span-24 px-8 pb-20 lg:col-span-10 lg:px-0 lg:pb-16 lg:pl-24 lg:pt-24 xl:col-span-8 xl:px-12 xl:pb-24 xl:pt-44'>

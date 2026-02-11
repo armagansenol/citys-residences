@@ -60,7 +60,7 @@ export default async function Page({ params }: { params: { locale: string } }) {
               />
             </div>
             <div className='z-10 flex flex-col items-center gap-3'>
-              <article
+              <h1
                 className={cn(
                   'text-center font-primary font-[400] text-white',
                   'text-6xl/tight lg:text-4xl/tight xl:text-[7.25rem]/tight',
@@ -68,7 +68,7 @@ export default async function Page({ params }: { params: { locale: string } }) {
                 )}
               >
                 {t('hero.title')}
-              </article>
+              </h1>
               <article
                 className={cn(
                   'text-center font-primary font-[200] text-white',

@@ -173,7 +173,7 @@ export default async function Page({
         {/* block and parking entrances text*/}
         <section className='grid grid-cols-24 gap-y-4 py-8 pl-8 pr-12 lg:px-0 lg:py-16 xl:py-36'>
           <div className='col-span-24 flex lg:col-span-9 lg:col-start-6 xl:col-span-8 xl:col-start-7'>
-            <h3
+            <article
               className={cn(
                 'lg:ml-auto',
                 'text-left font-primary font-[400] text-black',
@@ -183,7 +183,7 @@ export default async function Page({
               <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
                 {t('sections.blockParking.title')}
               </GsapSplitText>
-            </h3>
+            </article>
           </div>
           <div className='col-span-24 lg:col-span-9 lg:px-16 xl:col-span-8 2xl:px-20'>
             <article
@@ -264,7 +264,7 @@ export default async function Page({
           )}
         >
           <div className='col-span-24 flex justify-start lg:col-span-8 lg:col-start-7 lg:justify-center'>
-            <h3
+            <article
               className={cn(
                 'text-left font-primary font-[400] text-black',
                 'text-3xl/[1.15] lg:text-4xl/[1.15] xl:text-5xl/[1.15] 2xl:text-6xl/[1.15] 3xl:text-6xl/[1.15]'
@@ -273,7 +273,7 @@ export default async function Page({
               <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
                 {t('sections.greenAreas.title')}
               </GsapSplitText>
-            </h3>
+            </article>
           </div>
           <div className='col-span-24 lg:col-span-8 lg:px-20'>
             <p
@@ -412,7 +412,7 @@ export default async function Page({
         {/* architects say text*/}
         <section className='grid grid-cols-24 gap-x-0 gap-y-6 py-8 pl-8 pr-12 lg:gap-x-4 lg:gap-y-0 lg:px-0 lg:py-8 xl:pb-0 xl:pt-32'>
           <div className='col-span-24 flex justify-start lg:col-span-8 lg:col-start-7 lg:justify-center lg:pl-24 xl:pl-44'>
-            <h3
+            <article
               className={cn(
                 'text-left font-primary font-[400] text-black',
                 'text-3xl/[1.15] lg:text-4xl/[1.15] xl:text-5xl/[1.15] 2xl:text-6xl/[1.15] 3xl:text-6xl/[1.15]'
@@ -421,7 +421,7 @@ export default async function Page({
               <GsapSplitText type='lines' stagger={0.01} duration={1.5}>
                 {t('sections.architectsSay.title')}
               </GsapSplitText>
-            </h3>
+            </article>
           </div>
           <div className='col-span-24 lg:col-span-8 lg:pl-24 xl:px-24'>
             <p

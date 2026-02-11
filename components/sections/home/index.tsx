@@ -55,7 +55,7 @@ export default async function Page({
             'absolute left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2'
           )}
         >
-          <div
+          <h1
             className={cn(
               'flex flex-col items-center justify-center gap-6 lg:flex-row lg:gap-0'
             )}
@@ -80,7 +80,7 @@ export default async function Page({
             >
               CITY&apos;S
             </span>
-          </div>
+          </h1>
         </div>
       </section>
       <div

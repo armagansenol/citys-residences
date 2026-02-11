@@ -79,7 +79,7 @@ export function PageTitle(props: PageTitleProps) {
           <span className='size-12 lg:size-20'>
             <LogoSlim fill={secondaryColor} />
           </span>
-          <h2
+          <article
             className={cn(
               'text-center font-primary font-[500]',
               'text-2xl/tight tracking-[0.4em] lg:text-5xl/tight xl:text-4xl/tight 2xl:text-5xl/tight'
@@ -94,7 +94,7 @@ export function PageTitle(props: PageTitleProps) {
             >
               {title}
             </GsapSplitText>
-          </h2>
+          </article>
           <p
             className={cn(
               'text-center font-primary font-[300]',

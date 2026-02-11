@@ -139,7 +139,7 @@ export function InteractiveMap() {
         })}
       </div>
       <div className='flex flex-col gap-8 pb-8 pl-8 pr-12 pt-8 lg:pb-16 lg:pl-20 lg:pr-24 lg:pt-24 xl:col-span-10'>
-        <h3
+        <article
           className={cn(
             'mr-auto xl:ml-auto xl:mr-0',
             'text-left font-primary font-[400] text-trapped-darkness',
@@ -147,7 +147,7 @@ export function InteractiveMap() {
           )}
         >
           <MemoizedTitle />
-        </h3>
+        </article>
         <div className='mt-auto'>
           {locations.map(location => {
             if (location.icon === null) return null

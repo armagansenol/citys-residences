@@ -35,7 +35,7 @@ export function MembersClubCardSection() {
         mobileSize='100vw'
       />
       <div className='z-40 mb-40 flex flex-shrink-0 flex-col items-center justify-center gap-2'>
-        <h2
+        <article
           className={cn(
             'text-center font-primary font-[400] text-white',
             'text-4xl/tight lg:text-4xl/tight xl:text-6xl/tight 2xl:text-6xl/tight'
@@ -44,8 +44,8 @@ export function MembersClubCardSection() {
           <GsapSplitText type='chars' stagger={0.02} duration={1}>
             {t('card.title')}
           </GsapSplitText>
-        </h2>
-        <p
+        </article>
+        <article
           className={cn(
             'text-center font-primary font-[200] text-white',
             'text-xl/tight lg:text-2xl/tight xl:text-2xl/tight 2xl:text-3xl/tight',
@@ -55,7 +55,7 @@ export function MembersClubCardSection() {
           <GsapSplitText type='chars' stagger={0.02} duration={1}>
             {t('card.subtitle')}
           </GsapSplitText>
-        </p>
+        </article>
       </div>
     </section>
   )

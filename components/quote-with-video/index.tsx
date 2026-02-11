@@ -94,20 +94,20 @@ export function QuoteWithVideo({
         {/* person name and title desktop */}
         <div className='mt-auto hidden text-right lg:block'>
           {personName && (
-            <h3
+            <article
               className='font-primary text-xl/tight font-[400] lg:text-2xl/tight xl:text-xl/tight xl:font-[500] 2xl:text-2xl/tight'
               style={{ color: secondaryColor }}
             >
               {personName}
-            </h3>
+            </article>
           )}
           {personTitle && (
-            <p
+            <article
               className='mt-1 font-primary text-sm font-[300] lg:mt-1 lg:text-2xl/tight xl:text-xl/tight xl:font-[200] 2xl:text-2xl/tight'
               style={{ color: secondaryColor }}
             >
               {personTitle}
-            </p>
+            </article>
           )}
         </div>
       </div>
@@ -136,20 +136,20 @@ export function QuoteWithVideo({
         {/* person name and title mobile */}
         <div className='mr-auto mt-20 inline-flex flex-col lg:hidden'>
           {personName && (
-            <h3
+            <article
               className='max-w-[35vw] font-primary text-sm/tight font-[500] md:text-lg/tight'
               style={{ color: secondaryColor }}
             >
               {personName}
-            </h3>
+            </article>
           )}
           {personTitle && (
-            <p
+            <article
               className='font-primary text-xs font-[300] md:text-base/tight'
               style={{ color: secondaryColor }}
             >
               {personTitle}
-            </p>
+            </article>
           )}
         </div>
       </div>

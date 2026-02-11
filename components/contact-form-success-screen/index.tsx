@@ -67,9 +67,9 @@ export function ContactFormSuccessScreen({
                 className='mb-6 size-20 text-white lg:mb-4 xl:size-24 2xl:size-32'
               />
               {/* Main Heading */}
-              <h2 className='mb-6 text-center font-primary text-4xl font-[400] leading-tight text-white lg:mb-6 lg:text-5xl xl:text-left xl:text-6xl'>
+              <article className='mb-6 text-center font-primary text-4xl font-[400] leading-tight text-white lg:mb-6 lg:text-5xl xl:text-left xl:text-6xl'>
                 {t('contact.form.messages.thankYou.title')}
-              </h2>
+              </article>
               {/* Confirmation Messages */}
               <div className='mb-8 flex flex-col gap-2 text-center lg:mb-10 xl:text-left'>
                 <p className='font-primary text-base/snug font-[300] text-white lg:text-lg/snug xl:text-xl/snug 2xl:text-2xl/snug'>

@@ -85,7 +85,7 @@ export default async function Page({
           </AutoScrollCarousel>
         </div>
         <div className='relative z-30 flex flex-col items-center justify-center gap-6 lg:gap-6'>
-          <h2
+          <article
             className={cn(
               'text-center font-primary font-[400] text-white',
               'text-3xl/tight md:text-4xl/tight lg:text-5xl/tight xl:text-6xl/tight 2xl:text-7xl/tight',
@@ -95,8 +95,8 @@ export default async function Page({
             <GsapSplitText type='lines' stagger={0.01} duration={1}>
               {t('hero.title')}
             </GsapSplitText>
-          </h2>
-          <p
+          </article>
+          <article
             className={cn(
               'text-center font-primary font-[300] text-white',
               'text-xl/snug lg:text-2xl/snug xl:text-2xl/snug 2xl:text-3xl/snug',
@@ -106,7 +106,7 @@ export default async function Page({
             <GsapSplitText type='lines' stagger={0.01} duration={1}>
               {t('hero.description')}
             </GsapSplitText>
-          </p>
+          </article>
         </div>
         <Image
           className={cn(
@@ -145,7 +145,7 @@ export default async function Page({
       </section>
       <section className='relative overflow-hidden bg-white'>
         <div className='flex flex-col items-center justify-center gap-6 px-8 py-16 lg:gap-6 lg:px-0 lg:py-24 xl:pt-36'>
-          <h2
+          <article
             className={cn(
               'text-center font-primary font-[400] text-black',
               'text-4xl/tight lg:text-5xl/tight xl:text-6xl/tight 2xl:text-7xl/tight',
@@ -155,8 +155,8 @@ export default async function Page({
             <GsapSplitText type='lines' stagger={0.01} duration={1}>
               {t('types.title')}
             </GsapSplitText>
-          </h2>
-          <p
+          </article>
+          <article
             className={cn(
               'text-center font-primary font-[300] text-black',
               'text-xl/snug lg:text-2xl/snug xl:text-2xl/snug 2xl:text-3xl/snug',
@@ -166,7 +166,7 @@ export default async function Page({
             <GsapSplitText type='lines' stagger={0.01} duration={1}>
               {t('types.description')}
             </GsapSplitText>
-          </p>
+          </article>
         </div>
         <ResidencesNavigator />
       </section>

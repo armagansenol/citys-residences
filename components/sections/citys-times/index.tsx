@@ -119,7 +119,7 @@ export default async function CitysTimes({ locale }: { locale?: string }) {
           <span className='size-20 lg:size-20'>
             <LogoSlim fill={colors.white} />
           </span>
-          <h2
+          <article
             className={cn(
               'text-center font-primary font-[500] text-white',
               'text-3xl/tight tracking-[0.4em] lg:text-5xl/tight xl:text-5xl/tight 2xl:text-5xl/tight'
@@ -128,7 +128,7 @@ export default async function CitysTimes({ locale }: { locale?: string }) {
             <GsapSplitText type='chars' stagger={0.02} duration={1}>
               {t('title')}
             </GsapSplitText>
-          </h2>
+          </article>
           <p
             className={cn(
               'text-center font-primary font-[300] text-white',

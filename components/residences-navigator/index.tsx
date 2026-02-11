@@ -139,9 +139,9 @@ export function ResidencesNavigator() {
               aria-label={`Select ${option.label}`}
               type='button'
             >
-              <div className='flex size-8 items-center justify-center'>
+              <span className='flex size-8 items-center justify-center'>
                 {option.icon}
-              </div>
+              </span>
               <span
                 className={cn('text-base/[1.1] font-[300] tracking-[0.3em]')}
               >
