@@ -770,76 +770,100 @@
     "legal": {
         "pdplRelatedInformation": {
             "title": "Kişisel Verilerin Korunması ve İşlenmesine İlişkin Aydınlatma Metni (KVKK)",
+            "intro": "Citys Gayrimenkul Geliştirme A.Ş. (\"Veri Sorumlusu\" ve/veya \"Şirket\"), kişisel verilerinizin hukuka uygun şekilde işlenmesi, saklanması ve paylaşılmasını sağlamak ile gizliliğinizin korunması amacıyla gerekli tüm teknik ve idari güvenlik tedbirlerini azami ölçüde almaktadır.",
+            "principles": "Bu kapsamda Şirket, kişisel verilerinizi 6698 sayılı Kişisel Verilerin Korunması Kanunu (\"KVKK\") ve ilgili mevzuat hükümlerine uygun olarak, KVKK'nın 4'üncü maddesinde yer alan;",
+            "principlesList": [
+                "Hukuka ve dürüstlük kurallarına uygun olma,",
+                "Doğru ve gerektiğinde güncel olma,",
+                "Belirli, açık ve meşru amaçlar için işlenme,",
+                "İşlendikleri amaçla bağlantılı, sınırlı ve ölçülü olma,",
+                "İlgili mevzuatta öngörülen veya işlendikleri amaç için gerekli olan süre kadar muhafaza edilme"
+            ],
+            "purpose": "ilkelerine uygun şekilde işlemektedir. İşbu Aydınlatma Metni'nin amacı, KVKK'nın 10'uncu maddesi uyarınca kişisel verilerinizin toplanma yöntemleri, işlenme amaçları, aktarım yapılan kişiler, hukuki sebepleri ve haklarınız hakkında sizleri bilgilendirmektir.",
             "section1": {
-                "title": "1. Veri Sorumlusu, İlgili Kişi",
-                "content": "Citys Gayrimenkul Geliştirme A.Ş. (Kısaca \"Veri Sorumlusu\") 6698 sayılı Kişisel Verilerin Korunması Kanunu (Kısaca \"KVKK\") kapsamında Veri Sorumlusu sıfatını haiz olup gerçek kişi siz de İlgili Kişi olarak kabul edilip tanımlanmaktasınız. Aşağıda belirtilen Kişisel Verilerinizi Veri Sorumlusu olarak KVKK'nın 4. maddesindeki genel ilkelere de riayet edilerek işlediğimizi, İlgili Kişiye ait kişisel verilerin güvenliğine önem verdiğimizi ve KVKK'nın 10. maddesi hükmü gereğince aydınlatma yükümlülüğümüz bulunduğundan verilerinizin işlenmesine ilişkin olarak İlgili Kişi sizi bilgilendirmek isteriz."
+                "title": "1. VERİ SORUMLUSU",
+                "tradeName": "Ticaret Unvanı:",
+                "tradeNameValue": "Citys Gayrimenkul Geliştirme A.Ş.",
+                "address": "Adres:",
+                "addressValue": "Teşvikiye Mah. Teşvikiye Cd. Nişantaşı City's No:12 İç Kapı No: K.5 Şişli / İstanbul",
+                "mersis": "MERSİS No:",
+                "mersisValue": "0823033660800001",
+                "content": "KVKK uyarınca kişisel verileriniz, veri sorumlusu sıfatıyla Citys Gayrimenkul Geliştirme A.Ş. tarafından aşağıda açıklanan kapsamda toplanmakta ve işlenmektedir."
             },
             "section2": {
-                "title": "2. İşlenen Kişisel Veriler, Verilerin İşlenme Amaçları, Hukuki Sebepleri, Aktarılması ve Toplanması",
-                "content": "Kişisel Verilerin teyidi maksadıyla Referanslarınıza veri aktarılabilmesi için Referansların Açık Rızasının alınması sorumluluğu şahsınıza aittir. Ayrıca Referanslarınıza ait Kişisel Verilerin hukuka aykırı olarak elde edilmesi durumunda Veri Sorumlusu olarak hiçbir hukuki yükümlülüğü de kabul etmemekteyiz."
-            },
-            "section2_1": {
-                "title": "2.1 İşlenen Kişisel Veriler:",
-                "items": {
-                    "identity": "Kimlik: Ad Soyad – Doğum Tarihi – Cinsiyet",
-                    "contact": "İletişim: Adres – Telefon – E-Posta",
-                    "professional": "Mesleki Deneyim: Çalıştığı Şirket – Unvan",
-                    "customer": "Müşteri İşlem: Referans Bilgileri"
-                }
-            },
-            "section2_2": {
-                "title": "2.2. Kişisel Verilerinizin İşleme Amaçları",
-                "content": "Toplanan kişisel verileriniz, Şirket'in ve Şirket'le iş ilişkisi içerisinde olan gerçek ve tüzel kişilerin yükümlülüklerinin ifası, güncellemeler ile ilgili bilgilendirme yapabilmek, sizlerle yapılacak sözleşmelerin kurulması ve ifa edilmesi, çeşitli reklam ve pazarlama faaliyetlerinde bulunmak, anket ve oylamalar ile görüşünüzün alınması, sizler için uygun ürün, proje ve hizmetlerin belirlenmesi, bunların size özel hale getirilmesi ve geliştirilmesi, etkin bir müşteri hizmeti sunulması Şirketimiz tarafından sunulan ürün ve hizmetlerden sizleri faydalandırmak için gerekli çalışmaların yapılması ve ilgili iş süreçlerinin yürütülmesi başta olmak üzere Kanun'un 5. ve 6. maddelerinde belirtilen kişisel veri işleme şartlarına uygun olarak aşağıda yer alan hususlar hakkında Şirket tarafından işlenebilecektir:",
-                "items": [
-                    "Fiyat teklifi süreçlerinin gerçekleştirilmesi ve ödemelerin tahsili.",
-                    "Şirket'in ve Şirket'le iş ilişkisi içerisinde olan ilgili kişilerin hukuki, teknik ve ticari-iş güvenliğinin temini,",
-                    "Resmi kurum taleplerinin yerine getirilmesi ve yetkili kuruluşlara mevzuattan kaynaklı bilgi verilmesi,",
-                    "Mevzuatta öngörülen saklama yükümlülüklerine uygunluğun sağlanması,",
-                    "İlgili kişi başvurularının mevzuata uygun olarak yanıtlanması ve gerekli işlemlerin gerçekleştirilmesi,",
-                    "Olası uyuşmazlıklarda delil teşkil etmesi amacıyla verilerin saklanması,",
-                    "Şirket yerleşkeleri ve/veya tesislerinin güvenliğinin temini,",
-                    "Müşteri talep ve şikayetlerinin takibi ve yönetimi,",
-                    "Müşteri memnuniyeti çalışmalarının yürütülmesi,",
-                    "Hukuk işlerinin takibi ve yürütülmesi,",
-                    "Denetim / etik faaliyetlerinin yürütülmesi,",
-                    "Operasyonel faaliyetlerinin yürütülmesi."
+                "title": "2. KİŞİSEL VERİ KATEGORİLERİ VE İŞLENME AMAÇLARI",
+                "intro": "Kişisel verileriniz; Şirket tarafından tamamen veya kısmen otomatik olan ya da herhangi bir veri kayıt sisteminin parçası olmak kaydıyla otomatik olmayan yöntemlerle;",
+                "collectionMethods": [
+                    "Şirket'e ait internet sitesi üzerinden elektronik ortamda,",
+                    "Canlı destek, çağrı merkezi veya e-posta kanalları aracılığıyla,",
+                    "Matbu formlar, tebligat veya posta yoluyla fiziki ortamda,",
+                    "Yasal merciler tarafından iletilmesi halinde"
+                ],
+                "legalBasis": "toplanmaktadır. Şirket, kişisel verilerinizi KVKK'nın 5'inci ve 6'ncı maddelerinde belirtilen;",
+                "legalBasisList": [
+                    "Kanunlarda açıkça öngörülmesi,",
+                    "Şirket'in hukuki yükümlülüğünü yerine getirebilmesi için zorunlu olması,",
+                    "Sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması,",
+                    "Şirket'in meşru menfaatleri için zorunlu olması,",
+                    "Tarafınızca alenileştirilmiş olması,",
+                    "Bir hakkın tesisi, kullanılması veya korunması için zorunlu olması,",
+                    "Açık rızanızın bulunması"
                 ]
             },
-            "section2_3": {
-                "title": "2.3. Açık Rızaya Dayalı Kişisel Veriler",
-                "content": "Toplanan kişisel verileriniz; pazarlama, analiz, özelleştirme, promosyon ve benzeri amaçlarla açık rızanızla işlenebilir."
-            },
-            "section2_4": {
-                "title": "2.4. İşlenen Kişisel Verilerin Aktarılması",
-                "content": "İşlenen kişisel veriler, ilgili yasal şartlara uymak ve güvenlik önlemleri alınmak kaydıyla belirli kişi ve kuruluşlara aktarılabilir."
-            },
-            "section2_5": {
-                "title": "2.5. Toplama Yöntemi ve Hukuki Sebep",
-                "content": "Kişisel verileriniz farklı kanallardan fiziksel ve dijital olarak toplanabilir ve KVKK'nın 5. maddesinde belirtilen hukuki sebeplere dayanarak işlenmektedir."
+            "section2_1": {
+                "title": "2.1 İşlenen Kişisel Veriler",
+                "identity": "Kimlik Bilgileri:",
+                "identityValue": "Ad-soyad, doğum tarihi, cinsiyet",
+                "contact": "İletişim Bilgileri:",
+                "contactValue": "Adres, telefon, e-posta",
+                "professional": "Mesleki Deneyim:",
+                "professionalValue": "Çalıştığı şirket, unvan",
+                "customer": "Müşteri İşlem Bilgileri:",
+                "customerValue": "Referans bilgileri, finans bilgileri"
             },
             "section3": {
-                "title": "3. İmha Politikası",
-                "content": "İşlenen kişisel veriler mevzuat ile belirlenen veya makul sürelerde saklanır, süresi dolduğunda silinir, yok edilir veya anonim hale getirilir."
+                "title": "3. KİŞİSEL VERİLERİN AKTARILMASI",
+                "content": "Şirket, kişisel verilerinizi \"bilme gereği\" ve \"kullanma gereği\" ilkelerine uygun olarak, veri minimizasyonu sağlayarak ve gerekli teknik ve idari tedbirleri alarak işlemektedir.",
+                "sharing": "İş faaliyetlerinin yürütülmesi, denetimi, iş sürekliliğinin sağlanması ve dijital altyapıların işletilmesi amacıyla kişisel verileriniz belirli üçüncü kişilerle paylaşılabilmektedir. Bu kapsamda Şirket, iş ortakları ve hizmet sağlayıcılarla çalışabilmektedir.",
+                "crossBorder": "Şirket internet sitesine üye olmanız halinde, saklama ve arşivleme faaliyetlerinin yürütülmesi ile bilgi güvenliği süreçlerinin sağlanması amacıyla sunucuları yurt dışında bulunan altyapı tedarikçileri tarafından sağlanan sistemlere verileriniz kaydedilebilecektir. Bu kapsamda kişisel verileriniz, KVKK'nın 9'uncu maddesine uygun şekilde ve gerekli teknik-idari tedbirler alınarak yurt dışına aktarılabilecektir.",
+                "noSharing": "Belirtilenler dışında kişisel verileriniz üçüncü kişilerle paylaşılmayacaktır."
             },
             "section4": {
-                "title": "4. İlgili Kişi Olarak Haklarınız",
-                "content": "KVKK kapsamında aşağıdaki haklara sahipsiniz:",
-                "items": [
-                    "Kişisel verilerin işlenip işlenmediğini öğrenme,",
+                "title": "4. KİŞİSEL VERİ SAHİBİ OLARAK HAKLARINIZ",
+                "content": "KVKK'nın 11'inci maddesi kapsamında aşağıdaki haklara sahipsiniz:",
+                "rights": [
+                    "Kişisel verilerinizin işlenip işlenmediğini öğrenme,",
                     "İşlenmişse bilgi talep etme,",
-                    "İşlenme amacını öğrenme,",
-                    "Yurtiçi/yurtdışı aktarım yapılan üçüncü kişileri bilme,",
-                    "Eksik/yanlış işlenmişse düzeltilmesini isteme,",
-                    "İşlenmesini gerektiren sebeplerin kalkması durumunda silinmesini/yok edilmesini isteme,",
-                    "Otomatik sistemlerle analiz sonucuna itiraz etme,",
-                    "Zarara uğramanız durumunda tazminat talep etme."
+                    "İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,",
+                    "Aktarıldığı üçüncü kişileri bilme,",
+                    "Eksik veya yanlış işlenmişse düzeltilmesini isteme,",
+                    "Silinmesini veya yok edilmesini isteme,",
+                    "Otomatik sistemlerle analiz edilmesine itiraz etme,",
+                    "Zarara uğramanız halinde tazminat talep etme."
                 ],
-                "application": "Başvurularınızı ",
-                "website": "www.citysresidences.com",
-                "email1": "info@citysresidences.com",
-                "email2": "citysgayrimenkul@hs02.Kep.tr",
-                "address": " adreslerine veya fiziksel olarak \"Teşvikiye Mah. Teşvikiye Cd. Nişantaşı City's No: 12 İç Kapı No: K.5 Şişli/ İstanbul\" adresine yapabilirsiniz. Başvuru Türkçe olmalı, kimlik bilgileri ve ilgili belgeler eklenmelidir. Vekâleten yapılan başvurular için vekâletname sunulmalıdır.",
-                "note": "Bu metin, Şirket ile yaptığınız sözleşmenin ayrılmaz bir parçasıdır. KVKK ve kurul kararlarına göre güncellenebilir."
+                "responseTime": "Başvurularınız, talebin niteliğine göre en kısa sürede ve en geç 30 gün içinde ücretsiz olarak sonuçlandırılacaktır. İşlemin ayrıca maliyet gerektirmesi halinde KVKK Kurulu'nun belirlediği tarifedeki ücret talep edilebilir.",
+                "rejection": "Başvurunuzun reddedilmesi halinde gerekçeli cevap tarafınıza bildirilecek olup Kurul'a şikâyet hakkınız saklıdır.",
+                "applicationMethod": {
+                    "title": "Başvuru Usulü",
+                    "content": "Başvurularınızı;",
+                    "written": "Yazılı olarak Şirket adresine,",
+                    "address": "Teşvikiye Mah. Teşvikiye Cd. Nişantaşı City's No:12 İç Kapı No: K.5 Şişli / İstanbul",
+                    "email": "E-posta ile",
+                    "kep": "KEP ile",
+                    "verification": "adreslerine iletebilirsiniz. Başvurularda kimlik doğrulaması talep edilebilir ve yalnızca başvuru sahibi hakkında bilgi verilir.",
+                    "requirements": "Başvuruda;",
+                    "requirementsList": [
+                        "Ad-soyad ve imza,",
+                        "T.C. kimlik numarası / pasaport bilgisi,",
+                        "Tebligat adresi,",
+                        "İletişim bilgileri,",
+                        "Talep konusu"
+                    ]
+                }
+            },
+            "section5": {
+                "title": "5. AYDINLATMA METNİNİN GÜNCELLENMESİ",
+                "content": "Şirket, değişen mevzuat ve hizmet koşulları doğrultusunda işbu Aydınlatma Metni'nde değişiklik yapabilir. Güncel metne Şirket internet sitesinden ulaşabilirsiniz."
             }
         },
         "commercialElectronicMessage": {

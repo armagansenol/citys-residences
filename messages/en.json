@@ -731,76 +731,100 @@
     "legal": {
         "pdplRelatedInformation": {
             "title": "Personal Data Protection and Processing Disclosure Text (PDPL)",
+            "intro": "Citys Gayrimenkul Geliştirme A.Ş. (\"Data Controller\" and/or \"Company\") takes all necessary technical and administrative security measures at the maximum level to ensure that your personal data are processed, stored and shared in compliance with the law and to protect your privacy.",
+            "principles": "In this context, the Company processes your personal data in accordance with Law No. 6698 on the Protection of Personal Data (\"PDPL\") and relevant legislation, in line with the principles set out in Article 4 of the PDPL:",
+            "principlesList": [
+                "Being lawful and fair,",
+                "Being accurate and up-to-date when necessary,",
+                "Being processed for specific, explicit and legitimate purposes,",
+                "Being relevant, limited and proportionate to the purpose of processing,",
+                "Being retained for the period stipulated by relevant legislation or required for the purpose for which they are processed"
+            ],
+            "purpose": "in accordance with these principles. The purpose of this Disclosure Text is to inform you, pursuant to Article 10 of the PDPL, about the collection methods of your personal data, processing purposes, recipients of transfer, legal grounds and your rights.",
             "section1": {
-                "title": "1. Data Controller, Data Subject",
-                "content": "Citys Real Estate Development Inc. (\"Data Controller\") holds the title of Data Controller within the scope of Law No. 6698 on the Protection of Personal Data (\"PDPL\"), and you, as a natural person, are accepted and defined as the Data Subject. We would like to inform you, as the Data Subject, regarding the processing of your Personal Data specified below, that we process them as the Data Controller in compliance with the general principles set forth in Article 4 of the PDPL, that we attach importance to the security of personal data belonging to the Data Subject, and that we have an obligation to inform pursuant to Article 10 of the PDPL."
+                "title": "1. DATA CONTROLLER",
+                "tradeName": "Trade Name:",
+                "tradeNameValue": "Citys Gayrimenkul Geliştirme A.Ş.",
+                "address": "Address:",
+                "addressValue": "Teşvikiye Mah. Teşvikiye Cd. Nişantaşı City's No:12 Inner Door No: K.5 Şişli / Istanbul",
+                "mersis": "MERSIS No:",
+                "mersisValue": "0823033660800001",
+                "content": "Pursuant to the PDPL, your personal data are collected and processed by Citys Gayrimenkul Geliştirme A.Ş. as the data controller within the scope explained below."
             },
             "section2": {
-                "title": "2. Processed Personal Data, Processing Purposes, Legal Bases, Transfer and Collection",
-                "content": "The responsibility for obtaining the Explicit Consent of References for the transfer of data to your References for the purpose of confirming Personal Data belongs to you. In addition, we do not accept any legal liability as the Data Controller in case Personal Data belonging to your References are obtained unlawfully."
-            },
-            "section2_1": {
-                "title": "2.1 Processed Personal Data:",
-                "items": {
-                    "identity": "Identity: Name Surname – Date of Birth – Gender",
-                    "contact": "Contact: Address – Phone – E-Mail",
-                    "professional": "Professional Experience: Company Worked – Title",
-                    "customer": "Customer Transaction: Reference Information"
-                }
-            },
-            "section2_2": {
-                "title": "2.2. Processing Purposes of Your Personal Data",
-                "content": "Your collected personal data may be processed by the Company for the matters below in compliance with the personal data processing conditions specified in Articles 5 and 6 of the Law, primarily for the fulfillment of the obligations of the Company and the real and legal persons in business relations with the Company, making notifications regarding updates, establishment and fulfillment of contracts to be made with you, carrying out various advertising and marketing activities, obtaining your opinion through surveys and polls, determining products, projects and services suitable for you, customizing and developing them, providing effective customer service, carrying out necessary work to enable you to benefit from products and services offered by our Company and conducting related business processes:",
-                "items": [
-                    "Realization of price quotation processes and collection of payments.",
-                    "Ensuring the legal, technical and commercial-business security of the Company and relevant persons in business relations with the Company,",
-                    "Fulfillment of official institution requests and providing information to authorized organizations arising from legislation,",
-                    "Ensuring compliance with storage obligations foreseen in legislation,",
-                    "Responding to data subject applications in accordance with legislation and carrying out necessary procedures,",
-                    "Storage of data for the purpose of constituting evidence in possible disputes,",
-                    "Ensuring the security of Company premises and/or facilities,",
-                    "Tracking and management of customer requests and complaints,",
-                    "Conducting customer satisfaction studies,",
-                    "Tracking and conducting legal affairs,",
-                    "Conducting audit / ethics activities,",
-                    "Conducting operational activities."
+                "title": "2. PERSONAL DATA CATEGORIES AND PROCESSING PURPOSES",
+                "intro": "Your personal data are collected by the Company through fully or partially automated methods, or non-automated methods provided that they are part of any data recording system:",
+                "collectionMethods": [
+                    "Via the Company's website in electronic environment,",
+                    "Through live support, call center or e-mail channels,",
+                    "Through printed forms, notification or postal mail in physical environment,",
+                    "Where transmitted by legal authorities"
+                ],
+                "legalBasis": "The Company processes your personal data based on the legal grounds specified in Articles 5 and 6 of the PDPL:",
+                "legalBasisList": [
+                    "Expressly provided for by law,",
+                    "Necessary for the Company to fulfill its legal obligations,",
+                    "Directly related to the establishment or performance of a contract,",
+                    "Necessary for the Company's legitimate interests,",
+                    "Made public by you,",
+                    "Necessary for the establishment, exercise or protection of a right,",
+                    "Your explicit consent"
                 ]
             },
-            "section2_3": {
-                "title": "2.3. Personal Data Based on Explicit Consent",
-                "content": "Your collected personal data may be processed with your explicit consent for marketing, analysis, customization, promotion and similar purposes."
-            },
-            "section2_4": {
-                "title": "2.4. Transfer of Processed Personal Data",
-                "content": "Processed personal data may be transferred to certain persons and organizations provided that relevant legal conditions are complied with and security measures are taken."
-            },
-            "section2_5": {
-                "title": "2.5. Collection Method and Legal Basis",
-                "content": "Your personal data may be collected physically and digitally through different channels and are processed based on the legal bases specified in Article 5 of the PDPL."
+            "section2_1": {
+                "title": "2.1 Processed Personal Data",
+                "identity": "Identity Information:",
+                "identityValue": "Name-surname, date of birth, gender",
+                "contact": "Contact Information:",
+                "contactValue": "Address, phone, e-mail",
+                "professional": "Professional Experience:",
+                "professionalValue": "Company worked at, title",
+                "customer": "Customer Transaction Information:",
+                "customerValue": "Reference information, financial information"
             },
             "section3": {
-                "title": "3. Destruction Policy",
-                "content": "Processed personal data are stored for periods determined by legislation or reasonable periods, and are deleted, destroyed or anonymized when the period expires."
+                "title": "3. TRANSFER OF PERSONAL DATA",
+                "content": "The Company processes your personal data in line with the principles of \"need to know\" and \"need to use,\" by ensuring data minimization and taking necessary technical and administrative measures.",
+                "sharing": "For the purpose of conducting and auditing business activities, ensuring business continuity and operating digital infrastructures, your personal data may be shared with certain third parties. In this context, the Company may work with business partners and service providers.",
+                "crossBorder": "If you register on the Company's website, your data may be recorded in systems provided by infrastructure suppliers whose servers are located abroad, for the purpose of storage, archiving and ensuring information security processes. In this context, your personal data may be transferred abroad in accordance with Article 9 of the PDPL and by taking necessary technical and administrative measures.",
+                "noSharing": "Except for the above, your personal data will not be shared with third parties."
             },
             "section4": {
-                "title": "4. Your Rights as Data Subject",
-                "content": "You have the following rights within the scope of PDPL:",
-                "items": [
-                    "Learning whether personal data are processed,",
-                    "Requesting information if processed,",
-                    "Learning the processing purpose,",
-                    "Knowing third parties to whom data are transferred domestically/abroad,",
-                    "Requesting correction if processed incompletely/incorrectly,",
-                    "Requesting deletion/destruction if reasons requiring processing no longer exist,",
-                    "Objecting to analysis results through automated systems,",
-                    "Requesting compensation in case of damage."
+                "title": "4. YOUR RIGHTS AS A PERSONAL DATA SUBJECT",
+                "content": "Within the scope of Article 11 of the PDPL, you have the following rights:",
+                "rights": [
+                    "To learn whether your personal data are processed,",
+                    "To request information if they have been processed,",
+                    "To learn the purpose of processing and whether they are used in line with that purpose,",
+                    "To know the third parties to whom they are transferred,",
+                    "To request correction if they are processed incompletely or inaccurately,",
+                    "To request deletion or destruction,",
+                    "To object to analysis through automated systems,",
+                    "To request compensation if you suffer damage."
                 ],
-                "application": "You can submit your applications to ",
-                "website": "www.citysresidences.com",
-                "email1": "info@citysresidences.com",
-                "email2": "citysgayrimenkul@hs02.Kep.tr",
-                "address": " or physically to \"Teşvikiye Mah. Teşvikiye Cd. Nişantaşı City's No: 12 İç Kapı No: K.5 Şişli/ İstanbul\". Applications must be in Turkish, identity information and relevant documents must be attached. Applications made by proxy must include a power of attorney.",
-                "note": "This text is an integral part of the contract you have made with the Company. It may be updated in accordance with PDPL and board decisions."
+                "responseTime": "Your applications will be finalized free of charge as soon as possible and within 30 days at the latest, depending on the nature of the request. If the process requires additional cost, the fee in the tariff determined by the PDPL Board may be charged.",
+                "rejection": "If your application is rejected, a reasoned response will be notified to you and your right to complain to the Board is reserved.",
+                "applicationMethod": {
+                    "title": "Application Method",
+                    "content": "You may submit your applications:",
+                    "written": "In writing to the Company address,",
+                    "address": "Teşvikiye Mah. Teşvikiye Cd. Nişantaşı City's No:12 Inner Door No: K.5 Şişli / Istanbul",
+                    "email": "By e-mail to",
+                    "kep": "By KEP to",
+                    "verification": "Identity verification may be requested in applications and information is provided only about the applicant.",
+                    "requirements": "The application must include:",
+                    "requirementsList": [
+                        "Name-surname and signature,",
+                        "Turkish ID number / passport information,",
+                        "Notification address,",
+                        "Contact information,",
+                        "Subject of the request"
+                    ]
+                }
+            },
+            "section5": {
+                "title": "5. UPDATING THE DISCLOSURE TEXT",
+                "content": "The Company may make changes to this Disclosure Text in line with changing legislation and service conditions. You can access the current text on the Company's website."
             }
         },
         "commercialElectronicMessage": {

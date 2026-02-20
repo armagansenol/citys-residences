@@ -11,63 +11,96 @@ export default function Page() {
 
   const textContent = (
     <>
-      <h2>{t('section1.title')}</h2>
-      <p>{t('section1.content')}</p>
-      <h2>{t('section2.title')}</h2>
-      <p>{t('section2.content')}</p>
-      <h3>{t('section2_1.title')}</h3>
+      <p>{t('intro')}</p>
+      <p>{t('principles')}</p>
       <ul>
-        <li>
-          <strong>{t('section2_1.items.identity')}</strong>
-        </li>
-        <li>
-          <strong>{t('section2_1.items.contact')}</strong>
-        </li>
-        <li>
-          <strong>{t('section2_1.items.professional')}</strong>
-        </li>
-        <li>
-          <strong>{t('section2_1.items.customer')}</strong>
-        </li>
-      </ul>
-      <h3>{t('section2_2.title')}</h3>
-      <p>{t('section2_2.content')}</p>
-      <ul>
-        {t.raw('section2_2.items').map((item: string, index: number) => (
+        {t.raw('principlesList').map((item: string, index: number) => (
           <li key={index}>{item}</li>
         ))}
       </ul>
-      <h3>{t('section2_3.title')}</h3>
-      <p>{t('section2_3.content')}</p>
-      <h3>{t('section2_4.title')}</h3>
-      <p>{t('section2_4.content')}</p>
-      <h3>{t('section2_5.title')}</h3>
-      <p>{t('section2_5.content')}</p>
+      <p>{t('purpose')}</p>
+
+      <h2>{t('section1.title')}</h2>
+      <p>
+        <strong>{t('section1.tradeName')}</strong> {t('section1.tradeNameValue')}
+      </p>
+      <p>
+        <strong>{t('section1.address')}</strong> {t('section1.addressValue')}
+      </p>
+      <p>
+        <strong>{t('section1.mersis')}</strong> {t('section1.mersisValue')}
+      </p>
+      <p>{t('section1.content')}</p>
+
+      <h2>{t('section2.title')}</h2>
+      <p>{t('section2.intro')}</p>
+      <ul>
+        {t.raw('section2.collectionMethods').map((item: string, index: number) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+      <p>{t('section2.legalBasis')}</p>
+      <ul>
+        {t.raw('section2.legalBasisList').map((item: string, index: number) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+
+      <h3>{t('section2_1.title')}</h3>
+      <p>
+        <strong>{t('section2_1.identity')}</strong> {t('section2_1.identityValue')}
+      </p>
+      <p>
+        <strong>{t('section2_1.contact')}</strong> {t('section2_1.contactValue')}
+      </p>
+      <p>
+        <strong>{t('section2_1.professional')}</strong> {t('section2_1.professionalValue')}
+      </p>
+      <p>
+        <strong>{t('section2_1.customer')}</strong> {t('section2_1.customerValue')}
+      </p>
+
       <h2>{t('section3.title')}</h2>
       <p>{t('section3.content')}</p>
+      <p>{t('section3.sharing')}</p>
+      <p>{t('section3.crossBorder')}</p>
+      <p>{t('section3.noSharing')}</p>
+
       <h2>{t('section4.title')}</h2>
       <p>{t('section4.content')}</p>
+      <ol>
+        {t.raw('section4.rights').map((item: string, index: number) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ol>
+      <p>{t('section4.responseTime')}</p>
+      <p>{t('section4.rejection')}</p>
+
+      <h3>{t('section4.applicationMethod.title')}</h3>
+      <p>{t('section4.applicationMethod.content')}</p>
       <ul>
-        {t.raw('section4.items').map((item: string, index: number) => (
+        <li>
+          {t('section4.applicationMethod.written')} {t('section4.applicationMethod.address')},
+        </li>
+        <li>
+          {t('section4.applicationMethod.email')}{' '}
+          <Link href='mailto:info@citysrecidences.com'>info@citysrecidences.com</Link>,
+        </li>
+        <li>
+          {t('section4.applicationMethod.kep')}{' '}
+          <Link href='mailto:citysgayrimenkul@hs02.kep.tr'>citysgayrimenkul@hs02.kep.tr</Link>
+        </li>
+      </ul>
+      <p>{t('section4.applicationMethod.verification')}</p>
+      <p>{t('section4.applicationMethod.requirements')}</p>
+      <ul>
+        {t.raw('section4.applicationMethod.requirementsList').map((item: string, index: number) => (
           <li key={index}>{item}</li>
         ))}
       </ul>
-      <p>
-        {t('section4.application')}
-        <Link href='https://www.citysresidences.com'>
-          {t('section4.website')}
-        </Link>
-        ,{' '}
-        <Link href='mailto:info@citysresidences.com'>
-          {t('section4.email1')}
-        </Link>
-        ,{' '}
-        <Link href='mailto:citysgayrimenkul@hs02.Kep.tr'>
-          {t('section4.email2')}
-        </Link>{' '}
-        {t('section4.address')}
-      </p>
-      <p>{t('section4.note')}</p>
+
+      <h2>{t('section5.title')}</h2>
+      <p>{t('section5.content')}</p>
     </>
   )
 
