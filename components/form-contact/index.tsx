@@ -39,6 +39,8 @@ import { submitContactForm } from '@/lib/api/submit-contact-form'
 import { cn, isPhoneValid } from '@/lib/utils'
 import { FormTranslations } from '@/types'
 
+import s from './form-contact.module.css'
+
 interface CountryData {
   isoCode: string
   name: string
@@ -136,6 +138,7 @@ const FormInput = ({
           <Input
             placeholder={placeholder}
             type={type}
+            autoComplete='off'
             {...field}
             value={field.value?.toString() ?? ''}
             className={cn(
@@ -587,9 +590,10 @@ export function ContactForm({
     <>
       <Form {...form}>
         <form
-          className='relative'
+          className={cn('relative', s.form)}
           onSubmit={form.handleSubmit(data => mutation.mutate(data))}
           noValidate
+          autoComplete='off'
         >
           <div className='grid grid-cols-12 items-start gap-y-12 xl:grid-cols-24'>
             {/* name - surname - phone - email */}

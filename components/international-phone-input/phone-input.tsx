@@ -177,7 +177,7 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
         onChange={phoneInput.handlePhoneValueChange}
         ref={phoneInputRef}
         name='phone'
-        autoComplete='tel'
+        autoComplete='off'
       />
     </div>
   )

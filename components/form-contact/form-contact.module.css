@@ -8,3 +8,24 @@
   text-transform: uppercase;
   width: desktop-vw(260px);
 }
+
+.form input:-webkit-autofill,
+.form input:-webkit-autofill:hover,
+.form input:-webkit-autofill:focus,
+.form input:-webkit-autofill:active {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+}
+
+.form input::-webkit-contacts-auto-fill-button,
+.form input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
