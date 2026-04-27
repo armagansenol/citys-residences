@@ -183,7 +183,7 @@ export function InteractiveMap() {
                   <div className='ml-auto flex items-end gap-2 sm:gap-4'>
                     <div
                       className={cn(
-                        `font-primary text-sm font-[300] text-black transition-colors duration-300 sm:text-lg lg:text-2xl xl:text-xl 3xl:text-2xl`,
+                        `text-right font-primary text-sm font-[300] text-black transition-colors duration-300 sm:text-lg lg:text-2xl xl:text-xl 3xl:text-2xl`,
                         isHovered || isSelected
                           ? 'text-bricky-brick'
                           : 'text-black'
