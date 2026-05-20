@@ -16,6 +16,7 @@ import { GSAP } from '@/components/gsap'
 import { ReactQueryProvider } from '@/components/react-query-provider'
 import { RealViewport } from '@/components/real-viewport'
 import { generateCanonicalUrl } from '@/lib/utils'
+import { isStandVariant } from '@/lib/variant'
 
 const suisseIntl = localFont({
   src: [
@@ -92,17 +93,28 @@ export async function generateMetadata({
     pathname.replace(new RegExp(`^/${locale}`), '') || ''
   const baseUrl = 'https://www.citysresidences.com'
 
+  const stand = isStandVariant()
+
   return {
     title: t('title'),
     description: t('description'),
-    alternates: {
-      canonical: canonicalUrl,
-      languages: {
-        tr: `${baseUrl}/tr${pathWithoutLocale}`,
-        en: `${baseUrl}/en${pathWithoutLocale}`,
-        'x-default': `${baseUrl}/tr${pathWithoutLocale}`,
-      },
-    },
+    ...(stand
+      ? {
+          robots: { index: false, follow: false, nocache: true },
+          alternates: {
+            canonical: `${baseUrl}/${locale}${pathWithoutLocale}`,
+          },
+        }
+      : {
+          alternates: {
+            canonical: canonicalUrl,
+            languages: {
+              tr: `${baseUrl}/tr${pathWithoutLocale}`,
+              en: `${baseUrl}/en${pathWithoutLocale}`,
+              'x-default': `${baseUrl}/tr${pathWithoutLocale}`,
+            },
+          },
+        }),
     verification: {
       google: 'google918f2bcab83a8f97',
     },

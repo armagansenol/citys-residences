@@ -8,6 +8,7 @@ import { type CitysMembersClubData } from '@/lib/api/queries'
 import { navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 import { MembersClubCardSection } from './members-club-card-section'
+import { HideOnStand } from '@/components/variant-gate'
 
 interface CitysMembersClubProps {
   items: CitysMembersClubData[]
@@ -59,7 +60,9 @@ export default async function CitysMembersClub({
           />
         ))}
       </div>
-      <MembersClubCardSection />
+      <HideOnStand>
+        <MembersClubCardSection />
+      </HideOnStand>
     </SectionSetter>
   )
 }

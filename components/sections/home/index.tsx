@@ -15,6 +15,7 @@ import { liveMore, livePeacefully, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
 import { FormTranslations } from '@/types'
 
+import { HideOnStand } from '@/components/variant-gate'
 import desktopPoster from '@/public/img/hero-thumbnail-desktop.webp'
 import mobilePoster from '@/public/img/hero-thumbnail-mobile.webp'
 
@@ -188,10 +189,12 @@ export default async function Page({
           })}
           description={t('livePeacefully.description')}
         />
-        <SectionContactForm
-          formTranslations={formTranslations}
-          countries={countries}
-        />
+        <HideOnStand>
+          <SectionContactForm
+            formTranslations={formTranslations}
+            countries={countries}
+          />
+        </HideOnStand>
         <VideoWithText
           aspect={liveMore.aspect()}
           mediaId={liveMore.muxSrc as string}

@@ -59,6 +59,7 @@
     "react-international-phone": "^4.5.0",
     "react-use": "^17.6.0",
     "react-wrap-balancer": "^1.1.1",
+    "server-only": "^0.0.1",
     "sharp": "^0.34.4",
     "smooothy": "^0.0.26",
     "tailwind-merge": "^2.6.0",

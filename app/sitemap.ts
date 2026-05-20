@@ -1,7 +1,14 @@
 import { MetadataRoute } from 'next'
+import { headers } from 'next/headers'
 import { routing } from '@/i18n/routing'
+import { isStandHost } from '@/lib/variant'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Don't expose a sitemap on the stand subdomain.
+  if (isStandHost(headers().get('host'))) {
+    return []
+  }
+
   const baseUrl = 'https://citysresidences.com' // Update this to your actual domain
   const locales = routing.locales
   const pathnames = routing.pathnames

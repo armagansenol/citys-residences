@@ -16,6 +16,7 @@ import {
   fetchCitysParkData,
 } from '@/lib/api/queries'
 import { ScrollDown } from '@/components/scroll-down'
+import { HideOnStand } from '@/components/variant-gate'
 
 export default async function Page({ params }: { params: { locale: string } }) {
   // Fetch all data server-side
@@ -46,7 +47,9 @@ export default async function Page({ params }: { params: { locale: string } }) {
           locale={params.locale}
         />
         <CitysIstanbulAvm />
-        <CitysTimes locale={params.locale} />
+        <HideOnStand>
+          <CitysTimes locale={params.locale} />
+        </HideOnStand>
       </Wrapper>
       <ScrollDown />
     </>

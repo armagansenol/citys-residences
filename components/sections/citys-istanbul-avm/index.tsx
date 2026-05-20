@@ -7,6 +7,7 @@ import { BrandsContainer } from '@/components/sections/citys-istanbul-avm/brands
 import { fetchBrands } from '@/lib/api/queries'
 import { citysIstanbulAvmBanner, navigationConfig } from '@/lib/constants'
 import { colors } from '@/styles/config.mjs'
+import { HideOnStand } from '@/components/variant-gate'
 
 export default async function Page() {
   const brandsResponse = await fetchBrands()
@@ -42,9 +43,11 @@ export default async function Page() {
           enableFullscreen
         />
       </section>
-      <section className='section-container px-8 py-8 lg:px-0 lg:py-24'>
-        <BrandsContainer initialBrands={brands.items || []} />
-      </section>
+      <HideOnStand>
+        <section className='section-container px-8 py-8 lg:px-0 lg:py-24'>
+          <BrandsContainer initialBrands={brands.items || []} />
+        </section>
+      </HideOnStand>
     </SectionSetter>
   )
 }
