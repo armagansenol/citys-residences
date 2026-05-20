@@ -5,7 +5,8 @@
  * @module lib/api/queries/helpers
  */
 
-import { panelClient, type ApiResponse } from '../client'
+import { isStandVariant } from '@/lib/variant'
+import { panelClient, standPanelClient, type ApiResponse } from '../client'
 
 /**
  * Build query string with language parameter and additional params
@@ -55,7 +56,8 @@ export async function fetchCitysData<T>(
   endpoint: string,
   lang: string = 'tr'
 ): Promise<ApiResponse<T[]>> {
-  return panelClient.get<T[]>(`/${endpoint}?${buildQueryString(lang)}`, {
+  const client = isStandVariant() ? standPanelClient : panelClient
+  return client.get<T[]>(`/${endpoint}?${buildQueryString(lang)}`, {
     next: {
       revalidate: 3600, // Revalidate every hour (citys data is relatively static)
       tags: [`citys-${endpoint.replace('.php', '')}`], // Dynamic tag for granular revalidation

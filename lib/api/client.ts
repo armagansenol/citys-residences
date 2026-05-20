@@ -107,4 +107,8 @@ export const panelClient = new ApiClient({
   // cache: 'no-store', // Default to no cache for panel API
 })
 
+export const standPanelClient = new ApiClient({
+  baseUrl: 'https://spanel.citysresidences.com/api',
+})
+
 export { ApiClient, type ApiResponse, type ApiClientConfig }
