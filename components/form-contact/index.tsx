@@ -35,6 +35,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Combobox, ComboboxOption } from '@/components/ui/combobox'
 import { Link } from '@/components/utility/link'
+import { pushFormSubmission } from '@/lib/analytics/push-form-submission'
 import { submitContactForm } from '@/lib/api/submit-contact-form'
 import { cn, isPhoneValid } from '@/lib/utils'
 import { FormTranslations } from '@/types'
@@ -314,8 +315,15 @@ export function ContactForm({
       const result = await submitContactForm(cleanedData, locale)
       return result
     },
-    onSuccess: result => {
+    onSuccess: (result, variables) => {
       if (result.success) {
+        // Read values from the submitted data (before reset) and push the
+        // form_submission event to GTM's dataLayer with hashed user data.
+        void pushFormSubmission(variables, {
+          residenceTypeOptions,
+          howDidYouHearAboutUsOptions,
+          contactPreferenceOptions,
+        })
         resetDropdowns()
         form.reset()
         form.clearErrors()
